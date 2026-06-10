@@ -231,6 +231,15 @@ const CALENDAR_BODY = `<h1>お申し込みが完了しました</h1>
 const SHARE_BODY = `<h1>ご参加ありがとうございます！</h1>
 <p>よろしければ、お知り合いにもシェアしていただけると嬉しいです。</p>`;
 
+const TALENT_FORM = `<form>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p><label>希望職種</label><br><select><option selected>エンジニア</option><option>デザイナー</option><option>営業</option><option>マーケティング</option></select></p>
+  <p><label>経験年数</label><br><select><option>〜3年</option><option selected>3〜7年</option><option>8年以上</option></select></p>
+  <p><label>履歴書 / 職務経歴書（任意）</label><br><input type="file"></p>
+  <p class="submit"><input type="submit" value="キャリア登録する"></p>
+</form>`;
+
 const PARTNER_FORM = `<form>
   <div class="row"><p><label>会社名</label><br><input type="text" value="株式会社サンプル"></p><p><label>ご担当者名</label><br><input type="text" value="山田 太郎"></p></div>
   <div class="row"><p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p><p><label>電話番号</label><br><input type="tel" value="03-0000-0000"></p></div>
@@ -448,6 +457,8 @@ function contentFor(dir, category) {
     case "94-form-feature-feedback": return FEEDBACK_FORM;
     case "95-form-partner-application": return PARTNER_FORM;
     case "97-form-profile-completion": return PROFILE_FORM;
+    case "99-form-talent-pool": return TALENT_FORM;
+    case "100-landing-welcome-back": return NEWSLETTER_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }

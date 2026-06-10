@@ -1,0 +1,8 @@
+{
+  "name": "配信設定 - 速報/ニュースアラート登録",
+  "category": "utility",
+  "description": "関心トピックを選んで速報メールを受け取るアラート登録。ブレイキングニュース/価格変動/在庫通知に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "速報をメールでお届け",
+  "previewDescription": "気になるトピックを選ぶと、更新があり次第すぐに通知します。"
+}

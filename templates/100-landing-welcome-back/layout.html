@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#db2777; --ink:#1a1018; --muted:#6b7280; --line:#f1d9e4; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fdf2f8; line-height:1.7; }
+    .ae-wrap { max-width:600px; margin:0 auto; padding:56px 20px; text-align:center; }
+    .ae-emoji { font-size:54px; }
+    .ae-wrap h1 { font-size:clamp(26px,5vw,36px); margin:8px 0; }
+    .ae-wrap > p { color:var(--muted); max-width:460px; margin:0 auto 22px; }
+    .ae-offer { background:linear-gradient(135deg,#db2777,#f472b6); color:#fff; border-radius:18px; padding:26px; margin-bottom:22px; box-shadow:0 14px 36px rgba(219,39,119,.3); }
+    .ae-offer .big { font-size:40px; font-weight:900; }
+    .ae-offer .sm { opacity:.95; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:28px 26px; box-shadow:0 8px 24px rgba(219,39,119,.1); }
+    .ae-card form input[type=email],.ae-card form input[type=text] { width:100%; padding:13px 14px; border:1px solid var(--line); border-radius:10px; font-size:15px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:15px; border-radius:10px; font-weight:800; font-size:16px; cursor:pointer; }
+    .ae-fine { margin-top:14px; font-size:12px; color:var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-emoji">👋</div>
+    <h1>%%title%%</h1>
+    <p>%%description%%</p>
+    <div class="ae-offer"><div class="big">30% OFF</div><div class="sm">おかえりなさいクーポン（次回ご利用分）</div></div>
+    <div class="ae-card">%%content%%</div>
+    <div class="ae-fine">クーポンの有効期限は発行から14日間です。</div>
+  </div>
+</body>
+</html>

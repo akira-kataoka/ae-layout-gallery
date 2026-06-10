@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#dc2626; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fbfbfc; line-height:1.7; }
+    .ae-wrap { max-width:600px; margin:0 auto; padding:48px 20px; }
+    .ae-head { border-left:5px solid var(--accent); padding-left:14px; margin-bottom:18px; }
+    .ae-head .k { display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:800; color:var(--accent); letter-spacing:.05em; }
+    .ae-head .k .dot { width:8px; height:8px; border-radius:50%; background:var(--accent); animation:none; }
+    .ae-head h1 { margin:6px 0 4px; font-size:24px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:14px; padding:28px 26px; box-shadow:0 6px 20px rgba(15,23,42,.05); }
+    .ae-card form fieldset { border:0; padding:0; margin:0 0 18px; }
+    .ae-card form legend { font-weight:700; font-size:14px; margin-bottom:8px; }
+    .ae-card form label { display:flex; align-items:center; gap:10px; padding:10px 12px; border:1px solid var(--line); border-radius:10px; margin-bottom:7px; font-size:14px; cursor:pointer; }
+    .ae-card form label:hover { background:#fef2f2; border-color:#fecaca; }
+    .ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 14px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:13px; border-radius:9px; font-weight:700; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><span class="k"><span class="dot"></span>BREAKING</span><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">%%content%%</div>
+  </div>
+</body>
+</html>
