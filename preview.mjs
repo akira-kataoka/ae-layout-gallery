@@ -155,6 +155,9 @@ const RSVP_FORM = `<form>
 
 const APP_BODY = `<p>App Store / Google Play から無料でダウンロードできます。QRコードからもアクセス可能です。</p>`;
 
+const COUPON_BODY = `<h1>ご登録ありがとうございます！</h1>
+<p>特典として使える限定クーポンをご用意しました。<br>下記コードを購入時にご入力ください。</p>`;
+
 function contentFor(dir, category) {
   switch (dir) {
     case "04-form-contact": return CONTACT_FORM;
@@ -172,6 +175,9 @@ function contentFor(dir, category) {
     case "26-form-jobapply": return JOBAPPLY_FORM;
     case "27-event-rsvp": return RSVP_FORM;
     case "28-landing-appdownload": return APP_BODY;
+    case "29-landing-countdown": return NEWSLETTER_FORM;
+    case "30-form-demo": return STD_FORM;
+    case "31-thankyou-coupon": return COUPON_BODY;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }

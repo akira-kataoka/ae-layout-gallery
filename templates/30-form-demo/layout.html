@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0f766e; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --soft:#ecfdf5; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f4faf8; line-height:1.7; }
+    .ae-grid { max-width:980px; margin:0 auto; padding:52px 20px; display:grid; grid-template-columns:1fr 1fr; gap:34px; align-items:center; }
+    .ae-pitch h1 { font-size:30px; margin:0 0 12px; }
+    .ae-pitch > p { color:var(--muted); margin:0 0 22px; }
+    .ae-points { list-style:none; padding:0; margin:0; }
+    .ae-points li { display:flex; gap:12px; padding:12px 0; border-bottom:1px dashed var(--line); }
+    .ae-points .ic { flex:none; width:36px; height:36px; border-radius:10px; background:var(--soft); color:var(--accent); display:flex; align-items:center; justify-content:center; font-weight:800; }
+    .ae-points b { display:block; }
+    .ae-points span { color:var(--muted); font-size:13px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:30px 28px; box-shadow:0 12px 34px rgba(15,118,110,.12); }
+    .ae-card h2 { margin-top:0; font-size:19px; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form input[type=tel],.ae-card form select,.ae-card form textarea { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 14px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:15px; border-radius:9px; font-weight:700; font-size:15px; cursor:pointer; }
+    @media (max-width:820px){ .ae-grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-grid">
+    <div class="ae-pitch">
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+      <ul class="ae-points">
+        <li><span class="ic">①</span><div><b>専門スタッフがご案内</b><span>貴社の課題に合わせてデモを実施</span></div></li>
+        <li><span class="ic">②</span><div><b>最短翌営業日</b><span>ご希望日時を調整します</span></div></li>
+        <li><span class="ic">③</span><div><b>無理な営業はしません</b><span>まずは機能をご確認ください</span></div></li>
+      </ul>
+    </div>
+    <div class="ae-card"><h2>デモをリクエスト</h2>%%content%%</div>
+  </div>
+</body>
+</html>
