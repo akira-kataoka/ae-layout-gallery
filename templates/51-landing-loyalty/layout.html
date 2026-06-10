@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#9333ea; --gold:#eab308; --ink:#1a1330; --muted:#6b7280; --line:#ece3f7; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f7f3fc; line-height:1.7; }
+    .ae-hero { background:linear-gradient(135deg,#4c1d95,#9333ea); color:#fff; padding:48px 20px 28px; text-align:center; }
+    .ae-hero h1 { margin:6px 0; font-size:28px; }
+    .ae-hero p { margin:0; opacity:.9; }
+    .ae-tiers { max-width:760px; margin:-18px auto 0; padding:0 20px; display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+    .ae-tier { background:#fff; border:1px solid var(--line); border-radius:14px; padding:18px 14px; text-align:center; box-shadow:0 6px 18px rgba(147,51,234,.08); }
+    .ae-tier .ic { font-size:26px; }
+    .ae-tier b { display:block; margin-top:6px; }
+    .ae-tier small { color:var(--muted); }
+    .ae-tier.gold { border-color:var(--gold); }
+    .ae-card { max-width:520px; margin:28px auto 56px; background:#fff; border:1px solid var(--line); border-radius:16px; padding:30px 28px; box-shadow:0 10px 30px rgba(147,51,234,.1); }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:13px 14px; border:1px solid var(--line); border-radius:9px; font-size:15px; }
+    .ae-card form p { margin:0 0 12px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:10px; font-weight:800; font-size:15px; cursor:pointer; }
+    @media (max-width:560px){ .ae-tiers { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <header class="ae-hero"><h1>%%title%%</h1><p>%%description%%</p></header>
+  <section class="ae-tiers">
+    <div class="ae-tier"><div class="ic">🥈</div><b>レギュラー</b><small>1% 還元</small></div>
+    <div class="ae-tier gold"><div class="ic">🥇</div><b>ゴールド</b><small>3% 還元 + 特典</small></div>
+    <div class="ae-tier"><div class="ic">💎</div><b>プラチナ</b><small>5% 還元 + 限定招待</small></div>
+  </section>
+  <section class="ae-card">%%content%%</section>
+</body>
+</html>

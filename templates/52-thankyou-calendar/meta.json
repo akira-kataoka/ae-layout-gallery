@@ -1,0 +1,6 @@
+{
+  "name": "サンクスページ - 予約完了/カレンダー追加",
+  "category": "thankyou",
+  "description": "申込完了＋開催日時＋各種カレンダー追加ボタン。ウェビナー/予約完了の確認に。",
+  "isIncludeDefaultCss": false
+}

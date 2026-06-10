@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - サンプル/試供品請求(配送先)",
+  "category": "form",
+  "description": "商品ビジュアル＋配送先入力のサンプル請求フォーム。物販・試供品配布キャンペーン向け。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "無料サンプルをお届けします",
+  "previewDescription": "まずはお試しください。ご自宅まで無料でお送りします。"
+}

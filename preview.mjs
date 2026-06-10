@@ -217,6 +217,17 @@ const BOOKING_FORM = `<form>
 const REVIEW_BODY = `<h1>ご利用ありがとうございました</h1>
 <p>サービスはいかがでしたか？<br>よろしければ評価とご感想をお聞かせください。</p>`;
 
+const SAMPLE_FORM = `<form>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <div class="row"><p><label>郵便番号</label><br><input type="text" value="100-0001"></p><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p></div>
+  <p><label>ご住所</label><br><input type="text" value="東京都千代田区..."></p>
+  <p class="submit"><input type="submit" value="無料サンプルを請求する"></p>
+</form>`;
+
+const CALENDAR_BODY = `<h1>お申し込みが完了しました</h1>
+<p>ご登録ありがとうございます。下記の日時で受け付けました。<br>忘れないようカレンダーに追加しておきましょう。</p>`;
+
 function contentFor(dir, category) {
   switch (dir) {
     case "04-form-contact": return CONTACT_FORM;
@@ -252,6 +263,9 @@ function contentFor(dir, category) {
     case "47-form-booking": return BOOKING_FORM;
     case "48-thankyou-review-request": return REVIEW_BODY;
     case "49-landing-beta": return NEWSLETTER_FORM;
+    case "50-form-sample-request": return SAMPLE_FORM;
+    case "51-landing-loyalty": return NEWSLETTER_FORM;
+    case "52-thankyou-calendar": return CALENDAR_BODY;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }

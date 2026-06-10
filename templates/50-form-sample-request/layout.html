@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#16a34a; --ink:#14201a; --muted:#5b6b62; --line:#dfe9e2; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f1f8f3; line-height:1.7; }
+    .ae-grid { max-width:920px; margin:0 auto; padding:48px 20px; display:grid; grid-template-columns:1fr 1.1fr; gap:30px; align-items:start; }
+    .ae-pitch { text-align:center; }
+    .ae-pitch .box { background:#fff; border:1px solid var(--line); border-radius:18px; padding:24px; box-shadow:0 10px 30px rgba(22,163,74,.10); }
+    .ae-pitch .ph { height:170px; border-radius:12px; background:linear-gradient(160deg,#bbf7d0,#16a34a); display:flex; align-items:center; justify-content:center; font-size:48px; }
+    .ae-pitch h1 { font-size:22px; margin:16px 0 6px; }
+    .ae-pitch p { color:var(--muted); margin:0; font-size:14px; }
+    .ae-free { display:inline-block; margin-top:12px; background:#dcfce7; color:var(--accent); font-weight:800; padding:5px 14px; border-radius:999px; font-size:13px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:30px 28px; box-shadow:0 8px 24px rgba(22,163,74,.08); }
+    .ae-card h2 { margin-top:0; font-size:18px; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form input[type=tel],.ae-card form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form .row { display:flex; gap:12px; } .ae-card form .row > p { flex:1; }
+    .ae-card form p { margin:0 0 14px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:700; font-size:15px; cursor:pointer; }
+    @media (max-width:720px){ .ae-grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-grid">
+    <section class="ae-pitch"><div class="box"><div class="ph">🧴</div><h1>%%title%%</h1><p>%%description%%</p><span class="ae-free">送料無料</span></div></section>
+    <section class="ae-card"><h2>サンプルを請求する</h2>%%content%%</section>
+  </div>
+</body>
+</html>
