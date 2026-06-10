@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 保険見積/シミュレーション",
+  "category": "form",
+  "description": "年齢・性別・プランから保険料を試算する見積フォーム。保険・金融商品の見積取得とリード獲得に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "かんたん保険料シミュレーション",
+  "previewDescription": "いくつかの項目を入力するだけで、月々の保険料の目安がわかります。"
+}

@@ -231,6 +231,21 @@ const CALENDAR_BODY = `<h1>お申し込みが完了しました</h1>
 const SHARE_BODY = `<h1>ご参加ありがとうございます！</h1>
 <p>よろしければ、お知り合いにもシェアしていただけると嬉しいです。</p>`;
 
+const INSURANCE_FORM = `<form>
+  <div class="row"><p><label>生年月日</label><br><input type="date" value="1990-04-01"></p><p><label>性別</label><br><label class="opt"><input type="radio" name="sex" checked> 男性</label><label class="opt"><input type="radio" name="sex"> 女性</label></p></div>
+  <p><label>ご希望のプラン</label><br><select><option>掛け捨て(安心重視)</option><option selected>バランス型</option><option>貯蓄型</option></select></p>
+  <p><label>結果送付先メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="見積もりを受け取る"></p>
+</form>`;
+
+const VENDOR_FORM = `<form>
+  <div class="row"><p><label>会社名</label><br><input type="text" value="株式会社サンプル商事"></p><p><label>ご担当者名</label><br><input type="text" value="山田 太郎"></p></div>
+  <div class="row"><p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p><p><label>電話番号</label><br><input type="tel" value="03-0000-0000"></p></div>
+  <p><label>業種・カテゴリ</label><br><select><option selected>原材料・部品</option><option>物流・運送</option><option>ITサービス</option><option>その他</option></select></p>
+  <p><label>主な取扱品目・サービス</label><br><textarea>各種金属部品の製造・供給を行っています。</textarea></p>
+  <p class="submit"><input type="submit" value="登録を申請する"></p>
+</form>`;
+
 const STUDENT_FORM = `<form>
   <p><label>学校名</label><br><input type="text" value="サンプル大学"></p>
   <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
@@ -571,6 +586,9 @@ function contentFor(dir, category) {
     case "116-form-student-verification": return STUDENT_FORM;
     case "117-landing-membership-rankup": return NEWSLETTER_FORM;
     case "118-form-safety-confirmation": return SAFETY_FORM;
+    case "119-form-insurance-quote": return INSURANCE_FORM;
+    case "120-landing-fanclub": return NEWSLETTER_FORM;
+    case "121-form-vendor-registration": return VENDOR_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }

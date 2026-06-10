@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 取引先/ベンダー登録",
+  "category": "form",
+  "description": "会社情報・取扱品目を登録するサプライヤー/ベンダー申請フォーム。新規取引先のオンボーディング受付に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "お取引先さま 新規ご登録",
+  "previewDescription": "お取引をご希望の企業さまは、以下よりご登録ください。"
+}

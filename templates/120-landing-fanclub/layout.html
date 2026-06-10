@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#db2777; --ink:#1a0e16; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:#fce7f3; line-height:1.7;
+      background:radial-gradient(900px 500px at 50% -8%,#9d174d,transparent), linear-gradient(160deg,#4a044e,#1a0e16); }
+    .ae-wrap { max-width:640px; margin:0 auto; padding:50px 20px; text-align:center; }
+    .ae-star { font-size:46px; }
+    .ae-wrap h1 { font-size:clamp(28px,6vw,40px); margin:8px 0; color:#fff; }
+    .ae-sub { color:#f9a8d4; margin:0 0 24px; }
+    .ae-tiers { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:22px; }
+    .ae-tier { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.14); border-radius:14px; padding:18px 12px; }
+    .ae-tier .nm { font-weight:800; color:#fff; } .ae-tier .pr { font-size:20px; font-weight:900; color:#f9a8d4; margin:4px 0; } .ae-tier .pr small { font-size:11px; opacity:.8; }
+    .ae-tier ul { list-style:none; padding:0; margin:8px 0 0; font-size:12px; color:#fbcfe8; text-align:left; }
+    .ae-tier li { padding:3px 0 3px 16px; position:relative; } .ae-tier li::before { content:"♥"; position:absolute; left:0; color:#ec4899; }
+    .ae-card { background:#fff; color:var(--ink); border-radius:18px; padding:28px 26px; box-shadow:0 18px 50px rgba(0,0,0,.4); }
+    .ae-card .t { font-weight:700; margin-bottom:10px; }
+    .ae-card form input[type=email],.ae-card form input[type=text] { width:100%; padding:13px 14px; border:1px solid #f1d5e3; border-radius:10px; font-size:15px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:15px; border-radius:10px; font-weight:800; font-size:16px; cursor:pointer; }
+    @media (max-width:560px){ .ae-tiers { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-star">⭐</div>
+    <h1>%%title%%</h1>
+    <p class="ae-sub">%%description%%</p>
+    <div class="ae-tiers">
+      <div class="ae-tier"><div class="nm">ライト</div><div class="pr">¥500<small>/月</small></div><ul><li>限定ニュース</li><li>会員証</li></ul></div>
+      <div class="ae-tier"><div class="nm">スタンダード</div><div class="pr">¥1,200<small>/月</small></div><ul><li>限定動画</li><li>先行チケット</li></ul></div>
+      <div class="ae-tier"><div class="nm">プレミアム</div><div class="pr">¥3,000<small>/月</small></div><ul><li>限定グッズ</li><li>イベント招待</li></ul></div>
+    </div>
+    <div class="ae-card"><div class="t">ファンクラブに入会する 💖</div>%%content%%</div>
+  </div>
+</body>
+</html>
