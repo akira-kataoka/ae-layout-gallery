@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - アプリ内お知らせ(モーダル風)",
+  "category": "landing",
+  "description": "アプリ内ポップアップ風の新機能お知らせ/告知モーダル。機能リリース告知・アプリ内キャンペーン誘導に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "新機能が登場しました",
+  "previewDescription": "ダッシュボードがさらに使いやすくアップデート。さっそく体験してみませんか？"
+}

@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - ギフト券購入/送付",
+  "category": "form",
+  "description": "金額選択＋送り先・メッセージ入力のeギフトカード購入フォーム。デジタルギフト券の販売・贈答に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "ギフトカードを贈る",
+  "previewDescription": "金額を選んで、メッセージとともにメールで届けられます。"
+}

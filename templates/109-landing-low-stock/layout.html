@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#dc2626; --ink:#1c1410; --muted:#78716c; --line:#f0e0db; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fff6f5; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:48px 20px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; overflow:hidden; box-shadow:0 10px 30px rgba(220,38,38,.12); }
+    .ae-img { height:200px; background:linear-gradient(160deg,#fecaca,#dc2626); display:flex; align-items:center; justify-content:center; font-size:64px; }
+    .ae-info { padding:24px 26px 28px; }
+    .ae-alert { display:inline-flex; align-items:center; gap:6px; background:#fef2f2; color:var(--accent); font-weight:800; font-size:13px; padding:5px 12px; border-radius:999px; }
+    .ae-info h1 { font-size:21px; margin:10px 0 4px; }
+    .ae-price { font-size:22px; font-weight:800; margin-bottom:6px; }
+    .ae-stockbar { height:8px; background:#fee2e2; border-radius:999px; overflow:hidden; margin:10px 0 4px; }
+    .ae-stockbar i { display:block; height:100%; width:15%; background:var(--accent); }
+    .ae-left { font-size:13px; color:var(--accent); font-weight:700; margin-bottom:16px; }
+    .ae-info form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-info form p { margin:0 0 12px; }
+    .ae-info form .submit input,.ae-info form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; font-size:15px; cursor:pointer; }
+    .ae-note { font-size:12px; color:var(--muted); margin-top:10px; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-card">
+      <div class="ae-img">⌚</div>
+      <div class="ae-info">
+        <span class="ae-alert">🔥 残りわずか</span>
+        <h1>%%title%%</h1>
+        <div class="ae-price">¥32,800</div>
+        <div class="ae-stockbar"><i></i></div>
+        <div class="ae-left">在庫 残り 3 点（本日 28 名が閲覧中）</div>
+        <p style="margin:0 0 14px;color:var(--muted);font-size:14px;">%%description%%</p>
+        %%content%%
+        <div class="ae-note">入荷待ち登録も受け付けています。</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

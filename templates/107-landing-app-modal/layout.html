@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#4f46e5; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100vh; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); line-height:1.7;
+      background:#1e293b; display:flex; align-items:center; justify-content:center; padding:24px; }
+    .ae-modal { max-width:420px; width:100%; background:#fff; border-radius:20px; overflow:hidden; box-shadow:0 30px 70px rgba(0,0,0,.5); }
+    .ae-hero { background:linear-gradient(135deg,#6366f1,#4f46e5); color:#fff; padding:30px 28px; text-align:center; position:relative; }
+    .ae-x { position:absolute; top:14px; right:16px; opacity:.8; font-size:18px; }
+    .ae-new { display:inline-block; background:rgba(255,255,255,.2); padding:4px 12px; border-radius:999px; font-size:11px; font-weight:800; letter-spacing:.08em; }
+    .ae-hero .big { font-size:46px; margin:8px 0; }
+    .ae-hero h1 { font-size:21px; margin:0; }
+    .ae-body { padding:24px 28px 28px; text-align:center; }
+    .ae-body > p { color:var(--muted); margin:0 0 18px; }
+    .ae-body form input[type=email] { width:100%; padding:13px 14px; border:1px solid var(--line); border-radius:10px; font-size:15px; }
+    .ae-body form p { margin:0 0 10px; }
+    .ae-body form .submit input,.ae-body form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:10px; font-weight:800; cursor:pointer; }
+    .ae-later { display:inline-block; margin-top:12px; color:var(--muted); font-size:13px; text-decoration:none; }
+  </style>
+</head>
+<body>
+  <div class="ae-modal">
+    <div class="ae-hero"><span class="ae-x">✕</span><span class="ae-new">NEW</span><div class="big">✨</div><h1>%%title%%</h1></div>
+    <div class="ae-body">
+      <p>%%description%%</p>
+      %%content%%
+      <a class="ae-later" href="#">あとで</a>
+    </div>
+  </div>
+</body>
+</html>

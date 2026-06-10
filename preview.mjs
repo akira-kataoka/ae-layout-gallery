@@ -231,6 +231,14 @@ const CALENDAR_BODY = `<h1>お申し込みが完了しました</h1>
 const SHARE_BODY = `<h1>ご参加ありがとうございます！</h1>
 <p>よろしければ、お知り合いにもシェアしていただけると嬉しいです。</p>`;
 
+const GIFTCARD_FORM = `<form>
+  <p><label>金額</label><br><select><option>¥3,000</option><option selected>¥5,000</option><option>¥10,000</option></select></p>
+  <p><label>送り先のメールアドレス</label><br><input type="email" value="hanako@example.com"></p>
+  <p><label>メッセージ</label><br><textarea>お誕生日おめでとう！</textarea></p>
+  <p><label>送り主のお名前</label><br><input type="text" value="山田 太郎"></p>
+  <p class="submit"><input type="submit" value="ギフトを購入して贈る"></p>
+</form>`;
+
 const POSTEVENT_FORM = `<form>
   <fieldset><legend>満足度</legend>
     <label><input type="radio" name="sat" checked> 大変満足</label>
@@ -515,6 +523,9 @@ function contentFor(dir, category) {
     case "104-form-post-event-survey": return POSTEVENT_FORM;
     case "105-landing-spin-wheel": return NEWSLETTER_FORM;
     case "106-form-cancel-reschedule": return CANCEL_FORM;
+    case "107-landing-app-modal": return NEWSLETTER_FORM;
+    case "108-form-gift-card": return GIFTCARD_FORM;
+    case "109-landing-low-stock": return NEWSLETTER_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }
