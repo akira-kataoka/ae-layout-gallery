@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - ローン仮申込/仮審査",
+  "category": "form",
+  "description": "借入希望額・年収・雇用形態を入力するローン仮審査フォーム。金融・カードローンのWEB仮申込に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "WEBで完結 ローン仮審査",
+  "previewDescription": "かんたん入力で、お借入可能額の目安がわかります。最短即日回答。"
+}

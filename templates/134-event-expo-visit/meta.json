@@ -1,0 +1,8 @@
+{
+  "name": "イベント - 展示会来場登録",
+  "category": "event",
+  "description": "会期・会場・出展社数の情報バー＋来場事前登録の展示会LP。トレードショー/EXPOの来場者事前登録に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "ものづくりワールド EXPO 2026",
+  "previewDescription": "最新技術と300社が集結。事前登録で当日の入場がスムーズになります。"
+}
