@@ -231,6 +231,13 @@ const CALENDAR_BODY = `<h1>お申し込みが完了しました</h1>
 const SHARE_BODY = `<h1>ご参加ありがとうございます！</h1>
 <p>よろしければ、お知り合いにもシェアしていただけると嬉しいです。</p>`;
 
+const SIM_FORM = `<form>
+  <div class="row"><p><label>従業員数（人）</label><br><input type="number" value="50"></p><p><label>月間の対象作業時間（h）</label><br><input type="number" value="320"></p></div>
+  <p><label>平均時給（円）</label><br><input type="number" value="2500"></p>
+  <p><label>結果の送付先メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="試算結果を受け取る"></p>
+</form>`;
+
 const CASUAL_FORM = `<form>
   <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
   <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
@@ -319,6 +326,9 @@ function contentFor(dir, category) {
     case "62-landing-joblist": return NEWSLETTER_FORM;
     case "63-landing-cart-recovery": return NEWSLETTER_FORM;
     case "64-thankyou-social-share": return SHARE_BODY;
+    case "65-form-roi-calculator": return SIM_FORM;
+    case "66-landing-course": return NEWSLETTER_FORM;
+    case "67-landing-alumni": return NEWSLETTER_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }

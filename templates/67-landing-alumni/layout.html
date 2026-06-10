@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#b45309; --ink:#1c1614; --muted:#78716c; --line:#ece4dc; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fbf8f3; line-height:1.7; }
+    .ae-hero { background:linear-gradient(135deg,#451a03,#b45309); color:#fff; padding:52px 20px; text-align:center; }
+    .ae-hero .crest { font-size:40px; }
+    .ae-hero h1 { font-size:28px; margin:8px 0; }
+    .ae-hero p { margin:0; opacity:.92; }
+    .ae-stats { max-width:680px; margin:-22px auto 0; padding:0 20px; display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+    .ae-stats div { background:#fff; border:1px solid var(--line); border-radius:14px; padding:18px; text-align:center; box-shadow:0 6px 18px rgba(180,83,9,.08); }
+    .ae-stats .num { font-size:26px; font-weight:800; color:var(--accent); }
+    .ae-stats .lbl { font-size:12px; color:var(--muted); }
+    .ae-card { max-width:520px; margin:28px auto 56px; background:#fff; border:1px solid var(--line); border-radius:16px; padding:30px 28px; box-shadow:0 10px 30px rgba(180,83,9,.1); }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:13px 14px; border:1px solid var(--line); border-radius:9px; font-size:15px; }
+    .ae-card form p { margin:0 0 12px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:10px; font-weight:800; cursor:pointer; }
+    @media (max-width:560px){ .ae-stats { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <header class="ae-hero"><div class="crest">🎓</div><h1>%%title%%</h1><p>%%description%%</p></header>
+  <section class="ae-stats">
+    <div><div class="num">12,000+</div><div class="lbl">登録メンバー</div></div>
+    <div><div class="num">年4回</div><div class="lbl">同窓イベント</div></div>
+    <div><div class="num">限定</div><div class="lbl">求人・特典</div></div>
+  </section>
+  <section class="ae-card">%%content%%</section>
+</body>
+</html>

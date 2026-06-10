@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - ROI/料金シミュレーター",
+  "category": "form",
+  "description": "条件入力で削減額/料金を試算し、結果送付にメール取得。ROI診断・見積シミュレーターに。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "導入効果をシミュレーション",
+  "previewDescription": "現在の状況を入力すると、想定される削減効果を試算します。"
+}
