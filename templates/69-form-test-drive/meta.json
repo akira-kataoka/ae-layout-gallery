@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 試乗/体験予約",
+  "category": "form",
+  "description": "店舗・日時指定の体験予約フォーム。試乗・内見・ショールーム来店・体験会の予約に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "試乗・体験を予約する",
+  "previewDescription": "ご希望の店舗と日時をお選びください。当日スタッフがご案内します。"
+}

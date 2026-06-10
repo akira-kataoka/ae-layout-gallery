@@ -1,0 +1,8 @@
+{
+  "name": "配信設定 - プレス/IR情報購読",
+  "category": "utility",
+  "description": "プレスリリース・IR・お知らせのカテゴリ別購読設定。報道関係者/投資家向け情報配信登録に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "プレス／IR情報の配信登録",
+  "previewDescription": "受け取りたい情報の種類を選んでご登録ください。"
+}

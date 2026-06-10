@@ -231,6 +231,14 @@ const CALENDAR_BODY = `<h1>お申し込みが完了しました</h1>
 const SHARE_BODY = `<h1>ご参加ありがとうございます！</h1>
 <p>よろしければ、お知り合いにもシェアしていただけると嬉しいです。</p>`;
 
+const TESTDRIVE_FORM = `<form>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <div class="row"><p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p></div>
+  <p><label>ご希望の店舗</label><br><select><option>サンプル駅前店</option><option>みなと店</option><option>本店ショールーム</option></select></p>
+  <p><label>ご希望日</label><br><input type="date" value="2026-07-05"></p>
+  <p class="submit"><input type="submit" value="体験を予約する"></p>
+</form>`;
+
 const SIM_FORM = `<form>
   <div class="row"><p><label>従業員数（人）</label><br><input type="number" value="50"></p><p><label>月間の対象作業時間（h）</label><br><input type="number" value="320"></p></div>
   <p><label>平均時給（円）</label><br><input type="number" value="2500"></p>
@@ -329,6 +337,8 @@ function contentFor(dir, category) {
     case "65-form-roi-calculator": return SIM_FORM;
     case "66-landing-course": return NEWSLETTER_FORM;
     case "67-landing-alumni": return NEWSLETTER_FORM;
+    case "68-landing-store-opening": return NEWSLETTER_FORM;
+    case "69-form-test-drive": return TESTDRIVE_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }
