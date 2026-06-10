@@ -1,0 +1,7 @@
+{
+  "name": "サンクスページ - 寄付完了/領収案内",
+  "category": "thankyou",
+  "description": "寄付完了のお礼＋金額レシート＋インパクト訴求。ファンドレイジング/CSR寄付の完了画面に。",
+  "isIncludeDefaultCss": false,
+  "previewContent": "<h1 style=\"margin:6px 0 8px;font-size:24px;\">ご支援ありがとうございます</h1><p style=\"color:#5b6b62;\">あなたの温かいご寄付を受け付けました。心より感謝申し上げます。</p>"
+}

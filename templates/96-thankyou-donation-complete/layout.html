@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#059669; --ink:#0f1f1a; --muted:#5b6b62; --line:#d8ece3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f0faf5; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:64px 20px; text-align:center; }
+    .ae-card { background:#fff; border-radius:18px; box-shadow:0 12px 34px rgba(5,150,105,.16); padding:42px 34px; }
+    .ae-heart { font-size:54px; }
+    .ae-card h1 { margin:6px 0 8px; font-size:24px; }
+    .ae-card > p { color:var(--muted); }
+    .ae-receipt { margin:20px 0; border:1px solid var(--line); border-radius:12px; overflow:hidden; text-align:left; }
+    .ae-receipt .row { display:flex; justify-content:space-between; padding:11px 16px; border-bottom:1px solid var(--line); font-size:14px; }
+    .ae-receipt .row:last-child { border-bottom:0; font-weight:800; background:#f0fdf4; }
+    .ae-impact { background:#ecfdf5; border-radius:12px; padding:16px; font-size:14px; color:#065f46; }
+    .ae-note { margin-top:14px; font-size:12px; color:var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-card">
+      <div class="ae-heart">💚</div>
+      %%content%%
+      <div class="ae-receipt">
+        <div class="row"><span>ご寄付金額</span><span>¥5,000</span></div>
+        <div class="row"><span>受付番号</span><span>DN-20260711-088</span></div>
+        <div class="row"><span>合計</span><span>¥5,000</span></div>
+      </div>
+      <div class="ae-impact">あなたのご支援で、<b>5人の子ども</b>に1か月分の学用品を届けられます。</div>
+      <div class="ae-note">領収書はご登録のメールアドレスにお送りしました。</div>
+    </div>
+  </div>
+</body>
+</html>

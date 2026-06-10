@@ -231,6 +231,22 @@ const CALENDAR_BODY = `<h1>お申し込みが完了しました</h1>
 const SHARE_BODY = `<h1>ご参加ありがとうございます！</h1>
 <p>よろしければ、お知り合いにもシェアしていただけると嬉しいです。</p>`;
 
+const PARTNER_FORM = `<form>
+  <div class="row"><p><label>会社名</label><br><input type="text" value="株式会社サンプル"></p><p><label>ご担当者名</label><br><input type="text" value="山田 太郎"></p></div>
+  <div class="row"><p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p><p><label>電話番号</label><br><input type="tel" value="03-0000-0000"></p></div>
+  <p><label>希望パートナー形態</label><br><select><option selected>販売代理店</option><option>紹介パートナー</option><option>OEM/技術提携</option></select></p>
+  <p><label>取扱予定の地域・分野</label><br><textarea>関東圏の中小企業向けに販売を検討しています。</textarea></p>
+  <p class="submit"><input type="submit" value="申し込む"></p>
+</form>`;
+
+const PROFILE_FORM = `<form>
+  <p><label>業種</label><br><select><option>IT・通信</option><option selected>製造</option><option>小売</option><option>サービス</option></select></p>
+  <p><label>役職</label><br><input type="text" value="マーケティング マネージャー"></p>
+  <p><label>関心のあるテーマ（複数可）</label><br><label class="chk"><input type="checkbox" checked>業務効率化</label><label class="chk"><input type="checkbox">売上拡大</label><label class="chk"><input type="checkbox">人材育成</label></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="プロフィールを更新"></p>
+</form>`;
+
 const WARRANTY_FORM = `<form>
   <p><label>製品名 / 型番</label><br><input type="text" value="Model X-200"></p>
   <div class="row"><p><label>シリアル番号</label><br><input type="text" value="SN-00012345"></p><p><label>購入日</label><br><input type="date" value="2026-06-01"></p></div>
@@ -430,6 +446,8 @@ function contentFor(dir, category) {
     case "92-form-warranty-registration": return WARRANTY_FORM;
     case "93-landing-seminar-archive": return NEWSLETTER_FORM;
     case "94-form-feature-feedback": return FEEDBACK_FORM;
+    case "95-form-partner-application": return PARTNER_FORM;
+    case "97-form-profile-completion": return PROFILE_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }

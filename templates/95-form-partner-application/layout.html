@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0e7490; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --dark:#0c2a33; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f0f7f9; line-height:1.7; }
+    .ae-hero { background:var(--dark); color:#fff; padding:48px 20px; text-align:center; }
+    .ae-hero h1 { font-size:28px; margin:0 0 8px; }
+    .ae-hero p { margin:0; opacity:.9; }
+    .ae-merits { max-width:820px; margin:-22px auto 0; padding:0 20px; display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+    .ae-merits div { background:#fff; border:1px solid var(--line); border-radius:14px; padding:18px; text-align:center; box-shadow:0 6px 18px rgba(14,116,144,.08); }
+    .ae-merits .ic { font-size:24px; } .ae-merits .t { font-weight:700; margin-top:4px; font-size:14px; } .ae-merits .s { font-size:12px; color:var(--muted); }
+    .ae-card { max-width:600px; margin:28px auto 56px; background:#fff; border:1px solid var(--line); border-radius:16px; padding:30px 28px; box-shadow:0 8px 24px rgba(14,116,144,.1); }
+    .ae-card h2 { margin-top:0; font-size:18px; }
+    .ae-card form label { font-size:13px; font-weight:600; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form input[type=tel],.ae-card form select,.ae-card form textarea { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form .row { display:flex; gap:14px; } .ae-card form .row > p { flex:1; }
+    .ae-card form p { margin:0 0 14px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:700; font-size:15px; cursor:pointer; }
+    @media (max-width:640px){ .ae-merits { grid-template-columns:1fr; } .ae-card form .row { flex-direction:column; gap:0; } }
+  </style>
+</head>
+<body>
+  <header class="ae-hero"><h1>%%title%%</h1><p>%%description%%</p></header>
+  <section class="ae-merits">
+    <div><div class="ic">💹</div><div class="t">高い還元率</div><div class="s">業界トップ水準のマージン</div></div>
+    <div><div class="ic">🤝</div><div class="t">手厚い支援</div><div class="s">販促・研修をサポート</div></div>
+    <div><div class="ic">📦</div><div class="t">在庫リスクなし</div><div class="s">取次/紹介型もOK</div></div>
+  </section>
+  <section class="ae-card"><h2>パートナー申込フォーム</h2>%%content%%</section>
+</body>
+</html>
