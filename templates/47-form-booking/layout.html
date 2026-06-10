@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0891b2; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#ecfeff; line-height:1.7; }
+    .ae-grid { max-width:900px; margin:0 auto; padding:48px 20px; display:grid; grid-template-columns:.9fr 1.1fr; gap:0; background:#fff; border-radius:18px; overflow:hidden; box-shadow:0 12px 40px rgba(8,145,178,.14); }
+    .ae-info { background:linear-gradient(160deg,#0e7490,#0891b2); color:#fff; padding:36px 30px; }
+    .ae-info h1 { margin:0 0 10px; font-size:23px; }
+    .ae-info ul { list-style:none; padding:0; margin:18px 0 0; }
+    .ae-info li { padding:8px 0 8px 26px; position:relative; font-size:14px; }
+    .ae-info li::before { content:"●"; position:absolute; left:0; font-size:9px; top:11px; color:#a5f3fc; }
+    .ae-form { padding:36px 30px; }
+    .ae-form h2 { margin-top:0; font-size:18px; }
+    .ae-form form input[type=text],.ae-form form input[type=email],.ae-form form input[type=tel],.ae-form form input[type=date],.ae-form form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-form form .row { display:flex; gap:12px; }
+    .ae-form form .row > p { flex:1; }
+    .ae-form form p { margin:0 0 14px; }
+    .ae-form form .submit input,.ae-form form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:700; font-size:15px; cursor:pointer; }
+    @media (max-width:720px){ .ae-grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-grid">
+    <section class="ae-info">
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+      <ul><li>所要時間：約60分</li><li>オンライン / 来店どちらも可</li><li>キャンセル無料</li></ul>
+    </section>
+    <section class="ae-form"><h2>日時を予約する</h2>%%content%%</section>
+  </div>
+</body>
+</html>

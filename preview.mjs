@@ -204,6 +204,19 @@ const QUOTE_FORM = `<form>
   <p class="submit"><input type="submit" value="見積もりを依頼する"></p>
 </form>`;
 
+const BOOKING_FORM = `<form>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <div class="row">
+    <p><label>希望日</label><br><input type="date" value="2026-07-01"></p>
+    <p><label>時間帯</label><br><select><option>10:00</option><option>13:00</option><option selected>15:00</option><option>17:00</option></select></p>
+  </div>
+  <p class="submit"><input type="submit" value="この日時で予約する"></p>
+</form>`;
+
+const REVIEW_BODY = `<h1>ご利用ありがとうございました</h1>
+<p>サービスはいかがでしたか？<br>よろしければ評価とご感想をお聞かせください。</p>`;
+
 function contentFor(dir, category) {
   switch (dir) {
     case "04-form-contact": return CONTACT_FORM;
@@ -236,6 +249,9 @@ function contentFor(dir, category) {
     case "42-landing-seasonal": return NEWSLETTER_FORM;
     case "43-form-whitepaper-toc": return STD_FORM;
     case "44-form-quote": return QUOTE_FORM;
+    case "47-form-booking": return BOOKING_FORM;
+    case "48-thankyou-review-request": return REVIEW_BODY;
+    case "49-landing-beta": return NEWSLETTER_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }

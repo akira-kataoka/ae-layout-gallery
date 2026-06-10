@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#10b981; --ink:#e5e7eb; --muted:#94a3b8; }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100vh; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); line-height:1.7;
+      background:radial-gradient(800px 420px at 50% -10%,#064e3b,transparent), #0a0f1a; display:flex; align-items:center; }
+    .ae-wrap { max-width:600px; margin:0 auto; padding:48px 22px; text-align:center; }
+    .ae-tag { display:inline-block; background:rgba(16,185,129,.15); border:1px solid rgba(16,185,129,.5); color:#6ee7b7; padding:6px 16px; border-radius:999px; font-size:12px; font-weight:800; letter-spacing:.08em; }
+    .ae-wrap h1 { font-size:clamp(28px,6vw,42px); margin:16px 0 10px; }
+    .ae-wrap > p { color:var(--muted); max-width:480px; margin:0 auto 26px; }
+    .ae-card { background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); border-radius:18px; padding:30px 28px; backdrop-filter:blur(8px); }
+    .ae-card form input[type=email],.ae-card form input[type=text] { width:100%; padding:13px 14px; border:1px solid rgba(255,255,255,.18); border-radius:10px; background:rgba(0,0,0,.3); color:#fff; font-size:15px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#053527; border:0; padding:14px; border-radius:10px; font-weight:800; font-size:15px; cursor:pointer; }
+    .ae-meta { margin-top:18px; font-size:13px; color:var(--muted); }
+    .ae-meta b { color:#6ee7b7; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <span class="ae-tag">PRIVATE BETA</span>
+    <h1>%%title%%</h1>
+    <p>%%description%%</p>
+    <div class="ae-card">%%content%%</div>
+    <div class="ae-meta">既に <b>2,481</b> 名がウェイトリストに登録済み</div>
+  </div>
+</body>
+</html>
