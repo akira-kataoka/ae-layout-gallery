@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 診断/クイズ(プログレスバー)",
+  "category": "form",
+  "description": "プログレスバー付きの診断・クイズ型フォーム。選択肢回答からおすすめ提案やリード獲得へ。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "30秒であなたに最適なプランを診断",
+  "previewDescription": "いくつかの質問にお答えください。"
+}

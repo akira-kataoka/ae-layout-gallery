@@ -1,0 +1,8 @@
+{
+  "name": "配信設定 - メンテナンス/復旧通知",
+  "category": "utility",
+  "description": "メンテナンス中の案内＋復旧通知メール登録。サービス一時停止・障害時の告知に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "ただいまメンテナンス中です",
+  "previewDescription": "より良いサービス提供のため、システムの更新を行っています。"
+}
