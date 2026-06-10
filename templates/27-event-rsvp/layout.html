@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#db2777; --ink:#1f1730; --muted:#6b7280; --line:#f0d8e6; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fdf2f8; line-height:1.7; }
+    .ae-wrap { max-width:600px; margin:0 auto; padding:48px 20px; }
+    .ae-ticket { background:#fff; border-radius:18px; overflow:hidden; box-shadow:0 14px 40px rgba(219,39,119,.14); border:1px solid var(--line); }
+    .ae-top { background:linear-gradient(120deg,#db2777,#9333ea); color:#fff; padding:30px 28px; position:relative; }
+    .ae-top::after { content:""; position:absolute; left:0; right:0; bottom:-11px; height:22px; background:radial-gradient(circle 11px at 11px 11px, transparent 10px, #fff 11px) repeat-x; background-size:30px 22px; }
+    .ae-top h1 { margin:0 0 6px; font-size:24px; }
+    .ae-top p { margin:0; opacity:.9; font-size:14px; }
+    .ae-when { display:flex; gap:10px; margin-top:14px; font-size:13px; }
+    .ae-when span { background:rgba(255,255,255,.16); padding:5px 12px; border-radius:8px; }
+    .ae-body { padding:30px 28px; }
+    .ae-rsvp { margin-bottom:18px; }
+    .ae-rsvp .q { font-weight:700; margin-bottom:8px; }
+    .ae-body form label { display:inline-flex; gap:6px; align-items:center; margin-right:14px; font-size:14px; }
+    .ae-body form input[type=text],.ae-body form input[type=email],.ae-body form select { width:100%; padding:11px 12px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-body form p { margin:0 0 14px; }
+    .ae-body form .submit input,.ae-body form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-ticket">
+      <div class="ae-top">
+        <h1>%%title%%</h1>
+        <p>%%description%%</p>
+        <div class="ae-when"><span>📅 日時は本文に記載</span><span>📍 オンライン/会場</span></div>
+      </div>
+      <div class="ae-body">
+        <div class="ae-rsvp"><div class="q">ご出席はいかがされますか？</div></div>
+        %%content%%
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#1d4ed8; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --dark:#0f1b3d; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f4f6fb; line-height:1.7; }
+    .ae-hero { background:var(--dark); color:#fff; padding:46px 20px; }
+    .ae-hero .in { max-width:860px; margin:0 auto; }
+    .ae-hero .pos { display:inline-block; background:rgba(255,255,255,.14); padding:5px 12px; border-radius:999px; font-size:12px; }
+    .ae-hero h1 { font-size:28px; margin:12px 0 6px; }
+    .ae-hero p { margin:0; opacity:.85; }
+    .ae-tags { margin-top:14px; display:flex; gap:8px; flex-wrap:wrap; font-size:12px; }
+    .ae-tags span { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2); padding:4px 10px; border-radius:8px; }
+    .ae-grid { max-width:860px; margin:28px auto; padding:0 20px 56px; display:grid; grid-template-columns:1fr 1.1fr; gap:28px; align-items:start; }
+    .ae-desc h2 { margin-top:0; font-size:18px; }
+    .ae-desc ul { padding-left:18px; color:#334155; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:28px 26px; box-shadow:0 8px 24px rgba(15,23,42,.08); }
+    .ae-card h2 { margin-top:0; font-size:18px; }
+    .ae-card form label { font-size:13px; font-weight:600; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form input[type=tel],.ae-card form input[type=file],.ae-card form select,.ae-card form textarea { width:100%; padding:11px 12px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 14px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:700; cursor:pointer; }
+    @media (max-width:760px){ .ae-grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <header class="ae-hero"><div class="in">
+    <span class="pos">採用エントリー</span>
+    <h1>%%title%%</h1>
+    <p>%%description%%</p>
+    <div class="ae-tags"><span>正社員</span><span>リモート可</span><span>フレックス</span><span>東京 / 大阪</span></div>
+  </div></header>
+  <div class="ae-grid">
+    <div class="ae-desc">
+      <h2>募集要項</h2>
+      <ul><li>Webサービスの企画・開発</li><li>実務経験3年以上</li><li>チーム開発の経験</li></ul>
+      <h2>歓迎スキル</h2>
+      <ul><li>クラウド/CI/CDの知見</li><li>マネジメント経験</li></ul>
+    </div>
+    <div class="ae-card"><h2>応募フォーム</h2>%%content%%</div>
+  </div>
+</body>
+</html>

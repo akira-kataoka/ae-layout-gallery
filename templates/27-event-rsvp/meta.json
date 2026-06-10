@@ -1,0 +1,8 @@
+{
+  "name": "イベント - RSVP出欠(チケット風)",
+  "category": "event",
+  "description": "チケット風デザインの出欠回答(RSVP)レイアウト。説明会・懇親会・招待制イベント向け。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "会社説明会へのご招待",
+  "previewDescription": "ご出欠を下記よりお知らせください。"
+}

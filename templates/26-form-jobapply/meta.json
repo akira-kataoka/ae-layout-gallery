@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 採用エントリー(求人応募)",
+  "category": "form",
+  "description": "募集要項＋応募フォームの2カラム。履歴書アップロードや職種選択を想定した採用エントリー向け。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "ソフトウェアエンジニア募集",
+  "previewDescription": "プロダクトの根幹を担う仲間を募集しています。"
+}

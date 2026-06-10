@@ -135,6 +135,26 @@ const FAQ_BODY = `<p style="text-align:center;color:#475569;">上記で解決し
 
 const COMPARISON_BODY = `<p>料金・機能・サポートを総合的に比較しても、当社サービスは高いコストパフォーマンスを実現しています。</p>`;
 
+const JOBAPPLY_FORM = `<form>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p>
+  <p><label>希望職種</label><br><select><option>ソフトウェアエンジニア</option><option>デザイナー</option><option>PM</option></select></p>
+  <p><label>履歴書 / 職務経歴書</label><br><input type="file"></p>
+  <p><label>志望動機</label><br><textarea>貴社のプロダクトに強く共感し応募しました。</textarea></p>
+  <p class="submit"><input type="submit" value="応募する"></p>
+</form>`;
+
+const RSVP_FORM = `<form>
+  <p><label><input type="radio" name="rsvp" checked> 出席する</label> <label><input type="radio" name="rsvp"> 欠席する</label> <label><input type="radio" name="rsvp"> 検討中</label></p>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p><label>参加人数</label><br><select><option>1名</option><option>2名</option><option>3名以上</option></select></p>
+  <p class="submit"><input type="submit" value="回答を送信"></p>
+</form>`;
+
+const APP_BODY = `<p>App Store / Google Play から無料でダウンロードできます。QRコードからもアクセス可能です。</p>`;
+
 function contentFor(dir, category) {
   switch (dir) {
     case "04-form-contact": return CONTACT_FORM;
@@ -149,6 +169,9 @@ function contentFor(dir, category) {
     case "23-landing-referral": return REFERRAL_FORM;
     case "24-landing-faq": return FAQ_BODY;
     case "25-landing-comparison": return COMPARISON_BODY;
+    case "26-form-jobapply": return JOBAPPLY_FORM;
+    case "27-event-rsvp": return RSVP_FORM;
+    case "28-landing-appdownload": return APP_BODY;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }
