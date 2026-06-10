@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - リアルタイムカウントダウン(JS)",
+  "category": "landing",
+  "description": "JavaScriptで毎秒更新する本物のカウントダウンタイマー付きセールLP。終了で自動的に終了表示へ切替。締切訴求に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "今だけ <b>50%OFF</b>",
+  "previewDescription": "セール終了まで自動カウントダウン中。お見逃しなく。"
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#ef4444; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:#fff5f5; line-height:1.7;
+      background:radial-gradient(900px 500px at 50% -8%,#7f1d1d,transparent), linear-gradient(160deg,#1a1110,#2b1414); }
+    .ae-wrap { max-width:680px; margin:0 auto; padding:56px 20px; text-align:center; }
+    .ae-flag { display:inline-block; background:var(--accent); color:#fff; font-weight:800; letter-spacing:.1em; padding:7px 18px; border-radius:999px; font-size:13px; }
+    .ae-wrap h1 { font-size:clamp(28px,6vw,44px); margin:16px 0 8px; color:#fff; }
+    .ae-wrap h1 b { color:#fca5a5; }
+    .ae-sub { color:#fecaca; margin:0 0 24px; }
+    .ae-timer { display:flex; gap:12px; justify-content:center; margin-bottom:8px; }
+    .ae-timer .u { background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.14); border-radius:14px; padding:14px 8px; min-width:78px; }
+    .ae-timer .n { font-size:38px; font-weight:800; line-height:1; font-variant-numeric:tabular-nums; }
+    .ae-timer .l { font-size:11px; color:#fecaca; margin-top:6px; }
+    #ae-expired { display:none; font-size:18px; font-weight:800; color:#fca5a5; margin-bottom:8px; }
+    .ae-card { background:#fff; color:#1a1110; border-radius:16px; padding:28px 26px; box-shadow:0 18px 50px rgba(0,0,0,.4); margin-top:22px; }
+    .ae-card form input[type=email],.ae-card form input[type=text] { width:100%; padding:13px 14px; border:1px solid #e5e7eb; border-radius:10px; font-size:15px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:15px; border-radius:10px; font-weight:800; font-size:16px; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <span class="ae-flag">期間限定セール</span>
+    <h1>%%title%%</h1>
+    <p class="ae-sub">%%description%%</p>
+    <div id="ae-timer" class="ae-timer">
+      <div class="u"><div class="n" id="ae-d">--</div><div class="l">日</div></div>
+      <div class="u"><div class="n" id="ae-h">--</div><div class="l">時間</div></div>
+      <div class="u"><div class="n" id="ae-m">--</div><div class="l">分</div></div>
+      <div class="u"><div class="n" id="ae-s">--</div><div class="l">秒</div></div>
+    </div>
+    <div id="ae-expired">⏰ セールは終了しました</div>
+    <div class="ae-card">%%content%%</div>
+  </div>
+
+  <script>
+  (function () {
+    // 終了日時（運用時はここを書き換えてください。例: "2026/12/31 23:59:59"）
+    var deadline = new Date("2026/12/31 23:59:59").getTime();
+    var $ = function (id) { return document.getElementById(id); };
+    var pad = function (n) { return (n < 10 ? "0" : "") + n; };
+    function tick() {
+      var diff = deadline - new Date().getTime();
+      if (diff <= 0) {
+        $("ae-timer").style.display = "none";
+        $("ae-expired").style.display = "block";
+        clearInterval(timer);
+        return;
+      }
+      var d = Math.floor(diff / 86400000);
+      var h = Math.floor((diff % 86400000) / 3600000);
+      var m = Math.floor((diff % 3600000) / 60000);
+      var s = Math.floor((diff % 60000) / 1000);
+      $("ae-d").textContent = d;
+      $("ae-h").textContent = pad(h);
+      $("ae-m").textContent = pad(m);
+      $("ae-s").textContent = pad(s);
+    }
+    tick();
+    var timer = setInterval(tick, 1000);
+  })();
+  </script>
+</body>
+</html>

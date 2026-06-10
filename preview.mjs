@@ -679,6 +679,9 @@ function contentFor(dir, category) {
     case "133-landing-lucky-bag": return NEWSLETTER_FORM;
     case "135-form-kiosk-leadcapture": return KIOSK_FORM;
     case "136-form-loan-application": return LOAN_FORM;
+    case "137-landing-countdown-live": return NEWSLETTER_FORM;
+    case "138-landing-roi-calculator-live": return NEWSLETTER_FORM;
+    case "139-landing-tabs-js": return NEWSLETTER_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }

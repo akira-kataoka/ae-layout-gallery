@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - タブ切替コンテンツ(jQuery)",
+  "category": "landing",
+  "description": "jQueryで特徴/料金/サポートをタブ切替表示するインタラクティブLP。情報を省スペースで整理。製品紹介に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "ひと目でわかる、選ばれる理由",
+  "previewDescription": "タブを切り替えて、特徴・料金・サポートをご確認ください。"
+}

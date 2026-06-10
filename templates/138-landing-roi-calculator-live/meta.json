@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - ライブROI計算機(jQuery)",
+  "category": "landing",
+  "description": "jQueryでスライダー操作に応じて削減額をリアルタイム計算するインタラクティブROIシミュレーターLP。体験型のリード獲得に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "導入効果をその場でシミュレーション",
+  "previewDescription": "スライダーを動かすと、想定削減額がリアルタイムで更新されます。"
+}
