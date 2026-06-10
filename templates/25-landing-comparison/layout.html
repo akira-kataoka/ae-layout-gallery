@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#4338ca; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --good:#16a34a; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f8fafc; line-height:1.7; }
+    .ae-head { text-align:center; padding:52px 20px 16px; }
+    .ae-head h1 { font-size:28px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-tablewrap { max-width:880px; margin:0 auto; padding:16px 20px 8px; overflow-x:auto; }
+    table.ae-cmp { width:100%; border-collapse:collapse; background:#fff; border:1px solid var(--line); border-radius:14px; overflow:hidden; }
+    table.ae-cmp th, table.ae-cmp td { padding:14px 16px; text-align:center; border-bottom:1px solid var(--line); font-size:14px; }
+    table.ae-cmp thead th { background:#eef2ff; }
+    table.ae-cmp tbody td:first-child, table.ae-cmp thead th:first-child { text-align:left; color:var(--muted); }
+    table.ae-cmp .me { background:#f5f3ff; font-weight:700; color:var(--accent); }
+    table.ae-cmp .yes { color:var(--good); font-weight:800; }
+    table.ae-cmp .no { color:#cbd5e1; }
+    .ae-body { max-width:760px; margin:18px auto; padding:0 20px; text-align:center; color:var(--muted); }
+    .ae-body a { display:inline-block; margin-top:10px; background:var(--accent); color:#fff; text-decoration:none; padding:13px 30px; border-radius:10px; font-weight:700; }
+  </style>
+</head>
+<body>
+  <header class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></header>
+  <div class="ae-tablewrap">
+    <table class="ae-cmp">
+      <thead><tr><th>機能</th><th class="me">当社</th><th>A社</th><th>B社</th></tr></thead>
+      <tbody>
+        <tr><td>初期費用</td><td class="me">無料</td><td>有料</td><td>有料</td></tr>
+        <tr><td>無料トライアル</td><td class="me yes">✓</td><td class="yes">✓</td><td class="no">×</td></tr>
+        <tr><td>日本語サポート</td><td class="me yes">✓</td><td class="no">×</td><td class="yes">✓</td></tr>
+        <tr><td>API連携</td><td class="me yes">✓</td><td class="yes">✓</td><td class="no">×</td></tr>
+        <tr><td>専任担当</td><td class="me yes">✓</td><td class="no">×</td><td class="no">×</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <section class="ae-body">%%content%%<br><a href="#">無料で比較を始める</a></section>
+</body>
+</html>

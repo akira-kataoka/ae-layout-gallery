@@ -125,6 +125,16 @@ const THANKYOU_DL_BODY = `<h1>ダウンロードの準備ができました</h1>
 const CONFIRM_BODY = `<h1>確認メールを送信しました</h1>
 <p>ご登録のメールアドレス宛に確認メールをお送りしました。<br>本文内のリンクをクリックして登録を完了してください。</p>`;
 
+const REFERRAL_FORM = `<form>
+  <p><label>あなたのお名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>ご友人のメールアドレス</label><br><input type="email" value="friend@example.com"></p>
+  <p class="submit"><input type="submit" value="招待を送る"></p>
+</form>`;
+
+const FAQ_BODY = `<p style="text-align:center;color:#475569;">上記で解決しない場合は、お気軽にサポートまでお問い合わせください。担当者が丁寧にご案内します。</p>`;
+
+const COMPARISON_BODY = `<p>料金・機能・サポートを総合的に比較しても、当社サービスは高いコストパフォーマンスを実現しています。</p>`;
+
 function contentFor(dir, category) {
   switch (dir) {
     case "04-form-contact": return CONTACT_FORM;
@@ -136,6 +146,9 @@ function contentFor(dir, category) {
     case "20-thankyou-confirm": return CONFIRM_BODY;
     case "21-utility-preference": return PREFERENCE_FORM;
     case "22-utility-unsubscribe": return UNSUB_FORM;
+    case "23-landing-referral": return REFERRAL_FORM;
+    case "24-landing-faq": return FAQ_BODY;
+    case "25-landing-comparison": return COMPARISON_BODY;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }

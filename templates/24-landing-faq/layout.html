@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0d9488; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f6fbfa; line-height:1.7; }
+    .ae-head { text-align:center; padding:52px 20px 12px; }
+    .ae-head h1 { font-size:28px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-faq { max-width:740px; margin:0 auto; padding:24px 20px; }
+    .ae-faq details { background:#fff; border:1px solid var(--line); border-radius:12px; padding:4px 18px; margin-bottom:12px; }
+    .ae-faq summary { cursor:pointer; font-weight:700; padding:14px 0; list-style:none; display:flex; justify-content:space-between; align-items:center; }
+    .ae-faq summary::after { content:"＋"; color:var(--accent); font-weight:800; }
+    .ae-faq details[open] summary::after { content:"－"; }
+    .ae-faq details p { margin:0 0 14px; color:#334155; }
+    .ae-body { max-width:740px; margin:8px auto 56px; padding:0 20px; }
+    .ae-cta { display:block; max-width:740px; margin:0 auto 56px; text-align:center; }
+    .ae-cta a { display:inline-block; background:var(--accent); color:#fff; text-decoration:none; padding:13px 30px; border-radius:10px; font-weight:700; }
+  </style>
+</head>
+<body>
+  <header class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></header>
+  <section class="ae-faq">
+    <details open><summary>導入までどのくらいかかりますか？</summary><p>最短で当日からご利用いただけます。標準的な初期設定は1〜3営業日が目安です。</p></details>
+    <details><summary>無料トライアルはありますか？</summary><p>はい。全機能を30日間無料でお試しいただけます。クレジットカードの登録は不要です。</p></details>
+    <details><summary>サポート体制について教えてください</summary><p>メール・チャットでのサポートに加え、上位プランでは専任担当による導入支援をご提供します。</p></details>
+    <details><summary>解約はいつでもできますか？</summary><p>はい、いつでも解約可能です。最低利用期間や違約金はありません。</p></details>
+  </section>
+  <section class="ae-body">%%content%%</section>
+  <div class="ae-cta"><a href="#">それでも解決しない場合はお問い合わせ</a></div>
+</body>
+</html>
