@@ -231,6 +231,16 @@ const CALENDAR_BODY = `<h1>お申し込みが完了しました</h1>
 const SHARE_BODY = `<h1>ご参加ありがとうございます！</h1>
 <p>よろしければ、お知り合いにもシェアしていただけると嬉しいです。</p>`;
 
+const VOTE_FORM = `<form>
+  <fieldset><legend>投票する候補を選択</legend>
+    <label><input type="radio" name="vote" checked> 候補A：未来をひらくプラン</label>
+    <label><input type="radio" name="vote"> 候補B：みんなで育てるプラン</label>
+    <label><input type="radio" name="vote"> 候補C：地域とつながるプラン</label>
+  </fieldset>
+  <p><label>メールアドレス（重複投票防止）</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="この候補に投票する"></p>
+</form>`;
+
 const TESTDRIVE_FORM = `<form>
   <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
   <div class="row"><p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p></div>
@@ -339,6 +349,9 @@ function contentFor(dir, category) {
     case "67-landing-alumni": return NEWSLETTER_FORM;
     case "68-landing-store-opening": return NEWSLETTER_FORM;
     case "69-form-test-drive": return TESTDRIVE_FORM;
+    case "71-landing-crowdfunding": return DONATION_FORM;
+    case "72-form-vote": return VOTE_FORM;
+    case "73-landing-vip": return NEWSLETTER_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }

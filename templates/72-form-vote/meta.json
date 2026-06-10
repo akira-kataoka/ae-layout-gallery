@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 投票/人気投票",
+  "category": "form",
+  "description": "選択肢から1つ投票＋メール取得の投票フォーム。人気投票・総選挙・アイデア募集の投票に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "あなたの推しに投票しよう",
+  "previewDescription": "もっとも応援したい候補を選んで投票してください。"
+}
