@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#ea580c; --ink:#1c1610; --muted:#78716c; --line:#f0e4d8; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fff8f3; line-height:1.7; }
+    .ae-hero { background:linear-gradient(135deg,#9a3412,#ea580c); color:#fff; padding:48px 20px; text-align:center; }
+    .ae-hero h1 { font-size:27px; margin:0 0 8px; }
+    .ae-hero p { margin:0; opacity:.92; }
+    .ae-grid { max-width:900px; margin:28px auto; padding:0 20px 56px; display:grid; grid-template-columns:.9fr 1.1fr; gap:30px; align-items:start; }
+    .ae-info ul { list-style:none; padding:0; margin:0; }
+    .ae-info li { display:flex; gap:12px; padding:10px 0; border-bottom:1px dashed var(--line); font-size:14px; }
+    .ae-info .ic { flex:none; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:30px 28px; box-shadow:0 8px 24px rgba(234,88,12,.1); }
+    .ae-card h2 { margin-top:0; font-size:18px; }
+    .ae-card form label { font-size:13px; font-weight:600; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form input[type=tel],.ae-card form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form .day { display:inline-flex; gap:6px; align-items:center; margin:2px 12px 2px 0; font-size:14px; }
+    .ae-card form p { margin:0 0 14px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; font-size:15px; cursor:pointer; }
+    @media (max-width:720px){ .ae-grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <header class="ae-hero"><h1>%%title%%</h1><p>%%description%%</p></header>
+  <div class="ae-grid">
+    <div class="ae-info">
+      <ul>
+        <li><span class="ic">📍</span>活動場所：サンプル市内・各拠点</li>
+        <li><span class="ic">🕒</span>所要時間：半日〜（応相談）</li>
+        <li><span class="ic">🎒</span>持ち物：動きやすい服装</li>
+        <li><span class="ic">👥</span>初参加・学生・シニア歓迎</li>
+      </ul>
+    </div>
+    <div class="ae-card"><h2>参加申込</h2>%%content%%</div>
+  </div>
+</body>
+</html>

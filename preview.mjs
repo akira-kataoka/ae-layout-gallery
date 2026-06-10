@@ -231,6 +231,30 @@ const CALENDAR_BODY = `<h1>お申し込みが完了しました</h1>
 const SHARE_BODY = `<h1>ご参加ありがとうございます！</h1>
 <p>よろしければ、お知り合いにもシェアしていただけると嬉しいです。</p>`;
 
+const RECEIPT_FORM = `<form>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p><label>レシート画像</label><br><input type="file"></p>
+  <p><label>購入金額（税込）</label><br><input type="text" value="2,480円"></p>
+  <p class="submit"><input type="submit" value="応募する"></p>
+</form>`;
+
+const PETITION_FORM = `<form>
+  <p><label>お名前（ニックネーム可）</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p><label class="chk"><input type="checkbox" checked> 名前を賛同者一覧に表示してもよい</label></p>
+  <p class="submit"><input type="submit" value="この提案に賛同する"></p>
+</form>`;
+
+const VOLUNTEER_FORM = `<form>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p>
+  <p><label>希望する活動</label><br><select><option selected>会場運営サポート</option><option>清掃・環境活動</option><option>子ども向けプログラム</option></select></p>
+  <p><label>参加可能日</label><br><label class="day"><input type="checkbox" checked> 土</label><label class="day"><input type="checkbox"> 日</label><label class="day"><input type="checkbox"> 平日</label></p>
+  <p class="submit"><input type="submit" value="参加を申し込む"></p>
+</form>`;
+
 const INSURANCE_FORM = `<form>
   <div class="row"><p><label>生年月日</label><br><input type="date" value="1990-04-01"></p><p><label>性別</label><br><label class="opt"><input type="radio" name="sex" checked> 男性</label><label class="opt"><input type="radio" name="sex"> 女性</label></p></div>
   <p><label>ご希望のプラン</label><br><select><option>掛け捨て(安心重視)</option><option selected>バランス型</option><option>貯蓄型</option></select></p>
@@ -589,6 +613,9 @@ function contentFor(dir, category) {
     case "119-form-insurance-quote": return INSURANCE_FORM;
     case "120-landing-fanclub": return NEWSLETTER_FORM;
     case "121-form-vendor-registration": return VENDOR_FORM;
+    case "122-form-receipt-campaign": return RECEIPT_FORM;
+    case "123-landing-petition": return PETITION_FORM;
+    case "124-form-volunteer": return VOLUNTEER_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }

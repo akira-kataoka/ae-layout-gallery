@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0f766e; --ink:#0f1f1c; --muted:#5b6b66; --line:#d7e7e3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f0faf8; line-height:1.7; }
+    .ae-grid { max-width:920px; margin:0 auto; padding:48px 20px; display:grid; grid-template-columns:1.3fr .7fr; gap:30px; align-items:start; }
+    .ae-main h1 { font-size:26px; margin:0 0 12px; }
+    .ae-main p { color:#334155; }
+    .ae-side { background:#fff; border:1px solid var(--line); border-radius:16px; padding:26px 24px; position:sticky; top:20px; box-shadow:0 8px 24px rgba(15,118,110,.1); }
+    .ae-count { text-align:center; margin-bottom:14px; }
+    .ae-count .num { font-size:34px; font-weight:900; color:var(--accent); } .ae-count .lbl { font-size:13px; color:var(--muted); }
+    .ae-bar { height:10px; background:#ccfbf1; border-radius:999px; overflow:hidden; margin:8px 0 4px; }
+    .ae-bar i { display:block; height:100%; width:82%; background:var(--accent); }
+    .ae-goal { font-size:12px; color:var(--muted); text-align:center; margin-bottom:14px; }
+    .ae-side form input[type=text],.ae-side form input[type=email] { width:100%; padding:11px 12px; border:1px solid var(--line); border-radius:8px; font-size:14px; }
+    .ae-side form label.chk { display:flex; gap:8px; font-size:12px; color:var(--muted); }
+    .ae-side form p { margin:0 0 12px; }
+    .ae-side form .submit input,.ae-side form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    @media (max-width:760px){ .ae-grid { grid-template-columns:1fr; } .ae-side { position:static; } }
+  </style>
+</head>
+<body>
+  <div class="ae-grid">
+    <article class="ae-main">
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+      <p>私たちは、この問題の解決に向けて声を上げます。一人ひとりの賛同が、大きな変化につながります。ぜひご署名にご協力ください。</p>
+    </article>
+    <aside class="ae-side">
+      <div class="ae-count"><div class="num">8,240</div><div class="lbl">人が賛同しています</div></div>
+      <div class="ae-bar"><i></i></div>
+      <div class="ae-goal">目標 10,000人まであと 1,760人</div>
+      %%content%%
+    </aside>
+  </div>
+</body>
+</html>
