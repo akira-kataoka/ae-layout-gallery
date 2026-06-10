@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 学割/学生認証",
+  "category": "form",
+  "description": "学校名・学生証提出で学割を適用する学生認証フォーム。教育割引・学割プランの申込に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "学割を申請する",
+  "previewDescription": "在学中の方なら、特別価格でご利用いただけます。"
+}

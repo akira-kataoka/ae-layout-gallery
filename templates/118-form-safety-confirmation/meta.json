@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 安否確認/緊急連絡",
+  "category": "form",
+  "description": "災害時などの安否状況・現在地・連絡先を回答する安否確認フォーム。BCP/従業員・会員の安否集約に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "安否確認のお願い",
+  "previewDescription": "ご自身の状況をお知らせください。確認のため必ずご回答をお願いします。"
+}

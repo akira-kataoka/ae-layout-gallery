@@ -231,6 +231,23 @@ const CALENDAR_BODY = `<h1>お申し込みが完了しました</h1>
 const SHARE_BODY = `<h1>ご参加ありがとうございます！</h1>
 <p>よろしければ、お知り合いにもシェアしていただけると嬉しいです。</p>`;
 
+const STUDENT_FORM = `<form>
+  <p><label>学校名</label><br><input type="text" value="サンプル大学"></p>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス（学校ドメイン推奨）</label><br><input type="email" value="taro@sample.ac.jp"></p>
+  <p><label>学生証のアップロード</label><br><input type="file"></p>
+  <p class="submit"><input type="submit" value="学割を申請する"></p>
+</form>`;
+
+const SAFETY_FORM = `<form>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p class="status"><label><input type="radio" name="st" checked> 無事です</label><label><input type="radio" name="st"> 軽傷</label><label><input type="radio" name="st"> 支援が必要</label></p>
+  <p><label>現在地</label><br><select><option selected>自宅</option><option>勤務先</option><option>外出先</option><option>避難所</option></select></p>
+  <p><label>連絡先電話番号</label><br><input type="tel" value="090-0000-0000"></p>
+  <p><label>状況・伝達事項（任意）</label><br><textarea>家族も全員無事です。</textarea></p>
+  <p class="submit"><input type="submit" value="安否を報告する"></p>
+</form>`;
+
 const RECUR_DONATION_FORM = `<form>
   <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
   <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
@@ -551,6 +568,9 @@ function contentFor(dir, category) {
     case "111-form-points-exchange": return POINTS_FORM;
     case "114-form-recurring-donation": return RECUR_DONATION_FORM;
     case "115-landing-investor-relations": return NEWSLETTER_FORM;
+    case "116-form-student-verification": return STUDENT_FORM;
+    case "117-landing-membership-rankup": return NEWSLETTER_FORM;
+    case "118-form-safety-confirmation": return SAFETY_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }
