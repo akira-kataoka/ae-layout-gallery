@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#1d4ed8; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f5f8fc; line-height:1.7; }
+    .ae-head { text-align:center; padding:48px 20px 8px; }
+    .ae-head h1 { font-size:28px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-lib { max-width:980px; margin:24px auto; padding:0 20px; display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .ae-res { background:#fff; border:1px solid var(--line); border-radius:14px; overflow:hidden; box-shadow:0 4px 14px rgba(29,78,216,.06); }
+    .ae-res .th { height:96px; background:linear-gradient(135deg,#bfdbfe,#1d4ed8); display:flex; align-items:center; justify-content:center; font-size:30px; }
+    .ae-res .b { padding:14px 16px; }
+    .ae-res .tag { font-size:11px; color:var(--accent); font-weight:700; }
+    .ae-res h3 { margin:4px 0 0; font-size:14px; }
+    .ae-card { max-width:520px; margin:24px auto 56px; background:#fff; border:1px solid var(--line); border-radius:16px; padding:28px 26px; text-align:center; box-shadow:0 8px 24px rgba(29,78,216,.08); }
+    .ae-card .t { font-weight:700; margin-bottom:6px; }
+    .ae-card .s { color:var(--muted); font-size:13px; margin-bottom:16px; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:700; cursor:pointer; }
+    @media (max-width:760px){ .ae-lib { grid-template-columns:1fr 1fr; } }
+    @media (max-width:480px){ .ae-lib { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <header class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></header>
+  <section class="ae-lib">
+    <div class="ae-res"><div class="th">📘</div><div class="b"><div class="tag">eBook</div><h3>はじめての導入ガイド</h3></div></div>
+    <div class="ae-res"><div class="th">📊</div><div class="b"><div class="tag">調査レポート</div><h3>業界トレンド2026</h3></div></div>
+    <div class="ae-res"><div class="th">📝</div><div class="b"><div class="tag">チェックリスト</div><h3>導入前の確認10項目</h3></div></div>
+    <div class="ae-res"><div class="th">🎥</div><div class="b"><div class="tag">動画</div><h3>事例で学ぶ活用法</h3></div></div>
+    <div class="ae-res"><div class="th">📐</div><div class="b"><div class="tag">テンプレート</div><h3>提案書フォーマット</h3></div></div>
+    <div class="ae-res"><div class="th">📕</div><div class="b"><div class="tag">ホワイトペーパー</div><h3>ROIの考え方</h3></div></div>
+  </section>
+  <section class="ae-card"><div class="t">すべての資料を無料ダウンロード</div><div class="s">1度のご登録で全資料にアクセスできます。</div>%%content%%</section>
+</body>
+</html>

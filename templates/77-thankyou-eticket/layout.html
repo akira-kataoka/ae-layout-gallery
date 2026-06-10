@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0891b2; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#ecfeff; line-height:1.7; }
+    .ae-wrap { max-width:480px; margin:0 auto; padding:56px 20px; text-align:center; }
+    .ae-msg { margin-bottom:18px; }
+    .ae-ticket { background:#fff; border-radius:18px; overflow:hidden; box-shadow:0 14px 40px rgba(8,145,178,.16); text-align:left; }
+    .ae-tt { background:linear-gradient(120deg,#0e7490,#0891b2); color:#fff; padding:20px 24px; }
+    .ae-tt .ev { font-size:18px; font-weight:800; }
+    .ae-tt .dt { opacity:.9; font-size:13px; }
+    .ae-tbody { padding:22px 24px; display:flex; gap:18px; align-items:center; border-top:2px dashed var(--line); }
+    .ae-qr { width:96px; height:96px; flex:none; border-radius:10px; background:repeating-linear-gradient(45deg,#0f172a 0 6px,#fff 6px 12px); }
+    .ae-meta div { font-size:13px; color:var(--muted); }
+    .ae-meta b { color:var(--ink); font-size:15px; display:block; }
+    .ae-note { margin-top:16px; font-size:12px; color:var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-msg">%%content%%</div>
+    <div class="ae-ticket">
+      <div class="ae-tt"><div class="ev">実践マーケティング・カンファレンス</div><div class="dt">2026年7月20日（土）13:00 開場</div></div>
+      <div class="ae-tbody">
+        <div class="ae-qr"></div>
+        <div class="ae-meta"><div>お名前</div><b>山田 太郎 様</b><div style="margin-top:8px;">受付番号</div><b>A-1024</b></div>
+      </div>
+    </div>
+    <div class="ae-note">当日はこの画面（QRコード）を受付でご提示ください。</div>
+  </div>
+</body>
+</html>

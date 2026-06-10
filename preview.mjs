@@ -362,6 +362,8 @@ function contentFor(dir, category) {
     case "73-landing-vip": return NEWSLETTER_FORM;
     case "75-form-certification": return CERT_FORM;
     case "76-landing-digital-card": return NEWSLETTER_FORM;
+    case "78-landing-resource-library": return NEWSLETTER_FORM;
+    case "79-landing-upgrade": return NEWSLETTER_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }

@@ -1,0 +1,7 @@
+{
+  "name": "サンクスページ - eチケット/参加証発行",
+  "category": "thankyou",
+  "description": "QR付きデジタルチケット表示の申込完了ページ。イベント入場用eチケット/受付票の発行に。",
+  "isIncludeDefaultCss": false,
+  "previewContent": "<h1 style=\"margin:0 0 8px;font-size:24px;\">お申し込みありがとうございます</h1><p style=\"color:#64748b;margin:0;\">参加チケットを発行しました。下記をご確認ください。</p>"
+}

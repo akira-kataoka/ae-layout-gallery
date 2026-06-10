@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#7c3aed; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --soft:#f5f3ff; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#faf9ff; line-height:1.7; }
+    .ae-wrap { max-width:680px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:22px; }
+    .ae-badge { display:inline-block; background:var(--soft); color:var(--accent); font-weight:700; font-size:12px; padding:5px 14px; border-radius:999px; }
+    .ae-head h1 { font-size:27px; margin:12px 0 6px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-compare { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:22px; }
+    .ae-plan { background:#fff; border:1px solid var(--line); border-radius:14px; padding:20px; }
+    .ae-plan.cur { opacity:.75; }
+    .ae-plan.up { border:2px solid var(--accent); box-shadow:0 10px 30px rgba(124,58,237,.16); }
+    .ae-plan .nm { font-weight:700; } .ae-plan .pr { font-size:24px; font-weight:800; margin:4px 0 10px; }
+    .ae-plan ul { list-style:none; padding:0; margin:0; font-size:13px; }
+    .ae-plan li { padding:5px 0 5px 22px; position:relative; }
+    .ae-plan li::before { content:"✓"; position:absolute; left:0; color:var(--accent); font-weight:800; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:26px 24px; text-align:center; box-shadow:0 8px 24px rgba(124,58,237,.1); }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    @media (max-width:520px){ .ae-compare { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><span class="ae-badge">既存ユーザー様限定</span><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-compare">
+      <div class="ae-plan cur"><div class="nm">現在のプラン</div><div class="pr">Starter</div><ul><li>基本機能</li><li>3ユーザー</li></ul></div>
+      <div class="ae-plan up"><div class="nm" style="color:var(--accent);">アップグレード</div><div class="pr">Business</div><ul><li>全機能が使える</li><li>10ユーザー</li><li>優先サポート</li><li>連携・自動化</li></ul></div>
+    </div>
+    <div class="ae-card"><p style="font-weight:700;margin-top:0;">アップグレードのご相談</p>%%content%%</div>
+  </div>
+</body>
+</html>
