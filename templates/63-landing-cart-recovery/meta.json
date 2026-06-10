@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - カゴ落ちリカバリー",
+  "category": "landing",
+  "description": "カート内商品の再表示＋購入再開CTA＋リマインダー登録。カート放棄リカバリー施策に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "カートに商品が残っています",
+  "previewDescription": "売り切れる前に、お買い物を完了しませんか？"
+}
