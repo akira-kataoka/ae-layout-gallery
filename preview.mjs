@@ -228,6 +228,19 @@ const SAMPLE_FORM = `<form>
 const CALENDAR_BODY = `<h1>お申し込みが完了しました</h1>
 <p>ご登録ありがとうございます。下記の日時で受け付けました。<br>忘れないようカレンダーに追加しておきましょう。</p>`;
 
+const RESTOCK_FORM = `<form>
+  <p><label>サイズ</label><br><select><option>S</option><option selected>M</option><option>L</option></select></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="入荷をお知らせする"></p>
+</form>`;
+
+const CALLBACK_FORM = `<form>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p>
+  <p><label>ご希望の時間帯</label><br><select><option>午前(9-12時)</option><option selected>午後(12-17時)</option><option>夕方(17-19時)</option></select></p>
+  <p class="submit"><input type="submit" value="折り返しを依頼する"></p>
+</form>`;
+
 const AMBASSADOR_FORM = `<form>
   <p><label>お名前 / 活動名</label><br><input type="text" value="山田 太郎"></p>
   <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
@@ -278,6 +291,9 @@ function contentFor(dir, category) {
     case "53-landing-community": return NEWSLETTER_FORM;
     case "54-landing-product-update": return NEWSLETTER_FORM;
     case "55-form-ambassador": return AMBASSADOR_FORM;
+    case "56-form-restock-notify": return RESTOCK_FORM;
+    case "57-landing-contest": return NEWSLETTER_FORM;
+    case "58-form-callback": return CALLBACK_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }

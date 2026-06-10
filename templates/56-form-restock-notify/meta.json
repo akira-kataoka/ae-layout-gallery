@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 再入荷通知(在庫アラート)",
+  "category": "form",
+  "description": "売切れ商品カード＋再入荷お知らせ登録。EC/物販の在庫アラート(バックインストック)向け。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "再入荷をお知らせします",
+  "previewDescription": "人気商品につき完売。入荷したらメールでご連絡します。"
+}

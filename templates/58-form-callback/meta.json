@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 折り返し電話リクエスト(コールバック)",
+  "category": "form",
+  "description": "電話番号＋希望時間帯を指定するコールバック依頼フォーム。電話相談・営業折返し導線に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "ご希望の時間にお電話します",
+  "previewDescription": "お電話番号とご希望の時間帯をご入力ください。"
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#111827; --ink:#111827; --muted:#6b7280; --line:#e5e7eb; --sold:#ef4444; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f9fafb; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:48px 20px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; overflow:hidden; box-shadow:0 10px 30px rgba(17,24,39,.08); }
+    .ae-img { position:relative; height:220px; background:linear-gradient(160deg,#e5e7eb,#9ca3af); display:flex; align-items:center; justify-content:center; font-size:60px; }
+    .ae-sold { position:absolute; top:14px; left:14px; background:var(--sold); color:#fff; font-weight:800; font-size:12px; padding:5px 12px; border-radius:8px; }
+    .ae-info { padding:24px 26px 28px; }
+    .ae-info h1 { font-size:20px; margin:0 0 4px; }
+    .ae-price { color:var(--muted); margin:0 0 16px; }
+    .ae-info form input[type=email],.ae-info form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-info form p { margin:0 0 12px; }
+    .ae-info form .submit input,.ae-info form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:700; font-size:15px; cursor:pointer; }
+    .ae-note { font-size:12px; color:var(--muted); margin-top:10px; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-card">
+      <div class="ae-img"><span class="ae-sold">SOLD OUT</span>👜</div>
+      <div class="ae-info">
+        <h1>%%title%%</h1>
+        <p class="ae-price">¥18,900（税込）</p>
+        <p style="font-weight:700;margin:0 0 12px;">%%description%%</p>
+        %%content%%
+        <p class="ae-note">入荷次第、いち早くメールでお知らせします。</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
