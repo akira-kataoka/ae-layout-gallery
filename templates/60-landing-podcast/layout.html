@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#8b5cf6; --ink:#0f0a1e; --muted:#a1a1aa; --line:#2a2440; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:#e4e4e7; background:#0f0a1e; line-height:1.7; }
+    .ae-hero { max-width:880px; margin:0 auto; padding:48px 20px; display:flex; gap:28px; align-items:center; }
+    .ae-cover { flex:none; width:160px; height:160px; border-radius:20px; background:linear-gradient(135deg,#8b5cf6,#ec4899); display:flex; align-items:center; justify-content:center; font-size:60px; box-shadow:0 20px 50px rgba(139,92,246,.4); }
+    .ae-hero h1 { font-size:28px; margin:0 0 8px; }
+    .ae-hero p { color:var(--muted); margin:0 0 16px; }
+    .ae-platforms { display:flex; gap:8px; flex-wrap:wrap; }
+    .ae-platforms a { text-decoration:none; background:rgba(255,255,255,.08); border:1px solid var(--line); color:#e4e4e7; padding:8px 14px; border-radius:10px; font-size:13px; font-weight:700; }
+    .ae-eps { max-width:880px; margin:8px auto; padding:0 20px; }
+    .ae-ep { display:flex; align-items:center; gap:14px; padding:14px 0; border-bottom:1px solid var(--line); }
+    .ae-ep .play { width:40px; height:40px; border-radius:50%; background:var(--accent); flex:none; display:flex; align-items:center; justify-content:center; }
+    .ae-ep .play::after { content:""; border-left:12px solid #fff; border-top:8px solid transparent; border-bottom:8px solid transparent; margin-left:3px; }
+    .ae-ep b { font-size:14px; } .ae-ep small { color:var(--muted); }
+    .ae-card { max-width:520px; margin:24px auto 56px; background:rgba(255,255,255,.05); border:1px solid var(--line); border-radius:16px; padding:26px; text-align:center; }
+    .ae-card form input[type=email] { width:100%; padding:13px 14px; border:1px solid var(--line); border-radius:10px; background:rgba(0,0,0,.3); color:#fff; font-size:15px; }
+    .ae-card form p { margin:0 0 12px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:10px; font-weight:800; cursor:pointer; }
+    @media (max-width:640px){ .ae-hero { flex-direction:column; text-align:center; } .ae-platforms { justify-content:center; } }
+  </style>
+</head>
+<body>
+  <header class="ae-hero">
+    <div class="ae-cover">🎙️</div>
+    <div>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+      <div class="ae-platforms"><a href="#">Apple Podcasts</a><a href="#">Spotify</a><a href="#">YouTube</a><a href="#">RSS</a></div>
+    </div>
+  </header>
+  <section class="ae-eps">
+    <div class="ae-ep"><div class="play"></div><div><b>#42 マーケティングの最新潮流</b><br><small>38分 · 2026/06/20</small></div></div>
+    <div class="ae-ep"><div class="play"></div><div><b>#41 データ活用のはじめ方</b><br><small>45分 · 2026/06/13</small></div></div>
+  </section>
+  <section class="ae-card"><p style="font-weight:700;">新着エピソードを通知で受け取る</p>%%content%%</section>
+</body>
+</html>

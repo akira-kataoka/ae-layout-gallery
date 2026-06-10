@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0d9488; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f0fdfa; line-height:1.7; }
+    .ae-grid { max-width:900px; margin:0 auto; padding:48px 20px; display:grid; grid-template-columns:1fr 1.1fr; gap:30px; align-items:start; }
+    .ae-intro h1 { font-size:26px; margin:0 0 12px; }
+    .ae-intro > p { color:var(--muted); }
+    .ae-people { display:flex; gap:10px; margin-top:16px; }
+    .ae-people .p { text-align:center; font-size:12px; color:var(--muted); }
+    .ae-people .av { width:52px; height:52px; border-radius:50%; background:linear-gradient(135deg,#5eead4,#0d9488); margin:0 auto 4px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:30px 28px; box-shadow:0 8px 26px rgba(13,148,136,.1); }
+    .ae-card h2 { margin-top:0; font-size:18px; }
+    .ae-card form label { font-size:13px; font-weight:600; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 14px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:700; font-size:15px; cursor:pointer; }
+    @media (max-width:720px){ .ae-grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-grid">
+    <div class="ae-intro">
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+      <div class="ae-people"><div class="p"><div class="av"></div>人事 佐藤</div><div class="p"><div class="av"></div>現場 田中</div><div class="p"><div class="av"></div>CTO 鈴木</div></div>
+      <p style="font-size:13px;color:var(--muted);margin-top:16px;">選考ではありません。まずは気軽にお話ししましょう。</p>
+    </div>
+    <div class="ae-card"><h2>面談を予約する</h2>%%content%%</div>
+  </div>
+</body>
+</html>

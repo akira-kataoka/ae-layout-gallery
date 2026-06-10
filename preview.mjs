@@ -228,6 +228,22 @@ const SAMPLE_FORM = `<form>
 const CALENDAR_BODY = `<h1>お申し込みが完了しました</h1>
 <p>ご登録ありがとうございます。下記の日時で受け付けました。<br>忘れないようカレンダーに追加しておきましょう。</p>`;
 
+const CASUAL_FORM = `<form>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p><label>現在のご状況</label><br><select><option>在職中（転職検討）</option><option>情報収集中</option><option>求職中</option></select></p>
+  <p><label>話してみたいテーマ</label><br><input type="text" value="開発組織の文化について"></p>
+  <p class="submit"><input type="submit" value="面談を予約する"></p>
+</form>`;
+
+const EGIFT_FORM = `<form>
+  <p><label>贈る相手のお名前</label><br><input type="text" value="鈴木 花子"></p>
+  <p><label>相手のメールアドレス</label><br><input type="email" value="hanako@example.com"></p>
+  <p><label>ギフトを選ぶ</label><br><select><option>コーヒーチケット ¥1,000</option><option selected>スイーツセット ¥3,000</option><option>カタログギフト ¥5,000</option></select></p>
+  <p><label>メッセージ</label><br><textarea>いつもありがとう。ささやかですが贈ります。</textarea></p>
+  <p class="submit"><input type="submit" value="ギフトを贈る"></p>
+</form>`;
+
 const RESTOCK_FORM = `<form>
   <p><label>サイズ</label><br><select><option>S</option><option selected>M</option><option>L</option></select></p>
   <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
@@ -294,6 +310,9 @@ function contentFor(dir, category) {
     case "56-form-restock-notify": return RESTOCK_FORM;
     case "57-landing-contest": return NEWSLETTER_FORM;
     case "58-form-callback": return CALLBACK_FORM;
+    case "59-form-casual-interview": return CASUAL_FORM;
+    case "60-landing-podcast": return NEWSLETTER_FORM;
+    case "61-form-egift": return EGIFT_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }
