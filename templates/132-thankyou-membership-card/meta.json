@@ -1,0 +1,7 @@
+{
+  "name": "サンクスページ - デジタル会員証",
+  "category": "thankyou",
+  "description": "入会完了＋QR付きデジタル会員証の表示。会員登録後のデジタルカード発行・店頭提示に。",
+  "isIncludeDefaultCss": false,
+  "previewContent": "<h1 style=\"color:#fff;font-size:22px;margin:0 0 6px;\">会員登録が完了しました</h1><p style=\"color:#c4b5fd;margin:0;\">あなたのデジタル会員証を発行しました。</p>"
+}

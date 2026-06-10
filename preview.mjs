@@ -231,6 +231,14 @@ const CALENDAR_BODY = `<h1>お申し込みが完了しました</h1>
 const SHARE_BODY = `<h1>ご参加ありがとうございます！</h1>
 <p>よろしければ、お知り合いにもシェアしていただけると嬉しいです。</p>`;
 
+const SUPPORT_FORM = `<form>
+  <div class="row"><p><label>お問い合わせ種別</label><br><select><option selected>技術的な不具合</option><option>使い方の質問</option><option>請求・契約</option></select></p><p><label>緊急度</label><br><select><option>低</option><option selected>中</option><option>高（業務停止）</option></select></p></div>
+  <p><label>件名</label><br><input type="text" value="ログインできない"></p>
+  <p><label>詳細</label><br><textarea>本日朝からログイン時にエラーが表示されます。スクリーンショットを添付予定です。</textarea></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="チケットを送信"></p>
+</form>`;
+
 const SUBBOX_FORM = `<form>
   <p><label>プラン</label><br><select><option>お試し（3点）</option><option selected>レギュラー（5点）</option><option>デラックス（8点）</option></select></p>
   <p><label>お届け頻度</label><br><select><option selected>毎月</option><option>隔月</option><option>3ヶ月ごと</option></select></p>
@@ -652,6 +660,8 @@ function contentFor(dir, category) {
     case "127-form-monitor-recruit": return MONITOR_FORM;
     case "128-form-subscription-box": return SUBBOX_FORM;
     case "129-form-facility-reservation": return FACILITY_FORM;
+    case "131-form-support-ticket": return SUPPORT_FORM;
+    case "133-landing-lucky-bag": return NEWSLETTER_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }

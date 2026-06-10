@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - サポート/障害問い合わせチケット",
+  "category": "form",
+  "description": "種別・緊急度・詳細を入力するサポートチケット起票フォーム。テクニカルサポート・障害報告の受付に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "サポートに問い合わせる",
+  "previewDescription": "お困りの内容をお知らせください。担当者が順次対応いたします。"
+}
