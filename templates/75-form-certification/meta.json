@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 認定試験/資格申込",
+  "category": "form",
+  "description": "受験級・会場・受験日を指定する試験申込フォーム。検定・認定資格・スクール入会試験の申込に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "認定試験のお申し込み",
+  "previewDescription": "受験級・会場・希望日をご入力ください。受験票はメールでお送りします。"
+}

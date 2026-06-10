@@ -231,6 +231,14 @@ const CALENDAR_BODY = `<h1>お申し込みが完了しました</h1>
 const SHARE_BODY = `<h1>ご参加ありがとうございます！</h1>
 <p>よろしければ、お知り合いにもシェアしていただけると嬉しいです。</p>`;
 
+const CERT_FORM = `<form>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <div class="row"><p><label>受験級</label><br><select><option>1級</option><option selected>2級</option><option>3級</option></select></p><p><label>受験会場</label><br><select><option>東京</option><option>大阪</option><option>オンライン</option></select></p></div>
+  <p><label>希望受験日</label><br><input type="date" value="2026-08-23"></p>
+  <p class="submit"><input type="submit" value="受験を申し込む"></p>
+</form>`;
+
 const VOTE_FORM = `<form>
   <fieldset><legend>投票する候補を選択</legend>
     <label><input type="radio" name="vote" checked> 候補A：未来をひらくプラン</label>
@@ -352,6 +360,8 @@ function contentFor(dir, category) {
     case "71-landing-crowdfunding": return DONATION_FORM;
     case "72-form-vote": return VOTE_FORM;
     case "73-landing-vip": return NEWSLETTER_FORM;
+    case "75-form-certification": return CERT_FORM;
+    case "76-landing-digital-card": return NEWSLETTER_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }

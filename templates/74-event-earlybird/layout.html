@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#ea580c; --ink:#1c1917; --muted:#78716c; --line:#eee4dc; --dark:#231a13; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fff8f3; line-height:1.7; }
+    .ae-hero { background:var(--dark); color:#fff; padding:50px 20px; text-align:center; }
+    .ae-hero h1 { font-size:28px; margin:0 0 12px; }
+    .ae-deadline { display:inline-flex; gap:8px; background:rgba(234,88,12,.18); border:1px solid rgba(234,88,12,.5); color:#fdba74; padding:8px 16px; border-radius:999px; font-size:13px; font-weight:700; }
+    .ae-tiers { max-width:820px; margin:-24px auto 0; padding:0 20px; display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+    .ae-t { background:#fff; border:1px solid var(--line); border-radius:14px; padding:20px; text-align:center; box-shadow:0 6px 18px rgba(234,88,12,.08); }
+    .ae-t.now { border:2px solid var(--accent); }
+    .ae-t .ph { font-size:13px; color:var(--muted); } .ae-t .pr { font-size:24px; font-weight:800; }
+    .ae-t.now .pr { color:var(--accent); }
+    .ae-t .save { font-size:11px; color:var(--accent); font-weight:700; }
+    .ae-grid { max-width:820px; margin:32px auto; padding:0 20px 56px; display:grid; grid-template-columns:1.2fr .8fr; gap:30px; align-items:start; }
+    .ae-detail h2 { margin-top:0; }
+    .ae-apply { background:#fff; border-radius:16px; box-shadow:0 8px 24px rgba(234,88,12,.1); padding:26px 24px; position:sticky; top:20px; }
+    .ae-apply h3 { margin-top:0; color:var(--accent); }
+    .ae-apply form input[type=text],.ae-apply form input[type=email],.ae-apply form select { width:100%; padding:11px 12px; border:1px solid var(--line); border-radius:8px; font-size:14px; }
+    .ae-apply form p { margin:0 0 13px; }
+    .ae-apply form .submit input,.ae-apply form button { width:100%; background:var(--accent); color:#fff; border:0; padding:13px; border-radius:8px; font-weight:800; cursor:pointer; }
+    @media (max-width:760px){ .ae-tiers { grid-template-columns:1fr; } .ae-grid { grid-template-columns:1fr; } .ae-apply { position:static; } }
+  </style>
+</head>
+<body>
+  <header class="ae-hero"><h1>%%title%%</h1><div class="ae-deadline">⏰ 早割は 6/30 まで</div></header>
+  <section class="ae-tiers">
+    <div class="ae-t now"><div class="ph">超早割（今だけ）</div><div class="pr">¥4,800</div><div class="save">40%OFF</div></div>
+    <div class="ae-t"><div class="ph">早割</div><div class="pr">¥6,400</div><div class="save">20%OFF</div></div>
+    <div class="ae-t"><div class="ph">通常</div><div class="pr">¥8,000</div><div class="save">&nbsp;</div></div>
+  </section>
+  <div class="ae-grid">
+    <article class="ae-detail">%%content%%</article>
+    <aside class="ae-apply"><h3>早割で申し込む</h3><p style="color:var(--muted);font-size:14px;margin-top:0;">価格は申込日のプランが適用されます。</p></aside>
+  </div>
+</body>
+</html>
