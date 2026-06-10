@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#047857; --ink:#0f1f1a; --muted:#5b6b64; --line:#dbe7e1; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f0f7f4; line-height:1.7; }
+    .ae-wrap { max-width:620px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:18px; }
+    .ae-head .ic { font-size:38px; }
+    .ae-head h1 { margin:6px 0; font-size:24px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-result { background:linear-gradient(135deg,#047857,#0d9488); color:#fff; border-radius:14px; padding:18px; text-align:center; margin-bottom:18px; }
+    .ae-result .lbl { font-size:13px; opacity:.9; } .ae-result .val { font-size:24px; font-weight:800; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:30px 28px; box-shadow:0 8px 26px rgba(4,120,87,.1); }
+    .ae-card form fieldset { border:0; padding:0; margin:0 0 18px; }
+    .ae-card form legend { font-weight:700; font-size:14px; margin-bottom:8px; }
+    .ae-card form label { display:flex; align-items:center; gap:10px; padding:9px 12px; border:1px solid var(--line); border-radius:9px; margin-bottom:7px; font-size:14px; cursor:pointer; }
+    .ae-card form select,.ae-card form input[type=email],.ae-card form input[type=text] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 14px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:700; font-size:15px; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><div class="ic">💴</div><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-result"><div class="lbl">対象になり得る制度</div><div class="val">最大 3 件</div></div>
+    <div class="ae-card">%%content%%</div>
+  </div>
+</body>
+</html>

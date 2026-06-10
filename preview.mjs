@@ -231,6 +231,21 @@ const CALENDAR_BODY = `<h1>お申し込みが完了しました</h1>
 const SHARE_BODY = `<h1>ご参加ありがとうございます！</h1>
 <p>よろしければ、お知り合いにもシェアしていただけると嬉しいです。</p>`;
 
+const GRANT_FORM = `<form>
+  <fieldset><legend>事業形態</legend>
+    <label><input type="radio" name="biz" checked> 法人</label>
+    <label><input type="radio" name="biz"> 個人事業主</label>
+  </fieldset>
+  <p><label>従業員規模</label><br><select><option>〜5名</option><option selected>6〜20名</option><option>21〜50名</option><option>51名以上</option></select></p>
+  <fieldset><legend>関心のある用途（複数可）</legend>
+    <label><input type="checkbox" checked> 設備投資</label>
+    <label><input type="checkbox"> IT導入・DX</label>
+    <label><input type="checkbox"> 人材育成</label>
+  </fieldset>
+  <p><label>診断結果の送付先メール</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="診断結果を受け取る"></p>
+</form>`;
+
 const CERT_FORM = `<form>
   <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
   <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
@@ -364,6 +379,8 @@ function contentFor(dir, category) {
     case "76-landing-digital-card": return NEWSLETTER_FORM;
     case "78-landing-resource-library": return NEWSLETTER_FORM;
     case "79-landing-upgrade": return NEWSLETTER_FORM;
+    case "80-form-grant-diagnosis": return GRANT_FORM;
+    case "82-landing-flash-sale-member": return NEWSLETTER_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }

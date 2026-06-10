@@ -1,0 +1,7 @@
+{
+  "name": "サンクスページ - ウェイトリスト順位表示",
+  "category": "thankyou",
+  "description": "登録後の現在順位＋紹介で順位アップを促すバイラル型サンクス。ベータ/先行アクセスの拡散に。",
+  "isIncludeDefaultCss": false,
+  "previewContent": "<h1 style=\"margin:0 0 8px;font-size:24px;\">ウェイトリストに登録しました 🎉</h1><p style=\"color:#64748b;margin:0;\">順番が来たらメールでご案内します。</p>"
+}

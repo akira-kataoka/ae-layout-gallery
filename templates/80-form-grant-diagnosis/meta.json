@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 助成金/補助金診断",
+  "category": "form",
+  "description": "条件選択で対象制度を簡易診断＋結果送付メール取得。助成金・補助金・給付金の対象診断に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "使える助成金を60秒で診断",
+  "previewDescription": "いくつかの質問に答えるだけ。対象になり得る制度をご案内します。"
+}
