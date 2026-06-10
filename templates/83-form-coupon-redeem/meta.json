@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - クーポンコード引き換え",
+  "category": "form",
+  "description": "クーポン/シリアルコードを入力して特典を引き換えるフォーム。プロモコード・ギフトコード適用に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "コードを入力して特典をGET",
+  "previewDescription": "お持ちのクーポンコードを入力してください。"
+}

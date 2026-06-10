@@ -231,6 +231,12 @@ const CALENDAR_BODY = `<h1>お申し込みが完了しました</h1>
 const SHARE_BODY = `<h1>ご参加ありがとうございます！</h1>
 <p>よろしければ、お知り合いにもシェアしていただけると嬉しいです。</p>`;
 
+const REDEEM_FORM = `<form>
+  <p><label>クーポンコード</label><br><input type="text" value="WELCOME2026"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="特典を引き換える"></p>
+</form>`;
+
 const GRANT_FORM = `<form>
   <fieldset><legend>事業形態</legend>
     <label><input type="radio" name="biz" checked> 法人</label>
@@ -381,6 +387,9 @@ function contentFor(dir, category) {
     case "79-landing-upgrade": return NEWSLETTER_FORM;
     case "80-form-grant-diagnosis": return GRANT_FORM;
     case "82-landing-flash-sale-member": return NEWSLETTER_FORM;
+    case "83-form-coupon-redeem": return REDEEM_FORM;
+    case "84-landing-anniversary": return NEWSLETTER_FORM;
+    case "85-utility-apology": return NEWSLETTER_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }

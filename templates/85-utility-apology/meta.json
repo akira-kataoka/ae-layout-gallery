@@ -1,0 +1,8 @@
+{
+  "name": "配信設定 - お詫び/障害報告告知",
+  "category": "utility",
+  "description": "障害ステータス＋対応タイムライン＋復旧通知登録のインシデント告知ページ。お詫び・ステータス報告に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "サービス障害に関するお詫びとご報告",
+  "previewDescription": "ご利用のお客様にはご迷惑をおかけし、深くお詫び申し上げます。"
+}

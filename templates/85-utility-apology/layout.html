@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#b91c1c; --ink:#1f2937; --muted:#6b7280; --line:#e5e7eb; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f8fafc; line-height:1.8; }
+    .ae-wrap { max-width:640px; margin:0 auto; padding:48px 20px; }
+    .ae-status { display:flex; align-items:center; gap:10px; background:#fef2f2; border:1px solid #fecaca; color:var(--accent); border-radius:12px; padding:12px 16px; font-weight:700; margin-bottom:18px; }
+    .ae-status .dot { width:10px; height:10px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 4px rgba(185,28,28,.18); }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:14px; padding:32px 30px; box-shadow:0 6px 20px rgba(15,23,42,.05); }
+    .ae-card h1 { margin:0 0 12px; font-size:22px; }
+    .ae-card .lead { color:var(--muted); }
+    .ae-tl { margin:20px 0; border-left:2px solid var(--line); padding-left:16px; }
+    .ae-tl div { position:relative; padding:6px 0; font-size:14px; }
+    .ae-tl div::before { content:""; position:absolute; left:-21px; top:13px; width:8px; height:8px; border-radius:50%; background:var(--accent); }
+    .ae-tl time { color:var(--muted); font-size:12px; margin-right:8px; }
+    .ae-sub { margin-top:18px; padding-top:16px; border-top:1px solid var(--line); }
+    .ae-sub .t { font-weight:700; margin-bottom:10px; }
+    .ae-sub form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-sub form p { margin:0 0 10px; }
+    .ae-sub form .submit input,.ae-sub form button { width:100%; background:var(--ink); color:#fff; border:0; padding:12px; border-radius:9px; font-weight:700; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-status"><span class="dot"></span>障害発生中 — 復旧作業を進めています</div>
+    <div class="ae-card">
+      <h1>%%title%%</h1>
+      <p class="lead">%%description%%</p>
+      <div class="ae-tl">
+        <div><time>14:20</time>一部サービスで接続不具合を確認</div>
+        <div><time>14:35</time>原因を特定、復旧対応を開始</div>
+        <div><time>15:10</time>順次復旧中（最新状況を更新します）</div>
+      </div>
+      <div class="ae-sub"><div class="t">復旧のお知らせをメールで受け取る</div>%%content%%</div>
+    </div>
+  </div>
+</body>
+</html>
