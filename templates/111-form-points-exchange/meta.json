@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - ポイント交換/景品申込",
+  "category": "form",
+  "description": "保有ポイント表示＋景品選択の交換申込フォーム。ロイヤルティポイントの景品/特典交換に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "ポイントを交換する",
+  "previewDescription": "貯まったポイントで、お好きな景品とお引き換えいただけます。"
+}

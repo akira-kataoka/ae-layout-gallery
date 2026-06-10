@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#1d4ed8; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f7f9fc; line-height:1.8; }
+    .ae-hero { background:#0f172a; color:#fff; padding:48px 20px; }
+    .ae-hero .in { max-width:820px; margin:0 auto; display:flex; gap:24px; align-items:center; flex-wrap:wrap; }
+    .ae-logo { width:80px; height:80px; border-radius:16px; background:linear-gradient(135deg,#60a5fa,#1d4ed8); display:flex; align-items:center; justify-content:center; font-size:34px; flex:none; }
+    .ae-hero .k { font-size:12px; letter-spacing:.15em; opacity:.7; }
+    .ae-hero h1 { font-size:26px; margin:6px 0; }
+    .ae-hero .meta { opacity:.8; font-size:14px; }
+    .ae-stats { max-width:820px; margin:24px auto 0; padding:0 20px; display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+    .ae-stats div { background:#fff; border:1px solid var(--line); border-radius:14px; padding:18px; text-align:center; }
+    .ae-stats .num { font-size:26px; font-weight:800; color:var(--accent); } .ae-stats .lbl { font-size:12px; color:var(--muted); }
+    .ae-body { max-width:720px; margin:28px auto; background:#fff; border:1px solid var(--line); border-radius:16px; padding:40px 36px; }
+    .ae-body h2 { font-size:19px; border-left:4px solid var(--accent); padding-left:12px; }
+    .ae-body blockquote { border-left:4px solid var(--accent); margin:20px 0; padding:8px 18px; background:#eff6ff; border-radius:0 10px 10px 0; font-style:italic; }
+    .ae-cta { max-width:720px; margin:0 auto 56px; padding:0 20px; text-align:center; }
+    @media (max-width:560px){ .ae-stats { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <header class="ae-hero"><div class="in"><div class="ae-logo">🏢</div><div><div class="k">CUSTOMER STORY</div><h1>%%title%%</h1><div class="meta">%%description%%</div></div></div></header>
+  <section class="ae-stats">
+    <div><div class="num">−45%</div><div class="lbl">問い合わせ対応時間</div></div>
+    <div><div class="num">+30%</div><div class="lbl">顧客満足度</div></div>
+    <div><div class="num">3週間</div><div class="lbl">で全社展開</div></div>
+  </section>
+  <article class="ae-body">%%content%%</article>
+  <div class="ae-cta"><a href="#" style="display:inline-block;background:#1d4ed8;color:#fff;text-decoration:none;padding:14px 30px;border-radius:10px;font-weight:700;">同じ成果を実現する資料を見る</a></div>
+</body>
+</html>

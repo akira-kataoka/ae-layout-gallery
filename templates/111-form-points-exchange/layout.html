@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#ca8a04; --ink:#1c1810; --muted:#78716c; --line:#efe6d2; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fffdf5; line-height:1.7; }
+    .ae-wrap { max-width:600px; margin:0 auto; padding:48px 20px; }
+    .ae-balance { background:linear-gradient(135deg,#eab308,#ca8a04); color:#fff; border-radius:16px; padding:22px; text-align:center; margin-bottom:18px; box-shadow:0 12px 30px rgba(202,138,4,.28); }
+    .ae-balance .lbl { font-size:13px; opacity:.9; } .ae-balance .pt { font-size:36px; font-weight:900; }
+    .ae-head { text-align:center; margin-bottom:14px; }
+    .ae-head h1 { margin:0 0 4px; font-size:23px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:30px 28px; box-shadow:0 8px 24px rgba(202,138,4,.1); }
+    .ae-card form label { font-size:13px; font-weight:600; }
+    .ae-card form select,.ae-card form input[type=email],.ae-card form input[type=text] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 14px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; font-size:15px; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-balance"><div class="lbl">ご利用可能ポイント</div><div class="pt">3,200 pt</div></div>
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">%%content%%</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 健康診断/人間ドック予約",
+  "category": "form",
+  "description": "コース・オプション・受診日を指定する健康診断予約フォーム。クリニック/検診センターの受診予約に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "健康診断のご予約",
+  "previewDescription": "コースとご希望日を選んでご予約ください。オプション検査も追加できます。"
+}
