@@ -1,0 +1,8 @@
+{
+  "name": "イベント - オンデマンド視聴登録",
+  "category": "event",
+  "description": "動画サムネイル＋登録フォームの2カラム。録画ウェビナー/オンデマンド視聴登録向け。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "録画配信を今すぐ視聴",
+  "previewDescription": "ご登録いただくと、すぐに本編アーカイブをご覧いただけます。"
+}

@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - ステップ表示(申込フロー)",
+  "category": "form",
+  "description": "入力→確認→完了のステップインジケータ付きフォーム。申込フロー向け。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "お申し込み（STEP 1/3）",
+  "previewDescription": "必要事項をご入力ください。"
+}

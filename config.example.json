@@ -1,0 +1,13 @@
+{
+  "environment": "production",
+  "businessUnitId": "0Uvxxxxxxxxxxxxxxx",
+  "folderId": null,
+  "auth": {
+    "loginUrl": "https://login.salesforce.com",
+    "clientId": "<接続アプリのコンシューマ鍵>",
+    "clientSecret": "<接続アプリのコンシューマの秘密>",
+    "username": "<Salesforceユーザー名>",
+    "password": "<パスワード＋セキュリティトークン>",
+    "accessToken": ""
+  }
+}

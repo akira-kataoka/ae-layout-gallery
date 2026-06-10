@@ -1,15 +1,12 @@
 #!/usr/bin/env node
 /**
  * 各レイアウトテンプレートにサンプル内容を差し込んでプレビュー HTML を生成し、
- * それらをカテゴリ別に並べたギャラリー (preview/index.html) を出力します。
+ * カテゴリ別に並べたギャラリー (preview/index.html) を出力します。
+ * ギャラリーからは「選択／一括ダウンロード(ZIP)」「インストーラ生成」が行えます。
  *
  *   node account-engagement/preview.mjs
  *
- * 生成物:
- *   preview/<dir>.html  … テンプレ単体の実レンダリング（フルサイズ表示用）
- *   preview/index.html  … 全テンプレを縮小 iframe で構造的に一覧するギャラリー
- *
- * 実 API には接続しません。マージタグ (%%content%% 等) をダミー値に置換するだけです。
+ * 実 API には接続しません（マージタグをダミー値に置換するのみ）。
  */
 import { readFileSync, readdirSync, existsSync, writeFileSync, mkdirSync } from "node:fs";
 import { join, dirname } from "node:path";
@@ -27,8 +24,9 @@ const CATEGORY_LABEL = {
   form: "フォーム",
   event: "イベント / ウェビナー",
   thankyou: "サンクスページ",
+  utility: "配信設定",
 };
-const CATEGORY_ORDER = ["landing", "form", "event", "thankyou"];
+const CATEGORY_ORDER = ["landing", "form", "event", "thankyou", "utility"];
 
 // ---- サンプル差込内容 (%%content%%) -------------------------------------
 const STD_FORM = `<form>
@@ -52,6 +50,46 @@ const NEWSLETTER_FORM = `<form>
   <p class="submit"><input type="submit" value="登録する"></p>
 </form>`;
 
+const SURVEY_FORM = `<form>
+  <fieldset><legend>総合満足度</legend>
+    <label><input type="radio" name="sat">とても満足</label>
+    <label><input type="radio" name="sat" checked>満足</label>
+    <label><input type="radio" name="sat">普通</label>
+    <label><input type="radio" name="sat">不満</label>
+  </fieldset>
+  <fieldset><legend>役立った点（複数可）</legend>
+    <label><input type="checkbox" checked>使いやすさ</label>
+    <label><input type="checkbox">サポート</label>
+    <label><input type="checkbox">価格</label>
+  </fieldset>
+  <p><label>ご意見・ご要望</label><br><textarea>とても使いやすかったです。</textarea></p>
+  <p class="submit"><input type="submit" value="回答を送信"></p>
+</form>`;
+
+const PREFERENCE_FORM = `<form>
+  <fieldset><legend>受け取りたい情報</legend>
+    <label><input type="checkbox" checked> 製品アップデート</label>
+    <label><input type="checkbox" checked> イベント・セミナー案内</label>
+    <label><input type="checkbox"> ニュースレター</label>
+    <label><input type="checkbox"> キャンペーン情報</label>
+  </fieldset>
+  <fieldset><legend>配信頻度</legend>
+    <label><input type="radio" name="freq" checked> 都度</label>
+    <label><input type="radio" name="freq"> 週1回まとめて</label>
+    <label><input type="radio" name="freq"> 月1回まとめて</label>
+  </fieldset>
+  <p class="submit"><input type="submit" value="設定を保存"></p>
+</form>`;
+
+const UNSUB_FORM = `<form>
+  <label><input type="radio" name="r" checked> 配信頻度が多い</label>
+  <label><input type="radio" name="r"> 内容が役に立たない</label>
+  <label><input type="radio" name="r"> 登録した覚えがない</label>
+  <label><input type="radio" name="r"> その他</label>
+  <p style="margin-top:10px;"><textarea placeholder="ご意見（任意）"></textarea></p>
+  <p class="submit"><input type="submit" value="配信を停止する"></p>
+</form>`;
+
 const LANDING_BODY = `<h2>こんな課題はありませんか？</h2>
 <p>日々の業務に追われ、本来注力すべき仕事に時間を割けない——。本サービスは繰り返し作業を自動化し、チーム全体の生産性を底上げします。</p>
 <h2>導入で得られること</h2>
@@ -61,6 +99,14 @@ const LANDING_BODY = `<h2>こんな課題はありませんか？</h2>
   <li>リアルタイムな進捗の可視化</li>
 </ul>
 <p style="margin-top:24px;"><a href="#" style="display:inline-block;background:#2563eb;color:#fff;text-decoration:none;padding:12px 26px;border-radius:8px;font-weight:700;">資料を請求する</a></p>`;
+
+const PRICING_INTRO = `<p>すべてのプランで30日間の無料トライアルをご利用いただけます。年払いなら2ヶ月分お得。詳細はお気軽にお問い合わせください。</p>`;
+
+const CASESTUDY_BODY = `<h2>導入の背景</h2>
+<p>業務が属人化し、担当者の負荷が高止まりしていました。標準化と自動化を両立できる仕組みを探していたところ、本サービスの導入に至りました。</p>
+<blockquote>「導入後、定型業務にかかる時間が体感で半分以下になりました。チームが本来の業務に集中できています。」</blockquote>
+<h2>成果</h2>
+<p>導入から3ヶ月で主要KPIが改善。現在は他部門への展開も進めています。</p>`;
 
 const EVENT_BODY = `<h2>本セミナーの概要</h2>
 <p>最新の市場動向と、現場で成果を出すための実践ノウハウを、第一線の登壇者が解説します。</p>
@@ -76,10 +122,20 @@ const THANKYOU_DL_BODY = `<h1>ダウンロードの準備ができました</h1>
 <p>ご登録ありがとうございます。下のボタンから資料をダウンロードいただけます。</p>
 <a class="ae-dl" href="#">⬇ 資料をダウンロード</a>`;
 
+const CONFIRM_BODY = `<h1>確認メールを送信しました</h1>
+<p>ご登録のメールアドレス宛に確認メールをお送りしました。<br>本文内のリンクをクリックして登録を完了してください。</p>`;
+
 function contentFor(dir, category) {
   switch (dir) {
     case "04-form-contact": return CONTACT_FORM;
     case "09-form-newsletter": return NEWSLETTER_FORM;
+    case "13-landing-coming-soon": return NEWSLETTER_FORM;
+    case "14-landing-pricing": return PRICING_INTRO;
+    case "15-landing-casestudy": return CASESTUDY_BODY;
+    case "16-form-survey": return SURVEY_FORM;
+    case "20-thankyou-confirm": return CONFIRM_BODY;
+    case "21-utility-preference": return PREFERENCE_FORM;
+    case "22-utility-unsubscribe": return UNSUB_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }
@@ -87,6 +143,7 @@ function contentFor(dir, category) {
     case "form": return STD_FORM;
     case "event": return EVENT_BODY;
     case "thankyou": return THANKYOU_BODY;
+    case "utility": return PREFERENCE_FORM;
     case "landing":
     default: return LANDING_BODY;
   }
@@ -103,7 +160,6 @@ function render(html, { title, description, content }) {
   };
   let out = html;
   for (const [k, v] of Object.entries(map)) out = out.split(k).join(v);
-  // 未対応の %%...%% タグは空に
   out = out.replace(/%%[a-z0-9\-]+%%/gi, "");
   return out;
 }
@@ -129,31 +185,83 @@ for (const dir of dirs) {
     description: meta.previewDescription ?? meta.description,
     content: meta.previewContent ?? contentFor(dir, category),
   });
-  const file = `${dir}.html`;
-  writeFileSync(join(OUT_DIR, file), rendered, "utf8");
-  items.push({ dir, file, name: meta.name, description: meta.description, category });
+  writeFileSync(join(OUT_DIR, `${dir}.html`), rendered, "utf8");
+  items.push({ dir, file: `${dir}.html`, name: meta.name, description: meta.description, category, meta, layout: html });
 }
 
+// ---- ダウンロード用データ (data.js) --------------------------------------
+const installerFiles = {};
+for (const f of ["install.mjs", "config.example.json"]) {
+  const p = join(__dirname, f);
+  if (existsSync(p)) installerFiles[f] = readFileSync(p, "utf8");
+}
+const INSTALLER_README = `# Account Engagement レイアウトテンプレート インストーラ
+
+このZIPは、選択したレイアウトテンプレートを Account Engagement (Pardot) v5 API で
+一括登録するための一式です。
+
+## 手順
+1. このフォルダ内の config.example.json を config.json にコピーし、認証情報を記入
+2. node install.mjs --dry-run   # 送信せず内容確認
+3. node install.mjs             # 本番登録
+
+要件: Node.js 18 以上 / 接続アプリ(pardot_api スコープ) / ビジネスユニットID(0Uv...)
+詳細は各 templates/<NN-xxx>/meta.json と install.mjs 冒頭のコメントを参照してください。
+`;
+
+const galleryData = {
+  templates: items.map((it) => ({
+    dir: it.dir,
+    name: it.name,
+    description: it.description || "",
+    category: it.category,
+    layout: it.layout,
+    meta: it.meta,
+  })),
+  installer: installerFiles,
+  installerReadme: INSTALLER_README,
+};
+writeFileSync(
+  join(OUT_DIR, "data.js"),
+  "window.__GALLERY__ = " + JSON.stringify(galleryData) + ";\n",
+  "utf8"
+);
+
 // ---- ギャラリー index.html ----------------------------------------------
-const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
 function cardHtml(it) {
-  return `      <figure class="card">
-        <div class="frame"><iframe src="${it.file}" loading="lazy" title="${esc(it.name)}"></iframe></div>
+  return `      <figure class="card" data-dir="${it.dir}" data-cat="${it.category}" data-search="${esc((it.name + " " + (it.description||"") + " " + it.dir).toLowerCase())}">
+        <label class="pick"><input type="checkbox" class="cb" data-dir="${it.dir}"><span></span></label>
+        <a class="frame" href="${it.file}" target="_blank" rel="noopener" title="フルサイズで開く"><iframe src="${it.file}" loading="lazy" tabindex="-1" title="${esc(it.name)}"></iframe></a>
         <figcaption>
           <span class="badge badge-${it.category}">${CATEGORY_LABEL[it.category] || it.category}</span>
           <h3>${esc(it.name)}</h3>
           <p>${esc(it.description || "")}</p>
-          <div class="meta"><code>${it.dir}</code><a href="${it.file}" target="_blank" rel="noopener">フルサイズで開く ↗</a></div>
+          <div class="meta"><code>${it.dir}</code>
+            <span class="acts">
+              <button class="dl-one" data-dir="${it.dir}" title="このテンプレのHTMLをダウンロード">⬇ HTML</button>
+              <a href="${it.file}" target="_blank" rel="noopener">拡大 ↗</a>
+            </span>
+          </div>
         </figcaption>
       </figure>`;
 }
+
+const filterBtns = ['<button class="fbtn active" data-f="all">すべて<span>' + items.length + "</span></button>"]
+  .concat(
+    CATEGORY_ORDER.filter((c) => items.some((i) => i.category === c)).map((c) => {
+      const n = items.filter((i) => i.category === c).length;
+      return `<button class="fbtn" data-f="${c}">${CATEGORY_LABEL[c]}<span>${n}</span></button>`;
+    })
+  )
+  .join("");
 
 let sections = "";
 for (const cat of CATEGORY_ORDER) {
   const group = items.filter((i) => i.category === cat);
   if (group.length === 0) continue;
-  sections += `    <section class="group">
+  sections += `    <section class="group" data-cat="${cat}">
       <h2 class="group-title">${CATEGORY_LABEL[cat]} <span>${group.length}</span></h2>
       <div class="grid">
 ${group.map(cardHtml).join("\n")}
@@ -167,42 +275,167 @@ const indexHtml = `<!DOCTYPE html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Account Engagement レイアウトテンプレート ギャラリー</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="data.js"></script>
 <style>
-  :root { --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --bg:#f1f5f9; }
-  * { box-sizing:border-box; }
-  body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:var(--bg); }
-  header.page { background:#0f172a; color:#fff; padding:34px 28px; }
-  header.page h1 { margin:0 0 6px; font-size:22px; }
-  header.page p { margin:0; opacity:.8; font-size:14px; }
-  .wrap { max-width:1320px; margin:0 auto; padding:28px 24px 64px; }
-  .group { margin-top:36px; }
-  .group-title { font-size:18px; border-left:5px solid #2563eb; padding-left:12px; margin:0 0 18px; }
-  .group-title span { color:var(--muted); font-size:14px; font-weight:400; margin-left:6px; }
-  .grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(440px,1fr)); gap:24px; }
-  .card { margin:0; background:#fff; border:1px solid var(--line); border-radius:14px; overflow:hidden; box-shadow:0 4px 14px rgba(15,23,42,.05); }
-  .frame { width:100%; height:320px; overflow:hidden; border-bottom:1px solid var(--line); background:#fff; position:relative; }
-  .frame iframe { width:1280px; height:930px; border:0; transform:scale(0.34375); transform-origin:top left; pointer-events:none; }
-  figcaption { padding:16px 18px 18px; }
-  .badge { display:inline-block; font-size:11px; font-weight:700; padding:3px 10px; border-radius:999px; background:#e2e8f0; color:#334155; }
-  .badge-landing { background:#dbeafe; color:#1d4ed8; }
-  .badge-form { background:#dcfce7; color:#15803d; }
-  .badge-event { background:#ffedd5; color:#c2410c; }
-  .badge-thankyou { background:#f3e8ff; color:#7e22ce; }
-  figcaption h3 { font-size:15px; margin:10px 0 6px; }
-  figcaption p { font-size:13px; color:var(--muted); margin:0 0 12px; line-height:1.6; }
-  .meta { display:flex; align-items:center; justify-content:space-between; font-size:12px; }
-  .meta code { background:#f1f5f9; padding:2px 7px; border-radius:5px; color:#475569; }
-  .meta a { color:#2563eb; text-decoration:none; font-weight:600; }
-  @media (max-width:520px){ .grid { grid-template-columns:1fr; } .frame { height:auto; aspect-ratio:1280/930; } }
+  :root{ --ink:#0f172a; --muted:#64748b; --line:#e6eaf0; --bg:#eef1f6; --brand:#4f46e5; --brand2:#06b6d4; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,system-ui,sans-serif; color:var(--ink); background:var(--bg); }
+  a{ color:var(--brand); }
+  .hero{ background:linear-gradient(120deg,#312e81,#4f46e5 45%,#06b6d4); color:#fff; padding:48px 28px 40px; position:relative; overflow:hidden; }
+  .hero::after{ content:""; position:absolute; inset:0; background:radial-gradient(600px 300px at 85% -20%,rgba(255,255,255,.25),transparent); pointer-events:none; }
+  .hero .in{ max-width:1280px; margin:0 auto; position:relative; }
+  .hero h1{ margin:0 0 8px; font-size:26px; letter-spacing:.01em; }
+  .hero p{ margin:0; opacity:.9; font-size:14px; }
+  .hero .chips{ margin-top:18px; display:flex; gap:8px; flex-wrap:wrap; }
+  .hero .chip{ background:rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.25); padding:5px 12px; border-radius:999px; font-size:12px; backdrop-filter:blur(4px); }
+  .toolbar{ position:sticky; top:0; z-index:20; background:rgba(255,255,255,.85); backdrop-filter:blur(10px); border-bottom:1px solid var(--line); }
+  .toolbar .in{ max-width:1280px; margin:0 auto; padding:12px 24px; display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+  .search{ flex:1; min-width:200px; position:relative; }
+  .search input{ width:100%; padding:10px 14px 10px 38px; border:1px solid var(--line); border-radius:10px; font-size:14px; background:#fff; }
+  .search::before{ content:"🔍"; position:absolute; left:12px; top:9px; opacity:.5; font-size:14px; }
+  .filters{ display:flex; gap:6px; flex-wrap:wrap; }
+  .fbtn{ border:1px solid var(--line); background:#fff; color:#334155; padding:8px 12px; border-radius:999px; font-size:13px; cursor:pointer; display:inline-flex; gap:6px; align-items:center; }
+  .fbtn span{ background:#eef2ff; color:var(--brand); border-radius:999px; padding:0 7px; font-size:11px; font-weight:700; }
+  .fbtn.active{ background:var(--brand); color:#fff; border-color:var(--brand); }
+  .fbtn.active span{ background:rgba(255,255,255,.25); color:#fff; }
+  .actionbar{ position:sticky; top:57px; z-index:19; background:#0f172a; color:#fff; }
+  .actionbar .in{ max-width:1280px; margin:0 auto; padding:10px 24px; display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+  .actionbar .cnt{ font-size:13px; opacity:.85; }
+  .actionbar .cnt b{ color:#67e8f9; }
+  .actionbar .spacer{ flex:1; }
+  .abtn{ border:0; border-radius:9px; padding:9px 14px; font-size:13px; font-weight:700; cursor:pointer; }
+  .abtn.ghost{ background:rgba(255,255,255,.12); color:#fff; }
+  .abtn.primary{ background:#22d3ee; color:#053b45; }
+  .abtn.green{ background:#34d399; color:#053527; }
+  .abtn:disabled{ opacity:.4; cursor:not-allowed; }
+  .wrap{ max-width:1280px; margin:0 auto; padding:26px 24px 80px; }
+  .group{ margin-top:30px; }
+  .group.hide{ display:none; }
+  .group-title{ font-size:17px; border-left:5px solid var(--brand); padding-left:12px; margin:0 0 16px; }
+  .group-title span{ color:var(--muted); font-size:13px; font-weight:400; margin-left:6px; }
+  .grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(430px,1fr)); gap:22px; }
+  .card{ margin:0; background:#fff; border:1px solid var(--line); border-radius:16px; overflow:hidden; box-shadow:0 4px 14px rgba(15,23,42,.05); transition:transform .15s, box-shadow .15s, outline-color .15s; outline:2px solid transparent; position:relative; }
+  .card:hover{ transform:translateY(-3px); box-shadow:0 14px 34px rgba(15,23,42,.13); }
+  .card.sel{ outline-color:var(--brand); box-shadow:0 10px 30px rgba(79,70,229,.22); }
+  .card.hide{ display:none; }
+  .pick{ position:absolute; top:12px; left:12px; z-index:3; cursor:pointer; }
+  .pick input{ position:absolute; opacity:0; width:24px; height:24px; cursor:pointer; }
+  .pick span{ display:block; width:24px; height:24px; border-radius:7px; background:rgba(255,255,255,.92); border:1px solid #cbd5e1; box-shadow:0 1px 3px rgba(0,0,0,.15); position:relative; }
+  .pick input:checked + span{ background:var(--brand); border-color:var(--brand); }
+  .pick input:checked + span::after{ content:"✓"; color:#fff; position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:15px; font-weight:800; }
+  .frame{ display:block; width:100%; height:300px; overflow:hidden; border-bottom:1px solid var(--line); background:#fff; }
+  .frame iframe{ width:1280px; height:882px; border:0; transform:scale(0.336); transform-origin:top left; pointer-events:none; }
+  figcaption{ padding:15px 17px 17px; }
+  .badge{ display:inline-block; font-size:11px; font-weight:700; padding:3px 10px; border-radius:999px; background:#e2e8f0; color:#334155; }
+  .badge-landing{ background:#dbeafe; color:#1d4ed8; } .badge-form{ background:#dcfce7; color:#15803d; }
+  .badge-event{ background:#ffedd5; color:#c2410c; } .badge-thankyou{ background:#f3e8ff; color:#7e22ce; }
+  .badge-utility{ background:#e0f2fe; color:#0369a1; }
+  figcaption h3{ font-size:15px; margin:10px 0 6px; }
+  figcaption p{ font-size:13px; color:var(--muted); margin:0 0 12px; line-height:1.6; min-height:2.6em; }
+  .meta{ display:flex; align-items:center; justify-content:space-between; gap:8px; font-size:12px; }
+  .meta code{ background:#f1f5f9; padding:2px 7px; border-radius:5px; color:#475569; }
+  .acts{ display:flex; gap:10px; align-items:center; }
+  .acts button{ border:0; background:none; color:var(--brand); font-weight:700; cursor:pointer; font-size:12px; padding:0; }
+  .acts a{ text-decoration:none; font-weight:600; }
+  .empty{ text-align:center; color:var(--muted); padding:60px 20px; display:none; }
+  footer{ text-align:center; color:var(--muted); font-size:12px; padding:24px; }
+  .toast{ position:fixed; bottom:20px; left:50%; transform:translateX(-50%) translateY(20px); background:#0f172a; color:#fff; padding:12px 20px; border-radius:10px; font-size:14px; opacity:0; transition:.25s; z-index:50; }
+  .toast.show{ opacity:1; transform:translateX(-50%) translateY(0); }
+  @media (max-width:520px){ .grid{ grid-template-columns:1fr; } .frame{ height:auto; aspect-ratio:1280/882; } .frame iframe{ transform:scale(calc((100vw - 50px)/1280)); } }
 </style>
 </head>
 <body>
-<header class="page">
+<header class="hero"><div class="in">
   <h1>Account Engagement レイアウトテンプレート ギャラリー</h1>
-  <p>全 ${items.length} パターン — 各カードは実際のレンダリングを縮小表示しています（サンプル内容を差込済み）。</p>
-</header>
+  <p>全 ${items.length} パターン — 選択して ZIP ダウンロード、または API 一括登録用インストーラを生成できます。</p>
+  <div class="chips"><span class="chip">クリックで拡大プレビュー</span><span class="chip">チェックで選択</span><span class="chip">%%content%% 差込済みのサンプル表示</span></div>
+</div></header>
+
+<div class="toolbar"><div class="in">
+  <div class="search"><input id="q" type="search" placeholder="名称・用途・カテゴリで検索..."></div>
+  <div class="filters">${filterBtns}</div>
+</div></div>
+
+<div class="actionbar"><div class="in">
+  <label style="display:flex;gap:7px;align-items:center;font-size:13px;cursor:pointer;"><input type="checkbox" id="selAll"> 表示中をすべて選択</label>
+  <span class="cnt"><b id="selCount">0</b> 件を選択中</span>
+  <span class="spacer"></span>
+  <button class="abtn ghost" id="clearSel">選択解除</button>
+  <button class="abtn primary" id="dlSel" disabled>⬇ 選択をZIP</button>
+  <button class="abtn ghost" id="dlAll">⬇ 全てZIP</button>
+  <button class="abtn green" id="dlInstaller" disabled>⚙ インストーラ生成</button>
+</div></div>
+
 <div class="wrap">
-${sections}</div>
+${sections}  <div class="empty" id="empty">該当するテンプレートがありません。</div>
+</div>
+<footer>Account Engagement Layout Templates · ${items.length} patterns</footer>
+<div class="toast" id="toast"></div>
+
+<script>
+const G = window.__GALLERY__ || {templates:[],installer:{},installerReadme:""};
+const byDir = Object.fromEntries(G.templates.map(t => [t.dir, t]));
+const sel = new Set();
+const $ = (s,r=document)=>r.querySelector(s);
+const $$ = (s,r=document)=>[...r.querySelectorAll(s)];
+
+function toast(msg){ const t=$("#toast"); t.textContent=msg; t.classList.add("show"); clearTimeout(t._t); t._t=setTimeout(()=>t.classList.remove("show"),2200); }
+function saveBlob(blob,name){ const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(a.href),4000); }
+
+function updateCount(){
+  $("#selCount").textContent = sel.size;
+  $("#dlSel").disabled = sel.size===0;
+  $("#dlInstaller").disabled = sel.size===0;
+  $$(".card").forEach(c=> c.classList.toggle("sel", sel.has(c.dataset.dir)));
+}
+function applyFilter(){
+  const f = $(".fbtn.active").dataset.f;
+  const q = $("#q").value.trim().toLowerCase();
+  $$(".card").forEach(c=>{
+    const okCat = f==="all" || c.dataset.cat===f;
+    const okQ = !q || c.dataset.search.includes(q);
+    c.classList.toggle("hide", !(okCat&&okQ));
+  });
+  let anyVisible=false;
+  $$(".group").forEach(g=>{ const vis=$$(".card:not(.hide)",g).length>0; g.classList.toggle("hide",!vis); if(vis)anyVisible=true; });
+  $("#empty").style.display = anyVisible?"none":"block";
+  $("#selAll").checked=false;
+}
+async function buildZip(dirs, withInstaller){
+  if(typeof JSZip==="undefined"){ toast("ZIPライブラリの読込に失敗しました"); return; }
+  const zip = new JSZip();
+  dirs.forEach(d=>{ const t=byDir[d]; if(!t) return; const fo=zip.folder("templates/"+d); fo.file("layout.html",t.layout); fo.file("meta.json",JSON.stringify(t.meta,null,2)); });
+  if(withInstaller){
+    Object.entries(G.installer||{}).forEach(([n,c])=> zip.file(n,c));
+    if(G.installerReadme) zip.file("README.md", G.installerReadme);
+  }
+  const blob = await zip.generateAsync({type:"blob"});
+  saveBlob(blob, withInstaller?"ae-installer.zip":"ae-templates.zip");
+  toast((withInstaller?"インストーラ":"テンプレ")+" "+dirs.length+"件をダウンロードしました");
+}
+
+document.addEventListener("change", e=>{
+  if(e.target.classList.contains("cb")){ const d=e.target.dataset.dir; e.target.checked?sel.add(d):sel.delete(d); updateCount(); }
+});
+$("#q").addEventListener("input", applyFilter);
+$$(".fbtn").forEach(b=> b.addEventListener("click", ()=>{ $$(".fbtn").forEach(x=>x.classList.remove("active")); b.classList.add("active"); applyFilter(); }));
+$("#selAll").addEventListener("change", e=>{
+  $$(".card:not(.hide) .cb").forEach(cb=>{ cb.checked=e.target.checked; const d=cb.dataset.dir; e.target.checked?sel.add(d):sel.delete(d); });
+  updateCount();
+});
+$("#clearSel").addEventListener("click", ()=>{ sel.clear(); $$(".cb").forEach(cb=>cb.checked=false); $("#selAll").checked=false; updateCount(); });
+$("#dlSel").addEventListener("click", ()=> buildZip([...sel], false));
+$("#dlAll").addEventListener("click", ()=> buildZip(G.templates.map(t=>t.dir), false));
+$("#dlInstaller").addEventListener("click", ()=> buildZip([...sel], true));
+document.addEventListener("click", e=>{
+  const b=e.target.closest(".dl-one"); if(!b) return;
+  const t=byDir[b.dataset.dir]; if(!t) return;
+  saveBlob(new Blob([t.layout],{type:"text/html"}), b.dataset.dir+".html");
+  toast(b.dataset.dir+".html をダウンロードしました");
+});
+updateCount();
+</script>
 </body>
 </html>
 `;
@@ -210,5 +443,9 @@ ${sections}</div>
 writeFileSync(join(OUT_DIR, "index.html"), indexHtml, "utf8");
 
 console.log(`✓ プレビューを生成しました: ${items.length} 件`);
-for (const it of items) console.log(`  - preview/${it.file}  (${it.category})`);
+console.log(`  data.js + index.html を出力（DL/インストーラ機能つき）`);
+for (const c of CATEGORY_ORDER) {
+  const n = items.filter((i) => i.category === c).length;
+  if (n) console.log(`  - ${CATEGORY_LABEL[c]}: ${n}`);
+}
 console.log(`\n▶ ギャラリーを開く: account-engagement/preview/index.html`);

@@ -1,0 +1,8 @@
+{
+  "name": "配信設定 - 購読設定センター",
+  "category": "utility",
+  "description": "受信したいトピックや配信頻度を選べる購読設定(プリファレンスセンター)向けレイアウト。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "メール配信設定",
+  "previewDescription": "受け取りたい情報を選択してください。いつでも変更できます。"
+}

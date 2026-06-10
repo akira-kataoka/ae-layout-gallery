@@ -1,0 +1,6 @@
+{
+  "name": "サンクスページ - メール確認案内(ダブルオプトイン)",
+  "category": "thankyou",
+  "description": "確認メール送付の案内ページ。ダブルオプトイン/メールアドレス確認フロー向け。",
+  "isIncludeDefaultCss": false
+}

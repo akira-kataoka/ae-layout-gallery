@@ -1,0 +1,8 @@
+{
+  "name": "配信設定 - 配信停止(理由ヒアリング)",
+  "category": "utility",
+  "description": "配信停止の確認ページ。停止理由のヒアリングと『継続する』導線付き。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "配信を停止しますか？",
+  "previewDescription": "差し支えなければ理由をお聞かせください（任意）。"
+}

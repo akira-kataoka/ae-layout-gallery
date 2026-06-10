@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#d6336c; --ink:#1f2937; --muted:#6b7280; --line:#e5e7eb; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fdf2f6; line-height:1.7; }
+    .ae-wrap { max-width:620px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:22px; }
+    .ae-head h1 { margin:0 0 6px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border-radius:16px; box-shadow:0 8px 28px rgba(214,51,108,.10); padding:34px 30px; }
+    .ae-card form fieldset { border:1px solid var(--line); border-radius:12px; padding:16px 18px; margin:0 0 18px; }
+    .ae-card form legend { font-weight:700; font-size:14px; padding:0 6px; }
+    .ae-card form label { display:inline-flex; align-items:center; gap:6px; margin:4px 12px 4px 0; font-size:14px; }
+    .ae-card form input[type=text],
+    .ae-card form input[type=email],
+    .ae-card form textarea { width:100%; padding:11px 12px; border:1px solid var(--line); border-radius:8px; font-size:14px; }
+    .ae-card form .submit input,
+    .ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:700; font-size:15px; cursor:pointer; }
+    .ae-card form p { margin:0 0 16px; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">%%content%%</div>
+  </div>
+</body>
+</html>

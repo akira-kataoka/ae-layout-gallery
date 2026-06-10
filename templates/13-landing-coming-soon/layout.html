@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#22d3ee; }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100vh; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:#e2e8f0; line-height:1.7;
+      background:radial-gradient(1200px 600px at 70% -10%,#1e3a8a,transparent), linear-gradient(160deg,#0b1020,#111827); display:flex; align-items:center; }
+    .ae-wrap { max-width:640px; margin:0 auto; padding:48px 24px; text-align:center; }
+    .ae-kicker { letter-spacing:.3em; font-size:12px; color:var(--accent); font-weight:700; }
+    .ae-wrap h1 { font-size:clamp(28px,6vw,48px); margin:14px 0; background:linear-gradient(90deg,#fff,#22d3ee); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .ae-wrap > p { color:#94a3b8; max-width:480px; margin:0 auto 28px; }
+    .ae-notify { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); border-radius:16px; padding:26px 24px; backdrop-filter:blur(6px); }
+    .ae-notify form input[type=email],.ae-notify form input[type=text] { width:100%; padding:13px 14px; border:1px solid rgba(255,255,255,.2); border-radius:10px; background:rgba(0,0,0,.25); color:#fff; font-size:15px; }
+    .ae-notify form .submit input,.ae-notify form button { width:100%; margin-top:10px; background:var(--accent); color:#06222b; border:0; padding:14px; border-radius:10px; font-weight:800; cursor:pointer; }
+    .ae-notify form p { margin:0 0 10px; text-align:left; }
+    .ae-foot { margin-top:22px; font-size:12px; color:#64748b; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-kicker">COMING SOON</div>
+    <h1>%%title%%</h1>
+    <p>%%description%%</p>
+    <div class="ae-notify">
+      <p style="margin:0 0 14px;text-align:center;color:#cbd5e1;">公開のお知らせを受け取る</p>
+      %%content%%
+    </div>
+    <div class="ae-foot">&copy; %%account-name%%</div>
+  </div>
+</body>
+</html>

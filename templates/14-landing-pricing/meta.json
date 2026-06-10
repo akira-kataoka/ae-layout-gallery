@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - 料金プラン(3カラム比較)",
+  "category": "landing",
+  "description": "3プラン比較の料金ページ。中央プランを強調。SaaS/サブスク向け。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "シンプルで分かりやすい料金",
+  "previewDescription": "事業規模に合わせて選べる3つのプラン。いつでも変更可能です。"
+}

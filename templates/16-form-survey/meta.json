@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - アンケート/満足度調査",
+  "category": "form",
+  "description": "fieldsetでグループ化したアンケート向けレイアウト。満足度・NPS等の設問に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "サービス満足度アンケート",
+  "previewDescription": "今後のサービス改善のため、ぜひご回答ください（所要1分）。"
+}
