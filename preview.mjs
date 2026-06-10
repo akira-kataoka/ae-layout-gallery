@@ -196,6 +196,14 @@ const PWRESET_FORM = `<form>
   <p class="submit"><input type="submit" value="再設定リンクを送信"></p>
 </form>`;
 
+const QUOTE_FORM = `<form>
+  <div class="row"><p><label>会社名</label><br><input type="text" value="株式会社サンプル"></p><p><label>お名前</label><br><input type="text" value="山田 太郎"></p></div>
+  <div class="row"><p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p><p><label>電話番号</label><br><input type="tel" value="03-0000-0000"></p></div>
+  <p><label>ご希望の製品/サービス</label><br><select><option>スタータープラン</option><option>ビジネスプラン</option><option>エンタープライズ</option></select></p>
+  <p><label>想定ご利用人数・ご要望</label><br><textarea>50名規模での導入を検討しています。</textarea></p>
+  <p class="submit"><input type="submit" value="見積もりを依頼する"></p>
+</form>`;
+
 function contentFor(dir, category) {
   switch (dir) {
     case "04-form-contact": return CONTACT_FORM;
@@ -227,6 +235,7 @@ function contentFor(dir, category) {
     case "41-utility-password-reset": return PWRESET_FORM;
     case "42-landing-seasonal": return NEWSLETTER_FORM;
     case "43-form-whitepaper-toc": return STD_FORM;
+    case "44-form-quote": return QUOTE_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }

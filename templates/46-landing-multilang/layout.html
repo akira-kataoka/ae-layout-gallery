@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0ea5e9; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f7fafc; line-height:1.7; }
+    .ae-bar { background:#fff; border-bottom:1px solid var(--line); padding:12px 20px; display:flex; align-items:center; justify-content:space-between; }
+    .ae-bar .brand { font-weight:800; }
+    .ae-lang { display:flex; gap:4px; border:1px solid var(--line); border-radius:999px; padding:3px; }
+    .ae-lang a { text-decoration:none; color:var(--muted); font-size:12px; font-weight:700; padding:5px 11px; border-radius:999px; }
+    .ae-lang a.on { background:var(--accent); color:#fff; }
+    .ae-hero { text-align:center; padding:56px 20px 28px; }
+    .ae-hero .globe { font-size:40px; }
+    .ae-hero h1 { font-size:30px; margin:10px 0 8px; }
+    .ae-hero p { color:var(--muted); max-width:560px; margin:0 auto; }
+    .ae-body { max-width:760px; margin:24px auto; background:#fff; border:1px solid var(--line); border-radius:16px; padding:36px 32px; }
+    .ae-foot { text-align:center; color:var(--muted); font-size:12px; padding:24px; }
+  </style>
+</head>
+<body>
+  <div class="ae-bar">
+    <span class="brand">%%account-name%%</span>
+    <nav class="ae-lang"><a href="#" class="on">日本語</a><a href="#">EN</a><a href="#">中文</a><a href="#">한국어</a></nav>
+  </div>
+  <header class="ae-hero">
+    <div class="globe">🌐</div>
+    <h1>%%title%%</h1>
+    <p>%%description%%</p>
+  </header>
+  <section class="ae-body">%%content%%</section>
+  <p class="ae-foot">&copy; %%account-name%% — Available in multiple languages</p>
+</body>
+</html>

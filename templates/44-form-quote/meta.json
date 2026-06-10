@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 見積依頼(お見積フロー)",
+  "category": "form",
+  "description": "お見積までの流れ＋依頼フォーム。BtoBの見積・相談リクエスト向け。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "無料お見積り",
+  "previewDescription": "ご要望をお知らせください。担当者より概算をご案内します。"
+}
