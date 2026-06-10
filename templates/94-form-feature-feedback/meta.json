@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 機能リクエスト/フィードバック投稿",
+  "category": "form",
+  "description": "種別選択＋詳細記述のプロダクトフィードバック投稿フォーム。機能要望・不具合報告・改善提案の収集に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "あなたの声を聞かせてください",
+  "previewDescription": "いただいたご意見は、今後のプロダクト改善に活用させていただきます。"
+}

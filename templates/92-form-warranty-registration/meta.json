@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 製品登録/保証登録",
+  "category": "form",
+  "description": "製品名・シリアル番号・購入日を登録する保証登録フォーム。購入後の製品登録・延長保証受付に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "製品保証のご登録",
+  "previewDescription": "ご購入製品を登録すると、保証やサポートをスムーズに受けられます。"
+}

@@ -231,6 +231,22 @@ const CALENDAR_BODY = `<h1>お申し込みが完了しました</h1>
 const SHARE_BODY = `<h1>ご参加ありがとうございます！</h1>
 <p>よろしければ、お知り合いにもシェアしていただけると嬉しいです。</p>`;
 
+const WARRANTY_FORM = `<form>
+  <p><label>製品名 / 型番</label><br><input type="text" value="Model X-200"></p>
+  <div class="row"><p><label>シリアル番号</label><br><input type="text" value="SN-00012345"></p><p><label>購入日</label><br><input type="date" value="2026-06-01"></p></div>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="保証を登録する"></p>
+</form>`;
+
+const FEEDBACK_FORM = `<form>
+  <p><label>種別</label><br><select><option selected>機能リクエスト</option><option>不具合報告</option><option>改善提案</option></select></p>
+  <p><label>タイトル</label><br><input type="text" value="一覧画面に並び替え機能がほしい"></p>
+  <p><label>詳細</label><br><textarea>列ヘッダーをクリックして昇順/降順に並び替えできると便利です。</textarea></p>
+  <p><label>メールアドレス（任意・経過連絡用）</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="送信する"></p>
+</form>`;
+
 const PREORDER_FORM = `<form>
   <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
   <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
@@ -411,6 +427,9 @@ function contentFor(dir, category) {
     case "88-landing-newsletter-archive": return NEWSLETTER_FORM;
     case "89-form-preorder": return PREORDER_FORM;
     case "91-landing-stamp-card": return NEWSLETTER_FORM;
+    case "92-form-warranty-registration": return WARRANTY_FORM;
+    case "93-landing-seminar-archive": return NEWSLETTER_FORM;
+    case "94-form-feature-feedback": return FEEDBACK_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }

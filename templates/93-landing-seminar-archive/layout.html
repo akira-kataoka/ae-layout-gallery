@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#7c3aed; --ink:#0f0a1e; --muted:#a1a1aa; --line:#2a2440; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:#e4e4e7; background:#0f0a1e; line-height:1.7; }
+    .ae-head { text-align:center; padding:48px 20px 8px; }
+    .ae-head h1 { font-size:28px; margin:0 0 8px; color:#fff; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-vids { max-width:980px; margin:24px auto; padding:0 20px; display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .ae-v { background:rgba(255,255,255,.05); border:1px solid var(--line); border-radius:14px; overflow:hidden; }
+    .ae-v .th { position:relative; aspect-ratio:16/9; background:linear-gradient(135deg,#312e81,#7c3aed); display:flex; align-items:center; justify-content:center; }
+    .ae-v .th::after { content:"▶"; color:#fff; font-size:26px; }
+    .ae-v .th .lock { position:absolute; top:8px; right:8px; font-size:14px; }
+    .ae-v .b { padding:12px 14px; }
+    .ae-v .tag { font-size:11px; color:#c4b5fd; font-weight:700; }
+    .ae-v h3 { margin:4px 0 0; font-size:14px; color:#fff; }
+    .ae-card { max-width:520px; margin:24px auto 56px; background:rgba(255,255,255,.05); border:1px solid var(--line); border-radius:16px; padding:28px 26px; text-align:center; }
+    .ae-card .t { font-weight:700; color:#fff; margin-bottom:6px; }
+    .ae-card .s { color:var(--muted); font-size:13px; margin-bottom:16px; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:13px 14px; border:1px solid var(--line); border-radius:10px; background:rgba(0,0,0,.3); color:#fff; font-size:15px; }
+    .ae-card form p { margin:0 0 12px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:10px; font-weight:800; cursor:pointer; }
+    @media (max-width:760px){ .ae-vids { grid-template-columns:1fr 1fr; } }
+    @media (max-width:480px){ .ae-vids { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <header class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></header>
+  <section class="ae-vids">
+    <div class="ae-v"><div class="th"><span class="lock">🔒</span></div><div class="b"><div class="tag">38分</div><h3>成果を出す戦略設計</h3></div></div>
+    <div class="ae-v"><div class="th"><span class="lock">🔒</span></div><div class="b"><div class="tag">45分</div><h3>データ活用の実践</h3></div></div>
+    <div class="ae-v"><div class="th"><span class="lock">🔒</span></div><div class="b"><div class="tag">52分</div><h3>事例で学ぶ運用術</h3></div></div>
+  </section>
+  <section class="ae-card"><div class="t">すべての録画を無料で視聴</div><div class="s">1度の登録で全アーカイブにアクセスできます。</div>%%content%%</section>
+</body>
+</html>

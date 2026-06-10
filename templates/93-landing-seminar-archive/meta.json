@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - セミナーアーカイブ視聴",
+  "category": "landing",
+  "description": "録画動画をグリッド表示し、登録で全アーカイブを解放するオンデマンド動画ライブラリLP。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "過去セミナーのアーカイブ見放題",
+  "previewDescription": "人気セッションの録画を、登録するだけでいつでも視聴できます。"
+}
