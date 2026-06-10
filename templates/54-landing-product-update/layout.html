@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#7c3aed; --ink:#0f172a; --muted:#64748b; --line:#e9e3f7; --new:#16a34a; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#faf9fe; line-height:1.7; }
+    .ae-head { max-width:720px; margin:0 auto; padding:48px 20px 8px; }
+    .ae-ver { display:inline-block; background:#ede9fe; color:var(--accent); font-weight:800; padding:5px 14px; border-radius:999px; font-size:13px; }
+    .ae-head h1 { font-size:28px; margin:12px 0 4px; }
+    .ae-head .date { color:var(--muted); font-size:14px; }
+    .ae-log { max-width:720px; margin:18px auto; padding:0 20px; }
+    .ae-item { background:#fff; border:1px solid var(--line); border-radius:14px; padding:18px 20px; margin-bottom:12px; display:flex; gap:14px; }
+    .ae-item .tag { flex:none; height:fit-content; font-size:11px; font-weight:800; padding:3px 9px; border-radius:6px; }
+    .ae-item .tag.new { background:#dcfce7; color:var(--new); } .ae-item .tag.imp { background:#dbeafe; color:#1d4ed8; } .ae-item .tag.fix { background:#fef3c7; color:#b45309; }
+    .ae-item h3 { margin:0 0 4px; font-size:15px; }
+    .ae-item p { margin:0; color:var(--muted); font-size:14px; }
+    .ae-body { max-width:560px; margin:20px auto 56px; padding:24px; background:#fff; border:1px solid var(--line); border-radius:16px; text-align:center; }
+    .ae-body form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-body form p { margin:0 0 10px; }
+    .ae-body form .submit input,.ae-body form button { width:100%; background:var(--accent); color:#fff; border:0; padding:13px; border-radius:9px; font-weight:700; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <header class="ae-head"><span class="ae-ver">v2.8.0</span><h1>%%title%%</h1><div class="date">2026年7月リリース</div></header>
+  <section class="ae-log">
+    <div class="ae-item"><span class="tag new">NEW</span><div><h3>ダッシュボードのカスタマイズ</h3><p>ウィジェットを自由に並べ替えられるようになりました。</p></div></div>
+    <div class="ae-item"><span class="tag imp">改善</span><div><h3>表示速度を最大40%高速化</h3><p>一覧画面の読み込みが大幅に速くなりました。</p></div></div>
+    <div class="ae-item"><span class="tag fix">修正</span><div><h3>通知の不具合を修正</h3><p>一部条件で通知が届かない問題を解消しました。</p></div></div>
+  </section>
+  <section class="ae-body"><p style="margin-bottom:12px;font-weight:700;">アップデート情報を受け取る</p>%%content%%</section>
+</body>
+</html>

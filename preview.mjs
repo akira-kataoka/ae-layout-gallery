@@ -228,6 +228,15 @@ const SAMPLE_FORM = `<form>
 const CALENDAR_BODY = `<h1>お申し込みが完了しました</h1>
 <p>ご登録ありがとうございます。下記の日時で受け付けました。<br>忘れないようカレンダーに追加しておきましょう。</p>`;
 
+const AMBASSADOR_FORM = `<form>
+  <p><label>お名前 / 活動名</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p><label>主なSNSアカウント (URL)</label><br><input type="text" value="https://instagram.com/sample"></p>
+  <p><label>フォロワー規模</label><br><select><option>〜1千</option><option selected>1千〜1万</option><option>1万〜10万</option><option>10万以上</option></select></p>
+  <p><label>志望動機</label><br><textarea>ブランドのファンとして魅力を広めたいです。</textarea></p>
+  <p class="submit"><input type="submit" value="応募する"></p>
+</form>`;
+
 function contentFor(dir, category) {
   switch (dir) {
     case "04-form-contact": return CONTACT_FORM;
@@ -266,6 +275,9 @@ function contentFor(dir, category) {
     case "50-form-sample-request": return SAMPLE_FORM;
     case "51-landing-loyalty": return NEWSLETTER_FORM;
     case "52-thankyou-calendar": return CALENDAR_BODY;
+    case "53-landing-community": return NEWSLETTER_FORM;
+    case "54-landing-product-update": return NEWSLETTER_FORM;
+    case "55-form-ambassador": return AMBASSADOR_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }
