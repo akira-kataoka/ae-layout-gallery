@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 日程調整/候補日投票",
+  "category": "form",
+  "description": "複数の候補日時から都合のよい枠を選ぶ日程調整フォーム。打合せ・面談・取材の日程調整に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "ご都合のよい日時を教えてください",
+  "previewDescription": "候補からご参加可能な枠をすべてお選びください。"
+}

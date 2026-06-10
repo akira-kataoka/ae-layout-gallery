@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 体験版アクティベーション",
+  "category": "form",
+  "description": "ライセンス/アクティベーションコードを入力して体験版を有効化するフォーム。トライアル開始・コード認証に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "体験版を有効化する",
+  "previewDescription": "お手元のアクティベーションコードを入力してください。"
+}

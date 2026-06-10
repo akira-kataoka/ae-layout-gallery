@@ -231,6 +231,35 @@ const CALENDAR_BODY = `<h1>お申し込みが完了しました</h1>
 const SHARE_BODY = `<h1>ご参加ありがとうございます！</h1>
 <p>よろしければ、お知り合いにもシェアしていただけると嬉しいです。</p>`;
 
+const ACTIVATION_FORM = `<form>
+  <p><label>アクティベーションコード</label><br><input type="text" value="TRIAL-7K9D-2XQ8"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="体験版を有効化"></p>
+</form>`;
+
+const RETENTION_FORM = `<form>
+  <fieldset>
+    <label class="r"><input type="radio" name="why" checked> 料金が高い</label>
+    <label class="r"><input type="radio" name="why"> あまり使わなかった</label>
+    <label class="r"><input type="radio" name="why"> 他サービスに移行</label>
+    <label class="r"><input type="radio" name="why"> その他</label>
+  </fieldset>
+  <p><textarea placeholder="差し支えなければ詳しくお聞かせください（任意）"></textarea></p>
+  <p class="submit"><input type="submit" value="解約手続きを続ける"></p>
+</form>`;
+
+const SCHEDULE_FORM = `<form>
+  <fieldset><legend>候補日時（複数選択可）</legend>
+    <label class="slot"><input type="checkbox" checked> 7/8(火) 10:00-11:00</label>
+    <label class="slot"><input type="checkbox"> 7/8(火) 15:00-16:00</label>
+    <label class="slot"><input type="checkbox" checked> 7/9(水) 13:00-14:00</label>
+    <label class="slot"><input type="checkbox"> 7/10(木) 11:00-12:00</label>
+  </fieldset>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="この日程で回答する"></p>
+</form>`;
+
 const TALENT_FORM = `<form>
   <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
   <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
@@ -459,6 +488,9 @@ function contentFor(dir, category) {
     case "97-form-profile-completion": return PROFILE_FORM;
     case "99-form-talent-pool": return TALENT_FORM;
     case "100-landing-welcome-back": return NEWSLETTER_FORM;
+    case "101-form-trial-activation": return ACTIVATION_FORM;
+    case "102-landing-retention-offer": return RETENTION_FORM;
+    case "103-form-schedule-poll": return SCHEDULE_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }
@@ -491,7 +523,8 @@ function render(html, { title, description, content }) {
 const dirs = readdirSync(TPL_DIR, { withFileTypes: true })
   .filter((e) => e.isDirectory())
   .map((e) => e.name)
-  .sort();
+  // 連番プレフィックスで数値順（"100-" が "11-" より後に来るように）
+  .sort((a, b) => (parseInt(a, 10) || 0) - (parseInt(b, 10) || 0) || a.localeCompare(b));
 
 if (!existsSync(OUT_DIR)) mkdirSync(OUT_DIR, { recursive: true });
 
