@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0f172a; --hot:#e11d48; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f1f5f9; line-height:1.7; }
+    .ae-grid { max-width:940px; margin:0 auto; padding:48px 20px; display:grid; grid-template-columns:1fr 1fr; gap:0; background:#fff; border-radius:18px; overflow:hidden; box-shadow:0 14px 40px rgba(15,23,42,.12); }
+    .ae-prod { background:linear-gradient(160deg,#1e293b,#0f172a); color:#fff; padding:36px 32px; display:flex; flex-direction:column; justify-content:center; }
+    .ae-prod .img { font-size:70px; text-align:center; margin-bottom:14px; }
+    .ae-prod .flag { display:inline-block; background:var(--hot); padding:4px 12px; border-radius:999px; font-size:12px; font-weight:800; }
+    .ae-prod h1 { font-size:24px; margin:10px 0 6px; }
+    .ae-prod .price { font-size:26px; font-weight:800; } .ae-prod .price small { font-size:13px; opacity:.7; text-decoration:line-through; }
+    .ae-prod .ship { opacity:.8; font-size:13px; margin-top:8px; }
+    .ae-form { padding:36px 32px; }
+    .ae-form h2 { margin-top:0; font-size:18px; }
+    .ae-form form label { font-size:13px; font-weight:600; }
+    .ae-form form input[type=text],.ae-form form input[type=email],.ae-form form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-form form p { margin:0 0 14px; }
+    .ae-form form .submit input,.ae-form form button { width:100%; background:var(--hot); color:#fff; border:0; padding:15px; border-radius:9px; font-weight:800; font-size:15px; cursor:pointer; }
+    @media (max-width:720px){ .ae-grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-grid">
+    <section class="ae-prod">
+      <div class="img">🎧</div>
+      <span class="flag">先行予約受付中</span>
+      <h1>%%title%%</h1>
+      <div class="price">¥24,800 <small>¥29,800</small></div>
+      <div class="ship">%%description%%</div>
+    </section>
+    <section class="ae-form"><h2>予約フォーム</h2>%%content%%</section>
+  </div>
+</body>
+</html>

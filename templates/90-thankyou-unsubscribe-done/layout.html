@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#2563eb; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f1f5f9; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:64px 20px; text-align:center; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:42px 34px; box-shadow:0 8px 26px rgba(15,23,42,.07); }
+    .ae-ic { width:70px; height:70px; margin:0 auto 16px; border-radius:50%; background:#f1f5f9; display:flex; align-items:center; justify-content:center; font-size:32px; }
+    .ae-card h1 { margin:0 0 10px; font-size:23px; }
+    .ae-card > p { color:var(--muted); }
+    .ae-resub { margin-top:22px; padding-top:20px; border-top:1px solid var(--line); }
+    .ae-resub .t { font-weight:700; font-size:14px; margin-bottom:10px; }
+    .ae-resub input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; margin-bottom:10px; }
+    .ae-resub button { width:100%; background:var(--accent); color:#fff; border:0; padding:12px; border-radius:9px; font-weight:700; cursor:pointer; }
+    .ae-note { margin-top:14px; font-size:12px; color:var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-card">
+      <div class="ae-ic">✅</div>
+      %%content%%
+      <div class="ae-resub">
+        <div class="t">やっぱり受け取りたい場合は、再登録できます</div>
+        <input type="email" placeholder="メールアドレス">
+        <button type="button">配信を再開する</button>
+      </div>
+      <div class="ae-note">設定の反映には数分かかる場合があります。</div>
+    </div>
+  </div>
+</body>
+</html>

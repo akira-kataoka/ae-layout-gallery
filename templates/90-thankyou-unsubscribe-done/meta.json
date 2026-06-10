@@ -1,0 +1,7 @@
+{
+  "name": "サンクスページ - 配信停止完了",
+  "category": "thankyou",
+  "description": "配信停止の完了確認＋再登録(再購読)導線。オプトアウト完了ページに。",
+  "isIncludeDefaultCss": false,
+  "previewContent": "<h1 style=\"margin:0 0 10px;font-size:23px;\">配信を停止しました</h1><p style=\"color:#64748b;\">今後、登録解除されたメールは送信されません。ご利用ありがとうございました。</p>"
+}
