@@ -1,0 +1,8 @@
+{
+  "name": "配信設定 - パスワード再設定風",
+  "category": "utility",
+  "description": "アカウント系のパスワード再設定/リンク再送風レイアウト。会員サイトの認証導線の見本に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "パスワードをお忘れですか？",
+  "previewDescription": "登録メールアドレスに再設定用リンクをお送りします。"
+}

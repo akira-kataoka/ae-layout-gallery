@@ -38,7 +38,8 @@ if (!existsSync(CONFIG_PATH)) {
 }
 const config = JSON.parse(readFileSync(CONFIG_PATH, "utf8"));
 const isSandbox = String(config.environment).toLowerCase() === "sandbox";
-const API_BASE = isSandbox ? "https://pi.demo.pardot.com" : "https://pi.pardot.com";
+// 通常は環境に応じた本番/デモのエンドポイント。config.apiBaseUrl があればそれを優先（テスト用にモックサーバへ向ける）。
+const API_BASE = config.apiBaseUrl || (isSandbox ? "https://pi.demo.pardot.com" : "https://pi.pardot.com");
 
 if (!config.businessUnitId || config.businessUnitId.startsWith("0Uvxxxx")) {
   console.error("✖ config.json の businessUnitId を実際の値 (0Uv... 18桁) に設定してください。");
@@ -63,14 +64,16 @@ async function getAccessToken() {
   console.log(`• OAuth (username-password) でトークン取得中: ${loginUrl}`);
   const res = await fetch(`${loginUrl}/services/oauth2/token`, {
     method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    headers: { "Content-Type": "application/x-www-form-urlencoded", Connection: "close" },
     body,
   });
   const data = await res.json().catch(() => ({}));
   if (!res.ok || !data.access_token) {
     console.error(`✖ トークン取得に失敗しました (HTTP ${res.status})`);
     console.error("  " + JSON.stringify(data));
-    process.exit(1);
+    const e = new Error("token-failed");
+    e.handled = true;
+    throw e;
   }
   console.log("✓ アクセストークンを取得しました");
   return data.access_token;
@@ -124,6 +127,7 @@ async function createTemplate(token, tpl) {
       Authorization: `Bearer ${token}`,
       "Pardot-Business-Unit-Id": config.businessUnitId,
       "Content-Type": "application/json",
+      Connection: "close",
     },
     body: JSON.stringify(payload),
   });
@@ -166,8 +170,10 @@ async function createTemplate(token, tpl) {
   }
 
   console.log(`\n完了: 成功 ${ok} / 失敗 ${fail}`);
-  process.exit(fail > 0 ? 1 : 0);
+  // process.exit() は fetch(undici) のソケットが残った状態だと Windows で 0xC0000409 で落ちることがあるため、
+  // exitCode を設定してイベントループの自然終了に任せる（Connection: close でソケットは速やかに閉じる）。
+  process.exitCode = fail > 0 ? 1 : 0;
 })().catch((e) => {
-  console.error("✖ 予期せぬエラー:", e);
-  process.exit(1);
+  if (!e?.handled) console.error("✖ 予期せぬエラー:", e);
+  process.exitCode = 1;
 });

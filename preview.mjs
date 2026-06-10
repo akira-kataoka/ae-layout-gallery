@@ -191,6 +191,11 @@ const DONATION_FORM = `<form>
   <p class="submit"><input type="submit" value="この金額で寄付する"></p>
 </form>`;
 
+const PWRESET_FORM = `<form>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="再設定リンクを送信"></p>
+</form>`;
+
 function contentFor(dir, category) {
   switch (dir) {
     case "04-form-contact": return CONTACT_FORM;
@@ -219,6 +224,9 @@ function contentFor(dir, category) {
     case "37-landing-donation": return DONATION_FORM;
     case "38-form-videogate": return STD_FORM;
     case "40-event-series": return STD_FORM;
+    case "41-utility-password-reset": return PWRESET_FORM;
+    case "42-landing-seasonal": return NEWSLETTER_FORM;
+    case "43-form-whitepaper-toc": return STD_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }
@@ -316,15 +324,16 @@ const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replac
 function cardHtml(it) {
   return `      <figure class="card" data-dir="${it.dir}" data-cat="${it.category}" data-search="${esc((it.name + " " + (it.description||"") + " " + it.dir).toLowerCase())}">
         <label class="pick"><input type="checkbox" class="cb" data-dir="${it.dir}"><span></span></label>
-        <a class="frame" href="${it.file}" target="_blank" rel="noopener" title="フルサイズで開く"><iframe src="${it.file}" loading="lazy" tabindex="-1" title="${esc(it.name)}"></iframe></a>
+        <button class="frame" data-open="${it.dir}" title="拡大プレビュー"><iframe src="${it.file}" loading="lazy" tabindex="-1" title="${esc(it.name)}"></iframe></button>
         <figcaption>
           <span class="badge badge-${it.category}">${CATEGORY_LABEL[it.category] || it.category}</span>
           <h3>${esc(it.name)}</h3>
           <p>${esc(it.description || "")}</p>
           <div class="meta"><code>${it.dir}</code>
             <span class="acts">
-              <button class="dl-one" data-dir="${it.dir}" title="このテンプレのHTMLをダウンロード">⬇ HTML</button>
-              <a href="${it.file}" target="_blank" rel="noopener">拡大 ↗</a>
+              <button class="lnk dl-one" data-dir="${it.dir}" title="このテンプレのHTMLをダウンロード">⬇ HTML</button>
+              <button class="lnk code-one" data-dir="${it.dir}" title="HTMLコードを表示/コピー">&lt;/&gt;</button>
+              <button class="lnk open-one" data-open="${it.dir}">拡大 ↗</button>
             </span>
           </div>
         </figcaption>
@@ -361,7 +370,7 @@ const indexHtml = `<!DOCTYPE html>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <script src="data.js"></script>
 <style>
-  :root{ --ink:#0f172a; --muted:#64748b; --line:#e6eaf0; --bg:#eef1f6; --brand:#4f46e5; --brand2:#06b6d4; }
+  :root{ --ink:#0f172a; --muted:#64748b; --line:#e6eaf0; --bg:#eef1f6; --brand:#4f46e5; --brand2:#06b6d4; --card:#fff; }
   *{ box-sizing:border-box; }
   body{ margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,system-ui,sans-serif; color:var(--ink); background:var(--bg); }
   a{ color:var(--brand); }
@@ -426,10 +435,49 @@ const indexHtml = `<!DOCTYPE html>
   .toast{ position:fixed; bottom:20px; left:50%; transform:translateX(-50%) translateY(20px); background:#0f172a; color:#fff; padding:12px 20px; border-radius:10px; font-size:14px; opacity:0; transition:.25s; z-index:50; }
   .toast.show{ opacity:1; transform:translateX(-50%) translateY(0); }
   @media (max-width:520px){ .grid{ grid-template-columns:1fr; } .frame{ height:auto; aspect-ratio:1280/882; } .frame iframe{ transform:scale(calc((100vw - 50px)/1280)); } }
+  /* --- ボタン化した frame / リンクボタン --- */
+  .frame{ border:0; border-bottom:1px solid var(--line); cursor:pointer; padding:0; display:block; width:100%; background:#fff; }
+  .lnk{ border:0; background:none; color:var(--brand); font-weight:700; cursor:pointer; font-size:12px; padding:0; }
+  /* --- テーマトグル --- */
+  .theme-btn{ position:absolute; top:18px; right:24px; background:rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.3); color:#fff; width:40px; height:40px; border-radius:50%; cursor:pointer; font-size:18px; }
+  /* --- モーダル(ライトボックス) --- */
+  .modal[hidden]{ display:none; }
+  .modal{ position:fixed; inset:0; z-index:100; display:flex; align-items:center; justify-content:center; padding:24px; }
+  .modal-bg{ position:absolute; inset:0; background:rgba(2,6,23,.66); backdrop-filter:blur(3px); }
+  .modal-box{ position:relative; width:min(1000px,96vw); height:min(86vh,860px); background:var(--card); border-radius:16px; overflow:hidden; display:flex; flex-direction:column; box-shadow:0 30px 80px rgba(0,0,0,.5); }
+  .modal-head{ display:flex; align-items:center; gap:10px; padding:12px 16px; border-bottom:1px solid var(--line); flex-wrap:wrap; }
+  .modal-head strong{ font-size:14px; flex:1; min-width:120px; }
+  .modal-tabs button,.modal-dev button{ border:1px solid var(--line); background:transparent; color:var(--ink); padding:6px 12px; border-radius:8px; font-size:12px; cursor:pointer; }
+  .modal-tabs button.active,.modal-dev button.active{ background:var(--brand); color:#fff; border-color:var(--brand); }
+  .modal-x{ border:0; background:none; font-size:18px; cursor:pointer; color:var(--muted); }
+  .modal-body{ flex:1; overflow:auto; background:#f1f5f9; }
+  .m-preview{ height:100%; display:flex; justify-content:center; }
+  .m-preview[hidden]{ display:none; }
+  .m-preview iframe{ width:100%; height:100%; border:0; background:#fff; }
+  .m-preview.mobile{ padding:16px 0; align-items:flex-start; }
+  .m-preview.mobile iframe{ width:390px; max-width:100%; border:1px solid var(--line); border-radius:14px; box-shadow:0 10px 30px rgba(0,0,0,.2); }
+  .m-code{ height:100%; display:flex; flex-direction:column; background:#0f172a; }
+  .m-code[hidden]{ display:none; }
+  .m-code-bar{ padding:8px 12px; display:flex; gap:8px; }
+  .m-code-bar button{ border:0; background:#334155; color:#fff; padding:7px 14px; border-radius:8px; font-size:12px; cursor:pointer; font-weight:700; }
+  .m-code pre{ margin:0; padding:0 16px 16px; overflow:auto; flex:1; }
+  .m-code code{ color:#e2e8f0; font:12px/1.6 ui-monospace,Menlo,Consolas,monospace; white-space:pre-wrap; word-break:break-word; }
+  /* --- ダークモード --- */
+  :root[data-theme="dark"]{ --ink:#e2e8f0; --muted:#94a3b8; --line:#243044; --bg:#0b1220; --card:#111a2e; }
+  :root[data-theme="dark"] body{ background:var(--bg); }
+  :root[data-theme="dark"] .toolbar{ background:rgba(17,26,46,.85); }
+  :root[data-theme="dark"] .search input,
+  :root[data-theme="dark"] .fbtn{ background:#111a2e; color:#cbd5e1; }
+  :root[data-theme="dark"] .fbtn span{ background:#1e293b; color:#a5b4fc; }
+  :root[data-theme="dark"] .card{ background:var(--card); }
+  :root[data-theme="dark"] .frame{ background:#0b1220; }
+  :root[data-theme="dark"] .meta code{ background:#1e293b; color:#cbd5e1; }
+  :root[data-theme="dark"] .modal-body{ background:#0b1220; }
 </style>
 </head>
 <body>
 <header class="hero"><div class="in">
+  <button class="theme-btn" id="themeBtn" title="ライト/ダーク切替">🌙</button>
   <h1>Account Engagement レイアウトテンプレート ギャラリー</h1>
   <p>全 ${items.length} パターン — 選択して ZIP ダウンロード、または API 一括登録用インストーラを生成できます。</p>
   <div class="chips"><span class="chip">クリックで拡大プレビュー</span><span class="chip">チェックで選択</span><span class="chip">%%content%% 差込済みのサンプル表示</span></div>
@@ -454,6 +502,26 @@ const indexHtml = `<!DOCTYPE html>
 ${sections}  <div class="empty" id="empty">該当するテンプレートがありません。</div>
 </div>
 <footer>Account Engagement Layout Templates · ${items.length} patterns</footer>
+
+<div class="modal" id="modal" hidden>
+  <div class="modal-bg" data-close></div>
+  <div class="modal-box">
+    <div class="modal-head">
+      <strong id="m-title"></strong>
+      <div class="modal-tabs"><button data-view="preview" class="active">プレビュー</button><button data-view="code">&lt;/&gt; コード</button></div>
+      <div class="modal-dev"><button data-dev="desktop" class="active">🖥 PC</button><button data-dev="mobile">📱 SP</button></div>
+      <button class="modal-x" data-close title="閉じる">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="m-preview"><iframe id="m-frame" title="preview"></iframe></div>
+      <div class="m-code" hidden>
+        <div class="m-code-bar"><button id="m-copy">📋 コピー</button><button id="m-dl">⬇ HTML</button></div>
+        <pre><code id="m-code-text"></code></pre>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
 
 <script>
@@ -517,6 +585,37 @@ document.addEventListener("click", e=>{
   saveBlob(new Blob([t.layout],{type:"text/html"}), b.dataset.dir+".html");
   toast(b.dataset.dir+".html をダウンロードしました");
 });
+
+// --- localStorage 選択保持 ---
+function saveSel(){ try{ localStorage.setItem("ae-sel", JSON.stringify([...sel])); }catch{} }
+function restoreSel(){ try{ JSON.parse(localStorage.getItem("ae-sel")||"[]").forEach(d=>{ const cb=document.querySelector('.cb[data-dir="'+d+'"]'); if(cb){ cb.checked=true; sel.add(d);} }); }catch{} }
+document.addEventListener("change", e=>{ if(e.target.classList.contains("cb")) saveSel(); });
+
+// --- ダークモード ---
+const themeBtn=$("#themeBtn");
+function setTheme(t){ document.documentElement.setAttribute("data-theme",t); themeBtn.textContent=t==="dark"?"☀️":"🌙"; try{localStorage.setItem("ae-theme",t);}catch{} }
+setTheme(localStorage.getItem("ae-theme")||"light");
+themeBtn.addEventListener("click",()=> setTheme(document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark"));
+
+// --- モーダル(ライトボックス) ---
+const modal=$("#modal"), mFrame=$("#m-frame"), mTitle=$("#m-title"), mCodeText=$("#m-code-text");
+let curDir=null;
+function setView(v){ $$("[data-view]").forEach(b=>b.classList.toggle("active",b.dataset.view===v)); $(".m-preview").hidden=(v!=="preview"); $(".m-code").hidden=(v!=="code"); }
+function setDev(d){ $$("[data-dev]").forEach(b=>b.classList.toggle("active",b.dataset.dev===d)); $(".m-preview").classList.toggle("mobile",d==="mobile"); }
+function openModal(dir,view){ const t=byDir[dir]; if(!t) return; curDir=dir; mTitle.textContent=t.name; mFrame.src=dir+".html"; mCodeText.textContent=t.layout; modal.hidden=false; setView(view||"preview"); setDev("desktop"); }
+function closeModal(){ modal.hidden=true; mFrame.src="about:blank"; }
+document.addEventListener("click", e=>{
+  const op=e.target.closest("[data-open]"); if(op){ openModal(op.dataset.open,"preview"); return; }
+  const co=e.target.closest(".code-one"); if(co){ openModal(co.dataset.dir,"code"); return; }
+  if(e.target.closest("[data-close]")){ closeModal(); return; }
+  const v=e.target.closest("[data-view]"); if(v){ setView(v.dataset.view); return; }
+  const dv=e.target.closest("[data-dev]"); if(dv){ setDev(dv.dataset.dev); return; }
+});
+document.addEventListener("keydown", e=>{ if(e.key==="Escape"&&!modal.hidden) closeModal(); });
+$("#m-copy").addEventListener("click", async()=>{ try{ await navigator.clipboard.writeText(byDir[curDir].layout); toast("HTMLをコピーしました"); }catch{ toast("コピーに失敗しました"); } });
+$("#m-dl").addEventListener("click", ()=>{ const t=byDir[curDir]; if(t){ saveBlob(new Blob([t.layout],{type:"text/html"}), curDir+".html"); } });
+
+restoreSel();
 updateCount();
 </script>
 </body>

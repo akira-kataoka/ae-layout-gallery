@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#b91c1c; --gold:#d4af37; --ink:#1a1a1a; --muted:#6b7280; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:#fff; line-height:1.7;
+      background:radial-gradient(1000px 500px at 50% -10%,#7f1d1d,transparent), linear-gradient(160deg,#0f3d2e,#14532d); }
+    .ae-wrap { max-width:680px; margin:0 auto; padding:56px 20px; text-align:center; }
+    .ae-deco { font-size:30px; letter-spacing:6px; }
+    .ae-wrap h1 { font-size:clamp(28px,6vw,44px); margin:10px 0; color:#fff; text-shadow:0 2px 0 rgba(0,0,0,.2); }
+    .ae-wrap h1 b { color:var(--gold); }
+    .ae-sub { color:#fde68a; margin:0 0 8px; }
+    .ae-offer { display:inline-block; border:2px dashed var(--gold); color:var(--gold); padding:10px 22px; border-radius:14px; font-weight:800; margin:14px 0 26px; }
+    .ae-card { background:#fff; color:var(--ink); border-radius:18px; padding:30px 28px; box-shadow:0 18px 44px rgba(0,0,0,.35); }
+    .ae-card form input[type=email],.ae-card form input[type=text] { width:100%; padding:13px 14px; border:1px solid #e5e7eb; border-radius:10px; font-size:15px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:15px; border-radius:10px; font-weight:800; font-size:16px; cursor:pointer; }
+    .ae-foot { margin-top:20px; font-size:12px; color:#a7f3d0; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-deco">❄ ✦ ❄ ✦ ❄</div>
+    <h1>%%title%%</h1>
+    <p class="ae-sub">%%description%%</p>
+    <div class="ae-offer">期間限定 ホリデー特典</div>
+    <div class="ae-card">%%content%%</div>
+    <div class="ae-foot">&copy; %%account-name%% — Season's Greetings</div>
+  </div>
+</body>
+</html>

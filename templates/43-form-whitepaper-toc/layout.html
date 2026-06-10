@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#1e3a8a; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eef2f9; line-height:1.7; }
+    .ae-grid { max-width:960px; margin:0 auto; padding:48px 20px; display:grid; grid-template-columns:1fr 1fr; gap:30px; align-items:start; }
+    .ae-doc { background:#fff; border:1px solid var(--line); border-radius:16px; overflow:hidden; box-shadow:0 10px 30px rgba(30,58,138,.10); }
+    .ae-cover { background:linear-gradient(160deg,#1e3a8a,#3b82f6); color:#fff; padding:26px 24px; }
+    .ae-cover .badge { font-size:12px; opacity:.85; letter-spacing:.1em; }
+    .ae-cover h2 { margin:8px 0 0; font-size:20px; }
+    .ae-toc { padding:22px 24px; }
+    .ae-toc .lbl { font-size:12px; color:var(--muted); font-weight:700; letter-spacing:.05em; }
+    .ae-toc ol { margin:10px 0 0; padding-left:20px; }
+    .ae-toc li { padding:6px 0; border-bottom:1px dashed var(--line); font-size:14px; }
+    .ae-form { background:#fff; border:1px solid var(--line); border-radius:16px; padding:28px 26px; box-shadow:0 10px 30px rgba(30,58,138,.10); position:sticky; top:20px; }
+    .ae-form h1 { font-size:19px; margin:0 0 6px; }
+    .ae-form > p { color:var(--muted); font-size:14px; margin:0 0 18px; }
+    .ae-form form input[type=text],.ae-form form input[type=email],.ae-form form input[type=tel],.ae-form form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-form form p { margin:0 0 14px; }
+    .ae-form form .submit input,.ae-form form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:700; font-size:15px; cursor:pointer; }
+    @media (max-width:760px){ .ae-grid { grid-template-columns:1fr; } .ae-form { position:static; } }
+  </style>
+</head>
+<body>
+  <div class="ae-grid">
+    <div class="ae-doc">
+      <div class="ae-cover"><div class="badge">WHITEPAPER</div><h2>%%title%%</h2></div>
+      <div class="ae-toc">
+        <div class="lbl">目次（抜粋）</div>
+        <ol>
+          <li>市場の最新トレンド</li>
+          <li>よくある3つの課題</li>
+          <li>解決のフレームワーク</li>
+          <li>導入企業の成功事例</li>
+          <li>はじめるためのチェックリスト</li>
+        </ol>
+      </div>
+    </div>
+    <div class="ae-form">
+      <h1>無料ダウンロード</h1>
+      <p>%%description%%</p>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

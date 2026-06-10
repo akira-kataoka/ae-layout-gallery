@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#334155; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100vh; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f1f5f9; line-height:1.7; display:flex; align-items:center; }
+    .ae-wrap { max-width:420px; margin:0 auto; padding:32px 20px; width:100%; }
+    .ae-brand { text-align:center; font-weight:800; letter-spacing:.04em; margin-bottom:16px; color:var(--accent); }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:34px 30px; box-shadow:0 10px 30px rgba(15,23,42,.08); }
+    .ae-lock { width:54px; height:54px; margin:0 auto 14px; border-radius:14px; background:#eef2f7; display:flex; align-items:center; justify-content:center; font-size:26px; }
+    .ae-card h1 { text-align:center; font-size:20px; margin:0 0 6px; }
+    .ae-card > p { text-align:center; color:var(--muted); font-size:14px; margin:0 0 20px; }
+    .ae-card form label { font-size:13px; font-weight:600; }
+    .ae-card form input[type=email],.ae-card form input[type=text],.ae-card form input[type=password] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 14px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:700; font-size:15px; cursor:pointer; }
+    .ae-back { display:block; text-align:center; margin-top:16px; font-size:13px; color:var(--muted); text-decoration:none; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-brand">%%account-name%%</div>
+    <div class="ae-card">
+      <div class="ae-lock">🔑</div>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+      %%content%%
+      <a class="ae-back" href="#">ログイン画面に戻る</a>
+    </div>
+  </div>
+</body>
+</html>
