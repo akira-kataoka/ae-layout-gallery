@@ -231,6 +231,27 @@ const CALENDAR_BODY = `<h1>お申し込みが完了しました</h1>
 const SHARE_BODY = `<h1>ご参加ありがとうございます！</h1>
 <p>よろしければ、お知り合いにもシェアしていただけると嬉しいです。</p>`;
 
+const POSTEVENT_FORM = `<form>
+  <fieldset><legend>満足度</legend>
+    <label><input type="radio" name="sat" checked> 大変満足</label>
+    <label><input type="radio" name="sat"> 満足</label>
+    <label><input type="radio" name="sat"> 普通</label>
+    <label><input type="radio" name="sat"> 不満</label>
+  </fieldset>
+  <p><label>印象に残った点・ご感想</label><br><textarea>事例セッションが具体的で参考になりました。</textarea></p>
+  <p><label>次回取り上げてほしいテーマ</label><br><input type="text" value="生成AIの活用"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="アンケートを送信"></p>
+</form>`;
+
+const CANCEL_FORM = `<form>
+  <p><label>予約番号</label><br><input type="text" value="RV-20260710-014"></p>
+  <p><label>ご希望の操作</label><br><label class="opt"><input type="radio" name="op" checked> 日程を変更</label><label class="opt"><input type="radio" name="op"> キャンセル</label></p>
+  <p><label>変更希望日（変更の場合）</label><br><input type="date" value="2026-07-15"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="この内容で手続きする"></p>
+</form>`;
+
 const ACTIVATION_FORM = `<form>
   <p><label>アクティベーションコード</label><br><input type="text" value="TRIAL-7K9D-2XQ8"></p>
   <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
@@ -491,6 +512,9 @@ function contentFor(dir, category) {
     case "101-form-trial-activation": return ACTIVATION_FORM;
     case "102-landing-retention-offer": return RETENTION_FORM;
     case "103-form-schedule-poll": return SCHEDULE_FORM;
+    case "104-form-post-event-survey": return POSTEVENT_FORM;
+    case "105-landing-spin-wheel": return NEWSLETTER_FORM;
+    case "106-form-cancel-reschedule": return CANCEL_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }
