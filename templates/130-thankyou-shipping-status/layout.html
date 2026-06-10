@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#16a34a; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --done:#16a34a; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f1f5f4; line-height:1.7; }
+    .ae-wrap { max-width:540px; margin:0 auto; padding:56px 20px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:36px 32px; box-shadow:0 10px 30px rgba(15,23,42,.07); text-align:center; }
+    .ae-ic { width:70px; height:70px; margin:0 auto 14px; border-radius:50%; background:#dcfce7; display:flex; align-items:center; justify-content:center; font-size:32px; }
+    .ae-card h1 { margin:0 0 8px; font-size:23px; }
+    .ae-card > p { color:var(--muted); }
+    .ae-track { text-align:left; margin:22px 0 8px; }
+    .ae-track .step { display:flex; gap:14px; align-items:flex-start; position:relative; padding-bottom:18px; }
+    .ae-track .step:not(:last-child)::before { content:""; position:absolute; left:13px; top:26px; bottom:0; width:2px; background:var(--line); }
+    .ae-track .step.done:not(:last-child)::before { background:var(--done); }
+    .ae-track .dot { flex:none; width:28px; height:28px; border-radius:50%; background:#f1f5f9; display:flex; align-items:center; justify-content:center; font-size:14px; z-index:1; }
+    .ae-track .step.done .dot { background:var(--done); color:#fff; }
+    .ae-track b { display:block; font-size:14px; } .ae-track small { color:var(--muted); font-size:12px; }
+    .ae-eta { background:#f0fdf4; border:1px solid #bbf7d0; border-radius:12px; padding:14px; font-size:14px; color:#15803d; }
+    .ae-btn { display:inline-block; margin-top:16px; background:var(--accent); color:#fff; text-decoration:none; padding:12px 26px; border-radius:9px; font-weight:700; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-card">
+      <div class="ae-ic">🚚</div>
+      %%content%%
+      <div class="ae-track">
+        <div class="step done"><span class="dot">✓</span><div><b>ご注文受付</b><small>7/8 10:24</small></div></div>
+        <div class="step done"><span class="dot">✓</span><div><b>発送準備中</b><small>7/8 16:40</small></div></div>
+        <div class="step done"><span class="dot">🚚</span><div><b>配送中</b><small>7/9 09:12</small></div></div>
+        <div class="step"><span class="dot">🏠</span><div><b>お届け</b><small>本日中の予定</small></div></div>
+      </div>
+      <div class="ae-eta">本日 18:00〜20:00 のお届け予定です。</div>
+      <a class="ae-btn" href="#">配送状況をくわしく見る</a>
+    </div>
+  </div>
+</body>
+</html>

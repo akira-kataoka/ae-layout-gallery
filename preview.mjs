@@ -231,6 +231,22 @@ const CALENDAR_BODY = `<h1>お申し込みが完了しました</h1>
 const SHARE_BODY = `<h1>ご参加ありがとうございます！</h1>
 <p>よろしければ、お知り合いにもシェアしていただけると嬉しいです。</p>`;
 
+const SUBBOX_FORM = `<form>
+  <p><label>プラン</label><br><select><option>お試し（3点）</option><option selected>レギュラー（5点）</option><option>デラックス（8点）</option></select></p>
+  <p><label>お届け頻度</label><br><select><option selected>毎月</option><option>隔月</option><option>3ヶ月ごと</option></select></p>
+  <p><label>開始月</label><br><select><option selected>今月から</option><option>翌月から</option></select></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="定期便を申し込む"></p>
+</form>`;
+
+const FACILITY_FORM = `<form>
+  <p><label>ご利用施設</label><br><select><option selected>会議室A（〜8名）</option><option>会議室B（〜20名）</option><option>多目的ホール</option></select></p>
+  <div class="row"><p><label>利用日</label><br><input type="date" value="2026-07-12"></p><p><label>時間帯</label><br><select><option>午前</option><option selected>午後</option><option>終日</option></select></p></div>
+  <p><label>利用人数</label><br><select><option>〜5名</option><option selected>6〜10名</option><option>11名以上</option></select></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="予約を申し込む"></p>
+</form>`;
+
 const BIRTHDAY_FORM = `<form>
   <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
   <p><label>生年月日</label><br><input type="date" value="1992-08-15"></p>
@@ -634,6 +650,8 @@ function contentFor(dir, category) {
     case "124-form-volunteer": return VOLUNTEER_FORM;
     case "126-form-birthday-club": return BIRTHDAY_FORM;
     case "127-form-monitor-recruit": return MONITOR_FORM;
+    case "128-form-subscription-box": return SUBBOX_FORM;
+    case "129-form-facility-reservation": return FACILITY_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }

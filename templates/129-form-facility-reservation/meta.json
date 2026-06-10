@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 施設/スペース予約",
+  "category": "form",
+  "description": "施設・日時・人数を指定する予約フォーム。会議室/レンタルスペース/設備の利用予約受付に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "スペースのご予約",
+  "previewDescription": "ご利用になる施設・日時・人数をお選びください。"
+}

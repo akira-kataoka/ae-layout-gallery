@@ -1,0 +1,7 @@
+{
+  "name": "サンクスページ - 配送状況/お届け予定",
+  "category": "thankyou",
+  "description": "注文完了＋配送ステータスのタイムライン表示。注文確認・出荷通知・お届け予定の案内に。",
+  "isIncludeDefaultCss": false,
+  "previewContent": "<h1 style=\"margin:0 0 8px;font-size:23px;\">ご注文ありがとうございます</h1><p style=\"color:#64748b;\">商品の発送手配が完了しました。お届けまで今しばらくお待ちください。</p>"
+}
