@@ -1,0 +1,7 @@
+{
+  "name": "サンクスページ - 診断結果ページ",
+  "category": "thankyou",
+  "description": "タイプ診断の結果表示＋特性タグ＋おすすめ導線。性格診断/タイプ診断の結果ページ・シェア促進に。",
+  "isIncludeDefaultCss": false,
+  "previewContent": "<h1 style=\"margin:6px 0 12px;font-size:26px;\">ひらめき探求タイプ</h1><p style=\"color:#6b7280;\">あなたは新しいアイデアを次々と生み出す、好奇心あふれるタイプ。変化を楽しみ、人を巻き込む力があります。</p>"
+}

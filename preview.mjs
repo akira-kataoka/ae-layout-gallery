@@ -231,6 +231,22 @@ const CALENDAR_BODY = `<h1>お申し込みが完了しました</h1>
 const SHARE_BODY = `<h1>ご参加ありがとうございます！</h1>
 <p>よろしければ、お知り合いにもシェアしていただけると嬉しいです。</p>`;
 
+const BIRTHDAY_FORM = `<form>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>生年月日</label><br><input type="date" value="1992-08-15"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="登録して特典を受け取る"></p>
+</form>`;
+
+const MONITOR_FORM = `<form>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <fieldset><legend>性別</legend><label class="opt"><input type="radio" name="g" checked> 男性</label><label class="opt"><input type="radio" name="g"> 女性</label><label class="opt"><input type="radio" name="g"> 回答しない</label></fieldset>
+  <p><label>年代</label><br><select><option>20代</option><option selected>30代</option><option>40代</option><option>50代以上</option></select></p>
+  <fieldset><legend>関心分野（複数可）</legend><label class="opt"><input type="checkbox" checked> 美容</label><label class="opt"><input type="checkbox"> 食品</label><label class="opt"><input type="checkbox"> IT</label></fieldset>
+  <p class="submit"><input type="submit" value="モニターに応募する"></p>
+</form>`;
+
 const RECEIPT_FORM = `<form>
   <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
   <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
@@ -616,6 +632,8 @@ function contentFor(dir, category) {
     case "122-form-receipt-campaign": return RECEIPT_FORM;
     case "123-landing-petition": return PETITION_FORM;
     case "124-form-volunteer": return VOLUNTEER_FORM;
+    case "126-form-birthday-club": return BIRTHDAY_FORM;
+    case "127-form-monitor-recruit": return MONITOR_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }
