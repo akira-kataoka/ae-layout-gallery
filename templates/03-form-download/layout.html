@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0a8f5c; --ink:#16202b; --muted:#5b6b7b; --line:#e3e8ee; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eef2f6; line-height:1.7; }
+    .ae-grid { max-width:920px; margin:0 auto; padding:48px 20px; display:grid; grid-template-columns:1fr 1fr; gap:0; background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 10px 36px rgba(22,32,43,.10); }
+    .ae-pitch { background:linear-gradient(160deg,#0a8f5c,#0c6e9a); color:#fff; padding:40px 32px; }
+    .ae-pitch h1 { margin-top:0; font-size:26px; }
+    .ae-pitch ul { padding-left:20px; }
+    .ae-pitch li { margin:8px 0; }
+    .ae-form { padding:40px 32px; }
+    .ae-form h2 { margin-top:0; font-size:20px; }
+    /* Account Engagement 標準フォーム要素のスタイル調整 */
+    .ae-form form input[type=text],
+    .ae-form form input[type=email],
+    .ae-form form input[type=tel],
+    .ae-form form select,
+    .ae-form form textarea { width:100%; padding:11px 12px; border:1px solid var(--line); border-radius:8px; font-size:14px; }
+    .ae-form form .submit input,
+    .ae-form form button { background:var(--accent); color:#fff; border:0; padding:13px 22px; border-radius:8px; font-size:15px; cursor:pointer; width:100%; }
+    .ae-form form p { margin:0 0 16px; }
+    @media (max-width:760px){ .ae-grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-grid">
+    <section class="ae-pitch">
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+      <ul>
+        <li>すぐにダウンロードできます</li>
+        <li>登録は1分で完了</li>
+        <li>最新の事例・ノウハウを収録</li>
+      </ul>
+    </section>
+    <section class="ae-form">
+      <h2>ダウンロードフォーム</h2>
+      %%content%%
+    </section>
+  </div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#e8590c; --ink:#1c2127; --muted:#5b6b7b; --line:#e3e8ee; --dark:#1c2531; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fff; line-height:1.7; }
+    .ae-hero { background:var(--dark); color:#fff; padding:56px 20px; text-align:center; }
+    .ae-badge { display:inline-block; background:var(--accent); color:#fff; font-size:13px; font-weight:700; padding:6px 14px; border-radius:999px; letter-spacing:.05em; }
+    .ae-hero h1 { font-size:30px; margin:16px 0 8px; }
+    .ae-meta { display:flex; gap:20px; justify-content:center; flex-wrap:wrap; margin-top:18px; font-size:14px; opacity:.92; }
+    .ae-meta span::before { content:"●"; color:var(--accent); margin-right:6px; font-size:10px; vertical-align:middle; }
+    .ae-grid { max-width:1000px; margin:40px auto; padding:0 20px 64px; display:grid; grid-template-columns:1.3fr .7fr; gap:32px; align-items:start; }
+    .ae-detail h2 { margin-top:0; }
+    .ae-apply { background:#fff7f2; border:1px solid #ffd9c2; border-radius:14px; padding:28px 24px; position:sticky; top:20px; }
+    .ae-apply h3 { margin-top:0; color:var(--accent); }
+    .ae-apply form input[type=text],
+    .ae-apply form input[type=email],
+    .ae-apply form input[type=tel],
+    .ae-apply form select { width:100%; padding:11px 12px; border:1px solid var(--line); border-radius:8px; font-size:14px; }
+    .ae-apply form .submit input,
+    .ae-apply form button { background:var(--accent); color:#fff; border:0; padding:14px 22px; border-radius:8px; font-size:15px; cursor:pointer; width:100%; }
+    .ae-apply form p { margin:0 0 14px; }
+    @media (max-width:820px){ .ae-grid { grid-template-columns:1fr; } .ae-apply { position:static; } }
+  </style>
+</head>
+<body>
+  <header class="ae-hero">
+    <span class="ae-badge">WEBINAR / EVENT</span>
+    <h1>%%title%%</h1>
+    <div class="ae-meta">
+      <span>開催日時：本文に記載</span>
+      <span>形式：オンライン</span>
+      <span>参加費：無料</span>
+    </div>
+  </header>
+  <div class="ae-grid">
+    <article class="ae-detail">
+      %%content%%
+    </article>
+    <aside class="ae-apply">
+      <h3>お申し込み</h3>
+      <p style="color:var(--muted);font-size:14px;margin-top:0;">下記フォームよりご登録ください。</p>
+      <!-- 申込フォームをこのテンプレートに紐付けると、フォーム本体がここ(%%content%%相当)に描画されます。
+           申込フォーム専用にする場合は本文側ではなくフォームにこのレイアウトを割り当ててください。 -->
+    </aside>
+  </div>
+</body>
+</html>

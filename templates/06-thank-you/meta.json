@@ -1,0 +1,6 @@
+{
+  "name": "サンクスページ - 送信完了",
+  "category": "thankyou",
+  "description": "チェックマーク付きの送信完了/サンクスページ向けレイアウト。フォーム完了後リダイレクト先や完了表示に。",
+  "isIncludeDefaultCss": false
+}

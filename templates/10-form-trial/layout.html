@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#7c3aed; --ink:#111827; --muted:#6b7280; --line:#e5e7eb; --dark:#1e1b3a; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fff; line-height:1.7; }
+    .ae-split { display:grid; grid-template-columns:1fr 1fr; min-height:100vh; }
+    .ae-left { background:var(--dark); color:#fff; padding:56px 48px; display:flex; flex-direction:column; justify-content:center; }
+    .ae-left h1 { font-size:30px; margin:0 0 16px; line-height:1.4; }
+    .ae-left p { opacity:.85; }
+    .ae-checklist { list-style:none; padding:0; margin:24px 0 0; }
+    .ae-checklist li { padding:8px 0 8px 30px; position:relative; }
+    .ae-checklist li::before { content:"✓"; position:absolute; left:0; color:#a78bfa; font-weight:700; }
+    .ae-right { padding:56px 48px; display:flex; flex-direction:column; justify-content:center; }
+    .ae-right h2 { margin-top:0; }
+    .ae-right form input[type=text],
+    .ae-right form input[type=email],
+    .ae-right form input[type=tel],
+    .ae-right form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-right form p { margin:0 0 15px; }
+    .ae-right form .submit input,
+    .ae-right form button { width:100%; background:var(--accent); color:#fff; border:0; padding:15px; border-radius:9px; font-size:15px; font-weight:700; cursor:pointer; }
+    @media (max-width:820px){ .ae-split { grid-template-columns:1fr; } .ae-left,.ae-right { padding:40px 24px; } }
+  </style>
+</head>
+<body>
+  <div class="ae-split">
+    <section class="ae-left">
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+      <ul class="ae-checklist">
+        <li>クレジットカード登録不要</li>
+        <li>全機能を14日間お試し</li>
+        <li>いつでもキャンセル可能</li>
+      </ul>
+    </section>
+    <section class="ae-right">
+      <h2>無料トライアル申し込み</h2>
+      %%content%%
+    </section>
+  </div>
+</body>
+</html>

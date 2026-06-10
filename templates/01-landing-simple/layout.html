@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0b5cab; --ink:#1b2733; --muted:#5b6b7b; --bg:#f5f7fa; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:var(--bg); line-height:1.7; }
+    .ae-wrap { max-width:680px; margin:0 auto; padding:48px 20px 64px; }
+    .ae-card { background:#fff; border-radius:14px; box-shadow:0 6px 24px rgba(27,39,51,.08); padding:40px 36px; }
+    .ae-card h1,.ae-card h2 { color:var(--ink); margin-top:0; }
+    .ae-card a { color:var(--accent); }
+    .ae-footer { text-align:center; color:var(--muted); font-size:12px; margin-top:28px; }
+    @media (max-width:600px){ .ae-card { padding:28px 20px; } }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-card">
+      %%content%%
+    </div>
+    <p class="ae-footer">&copy; %%account-name%% — Powered by Account Engagement</p>
+  </div>
+</body>
+</html>

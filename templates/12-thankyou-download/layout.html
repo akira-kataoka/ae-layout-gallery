@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#2563eb; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eef2ff; line-height:1.7; }
+    .ae-wrap { max-width:600px; margin:0 auto; padding:64px 20px; text-align:center; }
+    .ae-card { background:#fff; border-radius:18px; box-shadow:0 10px 32px rgba(37,99,235,.12); padding:44px 36px; }
+    .ae-doc { font-size:46px; }
+    .ae-card h1 { font-size:24px; margin:10px 0; }
+    .ae-card p { color:var(--muted); }
+    .ae-dl { display:inline-flex; align-items:center; gap:8px; margin:18px 0 6px; background:var(--accent); color:#fff; text-decoration:none; padding:15px 32px; border-radius:10px; font-weight:700; font-size:16px; }
+    .ae-dl:hover { filter:brightness(.95); }
+    .ae-sub { font-size:13px; color:var(--muted); }
+    .ae-next { margin-top:28px; padding-top:22px; border-top:1px solid var(--line); text-align:left; }
+    .ae-next h2 { font-size:16px; margin:0 0 10px; }
+    .ae-next a { color:var(--accent); }
+    @media (max-width:560px){ .ae-card { padding:32px 22px; } }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-card">
+      <div class="ae-doc">📄</div>
+      %%content%%
+      <p class="ae-sub">自動でダウンロードが始まらない場合は上のボタンを押してください。</p>
+      <div class="ae-next">
+        <h2>あわせてご覧ください</h2>
+        <p><a href="%%account-website%%">関連資料の一覧へ</a></p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

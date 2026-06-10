@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#2563eb; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --bg:#f8fafc; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:var(--bg); line-height:1.7; }
+    .ae-nav { background:#fff; border-bottom:1px solid var(--line); padding:14px 24px; font-weight:700; }
+    .ae-hero { text-align:center; padding:64px 20px 40px; }
+    .ae-hero h1 { font-size:34px; margin:0 0 14px; }
+    .ae-hero p { color:var(--muted); font-size:17px; max-width:620px; margin:0 auto 24px; }
+    .ae-cta { display:inline-block; background:var(--accent); color:#fff; text-decoration:none; padding:14px 30px; border-radius:10px; font-weight:700; }
+    .ae-features { max-width:1040px; margin:0 auto; padding:24px 20px 8px; display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+    .ae-feature { background:#fff; border:1px solid var(--line); border-radius:14px; padding:26px 22px; }
+    .ae-feature .ic { width:44px; height:44px; border-radius:10px; background:#dbeafe; color:var(--accent); display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:700; margin-bottom:14px; }
+    .ae-feature h3 { margin:0 0 8px; font-size:17px; }
+    .ae-feature p { margin:0; color:var(--muted); font-size:14px; }
+    .ae-body { max-width:820px; margin:40px auto; background:#fff; border:1px solid var(--line); border-radius:14px; padding:40px 36px; }
+    .ae-footer { text-align:center; color:var(--muted); font-size:12px; padding:32px; }
+    @media (max-width:820px){ .ae-features { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <nav class="ae-nav">%%account-name%%</nav>
+  <header class="ae-hero">
+    <h1>%%title%%</h1>
+    <p>%%description%%</p>
+    <a class="ae-cta" href="#detail">無料で始める</a>
+  </header>
+  <section class="ae-features">
+    <div class="ae-feature"><div class="ic">1</div><h3>かんたん導入</h3><p>面倒な設定は不要。最短当日からご利用いただけます。</p></div>
+    <div class="ae-feature"><div class="ic">2</div><h3>安心のサポート</h3><p>専任担当が運用開始から定着まで伴走します。</p></div>
+    <div class="ae-feature"><div class="ic">3</div><h3>柔軟な拡張性</h3><p>事業の成長に合わせて機能を段階的に拡張できます。</p></div>
+  </section>
+  <section class="ae-body" id="detail">
+    %%content%%
+  </section>
+  <p class="ae-footer">&copy; %%account-name%%</p>
+</body>
+</html>

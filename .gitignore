@@ -1,0 +1,6 @@
+# 生成物（CI で preview.mjs により再生成されるためコミットしない）
+preview/
+
+node_modules/
+.DS_Store
+Thumbs.db

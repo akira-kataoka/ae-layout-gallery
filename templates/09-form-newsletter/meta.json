@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - ニュースレター登録(コンパクト)",
+  "category": "form",
+  "description": "メール中心のコンパクトなメルマガ/ニュースレター登録カード。ポップアップやサイドバー埋め込みにも。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "最新情報をお届けします",
+  "previewDescription": "業界トレンドや事例を月1回、メールでお送りします。"
+}

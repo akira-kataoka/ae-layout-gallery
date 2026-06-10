@@ -1,0 +1,6 @@
+{
+  "name": "サンクスページ - 資料DL完了(DLボタン)",
+  "category": "thankyou",
+  "description": "資料ダウンロード完了用。ダウンロードボタンと関連リンクを備えたサンクスページ。",
+  "isIncludeDefaultCss": false
+}

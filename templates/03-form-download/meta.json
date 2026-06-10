@@ -1,0 +1,6 @@
+{
+  "name": "フォーム - 資料ダウンロード(2カラム訴求型)",
+  "category": "form",
+  "description": "左に訴求コピー、右にフォームを配置するホワイトペーパー/資料DL向けレイアウト。formContentは省略しAE標準のフォーム描画を使用。",
+  "isIncludeDefaultCss": false
+}

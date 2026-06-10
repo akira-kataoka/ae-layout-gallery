@@ -1,0 +1,6 @@
+{
+  "name": "フォーム - お問い合わせ(1カラム)",
+  "category": "form",
+  "description": "1カラムのお問い合わせ/相談フォーム向けレイアウト。formContentは省略しAE標準のフォーム描画を使用。",
+  "isIncludeDefaultCss": false
+}
