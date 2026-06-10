@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0ea5e9; --ink:#0f213a; --muted:#5b6b7b; --line:#dce7f0; --dark:#0c2740; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f0f7fc; line-height:1.7; }
+    .ae-hero { background:linear-gradient(135deg,#0c4a6e,#0ea5e9); color:#fff; padding:50px 20px; text-align:center; }
+    .ae-hero .badge { display:inline-block; background:rgba(255,255,255,.18); padding:5px 14px; border-radius:999px; font-size:13px; font-weight:700; }
+    .ae-hero h1 { font-size:28px; margin:12px 0 4px; }
+    .ae-hero p { margin:0; opacity:.92; }
+    .ae-prog { max-width:840px; margin:-22px auto 0; padding:0 20px; display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+    .ae-prog div { background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px; text-align:center; box-shadow:0 6px 18px rgba(14,165,233,.08); font-size:13px; }
+    .ae-prog .ic { font-size:22px; }
+    .ae-grid { max-width:840px; margin:30px auto; padding:0 20px 56px; display:grid; grid-template-columns:1.2fr .8fr; gap:30px; align-items:start; }
+    .ae-detail h2 { margin-top:0; }
+    .ae-apply { background:#fff; border-radius:16px; box-shadow:0 8px 24px rgba(14,165,233,.1); padding:26px 24px; position:sticky; top:20px; border-top:4px solid var(--accent); }
+    .ae-apply h3 { margin-top:0; color:var(--accent); }
+    .ae-apply form input[type=text],.ae-apply form input[type=email],.ae-apply form select { width:100%; padding:11px 12px; border:1px solid var(--line); border-radius:8px; font-size:14px; }
+    .ae-apply form p { margin:0 0 13px; }
+    .ae-apply form .submit input,.ae-apply form button { width:100%; background:var(--accent); color:#fff; border:0; padding:13px; border-radius:8px; font-weight:700; cursor:pointer; }
+    @media (max-width:760px){ .ae-prog { grid-template-columns:1fr 1fr; } .ae-grid { grid-template-columns:1fr; } .ae-apply { position:static; } }
+  </style>
+</head>
+<body>
+  <header class="ae-hero"><span class="badge">オープンキャンパス</span><h1>%%title%%</h1><p>%%description%%</p></header>
+  <section class="ae-prog">
+    <div><div class="ic">🏫</div>校舎見学</div>
+    <div><div class="ic">🧪</div>体験授業</div>
+    <div><div class="ic">🍽️</div>学食ランチ</div>
+    <div><div class="ic">💬</div>個別相談</div>
+  </section>
+  <div class="ae-grid">
+    <article class="ae-detail">%%content%%</article>
+    <aside class="ae-apply"><h3>参加申込</h3><p style="color:var(--muted);font-size:14px;margin-top:0;">保護者の方の同伴も歓迎です。</p></aside>
+  </div>
+</body>
+</html>

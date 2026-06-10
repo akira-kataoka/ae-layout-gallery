@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#1e3a5f; --gold:#b08d57; --ink:#1a2230; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f7f9fb; line-height:1.7; }
+    .ae-hero { background:var(--accent); color:#fff; padding:48px 20px; }
+    .ae-hero .in { max-width:820px; margin:0 auto; }
+    .ae-hero .k { color:var(--gold); letter-spacing:.15em; font-size:12px; font-weight:700; }
+    .ae-hero h1 { font-size:27px; margin:8px 0 6px; }
+    .ae-hero p { margin:0; opacity:.85; }
+    .ae-kpis { max-width:820px; margin:-22px auto 0; padding:0 20px; display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+    .ae-kpis div { background:#fff; border:1px solid var(--line); border-radius:14px; padding:18px; text-align:center; box-shadow:0 6px 18px rgba(30,58,95,.08); }
+    .ae-kpis .num { font-size:24px; font-weight:800; color:var(--accent); } .ae-kpis .lbl { font-size:12px; color:var(--muted); }
+    .ae-docs { max-width:820px; margin:24px auto 0; padding:0 20px; }
+    .ae-docs a { display:flex; justify-content:space-between; background:#fff; border:1px solid var(--line); border-radius:10px; padding:14px 16px; margin-bottom:10px; text-decoration:none; color:var(--ink); font-weight:600; }
+    .ae-docs a span.dl { color:var(--accent); font-size:13px; }
+    .ae-card { max-width:520px; margin:24px auto 56px; background:#fff; border:1px solid var(--line); border-radius:16px; padding:26px 24px; text-align:center; box-shadow:0 8px 24px rgba(30,58,95,.1); }
+    .ae-card .t { font-weight:700; margin-bottom:6px; }
+    .ae-card form input[type=email],.ae-card form input[type=text] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:700; cursor:pointer; }
+    @media (max-width:560px){ .ae-kpis { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <header class="ae-hero"><div class="in"><div class="k">INVESTOR RELATIONS</div><h1>%%title%%</h1><p>%%description%%</p></div></header>
+  <section class="ae-kpis">
+    <div><div class="num">+18%</div><div class="lbl">売上高成長率(YoY)</div></div>
+    <div><div class="num">24.5%</div><div class="lbl">営業利益率</div></div>
+    <div><div class="num">¥42</div><div class="lbl">1株当たり配当(予想)</div></div>
+  </section>
+  <section class="ae-docs">
+    <a href="#">2026年度 第1四半期 決算説明資料 <span class="dl">PDF ↓</span></a>
+    <a href="#">統合報告書 2026 <span class="dl">PDF ↓</span></a>
+  </section>
+  <section class="ae-card"><div class="t">IR情報の配信登録</div><p style="color:var(--muted);font-size:13px;margin:0 0 12px;">決算・適時開示をメールでお届けします。</p>%%content%%</section>
+</body>
+</html>

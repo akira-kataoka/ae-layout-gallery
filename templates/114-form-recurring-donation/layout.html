@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#059669; --ink:#0f1f1a; --muted:#5b6b62; --line:#d8ece3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f0faf5; line-height:1.7; }
+    .ae-wrap { max-width:600px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:18px; }
+    .ae-head .ic { font-size:44px; }
+    .ae-head h1 { margin:6px 0; font-size:25px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-monthly { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:8px; }
+    .ae-monthly label input { position:absolute; opacity:0; }
+    .ae-monthly label span { display:block; text-align:center; padding:16px 0; border:1px solid var(--line); border-radius:12px; cursor:pointer; background:#fff; font-weight:700; }
+    .ae-monthly label span small { display:block; font-size:11px; color:var(--muted); font-weight:400; }
+    .ae-monthly label input:checked + span { background:var(--accent); color:#fff; border-color:var(--accent); }
+    .ae-impact { background:#ecfdf5; border-radius:12px; padding:14px; font-size:13px; color:#065f46; margin:12px 0 16px; text-align:center; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:28px 26px; box-shadow:0 8px 24px rgba(5,150,105,.1); }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 14px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:15px; border-radius:10px; font-weight:800; font-size:16px; cursor:pointer; }
+    @media (max-width:480px){ .ae-monthly { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><div class="ic">🤲</div><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-monthly">
+      <label><input type="radio" name="m"><span>¥500<small>/月</small></span></label>
+      <label><input type="radio" name="m" checked><span>¥1,000<small>/月</small></span></label>
+      <label><input type="radio" name="m"><span>¥3,000<small>/月</small></span></label>
+    </div>
+    <div class="ae-impact">月々¥1,000のご支援で、1人の子どもに毎月の給食を届けられます。</div>
+    <div class="ae-card">%%content%%</div>
+  </div>
+</body>
+</html>

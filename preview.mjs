@@ -231,6 +231,12 @@ const CALENDAR_BODY = `<h1>お申し込みが完了しました</h1>
 const SHARE_BODY = `<h1>ご参加ありがとうございます！</h1>
 <p>よろしければ、お知り合いにもシェアしていただけると嬉しいです。</p>`;
 
+const RECUR_DONATION_FORM = `<form>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="マンスリーサポーターになる"></p>
+</form>`;
+
 const HEALTH_FORM = `<form>
   <p><label>受診コース</label><br><select><option>基本コース</option><option selected>充実コース</option><option>人間ドック</option></select></p>
   <p><label>オプション検査</label><br><label class="opt"><input type="checkbox" checked> 脳ドック</label><label class="opt"><input type="checkbox"> 胃カメラ</label><label class="opt"><input type="checkbox"> 婦人科</label></p>
@@ -543,6 +549,8 @@ function contentFor(dir, category) {
     case "109-landing-low-stock": return NEWSLETTER_FORM;
     case "110-form-health-checkup": return HEALTH_FORM;
     case "111-form-points-exchange": return POINTS_FORM;
+    case "114-form-recurring-donation": return RECUR_DONATION_FORM;
+    case "115-landing-investor-relations": return NEWSLETTER_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }
