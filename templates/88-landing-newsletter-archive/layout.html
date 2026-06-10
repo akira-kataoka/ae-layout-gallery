@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0f766e; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f3faf8; line-height:1.7; }
+    .ae-head { text-align:center; padding:48px 20px 8px; }
+    .ae-head h1 { font-size:28px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-list { max-width:720px; margin:24px auto; padding:0 20px; }
+    .ae-issue { background:#fff; border:1px solid var(--line); border-radius:14px; padding:18px 20px; margin-bottom:12px; box-shadow:0 4px 14px rgba(15,118,110,.06); }
+    .ae-issue time { font-size:12px; color:var(--accent); font-weight:700; }
+    .ae-issue h3 { margin:4px 0 4px; font-size:16px; }
+    .ae-issue p { margin:0; color:var(--muted); font-size:14px; }
+    .ae-issue a { color:var(--accent); font-size:13px; font-weight:700; text-decoration:none; }
+    .ae-card { max-width:520px; margin:24px auto 56px; background:linear-gradient(135deg,#0f766e,#0891b2); color:#fff; border-radius:16px; padding:28px 26px; text-align:center; }
+    .ae-card .t { font-weight:700; margin-bottom:6px; font-size:18px; }
+    .ae-card .s { opacity:.9; font-size:13px; margin-bottom:16px; }
+    .ae-card form input[type=email] { width:100%; padding:13px 14px; border:0; border-radius:10px; font-size:15px; }
+    .ae-card form p { margin:0 0 10px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:#062f2b; color:#fff; border:0; padding:14px; border-radius:10px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <header class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></header>
+  <section class="ae-list">
+    <div class="ae-issue"><time>2026.06.20 · Vol.42</time><h3>成果を出すメール件名の作り方</h3><p>開封率を高める7つの法則を解説。</p><a href="#">バックナンバーを読む →</a></div>
+    <div class="ae-issue"><time>2026.06.06 · Vol.41</time><h3>データで見る購買行動の変化</h3><p>最新調査からわかる消費者インサイト。</p><a href="#">バックナンバーを読む →</a></div>
+    <div class="ae-issue"><time>2026.05.23 · Vol.40</time><h3>はじめての顧客セグメント設計</h3><p>明日から使える実践ステップ。</p><a href="#">バックナンバーを読む →</a></div>
+  </section>
+  <section class="ae-card"><div class="t">毎週、無料でお届け</div><div class="s">最新号をいち早くメールで受け取りましょう。</div>%%content%%</section>
+</body>
+</html>

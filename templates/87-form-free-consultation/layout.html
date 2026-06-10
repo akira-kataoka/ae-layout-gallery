@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#1e40af; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eef2fb; line-height:1.7; }
+    .ae-grid { max-width:920px; margin:0 auto; padding:48px 20px; display:grid; grid-template-columns:1fr 1.1fr; gap:30px; align-items:start; }
+    .ae-pro { text-align:center; }
+    .ae-pro .ava { width:96px; height:96px; border-radius:50%; margin:0 auto 12px; background:linear-gradient(135deg,#93c5fd,#1e40af); display:flex; align-items:center; justify-content:center; font-size:42px; color:#fff; }
+    .ae-pro h1 { font-size:22px; margin:0 0 4px; }
+    .ae-pro .role { color:var(--muted); font-size:14px; }
+    .ae-pro .desc { color:var(--muted); font-size:14px; margin-top:12px; }
+    .ae-pro .badges { display:flex; gap:8px; justify-content:center; margin-top:12px; flex-wrap:wrap; font-size:12px; }
+    .ae-pro .badges span { background:#dbeafe; color:var(--accent); padding:4px 10px; border-radius:999px; font-weight:700; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:30px 28px; box-shadow:0 8px 26px rgba(30,64,175,.1); }
+    .ae-card h2 { margin-top:0; font-size:18px; }
+    .ae-card form label { font-size:13px; font-weight:600; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form input[type=tel],.ae-card form input[type=date],.ae-card form select,.ae-card form textarea { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 14px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:700; font-size:15px; cursor:pointer; }
+    @media (max-width:720px){ .ae-grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-grid">
+    <div class="ae-pro">
+      <div class="ava">👩‍💼</div>
+      <h1>専門スタッフが対応</h1>
+      <div class="role">国家資格保有 / 相談実績2,000件超</div>
+      <div class="desc">%%description%%</div>
+      <div class="badges"><span>初回無料</span><span>オンライン可</span><span>秘密厳守</span></div>
+    </div>
+    <div class="ae-card"><h2>%%title%%</h2>%%content%%</div>
+  </div>
+</body>
+</html>

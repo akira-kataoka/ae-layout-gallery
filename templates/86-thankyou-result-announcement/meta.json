@@ -1,0 +1,7 @@
+{
+  "name": "サンクスページ - 抽選結果発表(当落)",
+  "category": "thankyou",
+  "description": "当選/結果のお祝い演出＋賞品表示＋次アクション案内。キャンペーン抽選結果・当落発表に。",
+  "isIncludeDefaultCss": false,
+  "previewContent": "<h1 style=\"margin:14px 0 8px;font-size:26px;color:#16a34a;\">おめでとうございます！</h1><p style=\"color:#5b6b62;margin:0;\">厳正な抽選の結果、あなたが当選されました。</p>"
+}
