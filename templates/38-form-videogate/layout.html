@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#e11d48; --ink:#0b1020; --muted:#94a3b8; --line:#27324a; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:#e2e8f0; background:#0b1020; line-height:1.7; }
+    .ae-wrap { max-width:900px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:24px; }
+    .ae-head h1 { margin:0 0 8px; font-size:27px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-stage { position:relative; border-radius:18px; overflow:hidden; border:1px solid var(--line); }
+    .ae-video { aspect-ratio:16/9; background:linear-gradient(135deg,#1e293b,#0f172a); filter:blur(2px); display:flex; align-items:center; justify-content:center; }
+    .ae-video .play { width:74px; height:74px; border-radius:50%; background:rgba(255,255,255,.9); display:flex; align-items:center; justify-content:center; }
+    .ae-video .play::after { content:""; border-left:24px solid var(--accent); border-top:15px solid transparent; border-bottom:15px solid transparent; margin-left:6px; }
+    .ae-gate { position:absolute; inset:0; background:rgba(11,16,32,.82); backdrop-filter:blur(4px); display:flex; align-items:center; justify-content:center; padding:20px; }
+    .ae-card { background:#0f172a; border:1px solid var(--line); border-radius:16px; padding:28px 26px; max-width:380px; width:100%; box-shadow:0 20px 50px rgba(0,0,0,.5); }
+    .ae-card .lock { text-align:center; font-size:30px; }
+    .ae-card h2 { text-align:center; font-size:18px; margin:6px 0 16px; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; background:rgba(255,255,255,.04); color:#fff; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:13px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-stage">
+      <div class="ae-video"><div class="play"></div></div>
+      <div class="ae-gate">
+        <div class="ae-card">
+          <div class="lock">🔒</div>
+          <h2>視聴にはご登録が必要です</h2>
+          %%content%%
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -217,6 +217,8 @@ function contentFor(dir, category) {
     case "35-form-nps": return NPS_FORM;
     case "36-thankyou-onboarding": return ONBOARDING_BODY;
     case "37-landing-donation": return DONATION_FORM;
+    case "38-form-videogate": return STD_FORM;
+    case "40-event-series": return STD_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }

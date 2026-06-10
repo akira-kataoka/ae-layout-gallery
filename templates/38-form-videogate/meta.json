@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 限定動画ゲート",
+  "category": "form",
+  "description": "ぼかした動画上にフォームをオーバーレイし、登録で視聴解除する動画ゲート(コンテンツゲーティング)向け。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "限定セミナー動画を公開中",
+  "previewDescription": "ご登録いただくと、本編をすぐに視聴いただけます。"
+}
