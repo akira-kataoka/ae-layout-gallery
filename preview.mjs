@@ -173,6 +173,24 @@ const QUIZ_FORM = `<form>
   <p class="submit"><input type="submit" value="診断結果を見る"></p>
 </form>`;
 
+const NPS_FORM = `<form>
+  <div class="ae-scale">
+    ${[0,1,2,3,4,5,6,7,8,9,10].map((n)=>`<label><input type="radio" name="nps"${n===9?" checked":""}><span>${n}</span></label>`).join("")}
+  </div>
+  <div class="ae-ends"><span>全く思わない</span><span>強くそう思う</span></div>
+  <p><label>そのスコアにした理由（任意）</label><br><textarea>サポートが手厚く、安心して使えるため。</textarea></p>
+  <p class="submit"><input type="submit" value="送信する"></p>
+</form>`;
+
+const ONBOARDING_BODY = `<h1>ようこそ、サンプル株式会社へ！</h1>
+<p>ご登録ありがとうございます。下のステップに沿って、さっそく始めましょう。</p>`;
+
+const DONATION_FORM = `<form>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="この金額で寄付する"></p>
+</form>`;
+
 function contentFor(dir, category) {
   switch (dir) {
     case "04-form-contact": return CONTACT_FORM;
@@ -196,6 +214,9 @@ function contentFor(dir, category) {
     case "32-landing-testimonials": return NEWSLETTER_FORM;
     case "33-form-quiz": return QUIZ_FORM;
     case "34-utility-maintenance": return NEWSLETTER_FORM;
+    case "35-form-nps": return NPS_FORM;
+    case "36-thankyou-onboarding": return ONBOARDING_BODY;
+    case "37-landing-donation": return DONATION_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#059669; --ink:#0f221c; --muted:#5b6b66; --line:#d7e7e0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f0faf6; line-height:1.7; }
+    .ae-hero { background:linear-gradient(160deg,#065f46,#059669); color:#fff; padding:48px 20px; text-align:center; }
+    .ae-hero h1 { font-size:28px; margin:0 0 8px; }
+    .ae-hero p { margin:0; opacity:.92; }
+    .ae-progress { max-width:680px; margin:24px auto 0; }
+    .ae-bar { height:14px; background:rgba(255,255,255,.25); border-radius:999px; overflow:hidden; }
+    .ae-bar i { display:block; height:100%; width:68%; background:#fbbf24; }
+    .ae-figs { display:flex; justify-content:space-between; font-size:13px; margin-top:8px; }
+    .ae-grid { max-width:680px; margin:-20px auto 56px; padding:0 20px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:30px 28px; box-shadow:0 10px 30px rgba(5,150,105,.12); }
+    .ae-amounts { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:18px; }
+    .ae-amounts label input { position:absolute; opacity:0; }
+    .ae-amounts label span { display:block; text-align:center; padding:14px 0; border:1px solid var(--line); border-radius:10px; cursor:pointer; font-weight:700; }
+    .ae-amounts label input:checked + span { background:var(--accent); color:#fff; border-color:var(--accent); }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 14px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:15px; border-radius:10px; font-weight:800; font-size:16px; cursor:pointer; }
+    @media (max-width:520px){ .ae-amounts { grid-template-columns:repeat(2,1fr); } }
+  </style>
+</head>
+<body>
+  <header class="ae-hero">
+    <h1>%%title%%</h1>
+    <p>%%description%%</p>
+    <div class="ae-progress"><div class="ae-bar"><i></i></div><div class="ae-figs"><span>¥6,800,000 集まりました</span><span>目標 ¥10,000,000</span></div></div>
+  </header>
+  <div class="ae-grid">
+    <div class="ae-card">
+      <div class="ae-amounts">
+        <label><input type="radio" name="amt"><span>¥1,000</span></label>
+        <label><input type="radio" name="amt" checked><span>¥3,000</span></label>
+        <label><input type="radio" name="amt"><span>¥5,000</span></label>
+        <label><input type="radio" name="amt"><span>¥10,000</span></label>
+      </div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

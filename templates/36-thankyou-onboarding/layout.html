@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#2563eb; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --done:#16a34a; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eff4ff; line-height:1.7; }
+    .ae-wrap { max-width:620px; margin:0 auto; padding:56px 20px; }
+    .ae-card { background:#fff; border-radius:18px; box-shadow:0 12px 34px rgba(37,99,235,.12); padding:40px 34px; }
+    .ae-hi { text-align:center; }
+    .ae-hi .wave { font-size:46px; }
+    .ae-hi h1 { margin:8px 0 8px; font-size:25px; }
+    .ae-hi p { color:var(--muted); margin:0 0 8px; }
+    .ae-steps { list-style:none; padding:0; margin:24px 0 8px; }
+    .ae-steps li { display:flex; gap:14px; padding:14px 0; border-bottom:1px solid var(--line); align-items:flex-start; }
+    .ae-steps .n { flex:none; width:30px; height:30px; border-radius:50%; background:#dbeafe; color:var(--accent); display:flex; align-items:center; justify-content:center; font-weight:800; }
+    .ae-steps li.done .n { background:var(--done); color:#fff; }
+    .ae-steps b { display:block; }
+    .ae-steps span { color:var(--muted); font-size:13px; }
+    .ae-btn { display:block; text-align:center; margin-top:24px; background:var(--accent); color:#fff; text-decoration:none; padding:15px; border-radius:11px; font-weight:700; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-card">
+      <div class="ae-hi">
+        <div class="wave">👋</div>
+        %%content%%
+      </div>
+      <ul class="ae-steps">
+        <li class="done"><span class="n">✓</span><div><b>アカウント作成</b><span>完了しました</span></div></li>
+        <li><span class="n">2</span><div><b>プロフィールを設定</b><span>あなたに合わせて最適化します</span></div></li>
+        <li><span class="n">3</span><div><b>最初のデータを取り込む</b><span>3分で完了します</span></div></li>
+        <li><span class="n">4</span><div><b>チームを招待</b><span>一緒に始めましょう</span></div></li>
+      </ul>
+      <a class="ae-btn" href="%%account-website%%">セットアップを続ける</a>
+    </div>
+  </div>
+</body>
+</html>

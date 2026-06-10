@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - NPS/フィードバック(0-10スケール)",
+  "category": "form",
+  "description": "0〜10の推奨度スケール＋自由記述のNPS/顧客フィードバック向けレイアウト。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "サービスを友人や同僚に勧めますか？",
+  "previewDescription": "0（全く思わない）〜 10（強くそう思う）でお答えください。"
+}

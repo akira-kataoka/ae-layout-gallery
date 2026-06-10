@@ -1,0 +1,6 @@
+{
+  "name": "サンクスページ - ウェルカム/オンボーディング",
+  "category": "thankyou",
+  "description": "登録直後のウェルカム＋次のステップ・チェックリスト表示。オンボーディング導線に。",
+  "isIncludeDefaultCss": false
+}
