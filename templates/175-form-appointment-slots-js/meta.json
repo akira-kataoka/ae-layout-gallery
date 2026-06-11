@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 時間スロット予約(JS)",
+  "category": "form",
+  "description": "空き時間ボタンから希望枠を選べるインタラクティブな予約フォーム(素のJS・classList/textContent・満席はdisabled)。サロン/相談/面談予約に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "ご希望の時間を選択",
+  "previewDescription": "空いている時間枠をタップして、ご予約ください。"
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#2563eb; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f3f6fc; line-height:1.7; }
+    .ae-wrap { max-width:600px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:16px; }
+    .ae-head h1 { margin:0 0 6px; font-size:24px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:26px; box-shadow:0 8px 24px rgba(37,99,235,.1); }
+    .ae-day { font-weight:700; margin:0 0 10px; }
+    .ae-slots { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-bottom:16px; }
+    .ae-slots button { padding:12px 0; border:1px solid var(--line); border-radius:10px; background:#fff; cursor:pointer; font-weight:700; font-size:14px; }
+    .ae-slots button:disabled { opacity:.4; cursor:not-allowed; text-decoration:line-through; }
+    .ae-slots button.sel { background:var(--accent); color:#fff; border-color:var(--accent); }
+    .ae-selected { background:#eff6ff; border:1px solid #bfdbfe; border-radius:10px; padding:12px; text-align:center; font-weight:700; color:var(--accent); margin-bottom:16px; }
+    .ae-card form label { font-size:13px; font-weight:600; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 14px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    @media (max-width:420px){ .ae-slots { grid-template-columns:repeat(3,1fr); } }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <p class="ae-day">📅 7月12日（土）の空き時間</p>
+      <div class="ae-slots" id="slots">
+        <button type="button" data-t="10:00">10:00</button>
+        <button type="button" data-t="10:30">10:30</button>
+        <button type="button" data-t="11:00" disabled>11:00</button>
+        <button type="button" data-t="11:30">11:30</button>
+        <button type="button" data-t="13:00">13:00</button>
+        <button type="button" data-t="13:30" disabled>13:30</button>
+        <button type="button" data-t="14:00">14:00</button>
+        <button type="button" data-t="14:30">14:30</button>
+      </div>
+      <div class="ae-selected" id="selected">時間を選択してください</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var slots = Array.prototype.slice.call(document.querySelectorAll("#slots button:not([disabled])"));
+    var out = document.getElementById("selected");
+    slots.forEach(function (b) {
+      b.addEventListener("click", function () {
+        document.querySelectorAll("#slots button").forEach(function (x) { x.classList.remove("sel"); });
+        b.classList.add("sel");
+        out.textContent = "選択中：7月12日(土) " + b.getAttribute("data-t");
+      });
+    });
+  })();
+  </script>
+</body>
+</html>

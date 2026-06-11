@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0d9488; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f0faf8; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:12px; }
+    .ae-head h1 { margin:0 0 6px; font-size:24px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-emojis { display:flex; justify-content:center; gap:6px; margin:16px 0 4px; }
+    .ae-emojis button { background:none; border:0; font-size:40px; line-height:1; cursor:pointer; opacity:.45; filter:grayscale(.4); transition:.15s; padding:4px; border-radius:12px; }
+    .ae-emojis button.sel { opacity:1; filter:none; transform:scale(1.2); background:#ecfdf5; }
+    .ae-moodmsg { text-align:center; color:var(--muted); font-size:14px; min-height:1.4em; margin-bottom:8px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:26px; box-shadow:0 8px 24px rgba(13,148,136,.1); }
+    .ae-card form label { font-size:13px; font-weight:600; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form textarea { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 14px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-emojis" id="emojis" role="radiogroup" aria-label="気分">
+      <button type="button" data-v="1" data-label="とても不満" aria-label="とても不満">😡</button>
+      <button type="button" data-v="2" data-label="不満" aria-label="不満">😕</button>
+      <button type="button" data-v="3" data-label="ふつう" aria-label="ふつう">😐</button>
+      <button type="button" data-v="4" data-label="満足" aria-label="満足">🙂</button>
+      <button type="button" data-v="5" data-label="大満足" aria-label="大満足">🤩</button>
+    </div>
+    <div class="ae-moodmsg" id="moodmsg">いまの気持ちに近い顔を選んでください</div>
+    <div class="ae-card">%%content%%</div>
+  </div>
+
+  <script>
+  (function () {
+    var btns = Array.prototype.slice.call(document.querySelectorAll("#emojis button"));
+    var msg = document.getElementById("moodmsg");
+    btns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        btns.forEach(function (x) { x.classList.remove("sel"); });
+        b.classList.add("sel");
+        msg.textContent = "選択：" + b.getAttribute("data-label") + "（" + b.getAttribute("data-v") + "/5）";
+      });
+    });
+  })();
+  </script>
+</body>
+</html>

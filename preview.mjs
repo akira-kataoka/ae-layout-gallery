@@ -231,6 +231,19 @@ const CALENDAR_BODY = `<h1>お申し込みが完了しました</h1>
 const SHARE_BODY = `<h1>ご参加ありがとうございます！</h1>
 <p>よろしければ、お知り合いにもシェアしていただけると嬉しいです。</p>`;
 
+const STOCK_FORM = `<form>
+  <div class="row"><p><label>サイズ</label><br><select><option>25.0cm</option><option selected>26.0cm</option><option>27.0cm</option></select></p><p><label>受取店舗</label><br><select><option selected>サンプル駅前店</option><option>みなと店</option></select></p></div>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <div class="row"><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p><p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p></div>
+  <p class="submit"><input type="submit" value="取り置きを依頼する"></p>
+</form>`;
+
+const APPT_FORM = `<form>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="この時間で予約する"></p>
+</form>`;
+
 const GROUP_FORM = `<form>
   <div class="row"><p><label>ご利用人数</label><br><input type="number" value="20"></p><p><label>ご希望日</label><br><input type="date" value="2026-08-22"></p></div>
   <p><label>ご利用用途</label><br><select><option selected>宴会・懇親会</option><option>研修・会議</option><option>貸切イベント</option></select></p>
@@ -831,6 +844,9 @@ function contentFor(dir, category) {
     case "170-form-group-booking": return GROUP_FORM;
     case "171-landing-testimonial-carousel-js": return NEWSLETTER_FORM;
     case "172-form-translation-request": return TRANSLATION_FORM;
+    case "173-form-stock-reservation": return STOCK_FORM;
+    case "174-form-emoji-feedback-js": return REVIEW_POST_FORM;
+    case "175-form-appointment-slots-js": return APPT_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }

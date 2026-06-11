@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 絵文字フィードバック(JS)",
+  "category": "form",
+  "description": "絵文字で気分・満足度を直感的に選べるインタラクティブなフィードバックフォーム(素のJS・classList/textContentのみ)。CES/満足度収集に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "今日の体験はいかがでしたか？",
+  "previewDescription": "いまの気持ちに近い絵文字を選んでください。"
+}

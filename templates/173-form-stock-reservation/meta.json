@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 店舗取り置き予約",
+  "category": "form",
+  "description": "サイズ・受取店舗を指定して在庫を確保する取り置き予約フォーム。来店促進・在庫確保(BOPIS)に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "人気スニーカー 限定モデル",
+  "previewDescription": "在庫が少なくなっています。店舗での取り置きをご利用ください。"
+}
