@@ -2077,7 +2077,18 @@ const indexHtml = `<!DOCTYPE html>
   footer{ text-align:center; color:var(--muted); font-size:12px; padding:24px; }
   .toast{ position:fixed; bottom:20px; left:50%; transform:translateX(-50%) translateY(20px); background:#0f172a; color:#fff; padding:12px 20px; border-radius:10px; font-size:14px; opacity:0; transition:.25s; z-index:50; }
   .toast.show{ opacity:1; transform:translateX(-50%) translateY(0); }
-  @media (max-width:520px){ .grid{ grid-template-columns:1fr; } .frame{ height:auto; aspect-ratio:1280/882; } .frame iframe{ transform:scale(calc((100vw - 50px)/1280)); } }
+  @media (max-width:520px){
+    .grid{ grid-template-columns:1fr; gap:16px; }
+    .frame{ height:auto; aspect-ratio:1280/882; }
+    .frame iframe{ transform:scale(calc((100vw - 50px)/1280)); }
+    /* スマホでの密度切替：コンパクト=2列で一覧、大きく=1列のまま */
+    body[data-density="compact"] .grid{ grid-template-columns:1fr 1fr; gap:10px; }
+    body[data-density="compact"] .frame iframe{ transform:scale(calc((50vw - 30px)/1280)); }
+    body[data-density="compact"] figcaption{ padding:10px 11px 12px; }
+    body[data-density="compact"] figcaption h3{ font-size:13px; margin:8px 0 4px; }
+    body[data-density="compact"] figcaption p{ display:none; }
+    body[data-density="compact"] .meta .acts{ display:none; }
+  }
   /* --- ボタン化した frame / リンクボタン --- */
   .frame{ border:0; border-bottom:1px solid var(--line); cursor:pointer; padding:0; display:block; width:100%; background:#fff; }
   .lnk{ border:0; background:none; color:var(--brand); font-weight:700; cursor:pointer; font-size:12px; padding:0; }
