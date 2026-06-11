@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - スクラッチクーポン(JS)",
+  "category": "landing",
+  "description": "タップで開封してクーポンが現れるゲーム型LP(素のJS・classList切替・innerHTML不使用)。エンタメ性のあるリード獲得に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "あたりが出るかも？",
+  "previewDescription": "カードをタップして、お得なクーポンをGETしよう。"
+}

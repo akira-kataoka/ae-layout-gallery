@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#d6336c; --gold:#f59e0b; --ink:#1a0f16; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:#fde7ef; line-height:1.7;
+      background:radial-gradient(800px 460px at 50% -8%,#9d174d,transparent), linear-gradient(160deg,#500724,#1a0f16); }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:54px 20px; text-align:center; }
+    .ae-wrap h1 { font-size:clamp(26px,6vw,38px); margin:6px 0; color:#fff; }
+    .ae-sub { color:#f9a8d4; margin:0 0 22px; }
+    .ae-scratch { position:relative; width:280px; max-width:90%; margin:0 auto 8px; aspect-ratio:8/5; border-radius:16px; overflow:hidden; box-shadow:0 16px 40px rgba(0,0,0,.4); }
+    .ae-prize { position:absolute; inset:0; background:#fff; color:var(--ink); display:flex; flex-direction:column; align-items:center; justify-content:center; }
+    .ae-prize .off { font-size:46px; font-weight:900; color:var(--accent); }
+    .ae-prize .code { font-family:ui-monospace,monospace; letter-spacing:.18em; font-weight:800; margin-top:4px; }
+    .ae-cover { position:absolute; inset:0; background:linear-gradient(135deg,#9ca3af,#4b5563); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:800; cursor:pointer; transition:opacity .4s; }
+    .ae-cover .hint { text-align:center; }
+    .ae-scratch.revealed .ae-cover { opacity:0; pointer-events:none; }
+    .ae-card { background:#fff; color:var(--ink); border-radius:16px; padding:26px; box-shadow:0 16px 40px rgba(0,0,0,.4); margin-top:18px; }
+    .ae-card .t { font-weight:700; margin-bottom:10px; }
+    .ae-card form input[type=email],.ae-card form input[type=text] { width:100%; padding:13px 14px; border:1px solid #f1d5e1; border-radius:10px; font-size:15px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:15px; border-radius:10px; font-weight:800; font-size:16px; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <h1>%%title%%</h1>
+    <p class="ae-sub">%%description%%</p>
+    <div class="ae-scratch" id="scratch" role="button" tabindex="0" aria-label="クーポンを開封">
+      <div class="ae-prize"><div class="off">30%OFF</div><div class="code">LUCKY30</div></div>
+      <div class="ae-cover" id="cover"><div class="hint">🎁<br>タップして開封</div></div>
+    </div>
+    <div class="ae-card"><div class="t">クーポンをメールで受け取る</div>%%content%%</div>
+  </div>
+
+  <script>
+  (function () {
+    var s = document.getElementById("scratch");
+    function reveal() { s.classList.add("revealed"); }
+    s.addEventListener("click", reveal);
+    s.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); reveal(); } });
+  })();
+  </script>
+</body>
+</html>

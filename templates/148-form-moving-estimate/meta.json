@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 引越し見積",
+  "category": "form",
+  "description": "現住所・新住所・間取り・希望日を入力する引越し一括見積フォーム。引越し業者の見積依頼獲得に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "引越し見積もり、まとめて無料",
+  "previewDescription": "かんたん入力で、複数社の見積もりを一度に取り寄せできます。"
+}

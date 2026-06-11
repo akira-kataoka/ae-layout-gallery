@@ -231,6 +231,22 @@ const CALENDAR_BODY = `<h1>お申し込みが完了しました</h1>
 const SHARE_BODY = `<h1>ご参加ありがとうございます！</h1>
 <p>よろしければ、お知り合いにもシェアしていただけると嬉しいです。</p>`;
 
+const REALESTATE_FORM = `<form>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <div class="row"><p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p></div>
+  <p><label>ご予算</label><br><select><option>〜3,000万円</option><option selected>3,000〜4,000万円</option><option>4,000万円以上</option></select></p>
+  <p><label>内見希望日</label><br><input type="date" value="2026-07-19"></p>
+  <p class="submit"><input type="submit" value="内見を予約する"></p>
+</form>`;
+
+const MOVING_FORM = `<form>
+  <div class="row"><p><label>現住所(市区町村)</label><br><input type="text" value="東京都サンプル区"></p><p><label>新住所(市区町村)</label><br><input type="text" value="神奈川県サンプル市"></p></div>
+  <div class="row"><p><label>間取り</label><br><select><option>ワンルーム</option><option selected>2LDK</option><option>3LDK以上</option></select></p><p><label>引越し希望日</label><br><input type="date" value="2026-08-10"></p></div>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="無料で一括見積"></p>
+</form>`;
+
 const WEDDING_RSVP_FORM = `<form>
   <p class="att"><label><input type="radio" name="att" checked> 出席</label><label><input type="radio" name="att"> 欠席</label></p>
   <p><label>お名前</label><br><input type="text" value="鈴木 一郎"></p>
@@ -704,6 +720,9 @@ function contentFor(dir, category) {
     case "143-event-wedding-rsvp": return WEDDING_RSVP_FORM;
     case "144-landing-wizard-js": return NEWSLETTER_FORM;
     case "145-form-tour-booking": return TOUR_FORM;
+    case "146-form-real-estate-inquiry": return REALESTATE_FORM;
+    case "147-landing-scratch-coupon-js": return NEWSLETTER_FORM;
+    case "148-form-moving-estimate": return MOVING_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }
