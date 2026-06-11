@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#f59e0b; --ink:#1f2937; --muted:#6b7280; --line:#e5e7eb; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fffaf0; line-height:1.7; }
+    .ae-wrap { max-width:540px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:14px; }
+    .ae-head h1 { margin:0 0 6px; font-size:24px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-aspects { background:#fff; border:1px solid var(--line); border-radius:16px; padding:18px 20px; box-shadow:0 8px 24px rgba(245,158,11,.1); margin-bottom:14px; }
+    .ae-aspect { display:flex; align-items:center; justify-content:space-between; padding:12px 0; border-bottom:1px solid var(--line); }
+    .ae-aspect:last-child { border-bottom:0; }
+    .ae-aspect .lbl { font-weight:700; font-size:14px; }
+    .ae-stars button { background:none; border:0; font-size:26px; line-height:1; cursor:pointer; color:#e5e7eb; padding:0 1px; }
+    .ae-stars button.on { color:var(--accent); }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px; }
+    .ae-card form label { font-size:13px; font-weight:600; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form textarea { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 14px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-aspects" id="aspects">
+      <div class="ae-aspect"><span class="lbl">品質</span><span class="ae-stars" data-aspect="quality"><button type="button" data-v="1">★</button><button type="button" data-v="2">★</button><button type="button" data-v="3">★</button><button type="button" data-v="4">★</button><button type="button" data-v="5">★</button></span></div>
+      <div class="ae-aspect"><span class="lbl">価格</span><span class="ae-stars" data-aspect="price"><button type="button" data-v="1">★</button><button type="button" data-v="2">★</button><button type="button" data-v="3">★</button><button type="button" data-v="4">★</button><button type="button" data-v="5">★</button></span></div>
+      <div class="ae-aspect"><span class="lbl">サポート</span><span class="ae-stars" data-aspect="support"><button type="button" data-v="1">★</button><button type="button" data-v="2">★</button><button type="button" data-v="3">★</button><button type="button" data-v="4">★</button><button type="button" data-v="5">★</button></span></div>
+    </div>
+    <div class="ae-card">%%content%%</div>
+  </div>
+
+  <script>
+  (function () {
+    Array.prototype.forEach.call(document.querySelectorAll(".ae-stars"), function (group) {
+      var stars = Array.prototype.slice.call(group.querySelectorAll("button"));
+      stars.forEach(function (b) {
+        var v = parseInt(b.getAttribute("data-v"), 10);
+        b.addEventListener("click", function () {
+          stars.forEach(function (s, i) { s.classList.toggle("on", i < v); });
+        });
+      });
+    });
+  })();
+  </script>
+</body>
+</html>

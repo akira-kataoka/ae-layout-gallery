@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - フォトコンテスト投稿",
+  "category": "form",
+  "description": "写真をアップロードして応募するフォトコンテスト/UGC投稿フォーム。ユーザー投稿型キャンペーンの獲得に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "#わたしの夏 フォトコンテスト",
+  "previewDescription": "お気に入りの一枚を投稿して、豪華賞品を当てよう！"
+}

@@ -231,6 +231,14 @@ const CALENDAR_BODY = `<h1>お申し込みが完了しました</h1>
 const SHARE_BODY = `<h1>ご参加ありがとうございます！</h1>
 <p>よろしければ、お知り合いにもシェアしていただけると嬉しいです。</p>`;
 
+const PHOTO_CONTEST_FORM = `<form>
+  <p><label>作品タイトル</label><br><input type="text" value="夏の思い出"></p>
+  <p><label>写真をアップロード</label><br><input type="file"></p>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="作品を応募する"></p>
+</form>`;
+
 const SPEAKER_FORM = `<form>
   <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
   <p><label>ご所属・肩書</label><br><input type="text" value="株式会社サンプル / CTO"></p>
@@ -965,6 +973,9 @@ function contentFor(dir, category) {
     case "197-form-speaker-application": return SPEAKER_FORM;
     case "198-form-workshop-booking": return WORKSHOP_FORM;
     case "199-landing-flipbook-catalog-js": return NEWSLETTER_FORM;
+    case "201-form-photo-contest": return PHOTO_CONTEST_FORM;
+    case "202-landing-team-members": return NEWSLETTER_FORM;
+    case "203-form-multi-star-rating-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }

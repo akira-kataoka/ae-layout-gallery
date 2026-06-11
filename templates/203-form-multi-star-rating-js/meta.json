@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 多項目星評価(JS)",
+  "category": "form",
+  "description": "品質・価格・サポートなど複数項目を星で個別評価できるインタラクティブなレビューフォーム(素のJS・classListのみ)。詳細な満足度収集に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "項目別にご評価ください",
+  "previewDescription": "それぞれの観点で星をクリックして評価できます。"
+}
