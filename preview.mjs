@@ -231,6 +231,14 @@ const CALENDAR_BODY = `<h1>お申し込みが完了しました</h1>
 const SHARE_BODY = `<h1>ご参加ありがとうございます！</h1>
 <p>よろしければ、お知り合いにもシェアしていただけると嬉しいです。</p>`;
 
+const WISHLIST_FORM = `<form>
+  <p><label>リスト名</label><br><input type="text" value="お誕生日ほしいものリスト"></p>
+  <p><label>公開設定</label><br><select><option selected>リンクを知っている人のみ</option><option>友達まで公開</option><option>非公開</option></select></p>
+  <p><label>お名前</label><br><input type="text" value="山田 花子"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="hanako@example.com"></p>
+  <p class="submit"><input type="submit" value="リストを作成する"></p>
+</form>`;
+
 const CATALOG_FORM = `<form>
   <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
   <div class="row"><p><label>郵便番号</label><br><input type="text" value="100-0001"></p><p><label>電話番号</label><br><input type="tel" value="03-0000-0000"></p></div>
@@ -865,6 +873,8 @@ function contentFor(dir, category) {
     case "176-form-catalog-request": return CATALOG_FORM;
     case "177-landing-sticky-deal-bar-js": return NEWSLETTER_FORM;
     case "178-form-warranty-extension": return WARRANTY_EXT_FORM;
+    case "179-landing-loan-simulator-js": return NEWSLETTER_FORM;
+    case "180-form-wishlist": return WISHLIST_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }

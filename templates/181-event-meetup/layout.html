@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#7c3aed; --ink:#0f0a1e; --muted:#94a3b8; --line:#2a2440; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:#e2e8f0; background:#0f0a1e; line-height:1.7; }
+    .ae-hero { padding:48px 20px; text-align:center; background:radial-gradient(700px 360px at 50% -10%,#4c1d95,transparent); }
+    .ae-hero .badge { display:inline-block; background:rgba(124,58,237,.25); border:1px solid rgba(124,58,237,.5); color:#c4b5fd; padding:5px 14px; border-radius:999px; font-size:13px; font-weight:700; }
+    .ae-hero h1 { font-size:28px; margin:12px 0 6px; color:#fff; }
+    .ae-hero p { color:var(--muted); margin:0; }
+    .ae-grid { max-width:880px; margin:28px auto; padding:0 20px 56px; display:grid; grid-template-columns:1.2fr .8fr; gap:30px; align-items:start; }
+    .ae-detail h2 { margin-top:0; color:#fff; }
+    .ae-attendees { display:flex; align-items:center; margin-top:14px; }
+    .ae-attendees span:not(.cnt) { width:34px; height:34px; border-radius:50%; margin-left:-8px; border:2px solid #0f0a1e; display:flex; align-items:center; justify-content:center; font-size:13px; color:#fff; background:#7c3aed; }
+    .ae-attendees span:not(.cnt):first-child { margin-left:0; }
+    .ae-attendees .cnt { margin-left:12px; color:var(--muted); font-size:13px; }
+    .ae-apply { background:rgba(255,255,255,.05); border:1px solid var(--line); border-radius:16px; padding:26px 24px; position:sticky; top:20px; }
+    .ae-apply h3 { margin-top:0; color:#fff; }
+    .ae-apply form input[type=text],.ae-apply form input[type=email],.ae-apply form select { width:100%; padding:11px 12px; border:1px solid var(--line); border-radius:8px; background:rgba(0,0,0,.3); color:#fff; font-size:14px; }
+    .ae-apply form p { margin:0 0 13px; }
+    .ae-apply form .submit input,.ae-apply form button { width:100%; background:var(--accent); color:#fff; border:0; padding:13px; border-radius:8px; font-weight:800; cursor:pointer; }
+    @media (max-width:760px){ .ae-grid { grid-template-columns:1fr; } .ae-apply { position:static; } }
+  </style>
+</head>
+<body>
+  <header class="ae-hero"><span class="badge">MEETUP / 勉強会</span><h1>%%title%%</h1><p>%%description%%</p></header>
+  <div class="ae-grid">
+    <article class="ae-detail">
+      %%content%%
+      <div class="ae-attendees"><span>A</span><span>R</span><span>K</span><span>M</span><span>+</span><span class="cnt">ほか38名が参加予定</span></div>
+    </article>
+    <aside class="ae-apply"><h3>参加登録（無料）</h3><p style="color:var(--muted);font-size:14px;margin-top:0;">初参加・見学だけでも歓迎です。</p></aside>
+  </div>
+</body>
+</html>

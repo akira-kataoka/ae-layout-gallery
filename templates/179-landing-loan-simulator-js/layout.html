@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#15803d; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f1f8f3; line-height:1.7; }
+    .ae-wrap { max-width:600px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:16px; }
+    .ae-head h1 { margin:0 0 6px; font-size:25px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-calc { background:#fff; border:1px solid var(--line); border-radius:16px; padding:26px; box-shadow:0 8px 26px rgba(21,128,61,.1); margin-bottom:16px; }
+    .ae-row { display:flex; align-items:center; gap:14px; margin-bottom:14px; }
+    .ae-row label { flex:1; font-size:14px; font-weight:600; }
+    .ae-row input[type=range] { flex:1.5; accent-color:var(--accent); }
+    .ae-row .val { width:110px; text-align:right; font-weight:800; color:var(--accent); font-variant-numeric:tabular-nums; }
+    .ae-out { background:linear-gradient(135deg,#15803d,#0d9488); color:#fff; border-radius:14px; padding:20px; text-align:center; }
+    .ae-out .lbl { font-size:13px; opacity:.9; } .ae-out .big { font-size:38px; font-weight:900; font-variant-numeric:tabular-nums; }
+    .ae-out .sub { font-size:12px; opacity:.9; margin-top:4px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px; text-align:center; }
+    .ae-card .t { font-weight:700; margin-bottom:10px; }
+    .ae-card form input[type=email],.ae-card form input[type=text] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-calc">
+      <div class="ae-row"><label>借入額</label><input type="range" id="amt" min="100000" max="10000000" step="100000" value="3000000"><span class="val" id="amtv">¥3,000,000</span></div>
+      <div class="ae-row"><label>年利</label><input type="range" id="rate" min="0" max="15" step="0.1" value="3.5"><span class="val" id="ratev">3.5 %</span></div>
+      <div class="ae-row"><label>返済期間</label><input type="range" id="years" min="1" max="35" value="10"><span class="val" id="yearsv">10 年</span></div>
+      <div class="ae-out"><div class="lbl">毎月のご返済額（概算）</div><div class="big" id="monthly">¥0</div><div class="sub" id="totalsub">総返済額 ¥0</div></div>
+    </div>
+    <div class="ae-card"><div class="t">詳しい返済プランを受け取る</div>%%content%%</div>
+  </div>
+
+  <script>
+  (function () {
+    var amt = document.getElementById("amt"), rate = document.getElementById("rate"), years = document.getElementById("years");
+    var monthly = document.getElementById("monthly"), totalsub = document.getElementById("totalsub");
+    function yen(n) { return "¥" + Math.round(n).toLocaleString("ja-JP"); }
+    function update() {
+      var P = +amt.value, annual = +rate.value, n = (+years.value) * 12;
+      document.getElementById("amtv").textContent = yen(P);
+      document.getElementById("ratev").textContent = annual.toFixed(1) + " %";
+      document.getElementById("yearsv").textContent = (+years.value) + " 年";
+      var r = annual / 12 / 100;
+      var pay = r === 0 ? P / n : P * r / (1 - Math.pow(1 + r, -n));
+      monthly.textContent = yen(pay);
+      totalsub.textContent = "総返済額 " + yen(pay * n);
+    }
+    ["input"].forEach(function (ev) { amt.addEventListener(ev, update); rate.addEventListener(ev, update); years.addEventListener(ev, update); });
+    update();
+  })();
+  </script>
+</body>
+</html>

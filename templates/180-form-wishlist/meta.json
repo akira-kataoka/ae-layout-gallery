@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - ウィッシュリスト作成/共有",
+  "category": "form",
+  "description": "ほしいものリストを作成・共有するための登録フォーム。EC/ギフトのウィッシュリスト機能・会員化に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "ほしいものリストをつくる",
+  "previewDescription": "お気に入りを保存して、家族や友人にシェアできます。"
+}

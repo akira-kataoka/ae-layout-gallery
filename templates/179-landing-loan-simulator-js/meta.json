@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - ローン返済シミュレーター(JS)",
+  "category": "landing",
+  "description": "借入額・金利・期間のスライダーから毎月返済額と総返済額を即時算出する素のJavaScript計算LP(textContentのみ・元利均等)。金融リード獲得に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "毎月いくら？ 返済シミュレーション",
+  "previewDescription": "スライダーを動かすと、毎月のご返済額がリアルタイムで計算されます。"
+}
