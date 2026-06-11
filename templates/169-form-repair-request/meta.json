@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 修理依頼/保証請求",
+  "category": "form",
+  "description": "製品・症状・購入日を入力する修理受付フォーム。アフターサービス・保証修理・点検依頼の受付に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "修理のお申し込み",
+  "previewDescription": "製品の状態をお知らせください。診断のうえお見積りをご案内します。"
+}

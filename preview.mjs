@@ -231,6 +231,15 @@ const CALENDAR_BODY = `<h1>お申し込みが完了しました</h1>
 const SHARE_BODY = `<h1>ご参加ありがとうございます！</h1>
 <p>よろしければ、お知り合いにもシェアしていただけると嬉しいです。</p>`;
 
+const REPAIR_FORM = `<form>
+  <p><label>対象製品</label><br><select><option selected>スマートフォン</option><option>ノートPC</option><option>家電</option><option>その他</option></select></p>
+  <p><label>症状</label><br><select><option selected>電源が入らない</option><option>画面割れ</option><option>バッテリーの劣化</option><option>その他</option></select></p>
+  <p><label>購入日（保証確認用）</label><br><input type="date" value="2025-09-01"></p>
+  <p><label>詳しい状況</label><br><textarea>落下後に画面が映らなくなりました。</textarea></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="修理を申し込む"></p>
+</form>`;
+
 const TRADEIN_FORM = `<form>
   <div class="row"><p><label>品目</label><br><select><option selected>スマートフォン</option><option>ノートPC</option><option>カメラ</option><option>ゲーム機</option></select></p><p><label>状態</label><br><select><option>新品同様</option><option selected>美品</option><option>使用感あり</option><option>難あり</option></select></p></div>
   <p><label>型番・メーカー</label><br><input type="text" value="Model X-200 / SampleCorp"></p>
@@ -801,6 +810,8 @@ function contentFor(dir, category) {
     case "163-landing-stats-counter-js": return NEWSLETTER_FORM;
     case "165-landing-image-gallery-js": return NEWSLETTER_FORM;
     case "166-form-trade-in": return TRADEIN_FORM;
+    case "168-landing-faq-search-js": return NEWSLETTER_FORM;
+    case "169-form-repair-request": return REPAIR_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }

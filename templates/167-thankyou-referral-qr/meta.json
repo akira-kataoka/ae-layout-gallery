@@ -1,0 +1,7 @@
+{
+  "name": "サンクスページ - 紹介コード/QR表示",
+  "category": "thankyou",
+  "description": "登録後に紹介コードとQR・シェア導線を表示するリファラル完了ページ。友達紹介の拡散促進に。",
+  "isIncludeDefaultCss": false,
+  "previewContent": "<h1 style=\"margin:8px 0;font-size:23px;\">ご登録ありがとうございます</h1><p style=\"color:#78716c;\">お友達を招待して、二人ともおトクな特典を受け取りましょう。</p>"
+}

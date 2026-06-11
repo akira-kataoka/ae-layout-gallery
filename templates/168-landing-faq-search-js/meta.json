@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - FAQ検索フィルタ(JS)",
+  "category": "landing",
+  "description": "キーワード入力でFAQを即時絞り込む素のJavaScript検索LP(textContent判定・classList切替・innerHTML不使用)。ヘルプセンター/サポートに。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "お困りごとを検索",
+  "previewDescription": "キーワードを入力すると、関連するよくある質問が絞り込まれます。"
+}
