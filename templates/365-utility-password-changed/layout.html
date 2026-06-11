@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#16a34a; --ink:#0f231a; --muted:#5b7167; --line:#d7ece0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f0fbf4; line-height:1.7; }
+    .ae-wrap { max-width:500px; margin:0 auto; padding:60px 20px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:20px; padding:38px 30px; text-align:center; box-shadow:0 16px 40px rgba(22,163,74,.1); }
+    .ae-ico { width:80px; height:80px; border-radius:50%; background:#dcfce7; display:flex; align-items:center; justify-content:center; margin:0 auto 18px; }
+    .ae-ico .c { width:58px; height:58px; border-radius:50%; background:var(--accent); color:#fff; display:flex; align-items:center; justify-content:center; font-size:30px; }
+    .ae-card h1 { font-size:23px; margin:0 0 10px; }
+    .ae-card .lead { color:var(--muted); margin:0 0 22px; font-size:14px; }
+    .ae-meta { background:#f8fdfa; border:1px solid var(--line); border-radius:12px; padding:14px 16px; font-size:13px; color:#33514c; margin-bottom:20px; text-align:left; }
+    .ae-meta div { display:flex; justify-content:space-between; padding:3px 0; }
+    .ae-meta b { color:var(--ink); }
+    .ae-warn { background:#fffaf0; border:1px solid #fde68a; border-radius:12px; padding:13px 15px; font-size:12px; color:#7a5c0a; margin-bottom:22px; text-align:left; }
+    .ae-btn { display:block; background:var(--accent); color:#fff; border-radius:10px; padding:14px; font-weight:800; font-size:15px; text-decoration:none; margin-bottom:14px; }
+    .ae-optin { border-top:1px dashed var(--line); padding-top:20px; }
+    .ae-optin .t { font-weight:700; font-size:14px; margin-bottom:12px; }
+    .ae-optin form input[type=email] { width:100%; padding:13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-optin form p { margin:0 0 12px; }
+    .ae-optin form .submit input,.ae-optin form button { width:100%; background:var(--accent); color:#fff; border:0; padding:13px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-card">
+      <div class="ae-ico"><div class="c">✓</div></div>
+      <h1>%%title%%</h1>
+      <p class="lead">%%description%%</p>
+      <div class="ae-meta">
+        <div><span>変更日時</span><b>2026年6月11日 14:48</b></div>
+        <div><span>アカウント</span><b>taro@example.com</b></div>
+      </div>
+      <div class="ae-warn">⚠️ 心当たりがない場合は、第三者による操作の可能性があります。すぐにサポートまでご連絡ください。</div>
+      <a class="ae-btn" href="#">ログイン画面へ</a>
+      <div class="ae-optin">
+        <div class="t">セキュリティに関するお知らせを受け取る</div>
+        %%content%%
+      </div>
+    </div>
+  </div>
+</body>
+</html>

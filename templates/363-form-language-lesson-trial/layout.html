@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0369a1; --ink:#0c1f2e; --muted:#5a7080; --line:#dbe7ef; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eff5fa; line-height:1.7; }
+    .ae-wrap { max-width:600px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:18px; }
+    .ae-head .emo { font-size:42px; }
+    .ae-head h1 { font-size:24px; margin:4px 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-langs { display:grid; grid-template-columns:repeat(5,1fr); gap:8px; margin-bottom:20px; }
+    .ae-l { background:#fff; border:1px solid var(--line); border-radius:12px; padding:12px 4px; text-align:center; box-shadow:0 6px 18px rgba(3,105,161,.05); }
+    .ae-l .em { font-size:22px; } .ae-l .nm { font-size:10px; font-weight:700; }
+    .ae-banner { background:linear-gradient(135deg,#0369a1,#0e7490); color:#fff; border-radius:14px; padding:14px; text-align:center; margin-bottom:20px; }
+    .ae-banner .big { font-size:18px; font-weight:900; } .ae-banner .sm { font-size:12px; opacity:.92; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px; }
+    .ae-card .t { font-weight:700; font-size:16px; margin-bottom:14px; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form label { font-weight:700; font-size:13px; }
+    .ae-card form p { margin:0 0 13px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:15px; border-radius:9px; font-weight:800; font-size:15px; cursor:pointer; }
+    @media (max-width:440px){ .ae-langs { grid-template-columns:repeat(3,1fr); } }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head">
+      <div class="emo">🗣️</div>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-langs">
+      <div class="ae-l"><div class="em">🇺🇸</div><div class="nm">英語</div></div>
+      <div class="ae-l"><div class="em">🇨🇳</div><div class="nm">中国語</div></div>
+      <div class="ae-l"><div class="em">🇰🇷</div><div class="nm">韓国語</div></div>
+      <div class="ae-l"><div class="em">🇫🇷</div><div class="nm">フランス語</div></div>
+      <div class="ae-l"><div class="em">🇪🇸</div><div class="nm">スペイン語</div></div>
+    </div>
+    <div class="ae-banner">
+      <div class="big">無料体験レッスン25分</div>
+      <div class="sm">入会金不要・体験当日の勧誘はありません</div>
+    </div>
+    <div class="ae-card">
+      <div class="t">無料体験レッスンのお申し込み</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

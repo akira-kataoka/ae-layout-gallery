@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - GPA計算機(JS)",
+  "category": "landing",
+  "description": "科目ごとの評価と単位数を入力するとGPA(成績平均)と取得単位を即時計算する学生向けLP(textContentのみ、innerHTML不使用)。学習塾/オンライン講座/奨学金サービスのリード獲得に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "あなたのGPA、計算してみよう",
+  "previewDescription": "科目の評価と単位を入れるだけ。今の成績平均がすぐにわかります。"
+}

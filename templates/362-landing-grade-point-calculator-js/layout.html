@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#4338ca; --ink:#15172e; --muted:#64698c; --line:#e3e2f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f5f5fc; line-height:1.7; }
+    .ae-wrap { max-width:540px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:20px; }
+    .ae-head h1 { font-size:24px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:24px; box-shadow:0 12px 32px rgba(67,56,202,.08); }
+    .ae-row { display:grid; grid-template-columns:1fr 90px 70px; gap:8px; align-items:center; margin-bottom:10px; }
+    .ae-row.head { font-size:11px; color:var(--muted); font-weight:700; }
+    .ae-row .sub { font-weight:700; font-size:13px; }
+    .ae-row select,.ae-row input { width:100%; padding:9px 8px; border:1px solid var(--line); border-radius:8px; font-size:14px; }
+    .ae-out { margin-top:14px; background:linear-gradient(135deg,#4338ca,#6d28d9); color:#fff; border-radius:14px; padding:22px; text-align:center; }
+    .ae-out .lab { font-size:13px; opacity:.9; } .ae-out .gpa { font-size:42px; font-weight:900; font-variant-numeric:tabular-nums; line-height:1.1; }
+    .ae-out .meta { font-size:12px; opacity:.92; }
+    .ae-cta { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; margin-top:18px; }
+    .ae-cta .t { font-weight:700; margin-bottom:12px; }
+    .ae-cta form input[type=text],.ae-cta form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form .submit input,.ae-cta form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <div class="ae-row head"><div>科目</div><div>評価</div><div>単位</div></div>
+      <div class="ae-row gr"><div class="sub">必修科目A</div>
+        <select class="g"><option value="4" selected>秀 (4.0)</option><option value="3">優 (3.0)</option><option value="2">良 (2.0)</option><option value="1">可 (1.0)</option><option value="0">不可 (0)</option></select>
+        <input type="number" class="c" min="0" value="2"></div>
+      <div class="ae-row gr"><div class="sub">必修科目B</div>
+        <select class="g"><option value="4">秀 (4.0)</option><option value="3" selected>優 (3.0)</option><option value="2">良 (2.0)</option><option value="1">可 (1.0)</option><option value="0">不可 (0)</option></select>
+        <input type="number" class="c" min="0" value="2"></div>
+      <div class="ae-row gr"><div class="sub">選択科目C</div>
+        <select class="g"><option value="4">秀 (4.0)</option><option value="3">優 (3.0)</option><option value="2" selected>良 (2.0)</option><option value="1">可 (1.0)</option><option value="0">不可 (0)</option></select>
+        <input type="number" class="c" min="0" value="1"></div>
+      <div class="ae-row gr"><div class="sub">選択科目D</div>
+        <select class="g"><option value="4" selected>秀 (4.0)</option><option value="3">優 (3.0)</option><option value="2">良 (2.0)</option><option value="1">可 (1.0)</option><option value="0">不可 (0)</option></select>
+        <input type="number" class="c" min="0" value="2"></div>
+      <div class="ae-out">
+        <div class="lab">あなたの GPA</div>
+        <div class="gpa" id="gpa">0.00</div>
+        <div class="meta">取得単位 <span id="credits">0</span> 単位</div>
+      </div>
+    </div>
+    <div class="ae-cta">
+      <div class="t">成績アップの学習相談を無料で受ける</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var rows = Array.prototype.slice.call(document.querySelectorAll(".ae-row.gr"));
+    var gpaEl = document.getElementById("gpa"), creditsEl = document.getElementById("credits");
+    function calc() {
+      var points = 0, credits = 0;
+      rows.forEach(function (r) {
+        var g = parseFloat(r.querySelector(".g").value) || 0;
+        var c = parseInt(r.querySelector(".c").value, 10) || 0;
+        points += g * c; credits += c;
+      });
+      gpaEl.textContent = credits > 0 ? (points / credits).toFixed(2) : "0.00";
+      creditsEl.textContent = credits;
+    }
+    rows.forEach(function (r) {
+      r.querySelector(".g").addEventListener("change", calc);
+      r.querySelector(".c").addEventListener("input", calc);
+    });
+    calc();
+  })();
+  </script>
+</body>
+</html>

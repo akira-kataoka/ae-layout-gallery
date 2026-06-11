@@ -1,0 +1,8 @@
+{
+  "name": "ユーティリティ - パスワード変更完了",
+  "category": "utility",
+  "description": "パスワードの変更が完了したことを通知し、変更日時・対象アカウント・身に覚えがない場合の注意喚起を案内するセキュリティ通知ページ。アカウント保護の確認画面に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "パスワードを変更しました",
+  "previewDescription": "アカウントのパスワードが正常に更新されました。"
+}

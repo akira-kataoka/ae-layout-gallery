@@ -282,6 +282,23 @@ const ALUMNI_FORM = `<form>
   <p class="submit"><input type="submit" value="出欠を回答する"></p>
 </form>`;
 
+const LANGLESSON_FORM = `<form>
+  <p><label>学びたい言語</label><br><select><option selected>英語</option><option>中国語</option><option>韓国語</option><option>フランス語</option><option>スペイン語</option></select></p>
+  <p><label>現在のレベル</label><br><select><option selected>はじめて／初級</option><option>中級</option><option>上級</option></select></p>
+  <p><label>ご希望の体験日時</label><br><select><option selected>平日 夜</option><option>平日 昼</option><option>週末</option></select></p>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="無料体験を予約する"></p>
+</form>`;
+
+const HACKATHON_FORM = `<form>
+  <p><label>参加形態</label><br><select><option selected>個人で参加（チーム募集希望）</option><option>チームで参加</option></select></p>
+  <p><label>得意分野</label><br><select><option selected>フロントエンド</option><option>バックエンド</option><option>デザイン/UX</option><option>AI/データ</option></select></p>
+  <p><label>お名前 / ハンドル</label><br><input type="text" value="山田 太郎 / taro_dev"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="エントリーする"></p>
+</form>`;
+
 const WEDDING_VENUE_FORM = `<form>
   <p><label>挙式ご希望時期</label><br><select><option selected>半年以内</option><option>1年以内</option><option>1年以上先</option><option>未定</option></select></p>
   <div class="row"><p><label>招待人数の目安</label><br><input type="number" value="60"></p><p><label>来館希望日</label><br><input type="date" value="2026-07-20"></p></div>
@@ -1717,6 +1734,10 @@ function contentFor(dir, category) {
     case "359-form-wedding-venue-inquiry": return WEDDING_VENUE_FORM;
     case "360-event-volunteer-day": return VOLUNTEER_DAY_FORM;
     case "361-thankyou-subscription-paused": return NEWSLETTER_FORM;
+    case "362-landing-grade-point-calculator-js": return NEWSLETTER_FORM;
+    case "363-form-language-lesson-trial": return LANGLESSON_FORM;
+    case "364-event-hackathon": return HACKATHON_FORM;
+    case "365-utility-password-changed": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;
