@@ -231,6 +231,26 @@ const CALENDAR_BODY = `<h1>お申し込みが完了しました</h1>
 const SHARE_BODY = `<h1>ご参加ありがとうございます！</h1>
 <p>よろしければ、お知り合いにもシェアしていただけると嬉しいです。</p>`;
 
+const JOBALERT_FORM = `<form>
+  <fieldset><legend>希望職種（複数可）</legend>
+    <label><input type="checkbox" checked> エンジニア</label>
+    <label><input type="checkbox"> デザイナー</label>
+    <label><input type="checkbox"> 営業</label>
+    <label><input type="checkbox"> マーケティング</label>
+  </fieldset>
+  <p><label>勤務地</label><br><select><option selected>東京</option><option>大阪</option><option>リモート可</option><option>全国</option></select></p>
+  <p><label>配信頻度</label><br><select><option selected>毎日</option><option>週1回</option></select></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="アラートを登録する"></p>
+</form>`;
+
+const TRIAL_EXT_FORM = `<form>
+  <p><label>現在のご利用状況</label><br><select><option selected>まだ十分に試せていない</option><option>検討中で時間が欲しい</option><option>社内承認の手続き中</option></select></p>
+  <p><label>ご要望・質問（任意）</label><br><textarea>機能Aをもう少し検証したいです。</textarea></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="トライアルを延長する"></p>
+</form>`;
+
 const GIFTWRAP_FORM = `<form>
   <p><label>ラッピング</label><br><select><option selected>標準（無料）</option><option>プレミアム（+¥550）</option><option>ラッピング不要</option></select></p>
   <p><label>のし</label><br><select><option selected>なし</option><option>お祝い（蝶結び）</option><option>内祝い</option><option>御礼</option></select></p>
@@ -885,6 +905,8 @@ function contentFor(dir, category) {
     case "180-form-wishlist": return WISHLIST_FORM;
     case "182-landing-store-access": return NEWSLETTER_FORM;
     case "184-form-gift-wrapping": return GIFTWRAP_FORM;
+    case "185-utility-job-alert": return JOBALERT_FORM;
+    case "187-form-trial-extension": return TRIAL_EXT_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }

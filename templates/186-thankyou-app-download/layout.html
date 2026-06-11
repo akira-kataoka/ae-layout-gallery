@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#06b6d4; --ink:#0b1324; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#ecfeff; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:60px 20px; text-align:center; }
+    .ae-card { background:#fff; border-radius:18px; box-shadow:0 12px 34px rgba(6,182,212,.16); padding:40px 32px; }
+    .ae-emoji { font-size:46px; }
+    .ae-msg { margin-bottom:10px; }
+    .ae-badges { display:flex; gap:12px; justify-content:center; margin:18px 0 10px; flex-wrap:wrap; }
+    .ae-badges a { display:inline-flex; align-items:center; gap:8px; background:#0b1324; color:#fff; text-decoration:none; padding:11px 18px; border-radius:12px; }
+    .ae-badges .t { line-height:1.2; text-align:left; } .ae-badges .t small { display:block; font-size:10px; opacity:.8; } .ae-badges .t b { font-size:15px; }
+    .ae-qr { width:120px; height:120px; margin:14px auto 6px; border-radius:12px; background:repeating-linear-gradient(45deg,#0b1324 0 7px,#fff 7px 14px); border:6px solid #fff; box-shadow:0 0 0 1px var(--line); }
+    .ae-qr-note { font-size:12px; color:var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-card">
+      <div class="ae-emoji">📱</div>
+      <div class="ae-msg">%%content%%</div>
+      <div class="ae-badges">
+        <a href="#"><span></span><span class="t"><small>Download on the</small><b>App Store</b></span></a>
+        <a href="#"><span>▶</span><span class="t"><small>GET IT ON</small><b>Google Play</b></span></a>
+      </div>
+      <div class="ae-qr"></div>
+      <div class="ae-qr-note">スマホでQRコードを読み取ってインストール</div>
+    </div>
+  </div>
+</body>
+</html>

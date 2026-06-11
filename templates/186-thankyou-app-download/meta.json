@@ -1,0 +1,7 @@
+{
+  "name": "サンクスページ - アプリDL誘導",
+  "category": "thankyou",
+  "description": "登録完了＋ストアバッジ＋QRコードでアプリインストールへ誘導するサンクス。Web登録後のアプリ送客に。",
+  "isIncludeDefaultCss": false,
+  "previewContent": "<h1 style=\"margin:0 0 8px;font-size:23px;\">ご登録ありがとうございます</h1><p style=\"color:#64748b;\">アプリをインストールすると、すべての機能をご利用いただけます。</p>"
+}

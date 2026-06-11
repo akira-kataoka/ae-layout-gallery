@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - トライアル延長申請",
+  "category": "form",
+  "description": "無料トライアルの延長を申請するフォーム。離脱抑止・トライアル中ユーザーの活性化に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "トライアルをもう少し延長しませんか？",
+  "previewDescription": "まだ試しきれていない方へ。無料期間を延長いたします。"
+}

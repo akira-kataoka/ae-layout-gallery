@@ -1,0 +1,8 @@
+{
+  "name": "配信設定 - 求人アラート購読",
+  "category": "utility",
+  "description": "職種・勤務地・頻度を選んで新着求人をメールで受け取るアラート購読フォーム。転職メディア/採用の母集団形成に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "新着求人アラートを受け取る",
+  "previewDescription": "ご希望条件に合う求人が出たら、メールでお知らせします。"
+}
