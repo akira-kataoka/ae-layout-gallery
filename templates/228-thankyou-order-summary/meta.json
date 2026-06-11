@@ -1,0 +1,8 @@
+{
+  "name": "サンクス - 注文内容サマリー",
+  "category": "thankyou",
+  "description": "注文完了後に明細(商品/数量/小計/送料/合計)と注文番号・お届け予定をレシート風に表示するサンクスページ。配送通知のオプトインフォーム付き。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "ご注文ありがとうございます",
+  "previewDescription": "ご注文を承りました。内容は以下のとおりです。"
+}

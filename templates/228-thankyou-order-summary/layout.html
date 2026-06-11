@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#059669; --ink:#0f231b; --muted:#5b7167; --line:#dcebe4; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f1faf5; line-height:1.7; }
+    .ae-wrap { max-width:560px; margin:0 auto; padding:48px 20px; }
+    .ae-check { width:72px; height:72px; border-radius:50%; background:var(--accent); color:#fff; display:flex; align-items:center; justify-content:center; font-size:38px; margin:0 auto 16px; box-shadow:0 12px 30px rgba(5,150,105,.3); }
+    .ae-head { text-align:center; margin-bottom:24px; }
+    .ae-head h1 { font-size:24px; margin:0 0 6px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-order { background:#fff; border:1px solid var(--line); border-radius:16px; overflow:hidden; box-shadow:0 8px 26px rgba(5,150,105,.07); margin-bottom:18px; }
+    .ae-order .top { display:flex; justify-content:space-between; padding:16px 20px; background:#ecfdf5; font-size:13px; }
+    .ae-order .top b { display:block; font-size:15px; color:var(--ink); }
+    .ae-line { display:flex; justify-content:space-between; align-items:center; padding:14px 20px; border-top:1px solid var(--line); }
+    .ae-line .info { display:flex; align-items:center; gap:12px; }
+    .ae-line .ico { width:44px; height:44px; border-radius:10px; background:#ecfdf5; display:flex; align-items:center; justify-content:center; font-size:22px; }
+    .ae-line .nm { font-weight:700; font-size:14px; } .ae-line .qty { color:var(--muted); font-size:12px; }
+    .ae-line .pr { font-weight:700; font-variant-numeric:tabular-nums; }
+    .ae-sum { padding:14px 20px; border-top:2px solid var(--line); }
+    .ae-sum .r { display:flex; justify-content:space-between; font-size:13px; color:var(--muted); margin-bottom:4px; }
+    .ae-sum .total { display:flex; justify-content:space-between; font-size:18px; font-weight:900; color:var(--ink); margin-top:6px; }
+    .ae-sum .total .v { color:var(--accent); }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; }
+    .ae-card .t { font-weight:700; margin-bottom:12px; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-check">✓</div>
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-order">
+      <div class="top"><span>注文番号<b>#AE-20260711-0042</b></span><span style="text-align:right">お届け予定<b>7月15日(水)</b></span></div>
+      <div class="ae-line"><div class="info"><div class="ico">🎧</div><div><div class="nm">ワイヤレスヘッドホン</div><div class="qty">数量: 1</div></div></div><div class="pr">¥18,800</div></div>
+      <div class="ae-line"><div class="info"><div class="ico">🔌</div><div><div class="nm">急速充電アダプタ</div><div class="qty">数量: 2</div></div></div><div class="pr">¥3,600</div></div>
+      <div class="ae-sum">
+        <div class="r"><span>小計</span><span>¥22,400</span></div>
+        <div class="r"><span>送料</span><span>¥0（無料）</span></div>
+        <div class="total"><span>合計</span><span class="v">¥22,400</span></div>
+      </div>
+    </div>
+    <div class="ae-card">
+      <div class="t">配送状況の通知を受け取る</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

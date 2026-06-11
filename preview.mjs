@@ -50,6 +50,14 @@ const NEWSLETTER_FORM = `<form>
   <p class="submit"><input type="submit" value="登録する"></p>
 </form>`;
 
+const SUGGESTION_FORM = `<form>
+  <p><label>ご意見の種類</label><br><select><option selected>サービスへの提案</option><option>不具合の報告</option><option>業務改善のアイデア</option><option>その他</option></select></p>
+  <p><label>内容</label><br><textarea>検索結果の並び順を選べるようにしてほしいです。</textarea></p>
+  <p><label>お名前（任意）</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>返信先メール（任意）</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="提案を送信する"></p>
+</form>`;
+
 const SURVEY_FORM = `<form>
   <fieldset><legend>総合満足度</legend>
     <label><input type="radio" name="sat">とても満足</label>
@@ -1067,6 +1075,10 @@ function contentFor(dir, category) {
     case "223-landing-image-compare-js": return NEWSLETTER_FORM;
     case "224-landing-eco-impact-calculator-js": return NEWSLETTER_FORM;
     case "225-form-property-viewing": return VIEWING_FORM;
+    case "226-landing-typewriter-hero-js": return NEWSLETTER_FORM;
+    case "227-event-speaker-lineup": return NEWSLETTER_FORM;
+    case "228-thankyou-order-summary": return NEWSLETTER_FORM;
+    case "229-form-suggestion-box": return SUGGESTION_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#22d3ee; --ink:#e2e8f0; --muted:#94a3b8; --line:#334155; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#0b1120; line-height:1.7; }
+    .ae-hero { max-width:760px; margin:0 auto; padding:80px 22px 56px; text-align:center; }
+    .ae-eyebrow { display:inline-block; color:var(--accent); font-weight:700; font-size:13px; letter-spacing:2px; border:1px solid var(--line); border-radius:999px; padding:6px 16px; margin-bottom:22px; }
+    .ae-hero h1 { font-size:34px; line-height:1.35; margin:0 0 6px; }
+    .ae-type { color:var(--accent); }
+    .ae-cursor { display:inline-block; width:3px; height:1em; background:var(--accent); margin-left:2px; vertical-align:-2px; animation:blink 1s step-end infinite; }
+    @keyframes blink { 50% { opacity:0; } }
+    .ae-hero p.lead { color:var(--muted); font-size:16px; margin:18px auto 30px; max-width:520px; }
+    .ae-stats { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-bottom:36px; }
+    .ae-stat { background:#111a2e; border:1px solid var(--line); border-radius:14px; padding:16px 22px; min-width:120px; }
+    .ae-stat .n { font-size:26px; font-weight:900; color:#fff; }
+    .ae-stat .l { font-size:12px; color:var(--muted); }
+    .ae-card { background:#111a2e; border:1px solid var(--line); border-radius:18px; padding:28px; max-width:440px; margin:0 auto; text-align:left; }
+    .ae-card .t { font-weight:700; font-size:17px; margin-bottom:14px; text-align:center; color:#fff; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:13px; border:1px solid var(--line); border-radius:9px; font-size:14px; background:#0b1120; color:#fff; }
+    .ae-card form p { margin:0 0 12px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:linear-gradient(135deg,#22d3ee,#6366f1); color:#03121a; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    @media (max-width:520px){ .ae-hero h1 { font-size:26px; } }
+  </style>
+</head>
+<body>
+  <div class="ae-hero">
+    <span class="ae-eyebrow">NEXT GENERATION SaaS</span>
+    <h1>あなたのチームを、<br><span class="ae-type" id="type"></span><span class="ae-cursor" aria-hidden="true"></span></h1>
+    <p class="lead">%%description%%</p>
+    <div class="ae-stats">
+      <div class="ae-stat"><div class="n">12,000+</div><div class="l">導入企業</div></div>
+      <div class="ae-stat"><div class="n">99.9%</div><div class="l">稼働率</div></div>
+      <div class="ae-stat"><div class="n">4.8/5</div><div class="l">満足度</div></div>
+    </div>
+    <div class="ae-card">
+      <div class="t">14日間の無料トライアルを始める</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var el = document.getElementById("type");
+    var words = ["もっと速く。", "もっと自由に。", "もっと創造的に。"];
+    var wi = 0, ci = 0, deleting = false;
+    function tick() {
+      var w = words[wi];
+      ci += deleting ? -1 : 1;
+      el.textContent = w.slice(0, ci);
+      var delay = deleting ? 55 : 120;
+      if (!deleting && ci === w.length) { deleting = true; delay = 1400; }
+      else if (deleting && ci === 0) { deleting = false; wi = (wi + 1) % words.length; delay = 350; }
+      window.setTimeout(tick, delay);
+    }
+    tick();
+  })();
+  </script>
+</body>
+</html>

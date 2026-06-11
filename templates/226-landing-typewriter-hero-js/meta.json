@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - タイプライター ヒーロー(JS)",
+  "category": "landing",
+  "description": "見出しのキャッチコピーが1文字ずつ打ち込まれ消えてループするダークテーマのヒーローLP(textContentのみ、innerHTML不使用)。SaaS/プロダクトの第一印象づくりに。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "あなたのチームを、もっと速く。",
+  "previewDescription": "面倒な作業を自動化し、本当に大切な仕事に集中できる環境へ。"
+}

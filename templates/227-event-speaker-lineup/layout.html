@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#7c3aed; --ink:#1a142b; --muted:#6b6480; --line:#e7e2f2; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f7f5fc; line-height:1.7; }
+    .ae-wrap { max-width:860px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:30px; }
+    .ae-head .badge { display:inline-block; background:#7c3aed; color:#fff; font-weight:700; font-size:13px; padding:6px 16px; border-radius:999px; margin-bottom:12px; }
+    .ae-head h1 { font-size:27px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-bottom:32px; }
+    .ae-spk { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px 18px; text-align:center; box-shadow:0 8px 24px rgba(124,58,237,.07); }
+    .ae-spk .av { width:84px; height:84px; border-radius:50%; margin:0 auto 12px; display:flex; align-items:center; justify-content:center; font-size:38px; color:#fff; }
+    .ae-spk h3 { margin:0 0 2px; font-size:17px; }
+    .ae-spk .role { color:var(--accent); font-weight:700; font-size:13px; }
+    .ae-spk .org { color:var(--muted); font-size:12px; margin-top:2px; }
+    .ae-spk .topic { font-size:13px; margin-top:10px; padding-top:10px; border-top:1px dashed var(--line); color:#43394f; }
+    .ae-cta { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; text-align:center; }
+    .ae-cta .t { font-weight:700; font-size:18px; margin-bottom:12px; }
+    .ae-cta form input[type=text],.ae-cta form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form .submit input,.ae-cta form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    @media (max-width:680px){ .ae-grid { grid-template-columns:1fr 1fr; } }
+    @media (max-width:440px){ .ae-grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head">
+      <span class="badge">SPEAKERS</span>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-grid">
+      <div class="ae-spk"><div class="av" style="background:linear-gradient(135deg,#7c3aed,#a855f7)">👩‍💼</div><h3>佐藤 美咲</h3><div class="role">基調講演</div><div class="org">株式会社ノヴァ CEO</div><div class="topic">「これからの組織デザイン」</div></div>
+      <div class="ae-spk"><div class="av" style="background:linear-gradient(135deg,#0ea5e9,#22d3ee)">👨‍💻</div><h3>田中 健一</h3><div class="role">特別講演</div><div class="org">テックラボ CTO</div><div class="topic">「AI時代の開発現場」</div></div>
+      <div class="ae-spk"><div class="av" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">🧑‍🎨</div><h3>鈴木 涼子</h3><div class="role">事例セッション</div><div class="org">デザインスタジオ 主宰</div><div class="topic">「体験から始めるブランド」</div></div>
+      <div class="ae-spk"><div class="av" style="background:linear-gradient(135deg,#10b981,#0d9488)">👨‍🏫</div><h3>高橋 大輔</h3><div class="role">パネル登壇</div><div class="org">大学院 特任教授</div><div class="topic">「データ駆動の意思決定」</div></div>
+      <div class="ae-spk"><div class="av" style="background:linear-gradient(135deg,#ec4899,#d946ef)">👩‍🔬</div><h3>山本 由美</h3><div class="role">パネル登壇</div><div class="org">リサーチ機構 主席研究員</div><div class="topic">「未来を読む技術」</div></div>
+      <div class="ae-spk"><div class="av" style="background:linear-gradient(135deg,#6366f1,#3b82f6)">🧑‍💼</div><h3>伊藤 翔</h3><div class="role">モデレーター</div><div class="org">本イベント実行委員長</div><div class="topic">全体進行・Q&A</div></div>
+    </div>
+    <div class="ae-cta">
+      <div class="t">この登壇者の話を聞きに行く（参加申込）</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

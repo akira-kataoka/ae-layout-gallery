@@ -1,0 +1,8 @@
+{
+  "name": "イベント - 登壇者ラインナップ",
+  "category": "event",
+  "description": "カンファレンス/セミナーの登壇者をアバター付きグリッドで紹介し、役割・所属・講演テーマを一覧化。末尾に参加申込フォームを配置した集客レイアウト。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "豪華登壇者が集結",
+  "previewDescription": "各業界の第一線で活躍する6名のスピーカーが登壇します。"
+}
