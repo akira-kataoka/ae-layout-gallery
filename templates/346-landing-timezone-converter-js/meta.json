@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - 開催時刻タイムゾーン変換(JS)",
+  "category": "landing",
+  "description": "グローバルウェビナーの開催時刻を、地域選択でその土地の現地時刻に即時換算して表示するLP(Date.UTC＋textContentのみ、innerHTML不使用)。海外向けオンラインイベントの参加登録に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "あなたの地域では何時？",
+  "previewDescription": "お住まいの地域を選ぶと、ウェビナーの開始時刻が現地時間で表示されます。"
+}

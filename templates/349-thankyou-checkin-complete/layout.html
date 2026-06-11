@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#2563eb; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eef4fb; line-height:1.7; }
+    .ae-wrap { max-width:480px; margin:0 auto; padding:54px 20px; }
+    .ae-done { text-align:center; margin-bottom:22px; }
+    .ae-done .chk { width:70px; height:70px; border-radius:50%; background:#16a34a; color:#fff; display:flex; align-items:center; justify-content:center; font-size:36px; margin:0 auto 12px; }
+    .ae-done h1 { font-size:23px; margin:0 0 4px; }
+    .ae-done p { color:var(--muted); margin:0; font-size:14px; }
+    .ae-pass { background:linear-gradient(135deg,#2563eb,#4f46e5); color:#fff; border-radius:18px; padding:24px; margin-bottom:18px; box-shadow:0 14px 36px rgba(37,99,235,.25); }
+    .ae-pass .ev { font-size:13px; opacity:.9; } .ae-pass .nm { font-size:18px; font-weight:800; margin-bottom:14px; }
+    .ae-pass .grid { display:flex; gap:14px; }
+    .ae-pass .cell { flex:1; background:rgba(255,255,255,.15); border-radius:12px; padding:12px; text-align:center; }
+    .ae-pass .cell .k { font-size:11px; opacity:.85; } .ae-pass .cell .v { font-size:22px; font-weight:900; font-variant-numeric:tabular-nums; }
+    .ae-guide { background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 18px; margin-bottom:22px; }
+    .ae-guide .t { font-weight:700; font-size:13px; margin-bottom:8px; }
+    .ae-guide li { font-size:13px; color:#475569; margin-bottom:4px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; }
+    .ae-card .t { font-weight:700; margin-bottom:12px; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-done">
+      <div class="chk">✓</div>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-pass">
+      <div class="ev">ビジネスカンファレンス 2026</div>
+      <div class="nm">山田 太郎 様</div>
+      <div class="grid">
+        <div class="cell"><div class="k">座席</div><div class="v">B-24</div></div>
+        <div class="cell"><div class="k">整理番号</div><div class="v">142</div></div>
+      </div>
+    </div>
+    <div class="ae-guide">
+      <div class="t">会場でのご案内</div>
+      <ul>
+        <li>開始10分前までにご着席ください</li>
+        <li>Wi-Fi: Conf2026 / パスワードは受付配布資料に記載</li>
+        <li>休憩スペースは2Fロビーをご利用いただけます</li>
+      </ul>
+    </div>
+    <div class="ae-card">
+      <div class="t">セッション資料・アンケートを受け取る</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

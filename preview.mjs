@@ -282,6 +282,23 @@ const ALUMNI_FORM = `<form>
   <p class="submit"><input type="submit" value="出欠を回答する"></p>
 </form>`;
 
+const CLEANING_FORM = `<form>
+  <p><label>ご依頼箇所</label><br><select><option selected>水まわり（浴室・トイレ・洗面）</option><option>エアコン</option><option>キッチン・レンジフード</option><option>空室・お引越し</option></select></p>
+  <p><label>間取り・広さ</label><br><input type="text" value="2LDK / 約60㎡"></p>
+  <div class="row"><p><label>ご希望日</label><br><input type="date" value="2026-07-14"></p><p><label>時間帯</label><br><select><option selected>午前</option><option>午後</option></select></p></div>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <div class="row"><p><label>メール</label><br><input type="email" value="taro@example.com"></p><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p></div>
+  <p class="submit"><input type="submit" value="無料見積もりを依頼"></p>
+</form>`;
+
+const YOGA_FORM = `<form>
+  <p><label>主に参加したい時間帯</label><br><select><option selected>朝（6:30〜）</option><option>夜（21:00〜）</option><option>どちらも</option></select></p>
+  <p><label>ヨガ経験</label><br><select><option selected>はじめて</option><option>少し経験あり</option><option>経験者</option></select></p>
+  <p><label>お名前</label><br><input type="text" value="山田 花子"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="hanako@example.com"></p>
+  <p class="submit"><input type="submit" value="無料体験を始める"></p>
+</form>`;
+
 const PETINS_FORM = `<form>
   <p><label>ペットの種類</label><br><select><option selected>犬</option><option>猫</option></select></p>
   <div class="row"><p><label>品種</label><br><input type="text" value="トイプードル"></p><p><label>年齢</label><br><select><option selected>0〜2歳</option><option>3〜6歳</option><option>7歳以上</option></select></p></div>
@@ -1637,6 +1654,10 @@ function contentFor(dir, category) {
     case "343-form-pet-insurance": return PETINS_FORM;
     case "344-event-real-estate-seminar": return RESEMINAR_FORM;
     case "345-utility-account-reactivated": return NEWSLETTER_FORM;
+    case "346-landing-timezone-converter-js": return NEWSLETTER_FORM;
+    case "347-form-cleaning-quote": return CLEANING_FORM;
+    case "348-event-online-yoga": return YOGA_FORM;
+    case "349-thankyou-checkin-complete": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

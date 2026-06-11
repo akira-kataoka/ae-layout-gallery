@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0891b2; --ink:#0c2228; --muted:#5a747c; --line:#d6eaee; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eefbfd; line-height:1.7; }
+    .ae-wrap { max-width:540px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:22px; }
+    .ae-head .badge { display:inline-block; background:#cffafe; color:var(--accent); font-weight:700; font-size:12px; letter-spacing:1px; padding:5px 14px; border-radius:999px; margin-bottom:12px; }
+    .ae-head h1 { font-size:25px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; box-shadow:0 12px 32px rgba(8,145,178,.09); }
+    .ae-base { text-align:center; font-size:13px; color:var(--muted); margin-bottom:16px; }
+    .ae-base b { color:var(--ink); }
+    .ae-field label { font-weight:700; font-size:14px; display:block; margin-bottom:8px; }
+    .ae-field select { width:100%; padding:13px; border:1px solid var(--line); border-radius:10px; font-size:15px; }
+    .ae-out { background:linear-gradient(135deg,#0891b2,#0e7490); color:#fff; border-radius:14px; padding:24px; text-align:center; margin-top:18px; }
+    .ae-out .city { font-size:14px; opacity:.92; } .ae-out .time { font-size:34px; font-weight:900; font-variant-numeric:tabular-nums; line-height:1.2; } .ae-out .date { font-size:13px; opacity:.92; }
+    .ae-cta { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; margin-top:18px; }
+    .ae-cta .t { font-weight:700; margin-bottom:12px; }
+    .ae-cta form input[type=text],.ae-cta form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form .submit input,.ae-cta form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head">
+      <span class="badge">GLOBAL WEBINAR</span>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-card">
+      <div class="ae-base">基準：<b>2026年9月1日 21:00（日本時間 / UTC+9）</b></div>
+      <div class="ae-field">
+        <label for="tz">あなたの地域を選択</label>
+        <select id="tz">
+          <option value="9" data-city="東京" selected>東京 (UTC+9)</option>
+          <option value="8" data-city="シンガポール">シンガポール (UTC+8)</option>
+          <option value="1" data-city="ロンドン">ロンドン (UTC+1)</option>
+          <option value="2" data-city="パリ">パリ (UTC+2)</option>
+          <option value="-4" data-city="ニューヨーク">ニューヨーク (UTC-4)</option>
+          <option value="-7" data-city="ロサンゼルス">ロサンゼルス (UTC-7)</option>
+          <option value="10" data-city="シドニー">シドニー (UTC+10)</option>
+        </select>
+      </div>
+      <div class="ae-out">
+        <div class="city" id="city">東京</div>
+        <div class="time" id="time">21:00</div>
+        <div class="date" id="date">2026年9月1日</div>
+      </div>
+    </div>
+    <div class="ae-cta">
+      <div class="t">参加登録して視聴リンクを受け取る</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    // 基準: 2026-09-01 12:00 UTC（= 日本 21:00）
+    var BASE_UTC = Date.UTC(2026, 8, 1, 12, 0, 0);
+    var tz = document.getElementById("tz");
+    var cityEl = document.getElementById("city"), timeEl = document.getElementById("time"), dateEl = document.getElementById("date");
+    var W = ["日", "月", "火", "水", "木", "金", "土"];
+    function pad(n) { return (n < 10 ? "0" : "") + n; }
+    function render() {
+      var opt = tz.options[tz.selectedIndex];
+      var offset = parseInt(tz.value, 10);
+      var local = new Date(BASE_UTC + offset * 3600000);
+      cityEl.textContent = opt.getAttribute("data-city");
+      timeEl.textContent = pad(local.getUTCHours()) + ":" + pad(local.getUTCMinutes());
+      dateEl.textContent = local.getUTCFullYear() + "年" + (local.getUTCMonth() + 1) + "月" + local.getUTCDate() + "日（" + W[local.getUTCDay()] + "）";
+    }
+    tz.addEventListener("change", render);
+    render();
+  })();
+  </script>
+</body>
+</html>

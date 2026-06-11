@@ -1,0 +1,8 @@
+{
+  "name": "サンクス - 当日チェックイン完了",
+  "category": "thankyou",
+  "description": "イベント当日の受付チェックイン完了後に、座席・整理番号・会場案内を表示するサンクスページ。セッション資料/アンケート配信のオプトインを兼ねる。来場体験の起点に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "チェックインが完了しました",
+  "previewDescription": "ご来場ありがとうございます。当日のご案内は以下のとおりです。"
+}
