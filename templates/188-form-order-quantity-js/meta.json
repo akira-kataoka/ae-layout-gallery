@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 注文数量ライブ合計(JS)",
+  "category": "form",
+  "description": "数量ステッパーで商品点数を増減すると合計金額が即時計算される素のJavaScript注文フォーム(textContent・classList・innerHTML不使用)。モバイルオーダーに。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "ご注文内容を選ぶ",
+  "previewDescription": "＋−で数量を調整すると、合計が自動で計算されます。"
+}

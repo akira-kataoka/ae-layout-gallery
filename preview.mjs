@@ -231,6 +231,15 @@ const CALENDAR_BODY = `<h1>お申し込みが完了しました</h1>
 const SHARE_BODY = `<h1>ご参加ありがとうございます！</h1>
 <p>よろしければ、お知り合いにもシェアしていただけると嬉しいです。</p>`;
 
+const DETAILED_FEEDBACK_FORM = `<form>
+  <fieldset><legend>内容の満足度</legend><div class="scale"><label><input type="radio" name="c1" checked>5</label><label><input type="radio" name="c1">4</label><label><input type="radio" name="c1">3</label><label><input type="radio" name="c1">2</label><label><input type="radio" name="c1">1</label></div></fieldset>
+  <fieldset><legend>運営・進行</legend><div class="scale"><label><input type="radio" name="c2" checked>5</label><label><input type="radio" name="c2">4</label><label><input type="radio" name="c2">3</label><label><input type="radio" name="c2">2</label><label><input type="radio" name="c2">1</label></div></fieldset>
+  <p><label>総合評価</label><br><select><option selected>大変満足</option><option>満足</option><option>普通</option><option>不満</option></select></p>
+  <p><label>ご意見・ご要望</label><br><textarea>具体的な事例が多く参考になりました。</textarea></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="アンケートを送信"></p>
+</form>`;
+
 const JOBALERT_FORM = `<form>
   <fieldset><legend>希望職種（複数可）</legend>
     <label><input type="checkbox" checked> エンジニア</label>
@@ -907,6 +916,9 @@ function contentFor(dir, category) {
     case "184-form-gift-wrapping": return GIFTWRAP_FORM;
     case "185-utility-job-alert": return JOBALERT_FORM;
     case "187-form-trial-extension": return TRIAL_EXT_FORM;
+    case "188-form-order-quantity-js": return APPT_FORM;
+    case "189-landing-checklist-score-js": return NEWSLETTER_FORM;
+    case "190-form-event-feedback-detailed": return DETAILED_FEEDBACK_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }

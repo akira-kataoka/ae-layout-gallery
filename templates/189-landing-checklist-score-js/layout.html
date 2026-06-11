@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0d9488; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f0faf8; line-height:1.7; }
+    .ae-wrap { max-width:560px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:14px; }
+    .ae-head h1 { margin:0 0 6px; font-size:24px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:26px; box-shadow:0 8px 24px rgba(13,148,136,.1); }
+    .ae-list label { display:flex; gap:10px; align-items:center; padding:12px 14px; border:1px solid var(--line); border-radius:10px; margin-bottom:8px; cursor:pointer; font-size:14px; }
+    .ae-list label:hover { background:#ecfdf5; border-color:#99f6e4; }
+    .ae-check { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:10px; font-weight:800; cursor:pointer; margin-top:6px; }
+    .ae-result { display:none; margin-top:16px; text-align:center; background:linear-gradient(135deg,#0d9488,#0891b2); color:#fff; border-radius:14px; padding:20px; }
+    .ae-result.show { display:block; }
+    .ae-result .score { font-size:34px; font-weight:900; }
+    .ae-card2 { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; margin-top:16px; text-align:center; }
+    .ae-card2 .t { font-weight:700; margin-bottom:10px; }
+    .ae-card2 form input[type=email],.ae-card2 form input[type=text] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card2 form p { margin:0 0 12px; }
+    .ae-card2 form .submit input,.ae-card2 form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <div class="ae-list" id="list">
+        <label><input type="checkbox"> 業務が属人化している</label>
+        <label><input type="checkbox"> 手作業・転記が多い</label>
+        <label><input type="checkbox"> 進捗が見えにくい</label>
+        <label><input type="checkbox"> 残業が常態化している</label>
+        <label><input type="checkbox"> ツールが乱立している</label>
+      </div>
+      <button class="ae-check" id="check" type="button">診断する</button>
+      <div class="ae-result" id="result"><div class="score" id="score">0 / 5</div><div id="rmsg"></div></div>
+    </div>
+    <div class="ae-card2"><div class="t">あなた向けの改善プランを受け取る</div>%%content%%</div>
+  </div>
+
+  <script>
+  (function () {
+    document.getElementById("check").addEventListener("click", function () {
+      var boxes = document.querySelectorAll("#list input[type=checkbox]");
+      var total = boxes.length, n = 0;
+      Array.prototype.forEach.call(boxes, function (b) { if (b.checked) n++; });
+      document.getElementById("score").textContent = n + " / " + total;
+      var msg = n >= 4 ? "改善の余地が大きい状態です。今すぐ対策を。" : (n >= 2 ? "いくつか課題があります。早めの見直しを。" : "良好です！さらなる効率化も可能です。");
+      document.getElementById("rmsg").textContent = msg;
+      document.getElementById("result").classList.add("show");
+    });
+  })();
+  </script>
+</body>
+</html>

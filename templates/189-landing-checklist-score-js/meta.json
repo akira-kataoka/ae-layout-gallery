@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - チェックリスト診断(JS)",
+  "category": "landing",
+  "description": "当てはまる項目をチェックして課題度を診断する素のJavaScript構成LP(textContent・classList・innerHTML不使用)。課題喚起型のリード獲得に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "あなたの業務、当てはまる？",
+  "previewDescription": "チェックして「診断する」を押すと、課題度とアドバイスが表示されます。"
+}

@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 詳細イベントフィードバック",
+  "category": "form",
+  "description": "内容/運営/満足度を項目別に評価する詳細なイベント後アンケート。セミナー/展示会の改善・NPS収集に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "イベントアンケート（詳細版）",
+  "previewDescription": "項目ごとに評価いただけます。今後の改善に活用します。"
+}
