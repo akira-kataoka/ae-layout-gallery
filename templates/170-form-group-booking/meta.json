@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 団体/グループ予約",
+  "category": "form",
+  "description": "人数・日程・用途を入力する団体予約フォーム。宴会/研修/貸切/団体ツアーの幹事向け申込に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "団体・グループのご予約",
+  "previewDescription": "人数とご希望日をお知らせください。最適なプランをご提案します。"
+}

@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - お客様の声カルーセル(JS)",
+  "category": "landing",
+  "description": "お客様の声を自動・手動で切り替えるカルーセルLP(素のJS・classList/createElement・innerHTML不使用)。社会的証明の訴求に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "お客様の声",
+  "previewDescription": "実際にご利用いただいた皆さまの声をご紹介します。"
+}

@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 翻訳/制作の見積依頼",
+  "category": "form",
+  "description": "言語ペア・分量・納期を入力する翻訳/制作の見積依頼フォーム。翻訳会社・制作会社の引き合い獲得に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "翻訳のお見積り",
+  "previewDescription": "言語と分量、ご希望納期をお知らせください。最短当日でお見積りします。"
+}

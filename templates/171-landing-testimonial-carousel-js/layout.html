@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#4f46e5; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f4f5fb; line-height:1.7; }
+    .ae-head { text-align:center; padding:48px 20px 8px; }
+    .ae-head h1 { font-size:28px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-carousel { max-width:600px; margin:20px auto; padding:0 20px; }
+    .ae-slides { position:relative; min-height:200px; }
+    .ae-slide { display:none; background:#fff; border:1px solid var(--line); border-radius:16px; padding:30px 28px; box-shadow:0 8px 24px rgba(79,70,229,.08); text-align:center; }
+    .ae-slide.active { display:block; animation:fade .35s ease; }
+    @keyframes fade { from { opacity:0; } to { opacity:1; } }
+    .ae-slide .stars { color:#f59e0b; }
+    .ae-slide blockquote { margin:10px 0 14px; font-size:16px; color:#334155; }
+    .ae-slide .who { display:flex; gap:10px; align-items:center; justify-content:center; }
+    .ae-slide .av { width:40px; height:40px; border-radius:50%; background:linear-gradient(135deg,#a5b4fc,#4f46e5); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; }
+    .ae-nav { display:flex; justify-content:center; gap:14px; margin-top:14px; align-items:center; }
+    .ae-nav button { width:40px; height:40px; border-radius:50%; border:1px solid var(--line); background:#fff; cursor:pointer; font-size:18px; }
+    .ae-dots { display:flex; gap:6px; }
+    .ae-dots span { width:8px; height:8px; border-radius:50%; background:#cbd5e1; }
+    .ae-dots span.on { background:var(--accent); }
+    .ae-body { max-width:520px; margin:18px auto 56px; padding:0 20px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; }
+    .ae-card .t { font-weight:700; margin-bottom:10px; }
+    .ae-card form input[type=email],.ae-card form input[type=text] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <header class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></header>
+  <section class="ae-carousel">
+    <div class="ae-slides" id="slides">
+      <div class="ae-slide active"><div class="stars">★★★★★</div><blockquote>「導入後すぐに効果を実感。もう手放せません。」</blockquote><div class="who"><div class="av">A</div><div>青木様 / 製造業</div></div></div>
+      <div class="ae-slide"><div class="stars">★★★★★</div><blockquote>「サポートが手厚く、初心者でも安心でした。」</blockquote><div class="who"><div class="av">S</div><div>佐藤様 / 小売</div></div></div>
+      <div class="ae-slide"><div class="stars">★★★★☆</div><blockquote>「コスパが良く、社内展開もスムーズ。」</blockquote><div class="who"><div class="av">T</div><div>田中様 / IT</div></div></div>
+    </div>
+    <div class="ae-nav"><button type="button" id="prev" aria-label="前へ">‹</button><div class="ae-dots" id="dots"></div><button type="button" id="next" aria-label="次へ">›</button></div>
+  </section>
+  <div class="ae-body"><div class="ae-card"><div class="t">あなたも体験する</div>%%content%%</div></div>
+
+  <script>
+  (function () {
+    var slides = Array.prototype.slice.call(document.querySelectorAll(".ae-slide"));
+    var dotsWrap = document.getElementById("dots");
+    var idx = 0, timer;
+    slides.forEach(function (_, i) {
+      var d = document.createElement("span");
+      if (i === 0) d.classList.add("on");
+      dotsWrap.appendChild(d);
+    });
+    var dots = Array.prototype.slice.call(dotsWrap.children);
+    function show(n) {
+      idx = (n + slides.length) % slides.length;
+      slides.forEach(function (s, i) { s.classList.toggle("active", i === idx); });
+      dots.forEach(function (d, i) { d.classList.toggle("on", i === idx); });
+    }
+    function next() { show(idx + 1); }
+    function reset() { clearInterval(timer); timer = setInterval(next, 4000); }
+    document.getElementById("next").addEventListener("click", function () { next(); reset(); });
+    document.getElementById("prev").addEventListener("click", function () { show(idx - 1); reset(); });
+    reset();
+  })();
+  </script>
+</body>
+</html>

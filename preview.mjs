@@ -231,6 +231,22 @@ const CALENDAR_BODY = `<h1>お申し込みが完了しました</h1>
 const SHARE_BODY = `<h1>ご参加ありがとうございます！</h1>
 <p>よろしければ、お知り合いにもシェアしていただけると嬉しいです。</p>`;
 
+const GROUP_FORM = `<form>
+  <div class="row"><p><label>ご利用人数</label><br><input type="number" value="20"></p><p><label>ご希望日</label><br><input type="date" value="2026-08-22"></p></div>
+  <p><label>ご利用用途</label><br><select><option selected>宴会・懇親会</option><option>研修・会議</option><option>貸切イベント</option></select></p>
+  <p><label>幹事様のお名前</label><br><input type="text" value="山田 太郎"></p>
+  <div class="row"><p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p></div>
+  <p class="submit"><input type="submit" value="団体予約を相談する"></p>
+</form>`;
+
+const TRANSLATION_FORM = `<form>
+  <p><label>言語ペア</label><br><select><option selected>日本語 → 英語</option><option>英語 → 日本語</option><option>日本語 → 中国語</option><option>その他</option></select></p>
+  <div class="row"><p><label>分量(文字/ワード数の目安)</label><br><input type="text" value="約5,000文字"></p><p><label>ご希望納期</label><br><select><option>特急(当日〜翌日)</option><option selected>通常(3〜5営業日)</option><option>急がない</option></select></p></div>
+  <p><label>原稿ファイル(任意)</label><br><input type="file"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="見積もりを依頼する"></p>
+</form>`;
+
 const REPAIR_FORM = `<form>
   <p><label>対象製品</label><br><select><option selected>スマートフォン</option><option>ノートPC</option><option>家電</option><option>その他</option></select></p>
   <p><label>症状</label><br><select><option selected>電源が入らない</option><option>画面割れ</option><option>バッテリーの劣化</option><option>その他</option></select></p>
@@ -812,6 +828,9 @@ function contentFor(dir, category) {
     case "166-form-trade-in": return TRADEIN_FORM;
     case "168-landing-faq-search-js": return NEWSLETTER_FORM;
     case "169-form-repair-request": return REPAIR_FORM;
+    case "170-form-group-booking": return GROUP_FORM;
+    case "171-landing-testimonial-carousel-js": return NEWSLETTER_FORM;
+    case "172-form-translation-request": return TRANSLATION_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }

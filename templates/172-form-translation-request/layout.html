@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0369a1; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eef4fb; line-height:1.7; }
+    .ae-wrap { max-width:600px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:14px; }
+    .ae-head .ic { font-size:40px; }
+    .ae-head h1 { margin:6px 0; font-size:24px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-trust { display:flex; gap:8px; justify-content:center; margin:14px 0; flex-wrap:wrap; font-size:12px; color:var(--muted); }
+    .ae-trust span { background:#fff; border:1px solid var(--line); border-radius:999px; padding:5px 12px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:30px 28px; box-shadow:0 8px 24px rgba(3,105,161,.1); }
+    .ae-card form label { font-size:13px; font-weight:600; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form input[type=file],.ae-card form select,.ae-card form textarea { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form .row { display:flex; gap:14px; } .ae-card form .row > p { flex:1; }
+    .ae-card form p { margin:0 0 14px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; font-size:15px; cursor:pointer; }
+    @media (max-width:520px){ .ae-card form .row { flex-direction:column; gap:0; } }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><div class="ic">🌐</div><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-trust"><span>40言語対応</span><span>ネイティブチェック</span><span>最短当日見積</span></div>
+    <div class="ae-card">%%content%%</div>
+  </div>
+</body>
+</html>
