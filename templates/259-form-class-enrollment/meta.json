@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 講座/スクール受講申込",
+  "category": "form",
+  "description": "コース一覧を提示し、希望コース・受講者情報を入力させる講座/スクールの受講申込フォーム。習い事・研修・オンライン講座の集客に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "講座のお申し込み",
+  "previewDescription": "ご希望のコースを選んで、必要事項をご入力ください。"
+}

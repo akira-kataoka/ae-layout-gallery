@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#ca8a04; --ink:#2a230c; --muted:#6e6344; --line:#f0e7c9; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fffbeb; line-height:1.7; }
+    .ae-wrap { max-width:500px; margin:0 auto; padding:54px 20px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:20px; padding:34px 28px; text-align:center; box-shadow:0 14px 38px rgba(202,138,4,.12); }
+    .ae-spark { font-size:44px; }
+    .ae-card h1 { font-size:22px; margin:6px 0 4px; }
+    .ae-card .lead { color:var(--muted); margin:0 0 22px; font-size:14px; }
+    .ae-earned { background:linear-gradient(135deg,#fde68a,#fbbf24); border-radius:16px; padding:20px; margin-bottom:14px; }
+    .ae-earned .k { font-size:13px; color:#92722a; font-weight:700; }
+    .ae-earned .v { font-size:42px; font-weight:900; color:#7a5c0a; font-variant-numeric:tabular-nums; line-height:1.1; }
+    .ae-earned .v small { font-size:18px; }
+    .ae-balance { display:flex; justify-content:space-around; background:#fffdf5; border:1px solid var(--line); border-radius:14px; padding:16px; margin-bottom:22px; }
+    .ae-balance .lab { font-size:12px; color:var(--muted); } .ae-balance .num { font-weight:800; font-size:18px; font-variant-numeric:tabular-nums; }
+    .ae-bar { height:8px; background:#f0e7c9; border-radius:999px; overflow:hidden; margin:6px 0 4px; }
+    .ae-bar span { display:block; height:100%; width:68%; background:linear-gradient(90deg,#fbbf24,#ca8a04); }
+    .ae-next { font-size:12px; color:var(--muted); margin-bottom:22px; }
+    .ae-foot { border-top:1px dashed var(--line); padding-top:20px; }
+    .ae-foot .t { font-weight:700; font-size:14px; margin-bottom:12px; }
+    .ae-foot form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-foot form p { margin:0 0 12px; }
+    .ae-foot form .submit input,.ae-foot form button { width:100%; background:var(--accent); color:#fff; border:0; padding:13px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-card">
+      <div class="ae-spark">✨</div>
+      <h1>%%title%%</h1>
+      <p class="lead">%%description%%</p>
+      <div class="ae-earned">
+        <div class="k">今回獲得したポイント</div>
+        <div class="v">+480<small> pt</small></div>
+      </div>
+      <div class="ae-balance">
+        <div><div class="lab">現在の残高</div><div class="num">2,140 pt</div></div>
+        <div><div class="lab">有効期限</div><div class="num">2027/06/30</div></div>
+      </div>
+      <div class="ae-bar"><span></span></div>
+      <div class="ae-next">次のランク「ゴールド」まで あと 860 pt</div>
+      <div class="ae-foot">
+        <div class="t">ポイント失効前のお知らせを受け取る</div>
+        %%content%%
+      </div>
+    </div>
+  </div>
+</body>
+</html>

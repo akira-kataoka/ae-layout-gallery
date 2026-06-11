@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - 円形ゲージ スコア訴求(JS)",
+  "category": "landing",
+  "description": "顧客満足度や継続率などの実績を円形ゲージでカウントアップ表示する信頼訴求LP(conic-gradient＋textContent、innerHTML不使用)。画面に入るとアニメ開始。導入実績の見える化に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "数字が語る、わたしたちの実力",
+  "previewDescription": "お客様の評価を、ごまかしのない実績スコアでお見せします。"
+}

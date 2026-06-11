@@ -266,6 +266,21 @@ const BOOKING_FORM = `<form>
   <p class="submit"><input type="submit" value="この日時で予約する"></p>
 </form>`;
 
+const ENROLL_FORM = `<form>
+  <p><label>受講するコース</label><br><select><option selected>入門コース（全6回）</option><option>実践コース（全12回）</option></select></p>
+  <p><label>受講者のお名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p>
+  <p><label>受講形態</label><br><select><option selected>教室で受講</option><option>オンラインで受講</option></select></p>
+  <p class="submit"><input type="submit" value="受講を申し込む"></p>
+</form>`;
+
+const LAUNCH_FORM = `<form>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="視聴に登録する"></p>
+</form>`;
+
 const MULTIGIFT_FORM = `<form>
   <p><label>贈り主のお名前</label><br><input type="text" value="山田 太郎"></p>
   <fieldset><legend>贈り先 1</legend>
@@ -1180,6 +1195,10 @@ function contentFor(dir, category) {
     case "255-form-multi-recipient-gift": return MULTIGIFT_FORM;
     case "256-event-virtual-booth": return BOOTH_FORM;
     case "257-utility-survey-closed": return NEWSLETTER_FORM;
+    case "258-landing-score-gauge-js": return NEWSLETTER_FORM;
+    case "259-form-class-enrollment": return ENROLL_FORM;
+    case "260-event-product-launch": return LAUNCH_FORM;
+    case "261-thankyou-points-earned": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

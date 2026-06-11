@@ -1,0 +1,8 @@
+{
+  "name": "サンクス - ポイント獲得完了",
+  "category": "thankyou",
+  "description": "購入・アクション完了後に獲得ポイント・残高・有効期限・次ランクまでの進捗を表示するサンクスページ。ロイヤルティ施策の継続利用促進とオプトインに。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "ポイントを獲得しました！",
+  "previewDescription": "ご利用ありがとうございます。今回のポイントが加算されました。"
+}
