@@ -1139,6 +1139,10 @@ function contentFor(dir, category) {
     case "243-landing-reveal-on-scroll-js": return NEWSLETTER_FORM;
     case "244-event-hybrid-conference": return HYBRID_FORM;
     case "245-thankyou-cross-sell-grid": return NEWSLETTER_FORM;
+    case "246-landing-donation-tiers-js": return DONATION_FORM;
+    case "247-form-petition-signature": return PETITION_FORM;
+    case "248-utility-cookie-settings": return NEWSLETTER_FORM;
+    case "249-event-workshop-handson": return WORKSHOP_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#15803d; --ink:#102417; --muted:#566b5d; --line:#d9ead9; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f1faf3; line-height:1.7; }
+    .ae-wrap { max-width:600px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:18px; }
+    .ae-head h1 { font-size:24px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-progress { background:#fff; border:1px solid var(--line); border-radius:14px; padding:18px 20px; margin-bottom:20px; box-shadow:0 8px 22px rgba(21,128,61,.06); }
+    .ae-progress .row { display:flex; justify-content:space-between; font-size:13px; margin-bottom:8px; }
+    .ae-progress .cur { font-weight:900; color:var(--accent); font-size:20px; }
+    .ae-bar { height:12px; background:#e6f4ea; border-radius:999px; overflow:hidden; }
+    .ae-bar span { display:block; height:100%; width:74%; background:linear-gradient(90deg,#22c55e,#15803d); border-radius:999px; }
+    .ae-goal { text-align:right; font-size:12px; color:var(--muted); margin-top:6px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:26px; }
+    .ae-card .t { font-weight:700; font-size:17px; margin-bottom:14px; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form select,.ae-card form textarea { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; font-family:inherit; }
+    .ae-card form label { font-weight:700; font-size:13px; }
+    .ae-card form p { margin:0 0 13px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:15px; border-radius:9px; font-weight:800; font-size:15px; cursor:pointer; }
+    .ae-foot { color:var(--muted); font-size:12px; margin-top:12px; text-align:center; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-progress">
+      <div class="row"><span>これまでの賛同数</span><span class="cur">14,820 筆</span></div>
+      <div class="ae-bar"><span></span></div>
+      <div class="ae-goal">目標 20,000 筆まで あと 5,180 筆</div>
+    </div>
+    <div class="ae-card">
+      <div class="t">この提案に賛同する（署名）</div>
+      %%content%%
+      <p class="ae-foot">いただいた情報は本キャンペーンの運営目的のみに使用します。</p>
+    </div>
+  </div>
+</body>
+</html>

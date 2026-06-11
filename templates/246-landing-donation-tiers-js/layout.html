@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#e11d48; --ink:#2a121a; --muted:#6b5560; --line:#f3dde4; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fff5f7; line-height:1.7; }
+    .ae-wrap { max-width:580px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:22px; }
+    .ae-head .emo { font-size:46px; }
+    .ae-head h1 { font-size:24px; margin:6px 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; box-shadow:0 12px 32px rgba(225,29,72,.09); }
+    .ae-cycle { display:flex; gap:6px; background:#fde7ec; border-radius:10px; padding:4px; margin-bottom:16px; }
+    .ae-cycle button { flex:1; border:0; background:transparent; padding:9px; border-radius:8px; font-weight:700; font-size:13px; cursor:pointer; color:var(--muted); }
+    .ae-cycle button.on { background:#fff; color:var(--accent); box-shadow:0 2px 8px rgba(225,29,72,.16); }
+    .ae-tiers { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:14px; }
+    .ae-tier { border:2px solid var(--line); background:#fff; border-radius:12px; padding:14px 8px; font-weight:800; font-size:16px; cursor:pointer; font-family:inherit; font-variant-numeric:tabular-nums; }
+    .ae-tier.sel { border-color:var(--accent); background:#fff1f4; color:var(--accent); }
+    .ae-custom { margin-bottom:16px; }
+    .ae-custom label { font-weight:700; font-size:13px; }
+    .ae-custom input { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:15px; font-variant-numeric:tabular-nums; }
+    .ae-impact { background:linear-gradient(135deg,#e11d48,#be123c); color:#fff; border-radius:14px; padding:18px; text-align:center; margin-bottom:18px; }
+    .ae-impact .amt { font-size:13px; opacity:.9; }
+    .ae-impact .txt { font-weight:800; font-size:16px; margin-top:4px; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:15px; border-radius:9px; font-weight:800; font-size:15px; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head">
+      <div class="emo">💛</div>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-card">
+      <div class="ae-cycle" id="cycle">
+        <button type="button" class="on" data-cycle="once">今回のみ</button>
+        <button type="button" data-cycle="month">毎月</button>
+      </div>
+      <div class="ae-tiers" id="tiers">
+        <button type="button" class="ae-tier" data-amt="1000">¥1,000</button>
+        <button type="button" class="ae-tier sel" data-amt="3000">¥3,000</button>
+        <button type="button" class="ae-tier" data-amt="5000">¥5,000</button>
+        <button type="button" class="ae-tier" data-amt="10000">¥10,000</button>
+        <button type="button" class="ae-tier" data-amt="30000">¥30,000</button>
+        <button type="button" class="ae-tier" data-amt="50000">¥50,000</button>
+      </div>
+      <div class="ae-custom">
+        <label for="custom">自由な金額（円）</label>
+        <input type="number" id="custom" min="100" step="100" placeholder="例: 8000">
+      </div>
+      <div class="ae-impact">
+        <div class="amt"><span id="cycleLabel">今回</span>のご寄付 <strong id="amtLabel">¥3,000</strong></div>
+        <div class="txt" id="impact"></div>
+      </div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var tiers = Array.prototype.slice.call(document.querySelectorAll(".ae-tier"));
+    var custom = document.getElementById("custom");
+    var amtLabel = document.getElementById("amtLabel"), impact = document.getElementById("impact"), cycleLabel = document.getElementById("cycleLabel");
+    var cycleBtns = Array.prototype.slice.call(document.querySelectorAll("#cycle button"));
+    var amount = 3000, cycle = "once";
+    function impactText(a) {
+      if (a >= 30000) return "難民家族1世帯に1ヶ月分の食料を届けられます";
+      if (a >= 10000) return "子ども10人に温かい給食を1週間提供できます";
+      if (a >= 5000) return "ワクチン20回分を子どもたちに届けられます";
+      if (a >= 3000) return "清潔な水を1家族に1ヶ月分供給できます";
+      if (a >= 1000) return "学用品セットを1人の子どもに贈れます";
+      return "あなたの想いが、確かな一歩になります";
+    }
+    function render() {
+      amtLabel.textContent = "¥" + amount.toLocaleString("ja-JP");
+      cycleLabel.textContent = cycle === "month" ? "毎月" : "今回";
+      impact.textContent = impactText(amount);
+    }
+    tiers.forEach(function (t) {
+      t.addEventListener("click", function () {
+        tiers.forEach(function (x) { x.classList.remove("sel"); });
+        t.classList.add("sel");
+        custom.value = "";
+        amount = parseInt(t.getAttribute("data-amt"), 10);
+        render();
+      });
+    });
+    custom.addEventListener("input", function () {
+      var v = parseInt(custom.value, 10);
+      if (!isNaN(v) && v > 0) {
+        tiers.forEach(function (x) { x.classList.remove("sel"); });
+        amount = v;
+        render();
+      }
+    });
+    cycleBtns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        cycleBtns.forEach(function (x) { x.classList.remove("on"); });
+        b.classList.add("on");
+        cycle = b.getAttribute("data-cycle");
+        render();
+      });
+    });
+    render();
+  })();
+  </script>
+</body>
+</html>

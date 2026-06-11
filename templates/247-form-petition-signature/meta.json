@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - オンライン署名/賛同",
+  "category": "form",
+  "description": "賛同数の進捗バーを上部に表示し、氏名・賛同コメント・公開可否を入力するオンライン署名フォーム。社会的キャンペーンや要望活動の賛同者集めに。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "わたしたちは、この提案に賛同します",
+  "previewDescription": "あなたの署名が、変化への大きな一歩になります。"
+}

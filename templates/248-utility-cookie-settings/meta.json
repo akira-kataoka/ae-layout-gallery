@@ -1,0 +1,8 @@
+{
+  "name": "ユーティリティ - Cookie設定/同意管理",
+  "category": "utility",
+  "description": "必須/分析/広告のCookieカテゴリをトグルスイッチで個別に許可・拒否できる同意管理ページ(classList不使用・checked操作のみ、innerHTML不使用)。「すべて許可/必須のみ」一括ボタン付き。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "Cookieの設定",
+  "previewDescription": "より良い体験のためにCookieを使用します。用途ごとに設定を選べます。"
+}

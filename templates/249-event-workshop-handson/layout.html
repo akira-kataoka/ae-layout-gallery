@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#ea580c; --ink:#2a1a0f; --muted:#6e5a4a; --line:#f0e3d6; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fff8f2; line-height:1.7; }
+    .ae-wrap { max-width:640px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:24px; }
+    .ae-head .badge { display:inline-block; background:#ffedd5; color:var(--accent); font-weight:700; font-size:12px; padding:5px 14px; border-radius:999px; margin-bottom:12px; }
+    .ae-head h1 { font-size:26px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-meta { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:24px; }
+    .ae-m { background:#fff; border:1px solid var(--line); border-radius:14px; padding:14px; text-align:center; box-shadow:0 6px 18px rgba(234,88,12,.06); }
+    .ae-m .ic { font-size:22px; } .ae-m .k { font-size:11px; color:var(--muted); } .ae-m .v { font-weight:800; font-size:14px; }
+    .ae-seats { background:#fff7ed; border:1px solid #fed7aa; border-radius:12px; padding:12px 16px; text-align:center; font-weight:700; color:var(--accent); font-size:14px; margin-bottom:24px; }
+    .ae-curri { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; margin-bottom:24px; }
+    .ae-curri .t { font-weight:700; margin-bottom:12px; }
+    .ae-step { display:flex; gap:12px; padding:9px 0; border-top:1px dashed var(--line); font-size:14px; }
+    .ae-step:first-of-type { border-top:0; }
+    .ae-step .no { flex:0 0 auto; width:24px; height:24px; border-radius:50%; background:#ffedd5; color:var(--accent); font-weight:800; font-size:12px; display:flex; align-items:center; justify-content:center; }
+    .ae-bring { font-size:13px; color:var(--muted); margin-bottom:24px; }
+    .ae-bring b { color:var(--ink); }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; text-align:center; }
+    .ae-card .t { font-weight:700; font-size:18px; margin-bottom:12px; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    @media (max-width:520px){ .ae-meta { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head">
+      <span class="badge">少人数・実践形式</span>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-meta">
+      <div class="ae-m"><div class="ic">📅</div><div class="k">開催日</div><div class="v">8月23日(土)</div></div>
+      <div class="ae-m"><div class="ic">⏱️</div><div class="k">所要時間</div><div class="v">3時間</div></div>
+      <div class="ae-m"><div class="ic">👥</div><div class="k">定員</div><div class="v">先着12名</div></div>
+    </div>
+    <div class="ae-seats">🔥 残りわずか・あと3席</div>
+    <div class="ae-curri">
+      <div class="t">当日のカリキュラム</div>
+      <div class="ae-step"><span class="no">1</span><span>基礎レクチャー（道具の使い方・安全のポイント）</span></div>
+      <div class="ae-step"><span class="no">2</span><span>講師のデモンストレーション</span></div>
+      <div class="ae-step"><span class="no">3</span><span>ハンズオン制作（マンツーマンでサポート）</span></div>
+      <div class="ae-step"><span class="no">4</span><span>作品発表・講評・記念撮影</span></div>
+    </div>
+    <p class="ae-bring"><b>持ち物：</b>とくにありません。エプロンと材料はこちらでご用意します。手ぶらでお越しください。</p>
+    <div class="ae-card">
+      <div class="t">このワークショップに申し込む</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - 寄付金額セレクター(JS)",
+  "category": "landing",
+  "description": "プリセット金額/自由入力と今回のみ/毎月トグルを選ぶと、その金額で実現できる支援インパクトが即時表示される寄付LP(textContent・classListのみ、innerHTML不使用)。NPO/募金の獲得に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "あなたの寄付が、誰かの一日を変える",
+  "previewDescription": "金額を選ぶと、その支援で実現できることが見られます。"
+}
