@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#4338ca; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --dark:#1e1b4b; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eef0fb; line-height:1.7; }
+    .ae-hero { background:var(--dark); color:#fff; padding:46px 20px; text-align:center; }
+    .ae-hero h1 { font-size:27px; margin:0 0 8px; }
+    .ae-hero p { margin:0; opacity:.88; }
+    .ae-tiers { max-width:820px; margin:-22px auto 0; padding:0 20px; display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+    .ae-tier { background:#fff; border:1px solid var(--line); border-radius:14px; padding:18px; text-align:center; box-shadow:0 6px 18px rgba(67,56,202,.08); }
+    .ae-tier .nm { font-weight:800; } .ae-tier .pr { color:var(--accent); font-weight:800; font-size:18px; margin:4px 0; } .ae-tier .v { font-size:12px; color:var(--muted); }
+    .ae-card { max-width:600px; margin:28px auto 56px; background:#fff; border:1px solid var(--line); border-radius:16px; padding:30px 28px; box-shadow:0 8px 24px rgba(67,56,202,.1); }
+    .ae-card h2 { margin-top:0; font-size:18px; }
+    .ae-card form label { font-size:13px; font-weight:600; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form input[type=tel],.ae-card form select,.ae-card form textarea { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form .row { display:flex; gap:14px; } .ae-card form .row > p { flex:1; }
+    .ae-card form p { margin:0 0 14px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; font-size:15px; cursor:pointer; }
+    @media (max-width:640px){ .ae-tiers { grid-template-columns:1fr; } .ae-card form .row { flex-direction:column; gap:0; } }
+  </style>
+</head>
+<body>
+  <header class="ae-hero"><h1>%%title%%</h1><p>%%description%%</p></header>
+  <section class="ae-tiers">
+    <div class="ae-tier"><div class="nm">ブロンズ</div><div class="pr">¥100,000</div><div class="v">ロゴ掲載</div></div>
+    <div class="ae-tier"><div class="nm">シルバー</div><div class="pr">¥300,000</div><div class="v">ブース＋登壇</div></div>
+    <div class="ae-tier"><div class="nm">ゴールド</div><div class="pr">¥800,000</div><div class="v">冠スポンサー</div></div>
+  </section>
+  <section class="ae-card"><h2>協賛のお申し込み・お問い合わせ</h2>%%content%%</section>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0891b2; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#ecfeff; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:60px 20px; text-align:center; }
+    .ae-card { background:#fff; border-radius:18px; box-shadow:0 12px 34px rgba(8,145,178,.14); padding:42px 34px; }
+    .ae-check { width:74px; height:74px; margin:0 auto 16px; border-radius:50%; background:#0891b2; display:flex; align-items:center; justify-content:center; }
+    .ae-check svg { width:36px; height:36px; }
+    .ae-msg { margin-bottom:10px; }
+    .ae-detail { text-align:left; border:1px solid var(--line); border-radius:12px; padding:16px 18px; margin:18px 0; }
+    .ae-detail .row { display:flex; gap:10px; padding:7px 0; font-size:14px; }
+    .ae-detail .row .ic { width:24px; } .ae-detail .row .k { color:var(--muted); width:80px; flex:none; } .ae-detail .row .v { font-weight:700; }
+    .ae-cal { display:flex; gap:8px; justify-content:center; flex-wrap:wrap; }
+    .ae-cal a { text-decoration:none; border:1px solid var(--line); border-radius:9px; padding:10px 14px; color:var(--ink); font-size:13px; font-weight:700; }
+    .ae-cal a:hover { border-color:var(--accent); color:var(--accent); }
+    .ae-resched { display:block; margin-top:14px; font-size:13px; color:var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-card">
+      <div class="ae-check"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
+      <div class="ae-msg">%%content%%</div>
+      <div class="ae-detail">
+        <div class="row"><span class="ic">📅</span><span class="k">日時</span><span class="v">2026年7月15日(水) 14:00</span></div>
+        <div class="row"><span class="ic">📍</span><span class="k">場所</span><span class="v">サンプル本社 3F 会議室</span></div>
+        <div class="row"><span class="ic">👤</span><span class="k">担当</span><span class="v">営業部 佐藤</span></div>
+      </div>
+      <div class="ae-cal"><a href="#">📅 Google</a><a href="#">📅 Outlook</a><a href="#">📅 iCal</a></div>
+      <a class="ae-resched" href="#">日程を変更する</a>
+    </div>
+  </div>
+</body>
+</html>

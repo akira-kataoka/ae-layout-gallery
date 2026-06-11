@@ -231,6 +231,21 @@ const CALENDAR_BODY = `<h1>お申し込みが完了しました</h1>
 const SHARE_BODY = `<h1>ご参加ありがとうございます！</h1>
 <p>よろしければ、お知り合いにもシェアしていただけると嬉しいです。</p>`;
 
+const SPONSOR_FORM = `<form>
+  <div class="row"><p><label>会社名</label><br><input type="text" value="株式会社サンプル"></p><p><label>ご担当者名</label><br><input type="text" value="山田 太郎"></p></div>
+  <p><label>ご希望の協賛プラン</label><br><select><option>ブロンズ</option><option selected>シルバー</option><option>ゴールド</option><option>相談したい</option></select></p>
+  <div class="row"><p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p><p><label>電話番号</label><br><input type="tel" value="03-0000-0000"></p></div>
+  <p><label>ご質問・ご要望</label><br><textarea>ブース出展と登壇枠について相談したいです。</textarea></p>
+  <p class="submit"><input type="submit" value="申し込む / 相談する"></p>
+</form>`;
+
+const OFFER_FORM = `<form>
+  <p><label>あなたの希望価格（円）</label><br><input type="number" value="1750000"></p>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="この価格でオファーする"></p>
+</form>`;
+
 const UPGRADE_FORM = `<form>
   <p><label>会員番号</label><br><input type="text" value="MB-001234"></p>
   <p><label>変更後のプラン</label><br><select><option selected>ゴールド会員（年額 ¥9,800）</option><option>プラチナ会員（年額 ¥19,800）</option></select></p>
@@ -928,6 +943,8 @@ function contentFor(dir, category) {
     case "190-form-event-feedback-detailed": return DETAILED_FEEDBACK_FORM;
     case "191-landing-conditional-survey-js": return NEWSLETTER_FORM;
     case "192-form-membership-upgrade": return UPGRADE_FORM;
+    case "194-form-sponsor-application": return SPONSOR_FORM;
+    case "195-form-price-offer": return OFFER_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }

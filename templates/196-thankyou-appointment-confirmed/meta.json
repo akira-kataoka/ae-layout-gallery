@@ -1,0 +1,7 @@
+{
+  "name": "サンクスページ - 予約確定/詳細案内",
+  "category": "thankyou",
+  "description": "予約確定＋日時・場所・担当の詳細＋カレンダー追加・日程変更導線。面談/来店/商談の予約確定通知に。",
+  "isIncludeDefaultCss": false,
+  "previewContent": "<h1 style=\"margin:0 0 8px;font-size:23px;\">ご予約が確定しました</h1><p style=\"color:#64748b;\">下記の内容で承りました。当日お会いできるのを楽しみにしています。</p>"
+}
