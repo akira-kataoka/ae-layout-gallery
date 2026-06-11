@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - マトリクス評価アンケート",
+  "category": "form",
+  "description": "複数の評価項目を5段階のラジオボタンで一括評価できるマトリクス型アンケート。商品・サービスの多面的な満足度調査やCS計測に。横スクロール対応。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "サービス改善アンケート",
+  "previewDescription": "各項目について、当てはまる評価をお選びください。"
+}

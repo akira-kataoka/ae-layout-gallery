@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#d97706; --ink:#2a1d0c; --muted:#6e5d45; --line:#f0e6d6; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fffaf2; line-height:1.7; }
+    .ae-wrap { max-width:500px; margin:0 auto; padding:56px 20px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:20px; padding:34px 28px; text-align:center; box-shadow:0 14px 36px rgba(217,119,6,.1); }
+    .ae-chk { width:64px; height:64px; border-radius:50%; background:#16a34a; color:#fff; display:flex; align-items:center; justify-content:center; font-size:32px; margin:0 auto 14px; }
+    .ae-card h1 { font-size:22px; margin:0 0 6px; }
+    .ae-card .lead { color:var(--muted); margin:0 0 22px; font-size:14px; }
+    .ae-ask { font-weight:700; font-size:15px; margin-bottom:12px; }
+    .ae-stars { display:flex; gap:8px; justify-content:center; margin-bottom:8px; }
+    .ae-stars button { border:0; background:transparent; font-size:38px; line-height:1; cursor:pointer; color:#e2d8c4; padding:0; transition:transform .1s; }
+    .ae-stars button:hover { transform:scale(1.12); }
+    .ae-stars button.on { color:#f59e0b; }
+    .ae-thanks { min-height:24px; font-weight:700; color:var(--accent); margin-bottom:18px; }
+    .ae-foot { border-top:1px dashed var(--line); padding-top:18px; margin-top:4px; }
+    .ae-foot .t { font-weight:700; font-size:14px; margin-bottom:12px; }
+    .ae-foot form input[type=text],.ae-foot form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-foot form p { margin:0 0 12px; }
+    .ae-foot form .submit input,.ae-foot form button { width:100%; background:var(--accent); color:#fff; border:0; padding:13px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-card">
+      <div class="ae-chk">✓</div>
+      <h1>%%title%%</h1>
+      <p class="lead">%%description%%</p>
+
+      <div class="ae-ask">今回のご利用はいかがでしたか？</div>
+      <div class="ae-stars" id="stars">
+        <button type="button" data-v="1" aria-label="星1">★</button>
+        <button type="button" data-v="2" aria-label="星2">★</button>
+        <button type="button" data-v="3" aria-label="星3">★</button>
+        <button type="button" data-v="4" aria-label="星4">★</button>
+        <button type="button" data-v="5" aria-label="星5">★</button>
+      </div>
+      <div class="ae-thanks" id="thanks"></div>
+
+      <div class="ae-foot">
+        <div class="t">最新情報やお得なクーポンを受け取る</div>
+        %%content%%
+      </div>
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var stars = Array.prototype.slice.call(document.querySelectorAll("#stars button"));
+    var thanks = document.getElementById("thanks");
+    var msgs = { 1:"貴重なご意見をありがとうございます。改善に努めます。", 2:"ご期待に添えず申し訳ありません。ご意見を活かします。", 3:"ありがとうございます。さらに良くしてまいります。", 4:"ありがとうございます！またのご利用をお待ちしています。", 5:"最高評価をありがとうございます！とても励みになります🎉" };
+    stars.forEach(function (b) {
+      b.addEventListener("click", function () {
+        var v = parseInt(b.getAttribute("data-v"), 10);
+        stars.forEach(function (s) {
+          s.classList.toggle("on", parseInt(s.getAttribute("data-v"), 10) <= v);
+        });
+        thanks.textContent = msgs[v] || "";
+      });
+    });
+  })();
+  </script>
+</body>
+</html>

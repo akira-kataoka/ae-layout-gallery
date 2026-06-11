@@ -266,6 +266,12 @@ const BOOKING_FORM = `<form>
   <p class="submit"><input type="submit" value="この日時で予約する"></p>
 </form>`;
 
+const SURVEY_COMMENT_FORM = `<form>
+  <p><label>ご意見・ご感想（自由記述）</label><br><textarea>全体的に満足ですが、価格がもう少し手頃だと嬉しいです。</textarea></p>
+  <p><label>メールアドレス（任意・特典のご連絡用）</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="アンケートを送信する"></p>
+</form>`;
+
 const REVIEW_BODY = `<h1>ご利用ありがとうございました</h1>
 <p>サービスはいかがでしたか？<br>よろしければ評価とご感想をお聞かせください。</p>`;
 
@@ -1143,6 +1149,10 @@ function contentFor(dir, category) {
     case "247-form-petition-signature": return PETITION_FORM;
     case "248-utility-cookie-settings": return NEWSLETTER_FORM;
     case "249-event-workshop-handson": return WORKSHOP_FORM;
+    case "250-landing-product-bundle-js": return NEWSLETTER_FORM;
+    case "251-form-reservation-deposit": return BOOKING_FORM;
+    case "252-form-matrix-survey": return SURVEY_COMMENT_FORM;
+    case "253-thankyou-feedback-quick-js": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

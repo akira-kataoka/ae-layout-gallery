@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 予約金つき予約",
+  "category": "form",
+  "description": "プラン内容と予約金(デポジット)・キャンセルポリシーを明示し、予約情報を入力させる予約フォーム。レストラン個室/宿泊/レンタルなど前金が必要な予約に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "ご予約のお手続き",
+  "previewDescription": "予約金をお支払いいただくことで、ご予約が確定します。"
+}

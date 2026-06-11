@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - セット商品ビルダー(JS)",
+  "category": "landing",
+  "description": "アイテムをチェックで選ぶと小計・セット割引・合計がリアルタイム計算されるバンドル販売LP(textContent・style操作のみ、innerHTML不使用)。まとめ買い/定期セットの訴求に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "あなただけのスキンケアセット",
+  "previewDescription": "必要なアイテムを選ぶだけ。3点以上でまとめ割が適用されます。"
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#2563eb; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f4f7fb; line-height:1.7; }
+    .ae-wrap { max-width:620px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:20px; }
+    .ae-head h1 { font-size:24px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-matrix { background:#fff; border:1px solid var(--line); border-radius:16px; padding:20px; margin-bottom:18px; box-shadow:0 8px 22px rgba(15,23,42,.05); overflow-x:auto; }
+    table.ae-tbl { width:100%; border-collapse:collapse; font-size:13px; min-width:420px; }
+    table.ae-tbl th { color:var(--muted); font-weight:700; padding:8px 4px; text-align:center; font-size:12px; }
+    table.ae-tbl th.item { text-align:left; width:34%; }
+    table.ae-tbl td { text-align:center; padding:11px 4px; border-top:1px solid var(--line); }
+    table.ae-tbl td.item { text-align:left; font-weight:700; color:var(--ink); }
+    table.ae-tbl input[type=radio] { width:18px; height:18px; accent-color:var(--accent); cursor:pointer; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px; }
+    .ae-card .t { font-weight:700; font-size:16px; margin-bottom:14px; }
+    .ae-card form textarea,.ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; font-family:inherit; }
+    .ae-card form p { margin:0 0 13px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:15px; border-radius:9px; font-weight:800; font-size:15px; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-matrix">
+      <table class="ae-tbl">
+        <thead><tr><th class="item">評価項目</th><th>とても不満</th><th>不満</th><th>普通</th><th>満足</th><th>とても満足</th></tr></thead>
+        <tbody>
+          <tr><td class="item">商品の品質</td><td><input type="radio" name="q1"></td><td><input type="radio" name="q1"></td><td><input type="radio" name="q1"></td><td><input type="radio" name="q1" checked></td><td><input type="radio" name="q1"></td></tr>
+          <tr><td class="item">価格の妥当性</td><td><input type="radio" name="q2"></td><td><input type="radio" name="q2"></td><td><input type="radio" name="q2" checked></td><td><input type="radio" name="q2"></td><td><input type="radio" name="q2"></td></tr>
+          <tr><td class="item">スタッフの対応</td><td><input type="radio" name="q3"></td><td><input type="radio" name="q3"></td><td><input type="radio" name="q3"></td><td><input type="radio" name="q3"></td><td><input type="radio" name="q3" checked></td></tr>
+          <tr><td class="item">配送・スピード</td><td><input type="radio" name="q4"></td><td><input type="radio" name="q4"></td><td><input type="radio" name="q4"></td><td><input type="radio" name="q4" checked></td><td><input type="radio" name="q4"></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="ae-card">
+      <div class="t">自由記述・連絡先</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "name": "サンクス - クイック星評価フィードバック(JS)",
+  "category": "thankyou",
+  "description": "完了画面で星をタップすると点灯し、評価に応じたお礼メッセージが即時表示されるクイックフィードバック付きサンクスページ(classList・textContentのみ、innerHTML不使用)。CS計測とオプトインを兼ねる。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "ありがとうございました！",
+  "previewDescription": "手続きが完了しました。よろしければ感想を聞かせてください。"
+}

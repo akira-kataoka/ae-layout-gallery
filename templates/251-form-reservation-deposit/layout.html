@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0f766e; --ink:#0c2421; --muted:#5a746f; --line:#d8ebe7; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eefbf8; line-height:1.7; }
+    .ae-wrap { max-width:600px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:20px; }
+    .ae-head h1 { font-size:24px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-plan { background:#fff; border:1px solid var(--line); border-radius:16px; padding:20px; margin-bottom:18px; box-shadow:0 8px 22px rgba(15,118,110,.06); }
+    .ae-plan .nm { font-weight:800; font-size:16px; }
+    .ae-plan .meta { color:var(--muted); font-size:13px; margin-top:2px; }
+    .ae-fee { display:flex; justify-content:space-between; align-items:baseline; margin-top:12px; padding-top:12px; border-top:1px dashed var(--line); }
+    .ae-fee .k { font-size:13px; color:var(--muted); }
+    .ae-fee .dep { font-size:13px; }
+    .ae-fee .dep b { color:var(--accent); font-size:22px; font-variant-numeric:tabular-nums; }
+    .ae-note { background:#f0fdfa; border:1px solid var(--line); border-radius:10px; padding:12px 14px; font-size:12px; color:#3c5c57; margin-bottom:18px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px; }
+    .ae-card .t { font-weight:700; font-size:16px; margin-bottom:14px; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form input[type=tel],.ae-card form input[type=date],.ae-card form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form label { font-weight:700; font-size:13px; }
+    .ae-card form p { margin:0 0 13px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:15px; border-radius:9px; font-weight:800; font-size:15px; cursor:pointer; }
+    .ae-foot { color:var(--muted); font-size:12px; text-align:center; margin-top:12px; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-plan">
+      <div class="nm">プレミアム個室プラン（2名様）</div>
+      <div class="meta">コース料理＋フリードリンク／2時間制</div>
+      <div class="ae-fee"><span class="k">ご利用料金</span><span class="dep">予約金 <b>¥3,000</b> <span style="color:var(--muted)">/ 残金は当日精算</span></span></div>
+    </div>
+    <div class="ae-note">予約金は予約確定のためのお支払いです。キャンセルポリシー：前日まで全額返金、当日キャンセルは返金不可となります。</div>
+    <div class="ae-card">
+      <div class="t">予約情報の入力</div>
+      %%content%%
+      <p class="ae-foot">送信後、お支払い手続きのご案内メールをお送りします。</p>
+    </div>
+  </div>
+</body>
+</html>

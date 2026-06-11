@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#7c3aed; --ink:#1b1430; --muted:#6b6480; --line:#e8e3f4; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f8f6fd; line-height:1.7; }
+    .ae-wrap { max-width:620px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:22px; }
+    .ae-head h1 { font-size:25px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:24px; box-shadow:0 12px 32px rgba(124,58,237,.08); }
+    .ae-item { display:flex; align-items:center; gap:14px; padding:14px 0; border-top:1px solid var(--line); }
+    .ae-item:first-of-type { border-top:0; }
+    .ae-item .ph { width:54px; height:54px; border-radius:12px; background:linear-gradient(135deg,#ede9fe,#ddd6fe); display:flex; align-items:center; justify-content:center; font-size:26px; flex:0 0 auto; }
+    .ae-item .info { flex:1; }
+    .ae-item .nm { font-weight:700; font-size:14px; }
+    .ae-item .pr { color:var(--muted); font-size:13px; font-variant-numeric:tabular-nums; }
+    .ae-item input { width:20px; height:20px; accent-color:var(--accent); cursor:pointer; }
+    .ae-sum { margin-top:8px; background:linear-gradient(135deg,#7c3aed,#5b21b6); color:#fff; border-radius:14px; padding:18px; }
+    .ae-sum .line { display:flex; justify-content:space-between; font-size:13px; opacity:.92; margin-bottom:5px; }
+    .ae-sum .disc { color:#fde68a; }
+    .ae-sum .total { display:flex; justify-content:space-between; align-items:baseline; font-size:14px; font-weight:700; margin-top:8px; padding-top:8px; border-top:1px solid rgba(255,255,255,.25); }
+    .ae-sum .total .v { font-size:26px; font-weight:900; font-variant-numeric:tabular-nums; }
+    .ae-badge { display:inline-block; background:#fde68a; color:#92400e; font-weight:800; font-size:11px; padding:2px 10px; border-radius:999px; margin-top:8px; }
+    .ae-cta { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; margin-top:18px; }
+    .ae-cta .t { font-weight:700; margin-bottom:12px; }
+    .ae-cta form input[type=text],.ae-cta form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form .submit input,.ae-cta form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <div class="ae-item"><div class="ph">🧴</div><div class="info"><div class="nm">化粧水（ベースアイテム）</div><div class="pr">¥3,200</div></div><input type="checkbox" class="bn" data-price="3200" checked disabled></div>
+      <div class="ae-item"><div class="ph">💧</div><div class="info"><div class="nm">美容液</div><div class="pr">¥4,500</div></div><input type="checkbox" class="bn" data-price="4500" checked></div>
+      <div class="ae-item"><div class="ph">🧖</div><div class="info"><div class="nm">クリーム</div><div class="pr">¥3,800</div></div><input type="checkbox" class="bn" data-price="3800" checked></div>
+      <div class="ae-item"><div class="ph">🌙</div><div class="info"><div class="nm">ナイトマスク</div><div class="pr">¥2,600</div></div><input type="checkbox" class="bn" data-price="2600"></div>
+      <div class="ae-item"><div class="ph">☀️</div><div class="info"><div class="nm">日焼け止め</div><div class="pr">¥2,200</div></div><input type="checkbox" class="bn" data-price="2200"></div>
+      <div class="ae-sum">
+        <div class="line"><span>小計（<span id="cnt">3</span>点）</span><span id="sub">¥11,500</span></div>
+        <div class="line disc"><span>セット割引</span><span id="disc">−¥1,150</span></div>
+        <div class="total"><span>合計（税抜）</span><span class="v">¥<span id="total">10,350</span></span></div>
+        <div style="text-align:center"><span class="ae-badge" id="badge">3点以上で10%OFF適用中</span></div>
+      </div>
+    </div>
+    <div class="ae-cta">
+      <div class="t">このセットの在庫・お届け日を確認する</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var boxes = Array.prototype.slice.call(document.querySelectorAll(".bn"));
+    var cntEl = document.getElementById("cnt"), subEl = document.getElementById("sub"), discEl = document.getElementById("disc"), totalEl = document.getElementById("total"), badge = document.getElementById("badge");
+    function yen(n) { return "¥" + n.toLocaleString("ja-JP"); }
+    function recalc() {
+      var sub = 0, cnt = 0;
+      boxes.forEach(function (b) {
+        if (b.checked) { sub += parseInt(b.getAttribute("data-price"), 10) || 0; cnt++; }
+      });
+      var rate = cnt >= 3 ? 0.1 : 0;
+      var disc = Math.round(sub * rate);
+      cntEl.textContent = cnt;
+      subEl.textContent = yen(sub);
+      discEl.textContent = "−" + yen(disc);
+      totalEl.textContent = (sub - disc).toLocaleString("ja-JP");
+      badge.textContent = rate ? "3点以上で10%OFF適用中" : "あと" + (3 - cnt) + "点で10%OFF";
+      badge.style.display = "inline-block";
+    }
+    boxes.forEach(function (b) { b.addEventListener("change", recalc); });
+    recalc();
+  })();
+  </script>
+</body>
+</html>
