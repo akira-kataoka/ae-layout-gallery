@@ -1,0 +1,8 @@
+{
+  "name": "LP - カロリー計算機 (JS)",
+  "category": "landing",
+  "description": "性別・体重・身長・年齢・活動量から1日の推定消費カロリー(TDEE)をMifflin-St Jeor式でリアルタイム算出するインタラクティブLP。減量/増量の目安も提示し、栄養・食事情報の登録フォームへ誘導。フィットネス/健康食品/ジムに。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "1日の必要カロリーを計算",
+  "previewDescription": "あなたの体格と活動量から、維持・減量・増量の目安を瞬時にチェック。"
+}

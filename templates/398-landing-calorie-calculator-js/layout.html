@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#ea580c; --ink:#2a1810; --muted:#7c6a5f; --line:#f1e3d8; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fdf6f0; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:20px; }
+    .ae-head h1 { font-size:24px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; box-shadow:0 12px 32px rgba(234,88,12,.09); }
+    .ae-field { margin-bottom:18px; }
+    .ae-field label { font-weight:700; font-size:14px; display:flex; justify-content:space-between; margin-bottom:8px; }
+    .ae-field label .v { color:var(--accent); font-variant-numeric:tabular-nums; }
+    .ae-field input[type=range] { width:100%; accent-color:var(--accent); }
+    .ae-act { display:flex; gap:6px; background:#fceee3; border-radius:10px; padding:4px; }
+    .ae-act button { flex:1; border:0; background:transparent; padding:9px 4px; border-radius:8px; font-weight:700; font-size:12px; cursor:pointer; color:var(--muted); }
+    .ae-act button.on { background:#fff; color:var(--accent); box-shadow:0 2px 8px rgba(234,88,12,.18); }
+    .ae-out { background:linear-gradient(135deg,#f97316,#ea580c); color:#fff; border-radius:14px; padding:24px; text-align:center; margin-top:18px; }
+    .ae-out .lab { font-size:13px; opacity:.9; } .ae-out .big { font-size:42px; font-weight:900; font-variant-numeric:tabular-nums; line-height:1.1; } .ae-out .big small { font-size:16px; } .ae-out .sub { font-size:13px; opacity:.95; margin-top:6px; }
+    .ae-goal { display:flex; gap:8px; margin-top:14px; }
+    .ae-g { flex:1; background:rgba(255,255,255,.16); border-radius:10px; padding:10px 6px; }
+    .ae-g .k { font-size:11px; opacity:.9; } .ae-g .n { font-weight:800; font-variant-numeric:tabular-nums; }
+    .ae-cta { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; margin-top:18px; }
+    .ae-cta .t { font-weight:700; margin-bottom:12px; }
+    .ae-cta form input[type=text],.ae-cta form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form .submit input,.ae-cta form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <div class="ae-field"><label>性別</label>
+        <div class="ae-act" id="sex">
+          <button type="button" data-s="m" class="on">男性</button>
+          <button type="button" data-s="f">女性</button>
+        </div></div>
+      <div class="ae-field"><label>体重 <span class="v"><span id="vW">60</span> kg</span></label>
+        <input type="range" id="w" min="35" max="120" step="1" value="60"></div>
+      <div class="ae-field"><label>身長 <span class="v"><span id="vH">165</span> cm</span></label>
+        <input type="range" id="h" min="140" max="200" step="1" value="165"></div>
+      <div class="ae-field"><label>年齢 <span class="v"><span id="vA">30</span> 歳</span></label>
+        <input type="range" id="a" min="16" max="80" step="1" value="30"></div>
+      <div class="ae-field"><label>活動量</label>
+        <div class="ae-act" id="act">
+          <button type="button" data-f="1.2" class="on">低い</button>
+          <button type="button" data-f="1.375">ふつう</button>
+          <button type="button" data-f="1.55">活発</button>
+          <button type="button" data-f="1.725">高い</button>
+        </div></div>
+      <div class="ae-out">
+        <div class="lab">1日の推定消費カロリー（維持）</div>
+        <div class="big"><span id="kcal">0</span><small> kcal</small></div>
+        <div class="sub">この前後で食事を整えると体重を維持しやすくなります</div>
+        <div class="ae-goal">
+          <div class="ae-g"><div class="k">減量めやす</div><div class="n"><span id="loseK">0</span></div></div>
+          <div class="ae-g"><div class="k">増量めやす</div><div class="n"><span id="gainK">0</span></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="ae-cta">
+      <div class="t">あなた向けの食事・栄養のヒントを受け取る</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var w = document.getElementById("w"), h = document.getElementById("h"), a = document.getElementById("a");
+    var vW = document.getElementById("vW"), vH = document.getElementById("vH"), vA = document.getElementById("vA");
+    var kcalEl = document.getElementById("kcal"), loseEl = document.getElementById("loseK"), gainEl = document.getElementById("gainK");
+    var sexBtns = Array.prototype.slice.call(document.querySelectorAll("#sex button"));
+    var actBtns = Array.prototype.slice.call(document.querySelectorAll("#act button"));
+    var sex = "m", factor = 1.375;
+    function round10(n) { return Math.round(n / 10) * 10; }
+    function calc() {
+      var kg = parseInt(w.value, 10) || 0, cm = parseInt(h.value, 10) || 0, age = parseInt(a.value, 10) || 0;
+      vW.textContent = kg; vH.textContent = cm; vA.textContent = age;
+      // Mifflin-St Jeor 基礎代謝
+      var bmr = 10 * kg + 6.25 * cm - 5 * age + (sex === "m" ? 5 : -161);
+      var tdee = bmr * factor;
+      kcalEl.textContent = round10(tdee).toLocaleString();
+      loseEl.textContent = round10(tdee - 400).toLocaleString();
+      gainEl.textContent = round10(tdee + 300).toLocaleString();
+    }
+    [w, h, a].forEach(function (el) { el.addEventListener("input", calc); });
+    sexBtns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        sexBtns.forEach(function (x) { x.classList.remove("on"); });
+        b.classList.add("on"); sex = b.getAttribute("data-s"); calc();
+      });
+    });
+    actBtns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        actBtns.forEach(function (x) { x.classList.remove("on"); });
+        b.classList.add("on"); factor = parseFloat(b.getAttribute("data-f")); calc();
+      });
+    });
+    calc();
+  })();
+  </script>
+</body>
+</html>

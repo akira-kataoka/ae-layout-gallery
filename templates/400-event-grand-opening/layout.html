@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#b91c1c; --gold:#d4a13a; --ink:#2a1414; --muted:#8a6a6a; --line:#f0e0d8; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fdf4ee; line-height:1.7; }
+    .ae-wrap { max-width:600px; margin:0 auto; padding:46px 20px; }
+    .ae-hero { background:linear-gradient(135deg,#b91c1c,#7f1d1d); color:#fff; border-radius:20px; padding:34px 24px; text-align:center; position:relative; overflow:hidden; box-shadow:0 18px 40px rgba(185,28,28,.22); }
+    .ae-hero::after { content:""; position:absolute; inset:0; background:radial-gradient(420px 200px at 80% -10%,rgba(212,161,58,.4),transparent); pointer-events:none; }
+    .ae-hero .rib { display:inline-block; background:var(--gold); color:#3a2400; font-weight:800; font-size:12px; letter-spacing:2px; padding:6px 16px; border-radius:999px; margin-bottom:14px; position:relative; }
+    .ae-hero h1 { font-size:28px; margin:0 0 8px; position:relative; }
+    .ae-hero p { margin:0; opacity:.92; font-size:14px; position:relative; }
+    .ae-info { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:22px 0; }
+    .ae-i { background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 10px; text-align:center; }
+    .ae-i .ic { font-size:22px; } .ae-i .k { font-size:11px; color:var(--muted); } .ae-i .v { font-weight:800; font-size:13px; }
+    .ae-perks { background:#fff; border:1px solid var(--line); border-radius:16px; padding:20px 22px; margin-bottom:22px; }
+    .ae-perks .t { font-weight:700; font-size:14px; margin-bottom:10px; }
+    .ae-perks ul { margin:0; padding:0; list-style:none; }
+    .ae-perks li { padding:8px 0; border-top:1px dashed var(--line); font-size:14px; display:flex; gap:10px; align-items:center; }
+    .ae-perks li:first-child { border-top:0; } .ae-perks li .b { color:var(--accent); font-weight:800; }
+    .ae-card { background:#fff; border:2px solid var(--gold); border-radius:18px; padding:26px; }
+    .ae-card .t { font-weight:700; font-size:18px; margin-bottom:4px; text-align:center; }
+    .ae-card .d { color:var(--muted); font-size:13px; margin-bottom:16px; text-align:center; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form input[type=tel],.ae-card form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:15px; border-radius:9px; font-weight:800; font-size:15px; cursor:pointer; }
+    @media (max-width:480px){ .ae-info { grid-template-columns:1fr; } .ae-hero h1 { font-size:23px; } }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-hero">
+      <span class="rib">★ GRAND OPENING ★</span>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-info">
+      <div class="ae-i"><div class="ic">📅</div><div class="k">オープン</div><div class="v">12.1 (月) 10:00</div></div>
+      <div class="ae-i"><div class="ic">📍</div><div class="k">場所</div><div class="v">サンプル新店舗</div></div>
+      <div class="ae-i"><div class="ic">🎁</div><div class="k">来店特典</div><div class="v">先着200名様</div></div>
+    </div>
+    <div class="ae-perks">
+      <div class="t">オープン記念の3大特典</div>
+      <ul>
+        <li><span class="b">01</span> ご来店で使える 1,000円分クーポンをプレゼント</li>
+        <li><span class="b">02</span> 事前登録の方は優先入場＆ノベルティ進呈</li>
+        <li><span class="b">03</span> 期間中の対象商品が最大50%OFF</li>
+      </ul>
+    </div>
+    <div class="ae-card">
+      <div class="t">来店事前登録</div>
+      <div class="d">登録された方に特典クーポンと優先入場のご案内をお送りします</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

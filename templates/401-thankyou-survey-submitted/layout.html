@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#2563eb; --ink:#16213a; --muted:#667192; --line:#e2e8f5; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f3f6fc; line-height:1.7; }
+    .ae-wrap { max-width:500px; margin:0 auto; padding:54px 20px; }
+    .ae-done { text-align:center; margin-bottom:22px; }
+    .ae-done .chk { width:74px; height:74px; border-radius:50%; background:linear-gradient(135deg,#60a5fa,#2563eb); color:#fff; display:flex; align-items:center; justify-content:center; font-size:38px; margin:0 auto 16px; box-shadow:0 14px 32px rgba(37,99,235,.28); }
+    .ae-done h1 { font-size:24px; margin:0 0 6px; }
+    .ae-done p { color:var(--muted); margin:0; font-size:14px; }
+    .ae-thanks { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; margin-bottom:18px; box-shadow:0 8px 22px rgba(37,99,235,.06); }
+    .ae-thanks .q { font-size:30px; margin-bottom:6px; } .ae-thanks .m { font-size:14px; color:var(--muted); }
+    .ae-next { background:#eef3ff; border:1px solid #d7e3ff; border-radius:14px; padding:16px 18px; margin-bottom:18px; }
+    .ae-next .t { font-weight:700; font-size:13px; margin-bottom:6px; } .ae-next p { margin:0; font-size:13px; color:var(--muted); }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; }
+    .ae-card .t { font-weight:700; margin-bottom:12px; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-done">
+      <div class="chk">✓</div>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-thanks">
+      <div class="q">🙏</div>
+      <div class="m">貴重なご意見をありがとうございました。<br>いただいた声はサービス改善に活用させていただきます。</div>
+    </div>
+    <div class="ae-next">
+      <div class="t">📣 抽選結果について</div>
+      <p>アンケートにご回答いただいた方の中から抽選で、後日メールにて当選のご連絡をいたします。</p>
+    </div>
+    <div class="ae-card">
+      <div class="t">最新情報・お得なお知らせを受け取る</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

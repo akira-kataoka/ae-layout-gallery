@@ -291,6 +291,22 @@ const VET_FORM = `<form>
   <p class="submit"><input type="submit" value="診察を予約する"></p>
 </form>`;
 
+const TAX_CONSULT_FORM = `<form>
+  <p><label>ご相談内容</label><br><select><option selected>確定申告（個人・フリーランス）</option><option>法人決算・記帳代行</option><option>相続・贈与のご相談</option><option>節税・税務全般</option><option>その他</option></select></p>
+  <div class="row"><p><label>お名前</label><br><input type="text" value="山田 太郎"></p><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p></div>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p><label>ご希望の相談方法</label><br><select><option selected>オンライン面談</option><option>来所</option><option>電話</option></select></p>
+  <p><label>ご相談の概要（任意）</label><br><textarea>個人事業の確定申告について相談したいです。</textarea></p>
+  <p class="submit"><input type="submit" value="無料相談を予約する"></p>
+</form>`;
+
+const GRAND_OPEN_FORM = `<form>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <div class="row"><p><label>来店予定日</label><br><select><option selected>12/1 (月) オープン日</option><option>12/2 (火)</option><option>12/3 (水)</option><option>未定</option></select></p><p><label>ご来店人数</label><br><select><option selected>1名</option><option>2名</option><option>3名以上</option></select></p></div>
+  <p class="submit"><input type="submit" value="来店登録して特典を受け取る"></p>
+</form>`;
+
 const FILM_FORM = `<form>
   <p><label>ご希望の回</label><br><select><option selected>11/15 (土) 18:30</option><option>11/16 (日) 14:00</option></select></p>
   <p><label>枚数</label><br><select><option selected>1枚</option><option>2枚</option><option>3枚以上</option></select></p>
@@ -1902,6 +1918,10 @@ function contentFor(dir, category) {
     case "395-form-vet-appointment": return VET_FORM;
     case "396-event-film-screening": return FILM_FORM;
     case "397-thankyou-account-created": return NEWSLETTER_FORM;
+    case "398-landing-calorie-calculator-js": return NEWSLETTER_FORM;
+    case "399-form-tax-consultation": return TAX_CONSULT_FORM;
+    case "400-event-grand-opening": return GRAND_OPEN_FORM;
+    case "401-thankyou-survey-submitted": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;
@@ -2218,7 +2238,7 @@ const indexHtml = `<!DOCTYPE html>
     .modal-bg{ display:none; }
     .modal-box{ width:100vw; height:100vh; height:100dvh; max-width:none; border-radius:0; box-shadow:none; }
     .modal-head{ gap:6px; padding:10px 12px; }
-    .modal-head strong{ order:-1; width:100%; font-size:13px; min-width:0; }
+    .modal-head strong{ order:-1; flex:0 0 100%; width:100%; min-width:0; font-size:13px; line-height:1.4; white-space:normal; overflow-wrap:anywhere; }
     .modal-pos{ display:none; }
     .modal-tabs button,.modal-dev button,.modal-act{ padding:7px 9px; font-size:11px; }
     .modal-nav{ width:32px; height:32px; }
