@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#6366f1; --ink:#15172e; --muted:#64698c; --line:#e3e2f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f5f5fc; line-height:1.7; }
+    .ae-wrap { max-width:560px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:18px; }
+    .ae-head h1 { font-size:25px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-switch { display:flex; gap:6px; background:#e7e7f3; border-radius:999px; padding:5px; width:max-content; margin:0 auto 22px; }
+    .ae-switch button { border:0; background:transparent; padding:9px 20px; border-radius:999px; font-weight:700; font-size:14px; cursor:pointer; color:#64698c; }
+    .ae-switch button.on { background:#fff; color:var(--accent); box-shadow:0 2px 8px rgba(99,102,241,.2); }
+    /* device preview */
+    .ae-device { border-radius:22px; padding:16px; margin:0 auto 24px; max-width:360px; transition:background .3s, color .3s; }
+    .ae-device { --d-bg:#ffffff; --d-card:#f1f5f9; --d-text:#0f172a; --d-muted:#64748b; --d-accent:#6366f1; }
+    .ae-device.dark { --d-bg:#0f172a; --d-card:#1e293b; --d-text:#e2e8f0; --d-muted:#94a3b8; --d-accent:#818cf8; }
+    .ae-device { background:var(--d-bg); border:1px solid var(--line); box-shadow:0 16px 40px rgba(15,23,42,.12); }
+    .ae-screen { color:var(--d-text); }
+    .ae-bar { display:flex; align-items:center; gap:8px; margin-bottom:12px; }
+    .ae-dot { width:36px; height:36px; border-radius:50%; background:var(--d-accent); }
+    .ae-bar .nm { font-weight:800; font-size:14px; } .ae-bar .sub { font-size:11px; color:var(--d-muted); }
+    .ae-tile { background:var(--d-card); border-radius:12px; padding:14px; margin-bottom:10px; }
+    .ae-tile .h { font-size:13px; font-weight:700; } .ae-tile .m { font-size:11px; color:var(--d-muted); }
+    .ae-tile .btn { display:inline-block; margin-top:8px; background:var(--d-accent); color:#fff; font-size:11px; font-weight:700; padding:6px 14px; border-radius:7px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px; text-align:center; }
+    .ae-card .t { font-weight:700; margin-bottom:12px; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-switch" id="sw">
+      <button type="button" class="on" data-theme="light">☀️ ライト</button>
+      <button type="button" data-theme="dark">🌙 ダーク</button>
+    </div>
+    <div class="ae-device" id="device">
+      <div class="ae-screen">
+        <div class="ae-bar"><span class="ae-dot"></span><span><span class="nm">マイダッシュボード</span><br><span class="sub">今日のタスク 3件</span></span></div>
+        <div class="ae-tile"><div class="h">📊 今週の進捗</div><div class="m">目標まであと20%。いいペースです。</div><span class="btn">詳細を見る</span></div>
+        <div class="ae-tile"><div class="h">🔔 お知らせ</div><div class="m">新機能「自動レポート」が使えるようになりました。</div></div>
+      </div>
+    </div>
+    <div class="ae-card">
+      <div class="t">ダークモード対応の新バージョンを試す</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var btns = Array.prototype.slice.call(document.querySelectorAll("#sw button"));
+    var device = document.getElementById("device");
+    btns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        btns.forEach(function (x) { x.classList.remove("on"); });
+        b.classList.add("on");
+        device.classList.toggle("dark", b.getAttribute("data-theme") === "dark");
+      });
+    });
+  })();
+  </script>
+</body>
+</html>

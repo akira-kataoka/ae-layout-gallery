@@ -1,0 +1,8 @@
+{
+  "name": "ユーティリティ - アカウント再開完了",
+  "category": "utility",
+  "description": "一時停止/休会していたアカウントの再開が完了したことを知らせ、再開後にできることを案内するページ。復帰ユーザーの再エンゲージとお知らせ受信のオプトインに。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "アカウントを再開しました",
+  "previewDescription": "おかえりなさい。引き続きサービスをご利用いただけます。"
+}

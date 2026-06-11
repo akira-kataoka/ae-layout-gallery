@@ -282,6 +282,22 @@ const ALUMNI_FORM = `<form>
   <p class="submit"><input type="submit" value="出欠を回答する"></p>
 </form>`;
 
+const PETINS_FORM = `<form>
+  <p><label>ペットの種類</label><br><select><option selected>犬</option><option>猫</option></select></p>
+  <div class="row"><p><label>品種</label><br><input type="text" value="トイプードル"></p><p><label>年齢</label><br><select><option selected>0〜2歳</option><option>3〜6歳</option><option>7歳以上</option></select></p></div>
+  <p><label>飼い主さまのお名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="見積もりを取得する"></p>
+</form>`;
+
+const RESEMINAR_FORM = `<form>
+  <p><label>参加形式</label><br><select><option selected>会場で参加</option><option>オンラインで参加</option></select></p>
+  <p><label>ご希望日</label><br><select><option selected>今週土曜</option><option>来週土曜</option><option>日程を相談</option></select></p>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="セミナーに申し込む"></p>
+</form>`;
+
 const WEB_QUOTE_FORM = `<form>
   <p><label>制作の種類</label><br><select><option selected>コーポレートサイト</option><option>ECサイト</option><option>ランディングページ</option><option>リニューアル</option></select></p>
   <p><label>ご予算の目安</label><br><select><option>〜30万円</option><option selected>30〜100万円</option><option>100万円〜</option><option>未定・要相談</option></select></p>
@@ -1617,6 +1633,10 @@ function contentFor(dir, category) {
     case "339-form-web-quote": return WEB_QUOTE_FORM;
     case "340-event-kids-camp": return KIDSCAMP_FORM;
     case "341-thankyou-warranty-registered": return NEWSLETTER_FORM;
+    case "342-landing-theme-toggle-js": return NEWSLETTER_FORM;
+    case "343-form-pet-insurance": return PETINS_FORM;
+    case "344-event-real-estate-seminar": return RESEMINAR_FORM;
+    case "345-utility-account-reactivated": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

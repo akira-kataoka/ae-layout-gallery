@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0f766e; --ink:#0c2421; --muted:#5a746f; --line:#d6ebe7; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eefbf8; line-height:1.7; }
+    .ae-hero { background:linear-gradient(135deg,#0f766e,#0e7490); color:#fff; text-align:center; padding:52px 20px 42px; }
+    .ae-hero .badge { display:inline-block; background:rgba(255,255,255,.2); font-weight:700; font-size:12px; letter-spacing:2px; padding:6px 16px; border-radius:999px; margin-bottom:12px; }
+    .ae-hero h1 { font-size:26px; margin:0 0 8px; }
+    .ae-hero p { margin:0; opacity:.95; font-size:14px; }
+    .ae-wrap { max-width:620px; margin:0 auto; padding:34px 20px 48px; }
+    .ae-learn { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; margin-bottom:22px; box-shadow:0 8px 22px rgba(15,118,110,.06); }
+    .ae-learn .t { font-weight:700; text-align:center; margin-bottom:12px; }
+    .ae-l { display:flex; align-items:flex-start; gap:12px; padding:9px 0; border-top:1px dashed var(--line); font-size:14px; }
+    .ae-l:first-of-type { border-top:0; }
+    .ae-l .no { width:24px; height:24px; border-radius:50%; background:#ccfbf1; color:var(--accent); font-weight:800; font-size:12px; display:flex; align-items:center; justify-content:center; flex:0 0 auto; margin-top:2px; }
+    .ae-info { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:22px; }
+    .ae-chip { background:#fff; border:1px solid var(--line); border-radius:12px; padding:12px 18px; text-align:center; min-width:130px; }
+    .ae-chip .k { font-size:11px; color:var(--muted); } .ae-chip .v { font-weight:800; font-size:14px; }
+    .ae-note { font-size:12px; color:var(--muted); text-align:center; margin-bottom:24px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; }
+    .ae-card .t { font-weight:700; font-size:17px; margin-bottom:6px; text-align:center; }
+    .ae-card .d { color:var(--muted); font-size:13px; margin-bottom:14px; text-align:center; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-hero">
+    <span class="badge">FREE SEMINAR</span>
+    <h1>%%title%%</h1>
+    <p>%%description%%</p>
+  </div>
+  <div class="ae-wrap">
+    <div class="ae-info">
+      <div class="ae-chip"><div class="k">開催</div><div class="v">毎週土曜 14:00</div></div>
+      <div class="ae-chip"><div class="k">形式</div><div class="v">会場 / オンライン</div></div>
+      <div class="ae-chip"><div class="k">参加費</div><div class="v">無料</div></div>
+    </div>
+    <div class="ae-learn">
+      <div class="t">このセミナーで学べること</div>
+      <div class="ae-l"><span class="no">1</span><span>不動産投資の基礎と、よくある失敗パターン</span></div>
+      <div class="ae-l"><span class="no">2</span><span>少額から始める方法と、ローン活用のコツ</span></div>
+      <div class="ae-l"><span class="no">3</span><span>物件の選び方と、利回りの正しい見方</span></div>
+      <div class="ae-l"><span class="no">4</span><span>節税・相続対策としての活用ポイント</span></div>
+    </div>
+    <p class="ae-note">※ 特定物件の押し売りは行いません。初心者の方のご参加が中心です。</p>
+    <div class="ae-card">
+      <div class="t">セミナーに申し込む</div>
+      <div class="d">ご都合の良い開催回をお選びください</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

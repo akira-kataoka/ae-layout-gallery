@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - ダーク/ライト切替プレビュー(JS)",
+  "category": "landing",
+  "description": "ライト/ダークのトグルでデバイス内のUIプレビューの配色が切り替わるプロダクトLP(classList切替＋CSS変数、innerHTML不使用)。ダークモード対応など機能訴求とトライアル獲得に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "あなた好みの見た目で。",
+  "previewDescription": "ライトでもダークでも、目にやさしく美しいデザイン。切り替えてお試しを。"
+}
