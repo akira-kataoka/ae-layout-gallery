@@ -1,0 +1,8 @@
+{
+  "name": "ユーティリティ - 年齢確認ゲート(JS)",
+  "category": "utility",
+  "description": "20歳以上かを確認し、はいの場合のみ会員特典の登録欄を表示する年齢確認ゲートページ(classList切替のみ、innerHTML不使用)。酒類/たばこなど年齢制限商材のLP入口に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "年齢確認のお願い",
+  "previewDescription": "このページにはアルコールに関する情報が含まれます。"
+}

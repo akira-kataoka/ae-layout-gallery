@@ -282,6 +282,23 @@ const ALUMNI_FORM = `<form>
   <p class="submit"><input type="submit" value="出欠を回答する"></p>
 </form>`;
 
+const GYM_FORM = `<form>
+  <p><label>ご希望プラン</label><br><select><option>デイ（¥6,800/月）</option><option selected>フル（¥9,800/月）</option><option>パーソナル（¥19,800/月）</option></select></p>
+  <p><label>体験希望日</label><br><input type="date" value="2026-07-13"></p>
+  <p><label>目標</label><br><select><option selected>ダイエット・体型維持</option><option>筋力アップ</option><option>健康維持</option><option>運動習慣づくり</option></select></p>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <div class="row"><p><label>メール</label><br><input type="email" value="taro@example.com"></p><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p></div>
+  <p class="submit"><input type="submit" value="無料体験を申し込む"></p>
+</form>`;
+
+const SCREENING_FORM = `<form>
+  <p><label>ご希望日</label><br><select><option selected>10/18 (土)</option><option>10/19 (日)</option></select></p>
+  <p><label>時間帯</label><br><select><option selected>午前</option><option>午後</option></select></p>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <div class="row"><p><label>メール</label><br><input type="email" value="taro@example.com"></p><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p></div>
+  <p class="submit"><input type="submit" value="受診を予約する"></p>
+</form>`;
+
 const INVEST_FORM = `<form>
   <p><label>ご相談テーマ</label><br><select><option selected>つみたて投資・NISA</option><option>老後資金・iDeCo</option><option>家計の見直し</option><option>保険の見直し</option></select></p>
   <p><label>毎月投資に回せる金額</label><br><select><option>〜1万円</option><option selected>1〜3万円</option><option>3万円〜</option></select></p>
@@ -1531,6 +1548,10 @@ function contentFor(dir, category) {
     case "323-form-investment-consultation": return INVEST_FORM;
     case "324-event-startup-pitch": return PITCH_FORM;
     case "325-thankyou-callback-scheduled": return NEWSLETTER_FORM;
+    case "326-landing-fuel-cost-calculator-js": return NEWSLETTER_FORM;
+    case "327-form-gym-trial": return GYM_FORM;
+    case "328-event-health-screening": return SCREENING_FORM;
+    case "329-utility-age-verification": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

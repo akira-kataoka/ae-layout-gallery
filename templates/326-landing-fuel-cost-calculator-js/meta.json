@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - ガソリン代計算機(JS)",
+  "category": "landing",
+  "description": "走行距離・燃費・ガソリン単価のスライダーから片道/往復/月間の燃料費を即時計算するLP(textContentのみ、innerHTML不使用)。カーリース/EV/通勤手当見直しなどのリード獲得に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "その通勤、ガソリン代いくら？",
+  "previewDescription": "距離と燃費を入れるだけ。毎月のガソリン代がすぐわかります。"
+}

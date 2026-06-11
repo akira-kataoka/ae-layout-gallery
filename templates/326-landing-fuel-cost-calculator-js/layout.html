@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#1d4ed8; --ink:#0f1b33; --muted:#5a6781; --line:#dde3ef; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f2f5fb; line-height:1.7; }
+    .ae-wrap { max-width:540px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:22px; }
+    .ae-head h1 { font-size:24px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; box-shadow:0 12px 32px rgba(29,78,216,.08); }
+    .ae-field { margin-bottom:18px; }
+    .ae-field label { font-weight:700; font-size:14px; display:flex; justify-content:space-between; margin-bottom:8px; }
+    .ae-field label .v { color:var(--accent); font-variant-numeric:tabular-nums; }
+    .ae-field input[type=range] { width:100%; accent-color:var(--accent); }
+    .ae-out { display:flex; gap:12px; }
+    .ae-o { flex:1; background:#eff4ff; border:1px solid var(--line); border-radius:14px; padding:18px; text-align:center; }
+    .ae-o .lab { font-size:12px; color:var(--muted); } .ae-o .v { font-size:26px; font-weight:900; color:var(--accent); font-variant-numeric:tabular-nums; }
+    .ae-o.big { background:linear-gradient(135deg,#1d4ed8,#3b82f6); color:#fff; }
+    .ae-o.big .lab { color:rgba(255,255,255,.85); } .ae-o.big .v { color:#fff; }
+    .ae-cta { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; margin-top:18px; }
+    .ae-cta .t { font-weight:700; margin-bottom:12px; }
+    .ae-cta form input[type=text],.ae-cta form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form .submit input,.ae-cta form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <div class="ae-field"><label>片道の走行距離 <span class="v"><span id="vD">25</span> km</span></label>
+        <input type="range" id="d" min="1" max="200" step="1" value="25"></div>
+      <div class="ae-field"><label>燃費 <span class="v"><span id="vE">15</span> km/L</span></label>
+        <input type="range" id="e" min="5" max="40" step="1" value="15"></div>
+      <div class="ae-field"><label>ガソリン単価 <span class="v">¥<span id="vP">175</span>/L</span></label>
+        <input type="range" id="p" min="120" max="220" step="1" value="175"></div>
+      <div class="ae-out">
+        <div class="ae-o"><div class="lab">片道</div><div class="v">¥<span id="one">0</span></div></div>
+        <div class="ae-o"><div class="lab">往復</div><div class="v">¥<span id="round">0</span></div></div>
+        <div class="ae-o big"><div class="lab">月間（往復×20日）</div><div class="v">¥<span id="month">0</span></div></div>
+      </div>
+    </div>
+    <div class="ae-cta">
+      <div class="t">燃料費を抑えるカーリース/EVの資料を受け取る</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var d = document.getElementById("d"), e = document.getElementById("e"), p = document.getElementById("p");
+    var vD = document.getElementById("vD"), vE = document.getElementById("vE"), vP = document.getElementById("vP");
+    var one = document.getElementById("one"), round = document.getElementById("round"), month = document.getElementById("month");
+    function yen(n) { return Math.round(n).toLocaleString("ja-JP"); }
+    function calc() {
+      var dist = parseInt(d.value, 10), eff = parseInt(e.value, 10), price = parseInt(p.value, 10);
+      vD.textContent = dist; vE.textContent = eff; vP.textContent = price;
+      var oneWay = dist / eff * price;
+      one.textContent = yen(oneWay);
+      round.textContent = yen(oneWay * 2);
+      month.textContent = yen(oneWay * 2 * 20);
+    }
+    [d, e, p].forEach(function (el) { el.addEventListener("input", calc); });
+    calc();
+  })();
+  </script>
+</body>
+</html>
