@@ -282,6 +282,23 @@ const ALUMNI_FORM = `<form>
   <p class="submit"><input type="submit" value="出欠を回答する"></p>
 </form>`;
 
+const MEMBER_JOIN_FORM = `<form>
+  <p><label>ご希望プラン</label><br><select><option>無料会員</option><option selected>スタンダード（¥980/月）</option><option>プレミアム（¥1,980/月）</option></select></p>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p><label>パスワード</label><br><input type="text" value="********"></p>
+  <p><label><input type="checkbox" checked> 利用規約・プライバシーポリシーに同意する</label></p>
+  <p class="submit"><input type="submit" value="この内容で登録する"></p>
+</form>`;
+
+const COOKING_FORM = `<form>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p><label>参加人数</label><br><select><option selected>1名</option><option>2名</option></select></p>
+  <p><label>食物アレルギー（あれば）</label><br><input type="text" value="特になし"></p>
+  <p class="submit"><input type="submit" value="教室に申し込む"></p>
+</form>`;
+
 const HOTEL_FORM = `<form>
   <p><label>部屋タイプ</label><br><select><option selected>スタンダード</option><option>デラックス</option><option>スイート</option></select></p>
   <div class="row"><p><label>チェックイン</label><br><input type="date" value="2026-08-10"></p><p><label>チェックアウト</label><br><input type="date" value="2026-08-12"></p></div>
@@ -1348,6 +1365,10 @@ function contentFor(dir, category) {
     case "287-form-hotel-reservation": return HOTEL_FORM;
     case "288-event-open-house": return OPENHOUSE_FORM;
     case "289-thankyou-review-submitted": return NEWSLETTER_FORM;
+    case "290-landing-free-shipping-progress-js": return NEWSLETTER_FORM;
+    case "291-form-membership-join": return MEMBER_JOIN_FORM;
+    case "292-event-cooking-class": return COOKING_FORM;
+    case "293-utility-browser-unsupported": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

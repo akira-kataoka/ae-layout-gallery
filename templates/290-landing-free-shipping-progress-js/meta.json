@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - 送料無料まであと進捗(JS)",
+  "category": "landing",
+  "description": "カート金額に応じて「あと◯円で送料無料」の進捗バーとノベルティ条件が変化するゲーミフィケーション型LP(textContent・style・DOM生成のみ、innerHTML代入不使用)。アップセル/客単価向上に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "あと少しで送料無料！",
+  "previewDescription": "金額を動かすと、送料無料や特典までの進捗がわかります。"
+}

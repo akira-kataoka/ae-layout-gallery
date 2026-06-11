@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#16a34a; --ink:#0f231a; --muted:#5b7167; --line:#d7ece0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f0fbf4; line-height:1.7; }
+    .ae-wrap { max-width:540px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:22px; }
+    .ae-head h1 { font-size:24px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; box-shadow:0 12px 32px rgba(22,163,74,.08); }
+    .ae-msg { text-align:center; font-weight:800; font-size:17px; margin-bottom:14px; }
+    .ae-msg .amt { color:var(--accent); }
+    .ae-track { height:16px; background:#e6f4ea; border-radius:999px; overflow:hidden; margin-bottom:6px; position:relative; }
+    .ae-track span { display:block; height:100%; width:0; background:linear-gradient(90deg,#4ade80,#16a34a); border-radius:999px; transition:width .35s ease; }
+    .ae-scale { display:flex; justify-content:space-between; font-size:11px; color:var(--muted); margin-bottom:20px; }
+    .ae-field label { font-weight:700; font-size:14px; display:flex; justify-content:space-between; margin-bottom:8px; }
+    .ae-field label .v { color:var(--accent); font-variant-numeric:tabular-nums; }
+    .ae-field input[type=range] { width:100%; accent-color:var(--accent); }
+    .ae-gift { display:flex; align-items:center; gap:10px; background:#f0fdf4; border:1px dashed var(--accent); border-radius:12px; padding:12px 14px; margin-top:18px; font-size:13px; color:#15803d; opacity:.5; transition:opacity .3s; }
+    .ae-gift.on { opacity:1; }
+    .ae-gift .em { font-size:22px; }
+    .ae-cta { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; margin-top:18px; }
+    .ae-cta .t { font-weight:700; margin-bottom:12px; }
+    .ae-cta form input[type=text],.ae-cta form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form .submit input,.ae-cta form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <div class="ae-msg" id="msg">あと <span class="amt">¥2,000</span> で送料無料！</div>
+      <div class="ae-track"><span id="bar"></span></div>
+      <div class="ae-scale"><span>¥0</span><span>送料無料ライン ¥5,000</span></div>
+      <div class="ae-field">
+        <label>カートの合計金額 <span class="v">¥<span id="val">3,000</span></span></label>
+        <input type="range" id="cart" min="0" max="8000" step="500" value="3000">
+      </div>
+      <div class="ae-gift" id="gift"><span class="em">🎁</span><span>さらに ¥8,000 以上でノベルティをプレゼント中！</span></div>
+    </div>
+    <div class="ae-cta">
+      <div class="t">送料無料＆お得情報をメールで受け取る</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var THRESH = 5000, GIFT = 8000;
+    var cart = document.getElementById("cart"), val = document.getElementById("val");
+    var bar = document.getElementById("bar"), msg = document.getElementById("msg"), gift = document.getElementById("gift");
+    function yen(n) { return "¥" + n.toLocaleString("ja-JP"); }
+    function update() {
+      var amt = parseInt(cart.value, 10) || 0;
+      val.textContent = amt.toLocaleString("ja-JP");
+      var p = Math.min(amt / THRESH, 1);
+      bar.style.width = (p * 100) + "%";
+      if (amt >= THRESH) {
+        msg.textContent = "🎉 送料無料が適用されます！";
+      } else {
+        var rest = THRESH - amt;
+        msg.textContent = "";
+        var span = document.createElement("span");
+        span.className = "amt";
+        span.textContent = yen(rest);
+        msg.appendChild(document.createTextNode("あと "));
+        msg.appendChild(span);
+        msg.appendChild(document.createTextNode(" で送料無料！"));
+      }
+      gift.classList.toggle("on", amt >= GIFT);
+    }
+    cart.addEventListener("input", update);
+    update();
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 会員登録/入会申込",
+  "category": "form",
+  "description": "会員プラン(無料/有料)を比較提示し、会員情報を入力させる新規入会・会員登録フォーム。サブスク/コミュニティ/クラブの新規会員獲得に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "会員登録（入会のお申し込み）",
+  "previewDescription": "ご希望のプランを選んで、会員情報をご登録ください。"
+}

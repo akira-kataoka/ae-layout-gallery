@@ -1,0 +1,8 @@
+{
+  "name": "ユーティリティ - 非対応ブラウザ案内",
+  "category": "utility",
+  "description": "推奨環境外のブラウザでアクセスした際に、対応ブラウザ一覧と最新版への切替を案内するページ。アップデート手順の通知オプトインを備える。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "お使いのブラウザは対応していません",
+  "previewDescription": "快適にご利用いただくため、最新のブラウザへの切り替えをおすすめします。"
+}

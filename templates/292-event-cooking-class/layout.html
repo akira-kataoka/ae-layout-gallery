@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#c2410c; --ink:#2a1709; --muted:#6e5b48; --line:#f0e3d3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fff8f1; line-height:1.7; }
+    .ae-hero { position:relative; aspect-ratio:16/8; background:linear-gradient(135deg,#fb923c,#c2410c); display:flex; align-items:center; justify-content:center; }
+    .ae-hero .em { font-size:72px; }
+    .ae-wrap { max-width:600px; margin:0 auto; padding:24px 20px 48px; }
+    .ae-head { text-align:center; margin:-60px 0 22px; }
+    .ae-head .panel { background:#fff; border:1px solid var(--line); border-radius:18px; padding:24px; box-shadow:0 14px 36px rgba(194,65,12,.12); }
+    .ae-head .badge { display:inline-block; background:#ffedd5; color:var(--accent); font-weight:700; font-size:12px; padding:4px 12px; border-radius:999px; margin-bottom:8px; }
+    .ae-head h1 { font-size:23px; margin:0 0 6px; }
+    .ae-head p { color:var(--muted); margin:0; font-size:14px; }
+    .ae-info { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:22px; }
+    .ae-i { background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px; text-align:center; }
+    .ae-i .ic { font-size:20px; } .ae-i .k { font-size:11px; color:var(--muted); } .ae-i .v { font-weight:800; font-size:13px; }
+    .ae-menu { background:#fff; border:1px solid var(--line); border-radius:14px; padding:18px 20px; margin-bottom:22px; }
+    .ae-menu .t { font-weight:700; margin-bottom:10px; text-align:center; }
+    .ae-m { display:flex; align-items:center; gap:10px; padding:7px 0; border-top:1px dashed var(--line); font-size:14px; }
+    .ae-m:first-of-type { border-top:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; }
+    .ae-card .t { font-weight:700; font-size:17px; margin-bottom:14px; text-align:center; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    @media (max-width:480px){ .ae-info { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-hero"><span class="em">👩‍🍳</span></div>
+  <div class="ae-wrap">
+    <div class="ae-head">
+      <div class="panel">
+        <span class="badge">COOKING CLASS</span>
+        <h1>%%title%%</h1>
+        <p>%%description%%</p>
+      </div>
+    </div>
+    <div class="ae-info">
+      <div class="ae-i"><div class="ic">📅</div><div class="k">開催日</div><div class="v">9.13 (土) 11:00</div></div>
+      <div class="ae-i"><div class="ic">👥</div><div class="k">定員</div><div class="v">先着8名</div></div>
+      <div class="ae-i"><div class="ic">💰</div><div class="k">参加費</div><div class="v">4,500円</div></div>
+    </div>
+    <div class="ae-menu">
+      <div class="t">本日作るメニュー</div>
+      <div class="ae-m"><span>🍝</span><span>自家製生パスタ（2種のソース）</span></div>
+      <div class="ae-m"><span>🥗</span><span>季節野菜のカラフルサラダ</span></div>
+      <div class="ae-m"><span>🍰</span><span>ティラミス（お土産付き）</span></div>
+    </div>
+    <div class="ae-card">
+      <div class="t">この教室に申し込む</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>
