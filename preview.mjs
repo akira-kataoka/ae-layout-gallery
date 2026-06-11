@@ -266,6 +266,29 @@ const BOOKING_FORM = `<form>
   <p class="submit"><input type="submit" value="この日時で予約する"></p>
 </form>`;
 
+const MULTIGIFT_FORM = `<form>
+  <p><label>贈り主のお名前</label><br><input type="text" value="山田 太郎"></p>
+  <fieldset><legend>贈り先 1</legend>
+    <p><label>お名前</label><br><input type="text" value="鈴木 花子"></p>
+    <p><label>メールアドレス</label><br><input type="email" value="hanako@example.com"></p>
+    <p><label>メッセージ</label><br><textarea>いつもありがとう！</textarea></p>
+  </fieldset>
+  <fieldset><legend>贈り先 2</legend>
+    <p><label>お名前</label><br><input type="text" value="佐藤 健"></p>
+    <p><label>メールアドレス</label><br><input type="email" value="ken@example.com"></p>
+    <p><label>メッセージ</label><br><textarea>お祝いの気持ちです。</textarea></p>
+  </fieldset>
+  <p class="submit"><input type="submit" value="まとめて贈る"></p>
+</form>`;
+
+const BOOTH_FORM = `<form>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>会社名</label><br><input type="text" value="株式会社サンプル"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p><label>ご興味のある内容</label><br><select><option selected>製品の詳細を知りたい</option><option>導入を検討している</option><option>情報収集中</option></select></p>
+  <p class="submit"><input type="submit" value="ブースに入場する"></p>
+</form>`;
+
 const SURVEY_COMMENT_FORM = `<form>
   <p><label>ご意見・ご感想（自由記述）</label><br><textarea>全体的に満足ですが、価格がもう少し手頃だと嬉しいです。</textarea></p>
   <p><label>メールアドレス（任意・特典のご連絡用）</label><br><input type="email" value="taro@example.com"></p>
@@ -1153,6 +1176,10 @@ function contentFor(dir, category) {
     case "251-form-reservation-deposit": return BOOKING_FORM;
     case "252-form-matrix-survey": return SURVEY_COMMENT_FORM;
     case "253-thankyou-feedback-quick-js": return NEWSLETTER_FORM;
+    case "254-landing-chat-faq-js": return NEWSLETTER_FORM;
+    case "255-form-multi-recipient-gift": return MULTIGIFT_FORM;
+    case "256-event-virtual-booth": return BOOTH_FORM;
+    case "257-utility-survey-closed": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

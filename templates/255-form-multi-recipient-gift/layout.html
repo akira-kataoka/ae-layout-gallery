@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#be185d; --ink:#2a1019; --muted:#6b5560; --line:#f3dce6; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fff5f9; line-height:1.7; }
+    .ae-wrap { max-width:600px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:20px; }
+    .ae-head .emo { font-size:44px; }
+    .ae-head h1 { font-size:24px; margin:4px 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-gift { background:#fff; border:1px solid var(--line); border-radius:16px; padding:18px 20px; margin-bottom:18px; display:flex; gap:14px; align-items:center; box-shadow:0 8px 22px rgba(190,24,93,.06); }
+    .ae-gift .ph { width:60px; height:60px; border-radius:12px; background:linear-gradient(135deg,#fbcfe8,#f9a8d4); display:flex; align-items:center; justify-content:center; font-size:30px; flex:0 0 auto; }
+    .ae-gift .nm { font-weight:800; } .ae-gift .pr { color:var(--accent); font-weight:900; font-size:18px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px; }
+    .ae-card .t { font-weight:700; font-size:16px; margin-bottom:6px; }
+    .ae-card .hint { color:var(--muted); font-size:12px; margin:0 0 14px; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form textarea { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; font-family:inherit; }
+    .ae-card form fieldset { border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:0 0 14px; }
+    .ae-card form legend { font-weight:700; font-size:13px; color:var(--accent); padding:0 6px; }
+    .ae-card form label { font-weight:700; font-size:12px; }
+    .ae-card form p { margin:0 0 10px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:15px; border-radius:9px; font-weight:800; font-size:15px; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head">
+      <div class="emo">🎁</div>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-gift">
+      <div class="ph">🎀</div>
+      <div><div class="nm">デジタルギフト券（3,000円分）</div><div class="pr">¥3,000 / 1名</div></div>
+    </div>
+    <div class="ae-card">
+      <div class="t">贈り先の情報を入力</div>
+      <p class="hint">複数の方へまとめて贈れます。お一人ずつ宛先とメッセージを設定できます。</p>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

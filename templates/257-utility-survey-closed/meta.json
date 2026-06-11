@@ -1,0 +1,8 @@
+{
+  "name": "ユーティリティ - アンケート受付終了",
+  "category": "utility",
+  "description": "回答受付を締め切ったアンケートのクローズ告知ページ。実施概要を提示しつつ、次回調査・結果レポートの通知オプトインで関係を継続する。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "アンケートの受付は終了しました",
+  "previewDescription": "多数のご回答をありがとうございました。受付期間は終了しています。"
+}

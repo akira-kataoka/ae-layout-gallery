@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#2563eb; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eef2f9; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:18px; }
+    .ae-head h1 { font-size:24px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-chatbox { background:#fff; border:1px solid var(--line); border-radius:18px; overflow:hidden; box-shadow:0 14px 36px rgba(37,99,235,.1); }
+    .ae-bar { display:flex; align-items:center; gap:10px; background:var(--accent); color:#fff; padding:14px 18px; }
+    .ae-bar .av { width:34px; height:34px; border-radius:50%; background:rgba(255,255,255,.25); display:flex; align-items:center; justify-content:center; font-size:18px; }
+    .ae-bar .nm { font-weight:700; font-size:14px; } .ae-bar .st { font-size:11px; opacity:.85; }
+    .ae-chat { padding:18px; height:300px; overflow-y:auto; background:#f8fafc; }
+    .ae-msg { display:flex; margin-bottom:12px; }
+    .ae-msg.q { justify-content:flex-end; }
+    .ae-bub { max-width:78%; padding:10px 14px; border-radius:14px; font-size:13.5px; }
+    .ae-msg.a .ae-bub { background:#fff; border:1px solid var(--line); border-bottom-left-radius:4px; }
+    .ae-msg.q .ae-bub { background:var(--accent); color:#fff; border-bottom-right-radius:4px; }
+    .ae-hidden { display:none; }
+    .ae-replies { display:flex; flex-wrap:wrap; gap:8px; padding:14px; border-top:1px solid var(--line); background:#fff; }
+    .ae-reply { border:1px solid var(--accent); color:var(--accent); background:#fff; border-radius:999px; padding:8px 14px; font-size:13px; font-weight:700; cursor:pointer; font-family:inherit; }
+    .ae-reply.used { display:none; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; margin-top:18px; }
+    .ae-card .t { font-weight:700; margin-bottom:12px; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-chatbox">
+      <div class="ae-bar"><span class="av">🤖</span><span><span class="nm">サポートbot</span><br><span class="st">● オンライン・通常すぐ返信</span></span></div>
+      <div class="ae-chat" id="chat">
+        <div class="ae-msg a"><div class="ae-bub">こんにちは！よくある質問からお選びください 👇</div></div>
+        <div class="ae-msg q ae-hidden" data-id="1"><div class="ae-bub">料金はいくらですか？</div></div>
+        <div class="ae-msg a ae-hidden" data-id="1"><div class="ae-bub">月額980円から、使った分だけのわかりやすい料金です。14日間の無料トライアルもご利用いただけます。</div></div>
+        <div class="ae-msg q ae-hidden" data-id="2"><div class="ae-bub">解約はかんたん？</div></div>
+        <div class="ae-msg a ae-hidden" data-id="2"><div class="ae-bub">はい。マイページからいつでもワンクリックで解約できます。違約金は一切かかりません。</div></div>
+        <div class="ae-msg q ae-hidden" data-id="3"><div class="ae-bub">サポート体制は？</div></div>
+        <div class="ae-msg a ae-hidden" data-id="3"><div class="ae-bub">平日10〜18時、チャットとメールで専任担当がご対応します。導入時は無料の初期設定サポート付きです。</div></div>
+      </div>
+      <div class="ae-replies" id="replies">
+        <button type="button" class="ae-reply" data-id="1">料金はいくら？</button>
+        <button type="button" class="ae-reply" data-id="2">解約はかんたん？</button>
+        <button type="button" class="ae-reply" data-id="3">サポート体制は？</button>
+      </div>
+    </div>
+    <div class="ae-card">
+      <div class="t">もっと詳しく知りたい方へ・資料請求</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var chat = document.getElementById("chat");
+    var replies = Array.prototype.slice.call(document.querySelectorAll(".ae-reply"));
+    replies.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var id = btn.getAttribute("data-id");
+        Array.prototype.forEach.call(chat.querySelectorAll('[data-id="' + id + '"]'), function (el) {
+          el.classList.remove("ae-hidden");
+        });
+        btn.classList.add("used");
+        chat.scrollTop = chat.scrollHeight;
+      });
+    });
+  })();
+  </script>
+</body>
+</html>

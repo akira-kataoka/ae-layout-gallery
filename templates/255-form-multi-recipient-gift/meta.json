@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 複数宛先ギフト送付",
+  "category": "form",
+  "description": "デジタルギフトを複数の相手へまとめて贈るための宛先・メッセージ入力フォーム。お一人ずつ宛先とメッセージを設定する構成。eギフト/法人ギフトの一括送付に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "大切な人へ、まとめて贈ろう",
+  "previewDescription": "複数の方へ、それぞれにメッセージを添えてギフトを送れます。"
+}

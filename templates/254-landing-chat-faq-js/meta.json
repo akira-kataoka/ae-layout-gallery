@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - チャット風FAQ(JS)",
+  "category": "landing",
+  "description": "クイック返信ボタンをタップすると質問と回答が吹き出しで会話のように表示されるチャット風FAQ LP(classList・scrollのみ、innerHTML不使用)。疑問解消から資料請求への導線に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "気になること、聞いてみて",
+  "previewDescription": "チャットボットがよくある質問にその場でお答えします。"
+}
