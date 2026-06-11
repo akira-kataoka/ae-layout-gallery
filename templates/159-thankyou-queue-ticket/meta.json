@@ -1,0 +1,7 @@
+{
+  "name": "サンクスページ - 順番待ち整理券発行",
+  "category": "thankyou",
+  "description": "受付番号＋前の待ち組数・目安待ち時間を表示する整理券発行ページ。順番待ち受付・呼出し通知に。",
+  "isIncludeDefaultCss": false,
+  "previewContent": "<h1 style=\"margin:0 0 8px;font-size:23px;\">受付が完了しました</h1><p style=\"color:#64748b;\">整理券を発行しました。順番までお待ちください。</p>"
+}

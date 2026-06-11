@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - レンタル/シェア予約",
+  "category": "form",
+  "description": "品目・貸出日・返却日を指定するレンタル予約フォーム。レンタカー/機材/サイクル/シェアサービスの予約に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "電動アシスト自転車 レンタル",
+  "previewDescription": "貸出日と返却日をお選びください。空き状況を確認しご連絡します。"
+}

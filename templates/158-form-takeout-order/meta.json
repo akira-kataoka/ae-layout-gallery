@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - テイクアウト/受取予約注文",
+  "category": "form",
+  "description": "メニュー＋受取時間を指定するテイクアウト注文フォーム。飲食店のモバイルオーダー・事前予約に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "お弁当のテイクアウト予約",
+  "previewDescription": "ご注文品と受取時間をお選びください。店頭でスムーズにお渡しします。"
+}

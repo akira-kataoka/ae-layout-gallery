@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#ea580c; --ink:#1c1610; --muted:#78716c; --line:#f0e4d8; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fff8f3; line-height:1.7; }
+    .ae-grid { max-width:900px; margin:0 auto; padding:48px 20px; display:grid; grid-template-columns:1fr 1.05fr; gap:0; background:#fff; border-radius:18px; overflow:hidden; box-shadow:0 12px 40px rgba(234,88,12,.14); }
+    .ae-menu { background:linear-gradient(160deg,#9a3412,#ea580c); color:#fff; padding:36px 30px; }
+    .ae-menu .ic { font-size:60px; text-align:center; }
+    .ae-menu h1 { font-size:24px; margin:12px 0 8px; }
+    .ae-menu .item { display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid rgba(255,255,255,.2); font-size:14px; }
+    .ae-form { padding:36px 30px; }
+    .ae-form h2 { margin-top:0; font-size:18px; }
+    .ae-form form label { font-size:13px; font-weight:600; }
+    .ae-form form input[type=text],.ae-form form input[type=email],.ae-form form input[type=tel],.ae-form form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-form form p { margin:0 0 14px; }
+    .ae-form form .submit input,.ae-form form button { width:100%; background:var(--accent); color:#fff; border:0; padding:15px; border-radius:9px; font-weight:800; font-size:15px; cursor:pointer; }
+    @media (max-width:720px){ .ae-grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-grid">
+    <section class="ae-menu">
+      <div class="ic">🍱</div>
+      <h1>%%title%%</h1>
+      <p style="opacity:.9;margin:0 0 12px;">%%description%%</p>
+      <div class="item"><span>日替わり弁当</span><span>¥780</span></div>
+      <div class="item"><span>唐揚げ弁当</span><span>¥850</span></div>
+      <div class="item"><span>幕の内弁当</span><span>¥980</span></div>
+    </section>
+    <section class="ae-form"><h2>ご注文・受取予約</h2>%%content%%</section>
+  </div>
+</body>
+</html>
