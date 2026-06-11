@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#be185d; --ink:#2a1019; --muted:#6b5560; --line:#f3dce6; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fff5f9; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:54px 20px; }
+    .ae-done { text-align:center; margin-bottom:24px; }
+    .ae-done .em { font-size:50px; }
+    .ae-done h1 { font-size:23px; margin:6px 0 4px; }
+    .ae-done p { color:var(--muted); margin:0; font-size:14px; }
+    .ae-list { background:#fff; border:1px solid var(--line); border-radius:16px; overflow:hidden; margin-bottom:20px; box-shadow:0 8px 26px rgba(190,24,93,.07); }
+    .ae-list .hd { background:#fdf2f8; padding:12px 18px; font-weight:700; font-size:13px; color:var(--accent); }
+    .ae-r { display:flex; align-items:center; gap:12px; padding:13px 18px; border-top:1px solid var(--line); }
+    .ae-r .av { width:40px; height:40px; border-radius:50%; background:linear-gradient(135deg,#fbcfe8,#f472b6); display:flex; align-items:center; justify-content:center; font-size:18px; color:#fff; font-weight:800; flex:0 0 auto; }
+    .ae-r .nm { font-weight:700; font-size:14px; } .ae-r .em2 { font-size:12px; color:var(--muted); }
+    .ae-r .st { margin-left:auto; font-size:11px; font-weight:700; color:#15803d; background:#dcfce7; padding:3px 10px; border-radius:999px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; }
+    .ae-card .t { font-weight:700; margin-bottom:12px; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-done">
+      <div class="em">🎁</div>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-list">
+      <div class="hd">送信したギフト（2件）</div>
+      <div class="ae-r"><div class="av">鈴</div><div><div class="nm">鈴木 花子 様</div><div class="em2">hanako@example.com</div></div><span class="st">送信済み</span></div>
+      <div class="ae-r"><div class="av">佐</div><div><div class="nm">佐藤 健 様</div><div class="em2">ken@example.com</div></div><span class="st">送信済み</span></div>
+    </div>
+    <div class="ae-card">
+      <div class="t">ギフトの開封状況をメールで受け取る</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

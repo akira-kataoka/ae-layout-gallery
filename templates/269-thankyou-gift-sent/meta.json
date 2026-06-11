@@ -1,0 +1,8 @@
+{
+  "name": "サンクス - ギフト送信完了",
+  "category": "thankyou",
+  "description": "デジタルギフトの送信完了後に、送り先一覧と送信ステータスを表示するサンクスページ。開封状況通知のオプトインを備える。複数宛先ギフト送付の完了画面に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "ギフトを送信しました！",
+  "previewDescription": "以下の方々へギフトをお届けしました。受け取りが楽しみですね。"
+}

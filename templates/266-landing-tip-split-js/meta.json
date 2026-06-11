@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - 割り勘計算機(JS)",
+  "category": "landing",
+  "description": "合計金額・人数・上乗せ率を指定すると1人あたりの支払額を即時計算する割り勘計算機LP(textContent・classListのみ、innerHTML不使用)。アプリDLや会員登録のフックに。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "幹事さん、もう計算で悩まない",
+  "previewDescription": "金額と人数を入れるだけ。1人あたりの支払いがすぐわかります。"
+}

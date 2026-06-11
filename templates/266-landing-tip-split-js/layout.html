@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0891b2; --ink:#0c2228; --muted:#5a747c; --line:#d6eaee; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eefbfd; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:22px; }
+    .ae-head h1 { font-size:24px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; box-shadow:0 12px 32px rgba(8,145,178,.09); }
+    .ae-field { margin-bottom:18px; }
+    .ae-field label { font-weight:700; font-size:14px; display:block; margin-bottom:7px; }
+    .ae-field input[type=number] { width:100%; padding:13px; border:1px solid var(--line); border-radius:10px; font-size:18px; font-variant-numeric:tabular-nums; }
+    .ae-people { display:flex; align-items:center; gap:12px; }
+    .ae-people button { width:42px; height:42px; border-radius:10px; border:1px solid var(--line); background:#f0fafc; font-size:22px; font-weight:800; color:var(--accent); cursor:pointer; }
+    .ae-people .n { flex:1; text-align:center; font-size:22px; font-weight:900; font-variant-numeric:tabular-nums; }
+    .ae-tips { display:flex; gap:8px; }
+    .ae-tips button { flex:1; border:2px solid var(--line); background:#fff; border-radius:10px; padding:10px; font-weight:800; cursor:pointer; font-family:inherit; }
+    .ae-tips button.on { border-color:var(--accent); background:#ecfeff; color:var(--accent); }
+    .ae-out { background:linear-gradient(135deg,#0891b2,#0e7490); color:#fff; border-radius:14px; padding:20px; margin-top:6px; }
+    .ae-out .row { display:flex; justify-content:space-between; font-size:13px; opacity:.92; margin-bottom:5px; }
+    .ae-out .per { display:flex; justify-content:space-between; align-items:baseline; margin-top:8px; padding-top:8px; border-top:1px solid rgba(255,255,255,.25); }
+    .ae-out .per .v { font-size:30px; font-weight:900; font-variant-numeric:tabular-nums; }
+    .ae-cta { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; margin-top:18px; }
+    .ae-cta .t { font-weight:700; margin-bottom:12px; }
+    .ae-cta form input[type=text],.ae-cta form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form .submit input,.ae-cta form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <div class="ae-field">
+        <label for="bill">お会計の合計（円）</label>
+        <input type="number" id="bill" min="0" step="100" value="12000">
+      </div>
+      <div class="ae-field">
+        <label>人数</label>
+        <div class="ae-people">
+          <button type="button" id="minus" aria-label="減らす">−</button>
+          <span class="n" id="pnum">4</span>
+          <button type="button" id="plus" aria-label="増やす">＋</button>
+        </div>
+      </div>
+      <div class="ae-field">
+        <label>幹事へのチップ・上乗せ</label>
+        <div class="ae-tips" id="tips">
+          <button type="button" data-t="0" class="on">0%</button>
+          <button type="button" data-t="5">5%</button>
+          <button type="button" data-t="10">10%</button>
+          <button type="button" data-t="15">15%</button>
+        </div>
+      </div>
+      <div class="ae-out">
+        <div class="row"><span>上乗せ額</span><span id="tipAmt">¥0</span></div>
+        <div class="row"><span>総額</span><span id="grand">¥12,000</span></div>
+        <div class="per"><span>1人あたり</span><span class="v">¥<span id="per">3,000</span></span></div>
+      </div>
+    </div>
+    <div class="ae-cta">
+      <div class="t">かんたん割り勘アプリを使ってみる</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var bill = document.getElementById("bill"), pnum = document.getElementById("pnum");
+    var tipBtns = Array.prototype.slice.call(document.querySelectorAll("#tips button"));
+    var tipAmt = document.getElementById("tipAmt"), grand = document.getElementById("grand"), per = document.getElementById("per");
+    var people = 4, tip = 0;
+    function yen(n) { return "¥" + n.toLocaleString("ja-JP"); }
+    function calc() {
+      var b = parseInt(bill.value, 10) || 0;
+      var t = Math.round(b * tip / 100);
+      var total = b + t;
+      var each = people > 0 ? Math.ceil(total / people) : 0;
+      pnum.textContent = people;
+      tipAmt.textContent = yen(t);
+      grand.textContent = yen(total);
+      per.textContent = each.toLocaleString("ja-JP");
+    }
+    bill.addEventListener("input", calc);
+    document.getElementById("plus").addEventListener("click", function () { people++; calc(); });
+    document.getElementById("minus").addEventListener("click", function () { if (people > 1) people--; calc(); });
+    tipBtns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        tipBtns.forEach(function (x) { x.classList.remove("on"); });
+        b.classList.add("on");
+        tip = parseInt(b.getAttribute("data-t"), 10) || 0;
+        calc();
+      });
+    });
+    calc();
+  })();
+  </script>
+</body>
+</html>

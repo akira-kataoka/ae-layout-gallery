@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#9d174d; --ink:#2a1420; --muted:#6b5560; --line:#f0dde6; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fdf2f7; line-height:1.7; }
+    .ae-hero { background:linear-gradient(135deg,#9d174d,#be185d); color:#fff; text-align:center; padding:54px 20px 42px; }
+    .ae-hero .yr { font-size:13px; letter-spacing:4px; opacity:.85; margin-bottom:8px; }
+    .ae-hero h1 { font-size:28px; margin:0 0 10px; }
+    .ae-hero p { margin:0; opacity:.95; font-size:14px; }
+    .ae-wrap { max-width:600px; margin:0 auto; padding:40px 20px 48px; }
+    .ae-info { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:26px; }
+    .ae-i { background:#fff; border:1px solid var(--line); border-radius:14px; padding:14px; text-align:center; box-shadow:0 8px 22px rgba(157,23,77,.06); }
+    .ae-i .ic { font-size:22px; } .ae-i .k { font-size:11px; color:var(--muted); } .ae-i .v { font-weight:800; font-size:14px; }
+    .ae-msg { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; font-size:14px; color:#4a3540; margin-bottom:26px; }
+    .ae-msg .em { font-size:34px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; }
+    .ae-card .t { font-weight:700; font-size:17px; margin-bottom:14px; text-align:center; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form select,.ae-card form textarea { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; font-family:inherit; }
+    .ae-card form label { font-weight:700; font-size:13px; }
+    .ae-card form p { margin:0 0 13px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:15px; border-radius:9px; font-weight:800; font-size:15px; cursor:pointer; }
+    @media (max-width:520px){ .ae-info { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-hero">
+    <div class="yr">SINCE 2006 ・ 20TH ANNIVERSARY</div>
+    <h1>%%title%%</h1>
+    <p>%%description%%</p>
+  </div>
+  <div class="ae-wrap">
+    <div class="ae-info">
+      <div class="ae-i"><div class="ic">📅</div><div class="k">開催日</div><div class="v">11.23 (祝)</div></div>
+      <div class="ae-i"><div class="ic">📍</div><div class="k">会場</div><div class="v">母校 大講堂</div></div>
+      <div class="ae-i"><div class="ic">💰</div><div class="k">会費</div><div class="v">6,000円</div></div>
+    </div>
+    <div class="ae-msg">
+      <div class="em">🎓</div>
+      あの頃の仲間と、もう一度。<br>恩師も駆けつけてくださいます。久しぶりの再会を楽しみましょう。
+    </div>
+    <div class="ae-card">
+      <div class="t">出欠のご回答</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

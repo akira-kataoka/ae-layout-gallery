@@ -266,6 +266,22 @@ const BOOKING_FORM = `<form>
   <p class="submit"><input type="submit" value="この日時で予約する"></p>
 </form>`;
 
+const MEMBER_CANCEL_FORM = `<form>
+  <p><label>退会の理由</label><br><select><option selected>あまり使わなくなった</option><option>料金が高い</option><option>機能に不満がある</option><option>他のサービスに移行する</option><option>その他</option></select></p>
+  <p><label>差し支えなければ詳しく</label><br><textarea>使う機会が減ってしまいました。</textarea></p>
+  <p><label>ご登録のメールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="退会を確定する"></p>
+</form>`;
+
+const ALUMNI_FORM = `<form>
+  <p><label><input type="radio" name="rsvp" checked> 出席する</label> <label><input type="radio" name="rsvp"> 欠席する</label></p>
+  <p><label>お名前（旧姓があれば併記）</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>卒業年・期</label><br><input type="text" value="2006年卒・第18期"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p><label>近況・ひとこと</label><br><textarea>久しぶりにみんなに会えるのを楽しみにしています！</textarea></p>
+  <p class="submit"><input type="submit" value="出欠を回答する"></p>
+</form>`;
+
 const ROADSHOW_FORM = `<form>
   <p><label>参加する都市</label><br><select><option selected>東京（9.06）</option><option>大阪（9.13）</option><option>名古屋（9.20）</option></select></p>
   <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
@@ -1220,6 +1236,10 @@ function contentFor(dir, category) {
     case "263-event-roadshow-cities": return ROADSHOW_FORM;
     case "264-form-bulk-order": return BULKORDER_FORM;
     case "265-utility-email-verified": return NEWSLETTER_FORM;
+    case "266-landing-tip-split-js": return NEWSLETTER_FORM;
+    case "267-form-membership-cancel": return MEMBER_CANCEL_FORM;
+    case "268-event-alumni-reunion": return ALUMNI_FORM;
+    case "269-thankyou-gift-sent": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

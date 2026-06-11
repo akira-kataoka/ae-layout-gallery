@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 退会/解約(引き止め付き)",
+  "category": "form",
+  "description": "退会理由の選択と自由記述を受け付けつつ、継続割引オファーと失うものの提示で引き止めを図る解約フォーム。チャーン抑制とフィードバック収集を兼ねる。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "退会手続き",
+  "previewDescription": "手続きの前に、ご確認いただきたいことがあります。"
+}
