@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#ea580c; --ink:#2a1709; --muted:#6e5b48; --line:#f0e3d3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fff8f1; line-height:1.7; }
+    .ae-hero { background:linear-gradient(135deg,#fb923c,#ea580c,#dc2626); color:#fff; text-align:center; padding:54px 20px 44px; }
+    .ae-hero .em { font-size:52px; }
+    .ae-hero h1 { font-size:28px; margin:6px 0 8px; }
+    .ae-hero p { margin:0; opacity:.95; font-size:14px; }
+    .ae-wrap { max-width:640px; margin:0 auto; padding:34px 20px 48px; }
+    .ae-info { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:24px; }
+    .ae-i { background:#fff; border:1px solid var(--line); border-radius:14px; padding:14px; text-align:center; box-shadow:0 8px 22px rgba(234,88,12,.07); }
+    .ae-i .ic { font-size:20px; } .ae-i .k { font-size:11px; color:var(--muted); } .ae-i .v { font-weight:800; font-size:13px; }
+    .ae-eats { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:24px; }
+    .ae-e { background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 6px; text-align:center; box-shadow:0 6px 18px rgba(234,88,12,.05); }
+    .ae-e .em { font-size:28px; } .ae-e .nm { font-size:10px; font-weight:700; margin-top:4px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; }
+    .ae-card .t { font-weight:700; font-size:17px; margin-bottom:6px; text-align:center; }
+    .ae-card .d { color:var(--muted); font-size:13px; margin-bottom:14px; text-align:center; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    @media (max-width:480px){ .ae-info { grid-template-columns:1fr; } .ae-eats { grid-template-columns:1fr 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-hero">
+    <div class="em">🍴</div>
+    <h1>%%title%%</h1>
+    <p>%%description%%</p>
+  </div>
+  <div class="ae-wrap">
+    <div class="ae-info">
+      <div class="ae-i"><div class="ic">📅</div><div class="k">開催</div><div class="v">10.18 – 10.20</div></div>
+      <div class="ae-i"><div class="ic">📍</div><div class="k">会場</div><div class="v">中央公園 特設会場</div></div>
+      <div class="ae-i"><div class="ic">🎟️</div><div class="k">入場</div><div class="v">無料（飲食は有料）</div></div>
+    </div>
+    <div class="ae-eats">
+      <div class="ae-e"><div class="em">🍜</div><div class="nm">ご当地ラーメン</div></div>
+      <div class="ae-e"><div class="em">🍖</div><div class="nm">クラフトBBQ</div></div>
+      <div class="ae-e"><div class="em">🧁</div><div class="nm">スイーツ横丁</div></div>
+      <div class="ae-e"><div class="em">🍺</div><div class="nm">地ビール広場</div></div>
+    </div>
+    <div class="ae-card">
+      <div class="t">来場登録で割引クーポンGET</div>
+      <div class="d">登録の方に会場で使える500円分クーポンを進呈</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

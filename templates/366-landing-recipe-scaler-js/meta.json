@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - レシピ分量スケーラー(JS)",
+  "category": "landing",
+  "description": "人前を±ボタンで変えると材料の分量が自動で再計算されるレシピLP(textContentのみ、innerHTML不使用)。食品EC/レシピサービス/調理家電のリード獲得・レシピ集DLに。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "何人分つくる？分量かんたん計算",
+  "previewDescription": "人数を変えるだけで、必要な材料の分量がぴったりわかります。"
+}

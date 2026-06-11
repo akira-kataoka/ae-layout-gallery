@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - レストラン予約",
+  "category": "form",
+  "description": "店舗の写真・評価・概要を提示し、来店日時・人数・席タイプ・コースを入力させるレストランの席予約フォーム。飲食店の直販予約・グルメ予約サイト連携に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "ご予約",
+  "previewDescription": "ご来店日時と人数をお選びください。記念日のご相談も承ります。"
+}

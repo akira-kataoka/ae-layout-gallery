@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#b45309; --ink:#2a1d0c; --muted:#6e5d45; --line:#f0e4cf; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fefaf0; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:58px 20px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:20px; padding:38px 30px; text-align:center; box-shadow:0 16px 40px rgba(180,83,9,.1); }
+    .ae-ico { width:78px; height:78px; border-radius:50%; background:#fef3c7; display:flex; align-items:center; justify-content:center; font-size:38px; margin:0 auto 18px; }
+    .ae-card h1 { font-size:23px; margin:0 0 10px; }
+    .ae-card .lead { color:var(--muted); margin:0 0 22px; font-size:14px; }
+    .ae-old { background:#fffaf0; border:1px solid var(--line); border-radius:12px; padding:14px; font-size:13px; color:#5a4a30; margin-bottom:20px; }
+    .ae-old .addr { font-weight:700; color:var(--accent); }
+    .ae-reasons { text-align:left; font-size:13px; color:var(--muted); margin-bottom:24px; }
+    .ae-reasons .t { font-weight:700; color:var(--ink); margin-bottom:6px; }
+    .ae-reasons li { margin-bottom:3px; }
+    .ae-card2 { border-top:1px dashed var(--line); padding-top:22px; }
+    .ae-card2 .t { font-weight:700; font-size:14px; margin-bottom:6px; }
+    .ae-card2 .d { color:var(--muted); font-size:13px; margin-bottom:14px; }
+    .ae-card2 form input[type=email] { width:100%; padding:13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card2 form p { margin:0 0 12px; }
+    .ae-card2 form .submit input,.ae-card2 form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-card">
+      <div class="ae-ico">📭</div>
+      <h1>%%title%%</h1>
+      <p class="lead">%%description%%</p>
+      <div class="ae-old">現在の登録アドレス：<span class="addr">taro@old-example.com</span><br>このアドレスへのメールが届かなくなっています。</div>
+      <div class="ae-reasons">
+        <div class="t">よくある原因</div>
+        <ul>
+          <li>メールアドレスの変更・廃止</li>
+          <li>受信ボックスの容量オーバー</li>
+          <li>迷惑メール設定によるブロック</li>
+        </ul>
+      </div>
+      <div class="ae-card2">
+        <div class="t">届くメールアドレスに更新する</div>
+        <div class="d">新しいアドレスをご登録ください。大切なお知らせをお届けします。</div>
+        %%content%%
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#c2410c; --ink:#2a1709; --muted:#6e5b48; --line:#f0e3d3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fff8f1; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:18px; }
+    .ae-head h1 { font-size:24px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:24px; box-shadow:0 12px 32px rgba(194,65,12,.08); }
+    .ae-serv { display:flex; align-items:center; justify-content:center; gap:16px; margin-bottom:16px; }
+    .ae-serv button { width:46px; height:46px; border-radius:12px; border:1px solid var(--line); background:#fff7ed; font-size:24px; font-weight:800; color:var(--accent); cursor:pointer; }
+    .ae-serv .n { font-size:28px; font-weight:900; font-variant-numeric:tabular-nums; min-width:90px; text-align:center; }
+    .ae-serv .n small { font-size:14px; font-weight:700; color:var(--muted); }
+    .ae-ing { display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-top:1px solid var(--line); font-size:14px; }
+    .ae-ing:first-of-type { border-top:0; }
+    .ae-ing .nm { font-weight:700; } .ae-ing .nm .em { margin-right:8px; }
+    .ae-ing .amt { font-weight:800; color:var(--accent); font-variant-numeric:tabular-nums; }
+    .ae-cta { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; margin-top:18px; }
+    .ae-cta .t { font-weight:700; margin-bottom:12px; }
+    .ae-cta form input[type=text],.ae-cta form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form .submit input,.ae-cta form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <div class="ae-serv">
+        <button type="button" id="minus" aria-label="減らす">−</button>
+        <span class="n"><span id="serv">2</span><small> 人前</small></span>
+        <button type="button" id="plus" aria-label="増やす">＋</button>
+      </div>
+      <div class="ae-ing" data-base="200" data-unit="g"><span class="nm"><span class="em">🍝</span>パスタ</span><span class="amt"></span></div>
+      <div class="ae-ing" data-base="2" data-unit="片"><span class="nm"><span class="em">🧄</span>にんにく</span><span class="amt"></span></div>
+      <div class="ae-ing" data-base="100" data-unit="g"><span class="nm"><span class="em">🥓</span>ベーコン</span><span class="amt"></span></div>
+      <div class="ae-ing" data-base="2" data-unit="個"><span class="nm"><span class="em">🥚</span>卵</span><span class="amt"></span></div>
+      <div class="ae-ing" data-base="30" data-unit="g"><span class="nm"><span class="em">🧀</span>粉チーズ</span><span class="amt"></span></div>
+      <div class="ae-ing" data-base="15" data-unit="ml"><span class="nm"><span class="em">🫒</span>オリーブ油</span><span class="amt"></span></div>
+    </div>
+    <div class="ae-cta">
+      <div class="t">人気レシピ集を無料でダウンロード</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var BASE_SERV = 2;
+    var servEl = document.getElementById("serv");
+    var ings = Array.prototype.slice.call(document.querySelectorAll(".ae-ing"));
+    var serv = 2;
+    function fmt(n) {
+      var r = Math.round(n * 10) / 10;
+      return r % 1 === 0 ? String(r) : r.toFixed(1);
+    }
+    function render() {
+      servEl.textContent = serv;
+      ings.forEach(function (ing) {
+        var base = parseFloat(ing.getAttribute("data-base")) || 0;
+        var unit = ing.getAttribute("data-unit") || "";
+        ing.querySelector(".amt").textContent = fmt(base * serv / BASE_SERV) + " " + unit;
+      });
+    }
+    document.getElementById("plus").addEventListener("click", function () { if (serv < 12) serv++; render(); });
+    document.getElementById("minus").addEventListener("click", function () { if (serv > 1) serv--; render(); });
+    render();
+  })();
+  </script>
+</body>
+</html>

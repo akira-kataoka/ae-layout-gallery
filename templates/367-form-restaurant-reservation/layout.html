@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#9a3412; --ink:#2a1810; --muted:#6e5b48; --line:#ece0d0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fdf8f1; line-height:1.7; }
+    .ae-wrap { max-width:580px; margin:0 auto; padding:48px 20px; }
+    .ae-rest { background:#fff; border:1px solid var(--line); border-radius:16px; overflow:hidden; margin-bottom:20px; box-shadow:0 10px 28px rgba(154,52,18,.08); }
+    .ae-rest .photo { aspect-ratio:16/8; background:linear-gradient(135deg,#fb923c,#9a3412); display:flex; align-items:center; justify-content:center; font-size:54px; }
+    .ae-rest .body { padding:18px 20px; }
+    .ae-rest .star { color:#f59e0b; font-size:13px; }
+    .ae-rest h1 { font-size:21px; margin:4px 0 4px; }
+    .ae-rest .meta { color:var(--muted); font-size:13px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px; }
+    .ae-card .t { font-weight:700; font-size:16px; margin-bottom:14px; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form input[type=tel],.ae-card form input[type=date],.ae-card form input[type=time],.ae-card form select,.ae-card form textarea { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; font-family:inherit; }
+    .ae-card form label { font-weight:700; font-size:13px; }
+    .ae-card form p { margin:0 0 13px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:15px; border-radius:9px; font-weight:800; font-size:15px; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-rest">
+      <div class="photo">🍽️</div>
+      <div class="body">
+        <div class="star">★★★★☆ 4.3</div>
+        <h1>トラットリア・ソレイユ</h1>
+        <div class="meta">イタリアン ／ 個室あり ／ 夜 ¥5,000〜</div>
+      </div>
+    </div>
+    <div class="ae-card">
+      <div class="t">ご予約</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

@@ -282,6 +282,22 @@ const ALUMNI_FORM = `<form>
   <p class="submit"><input type="submit" value="出欠を回答する"></p>
 </form>`;
 
+const RESTAURANT_FORM = `<form>
+  <div class="row"><p><label>ご来店日</label><br><input type="date" value="2026-07-18"></p><p><label>時間</label><br><input type="time" value="19:00"></p></div>
+  <div class="row"><p><label>人数</label><br><select><option>1名</option><option selected>2名</option><option>3〜4名</option><option>5名以上</option></select></p><p><label>席のご希望</label><br><select><option selected>おまかせ</option><option>個室</option><option>テラス</option></select></p></div>
+  <p><label>コース</label><br><select><option selected>アラカルト</option><option>ディナーコース ¥5,000</option><option>記念日コース ¥8,000</option></select></p>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <div class="row"><p><label>メール</label><br><input type="email" value="taro@example.com"></p><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p></div>
+  <p class="submit"><input type="submit" value="予約する"></p>
+</form>`;
+
+const FOODFEST_FORM = `<form>
+  <p><label>来場予定日</label><br><select><option selected>10/18 (土)</option><option>10/19 (日)</option><option>10/20 (月)</option></select></p>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="来場登録してクーポンを受け取る"></p>
+</form>`;
+
 const LANGLESSON_FORM = `<form>
   <p><label>学びたい言語</label><br><select><option selected>英語</option><option>中国語</option><option>韓国語</option><option>フランス語</option><option>スペイン語</option></select></p>
   <p><label>現在のレベル</label><br><select><option selected>はじめて／初級</option><option>中級</option><option>上級</option></select></p>
@@ -1738,6 +1754,10 @@ function contentFor(dir, category) {
     case "363-form-language-lesson-trial": return LANGLESSON_FORM;
     case "364-event-hackathon": return HACKATHON_FORM;
     case "365-utility-password-changed": return NEWSLETTER_FORM;
+    case "366-landing-recipe-scaler-js": return NEWSLETTER_FORM;
+    case "367-form-restaurant-reservation": return RESTAURANT_FORM;
+    case "368-event-food-festival": return FOODFEST_FORM;
+    case "369-utility-email-bounce": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;
