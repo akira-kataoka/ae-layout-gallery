@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#16a34a; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f1f5f4; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:60px 20px; text-align:center; }
+    .ae-card { background:#fff; border-radius:18px; box-shadow:0 10px 30px rgba(22,163,74,.12); padding:42px 34px; }
+    .ae-check { width:78px; height:78px; margin:0 auto 16px; border-radius:50%; background:#16a34a; display:flex; align-items:center; justify-content:center; }
+    .ae-check svg { width:38px; height:38px; }
+    .ae-msg { margin-bottom:8px; }
+    .ae-receipt { text-align:left; border:1px solid var(--line); border-radius:12px; overflow:hidden; margin:18px 0; }
+    .ae-receipt .row { display:flex; justify-content:space-between; padding:11px 16px; border-bottom:1px solid var(--line); font-size:14px; }
+    .ae-receipt .row:last-child { border-bottom:0; font-weight:800; background:#f0fdf4; }
+    .ae-receipt .row span:first-child { color:var(--muted); }
+    .ae-btn { display:inline-block; margin-top:8px; background:var(--accent); color:#fff; text-decoration:none; padding:12px 26px; border-radius:9px; font-weight:700; }
+    .ae-note { font-size:12px; color:var(--muted); margin-top:12px; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-card">
+      <div class="ae-check"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
+      <div class="ae-msg">%%content%%</div>
+      <div class="ae-receipt">
+        <div class="row"><span>注文番号</span><span>ORD-20260711-0042</span></div>
+        <div class="row"><span>お支払い方法</span><span>クレジットカード</span></div>
+        <div class="row"><span>お支払い金額</span><span>¥12,800</span></div>
+      </div>
+      <a class="ae-btn" href="%%account-website%%">注文内容・領収書を見る</a>
+      <div class="ae-note">確認メールをご登録のアドレスにお送りしました。</div>
+    </div>
+  </div>
+</body>
+</html>

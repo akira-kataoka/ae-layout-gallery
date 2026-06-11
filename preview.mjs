@@ -231,6 +231,13 @@ const CALENDAR_BODY = `<h1>お申し込みが完了しました</h1>
 const SHARE_BODY = `<h1>ご参加ありがとうございます！</h1>
 <p>よろしければ、お知り合いにもシェアしていただけると嬉しいです。</p>`;
 
+const UPGRADE_FORM = `<form>
+  <p><label>会員番号</label><br><input type="text" value="MB-001234"></p>
+  <p><label>変更後のプラン</label><br><select><option selected>ゴールド会員（年額 ¥9,800）</option><option>プラチナ会員（年額 ¥19,800）</option></select></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="プランを変更する"></p>
+</form>`;
+
 const DETAILED_FEEDBACK_FORM = `<form>
   <fieldset><legend>内容の満足度</legend><div class="scale"><label><input type="radio" name="c1" checked>5</label><label><input type="radio" name="c1">4</label><label><input type="radio" name="c1">3</label><label><input type="radio" name="c1">2</label><label><input type="radio" name="c1">1</label></div></fieldset>
   <fieldset><legend>運営・進行</legend><div class="scale"><label><input type="radio" name="c2" checked>5</label><label><input type="radio" name="c2">4</label><label><input type="radio" name="c2">3</label><label><input type="radio" name="c2">2</label><label><input type="radio" name="c2">1</label></div></fieldset>
@@ -919,6 +926,8 @@ function contentFor(dir, category) {
     case "188-form-order-quantity-js": return APPT_FORM;
     case "189-landing-checklist-score-js": return NEWSLETTER_FORM;
     case "190-form-event-feedback-detailed": return DETAILED_FEEDBACK_FORM;
+    case "191-landing-conditional-survey-js": return NEWSLETTER_FORM;
+    case "192-form-membership-upgrade": return UPGRADE_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }

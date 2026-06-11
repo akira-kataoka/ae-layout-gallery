@@ -1,0 +1,7 @@
+{
+  "name": "サンクスページ - 決済完了/領収案内",
+  "category": "thankyou",
+  "description": "決済完了＋注文明細レシートの表示。EC/サブスク/イベント決済後の完了画面に。",
+  "isIncludeDefaultCss": false,
+  "previewContent": "<h1 style=\"margin:0 0 8px;font-size:23px;\">お支払いが完了しました</h1><p style=\"color:#64748b;\">ご購入ありがとうございます。ご注文を承りました。</p>"
+}

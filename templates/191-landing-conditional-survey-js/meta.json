@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - 条件分岐アンケート(JS)",
+  "category": "landing",
+  "description": "選択に応じて追加質問を表示/非表示する分岐ロジック付きアンケートLP(素のJS・classList切替・innerHTML不使用)。回答精度の高いリード獲得に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "30秒のかんたん診断アンケート",
+  "previewDescription": "選んだ内容に応じて、最適な質問だけが表示されます。"
+}

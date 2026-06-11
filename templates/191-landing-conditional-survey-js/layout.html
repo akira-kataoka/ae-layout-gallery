@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0d9488; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f0faf8; line-height:1.7; }
+    .ae-wrap { max-width:560px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:14px; }
+    .ae-head h1 { margin:0 0 6px; font-size:24px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:26px; box-shadow:0 8px 24px rgba(13,148,136,.1); }
+    .ae-field { margin-bottom:14px; }
+    .ae-field label { display:block; font-size:13px; font-weight:600; margin-bottom:4px; }
+    .ae-field select,.ae-field input[type=text],.ae-field textarea { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cond { display:none; }
+    .ae-cond.show { display:block; animation:fade .25s ease; }
+    @keyframes fade { from { opacity:0; } to { opacity:1; } }
+    .ae-card2 { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; margin-top:16px; text-align:center; }
+    .ae-card2 .t { font-weight:700; margin-bottom:10px; }
+    .ae-card2 form input[type=email],.ae-card2 form input[type=text] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card2 form p { margin:0 0 12px; }
+    .ae-card2 form .submit input,.ae-card2 form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <div class="ae-field"><label>ご利用目的</label><select id="purpose"><option value="biz">業務効率化</option><option value="sales">売上拡大</option><option value="other">その他</option></select></div>
+      <div class="ae-field ae-cond" id="otherField"><label>その他の目的を教えてください</label><input type="text" placeholder="例：チーム内の情報共有"></div>
+      <div class="ae-field"><label>導入予定時期</label><select id="timing"><option value="soon">3ヶ月以内</option><option value="later">半年以降</option><option value="undecided">未定</option></select></div>
+      <div class="ae-field ae-cond" id="undecidedField"><label>検討中の懸念点（任意）</label><textarea placeholder="例：社内の合意形成"></textarea></div>
+    </div>
+    <div class="ae-card2"><div class="t">回答内容に合わせた資料を受け取る</div>%%content%%</div>
+  </div>
+
+  <script>
+  (function () {
+    function bind(selId, value, fieldId) {
+      var sel = document.getElementById(selId);
+      var field = document.getElementById(fieldId);
+      function toggle() { field.classList.toggle("show", sel.value === value); }
+      sel.addEventListener("change", toggle);
+      toggle();
+    }
+    bind("purpose", "other", "otherField");
+    bind("timing", "undecided", "undecidedField");
+  })();
+  </script>
+</body>
+</html>

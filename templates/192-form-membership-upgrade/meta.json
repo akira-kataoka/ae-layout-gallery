@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 会員プラン変更/アップグレード",
+  "category": "form",
+  "description": "現ランクから上位プランへの変更手続きフォーム。会員ランクの変更・有料会員へのアップグレード受付に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "会員プランの変更",
+  "previewDescription": "上位プランへのアップグレードはこちらから。特典がさらに充実します。"
+}
