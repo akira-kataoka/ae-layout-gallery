@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#4f46e5; --ink:#15172e; --muted:#64698c; --line:#e3e2f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f5f5fc; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:54px 20px; }
+    .ae-done { text-align:center; margin-bottom:22px; }
+    .ae-done .chk { width:66px; height:66px; border-radius:50%; background:#4f46e5; color:#fff; display:flex; align-items:center; justify-content:center; font-size:32px; margin:0 auto 12px; }
+    .ae-done h1 { font-size:23px; margin:0 0 4px; }
+    .ae-done p { color:var(--muted); margin:0; font-size:14px; }
+    .ae-result { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; margin-bottom:18px; box-shadow:0 8px 26px rgba(79,70,229,.07); }
+    .ae-result .t { font-weight:700; font-size:14px; margin-bottom:14px; text-align:center; }
+    .ae-opt { margin-bottom:12px; }
+    .ae-opt .top { display:flex; justify-content:space-between; font-size:13px; margin-bottom:5px; }
+    .ae-opt .top .you { color:var(--accent); font-weight:700; }
+    .ae-opt .pct { font-weight:800; font-variant-numeric:tabular-nums; }
+    .ae-opt .track { height:12px; background:#eef2ff; border-radius:999px; overflow:hidden; }
+    .ae-opt .track span { display:block; height:100%; border-radius:999px; background:linear-gradient(90deg,#818cf8,#4f46e5); }
+    .ae-opt.mine .track span { background:linear-gradient(90deg,#34d399,#059669); }
+    .ae-total { text-align:center; color:var(--muted); font-size:12px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; }
+    .ae-card .t { font-weight:700; margin-bottom:12px; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-done">
+      <div class="chk">✓</div>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-result">
+      <div class="t">現在の途中経過</div>
+      <div class="ae-opt mine">
+        <div class="top"><span class="you">生成AIの業務活用（あなたの投票）</span><span class="pct">44%</span></div>
+        <div class="track"><span style="width:44%"></span></div>
+      </div>
+      <div class="ae-opt">
+        <div class="top"><span>データ分析の基礎</span><span class="pct">29%</span></div>
+        <div class="track"><span style="width:29%"></span></div>
+      </div>
+      <div class="ae-opt">
+        <div class="top"><span>マーケ自動化の事例</span><span class="pct">18%</span></div>
+        <div class="track"><span style="width:18%"></span></div>
+      </div>
+      <div class="ae-opt">
+        <div class="top"><span>セキュリティ入門</span><span class="pct">9%</span></div>
+        <div class="track"><span style="width:9%"></span></div>
+      </div>
+      <div class="ae-total">これまでに 3,418 票が集まっています</div>
+    </div>
+    <div class="ae-card">
+      <div class="t">結果の確定通知を受け取る</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

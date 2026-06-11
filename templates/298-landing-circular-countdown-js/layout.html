@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#e11d48; --ink:#2a0f1a; --muted:#6b5560; --line:#f3dce0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fff1f4; line-height:1.7; }
+    .ae-wrap { max-width:560px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:24px; }
+    .ae-head .badge { display:inline-block; background:#ffe4e6; color:var(--accent); font-weight:700; font-size:12px; letter-spacing:2px; padding:6px 16px; border-radius:999px; margin-bottom:12px; }
+    .ae-head h1 { font-size:26px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-rings { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:26px; }
+    .ae-ring { width:104px; height:104px; border-radius:50%; display:flex; align-items:center; justify-content:center; background:conic-gradient(var(--accent) 0deg, #fde2e6 0deg); }
+    .ae-ring .inner { width:84px; height:84px; border-radius:50%; background:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; box-shadow:0 4px 12px rgba(225,29,72,.1); }
+    .ae-ring .v { font-size:28px; font-weight:900; color:var(--accent); font-variant-numeric:tabular-nums; line-height:1; }
+    .ae-ring .u { font-size:11px; color:var(--muted); margin-top:2px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; text-align:center; box-shadow:0 12px 32px rgba(225,29,72,.08); }
+    .ae-card .t { font-weight:700; font-size:18px; margin-bottom:12px; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head">
+      <span class="badge">LIMITED TIME</span>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-rings">
+      <div class="ae-ring" data-max="30"><div class="inner"><span class="v" id="d">0</span><span class="u">日</span></div></div>
+      <div class="ae-ring" data-max="24"><div class="inner"><span class="v" id="h">0</span><span class="u">時間</span></div></div>
+      <div class="ae-ring" data-max="60"><div class="inner"><span class="v" id="m">0</span><span class="u">分</span></div></div>
+      <div class="ae-ring" data-max="60"><div class="inner"><span class="v" id="s">0</span><span class="u">秒</span></div></div>
+    </div>
+    <div class="ae-card">
+      <div class="t">締切前に、先行エントリー</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var rings = Array.prototype.slice.call(document.querySelectorAll(".ae-ring"));
+    var dEl = document.getElementById("d"), hEl = document.getElementById("h"), mEl = document.getElementById("m"), sEl = document.getElementById("s");
+    var target = new Date();
+    target.setDate(target.getDate() + 9);
+    target.setHours(23, 59, 59, 0);
+    function setRing(ring, val, max) {
+      var deg = Math.max(0, Math.min(val / max, 1)) * 360;
+      ring.style.background = "conic-gradient(var(--accent) " + deg + "deg, #fde2e6 0deg)";
+    }
+    function tick() {
+      var now = new Date();
+      var diff = Math.max(0, Math.floor((target - now) / 1000));
+      var days = Math.floor(diff / 86400);
+      var hours = Math.floor((diff % 86400) / 3600);
+      var mins = Math.floor((diff % 3600) / 60);
+      var secs = diff % 60;
+      dEl.textContent = days; hEl.textContent = hours; mEl.textContent = mins; sEl.textContent = secs;
+      setRing(rings[0], Math.min(days, 30), 30);
+      setRing(rings[1], hours, 24);
+      setRing(rings[2], mins, 60);
+      setRing(rings[3], secs, 60);
+    }
+    tick();
+    window.setInterval(tick, 1000);
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --gold:#c9a227; --ink:#f4eeda; --muted:#bcae87; --line:#3b3520; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#16130c; line-height:1.7; }
+    .ae-wrap { max-width:620px; margin:0 auto; padding:56px 20px; }
+    .ae-head { text-align:center; margin-bottom:30px; }
+    .ae-spark { font-size:54px; }
+    .ae-head .yr { font-size:13px; letter-spacing:5px; color:var(--gold); margin:6px 0 12px; }
+    .ae-head h1 { font-size:30px; margin:0 0 10px; background:linear-gradient(135deg,#f5e08a,#c9a227); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-info { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin:26px 0; }
+    .ae-chip { border:1px solid var(--line); border-radius:12px; padding:12px 20px; text-align:center; min-width:130px; }
+    .ae-chip .k { font-size:11px; color:var(--muted); } .ae-chip .v { font-weight:800; font-size:15px; color:var(--gold); }
+    .ae-prog { background:#211c12; border:1px solid var(--line); border-radius:16px; padding:22px; margin-bottom:28px; }
+    .ae-prog .t { text-align:center; font-weight:700; color:var(--gold); margin-bottom:12px; letter-spacing:1px; font-size:14px; }
+    .ae-p { display:flex; align-items:center; gap:12px; padding:8px 0; border-top:1px solid var(--line); font-size:14px; }
+    .ae-p:first-of-type { border-top:0; }
+    .ae-p .em { font-size:22px; }
+    .ae-card { background:#211c12; border:1px solid var(--gold); border-radius:18px; padding:26px; text-align:center; }
+    .ae-card .t { font-weight:700; font-size:18px; margin-bottom:4px; color:#fff; }
+    .ae-card .d { color:var(--muted); font-size:13px; margin-bottom:14px; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; background:#16130c; color:#f4eeda; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:linear-gradient(135deg,#f5e08a,#c9a227); color:#2a2410; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head">
+      <div class="ae-spark">🎉</div>
+      <div class="yr">20TH ANNIVERSARY</div>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-info">
+      <div class="ae-chip"><div class="k">開催日</div><div class="v">12.06 (土) 18:00</div></div>
+      <div class="ae-chip"><div class="k">会場</div><div class="v">グランドホテル 鳳凰の間</div></div>
+      <div class="ae-chip"><div class="k">会費</div><div class="v">10,000円</div></div>
+    </div>
+    <div class="ae-prog">
+      <div class="t">― 当日のプログラム ―</div>
+      <div class="ae-p"><span class="em">🥂</span><span>ウェルカムドリンク＆受付</span></div>
+      <div class="ae-p"><span class="em">🎙️</span><span>代表挨拶・20年のあゆみムービー</span></div>
+      <div class="ae-p"><span class="em">🍽️</span><span>ディナー＆歓談タイム</span></div>
+      <div class="ae-p"><span class="em">🎁</span><span>記念品贈呈・豪華抽選会</span></div>
+    </div>
+    <div class="ae-card">
+      <div class="t">出席のご登録</div>
+      <div class="d">日頃の感謝を込めて、特別な夜にご招待します</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

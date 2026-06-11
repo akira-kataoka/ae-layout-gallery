@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0d9488; --ink:#0c2421; --muted:#5a746f; --line:#d7ece0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f0fbf8; line-height:1.7; }
+    .ae-wrap { max-width:560px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:20px; }
+    .ae-head h1 { font-size:24px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-status { background:#fff; border:1px solid var(--line); border-radius:16px; padding:18px 20px; margin-bottom:18px; box-shadow:0 8px 22px rgba(13,148,136,.06); }
+    .ae-status div { display:flex; justify-content:space-between; font-size:13px; padding:5px 0; }
+    .ae-status .k { color:var(--muted); } .ae-status b { color:var(--ink); }
+    .ae-status .exp b { color:#dc2626; }
+    .ae-perk { background:#f0fdfa; border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin-bottom:18px; }
+    .ae-perk .t { font-weight:700; font-size:13px; margin-bottom:6px; }
+    .ae-perk li { font-size:13px; color:#33514c; margin-bottom:3px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px; }
+    .ae-card .t { font-weight:700; font-size:16px; margin-bottom:14px; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form label { font-weight:700; font-size:13px; }
+    .ae-card form p { margin:0 0 13px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:15px; border-radius:9px; font-weight:800; font-size:15px; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-status">
+      <div><span class="k">現在のプラン</span><b>ゴールド会員</b></div>
+      <div><span class="k">会員番号</span><b>GM-0001234</b></div>
+      <div class="exp"><span class="k">有効期限</span><b>2026年7月31日（まもなく）</b></div>
+    </div>
+    <div class="ae-perk">
+      <div class="t">継続するとこの特典が続きます</div>
+      <ul>
+        <li>会員限定価格・送料無料</li>
+        <li>ポイント還元率 2倍</li>
+        <li>誕生月クーポンの進呈</li>
+      </ul>
+    </div>
+    <div class="ae-card">
+      <div class="t">会員を更新する</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

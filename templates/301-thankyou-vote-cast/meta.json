@@ -1,0 +1,8 @@
+{
+  "name": "サンクス - 投票完了(途中経過表示)",
+  "category": "thankyou",
+  "description": "投票・アンケート回答の完了後に、自分の選択肢を強調しつつ現在の集計途中経過をバーで表示するサンクスページ。結果確定通知のオプトインを兼ねる。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "投票ありがとうございました！",
+  "previewDescription": "あなたの一票が反映されました。現在の途中経過はこちらです。"
+}

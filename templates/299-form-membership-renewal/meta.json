@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 会員更新/継続手続き",
+  "category": "form",
+  "description": "現在の会員ステータスと有効期限・継続特典を提示し、更新プランを選んで手続きする会員更新フォーム。期限切れ前のリテンション・自動更新の切替に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "会員の更新手続き",
+  "previewDescription": "特典を継続するために、会員の更新をお願いします。"
+}

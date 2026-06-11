@@ -282,6 +282,22 @@ const ALUMNI_FORM = `<form>
   <p class="submit"><input type="submit" value="出欠を回答する"></p>
 </form>`;
 
+const RENEWAL_FORM = `<form>
+  <p><label>更新プラン</label><br><select><option selected>ゴールド会員（年額 ¥9,800）</option><option>シルバー会員（年額 ¥4,800）</option></select></p>
+  <p><label>会員番号</label><br><input type="text" value="GM-0001234"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p><label><input type="checkbox" checked> 次回以降の自動更新を有効にする</label></p>
+  <p class="submit"><input type="submit" value="会員を更新する"></p>
+</form>`;
+
+const ANNIV_PARTY_FORM = `<form>
+  <p><label><input type="radio" name="rsvp" checked> 出席する</label> <label><input type="radio" name="rsvp"> 欠席する</label></p>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>ご所属・お立場</label><br><input type="text" value="株式会社サンプル / 取引先"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="出欠を回答する"></p>
+</form>`;
+
 const GROOMING_FORM = `<form>
   <p><label>ご希望コース</label><br><select><option selected>シャンプー</option><option>カット＋シャンプー</option><option>爪・耳ケア</option></select></p>
   <div class="row"><p><label>ペットの種類・犬種</label><br><input type="text" value="トイプードル"></p><p><label>ご希望日</label><br><input type="date" value="2026-07-12"></p></div>
@@ -1390,6 +1406,10 @@ function contentFor(dir, category) {
     case "295-form-pet-grooming-booking": return GROOMING_FORM;
     case "296-event-flea-market": return FLEA_FORM;
     case "297-utility-region-restricted": return NEWSLETTER_FORM;
+    case "298-landing-circular-countdown-js": return NEWSLETTER_FORM;
+    case "299-form-membership-renewal": return RENEWAL_FORM;
+    case "300-event-anniversary-party": return ANNIV_PARTY_FORM;
+    case "301-thankyou-vote-cast": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - 円形カウントダウン(JS)",
+  "category": "landing",
+  "description": "締切までの残り日時を円形プログレスリング(conic-gradient)で毎秒更新するカウントダウンLP(textContent・styleのみ、innerHTML不使用)。期間限定キャンペーン/募集締切の訴求に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "受付終了まで、あとわずか",
+  "previewDescription": "締切が近づいています。リングがゼロになる前にお申し込みを。"
+}
