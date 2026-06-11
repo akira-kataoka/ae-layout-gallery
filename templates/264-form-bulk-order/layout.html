@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#1d4ed8; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f4f7fb; line-height:1.7; }
+    .ae-wrap { max-width:640px; margin:0 auto; padding:48px 20px; }
+    .ae-head { margin-bottom:18px; }
+    .ae-head .badge { display:inline-block; background:#dbeafe; color:var(--accent); font-weight:700; font-size:12px; padding:4px 12px; border-radius:999px; margin-bottom:10px; }
+    .ae-head h1 { font-size:24px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-table { background:#fff; border:1px solid var(--line); border-radius:14px; overflow:hidden; margin-bottom:18px; box-shadow:0 8px 22px rgba(15,23,42,.05); }
+    .ae-tr { display:grid; grid-template-columns:1fr 90px 110px; gap:8px; align-items:center; padding:12px 16px; border-top:1px solid var(--line); }
+    .ae-tr:first-child { border-top:0; background:#f8fafc; font-size:12px; color:var(--muted); font-weight:700; }
+    .ae-tr .nm { font-weight:700; font-size:14px; } .ae-tr .sku { font-size:11px; color:var(--muted); }
+    .ae-tr input[type=number] { width:100%; padding:8px 10px; border:1px solid var(--line); border-radius:8px; font-size:14px; text-align:center; }
+    .ae-tr .pr { text-align:right; font-variant-numeric:tabular-nums; font-size:14px; }
+    .ae-note { background:#eff6ff; border:1px solid #bfdbfe; border-radius:10px; padding:12px 14px; font-size:12px; color:#1e40af; margin-bottom:18px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px; }
+    .ae-card .t { font-weight:700; font-size:16px; margin-bottom:14px; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form input[type=tel],.ae-card form textarea { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; font-family:inherit; }
+    .ae-card form label { font-weight:700; font-size:13px; }
+    .ae-card form p { margin:0 0 13px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:15px; border-radius:9px; font-weight:800; font-size:15px; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head">
+      <span class="badge">法人・まとめ買い向け</span>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-table">
+      <div class="ae-tr"><span>商品</span><span style="text-align:center">数量</span><span style="text-align:right">単価</span></div>
+      <div class="ae-tr"><div><div class="nm">A4コピー用紙（500枚）</div><div class="sku">SKU: PP-A4-500</div></div><input type="number" min="0" value="20"><div class="pr">¥420</div></div>
+      <div class="ae-tr"><div><div class="nm">ボールペン（黒・10本入）</div><div class="sku">SKU: BP-BK-10</div></div><input type="number" min="0" value="15"><div class="pr">¥680</div></div>
+      <div class="ae-tr"><div><div class="nm">クリアファイル（A4・50枚）</div><div class="sku">SKU: CF-A4-50</div></div><input type="number" min="0" value="10"><div class="pr">¥980</div></div>
+      <div class="ae-tr"><div><div class="nm">付箋セット（5色）</div><div class="sku">SKU: ST-5C</div></div><input type="number" min="0" value="0"><div class="pr">¥350</div></div>
+    </div>
+    <div class="ae-note">10,000円以上のご注文で送料無料・請求書払いに対応しています。お見積りも承ります。</div>
+    <div class="ae-card">
+      <div class="t">ご注文・お見積りの依頼</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

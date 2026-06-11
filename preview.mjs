@@ -266,6 +266,23 @@ const BOOKING_FORM = `<form>
   <p class="submit"><input type="submit" value="この日時で予約する"></p>
 </form>`;
 
+const ROADSHOW_FORM = `<form>
+  <p><label>参加する都市</label><br><select><option selected>東京（9.06）</option><option>大阪（9.13）</option><option>名古屋（9.20）</option></select></p>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>会社名</label><br><input type="text" value="株式会社サンプル"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="この都市で申し込む"></p>
+</form>`;
+
+const BULKORDER_FORM = `<form>
+  <p><label>会社名</label><br><input type="text" value="株式会社サンプル"></p>
+  <p><label>ご担当者名</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p><label>電話番号</label><br><input type="tel" value="03-0000-0000"></p>
+  <p><label>ご要望（納期・請求書払い等）</label><br><textarea>月末までに納品希望、請求書払いを希望します。</textarea></p>
+  <p class="submit"><input type="submit" value="注文・見積を依頼する"></p>
+</form>`;
+
 const ENROLL_FORM = `<form>
   <p><label>受講するコース</label><br><select><option selected>入門コース（全6回）</option><option>実践コース（全12回）</option></select></p>
   <p><label>受講者のお名前</label><br><input type="text" value="山田 太郎"></p>
@@ -1199,6 +1216,10 @@ function contentFor(dir, category) {
     case "259-form-class-enrollment": return ENROLL_FORM;
     case "260-event-product-launch": return LAUNCH_FORM;
     case "261-thankyou-points-earned": return NEWSLETTER_FORM;
+    case "262-landing-video-playlist-js": return NEWSLETTER_FORM;
+    case "263-event-roadshow-cities": return ROADSHOW_FORM;
+    case "264-form-bulk-order": return BULKORDER_FORM;
+    case "265-utility-email-verified": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

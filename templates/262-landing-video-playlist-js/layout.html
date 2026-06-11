@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#dc2626; --ink:#1a1414; --muted:#6b5f5f; --line:#ececec; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f6f4f4; line-height:1.7; }
+    .ae-wrap { max-width:760px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:20px; }
+    .ae-head h1 { font-size:25px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-player { display:grid; grid-template-columns:1.6fr 1fr; gap:16px; margin-bottom:24px; }
+    .ae-stage { background:#fff; border:1px solid var(--line); border-radius:16px; overflow:hidden; box-shadow:0 10px 28px rgba(220,38,38,.08); }
+    .ae-screen { aspect-ratio:16/9; background:linear-gradient(135deg,#1a1414,#3a2020); display:flex; align-items:center; justify-content:center; position:relative; }
+    .ae-screen .play { width:60px; height:60px; border-radius:50%; background:rgba(255,255,255,.92); color:var(--accent); display:flex; align-items:center; justify-content:center; font-size:24px; }
+    .ae-screen .dur { position:absolute; bottom:10px; right:10px; background:rgba(0,0,0,.7); color:#fff; font-size:11px; padding:2px 8px; border-radius:5px; }
+    .ae-stage .meta { padding:16px 18px; }
+    .ae-stage .meta h2 { font-size:17px; margin:0 0 4px; }
+    .ae-stage .meta p { font-size:13px; color:var(--muted); margin:0; }
+    .ae-list { background:#fff; border:1px solid var(--line); border-radius:16px; padding:8px; max-height:340px; overflow-y:auto; }
+    .ae-vi { display:flex; gap:10px; padding:8px; border-radius:10px; cursor:pointer; width:100%; text-align:left; background:transparent; border:0; font-family:inherit; }
+    .ae-vi:hover { background:#faf5f5; }
+    .ae-vi.sel { background:#fef2f2; }
+    .ae-vi .th { width:64px; height:40px; border-radius:7px; background:linear-gradient(135deg,#fca5a5,#dc2626); display:flex; align-items:center; justify-content:center; font-size:18px; flex:0 0 auto; }
+    .ae-vi .ti { font-size:12.5px; font-weight:700; line-height:1.4; }
+    .ae-vi .du { font-size:11px; color:var(--muted); }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px; text-align:center; }
+    .ae-card .t { font-weight:700; margin-bottom:12px; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    @media (max-width:640px){ .ae-player { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-player">
+      <div class="ae-stage">
+        <div class="ae-screen"><div class="play">▶</div><span class="dur" id="mDur">5:12</span></div>
+        <div class="meta"><h2 id="mTitle">① はじめに：3分でわかる全体像</h2><p id="mDesc">サービスの概要と、導入で得られる価値をコンパクトに解説します。</p></div>
+      </div>
+      <div class="ae-list" id="list">
+        <button type="button" class="ae-vi sel" data-title="① はじめに：3分でわかる全体像" data-desc="サービスの概要と、導入で得られる価値をコンパクトに解説します。" data-dur="5:12"><span class="th">▶</span><span><span class="ti">はじめに：3分でわかる全体像</span><br><span class="du">5:12</span></span></button>
+        <button type="button" class="ae-vi" data-title="② 基本操作のキホン" data-desc="初めての方向けに、画面の使い方をステップで紹介します。" data-dur="8:40"><span class="th">▶</span><span><span class="ti">基本操作のキホン</span><br><span class="du">8:40</span></span></button>
+        <button type="button" class="ae-vi" data-title="③ 活用事例：成果が出たチーム" data-desc="実際に成果を上げた導入企業のワークフローを公開します。" data-dur="11:05"><span class="th">▶</span><span><span class="ti">活用事例：成果が出たチーム</span><br><span class="du">11:05</span></span></button>
+        <button type="button" class="ae-vi" data-title="④ よくある質問まとめ" data-desc="導入前に多く寄せられる疑問にまとめてお答えします。" data-dur="6:28"><span class="th">▶</span><span><span class="ti">よくある質問まとめ</span><br><span class="du">6:28</span></span></button>
+      </div>
+    </div>
+    <div class="ae-card">
+      <div class="t">続きのフル動画と資料を受け取る</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var items = Array.prototype.slice.call(document.querySelectorAll(".ae-vi"));
+    var mTitle = document.getElementById("mTitle"), mDesc = document.getElementById("mDesc"), mDur = document.getElementById("mDur");
+    items.forEach(function (it) {
+      it.addEventListener("click", function () {
+        items.forEach(function (x) { x.classList.remove("sel"); });
+        it.classList.add("sel");
+        mTitle.textContent = it.getAttribute("data-title");
+        mDesc.textContent = it.getAttribute("data-desc");
+        mDur.textContent = it.getAttribute("data-dur");
+      });
+    });
+  })();
+  </script>
+</body>
+</html>

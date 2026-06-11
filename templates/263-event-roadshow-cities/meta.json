@@ -1,0 +1,8 @@
+{
+  "name": "イベント - 全国ロードショー/巡回開催",
+  "category": "event",
+  "description": "複数都市の開催日・会場・空席ステータスを一覧化し、参加都市を選んで申し込む巡回イベント(ロードショー)の集客レイアウト。残席バッジで申込を後押し。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "全国4都市ツアー開催決定",
+  "previewDescription": "東京・大阪・名古屋・福岡を巡回。お近くの会場でお会いしましょう。"
+}

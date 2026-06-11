@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0369a1; --ink:#0c2030; --muted:#5a7080; --line:#dbe7ef; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eef5fa; line-height:1.7; }
+    .ae-hero { background:linear-gradient(120deg,#0369a1,#0e7490); color:#fff; text-align:center; padding:50px 20px 40px; }
+    .ae-hero .badge { display:inline-block; background:rgba(255,255,255,.2); font-weight:700; font-size:12px; letter-spacing:2px; padding:6px 16px; border-radius:999px; margin-bottom:12px; }
+    .ae-hero h1 { font-size:27px; margin:0 0 8px; }
+    .ae-hero p { margin:0; opacity:.95; font-size:14px; }
+    .ae-wrap { max-width:720px; margin:0 auto; padding:34px 20px 48px; }
+    .ae-cities { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-bottom:28px; }
+    .ae-city { background:#fff; border:1px solid var(--line); border-radius:14px; padding:18px 20px; display:flex; justify-content:space-between; align-items:center; box-shadow:0 8px 22px rgba(3,105,161,.06); }
+    .ae-city .nm { font-weight:800; font-size:16px; }
+    .ae-city .dt { color:var(--muted); font-size:13px; }
+    .ae-city .ven { color:var(--muted); font-size:12px; }
+    .ae-city .st { font-size:12px; font-weight:700; padding:4px 10px; border-radius:999px; }
+    .ae-city .st.ok { background:#dcfce7; color:#15803d; }
+    .ae-city .st.few { background:#fef3c7; color:#b45309; }
+    .ae-city .st.full { background:#fee2e2; color:#b91c1c; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; text-align:center; }
+    .ae-card .t { font-weight:700; font-size:18px; margin-bottom:4px; }
+    .ae-card .d { color:var(--muted); font-size:13px; margin-bottom:14px; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    @media (max-width:560px){ .ae-cities { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-hero">
+    <span class="badge">NATIONWIDE ROADSHOW</span>
+    <h1>%%title%%</h1>
+    <p>%%description%%</p>
+  </div>
+  <div class="ae-wrap">
+    <div class="ae-cities">
+      <div class="ae-city"><div><div class="nm">東京</div><div class="dt">9.06 (土)</div><div class="ven">丸の内ホール</div></div><span class="st few">残りわずか</span></div>
+      <div class="ae-city"><div><div class="nm">大阪</div><div class="dt">9.13 (土)</div><div class="ven">梅田カンファレンス</div></div><span class="st ok">受付中</span></div>
+      <div class="ae-city"><div><div class="nm">名古屋</div><div class="dt">9.20 (土)</div><div class="ven">栄ビジネスセンター</div></div><span class="st ok">受付中</span></div>
+      <div class="ae-city"><div><div class="nm">福岡</div><div class="dt">9.27 (土)</div><div class="ven">博多駅前ホール</div></div><span class="st full">満席</span></div>
+    </div>
+    <div class="ae-card">
+      <div class="t">参加する都市を選んで申し込む</div>
+      <div class="d">各会場とも定員制・参加無料です</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

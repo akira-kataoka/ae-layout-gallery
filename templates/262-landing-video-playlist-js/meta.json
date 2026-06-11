@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - 動画プレイリスト(JS)",
+  "category": "landing",
+  "description": "サムネイル一覧から選ぶとメインプレーヤーのタイトル・説明・尺が切り替わる動画プレイリストLP(textContent・classListのみ、innerHTML不使用)。チュートリアル/ウェビナー動画の視聴とリード獲得に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "動画でわかる、はじめてガイド",
+  "previewDescription": "見たいトピックを選んで、必要なところからご覧いただけます。"
+}

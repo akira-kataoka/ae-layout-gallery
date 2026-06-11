@@ -1,0 +1,8 @@
+{
+  "name": "ユーティリティ - メール認証完了",
+  "category": "utility",
+  "description": "確認メールのリンクを踏んだ後に表示する「メールアドレスの確認が完了しました」ページ。次にできることの案内とお知らせ受信のオプトインを備える。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "メールアドレスを確認しました",
+  "previewDescription": "ありがとうございます。アカウントのご利用を開始いただけます。"
+}

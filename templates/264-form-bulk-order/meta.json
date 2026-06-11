@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 法人一括注文/見積依頼",
+  "category": "form",
+  "description": "複数SKUの数量を表形式でまとめて入力できる法人向け一括注文・見積依頼フォーム。備品/消耗品のまとめ買いやBtoBの受発注に。請求書払い案内付き。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "まとめてご注文・お見積り",
+  "previewDescription": "必要な商品の数量をまとめてご入力ください。お見積りも承ります。"
+}
