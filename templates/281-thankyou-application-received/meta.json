@@ -1,0 +1,8 @@
+{
+  "name": "サンクス - 申請受付完了(審査ステップ)",
+  "category": "thankyou",
+  "description": "申請・応募の受付完了後に、受付番号と審査プロセス(受付→審査中→面談→結果通知)の現在地をステップ表示するサンクスページ。奨学金/ローン/採用などの申請完了画面に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "申請を受け付けました",
+  "previewDescription": "ご応募ありがとうございます。今後の流れは以下のとおりです。"
+}

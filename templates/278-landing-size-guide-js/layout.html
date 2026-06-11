@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0f172a; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f5f7fa; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:22px; }
+    .ae-head h1 { font-size:24px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; box-shadow:0 12px 32px rgba(15,23,42,.06); }
+    .ae-row { margin-bottom:18px; }
+    .ae-row .lbl { display:flex; justify-content:space-between; font-weight:700; font-size:14px; margin-bottom:8px; }
+    .ae-row .lbl .v { font-variant-numeric:tabular-nums; }
+    .ae-row input[type=range] { width:100%; accent-color:var(--accent); }
+    .ae-fit { display:flex; gap:6px; background:#f1f5f9; border-radius:10px; padding:4px; margin-bottom:18px; }
+    .ae-fit button { flex:1; border:0; background:transparent; padding:9px; border-radius:8px; font-weight:700; font-size:13px; cursor:pointer; color:var(--muted); }
+    .ae-fit button.on { background:#fff; color:var(--accent); box-shadow:0 2px 8px rgba(15,23,42,.12); }
+    .ae-out { background:#0f172a; color:#fff; border-radius:14px; padding:22px; text-align:center; }
+    .ae-out .lab { font-size:13px; opacity:.85; }
+    .ae-out .sz { font-size:46px; font-weight:900; line-height:1.1; }
+    .ae-out .note { font-size:13px; opacity:.9; margin-top:4px; }
+    .ae-sizes { display:flex; justify-content:center; gap:6px; margin-top:14px; }
+    .ae-sizes span { width:34px; height:34px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; background:rgba(255,255,255,.15); }
+    .ae-sizes span.on { background:#fff; color:#0f172a; }
+    .ae-cta { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; margin-top:18px; }
+    .ae-cta .t { font-weight:700; margin-bottom:12px; }
+    .ae-cta form input[type=text],.ae-cta form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form .submit input,.ae-cta form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <div class="ae-row"><div class="lbl"><span>身長</span><span class="v"><span id="vH">168</span> cm</span></div>
+        <input type="range" id="h" min="145" max="195" value="168"></div>
+      <div class="ae-row"><div class="lbl"><span>体重</span><span class="v"><span id="vW">62</span> kg</span></div>
+        <input type="range" id="w" min="40" max="110" value="62"></div>
+      <div class="ae-fit" id="fit">
+        <button type="button" class="on" data-fit="0">ジャスト</button>
+        <button type="button" data-fit="1">ゆったり</button>
+      </div>
+      <div class="ae-out">
+        <div class="lab">あなたへのおすすめサイズ</div>
+        <div class="sz" id="size">M</div>
+        <div class="note" id="note">標準的なシルエットで着られます</div>
+        <div class="ae-sizes" id="scale">
+          <span data-s="S">S</span><span data-s="M">M</span><span data-s="L">L</span><span data-s="XL">XL</span><span data-s="2XL">2XL</span>
+        </div>
+      </div>
+    </div>
+    <div class="ae-cta">
+      <div class="t">サイズが合わなければ無料交換。まずは購入</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var h = document.getElementById("h"), w = document.getElementById("w");
+    var vH = document.getElementById("vH"), vW = document.getElementById("vW");
+    var sizeEl = document.getElementById("size"), noteEl = document.getElementById("note");
+    var fitBtns = Array.prototype.slice.call(document.querySelectorAll("#fit button"));
+    var scaleSpans = Array.prototype.slice.call(document.querySelectorAll("#scale span"));
+    var order = ["S", "M", "L", "XL", "2XL"];
+    var loose = 0;
+    function calc() {
+      var hi = parseInt(h.value, 10), wi = parseInt(w.value, 10);
+      vH.textContent = hi; vW.textContent = wi;
+      // 体格指標から基準サイズを推定
+      var score = (hi - 150) * 0.25 + (wi - 45) * 0.55;
+      var idx = Math.round(score / 11);
+      idx += loose;
+      if (idx < 0) idx = 0; if (idx > order.length - 1) idx = order.length - 1;
+      var sz = order[idx];
+      sizeEl.textContent = sz;
+      noteEl.textContent = loose ? "リラックスして着たい方向けの余裕あるサイズ" : "標準的なシルエットで着られます";
+      scaleSpans.forEach(function (s) { s.classList.toggle("on", s.getAttribute("data-s") === sz); });
+    }
+    [h, w].forEach(function (el) { el.addEventListener("input", calc); });
+    fitBtns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        fitBtns.forEach(function (x) { x.classList.remove("on"); });
+        b.classList.add("on");
+        loose = parseInt(b.getAttribute("data-fit"), 10) || 0;
+        calc();
+      });
+    });
+    calc();
+  })();
+  </script>
+</body>
+</html>

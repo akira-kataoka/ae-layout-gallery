@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 奨学金/助成金 応募",
+  "category": "form",
+  "description": "支給条件の概要を提示し、申請者情報・志望理由・学業状況などを入力させる奨学金/助成金の応募フォーム。教育機関・財団の募集受付に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "返済不要の奨学金に応募する",
+  "previewDescription": "学ぶ意欲のあるあなたを応援します。下記より応募ください。"
+}

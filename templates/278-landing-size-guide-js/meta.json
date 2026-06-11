@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - サイズ診断/フィットガイド(JS)",
+  "category": "landing",
+  "description": "身長・体重スライダーとフィット感の選択からおすすめサイズを即時提案するアパレル向けサイズ診断LP(textContent・classListのみ、innerHTML不使用)。サイズ不安を解消し購入を後押し。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "あなたにぴったりのサイズは？",
+  "previewDescription": "身長と体重を入れるだけ。失敗しないサイズ選びをお手伝いします。"
+}

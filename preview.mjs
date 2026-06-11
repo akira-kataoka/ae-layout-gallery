@@ -282,6 +282,22 @@ const ALUMNI_FORM = `<form>
   <p class="submit"><input type="submit" value="出欠を回答する"></p>
 </form>`;
 
+const SCHOLARSHIP_FORM = `<form>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p><label>学校名・学年</label><br><input type="text" value="〇〇大学 経済学部 2年"></p>
+  <p><label>志望理由・学びたいこと</label><br><textarea>地域経済の活性化を研究し、将来は地元企業の支援に携わりたいと考えています。</textarea></p>
+  <p><label>世帯年収の目安</label><br><select><option selected>〜300万円</option><option>300〜500万円</option><option>500万円〜</option></select></p>
+  <p class="submit"><input type="submit" value="奨学金に応募する"></p>
+</form>`;
+
+const TASTING_FORM = `<form>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p><label>参加人数</label><br><select><option selected>1名</option><option>2名</option><option>3名以上</option></select></p>
+  <p class="submit"><input type="submit" value="試飲会に申し込む"></p>
+</form>`;
+
 const CATERING_FORM = `<form>
   <p><label>ご希望コース</label><br><select><option selected>スタンダード（¥1,500/人）</option><option>プレミアム（¥2,800/人）</option><option>ヘルシー（¥1,800/人）</option></select></p>
   <div class="row"><p><label>人数</label><br><input type="number" min="1" value="20"></p><p><label>お届け日</label><br><input type="date" value="2026-07-20"></p></div>
@@ -1281,6 +1297,10 @@ function contentFor(dir, category) {
     case "275-form-catering-order": return CATERING_FORM;
     case "276-event-fan-meeting": return FANMEET_FORM;
     case "277-thankyou-subscription-started": return NEWSLETTER_FORM;
+    case "278-landing-size-guide-js": return NEWSLETTER_FORM;
+    case "279-form-scholarship-application": return SCHOLARSHIP_FORM;
+    case "280-event-tasting": return TASTING_FORM;
+    case "281-thankyou-application-received": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;
