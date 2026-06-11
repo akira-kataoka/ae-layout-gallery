@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0d9488; --rent:#f59e0b; --buy:#0d9488; --ink:#0d2320; --muted:#5d7672; --line:#d4ebe7; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eefaf8; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:20px; }
+    .ae-head h1 { font-size:24px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; box-shadow:0 12px 32px rgba(13,148,136,.09); }
+    .ae-field { margin-bottom:18px; }
+    .ae-field label { font-weight:700; font-size:14px; display:flex; justify-content:space-between; margin-bottom:8px; }
+    .ae-field label .v { color:var(--accent); font-variant-numeric:tabular-nums; }
+    .ae-field input[type=range] { width:100%; accent-color:var(--accent); }
+    .ae-bars { margin-top:6px; }
+    .ae-b { margin-bottom:14px; }
+    .ae-b .top { display:flex; justify-content:space-between; font-size:13px; font-weight:700; margin-bottom:5px; }
+    .ae-b .track { height:26px; border-radius:8px; background:#eef4f3; overflow:hidden; }
+    .ae-b .fill { height:100%; border-radius:8px; transition:width .35s; display:flex; align-items:center; justify-content:flex-end; padding-right:8px; color:#fff; font-size:11px; font-weight:800; font-variant-numeric:tabular-nums; }
+    .ae-b.rent .fill { background:linear-gradient(90deg,#fbbf24,#f59e0b); } .ae-b.rent .top .nm { color:var(--rent); }
+    .ae-b.buy .fill { background:linear-gradient(90deg,#2dd4bf,#0d9488); } .ae-b.buy .top .nm { color:var(--buy); }
+    .ae-verdict { background:linear-gradient(135deg,#0d9488,#0f766e); color:#fff; border-radius:14px; padding:18px; text-align:center; margin-top:8px; font-size:14px; }
+    .ae-verdict b { font-size:18px; display:block; margin-top:2px; }
+    .ae-note { font-size:11px; color:var(--muted); margin-top:12px; text-align:center; }
+    .ae-cta { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; margin-top:18px; }
+    .ae-cta .t { font-weight:700; margin-bottom:12px; }
+    .ae-cta form input[type=text],.ae-cta form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form .submit input,.ae-cta form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <div class="ae-field"><label>家賃（月） <span class="v"><span id="vRent">10</span> 万円</span></label>
+        <input type="range" id="rent" min="5" max="30" step="0.5" value="10"></div>
+      <div class="ae-field"><label>購入価格 <span class="v"><span id="vPrice">3500</span> 万円</span></label>
+        <input type="range" id="price" min="1000" max="8000" step="100" value="3500"></div>
+      <div class="ae-field"><label>住む期間 <span class="v"><span id="vYr">20</span> 年</span></label>
+        <input type="range" id="yr" min="5" max="40" step="1" value="20"></div>
+      <div class="ae-bars">
+        <div class="ae-b rent"><div class="top"><span class="nm">🏠 賃貸の総支払額</span><span id="rentT">—</span></div><div class="track"><div class="fill" id="rentBar" style="width:60%"></div></div></div>
+        <div class="ae-b buy"><div class="top"><span class="nm">🔑 購入の総コスト</span><span id="buyT">—</span></div><div class="track"><div class="fill" id="buyBar" style="width:80%"></div></div></div>
+      </div>
+      <div class="ae-verdict"><span id="vdLabel">この条件では</span><b id="verdict">—</b></div>
+      <div class="ae-note">※ 購入は頭金・諸費用・維持費(年1.5%)を含む概算。資産価値・金利等は考慮していません。</div>
+    </div>
+    <div class="ae-cta">
+      <div class="t">あなたに合った住まい選びを相談する</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var rent = document.getElementById("rent"), price = document.getElementById("price"), yr = document.getElementById("yr");
+    var vRent = document.getElementById("vRent"), vPrice = document.getElementById("vPrice"), vYr = document.getElementById("vYr");
+    var rentT = document.getElementById("rentT"), buyT = document.getElementById("buyT");
+    var rentBar = document.getElementById("rentBar"), buyBar = document.getElementById("buyBar");
+    var verdict = document.getElementById("verdict"), vdLabel = document.getElementById("vdLabel");
+    function man(yen) { return Math.round(yen / 10000).toLocaleString() + "万円"; }
+    function calc() {
+      var r = parseFloat(rent.value) || 0, p = parseFloat(price.value) || 0, years = parseInt(yr.value, 10) || 1;
+      vRent.textContent = r; vPrice.textContent = p; vYr.textContent = years;
+      var rentTotal = r * 10000 * 12 * years + (r * 10000 * 2);      // 家賃 + 更新料概算
+      var buyTotal = p * 10000 * 1.07 + (p * 10000 * 0.015 * years); // 購入価格+諸費用7% + 維持費1.5%/年
+      rentT.textContent = man(rentTotal); buyT.textContent = man(buyTotal);
+      var max = Math.max(rentTotal, buyTotal) || 1;
+      rentBar.style.width = Math.round(rentTotal / max * 100) + "%";
+      buyBar.style.width = Math.round(buyTotal / max * 100) + "%";
+      var diff = Math.abs(rentTotal - buyTotal);
+      if (rentTotal > buyTotal) { vdLabel.textContent = "この条件では"; verdict.textContent = "購入が " + man(diff) + " おトク"; }
+      else if (buyTotal > rentTotal) { vdLabel.textContent = "この条件では"; verdict.textContent = "賃貸が " + man(diff) + " おトク"; }
+      else { vdLabel.textContent = ""; verdict.textContent = "ほぼ同額です"; }
+    }
+    [rent, price, yr].forEach(function (el) { el.addEventListener("input", calc); });
+    calc();
+  })();
+  </script>
+</body>
+</html>

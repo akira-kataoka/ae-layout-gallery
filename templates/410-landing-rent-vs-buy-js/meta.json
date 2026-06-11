@@ -1,0 +1,8 @@
+{
+  "name": "LP - 賃貸 vs 購入シミュレーター (JS)",
+  "category": "landing",
+  "description": "家賃・購入価格・住む期間から賃貸と購入の総支払額を比較し、どちらがおトクかを横棒グラフで可視化するインタラクティブLP。住まい選び相談フォームへ誘導。不動産/住宅メーカー/FPに。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "賃貸と購入、結局どっちがおトク？",
+  "previewDescription": "家賃と購入価格、住む年数を入れるだけ。総支払額を並べて瞬時に比較します。"
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#2563eb; --ink:#16203a; --muted:#646e8c; --line:#e2e7f3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f3f5fb; line-height:1.7; }
+    .ae-wrap { max-width:480px; margin:0 auto; padding:54px 20px; }
+    .ae-head { text-align:center; margin-bottom:22px; }
+    .ae-head .ic { width:78px; height:78px; border-radius:20px; background:linear-gradient(135deg,#60a5fa,#2563eb); color:#fff; display:flex; align-items:center; justify-content:center; font-size:38px; margin:0 auto 16px; box-shadow:0 14px 32px rgba(37,99,235,.28); }
+    .ae-head .ver { display:inline-block; background:#eef2ff; color:var(--accent); font-weight:700; font-size:12px; padding:4px 12px; border-radius:999px; margin-bottom:12px; }
+    .ae-head h1 { font-size:23px; margin:0 0 6px; }
+    .ae-head p { color:var(--muted); margin:0; font-size:14px; }
+    .ae-whats { background:#fff; border:1px solid var(--line); border-radius:16px; padding:20px 22px; margin-bottom:18px; box-shadow:0 8px 22px rgba(37,99,235,.05); }
+    .ae-whats .t { font-weight:700; font-size:14px; margin-bottom:12px; }
+    .ae-w { display:flex; gap:11px; padding:8px 0; border-top:1px solid var(--line); font-size:14px; }
+    .ae-w:first-of-type { border-top:0; } .ae-w .e { font-size:18px; flex:0 0 auto; }
+    .ae-cta-btn { display:block; background:var(--accent); color:#fff; text-decoration:none; text-align:center; padding:15px; border-radius:11px; font-weight:800; font-size:15px; margin-bottom:14px; box-shadow:0 10px 24px rgba(37,99,235,.25); }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; }
+    .ae-card .t { font-weight:700; margin-bottom:6px; } .ae-card .s { font-size:13px; color:var(--muted); margin-bottom:12px; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    .ae-foot { font-size:12px; color:var(--muted); text-align:center; margin-top:16px; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head">
+      <div class="ic">⬆️</div>
+      <span class="ver">最新版 v3.0 が利用可能</span>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-whats">
+      <div class="t">このアップデートの内容</div>
+      <div class="ae-w"><span class="e">⚡</span><span>起動・読み込み速度を大幅に改善しました</span></div>
+      <div class="ae-w"><span class="e">🔒</span><span>セキュリティと安定性を強化しました</span></div>
+      <div class="ae-w"><span class="e">✨</span><span>新しいダッシュボードと通知機能を追加</span></div>
+    </div>
+    <a class="ae-cta-btn" href="#">今すぐアップデート</a>
+    <div class="ae-card">
+      <div class="t">アップデート情報をメールで受け取る</div>
+      <div class="s">新機能やメンテナンスのお知らせをお届けします</div>
+      %%content%%
+    </div>
+    <div class="ae-foot">現在のバージョンは間もなくサポート対象外となります。お早めの更新をおすすめします。</div>
+  </div>
+</body>
+</html>
