@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#dc2626; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fff; line-height:1.7; padding-top:48px; }
+    .ae-bar { position:fixed; top:0; left:0; right:0; height:48px; background:linear-gradient(90deg,#b91c1c,#dc2626); color:#fff; display:flex; align-items:center; justify-content:center; gap:14px; z-index:10; font-size:14px; font-weight:700; }
+    .ae-bar .timer { font-variant-numeric:tabular-nums; background:rgba(0,0,0,.2); padding:3px 10px; border-radius:6px; }
+    .ae-hero { background:#fef2f2; padding:56px 20px; text-align:center; }
+    .ae-hero h1 { font-size:32px; margin:0 0 10px; }
+    .ae-hero h1 b { color:var(--accent); }
+    .ae-hero p { color:var(--muted); max-width:560px; margin:0 auto; }
+    .ae-body { max-width:560px; margin:28px auto 64px; padding:0 20px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:26px; box-shadow:0 8px 24px rgba(220,38,38,.1); text-align:center; }
+    .ae-card .t { font-weight:700; margin-bottom:10px; }
+    .ae-card form input[type=email],.ae-card form input[type=text] { width:100%; padding:13px 14px; border:1px solid var(--line); border-radius:10px; font-size:15px; }
+    .ae-card form p { margin:0 0 12px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:15px; border-radius:10px; font-weight:800; font-size:16px; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-bar">🔥 タイムセール 終了まで <span class="timer" id="timer">--:--:--</span></div>
+  <header class="ae-hero">
+    <h1>%%title%%</h1>
+    <p>%%description%%</p>
+  </header>
+  <div class="ae-body"><div class="ae-card"><div class="t">今すぐクーポンを受け取る</div>%%content%%</div></div>
+
+  <script>
+  (function () {
+    // 終了日時（運用時に書き換え）。例として現在から数時間後をデモ表示。
+    var deadline = new Date("2026/12/31 23:59:59").getTime();
+    var el = document.getElementById("timer");
+    var pad = function (n) { return (n < 10 ? "0" : "") + n; };
+    function tick() {
+      var diff = deadline - new Date().getTime();
+      if (diff <= 0) { el.textContent = "終了しました"; clearInterval(t); return; }
+      var h = Math.floor(diff / 3600000);
+      var m = Math.floor((diff % 3600000) / 60000);
+      var s = Math.floor((diff % 60000) / 1000);
+      el.textContent = pad(h) + ":" + pad(m) + ":" + pad(s);
+    }
+    tick();
+    var t = setInterval(tick, 1000);
+  })();
+  </script>
+</body>
+</html>

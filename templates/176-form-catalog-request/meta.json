@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - カタログ/パンフレット郵送請求",
+  "category": "form",
+  "description": "氏名・住所を入力する紙カタログの郵送請求フォーム。住所取得を伴う資料・カタログ送付に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "2026年版 総合カタログ",
+  "previewDescription": "最新ラインナップを掲載した冊子を無料でお届けします。"
+}

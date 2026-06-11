@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - 固定セールバー＋カウントダウン(JS)",
+  "category": "landing",
+  "description": "画面上部に固定された残り時間カウントダウンバー付きのセールLP(素のJS・textContentのみ)。常時見える締切訴求で離脱を抑制。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "本日限り <b>ポイント10倍</b>",
+  "previewDescription": "上部バーのカウントダウンが0になると終了。お早めに。"
+}

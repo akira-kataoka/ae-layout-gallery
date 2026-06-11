@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 延長保証の申込",
+  "category": "form",
+  "description": "保証期間プランを選んで申し込む延長保証フォーム。購入後のアップセル・延長保証加入に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "延長保証で、もっと安心",
+  "previewDescription": "メーカー保証に加えて、最大5年まで保証を延長できます。"
+}

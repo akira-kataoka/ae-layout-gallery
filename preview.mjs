@@ -231,6 +231,21 @@ const CALENDAR_BODY = `<h1>お申し込みが完了しました</h1>
 const SHARE_BODY = `<h1>ご参加ありがとうございます！</h1>
 <p>よろしければ、お知り合いにもシェアしていただけると嬉しいです。</p>`;
 
+const CATALOG_FORM = `<form>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <div class="row"><p><label>郵便番号</label><br><input type="text" value="100-0001"></p><p><label>電話番号</label><br><input type="tel" value="03-0000-0000"></p></div>
+  <p><label>ご住所</label><br><input type="text" value="東京都千代田区..."></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="カタログを請求する"></p>
+</form>`;
+
+const WARRANTY_EXT_FORM = `<form>
+  <p><label>対象製品</label><br><select><option selected>テレビ</option><option>冷蔵庫</option><option>PC</option></select></p>
+  <div class="row"><p><label>購入日</label><br><input type="date" value="2026-06-01"></p><p><label>延長プラン</label><br><select><option>+1年</option><option selected>+3年</option><option>+5年</option></select></p></div>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="延長保証を申し込む"></p>
+</form>`;
+
 const STOCK_FORM = `<form>
   <div class="row"><p><label>サイズ</label><br><select><option>25.0cm</option><option selected>26.0cm</option><option>27.0cm</option></select></p><p><label>受取店舗</label><br><select><option selected>サンプル駅前店</option><option>みなと店</option></select></p></div>
   <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
@@ -847,6 +862,9 @@ function contentFor(dir, category) {
     case "173-form-stock-reservation": return STOCK_FORM;
     case "174-form-emoji-feedback-js": return REVIEW_POST_FORM;
     case "175-form-appointment-slots-js": return APPT_FORM;
+    case "176-form-catalog-request": return CATALOG_FORM;
+    case "177-landing-sticky-deal-bar-js": return NEWSLETTER_FORM;
+    case "178-form-warranty-extension": return WARRANTY_EXT_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }
