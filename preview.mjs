@@ -231,6 +231,14 @@ const CALENDAR_BODY = `<h1>お申し込みが完了しました</h1>
 const SHARE_BODY = `<h1>ご参加ありがとうございます！</h1>
 <p>よろしければ、お知り合いにもシェアしていただけると嬉しいです。</p>`;
 
+const TRADEIN_FORM = `<form>
+  <div class="row"><p><label>品目</label><br><select><option selected>スマートフォン</option><option>ノートPC</option><option>カメラ</option><option>ゲーム機</option></select></p><p><label>状態</label><br><select><option>新品同様</option><option selected>美品</option><option>使用感あり</option><option>難あり</option></select></p></div>
+  <p><label>型番・メーカー</label><br><input type="text" value="Model X-200 / SampleCorp"></p>
+  <p><label>写真（任意）</label><br><input type="file"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="査定を申し込む"></p>
+</form>`;
+
 const LOOKUP_FORM = `<form>
   <p><label>受付番号</label><br><input type="text" value="RV-20260710-014"></p>
   <p><label>生年月日</label><br><input type="date" value="1990-04-01"></p>
@@ -791,6 +799,8 @@ function contentFor(dir, category) {
     case "161-landing-pricing-toggle-js": return NEWSLETTER_FORM;
     case "162-form-result-lookup": return LOOKUP_FORM;
     case "163-landing-stats-counter-js": return NEWSLETTER_FORM;
+    case "165-landing-image-gallery-js": return NEWSLETTER_FORM;
+    case "166-form-trade-in": return TRADEIN_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }

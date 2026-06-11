@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#1e3a5f; --gold:#b08d57; --ink:#1a2230; --muted:#64748b; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Mincho ProN","Yu Mincho",serif; color:var(--ink); background:#f3f4f7; line-height:1.8; }
+    .ae-wrap { max-width:600px; margin:0 auto; padding:48px 20px; text-align:center; }
+    .ae-msg { font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; margin-bottom:18px; }
+    .ae-cert { background:#fff; border:2px solid var(--gold); border-radius:8px; padding:36px 30px; box-shadow:0 14px 40px rgba(30,58,95,.14); position:relative; }
+    .ae-cert::before { content:""; position:absolute; inset:8px; border:1px solid var(--gold); border-radius:4px; pointer-events:none; }
+    .ae-cert .ttl { color:var(--gold); letter-spacing:.3em; font-size:13px; }
+    .ae-cert h1 { font-size:24px; margin:10px 0 16px; }
+    .ae-cert .to { font-size:20px; border-bottom:1px solid #e2e8f0; display:inline-block; padding:0 24px 4px; margin-bottom:14px; }
+    .ae-cert .body { color:#334155; font-size:14px; }
+    .ae-cert .seal { font-size:44px; margin-top:14px; }
+    .ae-cert .sign { display:flex; justify-content:space-between; margin-top:18px; font-size:12px; color:var(--muted); }
+    .ae-actions { font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; margin-top:18px; }
+    .ae-actions a { display:inline-block; background:var(--accent); color:#fff; text-decoration:none; padding:12px 26px; border-radius:8px; font-weight:700; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-msg">%%content%%</div>
+    <div class="ae-cert">
+      <div class="ttl">CERTIFICATE OF COMPLETION</div>
+      <h1>修了証</h1>
+      <div class="to">山田 太郎 殿</div>
+      <div class="body">あなたは「実践マーケティング講座（全8回）」の<br>全課程を修了されたことを証します。</div>
+      <div class="seal">🏅</div>
+      <div class="sign"><span>2026年7月10日</span><span>サンプル株式会社 認定機構</span></div>
+    </div>
+    <div class="ae-actions"><a href="%%account-website%%">修了証をダウンロード（PDF）</a></div>
+  </div>
+</body>
+</html>

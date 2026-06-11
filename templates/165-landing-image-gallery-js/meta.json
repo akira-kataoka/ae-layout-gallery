@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - 画像ギャラリー/サムネ切替(JS)",
+  "category": "landing",
+  "description": "サムネイルをクリックでメインビジュアルが切り替わる素のJavaScriptギャラリーLP(textContent/style・innerHTML不使用)。商品・物件・作品の訴求に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "あらゆるシーンに、ぴったり。",
+  "previewDescription": "サムネイルを選んで、いろいろな表情をご覧ください。"
+}

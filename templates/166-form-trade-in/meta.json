@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 下取り/買取査定申込",
+  "category": "form",
+  "description": "品目・状態・型番を入力する下取り/買取の査定申込フォーム。リユース・家電/スマホ買取の査定獲得に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "かんたん下取り査定",
+  "previewDescription": "お手持ちの品物の情報を入力すると、概算の下取り価格をご案内します。"
+}

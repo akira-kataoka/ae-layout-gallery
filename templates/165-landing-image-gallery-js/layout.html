@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0f766e; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f3faf8; line-height:1.7; }
+    .ae-grid { max-width:920px; margin:0 auto; padding:48px 20px; display:grid; grid-template-columns:1.1fr .9fr; gap:30px; align-items:start; }
+    .ae-main { aspect-ratio:4/3; border-radius:16px; display:flex; align-items:center; justify-content:center; font-size:90px; background:linear-gradient(160deg,#5eead4,#0f766e); box-shadow:0 12px 34px rgba(15,118,110,.2); transition:background .25s; }
+    .ae-thumbs { display:flex; gap:10px; margin-top:12px; }
+    .ae-thumbs button { flex:1; aspect-ratio:1; border-radius:10px; border:2px solid transparent; font-size:24px; cursor:pointer; }
+    .ae-thumbs button.sel { border-color:var(--accent); }
+    .ae-info h1 { font-size:24px; margin:0 0 6px; }
+    .ae-info > p { color:var(--muted); margin:0 0 16px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; }
+    .ae-card .t { font-weight:700; margin-bottom:10px; }
+    .ae-card form input[type=email],.ae-card form input[type=text] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    @media (max-width:720px){ .ae-grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-grid">
+    <div>
+      <div class="ae-main" id="main" data-bg="linear-gradient(160deg,#5eead4,#0f766e)">🏞️</div>
+      <div class="ae-thumbs" id="thumbs">
+        <button type="button" class="sel" data-emoji="🏞️" data-bg="linear-gradient(160deg,#5eead4,#0f766e)">🏞️</button>
+        <button type="button" data-emoji="🌅" data-bg="linear-gradient(160deg,#fdba74,#ea580c)">🌅</button>
+        <button type="button" data-emoji="🏙️" data-bg="linear-gradient(160deg,#a5b4fc,#4338ca)">🏙️</button>
+        <button type="button" data-emoji="🌊" data-bg="linear-gradient(160deg,#7dd3fc,#0369a1)">🌊</button>
+      </div>
+    </div>
+    <div class="ae-info">
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+      <div class="ae-card"><div class="t">資料・お見積りを受け取る</div>%%content%%</div>
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var main = document.getElementById("main");
+    var thumbs = Array.prototype.slice.call(document.querySelectorAll("#thumbs button"));
+    thumbs.forEach(function (b) {
+      b.addEventListener("click", function () {
+        thumbs.forEach(function (x) { x.classList.remove("sel"); });
+        b.classList.add("sel");
+        main.textContent = b.getAttribute("data-emoji");
+        main.style.background = b.getAttribute("data-bg");
+      });
+    });
+  })();
+  </script>
+</body>
+</html>
