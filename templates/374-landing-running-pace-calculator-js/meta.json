@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - ランニングペース計算機(JS)",
+  "category": "landing",
+  "description": "距離と目標タイムから1kmあたりのペースと時速を即時計算するランニング向けLP(textContentのみ、innerHTML不使用)。マラソンイベント/フィットネス/スポーツ用品のリード獲得に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "目標達成に必要なペースは？",
+  "previewDescription": "距離と目標タイムを入れるだけ。1kmごとのペースがすぐにわかります。"
+}

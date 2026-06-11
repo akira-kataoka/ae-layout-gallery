@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#ea580c; --ink:#2a1709; --muted:#6e5b48; --line:#f0e3d3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fff8f1; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:20px; }
+    .ae-head h1 { font-size:24px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; box-shadow:0 12px 32px rgba(234,88,12,.08); }
+    .ae-field { margin-bottom:18px; }
+    .ae-field label { font-weight:700; font-size:14px; display:block; margin-bottom:8px; }
+    .ae-dist { display:flex; gap:8px; }
+    .ae-dist button { flex:1; border:2px solid var(--line); background:#fff; border-radius:10px; padding:10px 4px; font-weight:800; font-size:13px; cursor:pointer; font-family:inherit; }
+    .ae-dist button.sel { border-color:var(--accent); background:#fff7ed; color:var(--accent); }
+    .ae-time { display:flex; gap:10px; align-items:center; }
+    .ae-time .grp { flex:1; }
+    .ae-time input { width:100%; padding:11px; border:1px solid var(--line); border-radius:9px; font-size:16px; text-align:center; font-variant-numeric:tabular-nums; }
+    .ae-time .sep { font-weight:900; font-size:20px; color:var(--muted); }
+    .ae-time .u { font-size:11px; color:var(--muted); text-align:center; display:block; margin-top:2px; }
+    .ae-out { background:linear-gradient(135deg,#ea580c,#c2410c); color:#fff; border-radius:14px; padding:24px; text-align:center; margin-top:16px; }
+    .ae-out .lab { font-size:13px; opacity:.9; } .ae-out .pace { font-size:42px; font-weight:900; font-variant-numeric:tabular-nums; line-height:1.1; } .ae-out .pace small { font-size:15px; } .ae-out .meta { font-size:13px; opacity:.92; }
+    .ae-cta { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; margin-top:18px; }
+    .ae-cta .t { font-weight:700; margin-bottom:12px; }
+    .ae-cta form input[type=text],.ae-cta form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form .submit input,.ae-cta form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <div class="ae-field">
+        <label>距離</label>
+        <div class="ae-dist" id="dist">
+          <button type="button" data-km="5">5km</button>
+          <button type="button" data-km="10" class="sel">10km</button>
+          <button type="button" data-km="21.0975">ハーフ</button>
+          <button type="button" data-km="42.195">フル</button>
+        </div>
+      </div>
+      <div class="ae-field">
+        <label>目標タイム</label>
+        <div class="ae-time">
+          <div class="grp"><input type="number" id="h" min="0" max="9" value="0"><span class="u">時間</span></div>
+          <span class="sep">:</span>
+          <div class="grp"><input type="number" id="m" min="0" max="59" value="55"><span class="u">分</span></div>
+          <span class="sep">:</span>
+          <div class="grp"><input type="number" id="s" min="0" max="59" value="0"><span class="u">秒</span></div>
+        </div>
+      </div>
+      <div class="ae-out">
+        <div class="lab">必要なペース</div>
+        <div class="pace"><span id="pace">0:00</span><small> /km</small></div>
+        <div class="meta">時速 約 <span id="speed">0</span> km/h</div>
+      </div>
+    </div>
+    <div class="ae-cta">
+      <div class="t">トレーニングプランを無料で受け取る</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var dists = Array.prototype.slice.call(document.querySelectorAll("#dist button"));
+    var h = document.getElementById("h"), m = document.getElementById("m"), s = document.getElementById("s");
+    var paceEl = document.getElementById("pace"), speedEl = document.getElementById("speed");
+    var km = 10;
+    function pad(n) { return (n < 10 ? "0" : "") + n; }
+    function calc() {
+      var total = (parseInt(h.value, 10) || 0) * 3600 + (parseInt(m.value, 10) || 0) * 60 + (parseInt(s.value, 10) || 0);
+      if (total <= 0 || km <= 0) { paceEl.textContent = "0:00"; speedEl.textContent = "0"; return; }
+      var paceSec = total / km;
+      paceEl.textContent = Math.floor(paceSec / 60) + ":" + pad(Math.round(paceSec % 60));
+      speedEl.textContent = (km / (total / 3600)).toFixed(1);
+    }
+    dists.forEach(function (b) {
+      b.addEventListener("click", function () {
+        dists.forEach(function (x) { x.classList.remove("sel"); });
+        b.classList.add("sel");
+        km = parseFloat(b.getAttribute("data-km"));
+        calc();
+      });
+    });
+    [h, m, s].forEach(function (el) { el.addEventListener("input", calc); });
+    calc();
+  })();
+  </script>
+</body>
+</html>

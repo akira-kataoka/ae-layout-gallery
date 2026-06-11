@@ -1,0 +1,8 @@
+{
+  "name": "ユーティリティ - お支払い方法の更新完了",
+  "category": "utility",
+  "description": "クレジットカード等のお支払い方法を更新した後に、登録カード情報(マスク表示)と次回請求日を確認できる完了ページ。サブスク/決済の支払い情報変更の確認画面に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "お支払い方法を更新しました",
+  "previewDescription": "新しいお支払い方法が正常に登録されました。"
+}

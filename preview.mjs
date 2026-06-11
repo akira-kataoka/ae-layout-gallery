@@ -282,6 +282,23 @@ const ALUMNI_FORM = `<form>
   <p class="submit"><input type="submit" value="出欠を回答する"></p>
 </form>`;
 
+const TAXHELP_FORM = `<form>
+  <p><label>申告の区分</label><br><select><option selected>個人事業主・フリーランス</option><option>副業の所得</option><option>不動産所得</option><option>株式・暗号資産</option><option>その他</option></select></p>
+  <p><label>昨年の売上・収入の目安</label><br><select><option>〜300万円</option><option selected>300〜800万円</option><option>800万円〜</option></select></p>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <div class="row"><p><label>メール</label><br><input type="email" value="taro@example.com"></p><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p></div>
+  <p><label>ご相談内容（任意）</label><br><textarea>経費の計上範囲について相談したいです。</textarea></p>
+  <p class="submit"><input type="submit" value="無料相談を申し込む"></p>
+</form>`;
+
+const RECRUITING_FORM = `<form>
+  <p><label>参加希望日</label><br><select><option selected>9/06 (土) オンライン</option><option>9/13 (土) 本社</option></select></p>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p><label>区分</label><br><select><option selected>新卒（学生）</option><option>中途（転職検討中）</option><option>情報収集中</option></select></p>
+  <p class="submit"><input type="submit" value="説明会に申し込む"></p>
+</form>`;
+
 const INTERNET_FORM = `<form>
   <p><label>ご希望プラン</label><br><select><option>マンションタイプ（¥3,850/月）</option><option selected>ファミリータイプ（¥4,950/月）</option><option>10ギガ（¥6,380/月）</option></select></p>
   <p><label>現在の回線</label><br><select><option selected>他社から乗り換え</option><option>新規（初めて）</option></select></p>
@@ -1779,6 +1796,10 @@ function contentFor(dir, category) {
     case "371-form-internet-plan-signup": return INTERNET_FORM;
     case "372-event-esports-tournament": return ESPORTS_FORM;
     case "373-thankyou-reward-redeemed": return NEWSLETTER_FORM;
+    case "374-landing-running-pace-calculator-js": return NEWSLETTER_FORM;
+    case "375-form-tax-return-help": return TAXHELP_FORM;
+    case "376-event-recruiting-info-session": return RECRUITING_FORM;
+    case "377-utility-payment-method-updated": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;
