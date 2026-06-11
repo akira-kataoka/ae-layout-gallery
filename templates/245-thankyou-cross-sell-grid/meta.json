@@ -1,0 +1,8 @@
+{
+  "name": "サンクス - おすすめ商品クロスセル",
+  "category": "thankyou",
+  "description": "購入完了後に関連商品を3列グリッド(評価星付き)で提案するクロスセル型サンクスページ。回遊・追加購入の促進、レコメンド配信のオプトインに。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "ご購入ありがとうございます",
+  "previewDescription": "あなたにおすすめのアイテムをいくつかご用意しました。"
+}

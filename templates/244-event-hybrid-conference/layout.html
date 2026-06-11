@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0284c7; --accent2:#7c3aed; --ink:#0d1b29; --muted:#5a6b7c; --line:#dde7ef; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eff5fa; line-height:1.7; }
+    .ae-hero { background:linear-gradient(120deg,#0284c7,#7c3aed); color:#fff; text-align:center; padding:50px 20px 38px; }
+    .ae-hero .badge { display:inline-block; background:rgba(255,255,255,.2); font-weight:700; font-size:12px; letter-spacing:2px; padding:6px 16px; border-radius:999px; margin-bottom:12px; }
+    .ae-hero h1 { font-size:27px; margin:0 0 8px; }
+    .ae-hero .date { font-size:14px; opacity:.95; }
+    .ae-wrap { max-width:720px; margin:0 auto; padding:30px 20px 48px; }
+    .ae-ways { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:-50px 0 28px; }
+    .ae-way { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; box-shadow:0 10px 28px rgba(2,132,199,.1); }
+    .ae-way .ic { font-size:30px; }
+    .ae-way h3 { margin:8px 0 4px; font-size:17px; }
+    .ae-way .tag { display:inline-block; font-size:11px; font-weight:700; padding:3px 10px; border-radius:999px; margin-bottom:8px; }
+    .ae-way.venue .tag { background:#e0f2fe; color:#0284c7; }
+    .ae-way.online .tag { background:#f3e8ff; color:#7c3aed; }
+    .ae-way ul { margin:6px 0 0; padding-left:18px; font-size:13px; color:#3c4d5c; }
+    .ae-way li { margin-bottom:4px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; text-align:center; }
+    .ae-card .t { font-weight:700; font-size:18px; margin-bottom:4px; }
+    .ae-card .d { color:var(--muted); font-size:13px; margin-bottom:14px; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    @media (max-width:560px){ .ae-ways { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-hero">
+    <span class="badge">HYBRID EVENT</span>
+    <h1>%%title%%</h1>
+    <div class="date">2026.09.12 (土) 13:00–18:00 ／ 会場参加・オンライン参加</div>
+  </div>
+  <div class="ae-wrap">
+    <div class="ae-ways">
+      <div class="ae-way venue"><div class="ic">🏢</div><span class="tag">会場参加</span><h3>その場の熱気を体感</h3>
+        <ul><li>登壇者との直接交流</li><li>ネットワーキング懇親会</li><li>限定ノベルティ進呈</li></ul></div>
+      <div class="ae-way online"><div class="ic">💻</div><span class="tag">オンライン参加</span><h3>どこからでも視聴</h3>
+        <ul><li>全セッション生配信</li><li>アーカイブ後日配信</li><li>チャットで質問OK</li></ul></div>
+    </div>
+    <div class="ae-card">
+      <div class="t">参加登録</div>
+      <div class="d">参加形式を選んでお申し込みください</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

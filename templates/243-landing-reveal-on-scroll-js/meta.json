@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - スクロール出現ストーリー(JS)",
+  "category": "landing",
+  "description": "スクロールに応じて各ブロックがふわっとフェードインするストーリー型LP(IntersectionObserver＋classListのみ、innerHTML不使用)。サービスの流れを段階的に見せて資料DLへ誘導。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "読み進めるほど、伝わる。",
+  "previewDescription": "スクロールするたびに、わたしたちの提供価値が見えてきます。"
+}

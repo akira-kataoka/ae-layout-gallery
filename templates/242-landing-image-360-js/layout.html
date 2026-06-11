@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0f766e; --ink:#0c2421; --muted:#5a746f; --line:#d6ebe7; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eefbf8; line-height:1.7; }
+    .ae-wrap { max-width:600px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:18px; }
+    .ae-head h1 { font-size:25px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-stage { position:relative; aspect-ratio:1; max-width:360px; margin:0 auto 8px; border-radius:20px; background:radial-gradient(circle at 50% 40%,#ffffff,#d9f2ee); display:flex; align-items:center; justify-content:center; cursor:grab; user-select:none; touch-action:none; box-shadow:0 16px 40px rgba(15,118,110,.14); overflow:hidden; }
+    .ae-stage.grab { cursor:grabbing; }
+    .ae-obj { font-size:130px; transition:transform .05s linear; }
+    .ae-spin-badge { position:absolute; top:12px; left:12px; background:rgba(15,118,110,.92); color:#fff; font-size:11px; font-weight:700; padding:4px 10px; border-radius:999px; }
+    .ae-angle { position:absolute; bottom:12px; right:12px; background:#fff; border:1px solid var(--line); font-size:12px; font-weight:700; color:var(--accent); padding:3px 10px; border-radius:999px; font-variant-numeric:tabular-nums; }
+    .ae-track { max-width:360px; margin:0 auto 6px; }
+    .ae-track input[type=range] { width:100%; accent-color:var(--accent); }
+    .ae-hint { text-align:center; color:var(--muted); font-size:12px; margin:0 0 24px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px; text-align:center; }
+    .ae-card .t { font-weight:700; margin-bottom:12px; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-stage" id="stage">
+      <span class="ae-spin-badge">360° VIEW</span>
+      <div class="ae-obj" id="obj">🛹</div>
+      <span class="ae-angle"><span id="ang">0</span>°</span>
+    </div>
+    <div class="ae-track"><input type="range" id="range" min="0" max="359" value="0" aria-label="回転角度"></div>
+    <p class="ae-hint">ドラッグ、またはスライダーで全方向から確認できます</p>
+    <div class="ae-card">
+      <div class="t">この製品の詳しい資料を受け取る</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var stage = document.getElementById("stage"), obj = document.getElementById("obj"), angEl = document.getElementById("ang"), range = document.getElementById("range");
+    var angle = 0;
+    function norm(a) { a = a % 360; return a < 0 ? a + 360 : a; }
+    function apply(a) {
+      angle = norm(a);
+      obj.style.transform = "rotateY(" + angle + "deg)";
+      angEl.textContent = Math.round(angle);
+      if (range.value !== String(Math.round(angle))) range.value = Math.round(angle);
+    }
+    range.addEventListener("input", function () { apply(parseInt(range.value, 10)); });
+    var dragging = false, lastX = 0;
+    function start(e) { dragging = true; lastX = e.touches ? e.touches[0].clientX : e.clientX; stage.classList.add("grab"); }
+    function move(e) {
+      if (!dragging) return;
+      var x = e.touches ? e.touches[0].clientX : e.clientX;
+      apply(angle + (x - lastX) * 1.3);
+      lastX = x;
+    }
+    function end() { dragging = false; stage.classList.remove("grab"); }
+    stage.addEventListener("pointerdown", start);
+    window.addEventListener("pointermove", move);
+    window.addEventListener("pointerup", end);
+    apply(0);
+  })();
+  </script>
+</body>
+</html>

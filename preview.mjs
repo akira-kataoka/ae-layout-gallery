@@ -197,6 +197,14 @@ const RSVP_FORM = `<form>
   <p class="submit"><input type="submit" value="回答を送信"></p>
 </form>`;
 
+const HYBRID_FORM = `<form>
+  <p><label>参加形式</label><br><select><option selected>会場で参加</option><option>オンラインで参加</option></select></p>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p><label>会社名</label><br><input type="text" value="株式会社サンプル"></p>
+  <p class="submit"><input type="submit" value="参加を申し込む"></p>
+</form>`;
+
 const APP_BODY = `<p>App Store / Google Play から無料でダウンロードできます。QRコードからもアクセス可能です。</p>`;
 
 const COUPON_BODY = `<h1>ご登録ありがとうございます！</h1>
@@ -1127,6 +1135,10 @@ function contentFor(dir, category) {
     case "239-landing-usage-pricing-js": return NEWSLETTER_FORM;
     case "240-event-awards-ceremony": return RSVP_FORM;
     case "241-form-newsletter-topics": return TOPICS_FORM;
+    case "242-landing-image-360-js": return NEWSLETTER_FORM;
+    case "243-landing-reveal-on-scroll-js": return NEWSLETTER_FORM;
+    case "244-event-hybrid-conference": return HYBRID_FORM;
+    case "245-thankyou-cross-sell-grid": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

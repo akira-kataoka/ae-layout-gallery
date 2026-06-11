@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - 360°ビューワー(JS)",
+  "category": "landing",
+  "description": "ドラッグまたはスライダーで商品を全方向に回転して確認できる360°ビューワーLP(style.transform・textContentのみ、innerHTML不使用)。製品の質感・形状訴求や資料請求導線に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "あらゆる角度から、じっくり。",
+  "previewDescription": "ドラッグして、製品を360°ぐるりとご覧いただけます。"
+}

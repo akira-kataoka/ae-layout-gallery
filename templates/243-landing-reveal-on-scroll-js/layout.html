@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#4338ca; --ink:#15172e; --muted:#64698c; --line:#e3e2f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f6f6fc; line-height:1.7; }
+    .ae-wrap { max-width:640px; margin:0 auto; padding:48px 20px; }
+    .ae-hero { text-align:center; padding:30px 0 40px; }
+    .ae-hero h1 { font-size:30px; margin:0 0 10px; }
+    .ae-hero p { color:var(--muted); margin:0; }
+    .ae-reveal { opacity:0; transform:translateY(28px); transition:opacity .7s ease, transform .7s ease; }
+    .ae-reveal.in { opacity:1; transform:none; }
+    .ae-block { background:#fff; border:1px solid var(--line); border-radius:18px; padding:28px; margin-bottom:22px; box-shadow:0 10px 28px rgba(67,56,202,.06); }
+    .ae-block .num { display:inline-block; background:#eef2ff; color:var(--accent); font-weight:800; font-size:13px; padding:4px 12px; border-radius:999px; margin-bottom:10px; }
+    .ae-block h2 { font-size:20px; margin:0 0 8px; }
+    .ae-block p { color:#3c3f63; margin:0; font-size:14px; }
+    .ae-block .emo { font-size:40px; margin-bottom:8px; }
+    .ae-card { background:linear-gradient(135deg,#4338ca,#6d28d9); color:#fff; border-radius:18px; padding:28px; text-align:center; }
+    .ae-card .t { font-weight:700; font-size:18px; margin-bottom:14px; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:13px; border:1px solid rgba(255,255,255,.4); border-radius:9px; font-size:14px; background:rgba(255,255,255,.12); color:#fff; }
+    .ae-card form input::placeholder { color:rgba(255,255,255,.7); }
+    .ae-card form p { margin:0 0 12px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:#fff; color:var(--accent); border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-hero ae-reveal">
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-block ae-reveal"><div class="emo">🔍</div><span class="num">STEP 01</span><h2>課題を見つける</h2><p>散らばった情報を一元化し、ボトルネックがどこにあるのかを可視化します。</p></div>
+    <div class="ae-block ae-reveal"><div class="emo">🧩</div><span class="num">STEP 02</span><h2>仕組みを整える</h2><p>あなたの業務に合わせてワークフローを設計。テンプレートですぐに始められます。</p></div>
+    <div class="ae-block ae-reveal"><div class="emo">📈</div><span class="num">STEP 03</span><h2>成果につなげる</h2><p>自動化されたレポートで改善を継続。数字で手応えを実感できます。</p></div>
+    <div class="ae-card ae-reveal">
+      <div class="t">続きは資料で。無料ダウンロード</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var els = Array.prototype.slice.call(document.querySelectorAll(".ae-reveal"));
+    if (!("IntersectionObserver" in window)) {
+      els.forEach(function (el) { el.classList.add("in"); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.18 });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+  </script>
+</body>
+</html>
