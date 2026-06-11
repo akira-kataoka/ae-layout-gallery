@@ -2103,10 +2103,16 @@ const indexHtml = `<!DOCTYPE html>
   .modal-head strong{ font-size:14px; flex:1; min-width:120px; }
   .modal-tabs button,.modal-dev button{ border:1px solid var(--line); background:transparent; color:var(--ink); padding:6px 12px; border-radius:8px; font-size:12px; cursor:pointer; }
   .modal-tabs button.active,.modal-dev button.active{ background:var(--brand); color:#fff; border-color:var(--brand); }
-  .modal-x{ border:0; background:none; font-size:18px; cursor:pointer; color:var(--muted); }
+  .modal-x{ border:1px solid var(--line); background:#fff; width:34px; height:34px; border-radius:50%; font-size:17px; line-height:1; cursor:pointer; color:#334155; display:flex; align-items:center; justify-content:center; flex:0 0 auto; }
+  .modal-x:hover{ background:#ef4444; color:#fff; border-color:#ef4444; }
+  :root[data-theme="dark"] .modal-x{ background:#1e293b; color:#e2e8f0; border-color:#243044; }
   .modal-nav{ border:1px solid var(--line); background:#fff; color:var(--ink); width:30px; height:30px; border-radius:8px; cursor:pointer; font-size:18px; line-height:1; flex:0 0 auto; }
   .modal-nav:hover{ background:var(--brand); color:#fff; border-color:var(--brand); }
   .modal-pos{ font-size:12px; color:var(--muted); flex:0 0 auto; font-variant-numeric:tabular-nums; }
+  .modal-act{ border:1px solid var(--line); background:#fff; color:var(--ink); padding:6px 12px; border-radius:8px; font-size:12px; font-weight:700; cursor:pointer; flex:0 0 auto; }
+  .modal-act:hover{ background:#f1f5f9; }
+  .modal-act.on{ background:var(--brand); color:#fff; border-color:var(--brand); }
+  :root[data-theme="dark"] .modal-act{ background:#1e293b; color:#cbd5e1; }
   :root[data-theme="dark"] .modal-nav{ background:#1e293b; color:#cbd5e1; }
   .modal-body{ flex:1; overflow:auto; background:#f1f5f9; }
   .m-preview{ height:100%; display:flex; justify-content:center; }
@@ -2154,6 +2160,29 @@ const indexHtml = `<!DOCTYPE html>
     body[data-density="compact"] figcaption{ padding:12px 13px 14px; }
     body[data-density="compact"] figcaption p{ display:none; }
   }
+  /* --- スマホ向けの崩れ対策（バーの重なり防止・全画面モーダル・ヘッダ整理） --- */
+  @media (max-width:640px){
+    .toolbar{ position:static; }
+    .actionbar{ position:static; top:auto; }
+    .toolbar .in{ padding:10px 14px; gap:8px; }
+    .actionbar .in{ padding:9px 14px; gap:8px; }
+    .actionbar .spacer{ display:none; flex:0; }
+    .wrap{ padding:18px 24px 72px; }
+    .hero{ padding:38px 18px 32px; }
+    .hero h1{ font-size:21px; }
+    .theme-btn{ top:14px; right:16px; width:36px; height:36px; }
+  }
+  @media (max-width:520px){
+    .modal{ padding:0; }
+    .modal-bg{ display:none; }
+    .modal-box{ width:100vw; height:100vh; height:100dvh; max-width:none; border-radius:0; box-shadow:none; }
+    .modal-head{ gap:6px; padding:10px 12px; }
+    .modal-head strong{ order:-1; width:100%; font-size:13px; min-width:0; }
+    .modal-pos{ display:none; }
+    .modal-tabs button,.modal-dev button,.modal-act{ padding:7px 9px; font-size:11px; }
+    .modal-nav{ width:32px; height:32px; }
+    .modal-x{ margin-left:auto; }
+  }
 </style>
 </head>
 <body>
@@ -2200,6 +2229,8 @@ ${sections}  <div class="empty" id="empty">該当するテンプレートがあ�
       <button class="modal-nav" data-nav="1" title="次のテンプレート (→)">›</button>
       <div class="modal-tabs"><button data-view="preview" class="active">プレビュー</button><button data-view="code">&lt;/&gt; コード</button></div>
       <div class="modal-dev"><button data-dev="desktop" class="active">🖥 PC</button><button data-dev="mobile">📱 SP</button></div>
+      <button class="modal-act" id="m-pick" title="選択に追加/解除">＋ 選択</button>
+      <button class="modal-act" id="m-dlhead" title="このHTMLをダウンロード">⬇ HTML</button>
       <button class="modal-x" data-close title="閉じる">✕</button>
     </div>
     <div class="modal-body">
@@ -2301,7 +2332,9 @@ function setView(v){ $$("[data-view]").forEach(b=>b.classList.toggle("active",b.
 function setDev(d){ $$("[data-dev]").forEach(b=>b.classList.toggle("active",b.dataset.dev===d)); $(".m-preview").classList.toggle("mobile",d==="mobile"); }
 const mPos=$("#m-pos");
 function visibleDirs(){ return $$(".card:not(.hide)").map(c=>c.dataset.dir); }
-function openModal(dir,view){ const t=byDir[dir]; if(!t) return; curDir=dir; mTitle.textContent=t.name; mFrame.src=dir+".html"; mCodeText.textContent=t.layout; modal.hidden=false; setView(view||"preview"); setDev("desktop"); const list=visibleDirs(); const i=list.indexOf(dir); mPos.textContent = i>=0 ? (i+1)+" / "+list.length : ""; }
+const mPick=$("#m-pick");
+function refreshPick(){ const on=sel.has(curDir); mPick.classList.toggle("on",on); mPick.textContent = on ? "✓ 選択中" : "＋ 選択"; }
+function openModal(dir,view){ const t=byDir[dir]; if(!t) return; curDir=dir; mTitle.textContent=t.name; mFrame.src=dir+".html"; mCodeText.textContent=t.layout; modal.hidden=false; setView(view||"preview"); setDev("desktop"); const list=visibleDirs(); const i=list.indexOf(dir); mPos.textContent = i>=0 ? (i+1)+" / "+list.length : ""; refreshPick(); }
 function closeModal(){ modal.hidden=true; mFrame.src="about:blank"; }
 function navModal(delta){ if(modal.hidden) return; const list=visibleDirs(); if(!list.length) return; let i=list.indexOf(curDir); if(i<0) i=0; const ni=(i+delta+list.length)%list.length; openModal(list[ni], $(".m-code").hidden?"preview":"code"); }
 document.addEventListener("click", e=>{
@@ -2320,6 +2353,13 @@ document.addEventListener("keydown", e=>{
 });
 $("#m-copy").addEventListener("click", async()=>{ try{ await navigator.clipboard.writeText(byDir[curDir].layout); toast("HTMLをコピーしました"); }catch{ toast("コピーに失敗しました"); } });
 $("#m-dl").addEventListener("click", ()=>{ const t=byDir[curDir]; if(t){ saveBlob(new Blob([t.layout],{type:"text/html"}), curDir+".html"); } });
+$("#m-dlhead").addEventListener("click", ()=>{ const t=byDir[curDir]; if(t){ saveBlob(new Blob([t.layout],{type:"text/html"}), curDir+".html"); toast(curDir+".html をダウンロードしました"); } });
+mPick.addEventListener("click", ()=>{
+  if(!curDir) return;
+  if(sel.has(curDir)) sel.delete(curDir); else sel.add(curDir);
+  const cb=document.querySelector('.cb[data-dir="'+curDir+'"]'); if(cb) cb.checked=sel.has(curDir);
+  updateCount(); saveSel(); refreshPick();
+});
 
 // --- 表示サイズ（密度）切替 ---
 function setDensity(d){ document.body.setAttribute("data-density",d); $$("#density button").forEach(b=>b.classList.toggle("on",b.dataset.d===d)); try{localStorage.setItem("ae-density",d);}catch{} }
