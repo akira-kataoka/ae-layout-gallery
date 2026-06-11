@@ -1,0 +1,8 @@
+{
+  "name": "ユーティリティ - ギフトカード残高照会",
+  "category": "utility",
+  "description": "ギフトカード/プリペイドカードの残高照会ページ。カードのビジュアルを添え、カード番号・PIN入力で利用可能残高を確認できるフォームへ誘導する。小売/EC/ブランドのギフトカードサービスに。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "ギフトカードの残高照会",
+  "previewDescription": "カード番号を入力するだけ。いつでも残高と有効期限を確認できます。"
+}

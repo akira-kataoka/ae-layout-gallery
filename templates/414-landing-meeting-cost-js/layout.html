@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#db2777; --ink:#2a0f20; --muted:#7c5d6e; --line:#f3dee9; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fdf2f8; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:20px; }
+    .ae-head h1 { font-size:24px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; box-shadow:0 12px 32px rgba(219,39,119,.09); }
+    .ae-field { margin-bottom:18px; }
+    .ae-field label { font-weight:700; font-size:14px; display:flex; justify-content:space-between; margin-bottom:8px; }
+    .ae-field label .v { color:var(--accent); font-variant-numeric:tabular-nums; }
+    .ae-field input[type=range] { width:100%; accent-color:var(--accent); }
+    .ae-act { display:flex; gap:6px; background:#fbe1ee; border-radius:10px; padding:4px; flex-wrap:wrap; }
+    .ae-act button { flex:1; border:0; background:transparent; padding:9px 4px; border-radius:8px; font-weight:700; font-size:12px; cursor:pointer; color:var(--muted); min-width:60px; }
+    .ae-act button.on { background:#fff; color:var(--accent); box-shadow:0 2px 8px rgba(219,39,119,.18); }
+    .ae-out { background:linear-gradient(135deg,#ec4899,#db2777); color:#fff; border-radius:14px; padding:24px; text-align:center; margin-top:18px; }
+    .ae-out .lab { font-size:13px; opacity:.9; } .ae-out .big { font-size:42px; font-weight:900; font-variant-numeric:tabular-nums; line-height:1.1; } .ae-out .big small { font-size:16px; } .ae-out .sub { font-size:13px; opacity:.95; margin-top:6px; }
+    .ae-row2 { display:flex; gap:8px; margin-top:14px; }
+    .ae-g { flex:1; background:rgba(255,255,255,.16); border-radius:10px; padding:10px 6px; }
+    .ae-g .k { font-size:11px; opacity:.9; } .ae-g .n { font-weight:800; font-variant-numeric:tabular-nums; }
+    .ae-cta { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; margin-top:18px; }
+    .ae-cta .t { font-weight:700; margin-bottom:12px; }
+    .ae-cta form input[type=text],.ae-cta form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form .submit input,.ae-cta form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <div class="ae-field"><label>参加人数 <span class="v"><span id="vNum">6</span> 人</span></label>
+        <input type="range" id="num" min="2" max="30" step="1" value="6"></div>
+      <div class="ae-field"><label>会議時間 <span class="v"><span id="vMin">60</span> 分</span></label>
+        <input type="range" id="min" min="15" max="180" step="5" value="60"></div>
+      <div class="ae-field"><label>参加者の平均時給</label>
+        <div class="ae-act" id="wage">
+          <button type="button" data-w="2500">2,500円</button>
+          <button type="button" data-w="3500" class="on">3,500円</button>
+          <button type="button" data-w="5000">5,000円</button>
+          <button type="button" data-w="8000">8,000円</button>
+        </div></div>
+      <div class="ae-out">
+        <div class="lab">この会議のコスト</div>
+        <div class="big">¥<span id="cost">0</span></div>
+        <div class="sub">人件費だけでこれだけかかっています</div>
+        <div class="ae-row2">
+          <div class="ae-g"><div class="k">週1回・年間</div><div class="n">¥<span id="yr">0</span></div></div>
+          <div class="ae-g"><div class="k">15分短縮で</div><div class="n">¥<span id="save">0</span> 削減</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="ae-cta">
+      <div class="t">会議を減らす業務効率化のヒントを受け取る</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var num = document.getElementById("num"), min = document.getElementById("min");
+    var vNum = document.getElementById("vNum"), vMin = document.getElementById("vMin");
+    var costEl = document.getElementById("cost"), yrEl = document.getElementById("yr"), saveEl = document.getElementById("save");
+    var wageBtns = Array.prototype.slice.call(document.querySelectorAll("#wage button"));
+    var wage = 3500;
+    function calc() {
+      var people = parseInt(num.value, 10) || 0, minutes = parseInt(min.value, 10) || 0;
+      vNum.textContent = people; vMin.textContent = minutes;
+      var cost = people * wage * (minutes / 60);
+      costEl.textContent = Math.round(cost).toLocaleString();
+      yrEl.textContent = Math.round(cost * 52).toLocaleString();
+      var save = people * wage * (15 / 60);
+      saveEl.textContent = Math.round(save).toLocaleString();
+    }
+    [num, min].forEach(function (el) { el.addEventListener("input", calc); });
+    wageBtns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        wageBtns.forEach(function (x) { x.classList.remove("on"); });
+        b.classList.add("on"); wage = parseInt(b.getAttribute("data-w"), 10); calc();
+      });
+    });
+    calc();
+  })();
+  </script>
+</body>
+</html>
