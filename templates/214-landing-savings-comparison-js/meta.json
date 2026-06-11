@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - 節約額くらべる(JS)",
+  "category": "landing",
+  "description": "現在のコストを入力すると当社プランとの差額(月/年)をバーで可視化する素のJavaScript比較LP(textContent/style・innerHTML不使用)。乗り換え訴求に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "乗り換えると、いくらおトク？",
+  "previewDescription": "今の費用を入力するだけ。当社プランとの差額がひと目でわかります。"
+}

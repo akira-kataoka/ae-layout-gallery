@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#7c3aed; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f7f5fe; line-height:1.7; }
+    .ae-hero { background:linear-gradient(135deg,#4c1d95,#7c3aed); color:#fff; padding:48px 20px; text-align:center; }
+    .ae-hero .k { font-size:12px; letter-spacing:.15em; opacity:.85; }
+    .ae-hero h1 { font-size:28px; margin:8px 0 6px; }
+    .ae-hero p { margin:0; opacity:.92; }
+    .ae-stats { max-width:820px; margin:-22px auto 0; padding:0 20px; display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+    .ae-stats div { background:#fff; border:1px solid var(--line); border-radius:14px; padding:18px; text-align:center; box-shadow:0 6px 18px rgba(124,58,237,.08); }
+    .ae-stats .num { font-size:26px; font-weight:800; color:var(--accent); } .ae-stats .lbl { font-size:12px; color:var(--muted); }
+    .ae-gallery { max-width:820px; margin:18px auto 0; padding:0 20px; display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+    .ae-gallery div { aspect-ratio:1; border-radius:10px; background:linear-gradient(135deg,#c4b5fd,#7c3aed); display:flex; align-items:center; justify-content:center; font-size:28px; }
+    .ae-body { max-width:680px; margin:24px auto; background:#fff; border:1px solid var(--line); border-radius:16px; padding:32px 30px; }
+    .ae-body h2 { font-size:19px; border-left:4px solid var(--accent); padding-left:12px; }
+    .ae-card { max-width:480px; margin:0 auto 56px; padding:0 20px; }
+    .ae-card .inner { background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px; text-align:center; box-shadow:0 8px 24px rgba(124,58,237,.08); }
+    .ae-card .t { font-weight:700; margin-bottom:10px; }
+    .ae-card form input[type=email],.ae-card form input[type=text] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    @media (max-width:600px){ .ae-stats { grid-template-columns:1fr; } .ae-gallery { grid-template-columns:1fr 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="ae-hero"><div class="k">EVENT REPORT</div><h1>%%title%%</h1><p>%%description%%</p></header>
+  <section class="ae-stats">
+    <div><div class="num">1,200+</div><div class="lbl">来場者数</div></div>
+    <div><div class="num">24</div><div class="lbl">セッション</div></div>
+    <div><div class="num">96%</div><div class="lbl">満足度</div></div>
+  </section>
+  <section class="ae-gallery"><div>📸</div><div>🎤</div><div>🤝</div><div>🎉</div></section>
+  <article class="ae-body"><h2>開催レポート</h2><p>多くの皆さまにご来場いただき、盛況のうちに閉幕しました。基調講演から事例セッションまで、活発な議論が交わされました。当日の見逃し配信もご用意しています。</p></article>
+  <div class="ae-card"><div class="inner"><div class="t">アーカイブ配信を視聴する</div>%%content%%</div></div>
+</body>
+</html>

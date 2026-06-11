@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 診療予約",
+  "category": "form",
+  "description": "診療科・医師・希望日時を指定する医療機関の予約フォーム。クリニック/歯科/動物病院のWEB予約に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "診療のWEB予約",
+  "previewDescription": "診療科とご希望日時をお選びください。確認メールをお送りします。"
+}

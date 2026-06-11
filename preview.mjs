@@ -231,6 +231,14 @@ const CALENDAR_BODY = `<h1>お申し込みが完了しました</h1>
 const SHARE_BODY = `<h1>ご参加ありがとうございます！</h1>
 <p>よろしければ、お知り合いにもシェアしていただけると嬉しいです。</p>`;
 
+const CLINIC_FORM = `<form>
+  <p><label>診療科</label><br><select><option selected>内科</option><option>皮膚科</option><option>整形外科</option><option>歯科</option></select></p>
+  <div class="row"><p><label>担当医</label><br><select><option selected>指定なし</option><option>佐藤医師</option><option>鈴木医師</option></select></p><p><label>希望日</label><br><input type="date" value="2026-07-16"></p></div>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <div class="row"><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p><p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p></div>
+  <p class="submit"><input type="submit" value="予約する"></p>
+</form>`;
+
 const DELETE_FORM = `<form>
   <p><label>削除の理由（任意）</label><br><select><option selected>使わなくなった</option><option>別サービスへ移行</option><option>機能に不満</option><option>その他</option></select></p>
   <p><label>ご登録メールアドレス</label><br><input type="email" value="taro@example.com"></p>
@@ -1024,6 +1032,9 @@ function contentFor(dir, category) {
     case "210-utility-account-deletion": return DELETE_FORM;
     case "211-landing-plan-recommend-js": return NEWSLETTER_FORM;
     case "212-form-renovation-quote": return RENOV_FORM;
+    case "213-form-clinic-appointment": return CLINIC_FORM;
+    case "214-landing-savings-comparison-js": return NEWSLETTER_FORM;
+    case "215-landing-event-recap": return NEWSLETTER_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }
