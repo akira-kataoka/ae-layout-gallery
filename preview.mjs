@@ -300,6 +300,22 @@ const TAX_CONSULT_FORM = `<form>
   <p class="submit"><input type="submit" value="無料相談を予約する"></p>
 </form>`;
 
+const CAR_RENTAL_FORM = `<form>
+  <p><label>車種クラス</label><br><select><option selected>コンパクト</option><option>SUV / ミニバン</option><option>大型 / 商用</option><option>未定（おすすめを聞く）</option></select></p>
+  <div class="row"><p><label>利用開始日</label><br><input type="date" value="2026-07-20"></p><p><label>返却日</label><br><input type="date" value="2026-07-22"></p></div>
+  <p><label>出発店舗</label><br><select><option selected>サンプル駅前店</option><option>空港カウンター</option><option>サンプル港店</option></select></p>
+  <div class="row"><p><label>お名前</label><br><input type="text" value="山田 太郎"></p><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p></div>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="空き状況を確認して予約する"></p>
+</form>`;
+
+const TWOFA_FORM = `<form>
+  <p><label>受け取り方法</label><br><select><option selected>SMS（電話番号）</option><option>メール</option><option>認証アプリ</option></select></p>
+  <p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="確認コードを送信する"></p>
+</form>`;
+
 const GRAND_OPEN_FORM = `<form>
   <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
   <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
@@ -1922,6 +1938,10 @@ function contentFor(dir, category) {
     case "399-form-tax-consultation": return TAX_CONSULT_FORM;
     case "400-event-grand-opening": return GRAND_OPEN_FORM;
     case "401-thankyou-survey-submitted": return NEWSLETTER_FORM;
+    case "402-landing-mortgage-affordability-js": return NEWSLETTER_FORM;
+    case "403-form-car-rental": return CAR_RENTAL_FORM;
+    case "404-event-christmas-market": return RSVP_FORM;
+    case "405-utility-two-factor-setup": return TWOFA_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#4338ca; --ok:#059669; --ink:#181a2e; --muted:#646a90; --line:#e4e3f2; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f4f4fb; line-height:1.7; }
+    .ae-wrap { max-width:480px; margin:0 auto; padding:54px 20px; }
+    .ae-head { text-align:center; margin-bottom:22px; }
+    .ae-head .shield { width:70px; height:70px; border-radius:18px; background:linear-gradient(135deg,#6366f1,#4338ca); color:#fff; display:flex; align-items:center; justify-content:center; font-size:34px; margin:0 auto 16px; box-shadow:0 14px 30px rgba(67,56,202,.25); }
+    .ae-head h1 { font-size:23px; margin:0 0 6px; }
+    .ae-head p { color:var(--muted); margin:0; font-size:14px; }
+    .ae-steps { background:#fff; border:1px solid var(--line); border-radius:16px; padding:18px 20px; margin-bottom:18px; }
+    .ae-step { display:flex; gap:12px; padding:9px 0; border-top:1px solid var(--line); }
+    .ae-step:first-child { border-top:0; }
+    .ae-step .n { width:26px; height:26px; border-radius:50%; background:#eef2ff; color:var(--accent); font-weight:800; font-size:13px; display:flex; align-items:center; justify-content:center; flex:0 0 auto; }
+    .ae-step .x .h { font-weight:700; font-size:14px; } .ae-step .x .d { font-size:12px; color:var(--muted); }
+    .ae-why { background:#ecfdf5; border:1px solid #bbf7d0; border-radius:12px; padding:12px 16px; font-size:13px; color:#065f46; margin-bottom:18px; display:flex; gap:9px; align-items:flex-start; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px; }
+    .ae-card .t { font-weight:700; margin-bottom:4px; text-align:center; }
+    .ae-card .s { font-size:13px; color:var(--muted); margin-bottom:16px; text-align:center; }
+    .ae-card form input[type=text],.ae-card form input[type=tel],.ae-card form input[type=email],.ae-card form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form label { font-weight:700; font-size:13px; display:block; margin-bottom:5px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    .ae-skip { text-align:center; margin-top:14px; } .ae-skip a { color:var(--muted); font-size:13px; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head">
+      <div class="shield">🛡️</div>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-why">
+      <span>🔐</span>
+      <span>2段階認証を有効にすると、パスワードが万が一漏れても第三者のログインを防げます。設定はおよそ1分で完了します。</span>
+    </div>
+    <div class="ae-steps">
+      <div class="ae-step"><div class="n">1</div><div class="x"><div class="h">連絡先を登録</div><div class="d">確認コードを受け取る電話番号またはメールを設定</div></div></div>
+      <div class="ae-step"><div class="n">2</div><div class="x"><div class="h">コードを入力</div><div class="d">届いた6桁の確認コードで本人確認</div></div></div>
+      <div class="ae-step"><div class="n">3</div><div class="x"><div class="h">設定完了</div><div class="d">次回以降のログインがより安全になります</div></div></div>
+    </div>
+    <div class="ae-card">
+      <div class="t">確認コードの送信先を登録</div>
+      <div class="s">ご登録の連絡先に6桁の確認コードをお送りします</div>
+      %%content%%
+      <div class="ae-skip"><a href="#">あとで設定する</a></div>
+    </div>
+  </div>
+</body>
+</html>

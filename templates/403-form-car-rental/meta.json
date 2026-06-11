@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - レンタカー予約",
+  "category": "form",
+  "description": "車種クラス・料金を提示し、利用日時/出発店舗/車種を含むレンタカーの空き確認・予約フォームへ誘導するレイアウト。Web予約割引を訴求。レンタカー会社/カーシェア/観光モビリティに。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "レンタカーをかんたん予約",
+  "previewDescription": "ご希望の車種と日時を選ぶだけ。Web予約なら通常料金から10%OFF。"
+}
