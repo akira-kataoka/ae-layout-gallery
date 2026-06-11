@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - FAQアコーディオン(jQuery)",
+  "category": "landing",
+  "description": "jQueryのslideToggleで開閉するアニメーション付きFAQアコーディオンLP。外部CDNはSRI付き。サポート補助に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "よくあるご質問",
+  "previewDescription": "クリックで回答が開きます。お問い合わせ前にご確認ください。"
+}

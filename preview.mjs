@@ -682,6 +682,9 @@ function contentFor(dir, category) {
     case "137-landing-countdown-live": return NEWSLETTER_FORM;
     case "138-landing-roi-calculator-live": return NEWSLETTER_FORM;
     case "139-landing-tabs-js": return NEWSLETTER_FORM;
+    case "140-landing-faq-accordion-js": return NEWSLETTER_FORM;
+    case "141-landing-bmi-calculator-js": return NEWSLETTER_FORM;
+    case "142-landing-before-after": return NEWSLETTER_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }

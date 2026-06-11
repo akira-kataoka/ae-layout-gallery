@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - BMI計算機(JS)",
+  "category": "landing",
+  "description": "身長体重の入力でBMIと判定をリアルタイム算出する素のJavaScript計算機LP。フィットネス/健康サービスの診断リード獲得に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "あなたのBMIをチェック",
+  "previewDescription": "身長と体重を入力すると、BMIと判定がすぐに表示されます。"
+}

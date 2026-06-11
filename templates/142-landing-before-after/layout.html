@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#7c3aed; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#faf8ff; line-height:1.7; }
+    .ae-wrap { max-width:620px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:18px; }
+    .ae-head h1 { margin:0 0 6px; font-size:26px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ba { position:relative; border-radius:16px; overflow:hidden; aspect-ratio:16/10; box-shadow:0 12px 34px rgba(124,58,237,.16); user-select:none; }
+    .ba-layer { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:40px; font-weight:900; color:#fff; }
+    .ba-before { background:linear-gradient(135deg,#94a3b8,#475569); }
+    .ba-after { background:linear-gradient(135deg,#a78bfa,#7c3aed); clip-path:inset(0 50% 0 0); }
+    .ba-tag { position:absolute; top:12px; padding:4px 12px; border-radius:999px; font-size:12px; font-weight:800; background:rgba(0,0,0,.4); color:#fff; }
+    .ba-tag.l { left:12px; } .ba-tag.r { right:12px; }
+    .ba-line { position:absolute; top:0; bottom:0; left:50%; width:3px; background:#fff; box-shadow:0 0 0 1px rgba(0,0,0,.1); }
+    .ba-knob { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:40px; height:40px; border-radius:50%; background:#fff; box-shadow:0 4px 12px rgba(0,0,0,.3); display:flex; align-items:center; justify-content:center; color:var(--accent); font-weight:800; }
+    .ba-range { width:100%; margin:14px 0 4px; accent-color:var(--accent); }
+    .ae-hint { text-align:center; color:var(--muted); font-size:13px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px; margin-top:18px; text-align:center; }
+    .ae-card .t { font-weight:700; margin-bottom:10px; }
+    .ae-card form input[type=email],.ae-card form input[type=text] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ba" id="ba">
+      <div class="ba-layer ba-before">BEFORE</div>
+      <div class="ba-layer ba-after" id="baAfter">AFTER</div>
+      <span class="ba-tag l">Before</span>
+      <span class="ba-tag r">After</span>
+      <div class="ba-line" id="baLine"></div>
+      <div class="ba-knob" id="baKnob">⇆</div>
+    </div>
+    <input class="ba-range" id="baRange" type="range" min="0" max="100" value="50" aria-label="Before/After比較スライダー">
+    <div class="ae-hint">スライダーを動かして変化を比べてみてください</div>
+    <div class="ae-card"><div class="t">あなたのお悩みも、変えられます</div>%%content%%</div>
+  </div>
+
+  <script>
+  (function () {
+    var range = document.getElementById("baRange"),
+        after = document.getElementById("baAfter"),
+        line = document.getElementById("baLine"),
+        knob = document.getElementById("baKnob");
+    function update() {
+      var v = parseFloat(range.value);
+      after.style.clipPath = "inset(0 " + (100 - v) + "% 0 0)";
+      line.style.left = v + "%";
+      knob.style.left = v + "%";
+    }
+    range.addEventListener("input", update);
+    update();
+  })();
+  </script>
+</body>
+</html>

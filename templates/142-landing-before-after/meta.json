@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - Before/After比較スライダー(JS)",
+  "category": "landing",
+  "description": "スライダーでビフォーアフターを比較できる素のJavaScript実装LP(clip-path使用・innerHTML不使用)。美容/リフォーム/施工事例の訴求に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "その違い、スライドで体感。",
+  "previewDescription": "施術・施工の前後を、スライダーで自由に比較できます。"
+}

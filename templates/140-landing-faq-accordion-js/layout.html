@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <style>
+    :root { --accent:#0d9488; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f3faf9; line-height:1.7; }
+    .ae-head { text-align:center; padding:48px 20px 8px; }
+    .ae-head h1 { font-size:28px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-faq { max-width:720px; margin:24px auto; padding:0 20px; }
+    .ae-q { background:#fff; border:1px solid var(--line); border-radius:12px; margin-bottom:10px; overflow:hidden; }
+    .ae-q .qbtn { width:100%; text-align:left; background:transparent; border:0; padding:16px 18px; font-weight:700; font-size:15px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; color:var(--ink); }
+    .ae-q .ico { color:var(--accent); font-weight:800; transition:transform .2s; }
+    .ae-q.open .ico { transform:rotate(45deg); }
+    .ae-q .ans { display:none; padding:0 18px 16px; color:#334155; }
+    .ae-body { max-width:560px; margin:8px auto 56px; padding:0 20px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px; text-align:center; }
+    .ae-card .t { font-weight:700; margin-bottom:10px; }
+    .ae-card form input[type=email],.ae-card form input[type=text] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:700; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <header class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></header>
+  <section class="ae-faq">
+    <div class="ae-q"><button class="qbtn" type="button">導入までどのくらいかかりますか？<span class="ico">＋</span></button><div class="ans">最短で当日からご利用いただけます。標準的な初期設定は1〜3営業日が目安です。</div></div>
+    <div class="ae-q"><button class="qbtn" type="button">無料トライアルはありますか？<span class="ico">＋</span></button><div class="ans">はい。全機能を30日間無料でお試しいただけます。カード登録は不要です。</div></div>
+    <div class="ae-q"><button class="qbtn" type="button">サポート体制について教えてください<span class="ico">＋</span></button><div class="ans">メール・チャットに加え、上位プランでは専任担当による導入支援を提供します。</div></div>
+    <div class="ae-q"><button class="qbtn" type="button">解約はいつでもできますか？<span class="ico">＋</span></button><div class="ans">はい、いつでも解約可能です。最低利用期間や違約金はありません。</div></div>
+  </section>
+  <div class="ae-body"><div class="ae-card"><div class="t">解決しない場合はお問い合わせください</div>%%content%%</div></div>
+
+  <script>
+  jQuery(function ($) {
+    $(".ae-q .qbtn").on("click", function () {
+      var item = $(this).closest(".ae-q");
+      item.toggleClass("open");
+      item.find(".ans").stop(true, true).slideToggle(180);
+    });
+  });
+  </script>
+</body>
+</html>

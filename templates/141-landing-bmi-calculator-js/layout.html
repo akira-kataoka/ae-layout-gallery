@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0891b2; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#ecfeff; line-height:1.7; }
+    .ae-wrap { max-width:560px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:18px; }
+    .ae-head h1 { margin:0 0 6px; font-size:25px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-calc { background:#fff; border:1px solid var(--line); border-radius:16px; padding:26px; box-shadow:0 8px 26px rgba(8,145,178,.1); margin-bottom:18px; }
+    .ae-field { margin-bottom:14px; }
+    .ae-field label { font-size:13px; font-weight:600; display:block; margin-bottom:4px; }
+    .ae-field input[type=number] { width:100%; padding:13px; border:1px solid var(--line); border-radius:10px; font-size:16px; }
+    .ae-out { background:linear-gradient(135deg,#0891b2,#0d9488); color:#fff; border-radius:14px; padding:20px; text-align:center; margin-top:8px; }
+    .ae-out .num { font-size:42px; font-weight:900; font-variant-numeric:tabular-nums; }
+    .ae-out .cat { font-weight:700; margin-top:2px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px; text-align:center; }
+    .ae-card .t { font-weight:700; margin-bottom:10px; }
+    .ae-card form input[type=email],.ae-card form input[type=text] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-calc">
+      <div class="ae-field"><label>身長 (cm)</label><input type="number" id="h" value="170" min="100" max="230"></div>
+      <div class="ae-field"><label>体重 (kg)</label><input type="number" id="w" value="65" min="20" max="200"></div>
+      <div class="ae-out"><div class="num" id="bmi">--</div><div class="cat" id="cat">数値を入力してください</div></div>
+    </div>
+    <div class="ae-card"><div class="t">あなたに合った健康プランを受け取る</div>%%content%%</div>
+  </div>
+
+  <script>
+  (function () {
+    var h = document.getElementById("h"),
+        w = document.getElementById("w"),
+        bmiEl = document.getElementById("bmi"),
+        catEl = document.getElementById("cat");
+    function classify(b) {
+      if (b < 18.5) return "やせ型";
+      if (b < 25) return "標準";
+      if (b < 30) return "肥満(1度)";
+      return "肥満(2度以上)";
+    }
+    function update() {
+      var hv = parseFloat(h.value), wv = parseFloat(w.value);
+      if (!hv || !wv || hv <= 0) { bmiEl.textContent = "--"; catEl.textContent = "数値を入力してください"; return; }
+      var m = hv / 100;
+      var bmi = wv / (m * m);
+      bmiEl.textContent = bmi.toFixed(1);
+      catEl.textContent = "判定：" + classify(bmi);
+    }
+    h.addEventListener("input", update);
+    w.addEventListener("input", update);
+    update();
+  })();
+  </script>
+</body>
+</html>
