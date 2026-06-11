@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#4338ca; --ink:#15172e; --muted:#64698c; --line:#e3e2f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f5f5fc; line-height:1.7; }
+    .ae-wrap { max-width:560px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:22px; }
+    .ae-head h1 { font-size:24px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:24px; box-shadow:0 12px 32px rgba(67,56,202,.08); }
+    .ae-sec { font-weight:800; font-size:13px; color:var(--muted); margin:0 0 10px; }
+    .ae-base { display:flex; gap:10px; margin-bottom:18px; }
+    .ae-b { flex:1; border:2px solid var(--line); border-radius:12px; padding:14px; cursor:pointer; text-align:center; font-family:inherit; background:#fff; }
+    .ae-b.sel { border-color:var(--accent); background:#eef2ff; }
+    .ae-b .nm { font-weight:800; font-size:14px; } .ae-b .pr { color:var(--accent); font-weight:900; font-variant-numeric:tabular-nums; }
+    .ae-addon { display:flex; align-items:center; gap:12px; padding:12px 0; border-top:1px solid var(--line); }
+    .ae-addon:first-of-type { border-top:0; }
+    .ae-addon input { width:20px; height:20px; accent-color:var(--accent); }
+    .ae-addon .nm { flex:1; font-size:14px; font-weight:700; } .ae-addon .de { font-size:12px; color:var(--muted); font-weight:400; }
+    .ae-addon .pr { font-weight:700; font-variant-numeric:tabular-nums; color:var(--accent); }
+    .ae-total { margin-top:14px; background:linear-gradient(135deg,#4338ca,#6d28d9); color:#fff; border-radius:14px; padding:18px; display:flex; justify-content:space-between; align-items:baseline; }
+    .ae-total .v { font-size:28px; font-weight:900; font-variant-numeric:tabular-nums; }
+    .ae-cta { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; margin-top:18px; }
+    .ae-cta .t { font-weight:700; margin-bottom:12px; }
+    .ae-cta form input[type=text],.ae-cta form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form .submit input,.ae-cta form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <p class="ae-sec">ベースプラン</p>
+      <div class="ae-base" id="base">
+        <button type="button" class="ae-b sel" data-price="1980"><div class="nm">Lite</div><div class="pr">¥1,980</div></button>
+        <button type="button" class="ae-b" data-price="4980"><div class="nm">Pro</div><div class="pr">¥4,980</div></button>
+      </div>
+      <p class="ae-sec">オプション（アドオン）</p>
+      <label class="ae-addon"><input type="checkbox" class="ao" data-price="800"><span class="nm">追加ストレージ 100GB<span class="de"> ／ 大容量データもまとめて保管</span></span><span class="pr">+¥800</span></label>
+      <label class="ae-addon"><input type="checkbox" class="ao" data-price="1500"><span class="nm">優先サポート<span class="de"> ／ 平日チャット即時対応</span></span><span class="pr">+¥1,500</span></label>
+      <label class="ae-addon"><input type="checkbox" class="ao" data-price="600"><span class="nm">メンバー追加 5名<span class="de"> ／ チームでの利用に</span></span><span class="pr">+¥600</span></label>
+      <div class="ae-total"><span>月額合計（税抜）</span><span class="v">¥<span id="total">1,980</span></span></div>
+    </div>
+    <div class="ae-cta">
+      <div class="t">この構成で無料トライアルを始める</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var bases = Array.prototype.slice.call(document.querySelectorAll("#base .ae-b"));
+    var addons = Array.prototype.slice.call(document.querySelectorAll(".ao"));
+    var totalEl = document.getElementById("total");
+    var base = 1980;
+    function recalc() {
+      var sum = base;
+      addons.forEach(function (a) { if (a.checked) sum += parseInt(a.getAttribute("data-price"), 10) || 0; });
+      totalEl.textContent = sum.toLocaleString("ja-JP");
+    }
+    bases.forEach(function (b) {
+      b.addEventListener("click", function () {
+        bases.forEach(function (x) { x.classList.remove("sel"); });
+        b.classList.add("sel");
+        base = parseInt(b.getAttribute("data-price"), 10) || 0;
+        recalc();
+      });
+    });
+    addons.forEach(function (a) { a.addEventListener("change", recalc); });
+    recalc();
+  })();
+  </script>
+</body>
+</html>

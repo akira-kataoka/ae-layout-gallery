@@ -1,0 +1,8 @@
+{
+  "name": "ユーティリティ - アカウント一時停止のご案内",
+  "category": "utility",
+  "description": "アカウントが一時停止・利用制限された際に、状況と利用再開までの手順を案内するページ。再開通知・サポート連絡のオプトインを備える。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "アカウントは現在ご利用いただけません",
+  "previewDescription": "確認が必要な状況が発生しています。再開のための手順をご案内します。"
+}

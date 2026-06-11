@@ -282,6 +282,21 @@ const ALUMNI_FORM = `<form>
   <p class="submit"><input type="submit" value="出欠を回答する"></p>
 </form>`;
 
+const FITTING_FORM = `<form>
+  <p><label>ご希望アイテム</label><br><select><option selected>ドレス・フォーマル</option><option>スーツ・ジャケット</option><option>カジュアル全般</option></select></p>
+  <div class="row"><p><label>ご希望日</label><br><input type="date" value="2026-07-19"></p><p><label>時間帯</label><br><select><option selected>午前</option><option>午後</option><option>夕方</option></select></p></div>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <div class="row"><p><label>メール</label><br><input type="email" value="taro@example.com"></p><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p></div>
+  <p class="submit"><input type="submit" value="試着を予約する"></p>
+</form>`;
+
+const BLOOD_FORM = `<form>
+  <div class="row"><p><label>お名前</label><br><input type="text" value="山田 太郎"></p><p><label>血液型</label><br><select><option>A型</option><option selected>O型</option><option>B型</option><option>AB型</option></select></p></div>
+  <div class="row"><p><label>ご希望時間</label><br><select><option selected>10:00〜</option><option>13:00〜</option><option>15:00〜</option></select></p><p><label>年代</label><br><select><option>10代</option><option selected>30代</option><option>40代</option></select></p></div>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="献血を予約する"></p>
+</form>`;
+
 const PARKING_FORM = `<form>
   <div class="row"><p><label>利用日</label><br><input type="date" value="2026-07-18"></p><p><label>入庫時刻</label><br><input type="time" value="09:00"></p></div>
   <p><label>利用時間</label><br><select><option>2時間</option><option selected>当日最大（1日）</option><option>1週間</option></select></p>
@@ -1432,6 +1447,10 @@ function contentFor(dir, category) {
     case "303-form-parking-reservation": return PARKING_FORM;
     case "304-event-graduation-ceremony": return GRADUATION_FORM;
     case "305-thankyou-preorder-confirmed": return NEWSLETTER_FORM;
+    case "306-landing-addon-pricing-builder-js": return NEWSLETTER_FORM;
+    case "307-form-fitting-reservation": return FITTING_FORM;
+    case "308-event-blood-donation": return BLOOD_FORM;
+    case "309-utility-account-suspended": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#b45309; --ink:#2a1d0c; --muted:#6e5d45; --line:#f0e4cf; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fef9f0; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:60px 20px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:20px; padding:38px 30px; text-align:center; box-shadow:0 16px 40px rgba(180,83,9,.1); }
+    .ae-ico { width:78px; height:78px; border-radius:50%; background:#fef3c7; display:flex; align-items:center; justify-content:center; font-size:38px; margin:0 auto 18px; }
+    .ae-card h1 { font-size:23px; margin:0 0 10px; }
+    .ae-card .lead { color:var(--muted); margin:0 0 22px; font-size:14px; }
+    .ae-steps { background:#fffaf0; border:1px solid var(--line); border-radius:14px; padding:18px; text-align:left; margin-bottom:24px; }
+    .ae-steps .t { font-weight:700; font-size:13px; margin-bottom:10px; }
+    .ae-st { display:flex; gap:10px; padding:6px 0; font-size:13px; color:#5a4a30; }
+    .ae-st .no { width:22px; height:22px; border-radius:50%; background:#fde68a; color:#92722a; font-weight:800; font-size:11px; display:flex; align-items:center; justify-content:center; flex:0 0 auto; }
+    .ae-optin { border-top:1px dashed var(--line); padding-top:22px; }
+    .ae-optin .t { font-weight:700; font-size:14px; margin-bottom:6px; }
+    .ae-optin .d { color:var(--muted); font-size:13px; margin-bottom:14px; }
+    .ae-optin form input[type=email] { width:100%; padding:13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-optin form p { margin:0 0 12px; }
+    .ae-optin form .submit input,.ae-optin form button { width:100%; background:var(--accent); color:#fff; border:0; padding:13px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-card">
+      <div class="ae-ico">🔒</div>
+      <h1>%%title%%</h1>
+      <p class="lead">%%description%%</p>
+      <div class="ae-steps">
+        <div class="t">利用再開までの手順</div>
+        <div class="ae-st"><span class="no">1</span><span>登録メールに届いた通知内容をご確認ください</span></div>
+        <div class="ae-st"><span class="no">2</span><span>必要な手続き（本人確認・お支払い等）を完了</span></div>
+        <div class="ae-st"><span class="no">3</span><span>確認後、通常 1〜2 営業日で利用を再開できます</span></div>
+      </div>
+      <div class="ae-optin">
+        <div class="t">再開のお知らせ・サポートからの連絡を受け取る</div>
+        <div class="d">手続き完了後の再開通知をメールでお送りします</div>
+        %%content%%
+      </div>
+    </div>
+  </div>
+</body>
+</html>

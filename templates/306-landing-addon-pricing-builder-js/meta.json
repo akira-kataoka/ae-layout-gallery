@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - アドオン料金ビルダー(JS)",
+  "category": "landing",
+  "description": "ベースプランとオプション(アドオン)を選ぶと月額合計が即時計算されるSaaS向けプライシングビルダーLP(textContent・classListのみ、innerHTML不使用)。構成カスタマイズとトライアル獲得に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "必要な機能だけ、組み合わせて。",
+  "previewDescription": "プランとオプションを選ぶと、あなた専用の月額がすぐわかります。"
+}
