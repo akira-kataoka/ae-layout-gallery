@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0d9488; --ink:#0f2420; --muted:#5b7470; --line:#d7ebe7; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f0fbf9; line-height:1.7; }
+    .ae-wrap { max-width:560px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:22px; }
+    .ae-ico { width:62px; height:62px; border-radius:16px; background:#ccfbf1; display:flex; align-items:center; justify-content:center; font-size:30px; margin:0 auto 12px; }
+    .ae-head h1 { font-size:24px; margin:0 0 6px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; box-shadow:0 10px 28px rgba(13,148,136,.08); }
+    .ae-card form input[type=email] { width:100%; padding:13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form fieldset { border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:0 0 14px; }
+    .ae-card form legend { font-weight:700; font-size:13px; padding:0 6px; }
+    .ae-card form label { display:flex; gap:10px; align-items:flex-start; padding:8px 0; font-size:14px; cursor:pointer; }
+    .ae-card form label input { margin-top:4px; }
+    .ae-card form label .ti { font-weight:700; } .ae-card form label .de { font-size:12px; color:var(--muted); display:block; }
+    .ae-card form p { margin:0 0 14px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:15px; border-radius:9px; font-weight:800; font-size:15px; cursor:pointer; }
+    .ae-foot { color:var(--muted); font-size:12px; text-align:center; margin-top:14px; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head">
+      <div class="ae-ico">✉️</div>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-card">
+      %%content%%
+      <p class="ae-foot">配信は無料です。いつでも配信停止・設定変更ができます。</p>
+    </div>
+  </div>
+</body>
+</html>

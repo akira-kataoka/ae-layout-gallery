@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --gold:#c9a227; --ink:#f5efe0; --muted:#b9b08f; --line:#3a3520; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#1a1710; line-height:1.7; }
+    .ae-wrap { max-width:640px; margin:0 auto; padding:56px 20px; }
+    .ae-head { text-align:center; margin-bottom:30px; }
+    .ae-trophy { font-size:60px; margin-bottom:10px; }
+    .ae-head .badge { display:inline-block; border:1px solid var(--gold); color:var(--gold); font-weight:700; font-size:12px; letter-spacing:3px; padding:6px 18px; border-radius:999px; margin-bottom:14px; }
+    .ae-head h1 { font-size:30px; margin:0 0 8px; background:linear-gradient(135deg,#f3d98b,#c9a227); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-info { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin:24px 0 30px; }
+    .ae-chip { border:1px solid var(--line); border-radius:12px; padding:12px 20px; text-align:center; min-width:130px; }
+    .ae-chip .k { font-size:11px; color:var(--muted); } .ae-chip .v { font-weight:800; font-size:15px; color:var(--gold); }
+    .ae-cats { background:#211d14; border:1px solid var(--line); border-radius:16px; padding:22px; margin-bottom:28px; }
+    .ae-cats .t { text-align:center; font-weight:700; color:var(--gold); margin-bottom:12px; font-size:14px; letter-spacing:1px; }
+    .ae-cat { display:flex; align-items:center; gap:12px; padding:10px 0; border-top:1px solid var(--line); font-size:14px; }
+    .ae-cat:first-of-type { border-top:0; }
+    .ae-cat .medal { font-size:22px; }
+    .ae-card { background:#211d14; border:1px solid var(--gold); border-radius:18px; padding:26px; text-align:center; }
+    .ae-card .t { font-weight:700; font-size:18px; margin-bottom:4px; color:#fff; }
+    .ae-card .d { color:var(--muted); font-size:13px; margin-bottom:14px; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; background:#1a1710; color:#f5efe0; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:linear-gradient(135deg,#f3d98b,#c9a227); color:#2a2410; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head">
+      <div class="ae-trophy">🏆</div>
+      <span class="badge">ANNUAL AWARDS 2026</span>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-info">
+      <div class="ae-chip"><div class="k">開催日</div><div class="v">12.05 (土)</div></div>
+      <div class="ae-chip"><div class="k">会場</div><div class="v">グランドホール</div></div>
+      <div class="ae-chip"><div class="k">ドレスコード</div><div class="v">スマートカジュアル</div></div>
+    </div>
+    <div class="ae-cats">
+      <div class="t">― 表彰部門 ―</div>
+      <div class="ae-cat"><span class="medal">🥇</span><span>年間最優秀賞（グランプリ）</span></div>
+      <div class="ae-cat"><span class="medal">🥈</span><span>イノベーション賞</span></div>
+      <div class="ae-cat"><span class="medal">🥉</span><span>ベストチームワーク賞</span></div>
+      <div class="ae-cat"><span class="medal">✨</span><span>ニューフェイス賞</span></div>
+    </div>
+    <div class="ae-card">
+      <div class="t">出席のご登録</div>
+      <div class="d">ご招待者様専用の出欠フォームです</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

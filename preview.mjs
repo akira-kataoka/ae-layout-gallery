@@ -50,6 +50,17 @@ const NEWSLETTER_FORM = `<form>
   <p class="submit"><input type="submit" value="登録する"></p>
 </form>`;
 
+const TOPICS_FORM = `<form>
+  <p><input type="email" value="taro@example.com"></p>
+  <fieldset><legend>興味のあるトピック</legend>
+    <label><input type="checkbox" checked><span><span class="ti">プロダクト最新情報</span><span class="de">新機能やアップデートのお知らせ</span></span></label>
+    <label><input type="checkbox" checked><span><span class="ti">活用ノウハウ</span><span class="de">業務に役立つTipsやHow-to</span></span></label>
+    <label><input type="checkbox"><span><span class="ti">導入事例</span><span class="de">他社の成功事例インタビュー</span></span></label>
+    <label><input type="checkbox"><span><span class="ti">セミナー・イベント</span><span class="de">オンライン/オフライン開催の案内</span></span></label>
+  </fieldset>
+  <p class="submit"><input type="submit" value="購読する"></p>
+</form>`;
+
 const DATA_REQUEST_FORM = `<form>
   <p><label>ご請求の種類</label><br><select><option selected>登録情報の開示</option><option>情報の訂正・追加</option><option>利用停止・消去</option><option>第三者提供の停止</option></select></p>
   <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
@@ -1112,6 +1123,10 @@ function contentFor(dir, category) {
     case "235-landing-currency-switch-js": return NEWSLETTER_FORM;
     case "236-form-data-request": return DATA_REQUEST_FORM;
     case "237-thankyou-upsell-offer": return UPSELL_FORM;
+    case "238-landing-process-steps": return CONSULT_FORM;
+    case "239-landing-usage-pricing-js": return NEWSLETTER_FORM;
+    case "240-event-awards-ceremony": return RSVP_FORM;
+    case "241-form-newsletter-topics": return TOPICS_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

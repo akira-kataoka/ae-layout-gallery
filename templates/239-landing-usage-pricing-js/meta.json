@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - 従量課金シミュレーター(JS)",
+  "category": "landing",
+  "description": "ユーザー数・処理件数のスライダーと月額/年額トグルから料金を即時計算する従量課金シミュレーターLP(textContentのみ、innerHTML不使用)。SaaSの見積もり・トライアル獲得に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "あなたの使い方で、料金をシミュレーション",
+  "previewDescription": "スライダーを動かすだけ。使う分だけのわかりやすい料金が一目でわかります。"
+}
