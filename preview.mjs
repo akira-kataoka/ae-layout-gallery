@@ -282,6 +282,24 @@ const ALUMNI_FORM = `<form>
   <p class="submit"><input type="submit" value="出欠を回答する"></p>
 </form>`;
 
+const WARRANTY_CLAIM_FORM = `<form>
+  <p><label>保証番号</label><br><input type="text" value="WR-2025-004512"></p>
+  <div class="row"><p><label>製品名</label><br><input type="text" value="コードレス掃除機 X200"></p><p><label>購入日</label><br><input type="date" value="2025-09-15"></p></div>
+  <p><label>不具合の内容</label><br><textarea>充電してもすぐに切れてしまいます。</textarea></p>
+  <p><label>ご希望の対応</label><br><select><option selected>修理</option><option>交換</option><option>まずは相談</option></select></p>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="保証修理を申し込む"></p>
+</form>`;
+
+const ADOPTION_FORM = `<form>
+  <p><label>気になる子</label><br><select><option selected>モカ（犬・2歳）</option><option>そら（猫・1歳）</option><option>くろ（猫・3歳）</option><option>当日決めたい</option></select></p>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p><label>ご住居</label><br><select><option selected>持ち家（戸建て）</option><option>賃貸（ペット可）</option><option>その他</option></select></p>
+  <p class="submit"><input type="submit" value="来場予約・里親希望を登録"></p>
+</form>`;
+
 const PRINTING_FORM = `<form>
   <p><label>印刷物の種類</label><br><select><option selected>名刺</option><option>チラシ・フライヤー</option><option>冊子・パンフレット</option><option>シール・ラベル</option></select></p>
   <div class="row"><p><label>サイズ</label><br><input type="text" value="名刺サイズ（91×55mm）"></p><p><label>部数</label><br><input type="number" value="500"></p></div>
@@ -1572,6 +1590,10 @@ function contentFor(dir, category) {
     case "331-form-printing-quote": return PRINTING_FORM;
     case "332-event-book-signing": return BOOKSIGN_FORM;
     case "333-thankyou-document-signed": return NEWSLETTER_FORM;
+    case "334-landing-product-filter-js": return NEWSLETTER_FORM;
+    case "335-form-warranty-claim": return WARRANTY_CLAIM_FORM;
+    case "336-event-pet-adoption": return ADOPTION_FORM;
+    case "337-utility-data-export-ready": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

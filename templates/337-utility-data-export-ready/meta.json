@@ -1,0 +1,8 @@
+{
+  "name": "ユーティリティ - データエクスポート準備完了",
+  "category": "utility",
+  "description": "ユーザーが依頼したデータエクスポートの準備完了を通知し、ファイル情報とダウンロードリンク(有効期限付き)を提示するページ。データポータビリティ/GDPR対応の受け渡し画面に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "データの準備ができました",
+  "previewDescription": "エクスポートが完了しました。下記よりダウンロードいただけます。"
+}

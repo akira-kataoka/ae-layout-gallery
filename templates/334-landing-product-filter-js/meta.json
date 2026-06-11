@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - 商品カテゴリフィルタ(JS)",
+  "category": "landing",
+  "description": "カテゴリチップのタップで商品グリッドを絞り込み表示し、件数も更新するカタログ型LP(classList・textContentのみ、innerHTML不使用)。商品ラインナップ訴求とメルマガ登録の導線に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "気になるカテゴリから選ぶ",
+  "previewDescription": "カテゴリをタップすると、その分類の商品だけが表示されます。"
+}

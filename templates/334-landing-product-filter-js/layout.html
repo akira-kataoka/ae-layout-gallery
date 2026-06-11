@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#4338ca; --ink:#15172e; --muted:#64698c; --line:#e3e2f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f5f5fc; line-height:1.7; }
+    .ae-wrap { max-width:680px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:20px; }
+    .ae-head h1 { font-size:25px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-filters { display:flex; gap:8px; flex-wrap:wrap; justify-content:center; margin-bottom:8px; }
+    .ae-chip { border:1px solid var(--line); background:#fff; border-radius:999px; padding:8px 16px; font-size:13px; font-weight:700; cursor:pointer; font-family:inherit; color:#475569; }
+    .ae-chip.on { background:var(--accent); color:#fff; border-color:var(--accent); }
+    .ae-count { text-align:center; font-size:12px; color:var(--muted); margin-bottom:18px; }
+    .ae-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:24px; }
+    .ae-item { background:#fff; border:1px solid var(--line); border-radius:14px; overflow:hidden; box-shadow:0 6px 18px rgba(67,56,202,.05); }
+    .ae-item.hide { display:none; }
+    .ae-item .ph { aspect-ratio:1; display:flex; align-items:center; justify-content:center; font-size:40px; background:linear-gradient(135deg,#eef2ff,#e0e7ff); }
+    .ae-item .bd { padding:10px 12px; }
+    .ae-item .nm { font-weight:700; font-size:12.5px; line-height:1.4; }
+    .ae-item .pr { color:var(--accent); font-weight:900; font-size:14px; margin-top:2px; }
+    .ae-item .cat { font-size:10px; color:var(--muted); }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px; text-align:center; }
+    .ae-card .t { font-weight:700; margin-bottom:12px; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    @media (max-width:540px){ .ae-grid { grid-template-columns:1fr 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-filters" id="filters">
+      <button type="button" class="ae-chip on" data-cat="all">すべて</button>
+      <button type="button" class="ae-chip" data-cat="home">家電</button>
+      <button type="button" class="ae-chip" data-cat="fashion">ファッション</button>
+      <button type="button" class="ae-chip" data-cat="goods">雑貨</button>
+    </div>
+    <div class="ae-count"><span id="cnt">6</span> 件を表示中</div>
+    <div class="ae-grid" id="grid">
+      <div class="ae-item" data-cat="home"><div class="ph">🎧</div><div class="bd"><div class="nm">ワイヤレスイヤホン</div><div class="cat">家電</div><div class="pr">¥12,800</div></div></div>
+      <div class="ae-item" data-cat="fashion"><div class="ph">👟</div><div class="bd"><div class="nm">ランニングシューズ</div><div class="cat">ファッション</div><div class="pr">¥8,900</div></div></div>
+      <div class="ae-item" data-cat="goods"><div class="ph">☕</div><div class="bd"><div class="nm">保温タンブラー</div><div class="cat">雑貨</div><div class="pr">¥3,200</div></div></div>
+      <div class="ae-item" data-cat="home"><div class="ph">💡</div><div class="bd"><div class="nm">スマートライト</div><div class="cat">家電</div><div class="pr">¥4,400</div></div></div>
+      <div class="ae-item" data-cat="fashion"><div class="ph">🧥</div><div class="bd"><div class="nm">撥水ジャケット</div><div class="cat">ファッション</div><div class="pr">¥14,800</div></div></div>
+      <div class="ae-item" data-cat="goods"><div class="ph">🕯️</div><div class="bd"><div class="nm">アロマキャンドル</div><div class="cat">雑貨</div><div class="pr">¥2,600</div></div></div>
+    </div>
+    <div class="ae-card">
+      <div class="t">新商品・セール情報をいち早く受け取る</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var chips = Array.prototype.slice.call(document.querySelectorAll(".ae-chip"));
+    var items = Array.prototype.slice.call(document.querySelectorAll(".ae-item"));
+    var cntEl = document.getElementById("cnt");
+    chips.forEach(function (chip) {
+      chip.addEventListener("click", function () {
+        chips.forEach(function (c) { c.classList.remove("on"); });
+        chip.classList.add("on");
+        var cat = chip.getAttribute("data-cat");
+        var shown = 0;
+        items.forEach(function (it) {
+          var match = cat === "all" || it.getAttribute("data-cat") === cat;
+          it.classList.toggle("hide", !match);
+          if (match) shown++;
+        });
+        cntEl.textContent = shown;
+      });
+    });
+  })();
+  </script>
+</body>
+</html>
