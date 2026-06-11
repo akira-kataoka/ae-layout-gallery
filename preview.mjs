@@ -231,6 +231,21 @@ const CALENDAR_BODY = `<h1>お申し込みが完了しました</h1>
 const SHARE_BODY = `<h1>ご参加ありがとうございます！</h1>
 <p>よろしければ、お知り合いにもシェアしていただけると嬉しいです。</p>`;
 
+const DELETE_FORM = `<form>
+  <p><label>削除の理由（任意）</label><br><select><option selected>使わなくなった</option><option>別サービスへ移行</option><option>機能に不満</option><option>その他</option></select></p>
+  <p><label>ご登録メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p><label class="chk"><input type="checkbox"> データが完全に削除され、復元できないことに同意します</label></p>
+  <p class="submit"><input type="submit" value="アカウントを削除する"></p>
+</form>`;
+
+const RENOV_FORM = `<form>
+  <p><label>工事種別</label><br><select><option selected>キッチン</option><option>浴室・水回り</option><option>外壁・屋根</option><option>全面リフォーム</option></select></p>
+  <div class="row"><p><label>築年数</label><br><input type="text" value="約20年"></p><p><label>ご予算</label><br><select><option>〜100万円</option><option selected>100〜300万円</option><option>300万円以上</option></select></p></div>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <div class="row"><p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p></div>
+  <p class="submit"><input type="submit" value="無料で見積もり依頼"></p>
+</form>`;
+
 const MEETING_FORM = `<form>
   <p><label>会社名</label><br><input type="text" value="株式会社サンプル"></p>
   <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
@@ -1006,6 +1021,9 @@ function contentFor(dir, category) {
     case "207-form-line-friend-add": return NEWSLETTER_FORM;
     case "208-landing-product-roadmap": return NEWSLETTER_FORM;
     case "209-form-booth-meeting": return MEETING_FORM;
+    case "210-utility-account-deletion": return DELETE_FORM;
+    case "211-landing-plan-recommend-js": return NEWSLETTER_FORM;
+    case "212-form-renovation-quote": return RENOV_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }

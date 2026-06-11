@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - リフォーム/工事見積依頼",
+  "category": "form",
+  "description": "工事種別・築年数・予算を入力するリフォーム見積依頼フォーム。住宅リフォーム・工務店の反響獲得に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "リフォーム無料見積もり",
+  "previewDescription": "ご希望の工事内容を入力するだけ。専門スタッフが概算をご案内します。"
+}

@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - プラン推奨診断(JS)",
+  "category": "landing",
+  "description": "ニーズのチェックに応じて最適プランを提案する素のJavaScript診断LP(data属性スコアリング・textContentのみ)。プラン選択の後押しに。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "あなたに最適なプランは？",
+  "previewDescription": "やりたいことを選ぶと、おすすめプランがその場でわかります。"
+}

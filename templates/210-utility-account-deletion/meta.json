@@ -1,0 +1,8 @@
+{
+  "name": "配信設定 - アカウント削除リクエスト",
+  "category": "utility",
+  "description": "注意喚起＋理由ヒアリング＋同意付きのアカウント削除申請フォーム。退会・データ削除依頼の受付に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "アカウントの削除",
+  "previewDescription": "削除前に内容をご確認ください。この操作は取り消せません。"
+}

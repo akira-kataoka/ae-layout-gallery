@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#b91c1c; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f8fafc; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:14px; }
+    .ae-head .ic { font-size:40px; }
+    .ae-head h1 { margin:6px 0; font-size:24px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-warn { background:#fef2f2; border:1px solid #fecaca; color:var(--accent); border-radius:12px; padding:14px 16px; font-size:13px; margin-bottom:16px; }
+    .ae-warn b { display:block; margin-bottom:4px; }
+    .ae-keep { display:block; text-align:center; margin-bottom:16px; }
+    .ae-keep a { color:#2563eb; text-decoration:none; font-weight:700; font-size:14px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:28px 26px; box-shadow:0 6px 20px rgba(15,23,42,.05); }
+    .ae-card form label { font-size:13px; font-weight:600; }
+    .ae-card form .chk { display:flex; gap:8px; align-items:flex-start; font-size:13px; color:var(--muted); }
+    .ae-card form input[type=email],.ae-card form select,.ae-card form textarea { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 14px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:700; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><div class="ic">🗑️</div><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-warn"><b>ご確認ください</b>アカウントを削除すると、データ・購入履歴・ポイントはすべて失われ、復元できません。</div>
+    <div class="ae-keep"><a href="#">← アカウントを残して戻る</a></div>
+    <div class="ae-card">%%content%%</div>
+  </div>
+</body>
+</html>
