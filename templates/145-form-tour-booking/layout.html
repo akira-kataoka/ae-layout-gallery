@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0891b2; --ink:#0f213a; --muted:#5b6b7b; --line:#dce8ef; --dark:#0c3a52; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eef7fb; line-height:1.7; }
+    .ae-grid { max-width:920px; margin:0 auto; padding:48px 20px; display:grid; grid-template-columns:1fr 1.1fr; gap:0; background:#fff; border-radius:18px; overflow:hidden; box-shadow:0 12px 40px rgba(8,145,178,.14); }
+    .ae-visual { background:linear-gradient(160deg,#0e7490,#0891b2); color:#fff; padding:38px 32px; display:flex; flex-direction:column; justify-content:center; }
+    .ae-visual .ic { font-size:64px; text-align:center; }
+    .ae-visual h1 { font-size:24px; margin:14px 0 8px; }
+    .ae-visual ul { list-style:none; padding:0; margin:8px 0 0; font-size:14px; opacity:.95; }
+    .ae-visual li { padding:5px 0 5px 22px; position:relative; } .ae-visual li::before { content:"✈"; position:absolute; left:0; }
+    .ae-form { padding:36px 32px; }
+    .ae-form h2 { margin-top:0; font-size:18px; }
+    .ae-form form label { font-size:13px; font-weight:600; }
+    .ae-form form input[type=text],.ae-form form input[type=email],.ae-form form input[type=date],.ae-form form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-form form .row { display:flex; gap:12px; } .ae-form form .row > p { flex:1; }
+    .ae-form form p { margin:0 0 14px; }
+    .ae-form form .submit input,.ae-form form button { width:100%; background:var(--accent); color:#fff; border:0; padding:15px; border-radius:9px; font-weight:800; font-size:15px; cursor:pointer; }
+    @media (max-width:720px){ .ae-grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-grid">
+    <section class="ae-visual">
+      <div class="ic">🏝️</div>
+      <h1>%%title%%</h1>
+      <p style="opacity:.9;margin:0 0 6px;">%%description%%</p>
+      <ul><li>添乗員同行で安心</li><li>人気宿を確保</li><li>キャンセル無料(出発30日前まで)</li></ul>
+    </section>
+    <section class="ae-form"><h2>ツアー予約リクエスト</h2>%%content%%</section>
+  </div>
+</body>
+</html>

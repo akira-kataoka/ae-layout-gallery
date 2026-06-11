@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 旅行/ツアー予約",
+  "category": "form",
+  "description": "行き先・出発日・人数を指定するツアー予約リクエストフォーム。旅行代理店・体験ツアーの予約獲得に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "南の島リゾート 3日間",
+  "previewDescription": "ご希望の出発日と人数をお選びください。空席状況を確認しご連絡します。"
+}

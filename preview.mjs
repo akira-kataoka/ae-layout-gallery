@@ -231,6 +231,22 @@ const CALENDAR_BODY = `<h1>お申し込みが完了しました</h1>
 const SHARE_BODY = `<h1>ご参加ありがとうございます！</h1>
 <p>よろしければ、お知り合いにもシェアしていただけると嬉しいです。</p>`;
 
+const WEDDING_RSVP_FORM = `<form>
+  <p class="att"><label><input type="radio" name="att" checked> 出席</label><label><input type="radio" name="att"> 欠席</label></p>
+  <p><label>お名前</label><br><input type="text" value="鈴木 一郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="ichiro@example.com"></p>
+  <p><label>アレルギー・ご要望（任意）</label><br><input type="text" value="特になし"></p>
+  <p class="submit"><input type="submit" value="お返事を送信する"></p>
+</form>`;
+
+const TOUR_FORM = `<form>
+  <p><label>行き先</label><br><select><option selected>南の島リゾート 3日間</option><option>ヨーロッパ周遊 7日間</option><option>国内温泉 2日間</option></select></p>
+  <div class="row"><p><label>出発希望日</label><br><input type="date" value="2026-09-20"></p><p><label>参加人数</label><br><select><option>1名</option><option selected>2名</option><option>3〜4名</option><option>5名以上</option></select></p></div>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="予約をリクエストする"></p>
+</form>`;
+
 const KIOSK_FORM = `<form>
   <p><label>会社名</label><br><input type="text" value="株式会社サンプル"></p>
   <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
@@ -685,6 +701,9 @@ function contentFor(dir, category) {
     case "140-landing-faq-accordion-js": return NEWSLETTER_FORM;
     case "141-landing-bmi-calculator-js": return NEWSLETTER_FORM;
     case "142-landing-before-after": return NEWSLETTER_FORM;
+    case "143-event-wedding-rsvp": return WEDDING_RSVP_FORM;
+    case "144-landing-wizard-js": return NEWSLETTER_FORM;
+    case "145-form-tour-booking": return TOUR_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }

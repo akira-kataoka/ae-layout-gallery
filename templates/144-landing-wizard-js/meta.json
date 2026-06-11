@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - ステップウィザード(jQuery)",
+  "category": "landing",
+  "description": "jQueryで目的→規模→連絡先と進む多段ウィザードLP。進捗バー＋戻る/次へ。外部CDNはSRI付き。離脱を抑え高品質リード獲得。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "30秒であなたに最適なプランを",
+  "previewDescription": "かんたんな質問に答えるだけ。最後にご連絡先をご入力ください。"
+}
