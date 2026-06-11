@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - 割引重ねがけシミュレーター(JS)",
+  "category": "landing",
+  "description": "会員割引・初回・まとめ買い・クーポンなど複数の割引を選ぶと、率引き/額引きを合算した最終価格とお得額を即時計算するLP(textContentのみ、innerHTML不使用)。キャンペーン訴求と購入促進に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "割引、ぜんぶ重ねるといくら？",
+  "previewDescription": "使える割引にチェックすると、最終的なお支払い額がわかります。"
+}

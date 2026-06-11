@@ -1,0 +1,8 @@
+{
+  "name": "サンクス - 休会手続き完了",
+  "category": "thankyou",
+  "description": "サブスクの休会(一時停止)手続き完了後に、休会期間・自動再開予定日・休会中の保証を案内するサンクスページ。解約を防ぐ休会オプションの完了画面に。再開通知のオプトイン付き。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "休会の手続きが完了しました",
+  "previewDescription": "またのご利用をお待ちしています。データはそのまま保持されます。"
+}

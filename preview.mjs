@@ -282,6 +282,21 @@ const ALUMNI_FORM = `<form>
   <p class="submit"><input type="submit" value="出欠を回答する"></p>
 </form>`;
 
+const WEDDING_VENUE_FORM = `<form>
+  <p><label>挙式ご希望時期</label><br><select><option selected>半年以内</option><option>1年以内</option><option>1年以上先</option><option>未定</option></select></p>
+  <div class="row"><p><label>招待人数の目安</label><br><input type="number" value="60"></p><p><label>来館希望日</label><br><input type="date" value="2026-07-20"></p></div>
+  <p><label>おふたりのお名前</label><br><input type="text" value="山田 太郎・花子"></p>
+  <div class="row"><p><label>メール</label><br><input type="email" value="taro@example.com"></p><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p></div>
+  <p class="submit"><input type="submit" value="フェアを予約する"></p>
+</form>`;
+
+const VOLUNTEER_DAY_FORM = `<form>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <div class="row"><p><label>参加人数</label><br><input type="number" min="1" value="2"></p><p><label>うち子ども</label><br><input type="number" min="0" value="1"></p></div>
+  <p class="submit"><input type="submit" value="ボランティアに参加する"></p>
+</form>`;
+
 const FRANCHISE_FORM = `<form>
   <p><label>希望エリア</label><br><input type="text" value="東京・神奈川"></p>
   <p><label>開業希望時期</label><br><select><option selected>3ヶ月以内</option><option>半年〜1年</option><option>未定・情報収集中</option></select></p>
@@ -1698,6 +1713,10 @@ function contentFor(dir, category) {
     case "355-form-franchise-inquiry": return FRANCHISE_FORM;
     case "356-event-school-festival": return SCHOOLFEST_FORM;
     case "357-utility-verification-pending": return NEWSLETTER_FORM;
+    case "358-landing-discount-stack-js": return NEWSLETTER_FORM;
+    case "359-form-wedding-venue-inquiry": return WEDDING_VENUE_FORM;
+    case "360-event-volunteer-day": return VOLUNTEER_DAY_FORM;
+    case "361-thankyou-subscription-paused": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

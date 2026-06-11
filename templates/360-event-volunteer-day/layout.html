@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#15803d; --ink:#0c2415; --muted:#566b5d; --line:#d9ead9; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f1faf3; line-height:1.7; }
+    .ae-hero { background:linear-gradient(135deg,#4ade80,#15803d); color:#fff; text-align:center; padding:50px 20px 40px; }
+    .ae-hero .em { font-size:50px; }
+    .ae-hero h1 { font-size:27px; margin:6px 0 8px; }
+    .ae-hero p { margin:0; opacity:.95; font-size:14px; }
+    .ae-wrap { max-width:620px; margin:0 auto; padding:34px 20px 48px; }
+    .ae-info { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-bottom:24px; }
+    .ae-i { background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 18px; box-shadow:0 8px 22px rgba(21,128,61,.06); }
+    .ae-i .k { font-size:11px; color:var(--muted); } .ae-i .v { font-weight:800; font-size:15px; }
+    .ae-prog { background:#fff; border:1px solid var(--line); border-radius:16px; padding:20px; margin-bottom:24px; }
+    .ae-prog .t { font-weight:700; text-align:center; margin-bottom:12px; }
+    .ae-a { display:flex; align-items:center; gap:10px; padding:8px 0; border-top:1px dashed var(--line); font-size:14px; }
+    .ae-a:first-of-type { border-top:0; }
+    .ae-a .tm { color:var(--accent); font-weight:700; font-size:12px; width:60px; flex:0 0 auto; }
+    .ae-note { background:#f0fdf4; border:1px solid var(--line); border-radius:12px; padding:14px 16px; font-size:12px; color:#33514c; margin-bottom:24px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; }
+    .ae-card .t { font-weight:700; font-size:17px; margin-bottom:6px; text-align:center; }
+    .ae-card .d { color:var(--muted); font-size:13px; margin-bottom:14px; text-align:center; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form input[type=number],.ae-card form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    @media (max-width:480px){ .ae-info { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-hero">
+    <div class="em">🌱</div>
+    <h1>%%title%%</h1>
+    <p>%%description%%</p>
+  </div>
+  <div class="ae-wrap">
+    <div class="ae-info">
+      <div class="ae-i"><div class="k">活動日</div><div class="v">10.11 (土) 9:00集合</div></div>
+      <div class="ae-i"><div class="k">場所</div><div class="v">海岸公園 第2駐車場</div></div>
+      <div class="ae-i"><div class="k">内容</div><div class="v">海岸清掃・植樹</div></div>
+      <div class="ae-i"><div class="k">参加費</div><div class="v">無料（軍手・飲料支給）</div></div>
+    </div>
+    <div class="ae-prog">
+      <div class="t">当日の流れ</div>
+      <div class="ae-a"><span class="tm">9:00</span><span>受付・オリエンテーション</span></div>
+      <div class="ae-a"><span class="tm">9:30</span><span>清掃・植樹活動</span></div>
+      <div class="ae-a"><span class="tm">11:30</span><span>記念撮影・解散</span></div>
+    </div>
+    <div class="ae-note">汚れてもよい服装・歩きやすい靴でお越しください。小学生以下は保護者同伴でご参加いただけます。</div>
+    <div class="ae-card">
+      <div class="t">ボランティア参加の申し込み</div>
+      <div class="d">お一人でも、ご家族・グループでも歓迎です</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

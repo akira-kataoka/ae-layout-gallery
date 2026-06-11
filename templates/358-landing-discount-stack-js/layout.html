@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#e11d48; --ink:#2a0f1a; --muted:#6b5560; --line:#f3dce0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fff1f4; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:22px; }
+    .ae-head h1 { font-size:24px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; box-shadow:0 12px 32px rgba(225,29,72,.08); }
+    .ae-base { display:flex; justify-content:space-between; font-size:14px; padding-bottom:12px; border-bottom:1px solid var(--line); margin-bottom:4px; }
+    .ae-base b { font-variant-numeric:tabular-nums; }
+    .ae-disc { display:flex; align-items:center; gap:12px; padding:12px 0; border-bottom:1px solid var(--line); }
+    .ae-disc input { width:20px; height:20px; accent-color:var(--accent); }
+    .ae-disc .nm { flex:1; font-size:14px; font-weight:700; } .ae-disc .de { font-size:11px; color:var(--muted); font-weight:400; }
+    .ae-disc .val { color:var(--accent); font-weight:700; font-variant-numeric:tabular-nums; font-size:13px; }
+    .ae-total { margin-top:14px; background:linear-gradient(135deg,#e11d48,#be123c); color:#fff; border-radius:14px; padding:20px; text-align:center; }
+    .ae-total .was { font-size:13px; opacity:.85; text-decoration:line-through; }
+    .ae-total .now { font-size:34px; font-weight:900; font-variant-numeric:tabular-nums; line-height:1.1; }
+    .ae-total .save { font-size:13px; background:rgba(255,255,255,.2); display:inline-block; padding:2px 12px; border-radius:999px; margin-top:6px; }
+    .ae-cta { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; margin-top:18px; }
+    .ae-cta .t { font-weight:700; margin-bottom:12px; }
+    .ae-cta form input[type=text],.ae-cta form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form .submit input,.ae-cta form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <div class="ae-base"><span>通常価格</span><b>¥10,000</b></div>
+      <label class="ae-disc"><input type="checkbox" class="d" data-type="rate" data-val="10" checked><span class="nm">会員割引<span class="de"> 10%OFF</span></span><span class="val">−10%</span></label>
+      <label class="ae-disc"><input type="checkbox" class="d" data-type="rate" data-val="5"><span class="nm">初回購入<span class="de"> 5%OFF</span></span><span class="val">−5%</span></label>
+      <label class="ae-disc"><input type="checkbox" class="d" data-type="fix" data-val="1000"><span class="nm">まとめ買い<span class="de"> 2点以上で</span></span><span class="val">−¥1,000</span></label>
+      <label class="ae-disc"><input type="checkbox" class="d" data-type="fix" data-val="500"><span class="nm">クーポンコード<span class="de"> SAVE500</span></span><span class="val">−¥500</span></label>
+      <div class="ae-total">
+        <div class="was">¥10,000</div>
+        <div class="now">¥<span id="now">0</span></div>
+        <div class="save">合計 <span id="save">0</span>円 お得</div>
+      </div>
+    </div>
+    <div class="ae-cta">
+      <div class="t">この価格で購入・クーポンを受け取る</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var BASE = 10000;
+    var boxes = Array.prototype.slice.call(document.querySelectorAll(".d"));
+    var nowEl = document.getElementById("now"), saveEl = document.getElementById("save");
+    function calc() {
+      var price = BASE, rate = 0, fixed = 0;
+      boxes.forEach(function (b) {
+        if (!b.checked) return;
+        if (b.getAttribute("data-type") === "rate") rate += parseInt(b.getAttribute("data-val"), 10) || 0;
+        else fixed += parseInt(b.getAttribute("data-val"), 10) || 0;
+      });
+      price = Math.max(0, Math.round(BASE * (1 - rate / 100)) - fixed);
+      nowEl.textContent = price.toLocaleString("ja-JP");
+      saveEl.textContent = (BASE - price).toLocaleString("ja-JP");
+    }
+    boxes.forEach(function (b) { b.addEventListener("change", calc); });
+    calc();
+  })();
+  </script>
+</body>
+</html>
