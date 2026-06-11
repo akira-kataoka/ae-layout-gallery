@@ -282,6 +282,21 @@ const ALUMNI_FORM = `<form>
   <p class="submit"><input type="submit" value="出欠を回答する"></p>
 </form>`;
 
+const PHOTO_FORM = `<form>
+  <p><label>撮影プラン</label><br><select><option selected>ウェディング</option><option>家族・七五三</option><option>マタニティ</option><option>プロフィール</option></select></p>
+  <div class="row"><p><label>ご希望日</label><br><input type="date" value="2026-09-12"></p><p><label>撮影場所</label><br><select><option selected>スタジオ</option><option>出張（屋外）</option><option>未定・相談</option></select></p></div>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <div class="row"><p><label>メール</label><br><input type="email" value="taro@example.com"></p><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p></div>
+  <p class="submit"><input type="submit" value="撮影を相談・予約する"></p>
+</form>`;
+
+const STARGAZE_FORM = `<form>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <div class="row"><p><label>大人</label><br><input type="number" min="0" value="2"></p><p><label>子ども</label><br><input type="number" min="0" value="1"></p></div>
+  <p class="submit"><input type="submit" value="観測会に申し込む"></p>
+</form>`;
+
 const CLEANING_FORM = `<form>
   <p><label>ご依頼箇所</label><br><select><option selected>水まわり（浴室・トイレ・洗面）</option><option>エアコン</option><option>キッチン・レンジフード</option><option>空室・お引越し</option></select></p>
   <p><label>間取り・広さ</label><br><input type="text" value="2LDK / 約60㎡"></p>
@@ -1658,6 +1673,10 @@ function contentFor(dir, category) {
     case "347-form-cleaning-quote": return CLEANING_FORM;
     case "348-event-online-yoga": return YOGA_FORM;
     case "349-thankyou-checkin-complete": return NEWSLETTER_FORM;
+    case "350-landing-goal-thermometer-js": return DONATION_FORM;
+    case "351-form-photography-booking": return PHOTO_FORM;
+    case "352-event-stargazing": return STARGAZE_FORM;
+    case "353-utility-trial-expired": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

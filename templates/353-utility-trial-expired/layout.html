@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#2563eb; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eef4fb; line-height:1.7; }
+    .ae-wrap { max-width:540px; margin:0 auto; padding:56px 20px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:20px; padding:36px 30px; text-align:center; box-shadow:0 16px 40px rgba(37,99,235,.1); }
+    .ae-ico { width:74px; height:74px; border-radius:18px; background:#eff6ff; display:flex; align-items:center; justify-content:center; font-size:36px; margin:0 auto 18px; }
+    .ae-card h1 { font-size:23px; margin:0 0 10px; }
+    .ae-card .lead { color:var(--muted); margin:0 0 22px; font-size:14px; }
+    .ae-keep { background:#f8fafc; border:1px solid var(--line); border-radius:14px; padding:18px; margin-bottom:20px; text-align:left; }
+    .ae-keep .t { font-weight:700; font-size:13px; margin-bottom:8px; text-align:center; }
+    .ae-keep li { font-size:13px; color:#334155; padding:4px 0 4px 22px; position:relative; }
+    .ae-keep li::before { content:"✓"; position:absolute; left:0; color:var(--accent); font-weight:900; }
+    .ae-offer { background:linear-gradient(135deg,#2563eb,#4f46e5); color:#fff; border-radius:14px; padding:16px; margin-bottom:20px; }
+    .ae-offer .big { font-size:18px; font-weight:900; } .ae-offer .sm { font-size:12px; opacity:.92; }
+    .ae-btn { display:block; background:var(--accent); color:#fff; border-radius:10px; padding:15px; font-weight:800; font-size:15px; text-decoration:none; margin-bottom:14px; }
+    .ae-optin { border-top:1px dashed var(--line); padding-top:20px; }
+    .ae-optin .t { font-weight:700; font-size:14px; margin-bottom:12px; }
+    .ae-optin form input[type=email] { width:100%; padding:13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-optin form p { margin:0 0 12px; }
+    .ae-optin form .submit input,.ae-optin form button { width:100%; background:var(--accent); color:#fff; border:0; padding:13px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-card">
+      <div class="ae-ico">⏰</div>
+      <h1>%%title%%</h1>
+      <p class="lead">%%description%%</p>
+      <div class="ae-keep">
+        <div class="t">有料プランで、引き続きこの体験を</div>
+        <ul>
+          <li>作成したデータをそのまま使い続けられます</li>
+          <li>すべての機能のロックが解除されます</li>
+          <li>優先サポートと自動バックアップ付き</li>
+        </ul>
+      </div>
+      <div class="ae-offer">
+        <div class="big">いま登録で初月50%OFF</div>
+        <div class="sm">トライアル終了から7日以内限定の特別価格</div>
+      </div>
+      <a class="ae-btn" href="#">有料プランにアップグレード</a>
+      <div class="ae-optin">
+        <div class="t">まだ迷う方へ・活用のヒントを受け取る</div>
+        %%content%%
+      </div>
+    </div>
+  </div>
+</body>
+</html>

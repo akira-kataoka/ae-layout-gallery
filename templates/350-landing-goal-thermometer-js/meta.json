@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - 目標達成サーモメーター(JS)",
+  "category": "landing",
+  "description": "募金/クラファンの達成額を温度計型ゲージでアニメ表示し、支援額プリセットを選ぶと達成率の見込みが更新されるLP(style.height・textContent・classList、innerHTML不使用)。寄付/支援募集に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "ゴールまで、あと少し！",
+  "previewDescription": "みんなの支援で目標に近づいています。あなたの力を貸してください。"
+}

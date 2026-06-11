@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#818cf8; --ink:#e2e8f0; --muted:#94a3b8; --line:#27314d; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#0a0e1f; line-height:1.7; }
+    .ae-hero { background:radial-gradient(circle at 30% 20%,#1e293b,#0a0e1f 70%); text-align:center; padding:58px 20px 46px; position:relative; }
+    .ae-hero .em { font-size:54px; }
+    .ae-hero h1 { font-size:28px; margin:6px 0 8px; color:#fff; }
+    .ae-hero p { margin:0; color:var(--muted); font-size:14px; }
+    .ae-wrap { max-width:600px; margin:0 auto; padding:34px 20px 48px; }
+    .ae-info { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-bottom:24px; }
+    .ae-i { background:#121a30; border:1px solid var(--line); border-radius:14px; padding:16px 18px; }
+    .ae-i .k { font-size:11px; color:var(--muted); } .ae-i .v { font-weight:800; font-size:15px; color:#fff; }
+    .ae-see { background:#121a30; border:1px solid var(--line); border-radius:16px; padding:20px; margin-bottom:24px; }
+    .ae-see .t { font-weight:700; text-align:center; margin-bottom:12px; color:#fff; }
+    .ae-s { display:flex; align-items:center; gap:10px; padding:8px 0; border-top:1px dashed var(--line); font-size:14px; }
+    .ae-s:first-of-type { border-top:0; }
+    .ae-s .em { font-size:20px; }
+    .ae-note { font-size:12px; color:var(--muted); text-align:center; margin-bottom:24px; }
+    .ae-card { background:#121a30; border:1px solid var(--accent); border-radius:18px; padding:26px; }
+    .ae-card .t { font-weight:700; font-size:17px; margin-bottom:6px; text-align:center; color:#fff; }
+    .ae-card .d { color:var(--muted); font-size:13px; margin-bottom:14px; text-align:center; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form input[type=number],.ae-card form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; background:#0a0e1f; color:#e2e8f0; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:linear-gradient(135deg,#a5b4fc,#818cf8); color:#1e1b4b; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    @media (max-width:480px){ .ae-info { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-hero">
+    <div class="em">🔭</div>
+    <h1>%%title%%</h1>
+    <p>%%description%%</p>
+  </div>
+  <div class="ae-wrap">
+    <div class="ae-info">
+      <div class="ae-i"><div class="k">開催日</div><div class="v">9.20 (土) 19:30–21:30</div></div>
+      <div class="ae-i"><div class="k">場所</div><div class="v">高原天文台 屋上デッキ</div></div>
+      <div class="ae-i"><div class="k">参加費</div><div class="v">大人1,500円 / 子ども800円</div></div>
+      <div class="ae-i"><div class="k">天候</div><div class="v">曇天時はプラネタリウム上映</div></div>
+    </div>
+    <div class="ae-see">
+      <div class="t">今夜のみどころ</div>
+      <div class="ae-s"><span class="em">🪐</span><span>土星の環を大型望遠鏡で観察</span></div>
+      <div class="ae-s"><span class="em">🌕</span><span>月のクレーターをくっきり</span></div>
+      <div class="ae-s"><span class="em">✨</span><span>夏の大三角と天の川の解説</span></div>
+    </div>
+    <p class="ae-note">防寒着をお持ちください。望遠鏡はこちらでご用意します。手ぶらでご参加いただけます。</p>
+    <div class="ae-card">
+      <div class="t">観測会に申し込む</div>
+      <div class="d">定員制・先着順です</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>
