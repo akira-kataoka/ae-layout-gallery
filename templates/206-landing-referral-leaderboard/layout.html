@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#7c3aed; --gold:#eab308; --ink:#0f172a; --muted:#64748b; --line:#ece5f7; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f7f5fe; line-height:1.7; }
+    .ae-head { text-align:center; padding:48px 20px 8px; }
+    .ae-head h1 { font-size:27px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-board { max-width:520px; margin:22px auto; padding:0 20px; }
+    .ae-row { display:flex; align-items:center; gap:14px; background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin-bottom:8px; box-shadow:0 4px 14px rgba(124,58,237,.06); }
+    .ae-row .rank { width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; background:#f1f5f9; color:#64748b; flex:none; }
+    .ae-row.top1 .rank { background:linear-gradient(135deg,#fde68a,#eab308); color:#3b2406; }
+    .ae-row.top2 .rank { background:#e5e7eb; } .ae-row.top3 .rank { background:#fdba74; color:#7c2d12; }
+    .ae-row .nm { flex:1; font-weight:700; }
+    .ae-row .pt { color:var(--accent); font-weight:800; }
+    .ae-row.me { border:2px solid var(--accent); background:#faf5ff; }
+    .ae-card { max-width:480px; margin:18px auto 56px; padding:0 20px; }
+    .ae-card .inner { background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px; text-align:center; box-shadow:0 8px 24px rgba(124,58,237,.1); }
+    .ae-card .t { font-weight:700; margin-bottom:10px; }
+    .ae-card form input[type=email],.ae-card form input[type=text] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <header class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></header>
+  <section class="ae-board">
+    <div class="ae-row top1"><span class="rank">1</span><span class="nm">🏆 あおい</span><span class="pt">42 名紹介</span></div>
+    <div class="ae-row top2"><span class="rank">2</span><span class="nm">けんた</span><span class="pt">38 名紹介</span></div>
+    <div class="ae-row top3"><span class="rank">3</span><span class="nm">みさき</span><span class="pt">29 名紹介</span></div>
+    <div class="ae-row me"><span class="rank">12</span><span class="nm">あなた</span><span class="pt">8 名紹介</span></div>
+  </section>
+  <div class="ae-card"><div class="inner"><div class="t">あなたの紹介リンクを発行</div>%%content%%</div></div>
+</body>
+</html>

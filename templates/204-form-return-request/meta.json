@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 返品/交換申請",
+  "category": "form",
+  "description": "注文番号・対象商品・理由を入力する返品/交換の申請フォーム。ECのカスタマーサポート・返品受付に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "返品・交換のお申し込み",
+  "previewDescription": "ご注文内容と理由をお知らせください。担当者が対応いたします。"
+}

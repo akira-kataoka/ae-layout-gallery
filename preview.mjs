@@ -231,6 +231,22 @@ const CALENDAR_BODY = `<h1>お申し込みが完了しました</h1>
 const SHARE_BODY = `<h1>ご参加ありがとうございます！</h1>
 <p>よろしければ、お知り合いにもシェアしていただけると嬉しいです。</p>`;
 
+const RETURN_FORM = `<form>
+  <p><label>注文番号</label><br><input type="text" value="ORD-20260620-0188"></p>
+  <p><label>対象商品</label><br><select><option selected>ランニングシューズ</option><option>スポーツソックス</option></select></p>
+  <p><label>返品/交換の理由</label><br><select><option selected>サイズが合わない</option><option>イメージと違う</option><option>不良・破損</option><option>その他</option></select></p>
+  <p><label>詳細（任意）</label><br><textarea>ワンサイズ大きいものに交換希望です。</textarea></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="申請を送信する"></p>
+</form>`;
+
+const PAUSE_FORM = `<form>
+  <p><label>停止期間</label><br><select><option>1ヶ月</option><option selected>2ヶ月</option><option>3ヶ月</option></select></p>
+  <p><label>差し支えなければ理由を</label><br><select><option selected>しばらく使わない</option><option>費用を見直したい</option><option>その他</option></select></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="一時停止を申請する"></p>
+</form>`;
+
 const PHOTO_CONTEST_FORM = `<form>
   <p><label>作品タイトル</label><br><input type="text" value="夏の思い出"></p>
   <p><label>写真をアップロード</label><br><input type="file"></p>
@@ -976,6 +992,9 @@ function contentFor(dir, category) {
     case "201-form-photo-contest": return PHOTO_CONTEST_FORM;
     case "202-landing-team-members": return NEWSLETTER_FORM;
     case "203-form-multi-star-rating-js": return REVIEW_POST_FORM;
+    case "204-form-return-request": return RETURN_FORM;
+    case "205-utility-subscription-pause": return PAUSE_FORM;
+    case "206-landing-referral-leaderboard": return NEWSLETTER_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }

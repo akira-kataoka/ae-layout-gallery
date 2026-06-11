@@ -1,0 +1,8 @@
+{
+  "name": "配信設定 - サブスク一時停止",
+  "category": "utility",
+  "description": "解約の代わりに一時停止を提案するリテンション型フォーム。サブスクの休止受付・離脱抑止に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "サブスクリプションの一時停止",
+  "previewDescription": "しばらくお休みしますか？ご希望の期間を選んで停止できます。"
+}
