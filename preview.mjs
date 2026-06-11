@@ -282,6 +282,24 @@ const ALUMNI_FORM = `<form>
   <p class="submit"><input type="submit" value="出欠を回答する"></p>
 </form>`;
 
+const PARKING_FORM = `<form>
+  <div class="row"><p><label>利用日</label><br><input type="date" value="2026-07-18"></p><p><label>入庫時刻</label><br><input type="time" value="09:00"></p></div>
+  <p><label>利用時間</label><br><select><option>2時間</option><option selected>当日最大（1日）</option><option>1週間</option></select></p>
+  <p><label>車種</label><br><input type="text" value="普通車（セダン）"></p>
+  <p><label>ナンバープレート</label><br><input type="text" value="品川 300 あ 12-34"></p>
+  <div class="row"><p><label>お名前</label><br><input type="text" value="山田 太郎"></p><p><label>メール</label><br><input type="email" value="taro@example.com"></p></div>
+  <p class="submit"><input type="submit" value="駐車場を予約する"></p>
+</form>`;
+
+const GRADUATION_FORM = `<form>
+  <p><label><input type="radio" name="rsvp" checked> 出席する</label> <label><input type="radio" name="rsvp"> 欠席する</label></p>
+  <p><label>卒業生のお名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>学籍番号</label><br><input type="text" value="2022-12345"></p>
+  <p><label>同伴のご家族人数</label><br><select><option>0名</option><option selected>1名</option><option>2名</option></select></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="出欠を回答する"></p>
+</form>`;
+
 const RENEWAL_FORM = `<form>
   <p><label>更新プラン</label><br><select><option selected>ゴールド会員（年額 ¥9,800）</option><option>シルバー会員（年額 ¥4,800）</option></select></p>
   <p><label>会員番号</label><br><input type="text" value="GM-0001234"></p>
@@ -1410,6 +1428,10 @@ function contentFor(dir, category) {
     case "299-form-membership-renewal": return RENEWAL_FORM;
     case "300-event-anniversary-party": return ANNIV_PARTY_FORM;
     case "301-thankyou-vote-cast": return NEWSLETTER_FORM;
+    case "302-landing-tax-calculator-js": return NEWSLETTER_FORM;
+    case "303-form-parking-reservation": return PARKING_FORM;
+    case "304-event-graduation-ceremony": return GRADUATION_FORM;
+    case "305-thankyou-preorder-confirmed": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#1d4ed8; --ink:#0f1b33; --muted:#5a6781; --line:#dde3ef; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eff3fb; line-height:1.7; }
+    .ae-hero { background:linear-gradient(135deg,#1e3a8a,#1d4ed8); color:#fff; text-align:center; padding:54px 20px 42px; }
+    .ae-hero .cap { font-size:46px; }
+    .ae-hero .yr { font-size:13px; letter-spacing:4px; opacity:.85; margin:6px 0 10px; }
+    .ae-hero h1 { font-size:27px; margin:0 0 8px; }
+    .ae-hero p { margin:0; opacity:.95; font-size:14px; }
+    .ae-wrap { max-width:600px; margin:0 auto; padding:38px 20px 48px; }
+    .ae-info { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:24px; }
+    .ae-i { background:#fff; border:1px solid var(--line); border-radius:14px; padding:14px; text-align:center; box-shadow:0 8px 22px rgba(29,78,216,.06); }
+    .ae-i .ic { font-size:22px; } .ae-i .k { font-size:11px; color:var(--muted); } .ae-i .v { font-weight:800; font-size:14px; }
+    .ae-prog { background:#fff; border:1px solid var(--line); border-radius:16px; padding:20px; margin-bottom:24px; }
+    .ae-prog .t { font-weight:700; text-align:center; margin-bottom:12px; }
+    .ae-p { display:flex; align-items:center; gap:12px; padding:8px 0; border-top:1px dashed var(--line); font-size:14px; }
+    .ae-p:first-of-type { border-top:0; }
+    .ae-p .em { font-size:20px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; }
+    .ae-card .t { font-weight:700; font-size:17px; margin-bottom:6px; text-align:center; }
+    .ae-card .d { color:var(--muted); font-size:13px; margin-bottom:14px; text-align:center; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    @media (max-width:480px){ .ae-info { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-hero">
+    <div class="cap">🎓</div>
+    <div class="yr">CLASS OF 2026</div>
+    <h1>%%title%%</h1>
+    <p>%%description%%</p>
+  </div>
+  <div class="ae-wrap">
+    <div class="ae-info">
+      <div class="ae-i"><div class="ic">📅</div><div class="k">挙行日</div><div class="v">3.15 (日) 10:00</div></div>
+      <div class="ae-i"><div class="ic">📍</div><div class="k">会場</div><div class="v">大学記念講堂</div></div>
+      <div class="ae-i"><div class="ic">👔</div><div class="k">服装</div><div class="v">正装</div></div>
+    </div>
+    <div class="ae-prog">
+      <div class="t">式次第</div>
+      <div class="ae-p"><span class="em">🎶</span><span>開式・国歌斉唱</span></div>
+      <div class="ae-p"><span class="em">📜</span><span>学位記授与</span></div>
+      <div class="ae-p"><span class="em">🎤</span><span>学長式辞・来賓祝辞</span></div>
+      <div class="ae-p"><span class="em">📸</span><span>記念撮影・歓談</span></div>
+    </div>
+    <div class="ae-card">
+      <div class="t">出席のご登録</div>
+      <div class="d">卒業生・ご家族の出席人数をお知らせください</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

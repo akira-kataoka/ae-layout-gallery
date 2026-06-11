@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#1e40af; --ink:#0f1b33; --muted:#5a6781; --line:#dde3ef; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f2f5fb; line-height:1.7; }
+    .ae-wrap { max-width:580px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:20px; }
+    .ae-head .emo { font-size:42px; }
+    .ae-head h1 { font-size:24px; margin:4px 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-lot { background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 18px; margin-bottom:18px; box-shadow:0 8px 22px rgba(30,64,175,.05); }
+    .ae-lot div { display:flex; justify-content:space-between; font-size:13px; padding:4px 0; }
+    .ae-lot .k { color:var(--muted); } .ae-lot b { color:var(--ink); }
+    .ae-lot .avail b { color:#16a34a; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px; }
+    .ae-card .t { font-weight:700; font-size:16px; margin-bottom:14px; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form input[type=tel],.ae-card form input[type=date],.ae-card form input[type=time],.ae-card form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form label { font-weight:700; font-size:13px; }
+    .ae-card form p { margin:0 0 13px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:15px; border-radius:9px; font-weight:800; font-size:15px; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head">
+      <div class="emo">🅿️</div>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-lot">
+      <div><span class="k">駐車場</span><b>駅前タイムズパーキング</b></div>
+      <div><span class="k">料金</span><b>30分 ¥220 / 当日最大 ¥1,500</b></div>
+      <div class="avail"><span class="k">空き状況</span><b>○ 予約枠あり</b></div>
+    </div>
+    <div class="ae-card">
+      <div class="t">駐車スペースを予約</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

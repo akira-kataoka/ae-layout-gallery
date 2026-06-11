@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - 手取り/税金シミュレーター(JS)",
+  "category": "landing",
+  "description": "額面年収のスライダーから社会保険料・所得税・住民税と手取りの概算を即時計算するシミュレーターLP(textContent・styleのみ、innerHTML不使用)。FP/保険/資産形成サービスの相談獲得に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "あなたの手取り、いくら残る？",
+  "previewDescription": "年収を動かすだけ。税金と手取りの内訳がその場でわかります。"
+}

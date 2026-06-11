@@ -1,0 +1,8 @@
+{
+  "name": "サンクス - 予約注文(予約購入)完了",
+  "category": "thankyou",
+  "description": "予約商品の予約完了後に、商品情報・予約番号・発売予定日を提示するサンクスページ。発送通知のオプトインで発売までの関係を維持する。新商品/限定品の予約販売に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "ご予約を承りました！",
+  "previewDescription": "発売をお楽しみに。準備が整い次第、順次お届けします。"
+}

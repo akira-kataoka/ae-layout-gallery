@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 駐車場予約",
+  "category": "form",
+  "description": "駐車場の料金・空き状況を提示し、利用日時・車種・ナンバーを入力させる駐車場予約フォーム。月極/時間貸し/イベント駐車場の事前予約受付に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "駐車場のご予約",
+  "previewDescription": "ご利用日時とお車の情報をご入力ください。当日の満車を防げます。"
+}

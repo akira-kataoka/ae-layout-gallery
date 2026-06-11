@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0f766e; --ink:#0c2421; --muted:#5a746f; --line:#d6ebe7; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eefbf8; line-height:1.7; }
+    .ae-wrap { max-width:540px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:22px; }
+    .ae-head h1 { font-size:24px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; box-shadow:0 12px 32px rgba(15,118,110,.08); }
+    .ae-field { margin-bottom:18px; }
+    .ae-field label { font-weight:700; font-size:14px; display:flex; justify-content:space-between; margin-bottom:8px; }
+    .ae-field label .v { color:var(--accent); font-variant-numeric:tabular-nums; }
+    .ae-field input[type=range] { width:100%; accent-color:var(--accent); }
+    .ae-out { background:linear-gradient(135deg,#0f766e,#0d9488); color:#fff; border-radius:14px; padding:22px; text-align:center; margin-bottom:14px; }
+    .ae-out .lab { font-size:13px; opacity:.9; } .ae-out .big { font-size:38px; font-weight:900; font-variant-numeric:tabular-nums; } .ae-out .mo { font-size:13px; opacity:.92; }
+    .ae-break .r { display:flex; align-items:center; gap:10px; margin-bottom:8px; font-size:13px; }
+    .ae-break .nm { width:96px; color:var(--muted); } .ae-break .track { flex:1; height:10px; background:#e6f4f1; border-radius:999px; overflow:hidden; }
+    .ae-break .track span { display:block; height:100%; border-radius:999px; }
+    .ae-break .amt { width:78px; text-align:right; font-variant-numeric:tabular-nums; font-weight:700; }
+    .ae-cta { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; margin-top:18px; }
+    .ae-cta .t { font-weight:700; margin-bottom:12px; }
+    .ae-cta form input[type=text],.ae-cta form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form .submit input,.ae-cta form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <div class="ae-field">
+        <label>額面年収 <span class="v">¥<span id="vIncome">5,000,000</span></span></label>
+        <input type="range" id="income" min="2000000" max="15000000" step="100000" value="5000000">
+      </div>
+      <div class="ae-out">
+        <div class="lab">およその手取り年収</div>
+        <div class="big">¥<span id="net">0</span></div>
+        <div class="mo">月あたり 約 ¥<span id="monthly">0</span></div>
+      </div>
+      <div class="ae-break">
+        <div class="r"><span class="nm">社会保険料</span><span class="track"><span id="bSoc" style="background:#f59e0b"></span></span><span class="amt">¥<span id="aSoc">0</span></span></div>
+        <div class="r"><span class="nm">所得税</span><span class="track"><span id="bInc" style="background:#ef4444"></span></span><span class="amt">¥<span id="aInc">0</span></span></div>
+        <div class="r"><span class="nm">住民税</span><span class="track"><span id="bRes" style="background:#6366f1"></span></span><span class="amt">¥<span id="aRes">0</span></span></div>
+      </div>
+    </div>
+    <div class="ae-cta">
+      <div class="t">節税・資産形成の無料相談を予約</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var income = document.getElementById("income"), vIncome = document.getElementById("vIncome");
+    var net = document.getElementById("net"), monthly = document.getElementById("monthly");
+    var aSoc = document.getElementById("aSoc"), aInc = document.getElementById("aInc"), aRes = document.getElementById("aRes");
+    var bSoc = document.getElementById("bSoc"), bInc = document.getElementById("bInc"), bRes = document.getElementById("bRes");
+    function man(n) { return Math.round(n).toLocaleString("ja-JP"); }
+    function calc() {
+      var g = parseInt(income.value, 10) || 0;
+      vIncome.textContent = g.toLocaleString("ja-JP");
+      var social = g * 0.15;                       // 社会保険料 約15%
+      var taxable = Math.max(0, g - social - 480000 - (g * 0.2)); // 概算（基礎控除＋給与所得控除ざっくり）
+      var incomeTax = taxable * (g > 9000000 ? 0.23 : g > 3300000 ? 0.13 : 0.05);
+      var resident = taxable * 0.10;               // 住民税 約10%
+      var netVal = g - social - incomeTax - resident;
+      net.textContent = man(netVal);
+      monthly.textContent = man(netVal / 12);
+      aSoc.textContent = man(social); aInc.textContent = man(incomeTax); aRes.textContent = man(resident);
+      var maxv = Math.max(social, incomeTax, resident, 1);
+      bSoc.style.width = (social / maxv * 100) + "%";
+      bInc.style.width = (incomeTax / maxv * 100) + "%";
+      bRes.style.width = (resident / maxv * 100) + "%";
+    }
+    income.addEventListener("input", calc);
+    calc();
+  })();
+  </script>
+</body>
+</html>
