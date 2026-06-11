@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#f59e0b; --ink:#1f2937; --muted:#6b7280; --line:#e5e7eb; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fffaf0; line-height:1.7; }
+    .ae-wrap { max-width:540px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:16px; }
+    .ae-head h1 { margin:0 0 6px; font-size:24px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-stars { text-align:center; margin:14px 0; }
+    .ae-stars button { background:none; border:0; font-size:40px; line-height:1; cursor:pointer; color:#e5e7eb; padding:0 3px; transition:transform .1s; }
+    .ae-stars button.on { color:var(--accent); }
+    .ae-stars button:hover { transform:scale(1.15); }
+    .ae-ratemsg { text-align:center; color:var(--muted); font-size:14px; min-height:1.4em; margin-bottom:6px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:26px; box-shadow:0 8px 24px rgba(245,158,11,.1); }
+    .ae-card form label { font-size:13px; font-weight:600; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form textarea { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 14px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-stars" id="stars" role="radiogroup" aria-label="評価">
+      <button type="button" data-v="1" aria-label="1">★</button>
+      <button type="button" data-v="2" aria-label="2">★</button>
+      <button type="button" data-v="3" aria-label="3">★</button>
+      <button type="button" data-v="4" aria-label="4">★</button>
+      <button type="button" data-v="5" aria-label="5">★</button>
+    </div>
+    <div class="ae-ratemsg" id="ratemsg">星をクリックして評価してください</div>
+    <div class="ae-card">%%content%%</div>
+  </div>
+
+  <script>
+  (function () {
+    var msgs = ["", "残念…", "いまひとつ", "ふつう", "満足", "大満足！"];
+    var stars = Array.prototype.slice.call(document.querySelectorAll("#stars button"));
+    var msgEl = document.getElementById("ratemsg");
+    var current = 0;
+    function paint(n) { stars.forEach(function (b, i) { b.classList.toggle("on", i < n); }); }
+    stars.forEach(function (b) {
+      var v = parseInt(b.getAttribute("data-v"), 10);
+      b.addEventListener("mouseenter", function () { paint(v); });
+      b.addEventListener("click", function () { current = v; paint(v); msgEl.textContent = "あなたの評価：" + v + " / 5　" + msgs[v]; });
+    });
+    document.getElementById("stars").addEventListener("mouseleave", function () { paint(current); });
+  })();
+  </script>
+</body>
+</html>

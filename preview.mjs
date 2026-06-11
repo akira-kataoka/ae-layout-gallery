@@ -231,6 +231,22 @@ const CALENDAR_BODY = `<h1>お申し込みが完了しました</h1>
 const SHARE_BODY = `<h1>ご参加ありがとうございます！</h1>
 <p>よろしければ、お知り合いにもシェアしていただけると嬉しいです。</p>`;
 
+const REVIEW_POST_FORM = `<form>
+  <p><label>ご感想</label><br><textarea>サポートが丁寧で、初めてでも安心して使えました。</textarea></p>
+  <p><label>ニックネーム</label><br><input type="text" value="たろう"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="レビューを投稿する"></p>
+</form>`;
+
+const BABY_FORM = `<form>
+  <p><label>お名前</label><br><input type="text" value="山田 花子"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="hanako@example.com"></p>
+  <p><label>出産予定日</label><br><input type="date" value="2026-11-15"></p>
+  <p><label>性別</label><br><label class="opt"><input type="radio" name="sex" checked> 男の子</label><label class="opt"><input type="radio" name="sex"> 女の子</label><label class="opt"><input type="radio" name="sex"> 未定</label></p>
+  <p><label>欲しいものカテゴリ</label><br><select><option selected>ベビー服</option><option>授乳・離乳食</option><option>ベビーカー・チャイルドシート</option></select></p>
+  <p class="submit"><input type="submit" value="レジストリを作成する"></p>
+</form>`;
+
 const SHAREHOLDER_FORM = `<form>
   <p><label>お名前（株主名）</label><br><input type="text" value="山田 太郎"></p>
   <div class="row"><p><label>保有株数</label><br><select><option>100〜499株</option><option selected>500〜999株</option><option>1,000株以上</option></select></p><p><label>ご希望の優待品</label><br><select><option selected>カタログギフトA</option><option>自社製品セット</option><option>QUOカード</option></select></p></div>
@@ -733,6 +749,9 @@ function contentFor(dir, category) {
     case "149-form-shareholder-benefit": return SHAREHOLDER_FORM;
     case "150-landing-plan-selector-js": return NEWSLETTER_FORM;
     case "151-event-livestream": return STD_FORM;
+    case "152-form-star-rating-js": return REVIEW_POST_FORM;
+    case "153-landing-membership-renewal": return NEWSLETTER_FORM;
+    case "154-form-baby-registry": return BABY_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }

@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 星評価レビュー投稿(JS)",
+  "category": "form",
+  "description": "クリックで星評価を選べるインタラクティブなレビュー投稿フォーム(素のJS・classList/textContentのみ)。クチコミ・満足度収集に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "サービスはいかがでしたか？",
+  "previewDescription": "星で評価して、ご感想をお聞かせください。"
+}
