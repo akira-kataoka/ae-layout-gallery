@@ -2066,8 +2066,8 @@ const indexHtml = `<!DOCTYPE html>
   .badge-landing{ background:#dbeafe; color:#1d4ed8; } .badge-form{ background:#dcfce7; color:#15803d; }
   .badge-event{ background:#ffedd5; color:#c2410c; } .badge-thankyou{ background:#f3e8ff; color:#7e22ce; }
   .badge-utility{ background:#e0f2fe; color:#0369a1; }
-  figcaption h3{ font-size:15px; margin:10px 0 6px; }
-  figcaption p{ font-size:13px; color:var(--muted); margin:0 0 12px; line-height:1.6; min-height:2.6em; }
+  figcaption h3{ font-size:15px; margin:10px 0 6px; line-height:1.4; }
+  figcaption p{ font-size:13px; color:var(--muted); margin:0 0 12px; line-height:1.6; min-height:2.6em; display:-webkit-box; -webkit-line-clamp:2; line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
   .meta{ display:flex; align-items:center; justify-content:space-between; gap:8px; font-size:12px; }
   .meta code{ background:#f1f5f9; padding:2px 7px; border-radius:5px; color:#475569; }
   .acts{ display:flex; gap:10px; align-items:center; }
