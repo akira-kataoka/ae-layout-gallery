@@ -282,6 +282,23 @@ const ALUMNI_FORM = `<form>
   <p class="submit"><input type="submit" value="出欠を回答する"></p>
 </form>`;
 
+const INTERNET_FORM = `<form>
+  <p><label>ご希望プラン</label><br><select><option>マンションタイプ（¥3,850/月）</option><option selected>ファミリータイプ（¥4,950/月）</option><option>10ギガ（¥6,380/月）</option></select></p>
+  <p><label>現在の回線</label><br><select><option selected>他社から乗り換え</option><option>新規（初めて）</option></select></p>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>ご住所（市区町村）</label><br><input type="text" value="東京都千代田区"></p>
+  <div class="row"><p><label>メール</label><br><input type="email" value="taro@example.com"></p><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p></div>
+  <p class="submit"><input type="submit" value="申し込む・無料相談"></p>
+</form>`;
+
+const ESPORTS_FORM = `<form>
+  <p><label>参加区分</label><br><select><option selected>選手としてエントリー</option><option>観戦のみ登録</option></select></p>
+  <p><label>参加タイトル</label><br><select><option selected>対戦格闘</option><option>FPS</option></select></p>
+  <p><label>プレイヤー名 / ゲーマータグ</label><br><input type="text" value="taro_GG"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="大会にエントリー"></p>
+</form>`;
+
 const RESTAURANT_FORM = `<form>
   <div class="row"><p><label>ご来店日</label><br><input type="date" value="2026-07-18"></p><p><label>時間</label><br><input type="time" value="19:00"></p></div>
   <div class="row"><p><label>人数</label><br><select><option>1名</option><option selected>2名</option><option>3〜4名</option><option>5名以上</option></select></p><p><label>席のご希望</label><br><select><option selected>おまかせ</option><option>個室</option><option>テラス</option></select></p></div>
@@ -1758,6 +1775,10 @@ function contentFor(dir, category) {
     case "367-form-restaurant-reservation": return RESTAURANT_FORM;
     case "368-event-food-festival": return FOODFEST_FORM;
     case "369-utility-email-bounce": return NEWSLETTER_FORM;
+    case "370-landing-paint-calculator-js": return NEWSLETTER_FORM;
+    case "371-form-internet-plan-signup": return INTERNET_FORM;
+    case "372-event-esports-tournament": return ESPORTS_FORM;
+    case "373-thankyou-reward-redeemed": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#a855f7; --neon:#22d3ee; --ink:#e2e8f0; --muted:#94a3b8; --line:#2a1f4a; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#0d0a1f; line-height:1.7; }
+    .ae-hero { background:radial-gradient(circle at 50% 0%,#3b0764,#0d0a1f 65%); text-align:center; padding:56px 20px 46px; }
+    .ae-hero .badge { display:inline-block; border:1px solid var(--neon); color:var(--neon); font-weight:700; font-size:12px; letter-spacing:3px; padding:6px 16px; border-radius:999px; margin-bottom:14px; }
+    .ae-hero h1 { font-size:30px; margin:0 0 8px; color:#fff; text-shadow:0 0 18px rgba(168,85,247,.6); }
+    .ae-hero p { margin:0; color:var(--muted); font-size:14px; }
+    .ae-wrap { max-width:640px; margin:0 auto; padding:36px 20px 48px; }
+    .ae-info { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:24px; }
+    .ae-i { background:#160f30; border:1px solid var(--line); border-radius:14px; padding:14px; text-align:center; }
+    .ae-i .ic { font-size:20px; } .ae-i .k { font-size:11px; color:var(--muted); } .ae-i .v { font-weight:800; font-size:13px; color:#fff; }
+    .ae-format { background:#160f30; border:1px solid var(--line); border-radius:16px; padding:20px; margin-bottom:24px; }
+    .ae-format .t { font-weight:700; text-align:center; margin-bottom:12px; color:#fff; }
+    .ae-f { display:flex; align-items:center; gap:12px; padding:8px 0; border-top:1px dashed var(--line); font-size:14px; }
+    .ae-f:first-of-type { border-top:0; } .ae-f .em { font-size:20px; }
+    .ae-card { background:#160f30; border:1px solid var(--accent); border-radius:18px; padding:26px; }
+    .ae-card .t { font-weight:700; font-size:17px; margin-bottom:6px; text-align:center; color:#fff; }
+    .ae-card .d { color:var(--muted); font-size:13px; margin-bottom:14px; text-align:center; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; background:#0d0a1f; color:#e2e8f0; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:linear-gradient(135deg,#a855f7,#22d3ee); color:#0d0a1f; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    @media (max-width:480px){ .ae-info { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-hero">
+    <span class="badge">ESPORTS CUP</span>
+    <h1>VICTORY ARENA 2026</h1>
+    <p>%%description%%</p>
+  </div>
+  <div class="ae-wrap">
+    <div class="ae-info">
+      <div class="ae-i"><div class="ic">🎮</div><div class="k">タイトル</div><div class="v">対戦格闘 / FPS</div></div>
+      <div class="ae-i"><div class="ic">💰</div><div class="k">賞金総額</div><div class="v">¥500,000</div></div>
+      <div class="ae-i"><div class="ic">📡</div><div class="k">配信</div><div class="v">ライブ実況あり</div></div>
+    </div>
+    <div class="ae-format">
+      <div class="t">大会フォーマット</div>
+      <div class="ae-f"><span class="em">🕹️</span><span>オンライン予選（11月上旬）</span></div>
+      <div class="ae-f"><span class="em">🏟️</span><span>決勝トーナメント（現地・配信）</span></div>
+      <div class="ae-f"><span class="em">🎁</span><span>参加者全員にデジタル特典</span></div>
+    </div>
+    <div class="ae-card">
+      <div class="t">大会にエントリー</div>
+      <div class="d">初心者部門もあり・観戦のみの登録も歓迎</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

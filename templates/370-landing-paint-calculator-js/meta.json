@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - 塗料量計算機(JS)",
+  "category": "landing",
+  "description": "部屋の広さと天井/2度塗りの条件から塗装面積・必要な塗料量・缶数を即時計算するDIY/リフォーム向けLP(textContentのみ、innerHTML不使用)。塗料EC/塗装業者のリード獲得に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "塗料、どれだけ必要？",
+  "previewDescription": "部屋の広さを入れるだけ。必要な塗料の量と缶数がすぐにわかります。"
+}

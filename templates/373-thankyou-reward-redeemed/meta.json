@@ -1,0 +1,8 @@
+{
+  "name": "サンクス - ポイント交換完了",
+  "category": "thankyou",
+  "description": "ポイントを景品・クーポンに交換した後に、交換した特典・消費ポイント・残高・引換コードの送付を案内するサンクスページ。ロイヤルティ施策の継続利用とオプトインに。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "ポイント交換が完了しました",
+  "previewDescription": "ご交換ありがとうございます。引換コードをメールでお送りしました。"
+}

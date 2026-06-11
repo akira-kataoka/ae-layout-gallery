@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0f766e; --ink:#0c2421; --muted:#5a746f; --line:#d6ebe7; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eefbf8; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:20px; }
+    .ae-head h1 { font-size:24px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; box-shadow:0 12px 32px rgba(15,118,110,.08); }
+    .ae-field { margin-bottom:16px; }
+    .ae-field label { font-weight:700; font-size:14px; display:flex; justify-content:space-between; margin-bottom:8px; }
+    .ae-field label .v { color:var(--accent); font-variant-numeric:tabular-nums; }
+    .ae-field input[type=range] { width:100%; accent-color:var(--accent); }
+    .ae-opts { display:flex; gap:18px; margin-bottom:8px; }
+    .ae-opts label { display:flex; align-items:center; gap:8px; font-size:14px; font-weight:700; cursor:pointer; }
+    .ae-opts input { width:18px; height:18px; accent-color:var(--accent); }
+    .ae-out { display:flex; gap:12px; margin-top:16px; }
+    .ae-o { flex:1; background:#f0fdfa; border:1px solid var(--line); border-radius:14px; padding:18px; text-align:center; }
+    .ae-o .lab { font-size:12px; color:var(--muted); } .ae-o .v { font-size:26px; font-weight:900; color:var(--accent); font-variant-numeric:tabular-nums; } .ae-o .v small { font-size:13px; }
+    .ae-o.big { background:linear-gradient(135deg,#0f766e,#0d9488); color:#fff; } .ae-o.big .lab { color:rgba(255,255,255,.85); } .ae-o.big .v { color:#fff; }
+    .ae-cta { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; margin-top:18px; }
+    .ae-cta .t { font-weight:700; margin-bottom:12px; }
+    .ae-cta form input[type=text],.ae-cta form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form .submit input,.ae-cta form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <div class="ae-field"><label>部屋の広さ <span class="v"><span id="vArea">12</span> ㎡（約<span id="vJo">7</span>畳）</span></label>
+        <input type="range" id="area" min="4" max="40" step="1" value="12"></div>
+      <div class="ae-opts">
+        <label><input type="checkbox" id="ceil"> 天井も塗る</label>
+        <label><input type="checkbox" id="coats2" checked> 2度塗り</label>
+      </div>
+      <div class="ae-out">
+        <div class="ae-o"><div class="lab">塗装面積</div><div class="v"><span id="paintArea">0</span><small> ㎡</small></div></div>
+        <div class="ae-o"><div class="lab">必要な塗料</div><div class="v"><span id="liters">0</span><small> L</small></div></div>
+        <div class="ae-o big"><div class="lab">缶数（4L缶）</div><div class="v"><span id="cans">0</span><small> 缶</small></div></div>
+      </div>
+    </div>
+    <div class="ae-cta">
+      <div class="t">おすすめ塗料と無料サンプルを取り寄せる</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var area = document.getElementById("area"), ceil = document.getElementById("ceil"), coats2 = document.getElementById("coats2");
+    var vArea = document.getElementById("vArea"), vJo = document.getElementById("vJo");
+    var paintAreaEl = document.getElementById("paintArea"), litersEl = document.getElementById("liters"), cansEl = document.getElementById("cans");
+    function calc() {
+      var a = parseInt(area.value, 10) || 0;
+      vArea.textContent = a;
+      vJo.textContent = Math.round(a / 1.62);
+      // 壁面積 ≈ 床面積 × 2.6（天井高2.4m概算）、天井は床面積ぶん
+      var wall = a * 2.6;
+      var total = wall + (ceil.checked ? a : 0);
+      var coats = coats2.checked ? 2 : 1;
+      var paintArea = total * coats;
+      var liters = paintArea / 10;        // 1L で約10㎡
+      var cans = Math.ceil(liters / 4);   // 4L缶
+      paintAreaEl.textContent = Math.round(paintArea);
+      litersEl.textContent = (Math.round(liters * 10) / 10).toFixed(1);
+      cansEl.textContent = cans;
+    }
+    [area, ceil, coats2].forEach(function (el) { el.addEventListener("input", calc); el.addEventListener("change", calc); });
+    calc();
+  })();
+  </script>
+</body>
+</html>
