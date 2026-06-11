@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 商品カスタマイザー(JS)",
+  "category": "form",
+  "description": "カラー・サイズ・オプションを選ぶとプレビュー色と合計価格が即時反映される素のJavaScript構成(textContent/style・innerHTML不使用)。受注生産/オーダー商品の見積に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "あなただけの一品にカスタマイズ",
+  "previewDescription": "カラーやオプションを選ぶと、見た目と価格がその場で変わります。"
+}

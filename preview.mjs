@@ -231,6 +231,15 @@ const CALENDAR_BODY = `<h1>お申し込みが完了しました</h1>
 const SHARE_BODY = `<h1>ご参加ありがとうございます！</h1>
 <p>よろしければ、お知り合いにもシェアしていただけると嬉しいです。</p>`;
 
+const REFERRAL_RECRUIT_FORM = `<form>
+  <p><label>あなた（紹介者）のお名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>あなたのメールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p><label>ご紹介者のお名前</label><br><input type="text" value="鈴木 一郎"></p>
+  <p><label>想定ポジション</label><br><select><option selected>エンジニア</option><option>デザイナー</option><option>営業</option></select></p>
+  <p><label>ひとことコメント</label><br><textarea>前職の同僚で、開発力が高くおすすめです。</textarea></p>
+  <p class="submit"><input type="submit" value="知人を紹介する"></p>
+</form>`;
+
 const INTERVIEW_FORM = `<form>
   <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
   <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
@@ -1043,6 +1052,9 @@ function contentFor(dir, category) {
     case "213-form-clinic-appointment": return CLINIC_FORM;
     case "214-landing-savings-comparison-js": return NEWSLETTER_FORM;
     case "215-landing-event-recap": return NEWSLETTER_FORM;
+    case "219-form-employee-referral": return REFERRAL_RECRUIT_FORM;
+    case "220-landing-personality-quiz-js": return NEWSLETTER_FORM;
+    case "221-form-product-customizer-js": return APPT_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

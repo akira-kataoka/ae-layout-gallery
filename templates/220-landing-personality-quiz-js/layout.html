@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#9333ea; --ink:#1c1430; --muted:#6b7280; --line:#ece5f7; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f9f7fe; line-height:1.7; }
+    .ae-wrap { max-width:580px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:14px; }
+    .ae-head h1 { margin:0 0 6px; font-size:24px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:28px 26px; box-shadow:0 8px 26px rgba(147,51,234,.1); }
+    .ae-q { margin-bottom:16px; }
+    .ae-q .ttl { font-weight:700; margin-bottom:8px; }
+    .ae-q label { display:flex; gap:10px; align-items:center; padding:10px 12px; border:1px solid var(--line); border-radius:10px; margin-bottom:7px; cursor:pointer; font-size:14px; }
+    .ae-q label:hover { border-color:#c4b5fd; background:#faf5ff; }
+    .ae-go { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:10px; font-weight:800; cursor:pointer; }
+    .ae-result { display:none; margin-top:16px; text-align:center; background:linear-gradient(135deg,#9333ea,#c026d3); color:#fff; border-radius:16px; padding:26px; }
+    .ae-result.show { display:block; }
+    .ae-result .emo { font-size:48px; } .ae-result .type { font-size:24px; font-weight:900; margin:4px 0; }
+    .ae-card2 { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; margin-top:16px; text-align:center; }
+    .ae-card2 .t { font-weight:700; margin-bottom:10px; }
+    .ae-card2 form input[type=email],.ae-card2 form input[type=text] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card2 form p { margin:0 0 12px; }
+    .ae-card2 form .submit input,.ae-card2 form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <div class="ae-q"><div class="ttl">Q1. 休日の過ごし方は？</div>
+        <label><input type="radio" name="q1" value="a" checked> 外で活動的に</label>
+        <label><input type="radio" name="q1" value="b"> 家でゆっくり</label></div>
+      <div class="ae-q"><div class="ttl">Q2. 物事を決めるとき</div>
+        <label><input type="radio" name="q2" value="a" checked> 直感で素早く</label>
+        <label><input type="radio" name="q2" value="b"> じっくり分析</label></div>
+      <div class="ae-q"><div class="ttl">Q3. チームでの役割は？</div>
+        <label><input type="radio" name="q3" value="a" checked> 引っ張るリーダー</label>
+        <label><input type="radio" name="q3" value="b"> 支えるサポーター</label></div>
+      <button class="ae-go" id="go" type="button">結果を見る</button>
+      <div class="ae-result" id="result"><div class="emo" id="emo">🔥</div><div class="type" id="type">タイプ</div><div id="desc"></div></div>
+    </div>
+    <div class="ae-card2"><div class="t">詳しい診断結果をメールで受け取る</div>%%content%%</div>
+  </div>
+
+  <script>
+  (function () {
+    var TYPES = {
+      a: { emo: "🔥", name: "情熱リーダー型", desc: "行動力と決断力で周囲を引っ張るタイプです。" },
+      b: { emo: "🌿", name: "じっくり参謀型", desc: "分析力と思いやりでチームを支えるタイプです。" }
+    };
+    document.getElementById("go").addEventListener("click", function () {
+      var a = 0, b = 0;
+      ["q1", "q2", "q3"].forEach(function (q) {
+        var sel = document.querySelector('input[name="' + q + '"]:checked');
+        if (sel && sel.value === "a") a++; else b++;
+      });
+      var t = a >= b ? TYPES.a : TYPES.b;
+      document.getElementById("emo").textContent = t.emo;
+      document.getElementById("type").textContent = t.name;
+      document.getElementById("desc").textContent = t.desc;
+      document.getElementById("result").classList.add("show");
+    });
+  })();
+  </script>
+</body>
+</html>

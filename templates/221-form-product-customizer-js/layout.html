@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0f172a; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f5f7fa; line-height:1.7; }
+    .ae-grid { max-width:920px; margin:0 auto; padding:48px 20px; display:grid; grid-template-columns:1fr 1fr; gap:30px; align-items:start; }
+    .ae-preview { aspect-ratio:1; border-radius:20px; display:flex; align-items:center; justify-content:center; font-size:90px; background:#6366f1; transition:background .25s; box-shadow:0 16px 40px rgba(15,23,42,.16); }
+    .ae-opts h1 { font-size:23px; margin:0 0 14px; }
+    .ae-group { margin-bottom:16px; }
+    .ae-group .lbl { font-weight:700; font-size:14px; margin-bottom:6px; }
+    .ae-sw { display:flex; gap:8px; }
+    .ae-sw button { width:36px; height:36px; border-radius:50%; border:2px solid #fff; box-shadow:0 0 0 1px var(--line); cursor:pointer; }
+    .ae-sw button.sel { box-shadow:0 0 0 3px var(--accent); }
+    .ae-group select { width:100%; padding:11px 12px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-group label.opt { display:flex; justify-content:space-between; align-items:center; padding:8px 0; font-size:14px; cursor:pointer; }
+    .ae-total { background:#0f172a; color:#fff; border-radius:12px; padding:16px; display:flex; justify-content:space-between; align-items:center; margin:14px 0; }
+    .ae-total .num { font-size:26px; font-weight:900; font-variant-numeric:tabular-nums; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:20px; }
+    .ae-card .t { font-weight:700; margin-bottom:10px; }
+    .ae-card form input[type=email],.ae-card form input[type=text] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    @media (max-width:720px){ .ae-grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-grid">
+    <div class="ae-preview" id="preview">🎒</div>
+    <div class="ae-opts">
+      <h1>%%title%%</h1>
+      <div class="ae-group"><div class="lbl">カラー</div><div class="ae-sw" id="sw">
+        <button type="button" data-color="#6366f1" class="sel" style="background:#6366f1" aria-label="インディゴ"></button>
+        <button type="button" data-color="#ef4444" style="background:#ef4444" aria-label="レッド"></button>
+        <button type="button" data-color="#10b981" style="background:#10b981" aria-label="グリーン"></button>
+        <button type="button" data-color="#0f172a" style="background:#0f172a" aria-label="ブラック"></button>
+      </div></div>
+      <div class="ae-group"><div class="lbl">サイズ</div><select id="size" data-price="0"><option data-price="0" selected>M（標準）</option><option data-price="500">L（+¥500）</option><option data-price="1000">XL（+¥1,000）</option></select></div>
+      <div class="ae-group"><div class="lbl">オプション</div>
+        <label class="opt"><span>名入れ刺繍</span><span><input type="checkbox" class="opt-chk" data-price="800"> +¥800</span></label>
+        <label class="opt"><span>撥水加工</span><span><input type="checkbox" class="opt-chk" data-price="1200"> +¥1,200</span></label>
+      </div>
+      <div class="ae-total"><span>合計</span><span class="num" id="total">¥7,800</span></div>
+      <div class="ae-card"><div class="t">この仕様で注文・見積</div>%%content%%</div>
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var BASE = 7800;
+    var preview = document.getElementById("preview"), totalEl = document.getElementById("total");
+    var swBtns = Array.prototype.slice.call(document.querySelectorAll("#sw button"));
+    var size = document.getElementById("size");
+    function yen(n) { return "¥" + n.toLocaleString("ja-JP"); }
+    function recalc() {
+      var sum = BASE;
+      var opt = size.options[size.selectedIndex];
+      sum += parseInt(opt.getAttribute("data-price"), 10) || 0;
+      Array.prototype.forEach.call(document.querySelectorAll(".opt-chk"), function (c) {
+        if (c.checked) sum += parseInt(c.getAttribute("data-price"), 10) || 0;
+      });
+      totalEl.textContent = yen(sum);
+    }
+    swBtns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        swBtns.forEach(function (x) { x.classList.remove("sel"); });
+        b.classList.add("sel");
+        preview.style.background = b.getAttribute("data-color");
+      });
+    });
+    size.addEventListener("change", recalc);
+    document.addEventListener("change", function (e) { if (e.target.classList.contains("opt-chk")) recalc(); });
+    recalc();
+  })();
+  </script>
+</body>
+</html>

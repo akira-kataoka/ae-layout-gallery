@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - 性格タイプ診断(JS)",
+  "category": "landing",
+  "description": "回答傾向からタイプを判定して結果を表示する素のJavaScript性格診断LP(textContent・classList・innerHTML不使用)。エンタメ性のあるリード獲得に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "あなたの仕事タイプ診断",
+  "previewDescription": "3つの質問に答えると、あなたのタイプがわかります。"
+}
