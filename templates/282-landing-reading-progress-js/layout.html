@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0d9488; --ink:#11201d; --muted:#5a6b67; --line:#e3eae8; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fbfcfc; line-height:1.85; }
+    .ae-bar { position:fixed; top:0; left:0; height:4px; width:0; background:linear-gradient(90deg,#2dd4bf,#0d9488); z-index:50; transition:width .1s linear; }
+    .ae-badge { position:fixed; top:12px; right:12px; background:#0d9488; color:#fff; font-size:12px; font-weight:700; padding:5px 12px; border-radius:999px; z-index:50; font-variant-numeric:tabular-nums; box-shadow:0 4px 12px rgba(13,148,136,.3); }
+    .ae-wrap { max-width:680px; margin:0 auto; padding:48px 22px; }
+    .ae-eyebrow { color:var(--accent); font-weight:700; font-size:13px; letter-spacing:1px; }
+    .ae-wrap h1 { font-size:30px; margin:6px 0 10px; line-height:1.4; }
+    .ae-by { color:var(--muted); font-size:13px; margin-bottom:24px; }
+    .ae-article h2 { font-size:20px; margin:30px 0 10px; }
+    .ae-article p { margin:0 0 16px; font-size:15.5px; }
+    .ae-lead { font-size:17px; color:#2c3a37; }
+    .ae-card { background:#f0fbf9; border:1px solid var(--line); border-radius:18px; padding:28px; margin-top:34px; text-align:center; }
+    .ae-card .t { font-weight:700; font-size:18px; margin-bottom:6px; }
+    .ae-card .d { color:var(--muted); font-size:13px; margin-bottom:14px; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-bar" id="bar"></div>
+  <div class="ae-badge"><span id="pct">0</span>% 読了</div>
+  <div class="ae-wrap">
+    <article class="ae-article">
+      <div class="ae-eyebrow">INSIGHT</div>
+      <h1>%%title%%</h1>
+      <div class="ae-by">編集部 ・ 読了目安 4分</div>
+      <p class="ae-lead">%%description%%</p>
+      <p>多くの企業が「とりあえず始める」ことの大切さを語ります。しかし、走り出した後に方向を見失わないための“ものさし”を持っているチームは、意外なほど多くありません。</p>
+      <h2>1. 小さく試し、速く学ぶ</h2>
+      <p>最初から完璧を目指すと、検証に時間がかかりすぎます。まずは仮説を最小単位で形にし、現場の反応から学ぶサイクルを回しましょう。失敗の数だけ、確かな知見が積み上がります。</p>
+      <p>このとき大切なのは、結果を数字で残すこと。感覚的な「良かった気がする」では、次の打ち手につながりません。</p>
+      <h2>2. 仕組みで継続する</h2>
+      <p>意志の力に頼った改善は長続きしません。誰がやっても同じ品質で回るよう、テンプレートやチェックリストに落とし込むことが、定着への近道です。</p>
+      <p>属人化を避け、ナレッジをチームの資産にしていく。この積み重ねが、半年後の大きな差を生みます。</p>
+      <h2>3. 数字で語る文化をつくる</h2>
+      <p>主観の議論は時に空回りします。共通の指標を持てば、議論はぐっと建設的になります。データは対立ではなく、合意のための言葉になるのです。</p>
+      <p>まずは一つの指標から。小さな“見える化”が、組織の意思決定を変えていきます。</p>
+      <div class="ae-card">
+        <div class="t">続きの実践ガイドを無料ダウンロード</div>
+        <div class="d">この記事の内容をまとめたチェックリストをお届けします</div>
+        %%content%%
+      </div>
+    </article>
+  </div>
+
+  <script>
+  (function () {
+    var bar = document.getElementById("bar"), pct = document.getElementById("pct");
+    function onScroll() {
+      var doc = document.documentElement;
+      var max = (doc.scrollHeight - doc.clientHeight) || 1;
+      var p = Math.min(Math.max(window.scrollY / max, 0), 1);
+      var v = Math.round(p * 100);
+      bar.style.width = v + "%";
+      pct.textContent = v;
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    onScroll();
+  })();
+  </script>
+</body>
+</html>

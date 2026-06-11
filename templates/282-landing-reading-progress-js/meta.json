@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - 読了プログレス記事(JS)",
+  "category": "landing",
+  "description": "スクロールに応じて上部バーと読了率バッジが進む記事型コンテンツLP(style.width・textContentのみ、innerHTML不使用)。オウンドメディア記事の最後で資料DLへ誘導するコンテンツマーケに。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "成果を出すチームがやっている3つの習慣",
+  "previewDescription": "うまくいくチームには、共通する“仕組み”がありました。"
+}

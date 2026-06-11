@@ -282,6 +282,28 @@ const ALUMNI_FORM = `<form>
   <p class="submit"><input type="submit" value="出欠を回答する"></p>
 </form>`;
 
+const VEHICLE_SERVICE_FORM = `<form>
+  <p><label>ご希望メニュー</label><br><select><option selected>車検</option><option>オイル交換</option><option>タイヤ交換</option><option>12ヶ月点検</option></select></p>
+  <p><label>車種・年式</label><br><input type="text" value="〇〇 ハイブリッド / 2021年式"></p>
+  <div class="row"><p><label>走行距離(km)</label><br><input type="number" value="42000"></p><p><label>ご希望日</label><br><input type="date" value="2026-07-05"></p></div>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <div class="row"><p><label>メール</label><br><input type="email" value="taro@example.com"></p><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p></div>
+  <p class="submit"><input type="submit" value="予約を申し込む"></p>
+</form>`;
+
+const CHARITY_RUN_FORM = `<form>
+  <p><label>エントリー種目</label><br><select><option selected>3km ファンラン</option><option>10km チャレンジ</option><option>21km ハーフ</option></select></p>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p><label>Tシャツサイズ</label><br><select><option>S</option><option selected>M</option><option>L</option><option>XL</option></select></p>
+  <p class="submit"><input type="submit" value="エントリーする"></p>
+</form>`;
+
+const CARDUPDATE_FORM = `<form>
+  <p><label>ご登録のメールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="お支払い方法を更新する"></p>
+</form>`;
+
 const SCHOLARSHIP_FORM = `<form>
   <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
   <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
@@ -1301,6 +1323,10 @@ function contentFor(dir, category) {
     case "279-form-scholarship-application": return SCHOLARSHIP_FORM;
     case "280-event-tasting": return TASTING_FORM;
     case "281-thankyou-application-received": return NEWSLETTER_FORM;
+    case "282-landing-reading-progress-js": return NEWSLETTER_FORM;
+    case "283-form-vehicle-service-booking": return VEHICLE_SERVICE_FORM;
+    case "284-event-charity-run": return CHARITY_RUN_FORM;
+    case "285-utility-payment-failed": return CARDUPDATE_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

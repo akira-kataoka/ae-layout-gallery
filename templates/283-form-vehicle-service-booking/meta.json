@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 車検/整備予約",
+  "category": "form",
+  "description": "車検・点検・オイル/タイヤ交換などのサービスメニューを提示し、車種・走行距離・希望日時を入力させる自動車整備の予約フォーム。ディーラー/整備工場の入庫予約に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "車検・整備のご予約",
+  "previewDescription": "ご希望のメニューと日時をお選びください。お見積りも無料です。"
+}

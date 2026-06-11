@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#b91c1c; --ink:#2a1313; --muted:#6e5757; --line:#f0dcdc; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fdf4f4; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:60px 20px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:20px; padding:36px 30px; box-shadow:0 16px 40px rgba(185,28,28,.1); }
+    .ae-ico { width:74px; height:74px; border-radius:50%; background:#fef2f2; display:flex; align-items:center; justify-content:center; font-size:36px; margin:0 auto 18px; }
+    .ae-card h1 { font-size:23px; margin:0 0 10px; text-align:center; }
+    .ae-card .lead { color:var(--muted); margin:0 0 22px; font-size:14px; text-align:center; }
+    .ae-detail { background:#fef2f2; border:1px solid var(--line); border-radius:12px; padding:16px; margin-bottom:22px; }
+    .ae-detail div { display:flex; justify-content:space-between; font-size:13px; padding:4px 0; }
+    .ae-detail .k { color:var(--muted); } .ae-detail b { color:var(--ink); }
+    .ae-detail .due b { color:var(--accent); }
+    .ae-why { font-size:13px; color:var(--muted); margin-bottom:22px; }
+    .ae-why .t { font-weight:700; color:var(--ink); margin-bottom:6px; font-size:13px; }
+    .ae-why li { margin-bottom:3px; }
+    .ae-card2 { border-top:1px dashed var(--line); padding-top:22px; text-align:center; }
+    .ae-card2 .t { font-weight:700; font-size:15px; margin-bottom:4px; }
+    .ae-card2 .d { color:var(--muted); font-size:13px; margin-bottom:14px; }
+    .ae-card2 form input[type=text],.ae-card2 form input[type=email] { width:100%; padding:13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card2 form p { margin:0 0 12px; }
+    .ae-card2 form .submit input,.ae-card2 form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-card">
+      <div class="ae-ico">⚠️</div>
+      <h1>%%title%%</h1>
+      <p class="lead">%%description%%</p>
+      <div class="ae-detail">
+        <div><span class="k">プラン</span><b>Pro プラン</b></div>
+        <div><span class="k">請求額</span><b>¥3,800</b></div>
+        <div class="due"><span class="k">再請求の予定</span><b>2026年6月14日</b></div>
+      </div>
+      <div class="ae-why">
+        <div class="t">よくある原因</div>
+        <ul>
+          <li>カードの有効期限切れ</li>
+          <li>利用限度額の超過・残高不足</li>
+          <li>カード会社による一時的な制限</li>
+        </ul>
+      </div>
+      <div class="ae-card2">
+        <div class="t">お支払い方法を更新する</div>
+        <div class="d">サービスを止めないために、カード情報のご確認をお願いします</div>
+        %%content%%
+      </div>
+    </div>
+  </div>
+</body>
+</html>
