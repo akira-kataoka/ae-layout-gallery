@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --gold:#d4af37; --ink:#0a0a0a; --muted:#9ca3af; --line:#2a2a2a; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:#f5f5f4; line-height:1.8;
+      background:radial-gradient(800px 400px at 50% -5%,rgba(212,175,55,.18),transparent), #0a0a0a; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:64px 24px; text-align:center; }
+    .ae-crown { font-size:54px; }
+    .ae-msg { margin:6px 0 8px; }
+    .ae-badge { display:inline-block; background:linear-gradient(120deg,var(--gold),#f59e0b); color:#0a0a0a; font-weight:800; letter-spacing:.1em; padding:8px 22px; border-radius:999px; margin:10px 0 20px; }
+    .ae-perks { background:rgba(255,255,255,.04); border:1px solid var(--line); border-radius:8px; padding:22px; text-align:left; }
+    .ae-perks li { padding:8px 0 8px 28px; position:relative; list-style:none; }
+    .ae-perks li::before { content:"✦"; position:absolute; left:0; color:var(--gold); }
+    .ae-perks ul { padding:0; margin:0; }
+    .ae-btn { display:inline-block; margin-top:22px; background:var(--gold); color:#0a0a0a; text-decoration:none; padding:14px 32px; border-radius:4px; font-weight:800; letter-spacing:.05em; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-crown">👑</div>
+    <div class="ae-msg">%%content%%</div>
+    <span class="ae-badge">VIP MEMBER</span>
+    <div class="ae-perks"><ul>
+      <li>専用コンシェルジュ・優先サポート</li>
+      <li>限定イベント・先行販売へのご招待</li>
+      <li>送料無料・ポイント5倍</li>
+      <li>毎月の特別ギフト</li>
+    </ul></div>
+    <a class="ae-btn" href="%%account-website%%">VIP特典を見る</a>
+  </div>
+</body>
+</html>

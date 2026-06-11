@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 登壇者/スピーカー募集",
+  "category": "form",
+  "description": "講演テーマ・プロフィールを入力する登壇者エントリーフォーム。カンファレンス/勉強会のCall for Speakersに。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "登壇者を募集しています",
+  "previewDescription": "あなたの知見をシェアしませんか？カンファレンスのスピーカーを募集中です。"
+}

@@ -231,6 +231,23 @@ const CALENDAR_BODY = `<h1>お申し込みが完了しました</h1>
 const SHARE_BODY = `<h1>ご参加ありがとうございます！</h1>
 <p>よろしければ、お知り合いにもシェアしていただけると嬉しいです。</p>`;
 
+const SPEAKER_FORM = `<form>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>ご所属・肩書</label><br><input type="text" value="株式会社サンプル / CTO"></p>
+  <p><label>講演テーマ</label><br><input type="text" value="生成AIで変わる開発現場"></p>
+  <p><label>概要（200字程度）</label><br><textarea>現場での活用事例と、導入のポイントをお話しします。</textarea></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="登壇をエントリーする"></p>
+</form>`;
+
+const WORKSHOP_FORM = `<form>
+  <p><label>コース</label><br><select><option selected>手びねり体験（90分）</option><option>電動ろくろ（120分）</option><option>絵付け体験（60分）</option></select></p>
+  <div class="row"><p><label>希望日</label><br><input type="date" value="2026-07-20"></p><p><label>参加人数</label><br><select><option selected>1名</option><option>2名</option><option>3名以上</option></select></p></div>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="体験を予約する"></p>
+</form>`;
+
 const SPONSOR_FORM = `<form>
   <div class="row"><p><label>会社名</label><br><input type="text" value="株式会社サンプル"></p><p><label>ご担当者名</label><br><input type="text" value="山田 太郎"></p></div>
   <p><label>ご希望の協賛プラン</label><br><select><option>ブロンズ</option><option selected>シルバー</option><option>ゴールド</option><option>相談したい</option></select></p>
@@ -945,6 +962,9 @@ function contentFor(dir, category) {
     case "192-form-membership-upgrade": return UPGRADE_FORM;
     case "194-form-sponsor-application": return SPONSOR_FORM;
     case "195-form-price-offer": return OFFER_FORM;
+    case "197-form-speaker-application": return SPEAKER_FORM;
+    case "198-form-workshop-booking": return WORKSHOP_FORM;
+    case "199-landing-flipbook-catalog-js": return NEWSLETTER_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }

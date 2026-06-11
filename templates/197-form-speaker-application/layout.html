@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#7c3aed; --ink:#0f0a1e; --muted:#94a3b8; --line:#2a2440; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:#e2e8f0; background:#0f0a1e; line-height:1.7; }
+    .ae-hero { padding:48px 20px; text-align:center; background:radial-gradient(700px 360px at 50% -10%,#4c1d95,transparent); }
+    .ae-hero .badge { display:inline-block; background:rgba(124,58,237,.25); border:1px solid rgba(124,58,237,.5); color:#c4b5fd; padding:5px 14px; border-radius:999px; font-size:13px; font-weight:700; }
+    .ae-hero h1 { font-size:28px; margin:12px 0 6px; color:#fff; }
+    .ae-hero p { color:var(--muted); margin:0; }
+    .ae-perks { max-width:760px; margin:18px auto 0; padding:0 20px; display:flex; gap:8px; justify-content:center; flex-wrap:wrap; font-size:12px; }
+    .ae-perks span { background:rgba(255,255,255,.06); border:1px solid var(--line); padding:6px 12px; border-radius:999px; }
+    .ae-card { max-width:600px; margin:26px auto 56px; background:rgba(255,255,255,.05); border:1px solid var(--line); border-radius:16px; padding:30px 28px; }
+    .ae-card h2 { margin-top:0; color:#fff; font-size:18px; }
+    .ae-card form label { font-size:13px; font-weight:600; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form select,.ae-card form textarea { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; background:rgba(0,0,0,.3); color:#fff; font-size:14px; }
+    .ae-card form p { margin:0 0 14px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; font-size:15px; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <header class="ae-hero"><span class="badge">CALL FOR SPEAKERS</span><h1>%%title%%</h1><p>%%description%%</p>
+    <div class="ae-perks"><span>登壇料あり</span><span>交通費支給</span><span>録画アーカイブ</span></div>
+  </header>
+  <section class="ae-card"><h2>登壇エントリー</h2>%%content%%</section>
+</body>
+</html>

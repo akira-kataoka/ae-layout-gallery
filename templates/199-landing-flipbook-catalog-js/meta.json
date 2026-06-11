@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - デジタルカタログ/ページめくり(JS)",
+  "category": "landing",
+  "description": "前へ/次へでページを切り替えるフリップブック型カタログLP(素のJS・classList切替・innerHTML不使用)。商品カタログ閲覧＋PDF請求に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "2026 デジタルカタログ",
+  "previewDescription": "ページをめくって最新ラインナップをご覧ください。"
+}

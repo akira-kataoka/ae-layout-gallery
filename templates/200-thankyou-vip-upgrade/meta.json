@@ -1,0 +1,7 @@
+{
+  "name": "サンクスページ - VIPアップグレード完了",
+  "category": "thankyou",
+  "description": "上位会員/VIPへの昇格完了＋特典開放を高級感ある演出で表示。アップグレード後のウェルカム画面に。",
+  "isIncludeDefaultCss": false,
+  "previewContent": "<h1 style=\"margin:6px 0 8px;font-size:24px;color:#fff;\">VIP会員へようこそ</h1><p style=\"color:#9ca3af;\">アップグレードが完了しました。すべての特典がご利用いただけます。</p>"
+}
