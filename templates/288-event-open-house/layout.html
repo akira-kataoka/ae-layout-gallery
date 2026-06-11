@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#b45309; --ink:#2a1d0c; --muted:#6e5d45; --line:#efe5d4; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fdf9f1; line-height:1.7; }
+    .ae-wrap { max-width:640px; margin:0 auto; padding:48px 20px; }
+    .ae-hero { background:#fff; border:1px solid var(--line); border-radius:18px; overflow:hidden; margin-bottom:22px; box-shadow:0 12px 32px rgba(180,83,9,.08); }
+    .ae-hero .photo { aspect-ratio:16/9; background:linear-gradient(135deg,#fcd34d,#b45309); display:flex; align-items:center; justify-content:center; font-size:64px; }
+    .ae-hero .body { padding:20px; text-align:center; }
+    .ae-hero .badge { display:inline-block; background:#fef3c7; color:var(--accent); font-weight:700; font-size:12px; padding:4px 12px; border-radius:999px; margin-bottom:8px; }
+    .ae-hero h1 { font-size:24px; margin:0 0 6px; }
+    .ae-hero p { color:var(--muted); margin:0; font-size:14px; }
+    .ae-info { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-bottom:22px; }
+    .ae-i { background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 16px; }
+    .ae-i .k { font-size:11px; color:var(--muted); } .ae-i .v { font-weight:800; font-size:14px; }
+    .ae-spec { background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 20px; margin-bottom:22px; }
+    .ae-spec div { display:flex; justify-content:space-between; font-size:13px; padding:4px 0; border-top:1px dashed var(--line); }
+    .ae-spec div:first-child { border-top:0; }
+    .ae-spec .k { color:var(--muted); } .ae-spec b { color:var(--ink); }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; }
+    .ae-card .t { font-weight:700; font-size:17px; margin-bottom:6px; text-align:center; }
+    .ae-card .d { color:var(--muted); font-size:13px; margin-bottom:14px; text-align:center; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form input[type=tel],.ae-card form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    @media (max-width:480px){ .ae-info { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-hero">
+      <div class="photo">🏡</div>
+      <div class="body">
+        <span class="badge">OPEN HOUSE ・ 予約制内覧会</span>
+        <h1>%%title%%</h1>
+        <p>%%description%%</p>
+      </div>
+    </div>
+    <div class="ae-info">
+      <div class="ae-i"><div class="k">開催日</div><div class="v">10.04 (土) – 10.05 (日)</div></div>
+      <div class="ae-i"><div class="k">時間</div><div class="v">10:00 – 17:00</div></div>
+      <div class="ae-i"><div class="k">所在地</div><div class="v">市内中央区 〇〇町</div></div>
+      <div class="ae-i"><div class="k">来場特典</div><div class="v">QUOカード進呈</div></div>
+    </div>
+    <div class="ae-spec">
+      <div><span class="k">間取り</span><b>4LDK / 105.2㎡</b></div>
+      <div><span class="k">価格</span><b>5,480万円</b></div>
+      <div><span class="k">最寄り</span><b>〇〇駅 徒歩8分</b></div>
+    </div>
+    <div class="ae-card">
+      <div class="t">来場予約をする</div>
+      <div class="d">ご予約優先でご案内します（飛び込み見学も歓迎）</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

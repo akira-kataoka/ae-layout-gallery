@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0e7490; --ink:#0c2126; --muted:#5a7178; --line:#d8e8eb; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eff8fa; line-height:1.7; }
+    .ae-wrap { max-width:620px; margin:0 auto; padding:48px 20px; }
+    .ae-hotel { background:#fff; border:1px solid var(--line); border-radius:16px; overflow:hidden; margin-bottom:20px; box-shadow:0 10px 28px rgba(14,116,144,.08); }
+    .ae-hotel .photo { aspect-ratio:16/8; background:linear-gradient(135deg,#22d3ee,#0e7490); display:flex; align-items:center; justify-content:center; font-size:54px; }
+    .ae-hotel .body { padding:18px 20px; }
+    .ae-hotel .star { color:#f59e0b; font-size:13px; }
+    .ae-hotel h1 { font-size:21px; margin:4px 0 4px; }
+    .ae-hotel .loc { color:var(--muted); font-size:13px; }
+    .ae-rooms { display:flex; gap:10px; margin-bottom:20px; }
+    .ae-room { flex:1; background:#fff; border:1px solid var(--line); border-radius:12px; padding:12px; text-align:center; }
+    .ae-room .nm { font-weight:700; font-size:12px; } .ae-room .pr { color:var(--accent); font-weight:900; font-size:14px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px; }
+    .ae-card .t { font-weight:700; font-size:16px; margin-bottom:14px; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form input[type=tel],.ae-card form input[type=date],.ae-card form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form label { font-weight:700; font-size:13px; }
+    .ae-card form p { margin:0 0 13px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:15px; border-radius:9px; font-weight:800; font-size:15px; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-hotel">
+      <div class="photo">🏨</div>
+      <div class="body">
+        <div class="star">★★★★☆</div>
+        <h1>シーサイドリゾートホテル</h1>
+        <div class="loc">📍 オーシャンビュー・全室バルコニー付き</div>
+      </div>
+    </div>
+    <div class="ae-rooms">
+      <div class="ae-room"><div class="nm">スタンダード</div><div class="pr">¥12,000〜</div></div>
+      <div class="ae-room"><div class="nm">デラックス</div><div class="pr">¥18,000〜</div></div>
+      <div class="ae-room"><div class="nm">スイート</div><div class="pr">¥32,000〜</div></div>
+    </div>
+    <div class="ae-card">
+      <div class="t">ご宿泊予約</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

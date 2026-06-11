@@ -282,6 +282,23 @@ const ALUMNI_FORM = `<form>
   <p class="submit"><input type="submit" value="出欠を回答する"></p>
 </form>`;
 
+const HOTEL_FORM = `<form>
+  <p><label>部屋タイプ</label><br><select><option selected>スタンダード</option><option>デラックス</option><option>スイート</option></select></p>
+  <div class="row"><p><label>チェックイン</label><br><input type="date" value="2026-08-10"></p><p><label>チェックアウト</label><br><input type="date" value="2026-08-12"></p></div>
+  <p><label>ご利用人数</label><br><select><option>1名</option><option selected>2名</option><option>3名以上</option></select></p>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <div class="row"><p><label>メール</label><br><input type="email" value="taro@example.com"></p><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p></div>
+  <p class="submit"><input type="submit" value="予約を確定する"></p>
+</form>`;
+
+const OPENHOUSE_FORM = `<form>
+  <p><label>ご希望来場日</label><br><select><option selected>10/04 (土)</option><option>10/05 (日)</option></select></p>
+  <p><label>来場時間帯</label><br><select><option selected>午前</option><option>午後</option></select></p>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <div class="row"><p><label>メール</label><br><input type="email" value="taro@example.com"></p><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p></div>
+  <p class="submit"><input type="submit" value="来場予約をする"></p>
+</form>`;
+
 const VEHICLE_SERVICE_FORM = `<form>
   <p><label>ご希望メニュー</label><br><select><option selected>車検</option><option>オイル交換</option><option>タイヤ交換</option><option>12ヶ月点検</option></select></p>
   <p><label>車種・年式</label><br><input type="text" value="〇〇 ハイブリッド / 2021年式"></p>
@@ -1327,6 +1344,10 @@ function contentFor(dir, category) {
     case "283-form-vehicle-service-booking": return VEHICLE_SERVICE_FORM;
     case "284-event-charity-run": return CHARITY_RUN_FORM;
     case "285-utility-payment-failed": return CARDUPDATE_FORM;
+    case "286-landing-coupon-copy-js": return NEWSLETTER_FORM;
+    case "287-form-hotel-reservation": return HOTEL_FORM;
+    case "288-event-open-house": return OPENHOUSE_FORM;
+    case "289-thankyou-review-submitted": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

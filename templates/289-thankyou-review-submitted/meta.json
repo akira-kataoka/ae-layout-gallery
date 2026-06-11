@@ -1,0 +1,8 @@
+{
+  "name": "サンクス - レビュー投稿完了",
+  "category": "thankyou",
+  "description": "商品レビュー/口コミの投稿完了後に、お礼とポイント進呈・投稿内容の表示を行うサンクスページ。UGC促進とリピート購入のオプトインを兼ねる。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "レビューありがとうございました！",
+  "previewDescription": "あなたの声が、これから選ぶ人の助けになります。"
+}

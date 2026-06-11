@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#d97706; --ink:#2a230c; --muted:#6e6344; --line:#f0e7c9; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fffbeb; line-height:1.7; }
+    .ae-wrap { max-width:500px; margin:0 auto; padding:56px 20px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:20px; padding:36px 28px; text-align:center; box-shadow:0 16px 40px rgba(217,119,6,.1); }
+    .ae-stars { font-size:38px; color:#f59e0b; letter-spacing:4px; margin-bottom:8px; }
+    .ae-card h1 { font-size:23px; margin:0 0 8px; }
+    .ae-card .lead { color:var(--muted); margin:0 0 22px; font-size:14px; }
+    .ae-reward { background:linear-gradient(135deg,#fde68a,#fbbf24); border-radius:16px; padding:20px; margin-bottom:22px; }
+    .ae-reward .ic { font-size:30px; } .ae-reward .t { font-weight:800; color:#7a5c0a; margin-top:4px; } .ae-reward .d { font-size:13px; color:#92722a; }
+    .ae-quote { background:#fffdf5; border:1px solid var(--line); border-radius:12px; padding:16px; font-size:13px; color:#5a4e30; text-align:left; margin-bottom:24px; font-style:italic; }
+    .ae-foot { border-top:1px dashed var(--line); padding-top:20px; }
+    .ae-foot .t { font-weight:700; font-size:14px; margin-bottom:12px; }
+    .ae-foot form input[type=email] { width:100%; padding:13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-foot form p { margin:0 0 12px; }
+    .ae-foot form .submit input,.ae-foot form button { width:100%; background:var(--accent); color:#fff; border:0; padding:13px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-card">
+      <div class="ae-stars">★★★★★</div>
+      <h1>%%title%%</h1>
+      <p class="lead">%%description%%</p>
+      <div class="ae-reward">
+        <div class="ic">🎁</div>
+        <div class="t">100ポイントを進呈しました</div>
+        <div class="d">次回のお買い物でご利用いただけます</div>
+      </div>
+      <div class="ae-quote">「思っていた以上に使いやすくて、毎日活躍しています。リピート確定です！」</div>
+      <div class="ae-foot">
+        <div class="t">新商品やレビュー特典のお知らせを受け取る</div>
+        %%content%%
+      </div>
+    </div>
+  </div>
+</body>
+</html>

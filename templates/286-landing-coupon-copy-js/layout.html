@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#db2777; --ink:#2a1019; --muted:#6b5560; --line:#f3dce6; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fff0f6; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:22px; }
+    .ae-head h1 { font-size:25px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-ticket { position:relative; background:linear-gradient(135deg,#ec4899,#db2777); color:#fff; border-radius:18px; padding:28px 24px; text-align:center; margin-bottom:24px; box-shadow:0 16px 40px rgba(219,39,119,.25); }
+    .ae-ticket::before,.ae-ticket::after { content:""; position:absolute; top:50%; width:26px; height:26px; background:#fff0f6; border-radius:50%; transform:translateY(-50%); }
+    .ae-ticket::before { left:-13px; } .ae-ticket::after { right:-13px; }
+    .ae-ticket .off { font-size:40px; font-weight:900; line-height:1; }
+    .ae-ticket .sub { font-size:13px; opacity:.95; margin-top:4px; }
+    .ae-code { display:flex; gap:8px; margin-top:18px; }
+    .ae-code .val { flex:1; background:rgba(255,255,255,.95); color:#9d174d; font-weight:900; font-size:18px; letter-spacing:2px; border-radius:10px; padding:13px; display:flex; align-items:center; justify-content:center; font-variant-numeric:tabular-nums; }
+    .ae-code button { background:#0f172a; color:#fff; border:0; border-radius:10px; padding:0 18px; font-weight:800; font-size:14px; cursor:pointer; white-space:nowrap; }
+    .ae-code button.done { background:#16a34a; }
+    .ae-expire { font-size:12px; opacity:.9; margin-top:10px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px; text-align:center; }
+    .ae-card .t { font-weight:700; margin-bottom:12px; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-ticket">
+      <div class="off">20% OFF</div>
+      <div class="sub">次回のお買い物がお得に</div>
+      <div class="ae-code">
+        <span class="val" id="code">WELCOME20</span>
+        <button type="button" id="copy">コピー</button>
+      </div>
+      <div class="ae-expire">有効期限：2026年7月31日まで</div>
+    </div>
+    <div class="ae-card">
+      <div class="t">もっとお得な情報を受け取る</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var btn = document.getElementById("copy"), code = document.getElementById("code");
+    var original = btn.textContent;
+    function flashDone() {
+      btn.textContent = "コピー済み ✓";
+      btn.classList.add("done");
+      window.setTimeout(function () { btn.textContent = original; btn.classList.remove("done"); }, 1800);
+    }
+    btn.addEventListener("click", function () {
+      var text = code.textContent;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(flashDone, function () { fallback(text); });
+      } else {
+        fallback(text);
+      }
+    });
+    function fallback(text) {
+      var sel = window.getSelection();
+      var range = document.createRange();
+      range.selectNodeContents(code);
+      sel.removeAllRanges();
+      sel.addRange(range);
+      flashDone();
+    }
+  })();
+  </script>
+</body>
+</html>

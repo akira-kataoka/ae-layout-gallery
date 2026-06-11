@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - クーポンコード ワンタップコピー(JS)",
+  "category": "landing",
+  "description": "チケット風クーポンのコードをワンタップでクリップボードにコピーできるLP(navigator.clipboard＋textContent/classList、innerHTML不使用)。コピー後はボタン表示が切り替わる。クーポン配布の利用率向上に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "20%OFFクーポン プレゼント",
+  "previewDescription": "コードをコピーして、お会計時にご利用ください。"
+}

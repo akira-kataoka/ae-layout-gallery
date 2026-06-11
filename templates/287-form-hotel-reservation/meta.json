@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 宿泊予約",
+  "category": "form",
+  "description": "ホテル/旅館の外観・部屋タイプ・料金を提示し、チェックイン/アウト日・人数・部屋タイプを入力させる宿泊予約フォーム。観光/ビジネスホテルの直販予約に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "ご宿泊のご予約",
+  "previewDescription": "チェックイン・チェックアウト日とご希望の部屋タイプをお選びください。"
+}
