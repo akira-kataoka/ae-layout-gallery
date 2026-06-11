@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#7c3aed; --ink:#1b1430; --muted:#6b6480; --line:#e8e3f4; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f8f6fd; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:20px; }
+    .ae-head h1 { font-size:24px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; box-shadow:0 12px 32px rgba(124,58,237,.08); }
+    .ae-field label { font-weight:700; font-size:14px; display:block; margin-bottom:8px; }
+    .ae-field input[type=date] { width:100%; padding:13px; border:1px solid var(--line); border-radius:10px; font-size:15px; }
+    .ae-out { background:linear-gradient(135deg,#7c3aed,#5b21b6); color:#fff; border-radius:16px; padding:24px; text-align:center; margin-top:18px; }
+    .ae-out .lab { font-size:13px; opacity:.9; } .ae-out .age { font-size:46px; font-weight:900; font-variant-numeric:tabular-nums; line-height:1.1; } .ae-out .age small { font-size:16px; }
+    .ae-sub { display:flex; gap:12px; margin-top:14px; }
+    .ae-s { flex:1; background:#faf8fe; border:1px solid var(--line); border-radius:12px; padding:14px; text-align:center; }
+    .ae-s .k { font-size:11px; color:var(--muted); } .ae-s .v { font-weight:800; font-size:16px; color:var(--accent); }
+    .ae-cta { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; margin-top:18px; }
+    .ae-cta .t { font-weight:700; margin-bottom:12px; }
+    .ae-cta form input[type=text],.ae-cta form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form .submit input,.ae-cta form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <div class="ae-field">
+        <label for="dob">生年月日</label>
+        <input type="date" id="dob" value="1990-05-15">
+      </div>
+      <div class="ae-out">
+        <div class="lab">満年齢</div>
+        <div class="age"><span id="age">—</span><small> 歳</small></div>
+        <div class="ae-sub">
+          <div class="ae-s" style="background:rgba(255,255,255,.15);border-color:transparent;color:#fff"><div class="k" style="color:rgba(255,255,255,.8)">干支</div><div class="v" id="zodiac" style="color:#fff">—</div></div>
+          <div class="ae-s" style="background:rgba(255,255,255,.15);border-color:transparent;color:#fff"><div class="k" style="color:rgba(255,255,255,.8)">次の誕生日まで</div><div class="v" id="next" style="color:#fff">—</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="ae-cta">
+      <div class="t">年齢に合った保険・サービスのご案内を受け取る</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var dob = document.getElementById("dob");
+    var ageEl = document.getElementById("age"), zodiacEl = document.getElementById("zodiac"), nextEl = document.getElementById("next");
+    var ETO = ["申", "酉", "戌", "亥", "子", "丑", "寅", "卯", "辰", "巳", "午", "未"];
+    function calc() {
+      if (!dob.value) return;
+      var b = new Date(dob.value + "T00:00:00");
+      if (isNaN(b.getTime())) return;
+      var now = new Date();
+      var age = now.getFullYear() - b.getFullYear();
+      var mdNow = (now.getMonth() + 1) * 100 + now.getDate();
+      var mdB = (b.getMonth() + 1) * 100 + b.getDate();
+      if (mdNow < mdB) age--;
+      ageEl.textContent = age >= 0 ? age : "—";
+      zodiacEl.textContent = ETO[b.getFullYear() % 12] + "年";
+      var nextBday = new Date(now.getFullYear(), b.getMonth(), b.getDate());
+      if (nextBday < new Date(now.getFullYear(), now.getMonth(), now.getDate())) nextBday.setFullYear(now.getFullYear() + 1);
+      var days = Math.round((nextBday - new Date(now.getFullYear(), now.getMonth(), now.getDate())) / 86400000);
+      nextEl.textContent = days === 0 ? "今日 🎉" : days + "日";
+    }
+    dob.addEventListener("input", calc);
+    calc();
+  })();
+  </script>
+</body>
+</html>

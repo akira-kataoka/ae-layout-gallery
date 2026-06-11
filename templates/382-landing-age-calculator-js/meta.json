@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - 年齢計算機(JS)",
+  "category": "landing",
+  "description": "生年月日から満年齢・干支・次の誕生日までの日数を即時計算するLP(Date計算＋textContentのみ、innerHTML不使用)。保険/会員サービス/誕生日マーケのリード獲得に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "あなたの満年齢、すぐわかる",
+  "previewDescription": "生年月日を入れるだけ。年齢・干支・次の誕生日までの日数を表示します。"
+}

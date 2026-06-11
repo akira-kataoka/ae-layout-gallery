@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#65a30d; --ink:#1c2410; --muted:#5e6b4a; --line:#e4ecd4; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f7faf0; line-height:1.7; }
+    .ae-hero { background:linear-gradient(135deg,#a3e635,#65a30d); color:#1c2410; text-align:center; padding:50px 20px 40px; }
+    .ae-hero .em { font-size:52px; }
+    .ae-hero h1 { font-size:27px; margin:6px 0 8px; }
+    .ae-hero p { margin:0; opacity:.85; font-size:14px; }
+    .ae-wrap { max-width:620px; margin:0 auto; padding:34px 20px 48px; }
+    .ae-info { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-bottom:24px; }
+    .ae-i { background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 18px; box-shadow:0 8px 22px rgba(101,163,13,.06); }
+    .ae-i .k { font-size:11px; color:var(--muted); } .ae-i .v { font-weight:800; font-size:15px; }
+    .ae-act { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-bottom:24px; }
+    .ae-a { display:flex; align-items:center; gap:8px; font-size:13px; background:#fff; border:1px solid var(--line); border-radius:12px; padding:12px 14px; }
+    .ae-a .em { font-size:20px; }
+    .ae-note { background:#f0fdf4; border:1px solid var(--line); border-radius:12px; padding:14px 16px; font-size:12px; color:#33514c; margin-bottom:24px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; }
+    .ae-card .t { font-weight:700; font-size:17px; margin-bottom:6px; text-align:center; }
+    .ae-card .d { color:var(--muted); font-size:13px; margin-bottom:14px; text-align:center; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form input[type=number],.ae-card form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    @media (max-width:480px){ .ae-info,.ae-act { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-hero">
+    <div class="em">🌾</div>
+    <h1>%%title%%</h1>
+    <p>%%description%%</p>
+  </div>
+  <div class="ae-wrap">
+    <div class="ae-info">
+      <div class="ae-i"><div class="k">開催日</div><div class="v">10.11 (土) 10:00–14:00</div></div>
+      <div class="ae-i"><div class="k">場所</div><div class="v">みどりの丘ファーム</div></div>
+      <div class="ae-i"><div class="k">参加費</div><div class="v">大人2,500円 / 子ども1,500円</div></div>
+      <div class="ae-i"><div class="k">特典</div><div class="v">収穫野菜お持ち帰り</div></div>
+    </div>
+    <div class="ae-act">
+      <div class="ae-a"><span class="em">🍠</span><span>さつまいも掘り体験</span></div>
+      <div class="ae-a"><span class="em">🐄</span><span>動物とのふれあい</span></div>
+      <div class="ae-a"><span class="em">🍙</span><span>採れたて野菜ランチ</span></div>
+      <div class="ae-a"><span class="em">🔥</span><span>焼き芋づくり</span></div>
+    </div>
+    <div class="ae-note">汚れてもよい服装・長靴がおすすめです。雨天時は屋内プログラムに変更して開催します。</div>
+    <div class="ae-card">
+      <div class="t">体験の参加申し込み</div>
+      <div class="d">ご家族・グループでのご参加歓迎です</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

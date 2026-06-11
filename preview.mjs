@@ -282,6 +282,22 @@ const ALUMNI_FORM = `<form>
   <p class="submit"><input type="submit" value="出欠を回答する"></p>
 </form>`;
 
+const FUNERAL_FORM = `<form>
+  <p><label>ご相談内容</label><br><select><option selected>事前相談・プランを知りたい</option><option>費用・お見積り</option><option>生前準備（終活）</option><option>急ぎの相談</option></select></p>
+  <p><label>ご希望の形式</label><br><select><option selected>家族葬</option><option>一日葬</option><option>一般葬</option><option>未定・相談</option></select></p>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>ご地域</label><br><input type="text" value="東京都杉並区"></p>
+  <div class="row"><p><label>メール</label><br><input type="email" value="taro@example.com"></p><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p></div>
+  <p class="submit"><input type="submit" value="資料請求・無料相談する"></p>
+</form>`;
+
+const FARM_FORM = `<form>
+  <p><label>代表者のお名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <div class="row"><p><label>大人</label><br><input type="number" min="0" value="2"></p><p><label>子ども</label><br><input type="number" min="0" value="2"></p></div>
+  <p class="submit"><input type="submit" value="体験を申し込む"></p>
+</form>`;
+
 const PESTCTRL_FORM = `<form>
   <p><label>困っている害虫</label><br><select><option selected>ゴキブリ</option><option>ネズミ</option><option>ハチ・アシナガバチ</option><option>シロアリ</option><option>その他・複数</option></select></p>
   <p><label>建物の種類</label><br><select><option selected>戸建て</option><option>マンション・アパート</option><option>店舗・オフィス</option></select></p>
@@ -1820,6 +1836,10 @@ function contentFor(dir, category) {
     case "379-form-pest-control-quote": return PESTCTRL_FORM;
     case "380-event-charity-auction": return AUCTION_FORM;
     case "381-utility-account-locked": return NEWSLETTER_FORM;
+    case "382-landing-age-calculator-js": return NEWSLETTER_FORM;
+    case "383-form-funeral-consult": return FUNERAL_FORM;
+    case "384-event-farm-experience": return FARM_FORM;
+    case "385-thankyou-quote-requested": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;
