@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#65a30d; --ink:#1c2410; --muted:#5e6b4a; --line:#e4ecd4; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f7faf0; line-height:1.7; }
+    .ae-hero { background:linear-gradient(135deg,#84cc16,#65a30d); color:#fff; text-align:center; padding:50px 20px 40px; }
+    .ae-hero .badge { display:inline-block; background:rgba(255,255,255,.25); font-weight:700; font-size:12px; letter-spacing:2px; padding:6px 16px; border-radius:999px; margin-bottom:12px; }
+    .ae-hero h1 { font-size:28px; margin:0 0 8px; }
+    .ae-hero p { margin:0; opacity:.95; font-size:14px; }
+    .ae-wrap { max-width:640px; margin:0 auto; padding:34px 20px 48px; }
+    .ae-info { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-bottom:24px; }
+    .ae-i { background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 18px; box-shadow:0 8px 22px rgba(101,163,13,.06); }
+    .ae-i .k { font-size:11px; color:var(--muted); } .ae-i .v { font-weight:800; font-size:15px; }
+    .ae-types { background:#fff; border:1px solid var(--line); border-radius:16px; padding:20px; margin-bottom:24px; }
+    .ae-types .t { font-weight:700; text-align:center; margin-bottom:12px; }
+    .ae-ty { display:flex; align-items:center; gap:10px; padding:9px 0; border-top:1px dashed var(--line); font-size:14px; }
+    .ae-ty:first-of-type { border-top:0; }
+    .ae-ty .em { font-size:22px; } .ae-ty .pr { margin-left:auto; font-weight:800; color:var(--accent); }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; }
+    .ae-card .t { font-weight:700; font-size:17px; margin-bottom:14px; text-align:center; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form select,.ae-card form textarea { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; font-family:inherit; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    @media (max-width:480px){ .ae-info { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-hero">
+    <span class="badge">FLEA MARKET</span>
+    <h1>%%title%%</h1>
+    <p>%%description%%</p>
+  </div>
+  <div class="ae-wrap">
+    <div class="ae-info">
+      <div class="ae-i"><div class="k">開催日</div><div class="v">10.19 (日) 10:00–16:00</div></div>
+      <div class="ae-i"><div class="k">会場</div><div class="v">中央公園 芝生広場</div></div>
+      <div class="ae-i"><div class="k">出店募集</div><div class="v">先着50ブース</div></div>
+      <div class="ae-i"><div class="k">雨天</div><div class="v">翌週順延</div></div>
+    </div>
+    <div class="ae-types">
+      <div class="t">出店ブースの種類</div>
+      <div class="ae-ty"><span class="em">🧺</span><span>フリマブース（不用品・ハンドメイド）</span><span class="pr">¥2,000</span></div>
+      <div class="ae-ty"><span class="em">🍩</span><span>キッチンカー／飲食ブース</span><span class="pr">¥5,000</span></div>
+      <div class="ae-ty"><span class="em">🎨</span><span>ワークショップブース</span><span class="pr">¥3,000</span></div>
+    </div>
+    <div class="ae-card">
+      <div class="t">出店を申し込む</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

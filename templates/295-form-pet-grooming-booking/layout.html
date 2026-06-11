@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0891b2; --ink:#0c2228; --muted:#5a747c; --line:#d6eaee; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eefbfd; line-height:1.7; }
+    .ae-wrap { max-width:600px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:20px; }
+    .ae-head .emo { font-size:44px; }
+    .ae-head h1 { font-size:24px; margin:4px 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-courses { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:20px; }
+    .ae-c { background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 8px; text-align:center; box-shadow:0 6px 18px rgba(8,145,178,.05); }
+    .ae-c .em { font-size:24px; } .ae-c .nm { font-weight:700; font-size:12px; } .ae-c .pr { color:var(--accent); font-weight:900; font-size:12px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px; }
+    .ae-card .t { font-weight:700; font-size:16px; margin-bottom:14px; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form input[type=tel],.ae-card form input[type=date],.ae-card form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form label { font-weight:700; font-size:13px; }
+    .ae-card form p { margin:0 0 13px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:15px; border-radius:9px; font-weight:800; font-size:15px; cursor:pointer; }
+    @media (max-width:440px){ .ae-courses { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head">
+      <div class="emo">🐩</div>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-courses">
+      <div class="ae-c"><div class="em">🛁</div><div class="nm">シャンプー</div><div class="pr">¥3,500〜</div></div>
+      <div class="ae-c"><div class="em">✂️</div><div class="nm">カット＋シャンプー</div><div class="pr">¥6,000〜</div></div>
+      <div class="ae-c"><div class="em">💅</div><div class="nm">爪・耳ケア</div><div class="pr">¥1,500〜</div></div>
+    </div>
+    <div class="ae-card">
+      <div class="t">トリミングのご予約</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - 創業記念カウントアップ(JS)",
+  "category": "landing",
+  "description": "創業日からの経過年数・通算日数を実時間で計算し、実績数値をカウントアップ表示する周年記念LP(Date計算＋textContentのみ、innerHTML不使用)。アニバーサリー訴求とキャンペーン誘導に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "おかげさまで、20周年。",
+  "previewDescription": "創業から今日まで、たくさんの出会いに支えられてきました。"
+}

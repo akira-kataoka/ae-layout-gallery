@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - ペットトリミング予約",
+  "category": "form",
+  "description": "シャンプー/カット/ケアなどのコースを提示し、ペットの種類・希望日時・飼い主情報を入力させるトリミング予約フォーム。ペットサロン/動物病院の予約受付に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "トリミングのご予約",
+  "previewDescription": "わんちゃん・ねこちゃんのコースと日時をお選びください。"
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#b45309; --ink:#2a1d0c; --muted:#6e5d45; --line:#efe4d0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fffaf0; line-height:1.7; }
+    .ae-wrap { max-width:620px; margin:0 auto; padding:52px 20px; }
+    .ae-head { text-align:center; margin-bottom:26px; }
+    .ae-head .badge { display:inline-block; background:#fef3c7; color:var(--accent); font-weight:700; font-size:12px; letter-spacing:2px; padding:6px 16px; border-radius:999px; margin-bottom:14px; }
+    .ae-head h1 { font-size:27px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-since { text-align:center; background:linear-gradient(135deg,#f59e0b,#b45309); color:#fff; border-radius:18px; padding:28px; margin-bottom:18px; box-shadow:0 16px 40px rgba(180,83,9,.2); }
+    .ae-since .lab { font-size:13px; opacity:.92; }
+    .ae-since .big { font-size:44px; font-weight:900; line-height:1.15; font-variant-numeric:tabular-nums; }
+    .ae-since .days { font-size:14px; opacity:.95; margin-top:4px; }
+    .ae-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:24px; }
+    .ae-s { background:#fff; border:1px solid var(--line); border-radius:14px; padding:18px 8px; text-align:center; box-shadow:0 8px 22px rgba(180,83,9,.06); }
+    .ae-s .n { font-size:24px; font-weight:900; color:var(--accent); font-variant-numeric:tabular-nums; } .ae-s .l { font-size:11px; color:var(--muted); }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px; text-align:center; }
+    .ae-card .t { font-weight:700; margin-bottom:12px; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    @media (max-width:480px){ .ae-stats { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head">
+      <span class="badge">ANNIVERSARY</span>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-since">
+      <div class="lab">2006年4月の創業から</div>
+      <div class="big"><span id="years">0</span> 年目</div>
+      <div class="days">通算 <span id="days">0</span> 日、走り続けています</div>
+    </div>
+    <div class="ae-stats">
+      <div class="ae-s"><div class="n" id="cust" data-to="58000">0</div><div class="l">ご利用のお客様</div></div>
+      <div class="ae-s"><div class="n" id="proj" data-to="3200">0</div><div class="l">手がけた案件</div></div>
+      <div class="ae-s"><div class="n" id="staff" data-to="120">0</div><div class="l">スタッフ数</div></div>
+    </div>
+    <div class="ae-card">
+      <div class="t">記念キャンペーンの情報を受け取る</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var founded = new Date(2006, 3, 1);
+    var now = new Date();
+    var ms = now - founded;
+    var totalDays = Math.floor(ms / 86400000);
+    var years = now.getFullYear() - 2006 + (now.getMonth() >= 3 ? 1 : 0);
+    function countUp(el, to, dur, fmt) {
+      var start = null;
+      function step(ts) {
+        if (start === null) start = ts;
+        var p = Math.min((ts - start) / dur, 1);
+        var eased = 1 - Math.pow(1 - p, 3);
+        var v = Math.round(to * eased);
+        el.textContent = fmt ? v.toLocaleString("ja-JP") : v;
+        if (p < 1) window.requestAnimationFrame(step);
+      }
+      window.requestAnimationFrame(step);
+    }
+    countUp(document.getElementById("years"), years, 1000, false);
+    countUp(document.getElementById("days"), totalDays, 1400, true);
+    Array.prototype.forEach.call(document.querySelectorAll(".ae-s .n"), function (el) {
+      countUp(el, parseInt(el.getAttribute("data-to"), 10) || 0, 1600, true);
+    });
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "name": "ユーティリティ - 地域制限のご案内",
+  "category": "utility",
+  "description": "対象外の国・地域からアクセスした際に、サービスが未提供であることを案内するページ。提供開始通知のオプトインでローンチ前の見込み客を獲得する。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "お住まいの地域では現在ご利用いただけません",
+  "previewDescription": "順次提供地域を拡大しています。開始までもう少しお待ちください。"
+}

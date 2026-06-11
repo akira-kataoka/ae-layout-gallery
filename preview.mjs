@@ -282,6 +282,23 @@ const ALUMNI_FORM = `<form>
   <p class="submit"><input type="submit" value="出欠を回答する"></p>
 </form>`;
 
+const GROOMING_FORM = `<form>
+  <p><label>ご希望コース</label><br><select><option selected>シャンプー</option><option>カット＋シャンプー</option><option>爪・耳ケア</option></select></p>
+  <div class="row"><p><label>ペットの種類・犬種</label><br><input type="text" value="トイプードル"></p><p><label>ご希望日</label><br><input type="date" value="2026-07-12"></p></div>
+  <p><label>飼い主さまのお名前</label><br><input type="text" value="山田 太郎"></p>
+  <div class="row"><p><label>メール</label><br><input type="email" value="taro@example.com"></p><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p></div>
+  <p class="submit"><input type="submit" value="予約を申し込む"></p>
+</form>`;
+
+const FLEA_FORM = `<form>
+  <p><label>出店ブースの種類</label><br><select><option selected>フリマブース（¥2,000）</option><option>飲食ブース（¥5,000）</option><option>ワークショップ（¥3,000）</option></select></p>
+  <p><label>出店者・屋号</label><br><input type="text" value="やまだ雑貨店"></p>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p><label>取扱品目</label><br><textarea>ハンドメイドアクセサリー、古着</textarea></p>
+  <p class="submit"><input type="submit" value="出店を申し込む"></p>
+</form>`;
+
 const MEMBER_JOIN_FORM = `<form>
   <p><label>ご希望プラン</label><br><select><option>無料会員</option><option selected>スタンダード（¥980/月）</option><option>プレミアム（¥1,980/月）</option></select></p>
   <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
@@ -1369,6 +1386,10 @@ function contentFor(dir, category) {
     case "291-form-membership-join": return MEMBER_JOIN_FORM;
     case "292-event-cooking-class": return COOKING_FORM;
     case "293-utility-browser-unsupported": return NEWSLETTER_FORM;
+    case "294-landing-anniversary-countup-js": return NEWSLETTER_FORM;
+    case "295-form-pet-grooming-booking": return GROOMING_FORM;
+    case "296-event-flea-market": return FLEA_FORM;
+    case "297-utility-region-restricted": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;
