@@ -1,0 +1,8 @@
+{
+  "name": "ユーティリティ - 本人確認 審査中",
+  "category": "utility",
+  "description": "本人確認(KYC)書類の提出後、審査中であることと進捗ステップ・所要時間の目安を案内するページ。口座開設/会員登録の審査待ち画面に。完了通知のオプトインを備える。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "本人確認を審査しています",
+  "previewDescription": "ご提出ありがとうございます。ただいま確認を進めています。"
+}

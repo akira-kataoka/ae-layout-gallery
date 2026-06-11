@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - 他社切替 比較表(JS)",
+  "category": "landing",
+  "description": "比較対象の他社をプルダウンで切り替えると、機能比較表の他社列(○/△/✕)が更新される比較LP(textContent・DOM生成のみ、innerHTML代入不使用)。競合比較から資料DLへ誘導するBtoB訴求に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "他社と、ちゃんと比べてください。",
+  "previewDescription": "比較したい他社を選ぶと、機能の違いがひと目でわかります。"
+}

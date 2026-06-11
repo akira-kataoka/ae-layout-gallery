@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#4338ca; --ink:#15172e; --muted:#64698c; --line:#e3e2f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f5f5fc; line-height:1.7; }
+    .ae-wrap { max-width:600px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:18px; }
+    .ae-head h1 { font-size:25px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-pick { text-align:center; margin-bottom:16px; }
+    .ae-pick label { font-size:13px; color:var(--muted); margin-right:8px; }
+    .ae-pick select { padding:9px 12px; border:1px solid var(--line); border-radius:9px; font-size:14px; font-weight:700; }
+    .ae-table { background:#fff; border:1px solid var(--line); border-radius:16px; overflow:hidden; box-shadow:0 10px 28px rgba(67,56,202,.07); margin-bottom:22px; }
+    .ae-tr { display:grid; grid-template-columns:1.6fr 1fr 1fr; align-items:center; }
+    .ae-tr > div { padding:13px 12px; text-align:center; font-size:13px; border-top:1px solid var(--line); }
+    .ae-tr:first-child > div { border-top:0; }
+    .ae-tr .feat { text-align:left; font-weight:700; }
+    .ae-thead { background:#eef2ff; font-weight:800; }
+    .ae-thead .ours { color:var(--accent); }
+    .ae-tr .ours { background:#f5f3ff; font-weight:800; }
+    .ae-mark.o { color:#16a34a; font-weight:900; } .ae-mark.x { color:#cbd5e1; font-weight:900; } .ae-mark.t { color:#f59e0b; font-weight:900; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px; text-align:center; }
+    .ae-card .t { font-weight:700; margin-bottom:12px; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-pick">
+      <label for="rival">比較する他社：</label>
+      <select id="rival">
+        <option value="0" selected>A社（大手）</option>
+        <option value="1">B社（格安）</option>
+        <option value="2">C社（老舗）</option>
+      </select>
+    </div>
+    <div class="ae-table" id="table">
+      <div class="ae-tr ae-thead"><div class="feat">機能</div><div class="ours">当サービス</div><div><span id="rivalName">A社</span></div></div>
+      <div class="ae-tr" data-r="○,△,○"><div class="feat">初期費用0円</div><div class="ours"><span class="ae-mark o">○</span></div><div class="rcell"></div></div>
+      <div class="ae-tr" data-r="△,✕,○"><div class="feat">最短即日で導入</div><div class="ours"><span class="ae-mark o">○</span></div><div class="rcell"></div></div>
+      <div class="ae-tr" data-r="✕,✕,△"><div class="feat">24時間サポート</div><div class="ours"><span class="ae-mark o">○</span></div><div class="rcell"></div></div>
+      <div class="ae-tr" data-r="○,△,✕"><div class="feat">スマホアプリ対応</div><div class="ours"><span class="ae-mark o">○</span></div><div class="rcell"></div></div>
+      <div class="ae-tr" data-r="△,✕,△"><div class="feat">無料データ移行</div><div class="ours"><span class="ae-mark o">○</span></div><div class="rcell"></div></div>
+    </div>
+    <div class="ae-card">
+      <div class="t">違いがわかる比較資料を無料ダウンロード</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var rival = document.getElementById("rival"), rivalName = document.getElementById("rivalName");
+    var rows = Array.prototype.slice.call(document.querySelectorAll(".ae-tr[data-r]"));
+    var names = ["A社", "B社", "C社"];
+    function cls(m) { return m === "○" ? "o" : m === "△" ? "t" : "x"; }
+    function render() {
+      var idx = parseInt(rival.value, 10);
+      rivalName.textContent = names[idx];
+      rows.forEach(function (row) {
+        var marks = (row.getAttribute("data-r") || "").split(",");
+        var m = marks[idx] || "✕";
+        var cell = row.querySelector(".rcell");
+        cell.textContent = "";
+        var span = document.createElement("span");
+        span.className = "ae-mark " + cls(m);
+        span.textContent = m;
+        cell.appendChild(span);
+      });
+    }
+    rival.addEventListener("change", render);
+    render();
+  })();
+  </script>
+</body>
+</html>

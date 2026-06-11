@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#b45309; --ink:#2a1d0c; --muted:#6e5d45; --line:#f0e4cf; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fefaf0; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:58px 20px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:20px; padding:38px 30px; text-align:center; box-shadow:0 16px 40px rgba(180,83,9,.1); }
+    .ae-ico { width:78px; height:78px; border-radius:50%; background:#fef3c7; display:flex; align-items:center; justify-content:center; font-size:38px; margin:0 auto 18px; }
+    .ae-card h1 { font-size:23px; margin:0 0 10px; }
+    .ae-card .lead { color:var(--muted); margin:0 0 22px; font-size:14px; }
+    .ae-steps { text-align:left; margin-bottom:24px; }
+    .ae-st { display:flex; gap:12px; align-items:center; padding:9px 0; }
+    .ae-st .dot { width:26px; height:26px; border-radius:50%; flex:0 0 auto; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; }
+    .ae-st.done .dot { background:#16a34a; color:#fff; }
+    .ae-st.now .dot { background:#f59e0b; color:#fff; }
+    .ae-st.todo .dot { background:#e2e8f0; color:#94a3b8; }
+    .ae-st .lab { font-size:13px; } .ae-st.todo .lab { color:var(--muted); }
+    .ae-st .lab b { display:block; }
+    .ae-eta { background:#fffaf0; border:1px solid var(--line); border-radius:12px; padding:14px; font-size:13px; color:#5a4a30; margin-bottom:24px; }
+    .ae-optin { border-top:1px dashed var(--line); padding-top:22px; }
+    .ae-optin .t { font-weight:700; font-size:14px; margin-bottom:6px; }
+    .ae-optin .d { color:var(--muted); font-size:13px; margin-bottom:14px; }
+    .ae-optin form input[type=email] { width:100%; padding:13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-optin form p { margin:0 0 12px; }
+    .ae-optin form .submit input,.ae-optin form button { width:100%; background:var(--accent); color:#fff; border:0; padding:13px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-card">
+      <div class="ae-ico">🪪</div>
+      <h1>%%title%%</h1>
+      <p class="lead">%%description%%</p>
+      <div class="ae-steps">
+        <div class="ae-st done"><span class="dot">✓</span><span class="lab"><b>書類の提出</b>受け付けました</span></div>
+        <div class="ae-st now"><span class="dot">2</span><span class="lab"><b>本人確認の審査（現在ここ）</b>担当部署で確認しています</span></div>
+        <div class="ae-st todo"><span class="dot">3</span><span class="lab"><b>承認・利用開始</b>完了後、すべての機能が使えます</span></div>
+      </div>
+      <div class="ae-eta">⏱ 審査は通常 <b>1〜2営業日</b> で完了します。結果はメールでお知らせします。</div>
+      <div class="ae-optin">
+        <div class="t">審査完了の通知を受け取る</div>
+        <div class="d">承認され次第、いち早くメールでお知らせします</div>
+        %%content%%
+      </div>
+    </div>
+  </div>
+</body>
+</html>

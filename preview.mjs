@@ -282,6 +282,23 @@ const ALUMNI_FORM = `<form>
   <p class="submit"><input type="submit" value="出欠を回答する"></p>
 </form>`;
 
+const FRANCHISE_FORM = `<form>
+  <p><label>希望エリア</label><br><input type="text" value="東京・神奈川"></p>
+  <p><label>開業希望時期</label><br><select><option selected>3ヶ月以内</option><option>半年〜1年</option><option>未定・情報収集中</option></select></p>
+  <p><label>自己資金の目安</label><br><select><option>〜300万円</option><option selected>300〜800万円</option><option>800万円〜</option></select></p>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <div class="row"><p><label>メール</label><br><input type="email" value="taro@example.com"></p><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p></div>
+  <p class="submit"><input type="submit" value="加盟資料を請求する"></p>
+</form>`;
+
+const SCHOOLFEST_FORM = `<form>
+  <p><label>来場予定日</label><br><select><option selected>11/02 (日)</option><option>11/03 (祝)</option><option>両日</option></select></p>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p><label>ご来場人数</label><br><select><option>1名</option><option selected>2〜3名</option><option>4名以上</option></select></p>
+  <p class="submit"><input type="submit" value="来場登録する"></p>
+</form>`;
+
 const PHOTO_FORM = `<form>
   <p><label>撮影プラン</label><br><select><option selected>ウェディング</option><option>家族・七五三</option><option>マタニティ</option><option>プロフィール</option></select></p>
   <div class="row"><p><label>ご希望日</label><br><input type="date" value="2026-09-12"></p><p><label>撮影場所</label><br><select><option selected>スタジオ</option><option>出張（屋外）</option><option>未定・相談</option></select></p></div>
@@ -1677,6 +1694,10 @@ function contentFor(dir, category) {
     case "351-form-photography-booking": return PHOTO_FORM;
     case "352-event-stargazing": return STARGAZE_FORM;
     case "353-utility-trial-expired": return NEWSLETTER_FORM;
+    case "354-landing-comparison-switch-js": return NEWSLETTER_FORM;
+    case "355-form-franchise-inquiry": return FRANCHISE_FORM;
+    case "356-event-school-festival": return SCHOOLFEST_FORM;
+    case "357-utility-verification-pending": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;
