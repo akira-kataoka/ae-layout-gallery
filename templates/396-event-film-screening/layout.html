@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#e11d48; --ink:#f1f5f9; --muted:#94a3b8; --line:#262b3a; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#0b0e16; line-height:1.7; }
+    .ae-wrap { max-width:600px; margin:0 auto; padding:48px 20px; }
+    .ae-poster { aspect-ratio:16/9; border-radius:16px; background:linear-gradient(135deg,#1e293b,#0f172a); border:1px solid var(--line); display:flex; align-items:center; justify-content:center; font-size:60px; margin-bottom:20px; position:relative; overflow:hidden; }
+    .ae-poster .play { width:64px; height:64px; border-radius:50%; background:rgba(225,29,72,.92); display:flex; align-items:center; justify-content:center; font-size:26px; }
+    .ae-head { text-align:center; margin-bottom:22px; }
+    .ae-head .badge { display:inline-block; border:1px solid var(--accent); color:#fb7185; font-weight:700; font-size:11px; letter-spacing:2px; padding:5px 14px; border-radius:999px; margin-bottom:12px; }
+    .ae-head h1 { font-size:26px; margin:0 0 8px; color:#fff; }
+    .ae-head p { color:var(--muted); margin:0; font-size:14px; }
+    .ae-info { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:24px; }
+    .ae-i { background:#121826; border:1px solid var(--line); border-radius:14px; padding:14px; text-align:center; }
+    .ae-i .ic { font-size:20px; } .ae-i .k { font-size:11px; color:var(--muted); } .ae-i .v { font-weight:800; font-size:13px; color:#fff; }
+    .ae-card { background:#121826; border:1px solid var(--accent); border-radius:18px; padding:26px; }
+    .ae-card .t { font-weight:700; font-size:17px; margin-bottom:6px; text-align:center; color:#fff; }
+    .ae-card .d { color:var(--muted); font-size:13px; margin-bottom:14px; text-align:center; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; background:#0b0e16; color:#f1f5f9; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    @media (max-width:480px){ .ae-info { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-poster"><div class="play">▶</div></div>
+    <div class="ae-head">
+      <span class="badge">PREMIERE SCREENING</span>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-info">
+      <div class="ae-i"><div class="ic">📅</div><div class="k">上映日</div><div class="v">11.15 (土) 18:30</div></div>
+      <div class="ae-i"><div class="ic">📍</div><div class="k">会場</div><div class="v">シネマ・アーク</div></div>
+      <div class="ae-i"><div class="ic">🎬</div><div class="k">特典</div><div class="v">舞台挨拶＆Q&A</div></div>
+    </div>
+    <div class="ae-card">
+      <div class="t">鑑賞チケットの予約</div>
+      <div class="d">座席数に限りがあります。お早めにどうぞ</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

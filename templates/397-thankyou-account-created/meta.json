@@ -1,0 +1,8 @@
+{
+  "name": "サンクス - アカウント作成完了",
+  "category": "thankyou",
+  "description": "新規アカウント登録の完了を祝い、プロフィール設定・アプリ入手・初回特典の受け取りなど最初の3ステップを案内するウェルカム型サンクスページ。新規ユーザーの初期活性化に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "ようこそ！登録が完了しました",
+  "previewDescription": "アカウントの準備ができました。さっそく使ってみましょう。"
+}

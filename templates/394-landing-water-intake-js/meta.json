@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - 水分摂取量シミュレーター(JS)",
+  "category": "landing",
+  "description": "体重と活動量から1日に必要な水分量の目安とコップ何杯ぶんかを即時計算するヘルスケアLP(textContentのみ、innerHTML不使用)。ウォーターサーバー/健康食品/フィットネスのリード獲得に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "1日にどれくらい水を飲むべき？",
+  "previewDescription": "体重と活動量を選ぶだけ。あなたに必要な水分量の目安がわかります。"
+}

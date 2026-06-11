@@ -282,6 +282,23 @@ const ALUMNI_FORM = `<form>
   <p class="submit"><input type="submit" value="出欠を回答する"></p>
 </form>`;
 
+const VET_FORM = `<form>
+  <p><label>診療内容</label><br><select><option selected>予防接種</option><option>健康診断</option><option>歯科ケア</option><option>去勢・避妊</option><option>体調が悪い・その他</option></select></p>
+  <div class="row"><p><label>ペットの種類</label><br><select><option selected>犬</option><option>猫</option><option>その他</option></select></p><p><label>ご希望日</label><br><input type="date" value="2026-07-15"></p></div>
+  <p><label>症状・ご相談（任意）</label><br><textarea>最近あまり食欲がありません。</textarea></p>
+  <p><label>飼い主さまのお名前</label><br><input type="text" value="山田 太郎"></p>
+  <div class="row"><p><label>メール</label><br><input type="email" value="taro@example.com"></p><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p></div>
+  <p class="submit"><input type="submit" value="診察を予約する"></p>
+</form>`;
+
+const FILM_FORM = `<form>
+  <p><label>ご希望の回</label><br><select><option selected>11/15 (土) 18:30</option><option>11/16 (日) 14:00</option></select></p>
+  <p><label>枚数</label><br><select><option selected>1枚</option><option>2枚</option><option>3枚以上</option></select></p>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="チケットを予約する"></p>
+</form>`;
+
 const TUTORING_FORM = `<form>
   <p><label>お子さまの学年</label><br><select><option selected>小学生</option><option>中学生</option><option>高校生</option><option>その他</option></select></p>
   <p><label>ご希望の科目</label><br><input type="text" value="数学・英語"></p>
@@ -1881,6 +1898,10 @@ function contentFor(dir, category) {
     case "391-form-tutoring-inquiry": return TUTORING_FORM;
     case "392-event-pop-up-store": return POPUP_FORM;
     case "393-utility-language-region-select": return NEWSLETTER_FORM;
+    case "394-landing-water-intake-js": return NEWSLETTER_FORM;
+    case "395-form-vet-appointment": return VET_FORM;
+    case "396-event-film-screening": return FILM_FORM;
+    case "397-thankyou-account-created": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;
