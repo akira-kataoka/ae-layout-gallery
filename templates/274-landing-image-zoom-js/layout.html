@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0f766e; --ink:#0c2421; --muted:#5a746f; --line:#d6ebe7; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eefbf8; line-height:1.7; }
+    .ae-wrap { max-width:560px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:18px; }
+    .ae-head h1 { font-size:25px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-zoom { position:relative; aspect-ratio:1; max-width:380px; margin:0 auto 8px; border-radius:18px; overflow:hidden; background:radial-gradient(circle at 50% 42%,#ffffff,#cdeee8); cursor:zoom-in; box-shadow:0 16px 40px rgba(15,118,110,.14); touch-action:none; }
+    .ae-zoom-img { width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-size:150px; transition:transform .12s ease-out; will-change:transform; }
+    .ae-zoom.active { cursor:zoom-out; }
+    .ae-zoom.active .ae-zoom-img { transition:transform .04s linear; }
+    .ae-badge { position:absolute; top:12px; left:12px; background:rgba(15,118,110,.92); color:#fff; font-size:11px; font-weight:700; padding:4px 10px; border-radius:999px; opacity:0; transition:opacity .2s; }
+    .ae-zoom.active .ae-badge { opacity:1; }
+    .ae-hint { text-align:center; color:var(--muted); font-size:12px; margin:0 0 24px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px; text-align:center; }
+    .ae-card .t { font-weight:700; margin-bottom:12px; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-zoom" id="zoom">
+      <span class="ae-badge">🔍 拡大中</span>
+      <div class="ae-zoom-img" id="img">💎</div>
+    </div>
+    <p class="ae-hint">画像にカーソルを合わせる（タップして動かす）と、細部まで拡大できます</p>
+    <div class="ae-card">
+      <div class="t">この商品の詳細・在庫を確認する</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var zoom = document.getElementById("zoom"), img = document.getElementById("img");
+    var SCALE = 2.4, active = false;
+    function move(e) {
+      if (!active) return;
+      var rect = zoom.getBoundingClientRect();
+      var cx = e.touches ? e.touches[0].clientX : e.clientX;
+      var cy = e.touches ? e.touches[0].clientY : e.clientY;
+      var x = Math.min(Math.max((cx - rect.left) / rect.width, 0), 1) * 100;
+      var y = Math.min(Math.max((cy - rect.top) / rect.height, 0), 1) * 100;
+      img.style.transformOrigin = x + "% " + y + "%";
+      img.style.transform = "scale(" + SCALE + ")";
+    }
+    function enable(e) { active = true; zoom.classList.add("active"); move(e); }
+    function disable() { active = false; zoom.classList.remove("active"); img.style.transform = "scale(1)"; }
+    zoom.addEventListener("pointerenter", enable);
+    zoom.addEventListener("pointermove", move);
+    zoom.addEventListener("pointerleave", disable);
+    zoom.addEventListener("pointerdown", function (e) { active ? disable() : enable(e); });
+  })();
+  </script>
+</body>
+</html>

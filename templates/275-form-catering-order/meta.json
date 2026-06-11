@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - ケータリング/仕出し注文",
+  "category": "form",
+  "description": "コースメニューを提示し、人数・配達日時・配達先を入力させるケータリング/仕出し注文フォーム。法人会議・パーティー・イベント向けのフードデリバリー受注に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "ケータリングのご注文",
+  "previewDescription": "ご希望のコース・人数・お届け日時をご入力ください。"
+}

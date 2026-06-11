@@ -282,6 +282,22 @@ const ALUMNI_FORM = `<form>
   <p class="submit"><input type="submit" value="出欠を回答する"></p>
 </form>`;
 
+const CATERING_FORM = `<form>
+  <p><label>ご希望コース</label><br><select><option selected>スタンダード（¥1,500/人）</option><option>プレミアム（¥2,800/人）</option><option>ヘルシー（¥1,800/人）</option></select></p>
+  <div class="row"><p><label>人数</label><br><input type="number" min="1" value="20"></p><p><label>お届け日</label><br><input type="date" value="2026-07-20"></p></div>
+  <p><label>お届け先住所</label><br><input type="text" value="東京都千代田区1-1-1"></p>
+  <p><label>ご担当者名</label><br><input type="text" value="山田 太郎"></p>
+  <div class="row"><p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p><p><label>電話番号</label><br><input type="tel" value="03-0000-0000"></p></div>
+  <p class="submit"><input type="submit" value="注文内容を確認する"></p>
+</form>`;
+
+const FANMEET_FORM = `<form>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p><label>ファンクラブ会員番号（任意）</label><br><input type="text" value="FC-000123"></p>
+  <p class="submit"><input type="submit" value="抽選に応募する"></p>
+</form>`;
+
 const BETA_FORM = `<form>
   <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
   <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
@@ -1261,6 +1277,10 @@ function contentFor(dir, category) {
     case "271-form-beta-tester-apply": return BETA_FORM;
     case "272-event-sports-tournament": return TEAM_ENTRY_FORM;
     case "273-utility-error-404": return NEWSLETTER_FORM;
+    case "274-landing-image-zoom-js": return NEWSLETTER_FORM;
+    case "275-form-catering-order": return CATERING_FORM;
+    case "276-event-fan-meeting": return FANMEET_FORM;
+    case "277-thankyou-subscription-started": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

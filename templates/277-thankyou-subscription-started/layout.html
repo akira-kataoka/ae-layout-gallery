@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#4f46e5; --ink:#15172e; --muted:#64698c; --line:#e3e2f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f5f5fc; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:54px 20px; }
+    .ae-done { text-align:center; margin-bottom:22px; }
+    .ae-done .chk { width:66px; height:66px; border-radius:50%; background:#4f46e5; color:#fff; display:flex; align-items:center; justify-content:center; font-size:32px; margin:0 auto 12px; }
+    .ae-done h1 { font-size:23px; margin:0 0 4px; }
+    .ae-done p { color:var(--muted); margin:0; font-size:14px; }
+    .ae-plan { background:#fff; border:1px solid var(--line); border-radius:16px; overflow:hidden; margin-bottom:18px; box-shadow:0 8px 26px rgba(79,70,229,.07); }
+    .ae-plan .hd { background:linear-gradient(135deg,#4f46e5,#6d28d9); color:#fff; padding:18px 20px; display:flex; justify-content:space-between; align-items:center; }
+    .ae-plan .hd .nm { font-weight:800; font-size:17px; } .ae-plan .hd .pr { font-weight:900; font-size:18px; }
+    .ae-row { display:flex; justify-content:space-between; padding:12px 20px; border-top:1px solid var(--line); font-size:13px; }
+    .ae-row .k { color:var(--muted); } .ae-row .v { font-weight:700; }
+    .ae-feat { padding:14px 20px; border-top:1px solid var(--line); }
+    .ae-feat li { font-size:13px; padding:4px 0 4px 22px; position:relative; }
+    .ae-feat li::before { content:"✓"; position:absolute; left:0; color:var(--accent); font-weight:900; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; }
+    .ae-card .t { font-weight:700; margin-bottom:12px; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-done">
+      <div class="chk">✓</div>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-plan">
+      <div class="hd"><span class="nm">Pro プラン</span><span class="pr">¥3,800<span style="font-size:12px;font-weight:700;">/月</span></span></div>
+      <div class="ae-row"><span class="k">ご契約日</span><span class="v">2026年6月11日</span></div>
+      <div class="ae-row"><span class="k">次回お支払い日</span><span class="v">2026年7月11日</span></div>
+      <div class="ae-row"><span class="k">お支払い方法</span><span class="v">クレジットカード ****1234</span></div>
+      <ul class="ae-feat">
+        <li>全機能が無制限で使い放題</li>
+        <li>優先サポート（平日10〜18時）</li>
+        <li>チームメンバー25名まで追加可能</li>
+      </ul>
+    </div>
+    <div class="ae-card">
+      <div class="t">使いこなしのコツをメールで受け取る</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

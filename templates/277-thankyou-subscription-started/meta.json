@@ -1,0 +1,8 @@
+{
+  "name": "サンクス - サブスク開始完了",
+  "category": "thankyou",
+  "description": "サブスクリプション契約完了後に、プラン名・契約日・次回課金日・支払方法・含まれる機能を明示するサンクスページ。オンボーディング配信のオプトイン付き。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "ご登録が完了しました！",
+  "previewDescription": "Proプランのご利用を開始いただけます。ご契約内容は以下のとおりです。"
+}

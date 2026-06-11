@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - 商品画像ズームビューワー(JS)",
+  "category": "landing",
+  "description": "画像にカーソルを合わせる/タップして動かすと該当箇所が拡大表示される虫眼鏡風ズームLP(style.transform・transform-originのみ、innerHTML不使用)。ジュエリー/精密機器など細部訴求に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "細部まで、その目で確かめて。",
+  "previewDescription": "画像を拡大して、素材や仕上げのこだわりをご覧いただけます。"
+}
