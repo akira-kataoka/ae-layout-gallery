@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - 積立複利シミュレーター(JS)",
+  "category": "landing",
+  "description": "毎月の積立額・期間・想定年利のスライダーから将来資産を複利計算し、元本と運用益の内訳を積み上げバーで表示する資産形成LP(textContent・styleのみ、innerHTML不使用)。NISA/投資信託/FPのリード獲得に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "コツコツ積立、いくらになる？",
+  "previewDescription": "積立額と年数を動かすだけ。複利で増える将来資産がひと目でわかります。"
+}

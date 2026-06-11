@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#15803d; --ink:#0c2415; --muted:#566b5d; --line:#d8ecdf; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f0faf3; line-height:1.7; }
+    .ae-wrap { max-width:540px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:22px; }
+    .ae-head h1 { font-size:24px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; box-shadow:0 12px 32px rgba(21,128,61,.08); }
+    .ae-field { margin-bottom:18px; }
+    .ae-field label { font-weight:700; font-size:14px; display:flex; justify-content:space-between; margin-bottom:8px; }
+    .ae-field label .v { color:var(--accent); font-variant-numeric:tabular-nums; }
+    .ae-field input[type=range] { width:100%; accent-color:var(--accent); }
+    .ae-out { background:linear-gradient(135deg,#16a34a,#15803d); color:#fff; border-radius:14px; padding:22px; text-align:center; margin-bottom:14px; }
+    .ae-out .lab { font-size:13px; opacity:.9; } .ae-out .big { font-size:36px; font-weight:900; font-variant-numeric:tabular-nums; }
+    .ae-stack { height:26px; border-radius:8px; overflow:hidden; display:flex; margin-bottom:8px; }
+    .ae-stack .pr { background:#86efac; } .ae-stack .gn { background:#15803d; }
+    .ae-legend { display:flex; justify-content:space-between; font-size:12px; color:var(--muted); }
+    .ae-legend b { color:var(--ink); font-variant-numeric:tabular-nums; }
+    .ae-cta { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; margin-top:18px; }
+    .ae-cta .t { font-weight:700; margin-bottom:12px; }
+    .ae-cta form input[type=text],.ae-cta form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form .submit input,.ae-cta form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <div class="ae-field"><label>毎月の積立額 <span class="v">¥<span id="vM">30,000</span></span></label>
+        <input type="range" id="m" min="5000" max="100000" step="1000" value="30000"></div>
+      <div class="ae-field"><label>積立期間 <span class="v"><span id="vY">20</span> 年</span></label>
+        <input type="range" id="y" min="1" max="40" step="1" value="20"></div>
+      <div class="ae-field"><label>想定年利 <span class="v"><span id="vR">5.0</span> %</span></label>
+        <input type="range" id="r" min="0" max="10" step="0.5" value="5"></div>
+      <div class="ae-out">
+        <div class="lab">将来の資産額（複利運用）</div>
+        <div class="big">¥<span id="fv">0</span></div>
+      </div>
+      <div class="ae-stack"><span class="pr" id="sPr"></span><span class="gn" id="sGn"></span></div>
+      <div class="ae-legend"><span>元本 <b>¥<span id="prin">0</span></b></span><span>運用益 <b>¥<span id="gain">0</span></b></span></div>
+    </div>
+    <div class="ae-cta">
+      <div class="t">あなたに合った積立プランを無料相談</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var m = document.getElementById("m"), y = document.getElementById("y"), r = document.getElementById("r");
+    var vM = document.getElementById("vM"), vY = document.getElementById("vY"), vR = document.getElementById("vR");
+    var fvEl = document.getElementById("fv"), prinEl = document.getElementById("prin"), gainEl = document.getElementById("gain");
+    var sPr = document.getElementById("sPr"), sGn = document.getElementById("sGn");
+    function yen(n) { return Math.round(n).toLocaleString("ja-JP"); }
+    function calc() {
+      var monthly = parseInt(m.value, 10), years = parseInt(y.value, 10), rate = parseFloat(r.value);
+      vM.textContent = monthly.toLocaleString("ja-JP"); vY.textContent = years; vR.textContent = rate.toFixed(1);
+      var n = years * 12, mr = rate / 100 / 12;
+      var fv = mr === 0 ? monthly * n : monthly * ((Math.pow(1 + mr, n) - 1) / mr);
+      var principal = monthly * n;
+      var gain = fv - principal;
+      fvEl.textContent = yen(fv);
+      prinEl.textContent = yen(principal);
+      gainEl.textContent = yen(gain);
+      var pPct = fv > 0 ? (principal / fv * 100) : 100;
+      sPr.style.width = pPct + "%";
+      sGn.style.width = (100 - pPct) + "%";
+    }
+    [m, y, r].forEach(function (el) { el.addEventListener("input", calc); });
+    calc();
+  })();
+  </script>
+</body>
+</html>

@@ -282,6 +282,22 @@ const ALUMNI_FORM = `<form>
   <p class="submit"><input type="submit" value="出欠を回答する"></p>
 </form>`;
 
+const INVEST_FORM = `<form>
+  <p><label>ご相談テーマ</label><br><select><option selected>つみたて投資・NISA</option><option>老後資金・iDeCo</option><option>家計の見直し</option><option>保険の見直し</option></select></p>
+  <p><label>毎月投資に回せる金額</label><br><select><option>〜1万円</option><option selected>1〜3万円</option><option>3万円〜</option></select></p>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <div class="row"><p><label>メール</label><br><input type="email" value="taro@example.com"></p><p><label>ご希望日時</label><br><input type="text" value="平日夜・週末希望"></p></div>
+  <p class="submit"><input type="submit" value="無料相談を予約する"></p>
+</form>`;
+
+const PITCH_FORM = `<form>
+  <p><label>ご参加の立場</label><br><select><option selected>投資家として</option><option>起業家として</option><option>見学・聴講</option></select></p>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>会社名・所属</label><br><input type="text" value="株式会社サンプル"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="参加登録する"></p>
+</form>`;
+
 const SOLAR_FORM = `<form>
   <p><label>住居形態</label><br><select><option selected>戸建て（持ち家）</option><option>戸建て（建築予定）</option><option>集合住宅</option></select></p>
   <p><label>現在の電気代（月額）</label><br><select><option>〜8,000円</option><option selected>8,000〜15,000円</option><option>15,000円〜</option></select></p>
@@ -1511,6 +1527,10 @@ function contentFor(dir, category) {
     case "319-form-solar-quote": return SOLAR_FORM;
     case "320-event-comedy-show": return COMEDY_FORM;
     case "321-utility-form-error": return NEWSLETTER_FORM;
+    case "322-landing-compound-interest-js": return NEWSLETTER_FORM;
+    case "323-form-investment-consultation": return INVEST_FORM;
+    case "324-event-startup-pitch": return PITCH_FORM;
+    case "325-thankyou-callback-scheduled": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

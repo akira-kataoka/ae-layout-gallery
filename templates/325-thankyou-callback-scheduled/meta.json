@@ -1,0 +1,8 @@
+{
+  "name": "サンクス - 折り返し電話予約 完了",
+  "category": "thankyou",
+  "description": "コールバック(折り返し電話)予約の受付完了後に、予定日時・連絡先・受電準備のヒントを案内するサンクスページ。日程変更/リマインドのオプトインを備える。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "お電話のご予約を承りました",
+  "previewDescription": "ご指定の日時に、担当者よりご連絡いたします。"
+}
