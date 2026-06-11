@@ -300,6 +300,21 @@ const TAX_CONSULT_FORM = `<form>
   <p class="submit"><input type="submit" value="無料相談を予約する"></p>
 </form>`;
 
+const MUSIC_LESSON_FORM = `<form>
+  <p><label>ご希望の楽器・コース</label><br><select><option selected>ピアノ</option><option>ギター</option><option>バイオリン</option><option>ボーカル</option><option>その他・相談したい</option></select></p>
+  <div class="row"><p><label>受講される方</label><br><select><option selected>お子さま</option><option>大人</option></select></p><p><label>体験希望日</label><br><input type="date" value="2026-07-25"></p></div>
+  <p><label>お名前</label><br><input type="text" value="山田 花子"></p>
+  <div class="row"><p><label>メール</label><br><input type="email" value="hanako@example.com"></p><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p></div>
+  <p class="submit"><input type="submit" value="無料体験を申し込む"></p>
+</form>`;
+
+const CARD_UPDATE_FORM = `<form>
+  <p><label>カード番号</label><br><input type="text" value="1234 5678 9012 3456"></p>
+  <div class="row"><p><label>有効期限</label><br><input type="text" value="07 / 28"></p><p><label>セキュリティコード</label><br><input type="text" value="•••"></p></div>
+  <p><label>カード名義</label><br><input type="text" value="TARO YAMADA"></p>
+  <p class="submit"><input type="submit" value="お支払い方法を更新する"></p>
+</form>`;
+
 const PAINTING_FORM = `<form>
   <p><label>ご希望の工事</label><br><select><option selected>外壁塗装</option><option>屋根塗装</option><option>外壁＋屋根</option><option>防水工事</option><option>まだ決めていない</option></select></p>
   <p><label>建物の種類</label><br><select><option selected>戸建て</option><option>アパート・マンション</option><option>店舗・事務所</option></select></p>
@@ -1986,6 +2001,10 @@ function contentFor(dir, category) {
     case "415-form-house-painting": return PAINTING_FORM;
     case "416-event-craft-market": return RSVP_FORM;
     case "417-utility-gift-card-balance": return GIFTCARD_BALANCE_FORM;
+    case "418-landing-freelance-rate-js": return NEWSLETTER_FORM;
+    case "419-form-music-lesson": return MUSIC_LESSON_FORM;
+    case "420-event-cherry-blossom": return RSVP_FORM;
+    case "421-utility-payment-method-expiring": return CARD_UPDATE_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

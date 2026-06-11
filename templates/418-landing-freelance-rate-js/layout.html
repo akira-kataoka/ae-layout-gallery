@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0ea5e9; --ink:#0c1f2b; --muted:#5a7080; --line:#d6e9f3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eef8fc; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:20px; }
+    .ae-head h1 { font-size:24px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; box-shadow:0 12px 32px rgba(14,165,233,.09); }
+    .ae-field { margin-bottom:18px; }
+    .ae-field label { font-weight:700; font-size:14px; display:flex; justify-content:space-between; margin-bottom:8px; }
+    .ae-field label .v { color:var(--accent); font-variant-numeric:tabular-nums; }
+    .ae-field input[type=range] { width:100%; accent-color:var(--accent); }
+    .ae-act { display:flex; gap:6px; background:#dcf0fa; border-radius:10px; padding:4px; }
+    .ae-act button { flex:1; border:0; background:transparent; padding:9px 4px; border-radius:8px; font-weight:700; font-size:12px; cursor:pointer; color:var(--muted); }
+    .ae-act button.on { background:#fff; color:var(--accent); box-shadow:0 2px 8px rgba(14,165,233,.18); }
+    .ae-out { background:linear-gradient(135deg,#38bdf8,#0ea5e9); color:#fff; border-radius:14px; padding:24px; text-align:center; margin-top:18px; }
+    .ae-out .lab { font-size:13px; opacity:.9; } .ae-out .big { font-size:40px; font-weight:900; font-variant-numeric:tabular-nums; line-height:1.1; } .ae-out .big small { font-size:16px; } .ae-out .sub { font-size:13px; opacity:.95; margin-top:6px; }
+    .ae-row2 { display:flex; gap:8px; margin-top:14px; }
+    .ae-g { flex:1; background:rgba(255,255,255,.16); border-radius:10px; padding:10px 6px; }
+    .ae-g .k { font-size:11px; opacity:.9; } .ae-g .n { font-weight:800; font-variant-numeric:tabular-nums; }
+    .ae-cta { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; margin-top:18px; }
+    .ae-cta .t { font-weight:700; margin-bottom:12px; }
+    .ae-cta form input[type=text],.ae-cta form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form .submit input,.ae-cta form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <div class="ae-field"><label>希望年収（手取り） <span class="v"><span id="vInc">600</span> 万円</span></label>
+        <input type="range" id="inc" min="300" max="2000" step="50" value="600"></div>
+      <div class="ae-field"><label>稼働日数（月） <span class="v"><span id="vDay">18</span> 日</span></label>
+        <input type="range" id="day" min="8" max="24" step="1" value="18"></div>
+      <div class="ae-field"><label>1日の請求対象時間 <span class="v"><span id="vHr">6</span> 時間</span></label>
+        <input type="range" id="hr" min="2" max="9" step="0.5" value="6"></div>
+      <div class="ae-field"><label>経費・税・社会保険の余裕</label>
+        <div class="ae-act" id="buf">
+          <button type="button" data-b="0.15">15%</button>
+          <button type="button" data-b="0.25" class="on">25%</button>
+          <button type="button" data-b="0.35">35%</button>
+        </div></div>
+      <div class="ae-out">
+        <div class="lab">必要な時間単価の目安</div>
+        <div class="big">¥<span id="hour">0</span><small>/時</small></div>
+        <div class="sub">この単価以上で受注すると目標年収に届きます</div>
+        <div class="ae-row2">
+          <div class="ae-g"><div class="k">日額換算</div><div class="n">¥<span id="daily">0</span></div></div>
+          <div class="ae-g"><div class="k">月額換算</div><div class="n">¥<span id="monthly">0</span></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="ae-cta">
+      <div class="t">フリーランス向けの案件・お金の情報を受け取る</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var inc = document.getElementById("inc"), day = document.getElementById("day"), hr = document.getElementById("hr");
+    var vInc = document.getElementById("vInc"), vDay = document.getElementById("vDay"), vHr = document.getElementById("vHr");
+    var hourEl = document.getElementById("hour"), dailyEl = document.getElementById("daily"), monthlyEl = document.getElementById("monthly");
+    var bufBtns = Array.prototype.slice.call(document.querySelectorAll("#buf button"));
+    var buffer = 0.25;
+    function round100(n) { return Math.round(n / 100) * 100; }
+    function calc() {
+      var income = parseInt(inc.value, 10) || 0;
+      var days = parseInt(day.value, 10) || 0;
+      var hours = parseFloat(hr.value) || 0;
+      vInc.textContent = income; vDay.textContent = days; vHr.textContent = hours;
+      var gross = income * 10000 / (1 - buffer);        // 必要な額面年収（円）
+      var annualHours = days * 12 * hours;
+      var hourly = annualHours > 0 ? gross / annualHours : 0;
+      hourEl.textContent = round100(hourly).toLocaleString();
+      dailyEl.textContent = round100(hourly * hours).toLocaleString();
+      monthlyEl.textContent = round100(hourly * hours * days).toLocaleString();
+    }
+    [inc, day, hr].forEach(function (el) { el.addEventListener("input", calc); });
+    bufBtns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        bufBtns.forEach(function (x) { x.classList.remove("on"); });
+        b.classList.add("on"); buffer = parseFloat(b.getAttribute("data-b")); calc();
+      });
+    });
+    calc();
+  })();
+  </script>
+</body>
+</html>
