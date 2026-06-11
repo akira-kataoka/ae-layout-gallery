@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - 通貨切替プライシング(JS)",
+  "category": "landing",
+  "description": "¥/$/€ のトグルで料金表示を即時に切り替える3プラン構成のプライシングLP(textContentのみ、innerHTML不使用)。海外向けSaaSの価格訴求に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "あなたの通貨で、料金をチェック",
+  "previewDescription": "JPY / USD / EUR を切り替えて、わかりやすい価格でご確認いただけます。"
+}

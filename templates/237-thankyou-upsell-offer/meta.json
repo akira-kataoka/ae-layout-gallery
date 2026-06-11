@@ -1,0 +1,8 @@
+{
+  "name": "サンクス - 購入後アップセルオファー",
+  "category": "thankyou",
+  "description": "購入完了直後に購入者限定の追加オファー(関連商品の割引)を提示するワンクリックアップセル型サンクスページ。客単価向上・クロスセルに。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "ご購入ありがとうございます！",
+  "previewDescription": "決済が完了しました。最後に、購入者限定の特別オファーをご用意しました。"
+}

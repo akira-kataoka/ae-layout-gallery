@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0891b2; --ink:#0c2026; --muted:#5a747c; --line:#d8eaee; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f0fbfd; line-height:1.7; }
+    .ae-wrap { max-width:760px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:18px; }
+    .ae-head h1 { font-size:25px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-switch { display:flex; gap:6px; justify-content:center; background:#e0f4f8; border-radius:999px; padding:5px; width:max-content; margin:0 auto 26px; }
+    .ae-switch button { border:0; background:transparent; padding:8px 18px; border-radius:999px; font-weight:700; font-size:14px; cursor:pointer; color:#5a747c; }
+    .ae-switch button.on { background:#fff; color:var(--accent); box-shadow:0 2px 8px rgba(8,145,178,.18); }
+    .ae-plans { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:30px; }
+    .ae-plan { background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px 18px; text-align:center; box-shadow:0 8px 22px rgba(8,145,178,.07); }
+    .ae-plan.pop { border-color:var(--accent); box-shadow:0 12px 30px rgba(8,145,178,.16); position:relative; }
+    .ae-plan.pop::before { content:"人気"; position:absolute; top:-11px; left:50%; transform:translateX(-50%); background:var(--accent); color:#fff; font-size:11px; font-weight:700; padding:3px 12px; border-radius:999px; }
+    .ae-plan .nm { font-weight:800; font-size:15px; }
+    .ae-plan .price { font-size:30px; font-weight:900; margin:8px 0 2px; font-variant-numeric:tabular-nums; }
+    .ae-plan .per { font-size:12px; color:var(--muted); }
+    .ae-plan ul { list-style:none; padding:0; margin:14px 0 0; text-align:left; }
+    .ae-plan li { font-size:13px; padding:5px 0 5px 22px; position:relative; }
+    .ae-plan li::before { content:"✓"; position:absolute; left:0; color:var(--accent); font-weight:900; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px; text-align:center; }
+    .ae-card .t { font-weight:700; margin-bottom:12px; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    @media (max-width:640px){ .ae-plans { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-switch" id="sw">
+      <button type="button" class="on" data-cur="jpy">¥ JPY</button>
+      <button type="button" data-cur="usd">$ USD</button>
+      <button type="button" data-cur="eur">€ EUR</button>
+    </div>
+    <div class="ae-plans">
+      <div class="ae-plan"><div class="nm">Starter</div><div class="price" data-jpy="¥1,200" data-usd="$8" data-eur="€7">¥1,200</div><div class="per">/ 月</div>
+        <ul><li>5ユーザーまで</li><li>基本サポート</li><li>1GBストレージ</li></ul></div>
+      <div class="ae-plan pop"><div class="nm">Pro</div><div class="price" data-jpy="¥3,800" data-usd="$25" data-eur="€23">¥3,800</div><div class="per">/ 月</div>
+        <ul><li>25ユーザーまで</li><li>優先サポート</li><li>50GBストレージ</li></ul></div>
+      <div class="ae-plan"><div class="nm">Business</div><div class="price" data-jpy="¥9,800" data-usd="$65" data-eur="€60">¥9,800</div><div class="per">/ 月</div>
+        <ul><li>無制限ユーザー</li><li>専任担当</li><li>1TBストレージ</li></ul></div>
+    </div>
+    <div class="ae-card">
+      <div class="t">14日間の無料トライアルを始める</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var btns = Array.prototype.slice.call(document.querySelectorAll("#sw button"));
+    var prices = Array.prototype.slice.call(document.querySelectorAll(".price"));
+    btns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        btns.forEach(function (x) { x.classList.remove("on"); });
+        b.classList.add("on");
+        var cur = b.getAttribute("data-cur");
+        prices.forEach(function (p) { p.textContent = p.getAttribute("data-" + cur); });
+      });
+    });
+  })();
+  </script>
+</body>
+</html>

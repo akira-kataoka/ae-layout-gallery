@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#e11d48; --ink:#27121a; --muted:#6b5560; --line:#f3dde4; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fff1f4; line-height:1.7; }
+    .ae-wrap { max-width:540px; margin:0 auto; padding:48px 20px; }
+    .ae-done { text-align:center; margin-bottom:26px; }
+    .ae-done .chk { width:64px; height:64px; border-radius:50%; background:#16a34a; color:#fff; display:flex; align-items:center; justify-content:center; font-size:32px; margin:0 auto 12px; }
+    .ae-done h1 { font-size:22px; margin:0 0 4px; }
+    .ae-done p { color:var(--muted); margin:0; font-size:14px; }
+    .ae-offer { background:#fff; border:2px solid var(--accent); border-radius:18px; overflow:hidden; box-shadow:0 14px 36px rgba(225,29,72,.14); }
+    .ae-offer .ribbon { background:var(--accent); color:#fff; text-align:center; font-weight:800; font-size:13px; padding:8px; letter-spacing:1px; }
+    .ae-offer .body { padding:24px; }
+    .ae-offer .lead { text-align:center; font-weight:700; margin:0 0 16px; }
+    .ae-item { display:flex; gap:14px; align-items:center; }
+    .ae-item .ph { width:78px; height:78px; border-radius:12px; background:linear-gradient(135deg,#fb7185,#e11d48); display:flex; align-items:center; justify-content:center; font-size:36px; flex:0 0 auto; }
+    .ae-item .nm { font-weight:800; } .ae-item .ds { font-size:13px; color:var(--muted); }
+    .ae-price { text-align:center; margin:16px 0; }
+    .ae-price .was { color:var(--muted); text-decoration:line-through; font-size:14px; }
+    .ae-price .now { color:var(--accent); font-size:30px; font-weight:900; }
+    .ae-price .off { display:inline-block; background:#ffe4e6; color:var(--accent); font-weight:700; font-size:12px; padding:2px 10px; border-radius:999px; margin-left:6px; }
+    .ae-addbtn form .submit input,.ae-addbtn form button { width:100%; background:var(--accent); color:#fff; border:0; padding:15px; border-radius:10px; font-weight:800; font-size:15px; cursor:pointer; }
+    .ae-addbtn form input[type=text],.ae-addbtn form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; margin-bottom:10px; }
+    .ae-skip { display:block; text-align:center; color:var(--muted); font-size:13px; margin-top:14px; text-decoration:underline; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-done">
+      <div class="chk">✓</div>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-offer">
+      <div class="ribbon">★ 今だけ・購入者限定の特別オファー ★</div>
+      <div class="body">
+        <p class="lead">この商品にだけ、お得に追加できます</p>
+        <div class="ae-item">
+          <div class="ph">🧴</div>
+          <div><div class="nm">専用クリーニングキット</div><div class="ds">大切な製品を長く使うためのお手入れセット。通常は単品販売のみ。</div></div>
+        </div>
+        <div class="ae-price"><span class="was">¥3,200</span> <span class="now">¥1,980</span><span class="off">38%OFF</span></div>
+        <div class="ae-addbtn">
+          %%content%%
+        </div>
+        <a class="ae-skip" href="#">いいえ、結構です</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

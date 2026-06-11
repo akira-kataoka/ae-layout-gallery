@@ -50,6 +50,19 @@ const NEWSLETTER_FORM = `<form>
   <p class="submit"><input type="submit" value="登録する"></p>
 </form>`;
 
+const DATA_REQUEST_FORM = `<form>
+  <p><label>ご請求の種類</label><br><select><option selected>登録情報の開示</option><option>情報の訂正・追加</option><option>利用停止・消去</option><option>第三者提供の停止</option></select></p>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>ご登録のメールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p><label>ご登録の電話番号</label><br><input type="tel" value="090-0000-0000"></p>
+  <p><label>ご請求の詳細</label><br><textarea>退会済みアカウントの登録情報の消去を希望します。</textarea></p>
+  <p class="submit"><input type="submit" value="この内容で請求する"></p>
+</form>`;
+
+const UPSELL_FORM = `<form>
+  <p class="submit"><input type="submit" value="¥1,980で今すぐ追加する"></p>
+</form>`;
+
 const OPTIN_CONFIRM_FORM = `<form>
   <p><input type="email" value="taro@example.com"></p>
   <p class="submit"><input type="submit" value="登録を確定する"></p>
@@ -1095,6 +1108,10 @@ function contentFor(dir, category) {
     case "231-landing-flip-cards-js": return NEWSLETTER_FORM;
     case "232-utility-double-optin": return OPTIN_CONFIRM_FORM;
     case "233-event-job-fair": return JOBFAIR_FORM;
+    case "234-landing-live-poll-js": return NEWSLETTER_FORM;
+    case "235-landing-currency-switch-js": return NEWSLETTER_FORM;
+    case "236-form-data-request": return DATA_REQUEST_FORM;
+    case "237-thankyou-upsell-offer": return UPSELL_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - ライブ投票/アンケート(JS)",
+  "category": "landing",
+  "description": "選択肢をタップすると結果バーが伸び、各選択肢の割合と合計票数が表示されるインタラクティブ投票LP(style.width・textContentのみ、innerHTML不使用)。エンゲージメント獲得に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "みんなはどう思う？投票してね",
+  "previewDescription": "気になる選択肢をタップすると、リアルタイムの結果が見られます。"
+}

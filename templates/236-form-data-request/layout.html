@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#475569; --ink:#1e293b; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f1f5f9; line-height:1.7; }
+    .ae-wrap { max-width:580px; margin:0 auto; padding:48px 20px; }
+    .ae-head { margin-bottom:20px; }
+    .ae-ico { width:56px; height:56px; border-radius:14px; background:#e2e8f0; display:flex; align-items:center; justify-content:center; font-size:28px; margin-bottom:14px; }
+    .ae-head h1 { font-size:23px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; font-size:14px; }
+    .ae-note { background:#fff; border:1px solid var(--line); border-left:4px solid var(--accent); border-radius:10px; padding:14px 16px; font-size:13px; color:#475569; margin-bottom:20px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:26px; box-shadow:0 8px 26px rgba(15,23,42,.05); }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form input[type=tel],.ae-card form select,.ae-card form textarea { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; font-family:inherit; }
+    .ae-card form label { font-weight:700; font-size:13px; }
+    .ae-card form p { margin:0 0 14px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:15px; border-radius:9px; font-weight:800; font-size:15px; cursor:pointer; }
+    .ae-foot { color:var(--muted); font-size:12px; margin-top:14px; text-align:center; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head">
+      <div class="ae-ico">🗂️</div>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-note">本人確認のため、ご登録時の情報と照合します。請求への回答には通常2週間程度を要します。</div>
+    <div class="ae-card">
+      %%content%%
+      <p class="ae-foot">送信いただいた情報は、本請求への対応のみに利用します。</p>
+    </div>
+  </div>
+</body>
+</html>
