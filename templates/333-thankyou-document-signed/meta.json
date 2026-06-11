@@ -1,0 +1,8 @@
+{
+  "name": "サンクス - 電子署名完了",
+  "category": "thankyou",
+  "description": "電子契約・電子署名の完了後に、文書名・署名者・署名日時・検証ステータスを表示し署名済みPDFのダウンロードを案内するサンクスページ。電子契約/同意取得の完了画面に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "署名が完了しました",
+  "previewDescription": "ご署名ありがとうございます。契約手続きが正常に完了しました。"
+}

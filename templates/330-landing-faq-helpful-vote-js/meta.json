@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - FAQ 役立ち投票(JS)",
+  "category": "landing",
+  "description": "各FAQ回答に「役に立った/立たなかった」を投票でき、投票後はカウントが増えてお礼を表示するFAQ LP(textContent・classListのみ、innerHTML不使用)。ヘルプ満足度の可視化と問い合わせ導線に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "よくあるご質問",
+  "previewDescription": "回答が役に立ったか、👍 / 👎 で教えてください。改善に活用します。"
+}

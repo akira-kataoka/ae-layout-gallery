@@ -282,6 +282,22 @@ const ALUMNI_FORM = `<form>
   <p class="submit"><input type="submit" value="出欠を回答する"></p>
 </form>`;
 
+const PRINTING_FORM = `<form>
+  <p><label>印刷物の種類</label><br><select><option selected>名刺</option><option>チラシ・フライヤー</option><option>冊子・パンフレット</option><option>シール・ラベル</option></select></p>
+  <div class="row"><p><label>サイズ</label><br><input type="text" value="名刺サイズ（91×55mm）"></p><p><label>部数</label><br><input type="number" value="500"></p></div>
+  <p><label>納品希望日</label><br><input type="date" value="2026-07-10"></p>
+  <p><label>お名前・会社名</label><br><input type="text" value="山田 太郎 / 株式会社サンプル"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="見積もりを依頼する"></p>
+</form>`;
+
+const BOOKSIGN_FORM = `<form>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p><label>参加人数</label><br><select><option selected>1名</option><option>2名</option></select></p>
+  <p class="submit"><input type="submit" value="整理券を予約する"></p>
+</form>`;
+
 const GYM_FORM = `<form>
   <p><label>ご希望プラン</label><br><select><option>デイ（¥6,800/月）</option><option selected>フル（¥9,800/月）</option><option>パーソナル（¥19,800/月）</option></select></p>
   <p><label>体験希望日</label><br><input type="date" value="2026-07-13"></p>
@@ -1552,6 +1568,10 @@ function contentFor(dir, category) {
     case "327-form-gym-trial": return GYM_FORM;
     case "328-event-health-screening": return SCREENING_FORM;
     case "329-utility-age-verification": return NEWSLETTER_FORM;
+    case "330-landing-faq-helpful-vote-js": return CONTACT_FORM;
+    case "331-form-printing-quote": return PRINTING_FORM;
+    case "332-event-book-signing": return BOOKSIGN_FORM;
+    case "333-thankyou-document-signed": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

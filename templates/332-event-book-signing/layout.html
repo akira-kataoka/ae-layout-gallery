@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#9a3412; --ink:#2a1810; --muted:#6e5b48; --line:#ece0d0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fdf8f1; line-height:1.7; }
+    .ae-wrap { max-width:600px; margin:0 auto; padding:48px 20px; }
+    .ae-hero { display:flex; gap:18px; align-items:center; background:#fff; border:1px solid var(--line); border-radius:18px; padding:22px; margin-bottom:22px; box-shadow:0 12px 32px rgba(154,52,18,.08); }
+    .ae-book { width:96px; height:130px; border-radius:6px; background:linear-gradient(135deg,#f59e0b,#9a3412); flex:0 0 auto; box-shadow:4px 4px 0 rgba(154,52,18,.2); display:flex; align-items:center; justify-content:center; font-size:38px; }
+    .ae-hero .badge { display:inline-block; background:#ffedd5; color:var(--accent); font-weight:700; font-size:11px; padding:3px 10px; border-radius:999px; margin-bottom:6px; }
+    .ae-hero h1 { font-size:21px; margin:0 0 4px; }
+    .ae-hero .author { color:var(--muted); font-size:13px; }
+    .ae-info { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:22px; }
+    .ae-i { background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px; text-align:center; }
+    .ae-i .ic { font-size:20px; } .ae-i .k { font-size:11px; color:var(--muted); } .ae-i .v { font-weight:800; font-size:13px; }
+    .ae-note { background:#fff7ed; border:1px solid #fed7aa; border-radius:12px; padding:14px 16px; font-size:12px; color:#7c2d12; margin-bottom:22px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; }
+    .ae-card .t { font-weight:700; font-size:17px; margin-bottom:14px; text-align:center; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    @media (max-width:480px){ .ae-hero { flex-direction:column; text-align:center; } .ae-info { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-hero">
+      <div class="ae-book">📖</div>
+      <div>
+        <span class="badge">BOOK SIGNING</span>
+        <h1>%%title%%</h1>
+        <div class="author">著者：佐々木 untold</div>
+      </div>
+    </div>
+    <div class="ae-info">
+      <div class="ae-i"><div class="ic">📅</div><div class="k">開催日</div><div class="v">11.30 (日) 14:00</div></div>
+      <div class="ae-i"><div class="ic">📍</div><div class="k">会場</div><div class="v">中央書店 イベントスペース</div></div>
+      <div class="ae-i"><div class="ic">✍️</div><div class="k">特典</div><div class="v">直筆サイン＆撮影</div></div>
+    </div>
+    <div class="ae-note">※ 対象書籍を会場でご購入いただいた方が対象です。サイン会後に著者とのミニトークもございます。</div>
+    <div class="ae-card">
+      <div class="t">参加整理券の予約</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

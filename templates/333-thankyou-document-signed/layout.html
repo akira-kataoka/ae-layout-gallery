@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0d9488; --ink:#0c2421; --muted:#5a746f; --line:#d7ece0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f0fbf8; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:54px 20px; }
+    .ae-done { text-align:center; margin-bottom:22px; }
+    .ae-done .chk { width:66px; height:66px; border-radius:50%; background:var(--accent); color:#fff; display:flex; align-items:center; justify-content:center; font-size:32px; margin:0 auto 12px; }
+    .ae-done h1 { font-size:23px; margin:0 0 4px; }
+    .ae-done p { color:var(--muted); margin:0; font-size:14px; }
+    .ae-doc { background:#fff; border:1px solid var(--line); border-radius:16px; padding:20px; margin-bottom:18px; box-shadow:0 8px 26px rgba(13,148,136,.07); }
+    .ae-doc .top { display:flex; align-items:center; gap:12px; padding-bottom:12px; border-bottom:1px solid var(--line); margin-bottom:12px; }
+    .ae-doc .ic { width:44px; height:44px; border-radius:10px; background:#ccfbf1; display:flex; align-items:center; justify-content:center; font-size:22px; flex:0 0 auto; }
+    .ae-doc .nm { font-weight:800; font-size:14px; } .ae-doc .meta { font-size:12px; color:var(--muted); }
+    .ae-doc .row { display:flex; justify-content:space-between; font-size:13px; padding:4px 0; }
+    .ae-doc .k { color:var(--muted); } .ae-doc b { color:var(--ink); }
+    .ae-doc .verified { color:#16a34a; font-weight:700; }
+    .ae-dl { display:block; text-align:center; background:#fff; border:1px solid var(--accent); color:var(--accent); border-radius:10px; padding:13px; font-weight:800; font-size:14px; text-decoration:none; margin-bottom:22px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; }
+    .ae-card .t { font-weight:700; margin-bottom:12px; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-done">
+      <div class="chk">✓</div>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-doc">
+      <div class="top"><div class="ic">📝</div><div><div class="nm">サービス利用契約書</div><div class="meta">文書ID: DOC-20260611-0099</div></div></div>
+      <div class="row"><span class="k">署名者</span><b>山田 太郎</b></div>
+      <div class="row"><span class="k">署名日時</span><b>2026年6月11日 14:32</b></div>
+      <div class="row"><span class="k">ステータス</span><b class="verified">✓ 署名完了・検証済み</b></div>
+    </div>
+    <a class="ae-dl" href="#">📄 署名済みPDFをダウンロード</a>
+    <div class="ae-card">
+      <div class="t">契約に関するお知らせを受け取る</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

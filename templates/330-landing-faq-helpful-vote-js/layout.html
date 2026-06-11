@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#2563eb; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f4f7fb; line-height:1.7; }
+    .ae-wrap { max-width:600px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:22px; }
+    .ae-head h1 { font-size:25px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-q { background:#fff; border:1px solid var(--line); border-radius:14px; padding:20px; margin-bottom:14px; box-shadow:0 6px 18px rgba(15,23,42,.04); }
+    .ae-q .qt { font-weight:800; font-size:15px; margin-bottom:8px; }
+    .ae-q .qt::before { content:"Q. "; color:var(--accent); }
+    .ae-q .at { font-size:14px; color:#334155; margin:0 0 14px; }
+    .ae-vote { display:flex; align-items:center; gap:10px; border-top:1px dashed var(--line); padding-top:12px; }
+    .ae-vote .lbl { font-size:12px; color:var(--muted); margin-right:auto; }
+    .ae-vote button { border:1px solid var(--line); background:#fff; border-radius:999px; padding:6px 14px; font-size:13px; font-weight:700; cursor:pointer; font-family:inherit; }
+    .ae-vote button:hover { background:#f8fafc; }
+    .ae-vote button .c { color:var(--accent); margin-left:4px; font-variant-numeric:tabular-nums; }
+    .ae-vote.done button { opacity:.5; cursor:default; }
+    .ae-vote .thanks { font-size:12px; color:#16a34a; font-weight:700; display:none; }
+    .ae-vote.done .thanks { display:inline; }
+    .ae-vote.done .lbl { display:none; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px; text-align:center; margin-top:20px; }
+    .ae-card .t { font-weight:700; margin-bottom:12px; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+
+    <div class="ae-q">
+      <div class="qt">無料トライアルに期間はありますか？</div>
+      <p class="at">14日間ご利用いただけます。期間中に解約すれば料金は一切かかりません。</p>
+      <div class="ae-vote"><span class="lbl">この回答は役に立ちましたか？</span><span class="thanks">フィードバックありがとうございます！</span>
+        <button type="button" class="up">👍 役に立った<span class="c">24</span></button>
+        <button type="button" class="down">👎<span class="c">2</span></button></div>
+    </div>
+    <div class="ae-q">
+      <div class="qt">支払い方法は何が使えますか？</div>
+      <p class="at">クレジットカード、銀行振込、口座振替に対応しています。法人は請求書払いも可能です。</p>
+      <div class="ae-vote"><span class="lbl">この回答は役に立ちましたか？</span><span class="thanks">フィードバックありがとうございます！</span>
+        <button type="button" class="up">👍 役に立った<span class="c">18</span></button>
+        <button type="button" class="down">👎<span class="c">1</span></button></div>
+    </div>
+    <div class="ae-q">
+      <div class="qt">スマホからも利用できますか？</div>
+      <p class="at">はい。iOS / Android アプリと、スマホ向けWeb画面の両方に対応しています。</p>
+      <div class="ae-vote"><span class="lbl">この回答は役に立ちましたか？</span><span class="thanks">フィードバックありがとうございます！</span>
+        <button type="button" class="up">👍 役に立った<span class="c">31</span></button>
+        <button type="button" class="down">👎<span class="c">0</span></button></div>
+    </div>
+
+    <div class="ae-card">
+      <div class="t">解決しない場合は、お気軽にお問い合わせください</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    Array.prototype.forEach.call(document.querySelectorAll(".ae-vote"), function (vote) {
+      var btns = Array.prototype.slice.call(vote.querySelectorAll("button"));
+      btns.forEach(function (b) {
+        b.addEventListener("click", function () {
+          if (vote.classList.contains("done")) return;
+          var c = b.querySelector(".c");
+          if (c) c.textContent = (parseInt(c.textContent, 10) || 0) + 1;
+          vote.classList.add("done");
+        });
+      });
+    });
+  })();
+  </script>
+</body>
+</html>
