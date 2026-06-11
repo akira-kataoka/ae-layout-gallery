@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#b91c1c; --ink:#2a1212; --muted:#6e5555; --line:#f0dcdc; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fdf4f4; line-height:1.7; }
+    .ae-wrap { max-width:500px; margin:0 auto; padding:60px 20px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:20px; padding:38px 30px; text-align:center; box-shadow:0 16px 40px rgba(185,28,28,.1); }
+    .ae-ico { width:80px; height:80px; border-radius:50%; background:#fef2f2; display:flex; align-items:center; justify-content:center; font-size:40px; margin:0 auto 18px; }
+    .ae-card h1 { font-size:23px; margin:0 0 10px; }
+    .ae-card .lead { color:var(--muted); margin:0 0 22px; font-size:14px; }
+    .ae-steps { text-align:left; background:#fffafa; border:1px solid var(--line); border-radius:14px; padding:18px; margin-bottom:22px; }
+    .ae-steps .t { font-weight:700; font-size:13px; margin-bottom:10px; text-align:center; }
+    .ae-st { display:flex; gap:10px; padding:6px 0; font-size:13px; color:#5a4040; }
+    .ae-st .no { width:22px; height:22px; border-radius:50%; background:#fee2e2; color:var(--accent); font-weight:800; font-size:11px; display:flex; align-items:center; justify-content:center; flex:0 0 auto; }
+    .ae-btn { display:block; background:var(--accent); color:#fff; border-radius:10px; padding:14px; font-weight:800; font-size:15px; text-decoration:none; margin-bottom:14px; }
+    .ae-optin { border-top:1px dashed var(--line); padding-top:20px; }
+    .ae-optin .t { font-weight:700; font-size:14px; margin-bottom:6px; }
+    .ae-optin .d { color:var(--muted); font-size:13px; margin-bottom:14px; }
+    .ae-optin form input[type=email] { width:100%; padding:13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-optin form p { margin:0 0 12px; }
+    .ae-optin form .submit input,.ae-optin form button { width:100%; background:var(--accent); color:#fff; border:0; padding:13px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-card">
+      <div class="ae-ico">🔒</div>
+      <h1>%%title%%</h1>
+      <p class="lead">%%description%%</p>
+      <div class="ae-steps">
+        <div class="t">ロック解除の手順</div>
+        <div class="ae-st"><span class="no">1</span><span>「ロックを解除する」からメール認証を行う</span></div>
+        <div class="ae-st"><span class="no">2</span><span>本人確認のうえ新しいパスワードを設定</span></div>
+        <div class="ae-st"><span class="no">3</span><span>解除完了後、通常どおりログインできます</span></div>
+      </div>
+      <a class="ae-btn" href="#">ロックを解除する</a>
+      <div class="ae-optin">
+        <div class="t">不審なアクセスを検知したらお知らせ</div>
+        <div class="d">セキュリティ通知をメールで受け取れます</div>
+        %%content%%
+      </div>
+    </div>
+  </div>
+</body>
+</html>

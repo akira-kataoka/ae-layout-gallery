@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#9a3412; --gold:#c9a227; --ink:#2a1810; --muted:#6e5b48; --line:#ece0d0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fdf8f1; line-height:1.7; }
+    .ae-hero { background:linear-gradient(135deg,#7c2d12,#9a3412); color:#fff; text-align:center; padding:54px 20px 44px; }
+    .ae-hero .em { font-size:50px; }
+    .ae-hero .badge { display:inline-block; border:1px solid var(--gold); color:#f3d98b; font-weight:700; font-size:12px; letter-spacing:2px; padding:5px 14px; border-radius:999px; margin:8px 0; }
+    .ae-hero h1 { font-size:27px; margin:0 0 8px; }
+    .ae-hero p { margin:0; opacity:.95; font-size:14px; }
+    .ae-wrap { max-width:620px; margin:0 auto; padding:34px 20px 48px; }
+    .ae-cause { background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 18px; text-align:center; font-size:13px; color:#5a4636; margin-bottom:24px; box-shadow:0 8px 22px rgba(154,52,18,.06); }
+    .ae-cause b { color:var(--accent); }
+    .ae-lots { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:24px; }
+    .ae-lot { background:#fff; border:1px solid var(--line); border-radius:14px; overflow:hidden; box-shadow:0 8px 22px rgba(154,52,18,.06); }
+    .ae-lot .ph { aspect-ratio:1; display:flex; align-items:center; justify-content:center; font-size:38px; background:linear-gradient(135deg,#fde68a,#fbbf24); }
+    .ae-lot .bd { padding:10px; } .ae-lot .nm { font-size:12px; font-weight:700; } .ae-lot .bid { color:var(--accent); font-weight:900; font-size:12px; margin-top:2px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; }
+    .ae-card .t { font-weight:700; font-size:17px; margin-bottom:6px; text-align:center; }
+    .ae-card .d { color:var(--muted); font-size:13px; margin-bottom:14px; text-align:center; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    @media (max-width:440px){ .ae-lots { grid-template-columns:1fr 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-hero">
+    <div class="em">🤝</div>
+    <span class="badge">CHARITY AUCTION</span>
+    <h1>%%title%%</h1>
+    <p>%%description%%</p>
+  </div>
+  <div class="ae-wrap">
+    <div class="ae-cause">落札額の全額は <b>こども教育支援基金</b> に寄付されます。あなたの参加が、学びの機会をつくります。</div>
+    <div class="ae-lots">
+      <div class="ae-lot"><div class="ph">🎨</div><div class="bd"><div class="nm">アーティスト直筆アート</div><div class="bid">現在 ¥45,000</div></div></div>
+      <div class="ae-lot"><div class="ph">⌚</div><div class="bd"><div class="nm">限定モデル腕時計</div><div class="bid">現在 ¥120,000</div></div></div>
+      <div class="ae-lot"><div class="ph">🎫</div><div class="bd"><div class="nm">特別体験チケット</div><div class="bid">現在 ¥30,000</div></div></div>
+    </div>
+    <div class="ae-card">
+      <div class="t">オークションに参加登録</div>
+      <div class="d">登録の方に入札開始の通知と参加用リンクをお送りします</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

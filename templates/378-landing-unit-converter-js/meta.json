@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - 単位コンバーター(JS)",
+  "category": "landing",
+  "description": "長さ/重さ/温度をタブ切替で相互換算できる単位変換LP(textContent・classList操作のみ、innerHTML不使用)。実用ツールで集客し、ツール集DLやメルマガ登録へ誘導するコンテンツマーケに。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "かんたん単位コンバーター",
+  "previewDescription": "長さ・重さ・温度をその場で変換。タブを切り替えて使えます。"
+}
