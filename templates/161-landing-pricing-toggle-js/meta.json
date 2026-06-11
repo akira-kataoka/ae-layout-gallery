@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - 月額/年額トグル価格表(JS)",
+  "category": "landing",
+  "description": "月額/年額の切替で価格表が即時更新される素のJavaScript料金LP(data属性・textContentのみ)。SaaS料金訴求に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "シンプルな料金プラン",
+  "previewDescription": "月額・年額をワンタップで切替。年額なら2ヶ月分お得です。"
+}

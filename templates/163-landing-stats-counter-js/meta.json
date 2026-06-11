@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - 数字カウントアップ実績(JS)",
+  "category": "landing",
+  "description": "読み込み時に実績数値が0からアニメーションで増える素のJavaScript構成LP(requestAnimationFrame・textContentのみ)。信頼性・実績訴求に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "数字で見る、選ばれる理由",
+  "previewDescription": "多くの企業に導入いただいています。実績をご覧ください。"
+}

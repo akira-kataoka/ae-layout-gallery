@@ -231,6 +231,13 @@ const CALENDAR_BODY = `<h1>お申し込みが完了しました</h1>
 const SHARE_BODY = `<h1>ご参加ありがとうございます！</h1>
 <p>よろしければ、お知り合いにもシェアしていただけると嬉しいです。</p>`;
 
+const LOOKUP_FORM = `<form>
+  <p><label>受付番号</label><br><input type="text" value="RV-20260710-014"></p>
+  <p><label>生年月日</label><br><input type="date" value="1990-04-01"></p>
+  <p><label>登録メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="結果を照会する"></p>
+</form>`;
+
 const TAKEOUT_FORM = `<form>
   <div class="row"><p><label>メニュー</label><br><select><option selected>日替わり弁当</option><option>唐揚げ弁当</option><option>幕の内弁当</option></select></p><p><label>個数</label><br><select><option selected>1</option><option>2</option><option>3</option></select></p></div>
   <p><label>受取時間</label><br><select><option>12:00</option><option selected>12:30</option><option>13:00</option><option>18:00</option></select></p>
@@ -781,6 +788,9 @@ function contentFor(dir, category) {
     case "157-form-pet-registration": return PET_FORM;
     case "158-form-takeout-order": return TAKEOUT_FORM;
     case "160-form-rental-booking": return RENTAL_FORM;
+    case "161-landing-pricing-toggle-js": return NEWSLETTER_FORM;
+    case "162-form-result-lookup": return LOOKUP_FORM;
+    case "163-landing-stats-counter-js": return NEWSLETTER_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }

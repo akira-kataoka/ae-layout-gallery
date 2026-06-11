@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#2563eb; --accent2:#06b6d4; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f5f8fc; line-height:1.7; }
+    .ae-hero { background:linear-gradient(120deg,#1e3a8a,#2563eb 55%,#06b6d4); color:#fff; padding:56px 20px; text-align:center; }
+    .ae-hero h1 { font-size:30px; margin:0 0 8px; }
+    .ae-hero p { opacity:.92; margin:0; }
+    .ae-stats { max-width:900px; margin:-26px auto 0; padding:0 20px; display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .ae-stat { background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px; text-align:center; box-shadow:0 8px 24px rgba(37,99,235,.1); }
+    .ae-stat .num { font-size:38px; font-weight:900; color:var(--accent); font-variant-numeric:tabular-nums; }
+    .ae-stat .lbl { color:var(--muted); font-size:13px; }
+    .ae-body { max-width:520px; margin:28px auto 56px; padding:0 20px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px; text-align:center; }
+    .ae-card .t { font-weight:700; margin-bottom:10px; }
+    .ae-card form input[type=email],.ae-card form input[type=text] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    @media (max-width:640px){ .ae-stats { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <header class="ae-hero"><h1>%%title%%</h1><p>%%description%%</p></header>
+  <section class="ae-stats">
+    <div class="ae-stat"><div class="num" data-to="12000" data-suffix="+">0</div><div class="lbl">導入企業数</div></div>
+    <div class="ae-stat"><div class="num" data-to="98" data-suffix="%">0</div><div class="lbl">継続利用率</div></div>
+    <div class="ae-stat"><div class="num" data-to="45" data-suffix="%">0</div><div class="lbl">業務時間削減</div></div>
+  </section>
+  <div class="ae-body"><div class="ae-card"><div class="t">資料を受け取る</div>%%content%%</div></div>
+
+  <script>
+  (function () {
+    var nums = Array.prototype.slice.call(document.querySelectorAll(".ae-stat .num"));
+    var DURATION = 1400;
+    nums.forEach(function (el) {
+      var to = parseInt(el.getAttribute("data-to"), 10) || 0;
+      var suffix = el.getAttribute("data-suffix") || "";
+      var start = null;
+      function step(ts) {
+        if (start === null) start = ts;
+        var p = Math.min((ts - start) / DURATION, 1);
+        var val = Math.floor(p * to);
+        el.textContent = val.toLocaleString("ja-JP") + suffix;
+        if (p < 1) requestAnimationFrame(step);
+        else el.textContent = to.toLocaleString("ja-JP") + suffix;
+      }
+      requestAnimationFrame(step);
+    });
+  })();
+  </script>
+</body>
+</html>

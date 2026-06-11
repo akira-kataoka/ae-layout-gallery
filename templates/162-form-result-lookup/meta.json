@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 結果照会/ステータス確認",
+  "category": "form",
+  "description": "受付番号と本人情報で結果・申込状況を照会するルックアップフォーム。検査結果/合否/申込状況の確認窓口に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "結果を照会する",
+  "previewDescription": "受付番号と登録情報を入力して、結果・状況をご確認ください。"
+}
