@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - 出産予定日計算機(JS)",
+  "category": "landing",
+  "description": "最終月経開始日から出産予定日・現在の妊娠週数・妊娠期(初期/中期/後期)を計算するマタニティ向け診断LP(Date計算＋textContent/classList、innerHTML不使用)。育児/保険/ベビー用品のリード獲得に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "出産予定日、計算してみましょう",
+  "previewDescription": "最終月経の開始日を入れるだけ。予定日と今の週数がわかります。"
+}

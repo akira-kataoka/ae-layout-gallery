@@ -282,6 +282,22 @@ const ALUMNI_FORM = `<form>
   <p class="submit"><input type="submit" value="出欠を回答する"></p>
 </form>`;
 
+const STORAGE_FORM = `<form>
+  <p><label>ご希望サイズ</label><br><select><option>Sサイズ（¥2,980/月）</option><option selected>Mサイズ（¥5,480/月）</option><option>Lサイズ（¥9,800/月）</option></select></p>
+  <p><label>利用開始希望日</label><br><input type="date" value="2026-08-01"></p>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <div class="row"><p><label>メール</label><br><input type="email" value="taro@example.com"></p><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p></div>
+  <p class="submit"><input type="submit" value="申し込む・見積もりを依頼"></p>
+</form>`;
+
+const FESTIVAL_FORM = `<form>
+  <p><label>ご希望チケット</label><br><select><option selected>1日券（¥9,800）</option><option>2日通し券（¥16,800）</option><option>VIP席（¥28,000）</option></select></p>
+  <p><label>枚数</label><br><select><option selected>1枚</option><option>2枚</option><option>3枚以上</option></select></p>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="先行抽選に申し込む"></p>
+</form>`;
+
 const RENTAL_GEAR_FORM = `<form>
   <p><label>レンタル機材</label><br><select><option selected>一眼カメラ</option><option>ビデオ機材</option><option>照明セット</option><option>音響・マイク</option></select></p>
   <div class="row"><p><label>利用開始日</label><br><input type="date" value="2026-07-20"></p><p><label>日数</label><br><input type="number" min="1" value="2"></p></div>
@@ -1470,6 +1486,10 @@ function contentFor(dir, category) {
     case "311-form-equipment-rental": return RENTAL_GEAR_FORM;
     case "312-event-art-exhibition": return ARTSHOW_FORM;
     case "313-thankyou-refund-processed": return NEWSLETTER_FORM;
+    case "314-landing-due-date-calculator-js": return NEWSLETTER_FORM;
+    case "315-form-storage-rental": return STORAGE_FORM;
+    case "316-event-music-festival": return FESTIVAL_FORM;
+    case "317-thankyou-trial-started": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

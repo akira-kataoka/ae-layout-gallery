@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#a855f7; --ink:#f3e8ff; --muted:#c4b5fd; --line:#3b2a52; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#1a0f2e; line-height:1.7; }
+    .ae-hero { background:linear-gradient(135deg,#7c3aed,#db2777,#f59e0b); color:#fff; text-align:center; padding:56px 20px 46px; }
+    .ae-hero .em { font-size:50px; }
+    .ae-hero .yr { font-size:13px; letter-spacing:4px; opacity:.9; margin:4px 0 8px; }
+    .ae-hero h1 { font-size:30px; margin:0 0 8px; text-shadow:0 2px 12px rgba(0,0,0,.3); }
+    .ae-hero p { margin:0; opacity:.95; font-size:14px; }
+    .ae-wrap { max-width:620px; margin:0 auto; padding:38px 20px 48px; }
+    .ae-info { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:24px; }
+    .ae-i { background:#241638; border:1px solid var(--line); border-radius:14px; padding:14px; text-align:center; }
+    .ae-i .ic { font-size:20px; } .ae-i .k { font-size:11px; color:var(--muted); } .ae-i .v { font-weight:800; font-size:13px; color:#fff; }
+    .ae-line { background:#241638; border:1px solid var(--line); border-radius:16px; padding:20px; margin-bottom:24px; }
+    .ae-line .t { font-weight:700; text-align:center; margin-bottom:12px; color:#fff; letter-spacing:1px; }
+    .ae-act { display:flex; align-items:center; gap:10px; padding:8px 0; border-top:1px dashed var(--line); font-size:14px; }
+    .ae-act:first-of-type { border-top:0; }
+    .ae-act .hl { font-weight:800; } .ae-act .tm { margin-left:auto; color:var(--muted); font-size:12px; }
+    .ae-tickets { display:flex; gap:10px; margin-bottom:24px; }
+    .ae-tk { flex:1; background:#241638; border:1px solid var(--line); border-radius:12px; padding:14px; text-align:center; }
+    .ae-tk .nm { font-size:12px; font-weight:700; color:#fff; } .ae-tk .pr { color:#f59e0b; font-weight:900; font-size:14px; }
+    .ae-card { background:#241638; border:1px solid var(--accent); border-radius:18px; padding:26px; }
+    .ae-card .t { font-weight:700; font-size:17px; margin-bottom:14px; text-align:center; color:#fff; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; background:#1a0f2e; color:#f3e8ff; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:linear-gradient(135deg,#a855f7,#db2777); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    @media (max-width:480px){ .ae-info { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-hero">
+    <div class="em">🎸</div>
+    <div class="yr">SUMMER 2026</div>
+    <h1>%%title%%</h1>
+    <p>%%description%%</p>
+  </div>
+  <div class="ae-wrap">
+    <div class="ae-info">
+      <div class="ae-i"><div class="ic">📅</div><div class="k">開催</div><div class="v">8.22 – 8.23</div></div>
+      <div class="ae-i"><div class="ic">📍</div><div class="k">会場</div><div class="v">海浜野外ステージ</div></div>
+      <div class="ae-i"><div class="ic">🎫</div><div class="k">出演</div><div class="v">20組以上</div></div>
+    </div>
+    <div class="ae-line">
+      <div class="t">― LINE UP（一部）―</div>
+      <div class="ae-act"><span class="hl">THE NOVA LIGHTS</span><span class="tm">8/22 19:30</span></div>
+      <div class="ae-act"><span class="hl">藍色サイクル</span><span class="tm">8/22 18:00</span></div>
+      <div class="ae-act"><span class="hl">DJ HORIZON</span><span class="tm">8/23 20:00</span></div>
+    </div>
+    <div class="ae-tickets">
+      <div class="ae-tk"><div class="nm">1日券</div><div class="pr">¥9,800</div></div>
+      <div class="ae-tk"><div class="nm">2日通し券</div><div class="pr">¥16,800</div></div>
+      <div class="ae-tk"><div class="nm">VIP席</div><div class="pr">¥28,000</div></div>
+    </div>
+    <div class="ae-card">
+      <div class="t">先行抽選に申し込む</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

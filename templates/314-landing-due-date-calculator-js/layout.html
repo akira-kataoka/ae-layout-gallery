@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#db2777; --ink:#2a1622; --muted:#6b5560; --line:#f5dce7; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fff2f8; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:22px; }
+    .ae-head .em { font-size:42px; }
+    .ae-head h1 { font-size:24px; margin:4px 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; box-shadow:0 12px 32px rgba(219,39,119,.08); }
+    .ae-field label { font-weight:700; font-size:14px; display:block; margin-bottom:8px; }
+    .ae-field input[type=date] { width:100%; padding:13px; border:1px solid var(--line); border-radius:10px; font-size:15px; }
+    .ae-out { background:linear-gradient(135deg,#ec4899,#db2777); color:#fff; border-radius:16px; padding:24px; text-align:center; margin-top:18px; }
+    .ae-out .lab { font-size:13px; opacity:.92; } .ae-out .big { font-size:30px; font-weight:900; } .ae-out .week { font-size:14px; opacity:.95; margin-top:6px; }
+    .ae-tri { display:flex; gap:6px; margin-top:14px; }
+    .ae-tri span { flex:1; padding:7px 4px; border-radius:8px; font-size:11px; font-weight:700; background:rgba(255,255,255,.18); }
+    .ae-tri span.on { background:#fff; color:var(--accent); }
+    .ae-cta { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; margin-top:18px; }
+    .ae-cta .t { font-weight:700; margin-bottom:12px; }
+    .ae-cta form input[type=text],.ae-cta form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form .submit input,.ae-cta form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head">
+      <div class="em">🤰</div>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-card">
+      <div class="ae-field">
+        <label for="lmp">最終月経の開始日</label>
+        <input type="date" id="lmp" value="2026-03-01">
+      </div>
+      <div class="ae-out">
+        <div class="lab">出産予定日（目安）</div>
+        <div class="big" id="due">—</div>
+        <div class="week">現在 <span id="weeks">—</span></div>
+        <div class="ae-tri" id="tri">
+          <span data-t="1">初期</span><span data-t="2">中期</span><span data-t="3">後期</span>
+        </div>
+      </div>
+    </div>
+    <div class="ae-cta">
+      <div class="t">週数に合わせたマタニティ情報を受け取る</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var lmp = document.getElementById("lmp"), dueEl = document.getElementById("due"), weeksEl = document.getElementById("weeks");
+    var tris = Array.prototype.slice.call(document.querySelectorAll("#tri span"));
+    function fmt(d) { return d.getFullYear() + "年" + (d.getMonth() + 1) + "月" + d.getDate() + "日"; }
+    function calc() {
+      var v = lmp.value;
+      if (!v) { dueEl.textContent = "—"; weeksEl.textContent = "—"; return; }
+      var start = new Date(v + "T00:00:00");
+      if (isNaN(start.getTime())) return;
+      var due = new Date(start.getTime() + 280 * 86400000);
+      dueEl.textContent = fmt(due);
+      var now = new Date();
+      var days = Math.floor((now - start) / 86400000);
+      var w = Math.floor(days / 7), d = days % 7;
+      var tri = w < 16 ? 1 : w < 28 ? 2 : 3;
+      if (days < 0) { weeksEl.textContent = "妊娠前の日付です"; tris.forEach(function (s) { s.classList.remove("on"); }); return; }
+      weeksEl.textContent = "妊娠 " + w + "週" + d + "日";
+      tris.forEach(function (s) { s.classList.toggle("on", parseInt(s.getAttribute("data-t"), 10) === tri); });
+    }
+    lmp.addEventListener("input", calc);
+    calc();
+  })();
+  </script>
+</body>
+</html>

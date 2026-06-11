@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#2563eb; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eef4fb; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:54px 20px; }
+    .ae-done { text-align:center; margin-bottom:22px; }
+    .ae-done .chk { width:66px; height:66px; border-radius:50%; background:#2563eb; color:#fff; display:flex; align-items:center; justify-content:center; font-size:32px; margin:0 auto 12px; }
+    .ae-done h1 { font-size:23px; margin:0 0 4px; }
+    .ae-done p { color:var(--muted); margin:0; font-size:14px; }
+    .ae-trial { background:linear-gradient(135deg,#2563eb,#6366f1); color:#fff; border-radius:16px; padding:22px; text-align:center; margin-bottom:18px; }
+    .ae-trial .lab { font-size:13px; opacity:.9; } .ae-trial .v { font-size:30px; font-weight:900; } .ae-trial .note { font-size:12px; opacity:.92; margin-top:4px; }
+    .ae-steps { background:#fff; border:1px solid var(--line); border-radius:16px; padding:20px; margin-bottom:18px; box-shadow:0 8px 22px rgba(37,99,235,.06); }
+    .ae-steps .t { font-weight:700; font-size:14px; margin-bottom:12px; }
+    .ae-st { display:flex; gap:12px; padding:8px 0; }
+    .ae-st .ic { width:30px; height:30px; border-radius:8px; background:#eff6ff; display:flex; align-items:center; justify-content:center; font-size:16px; flex:0 0 auto; }
+    .ae-st .nm { font-weight:700; font-size:13px; } .ae-st .de { font-size:12px; color:var(--muted); }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; }
+    .ae-card .t { font-weight:700; margin-bottom:12px; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-done">
+      <div class="chk">✓</div>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-trial">
+      <div class="lab">無料トライアル期間</div>
+      <div class="v">14日間</div>
+      <div class="note">2026年6月25日まで・期間中の解約は無料です</div>
+    </div>
+    <div class="ae-steps">
+      <div class="t">まずはこの3つから</div>
+      <div class="ae-st"><div class="ic">👤</div><div><div class="nm">プロフィールを設定する</div><div class="de">3分で初期設定が完了します</div></div></div>
+      <div class="ae-st"><div class="ic">📥</div><div><div class="nm">データを取り込む</div><div class="de">テンプレートで簡単スタート</div></div></div>
+      <div class="ae-st"><div class="ic">👥</div><div><div class="nm">メンバーを招待する</div><div class="de">チームで使うともっと便利に</div></div></div>
+    </div>
+    <div class="ae-card">
+      <div class="t">使い方のコツをメールで受け取る</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>
