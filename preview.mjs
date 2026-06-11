@@ -2233,7 +2233,12 @@ function applyFilter(){
     c.classList.toggle("hide", !(okCat&&okQ));
   });
   let anyVisible=false;
-  $$(".group").forEach(g=>{ const vis=$$(".card:not(.hide)",g).length>0; g.classList.toggle("hide",!vis); if(vis)anyVisible=true; });
+  const filtering = !!q || f!=="all";
+  $$(".group").forEach(g=>{
+    const total=$$(".card",g).length, vis=$$(".card:not(.hide)",g).length;
+    g.classList.toggle("hide",vis===0); if(vis>0)anyVisible=true;
+    const sp=$(".group-title span",g); if(sp) sp.textContent = filtering ? (vis+" / "+total) : total;
+  });
   $("#empty").style.display = anyVisible?"none":"block";
   const rc=$("#rescount"); if(rc){ rc.textContent = $$(".card:not(.hide)").length + " 件表示"; }
   $("#selAll").checked=false;
