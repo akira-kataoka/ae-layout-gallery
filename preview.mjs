@@ -282,6 +282,25 @@ const ALUMNI_FORM = `<form>
   <p class="submit"><input type="submit" value="出欠を回答する"></p>
 </form>`;
 
+const WEB_QUOTE_FORM = `<form>
+  <p><label>制作の種類</label><br><select><option selected>コーポレートサイト</option><option>ECサイト</option><option>ランディングページ</option><option>リニューアル</option></select></p>
+  <p><label>ご予算の目安</label><br><select><option>〜30万円</option><option selected>30〜100万円</option><option>100万円〜</option><option>未定・要相談</option></select></p>
+  <p><label>参考サイト・現サイトURL（任意）</label><br><input type="url" value="https://example.com"></p>
+  <p><label>ご要望・目的</label><br><textarea>問い合わせを増やせる、スマホ対応のサイトにしたいです。</textarea></p>
+  <p><label>会社名・お名前</label><br><input type="text" value="株式会社サンプル / 山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="無料見積もりを依頼する"></p>
+</form>`;
+
+const KIDSCAMP_FORM = `<form>
+  <p><label>お子さまのお名前</label><br><input type="text" value="山田 はな"></p>
+  <div class="row"><p><label>学年</label><br><select><option>1年</option><option selected>3年</option><option>5年</option></select></p><p><label>性別</label><br><select><option>女の子</option><option>男の子</option></select></p></div>
+  <p><label>食物アレルギー等</label><br><input type="text" value="特になし"></p>
+  <p><label>保護者のお名前</label><br><input type="text" value="山田 太郎"></p>
+  <div class="row"><p><label>メール</label><br><input type="email" value="taro@example.com"></p><p><label>緊急連絡先</label><br><input type="text" value="090-0000-0000"></p></div>
+  <p class="submit"><input type="submit" value="参加を申し込む"></p>
+</form>`;
+
 const WARRANTY_CLAIM_FORM = `<form>
   <p><label>保証番号</label><br><input type="text" value="WR-2025-004512"></p>
   <div class="row"><p><label>製品名</label><br><input type="text" value="コードレス掃除機 X200"></p><p><label>購入日</label><br><input type="date" value="2025-09-15"></p></div>
@@ -1594,6 +1613,10 @@ function contentFor(dir, category) {
     case "335-form-warranty-claim": return WARRANTY_CLAIM_FORM;
     case "336-event-pet-adoption": return ADOPTION_FORM;
     case "337-utility-data-export-ready": return NEWSLETTER_FORM;
+    case "338-landing-timeline-history": return NEWSLETTER_FORM;
+    case "339-form-web-quote": return WEB_QUOTE_FORM;
+    case "340-event-kids-camp": return KIDSCAMP_FORM;
+    case "341-thankyou-warranty-registered": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

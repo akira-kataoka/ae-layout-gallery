@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#1e40af; --ink:#0f1b33; --muted:#5a6781; --line:#dde3ef; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eef3fb; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:54px 20px; }
+    .ae-done { text-align:center; margin-bottom:22px; }
+    .ae-done .chk { width:66px; height:66px; border-radius:50%; background:#1e40af; color:#fff; display:flex; align-items:center; justify-content:center; font-size:32px; margin:0 auto 12px; }
+    .ae-done h1 { font-size:23px; margin:0 0 4px; }
+    .ae-done p { color:var(--muted); margin:0; font-size:14px; }
+    .ae-cert { background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px; margin-bottom:18px; box-shadow:0 8px 26px rgba(30,64,175,.08); position:relative; overflow:hidden; }
+    .ae-cert::before { content:"WARRANTY"; position:absolute; right:-10px; top:14px; transform:rotate(12deg); font-size:38px; font-weight:900; color:rgba(30,64,175,.05); letter-spacing:2px; }
+    .ae-cert .pn { font-weight:800; font-size:16px; margin-bottom:12px; }
+    .ae-cert .row { display:flex; justify-content:space-between; font-size:13px; padding:5px 0; border-top:1px solid var(--line); }
+    .ae-cert .row:first-of-type { border-top:0; }
+    .ae-cert .k { color:var(--muted); } .ae-cert b { color:var(--ink); }
+    .ae-cert .until b { color:#16a34a; font-size:15px; }
+    .ae-note { font-size:12px; color:var(--muted); text-align:center; margin-bottom:22px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; }
+    .ae-card .t { font-weight:700; margin-bottom:12px; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-done">
+      <div class="chk">✓</div>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-cert">
+      <div class="pn">コードレス掃除機 X200</div>
+      <div class="row"><span class="k">保証番号</span><b>WR-2026-018342</b></div>
+      <div class="row"><span class="k">登録日</span><b>2026年6月11日</b></div>
+      <div class="row until"><span class="k">保証期間</span><b>2029年6月10日まで（3年）</b></div>
+    </div>
+    <p class="ae-note">保証書はマイページからいつでも確認・ダウンロードできます。</p>
+    <div class="ae-card">
+      <div class="t">お手入れ方法やお得な情報を受け取る</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "name": "サンクス - 製品保証登録 完了",
+  "category": "thankyou",
+  "description": "製品の保証登録が完了した後に、保証番号・登録日・保証期間を証書風カードで表示するサンクスページ。購入後フォローやメンテ情報配信のオプトインを兼ねる。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "保証登録が完了しました",
+  "previewDescription": "ご登録ありがとうございます。これで保証サービスをご利用いただけます。"
+}
