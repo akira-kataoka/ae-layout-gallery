@@ -1,0 +1,8 @@
+{
+  "name": "サンクス - 返金処理完了",
+  "category": "thankyou",
+  "description": "返品・キャンセルに伴う返金処理の完了後に、返金額・方法・反映予定を提示するサンクスページ。再利用クーポン配布のオプトインで関係を維持する。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "返金手続きが完了しました",
+  "previewDescription": "ご返金の手続きを承りました。内容は以下のとおりです。"
+}

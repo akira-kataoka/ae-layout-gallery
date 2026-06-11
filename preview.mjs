@@ -282,6 +282,21 @@ const ALUMNI_FORM = `<form>
   <p class="submit"><input type="submit" value="出欠を回答する"></p>
 </form>`;
 
+const RENTAL_GEAR_FORM = `<form>
+  <p><label>レンタル機材</label><br><select><option selected>一眼カメラ</option><option>ビデオ機材</option><option>照明セット</option><option>音響・マイク</option></select></p>
+  <div class="row"><p><label>利用開始日</label><br><input type="date" value="2026-07-20"></p><p><label>日数</label><br><input type="number" min="1" value="2"></p></div>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <div class="row"><p><label>メール</label><br><input type="email" value="taro@example.com"></p><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p></div>
+  <p class="submit"><input type="submit" value="レンタルを申し込む"></p>
+</form>`;
+
+const ARTSHOW_FORM = `<form>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p><label>内覧会への参加</label><br><select><option selected>参加を希望する</option><option>招待状のみ希望</option></select></p>
+  <p class="submit"><input type="submit" value="登録する"></p>
+</form>`;
+
 const FITTING_FORM = `<form>
   <p><label>ご希望アイテム</label><br><select><option selected>ドレス・フォーマル</option><option>スーツ・ジャケット</option><option>カジュアル全般</option></select></p>
   <div class="row"><p><label>ご希望日</label><br><input type="date" value="2026-07-19"></p><p><label>時間帯</label><br><select><option selected>午前</option><option>午後</option><option>夕方</option></select></p></div>
@@ -1451,6 +1466,10 @@ function contentFor(dir, category) {
     case "307-form-fitting-reservation": return FITTING_FORM;
     case "308-event-blood-donation": return BLOOD_FORM;
     case "309-utility-account-suspended": return NEWSLETTER_FORM;
+    case "310-landing-pet-age-calculator-js": return NEWSLETTER_FORM;
+    case "311-form-equipment-rental": return RENTAL_GEAR_FORM;
+    case "312-event-art-exhibition": return ARTSHOW_FORM;
+    case "313-thankyou-refund-processed": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

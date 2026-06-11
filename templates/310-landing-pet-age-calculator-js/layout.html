@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0891b2; --ink:#0c2228; --muted:#5a747c; --line:#d6eaee; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eefbfd; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:22px; }
+    .ae-head h1 { font-size:24px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; box-shadow:0 12px 32px rgba(8,145,178,.09); }
+    .ae-types { display:flex; gap:8px; margin-bottom:18px; }
+    .ae-ty { flex:1; border:2px solid var(--line); background:#fff; border-radius:12px; padding:12px 6px; text-align:center; cursor:pointer; font-family:inherit; }
+    .ae-ty.sel { border-color:var(--accent); background:#ecfeff; }
+    .ae-ty .em { font-size:24px; } .ae-ty .nm { font-size:11px; font-weight:700; }
+    .ae-field label { font-weight:700; font-size:14px; display:flex; justify-content:space-between; margin-bottom:8px; }
+    .ae-field label .v { color:var(--accent); font-variant-numeric:tabular-nums; }
+    .ae-field input[type=range] { width:100%; accent-color:var(--accent); }
+    .ae-out { background:linear-gradient(135deg,#0891b2,#0e7490); color:#fff; border-radius:14px; padding:24px; text-align:center; margin-top:18px; }
+    .ae-out .lab { font-size:13px; opacity:.9; } .ae-out .big { font-size:44px; font-weight:900; font-variant-numeric:tabular-nums; line-height:1.1; } .ae-out .stage { font-size:13px; opacity:.95; margin-top:4px; }
+    .ae-cta { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; margin-top:18px; }
+    .ae-cta .t { font-weight:700; margin-bottom:12px; }
+    .ae-cta form input[type=text],.ae-cta form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form .submit input,.ae-cta form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <div class="ae-types" id="types">
+        <button type="button" class="ae-ty sel" data-type="dogS"><div class="em">🐕</div><div class="nm">小型犬</div></button>
+        <button type="button" class="ae-ty" data-type="dogL"><div class="em">🐺</div><div class="nm">大型犬</div></button>
+        <button type="button" class="ae-ty" data-type="cat"><div class="em">🐈</div><div class="nm">猫</div></button>
+      </div>
+      <div class="ae-field">
+        <label>ペットの年齢 <span class="v"><span id="vAge">3</span> 歳</span></label>
+        <input type="range" id="age" min="0" max="20" step="1" value="3">
+      </div>
+      <div class="ae-out">
+        <div class="lab">人間でいうと、おおよそ</div>
+        <div class="big"><span id="human">28</span> 歳</div>
+        <div class="stage" id="stage">働き盛りの大人世代</div>
+      </div>
+    </div>
+    <div class="ae-cta">
+      <div class="t">年齢に合わせたケア情報を受け取る</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var tys = Array.prototype.slice.call(document.querySelectorAll(".ae-ty"));
+    var age = document.getElementById("age"), vAge = document.getElementById("vAge");
+    var humanEl = document.getElementById("human"), stageEl = document.getElementById("stage");
+    var type = "dogS";
+    function human(yrs) {
+      if (yrs <= 0) return 0;
+      var first, second, rest;
+      if (type === "dogS") { first = 15; second = 9; rest = 4; }
+      else if (type === "dogL") { first = 12; second = 9; rest = 7; }
+      else { first = 15; second = 9; rest = 4; }
+      if (yrs === 1) return first;
+      if (yrs === 2) return first + second;
+      return first + second + (yrs - 2) * rest;
+    }
+    function stage(h) {
+      if (h < 13) return "やんちゃな子ども時代";
+      if (h < 20) return "好奇心いっぱいの思春期";
+      if (h < 40) return "働き盛りの大人世代";
+      if (h < 60) return "落ち着いた中年期";
+      return "ゆったりシニア世代・ケアを大切に";
+    }
+    function calc() {
+      var a = parseInt(age.value, 10) || 0;
+      vAge.textContent = a;
+      var h = human(a);
+      humanEl.textContent = h;
+      stageEl.textContent = stage(h);
+    }
+    tys.forEach(function (t) {
+      t.addEventListener("click", function () {
+        tys.forEach(function (x) { x.classList.remove("sel"); });
+        t.classList.add("sel");
+        type = t.getAttribute("data-type");
+        calc();
+      });
+    });
+    age.addEventListener("input", calc);
+    calc();
+  })();
+  </script>
+</body>
+</html>

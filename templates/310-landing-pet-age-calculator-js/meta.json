@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - ペット年齢 人間換算(JS)",
+  "category": "landing",
+  "description": "ペットの種類(小型犬/大型犬/猫)と年齢から人間年齢に換算しライフステージを表示する診断LP(textContent・classListのみ、innerHTML不使用)。ペット用品/保険/フードのリード獲得に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "うちの子、人間でいうと何歳？",
+  "previewDescription": "種類と年齢を選ぶと、人間年齢とライフステージがわかります。"
+}

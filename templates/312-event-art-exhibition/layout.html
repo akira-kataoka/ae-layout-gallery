@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0f172a; --ink:#0f172a; --muted:#64748b; --line:#e5e7eb; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f6f6f4; line-height:1.7; }
+    .ae-hero { aspect-ratio:16/9; background:linear-gradient(135deg,#1e293b,#475569); display:flex; align-items:center; justify-content:center; }
+    .ae-hero .frame { width:46%; aspect-ratio:3/4; background:linear-gradient(160deg,#f59e0b,#db2777,#6366f1); border:6px solid #fff; box-shadow:0 20px 50px rgba(0,0,0,.4); }
+    .ae-wrap { max-width:600px; margin:0 auto; padding:30px 20px 48px; }
+    .ae-head { text-align:center; margin-bottom:24px; }
+    .ae-head .badge { display:inline-block; border:1px solid var(--ink); font-weight:700; font-size:11px; letter-spacing:3px; padding:5px 14px; border-radius:999px; margin-bottom:12px; }
+    .ae-head h1 { font-size:27px; margin:0 0 6px; letter-spacing:1px; }
+    .ae-head .artist { color:var(--muted); font-size:14px; }
+    .ae-info { border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); padding:18px 0; margin-bottom:24px; }
+    .ae-info div { display:flex; justify-content:space-between; font-size:14px; padding:5px 0; }
+    .ae-info .k { color:var(--muted); } .ae-info b { color:var(--ink); }
+    .ae-stmt { font-size:14px; color:#334155; text-align:center; margin-bottom:24px; font-style:italic; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:26px; }
+    .ae-card .t { font-weight:700; font-size:17px; margin-bottom:6px; text-align:center; }
+    .ae-card .d { color:var(--muted); font-size:13px; margin-bottom:14px; text-align:center; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-hero"><div class="frame"></div></div>
+  <div class="ae-wrap">
+    <div class="ae-head">
+      <span class="badge">SOLO EXHIBITION</span>
+      <h1>%%title%%</h1>
+      <div class="artist">作家：佐藤 玲奈</div>
+    </div>
+    <div class="ae-info">
+      <div><span class="k">会期</span><b>2026.11.01 – 11.24</b></div>
+      <div><span class="k">会場</span><b>市立近代美術館 第2展示室</b></div>
+      <div><span class="k">開館時間</span><b>10:00 – 18:00（月休）</b></div>
+      <div><span class="k">入場</span><b>一般 1,200円 / 学生 600円</b></div>
+    </div>
+    <p class="ae-stmt">「光と記憶」をテーマに描いた新作30点。<br>移ろう時間のなかで残る、確かな手触りを。</p>
+    <div class="ae-card">
+      <div class="t">内覧会・オープニングレセプション招待</div>
+      <div class="d">ご登録の方に、招待状と巡回情報をお送りします</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>
