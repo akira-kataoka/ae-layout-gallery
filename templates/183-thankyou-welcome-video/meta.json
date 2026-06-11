@@ -1,0 +1,7 @@
+{
+  "name": "サンクスページ - ウェルカム動画＋次の一歩",
+  "category": "thankyou",
+  "description": "登録完了＋ウェルカム動画＋次アクション3導線のオンボーディング型サンクス。新規ユーザーの初動を後押し。",
+  "isIncludeDefaultCss": false,
+  "previewContent": "<h1 style=\"margin:0 0 8px;font-size:24px;\">ようこそ！登録が完了しました</h1><p style=\"color:#64748b;\">まずは1分のウェルカム動画で全体像をつかみましょう。</p>"
+}

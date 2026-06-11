@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - ギフトラッピング/のし指定",
+  "category": "form",
+  "description": "ラッピング・のし・メッセージカードを指定するギフトオプション入力フォーム。EC/ギフト注文の付帯サービスに。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "ギフトラッピングの指定",
+  "previewDescription": "大切な贈り物に、ラッピングやメッセージを添えられます。"
+}

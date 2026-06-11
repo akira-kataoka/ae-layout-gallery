@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#4f46e5; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eef0fb; line-height:1.7; }
+    .ae-wrap { max-width:560px; margin:0 auto; padding:56px 20px; text-align:center; }
+    .ae-msg { margin-bottom:18px; }
+    .ae-video { position:relative; aspect-ratio:16/9; border-radius:16px; overflow:hidden; box-shadow:0 14px 40px rgba(79,70,229,.2); background:linear-gradient(135deg,#312e81,#4f46e5); display:flex; align-items:center; justify-content:center; }
+    .ae-video .play { width:72px; height:72px; border-radius:50%; background:rgba(255,255,255,.92); display:flex; align-items:center; justify-content:center; }
+    .ae-video .play::after { content:""; border-left:24px solid var(--accent); border-top:15px solid transparent; border-bottom:15px solid transparent; margin-left:6px; }
+    .ae-next { margin-top:22px; display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+    .ae-next a { background:#fff; border:1px solid var(--line); border-radius:12px; padding:16px 10px; text-decoration:none; color:var(--ink); font-size:13px; font-weight:700; }
+    .ae-next .ic { font-size:24px; display:block; margin-bottom:4px; }
+    @media (max-width:480px){ .ae-next { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-msg">%%content%%</div>
+    <div class="ae-video"><div class="play"></div></div>
+    <div class="ae-next">
+      <a href="#"><span class="ic">🚀</span>使い方ガイド</a>
+      <a href="#"><span class="ic">⚙️</span>初期設定</a>
+      <a href="#"><span class="ic">💬</span>サポート</a>
+    </div>
+  </div>
+</body>
+</html>
