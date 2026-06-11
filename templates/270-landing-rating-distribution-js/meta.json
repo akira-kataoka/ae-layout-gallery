@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - レビュー評価分布(JS)",
+  "category": "landing",
+  "description": "平均評価と★5〜1の分布バーを表示し、星の行をタップすると該当レビューだけに絞り込めるレビュー訴求LP(style.width・classListのみ、innerHTML不使用)。画面到達でバーがアニメ。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "利用者のリアルな声",
+  "previewDescription": "1,000件以上の評価。気になる星をタップして口コミを絞り込めます。"
+}

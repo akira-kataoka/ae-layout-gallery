@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#16a34a; --ink:#0c2415; --muted:#566b5d; --line:#d8ecdf; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f0faf3; line-height:1.7; }
+    .ae-hero { background:linear-gradient(135deg,#15803d,#16a34a); color:#fff; text-align:center; padding:50px 20px 40px; position:relative; overflow:hidden; }
+    .ae-hero .badge { display:inline-block; background:rgba(255,255,255,.2); font-weight:700; font-size:12px; letter-spacing:2px; padding:6px 16px; border-radius:999px; margin-bottom:12px; }
+    .ae-hero h1 { font-size:28px; margin:0 0 8px; }
+    .ae-hero p { margin:0; opacity:.95; font-size:14px; }
+    .ae-wrap { max-width:680px; margin:0 auto; padding:34px 20px 48px; }
+    .ae-info { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-bottom:24px; }
+    .ae-i { background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 18px; box-shadow:0 8px 22px rgba(22,163,74,.06); }
+    .ae-i .k { font-size:11px; color:var(--muted); } .ae-i .v { font-weight:800; font-size:15px; }
+    .ae-divs { background:#fff; border:1px solid var(--line); border-radius:16px; padding:20px; margin-bottom:24px; }
+    .ae-divs .t { font-weight:700; text-align:center; margin-bottom:12px; }
+    .ae-d { display:flex; align-items:center; gap:10px; padding:9px 0; border-top:1px dashed var(--line); font-size:14px; }
+    .ae-d:first-of-type { border-top:0; }
+    .ae-d .em { font-size:22px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; text-align:center; }
+    .ae-card .t { font-weight:700; font-size:18px; margin-bottom:4px; }
+    .ae-card .d { color:var(--muted); font-size:13px; margin-bottom:14px; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form input[type=tel],.ae-card form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    @media (max-width:520px){ .ae-info { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-hero">
+    <span class="badge">ENTRY OPEN</span>
+    <h1>%%title%%</h1>
+    <p>%%description%%</p>
+  </div>
+  <div class="ae-wrap">
+    <div class="ae-info">
+      <div class="ae-i"><div class="k">開催日</div><div class="v">10.25 (土) 9:00集合</div></div>
+      <div class="ae-i"><div class="k">会場</div><div class="v">市民総合グラウンド</div></div>
+      <div class="ae-i"><div class="k">参加費</div><div class="v">1チーム 8,000円</div></div>
+      <div class="ae-i"><div class="k">締切</div><div class="v">10.10 (金)</div></div>
+    </div>
+    <div class="ae-divs">
+      <div class="t">エントリー部門</div>
+      <div class="ae-d"><span class="em">🏆</span><span>オープンの部（実力者歓迎・トーナメント）</span></div>
+      <div class="ae-d"><span class="em">🎽</span><span>エンジョイの部（初心者OK・交流戦）</span></div>
+      <div class="ae-d"><span class="em">👨‍👩‍👧</span><span>ファミリーの部（親子・混成チーム）</span></div>
+    </div>
+    <div class="ae-card">
+      <div class="t">チームでエントリーする</div>
+      <div class="d">代表者の方が下記フォームよりお申し込みください</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

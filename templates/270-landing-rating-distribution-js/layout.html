@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#d97706; --ink:#241a0c; --muted:#6e6044; --line:#efe6d4; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fffaf0; line-height:1.7; }
+    .ae-wrap { max-width:600px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:22px; }
+    .ae-head h1 { font-size:25px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-summary { background:#fff; border:1px solid var(--line); border-radius:18px; padding:24px; display:flex; gap:22px; align-items:center; margin-bottom:18px; box-shadow:0 10px 28px rgba(217,119,6,.07); }
+    .ae-avg { text-align:center; flex:0 0 auto; }
+    .ae-avg .n { font-size:46px; font-weight:900; line-height:1; color:#b45309; }
+    .ae-avg .s { color:#f59e0b; font-size:16px; letter-spacing:2px; }
+    .ae-avg .c { font-size:12px; color:var(--muted); margin-top:4px; }
+    .ae-dist { flex:1; }
+    .ae-drow { display:flex; align-items:center; gap:8px; margin-bottom:6px; cursor:pointer; background:transparent; border:0; width:100%; font-family:inherit; padding:2px; border-radius:6px; }
+    .ae-drow:hover { background:#fdf6ea; }
+    .ae-drow.sel { background:#fef3c7; }
+    .ae-drow .lab { font-size:12px; width:30px; color:var(--muted); text-align:right; }
+    .ae-drow .track { flex:1; height:10px; background:#f1e8d6; border-radius:999px; overflow:hidden; }
+    .ae-drow .track span { display:block; height:100%; width:0; background:linear-gradient(90deg,#fbbf24,#d97706); transition:width .8s ease; }
+    .ae-drow .pct { font-size:11px; width:34px; color:var(--muted); font-variant-numeric:tabular-nums; }
+    .ae-reviews { margin-bottom:20px; }
+    .ae-rv { background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 18px; margin-bottom:10px; }
+    .ae-rv .top { display:flex; justify-content:space-between; align-items:center; margin-bottom:4px; }
+    .ae-rv .who { font-weight:700; font-size:13px; } .ae-rv .st { color:#f59e0b; font-size:12px; }
+    .ae-rv .tx { font-size:13px; color:#3c3320; margin:0; }
+    .ae-hidden { display:none; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px; text-align:center; }
+    .ae-card .t { font-weight:700; margin-bottom:12px; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    @media (max-width:480px){ .ae-summary { flex-direction:column; } }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-summary">
+      <div class="ae-avg"><div class="n">4.6</div><div class="s">★★★★★</div><div class="c">1,284件の評価</div></div>
+      <div class="ae-dist" id="dist">
+        <button type="button" class="ae-drow" data-stars="5"><span class="lab">★5</span><span class="track"><span data-w="72"></span></span><span class="pct">72%</span></button>
+        <button type="button" class="ae-drow" data-stars="4"><span class="lab">★4</span><span class="track"><span data-w="18"></span></span><span class="pct">18%</span></button>
+        <button type="button" class="ae-drow" data-stars="3"><span class="lab">★3</span><span class="track"><span data-w="6"></span></span><span class="pct">6%</span></button>
+        <button type="button" class="ae-drow" data-stars="2"><span class="lab">★2</span><span class="track"><span data-w="3"></span></span><span class="pct">3%</span></button>
+        <button type="button" class="ae-drow" data-stars="1"><span class="lab">★1</span><span class="track"><span data-w="1"></span></span><span class="pct">1%</span></button>
+      </div>
+    </div>
+    <div class="ae-reviews" id="reviews">
+      <div class="ae-rv" data-stars="5"><div class="top"><span class="who">田中さん</span><span class="st">★★★★★</span></div><p class="tx">期待以上でした。サポートも丁寧で安心して使えています。</p></div>
+      <div class="ae-rv" data-stars="5"><div class="top"><span class="who">佐藤さん</span><span class="st">★★★★★</span></div><p class="tx">導入がスムーズ。チーム全体の効率が目に見えて上がりました。</p></div>
+      <div class="ae-rv" data-stars="4"><div class="top"><span class="who">鈴木さん</span><span class="st">★★★★☆</span></div><p class="tx">概ね満足。あと少し機能が増えると完璧です。</p></div>
+      <div class="ae-rv" data-stars="3"><div class="top"><span class="who">高橋さん</span><span class="st">★★★☆☆</span></div><p class="tx">悪くはないですが、料金がもう少し抑えられると嬉しい。</p></div>
+    </div>
+    <div class="ae-card">
+      <div class="t">あなたのレビューも聞かせてください</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var rows = Array.prototype.slice.call(document.querySelectorAll(".ae-drow"));
+    var reviews = Array.prototype.slice.call(document.querySelectorAll("#reviews .ae-rv"));
+    function fillBars() {
+      Array.prototype.forEach.call(document.querySelectorAll("#dist [data-w]"), function (el) {
+        el.style.width = el.getAttribute("data-w") + "%";
+      });
+    }
+    function filter(stars) {
+      reviews.forEach(function (r) {
+        var match = !stars || r.getAttribute("data-stars") === stars;
+        r.classList.toggle("ae-hidden", !match);
+      });
+    }
+    rows.forEach(function (row) {
+      row.addEventListener("click", function () {
+        var stars = row.getAttribute("data-stars");
+        var already = row.classList.contains("sel");
+        rows.forEach(function (x) { x.classList.remove("sel"); });
+        if (already) { filter(null); }
+        else { row.classList.add("sel"); filter(stars); }
+      });
+    });
+    if ("IntersectionObserver" in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) { if (en.isIntersecting) { fillBars(); io.disconnect(); } });
+      }, { threshold: 0.3 });
+      io.observe(document.getElementById("dist"));
+    } else { fillBars(); }
+  })();
+  </script>
+</body>
+</html>

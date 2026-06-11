@@ -1,0 +1,8 @@
+{
+  "name": "イベント - スポーツ大会/トーナメント参加募集",
+  "category": "event",
+  "description": "開催概要チップと部門リストを備えたスポーツ大会・トーナメントの参加チーム募集レイアウト。代表者によるチームエントリーフォームへ誘導。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "市民スポーツ大会 2026 エントリー受付中",
+  "previewDescription": "実力者から初心者・親子まで。チームを組んで参加しよう！"
+}

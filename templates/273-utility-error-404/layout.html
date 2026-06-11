@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#4f46e5; --ink:#1e1b3a; --muted:#6b6e8c; --line:#e3e2f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f5f5fc; line-height:1.7; }
+    .ae-wrap { max-width:560px; margin:0 auto; padding:60px 20px; text-align:center; }
+    .ae-big { font-size:90px; font-weight:900; line-height:1; background:linear-gradient(135deg,#818cf8,#4f46e5); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .ae-wrap h1 { font-size:24px; margin:6px 0 10px; }
+    .ae-wrap .lead { color:var(--muted); margin:0 0 26px; font-size:14px; }
+    .ae-links { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:28px; }
+    .ae-link { background:#fff; border:1px solid var(--line); border-radius:14px; padding:18px; text-decoration:none; color:var(--ink); box-shadow:0 8px 22px rgba(79,70,229,.06); text-align:left; }
+    .ae-link .ic { font-size:24px; } .ae-link .nm { font-weight:700; font-size:14px; margin-top:6px; } .ae-link .de { font-size:12px; color:var(--muted); }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px; text-align:center; }
+    .ae-card .t { font-weight:700; margin-bottom:4px; }
+    .ae-card .d { color:var(--muted); font-size:13px; margin-bottom:14px; }
+    .ae-card form input[type=email] { width:100%; padding:13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    @media (max-width:440px){ .ae-links { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-big">404</div>
+    <h1>%%title%%</h1>
+    <p class="lead">%%description%%</p>
+    <div class="ae-links">
+      <a class="ae-link" href="#"><div class="ic">🏠</div><div class="nm">トップページ</div><div class="de">最初のページに戻る</div></a>
+      <a class="ae-link" href="#"><div class="ic">🛍️</div><div class="nm">商品一覧</div><div class="de">人気のアイテムを見る</div></a>
+      <a class="ae-link" href="#"><div class="ic">📰</div><div class="nm">お知らせ</div><div class="de">最新情報をチェック</div></a>
+      <a class="ae-link" href="#"><div class="ic">💬</div><div class="nm">お問い合わせ</div><div class="de">サポートに相談する</div></a>
+    </div>
+    <div class="ae-card">
+      <div class="t">お探しの情報を見逃さない</div>
+      <div class="d">メール登録で最新情報やお得なお知らせをお届けします</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

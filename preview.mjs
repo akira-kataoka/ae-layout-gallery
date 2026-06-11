@@ -282,6 +282,23 @@ const ALUMNI_FORM = `<form>
   <p class="submit"><input type="submit" value="出欠を回答する"></p>
 </form>`;
 
+const BETA_FORM = `<form>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p><label>主に使うデバイス</label><br><select><option selected>iPhone / iOS</option><option>Android</option><option>PC（Windows）</option><option>PC（Mac）</option></select></p>
+  <p><label>参加への意気込み（任意）</label><br><textarea>毎日使うツールなので、改善に貢献したいです！</textarea></p>
+  <p class="submit"><input type="submit" value="テスターに応募する"></p>
+</form>`;
+
+const TEAM_ENTRY_FORM = `<form>
+  <p><label>チーム名</label><br><input type="text" value="サンプルファイターズ"></p>
+  <p><label>エントリー部門</label><br><select><option selected>オープンの部</option><option>エンジョイの部</option><option>ファミリーの部</option></select></p>
+  <p><label>代表者のお名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p>
+  <p class="submit"><input type="submit" value="チームでエントリーする"></p>
+</form>`;
+
 const ROADSHOW_FORM = `<form>
   <p><label>参加する都市</label><br><select><option selected>東京（9.06）</option><option>大阪（9.13）</option><option>名古屋（9.20）</option></select></p>
   <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
@@ -1240,6 +1257,10 @@ function contentFor(dir, category) {
     case "267-form-membership-cancel": return MEMBER_CANCEL_FORM;
     case "268-event-alumni-reunion": return ALUMNI_FORM;
     case "269-thankyou-gift-sent": return NEWSLETTER_FORM;
+    case "270-landing-rating-distribution-js": return NEWSLETTER_FORM;
+    case "271-form-beta-tester-apply": return BETA_FORM;
+    case "272-event-sports-tournament": return TEAM_ENTRY_FORM;
+    case "273-utility-error-404": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

@@ -1,0 +1,8 @@
+{
+  "name": "ユーティリティ - 404 ページ(回遊導線)",
+  "category": "utility",
+  "description": "ページが見つからない404エラー時に、主要ページへのリンクカードとメール登録フックを提示して離脱を防ぐリカバリーレイアウト。SEO流入の取りこぼし対策に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "ページが見つかりませんでした",
+  "previewDescription": "お探しのページは移動または削除された可能性があります。"
+}

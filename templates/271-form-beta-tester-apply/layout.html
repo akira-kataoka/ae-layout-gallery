@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#7c3aed; --ink:#e5e7eb; --muted:#9ca3af; --line:#2d2a42; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#13111f; line-height:1.7; }
+    .ae-wrap { max-width:580px; margin:0 auto; padding:52px 20px; }
+    .ae-head { text-align:center; margin-bottom:22px; }
+    .ae-head .badge { display:inline-block; border:1px solid var(--accent); color:#c4b5fd; font-weight:700; font-size:12px; letter-spacing:2px; padding:5px 14px; border-radius:999px; margin-bottom:14px; }
+    .ae-head h1 { font-size:26px; margin:0 0 8px; color:#fff; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-perks { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:24px; }
+    .ae-perk { background:#1c1930; border:1px solid var(--line); border-radius:12px; padding:14px 8px; text-align:center; }
+    .ae-perk .ic { font-size:22px; } .ae-perk .tx { font-size:11px; color:var(--muted); margin-top:4px; }
+    .ae-card { background:#1c1930; border:1px solid var(--line); border-radius:18px; padding:26px; }
+    .ae-card .t { font-weight:700; font-size:16px; margin-bottom:14px; color:#fff; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form select,.ae-card form textarea { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; background:#13111f; color:#e5e7eb; font-family:inherit; }
+    .ae-card form label { font-weight:700; font-size:13px; }
+    .ae-card form p { margin:0 0 13px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:linear-gradient(135deg,#a855f7,#7c3aed); color:#fff; border:0; padding:15px; border-radius:9px; font-weight:800; font-size:15px; cursor:pointer; }
+    @media (max-width:480px){ .ae-perks { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head">
+      <span class="badge">CLOSED BETA</span>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-perks">
+      <div class="ae-perk"><div class="ic">🚀</div><div class="tx">正式版より先に使える</div></div>
+      <div class="ae-perk"><div class="ic">🎁</div><div class="tx">テスター限定特典</div></div>
+      <div class="ae-perk"><div class="ic">🗣️</div><div class="tx">開発に声を届けられる</div></div>
+    </div>
+    <div class="ae-card">
+      <div class="t">テスター応募フォーム</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>
