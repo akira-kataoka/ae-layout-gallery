@@ -1,0 +1,7 @@
+{
+  "name": "サンクスページ - クーポン取得＋期限カウントダウン(JS)",
+  "category": "thankyou",
+  "description": "クーポンコード表示＋有効期限の残り時間を毎秒カウントダウンする素のJSサンクス(textContentのみ)。即時利用を促す。",
+  "isIncludeDefaultCss": false,
+  "previewContent": "<h1 style=\"margin:8px 0 8px;font-size:24px;\">クーポンをGETしました！</h1><p style=\"color:#6b7280;\">下記コードを購入時にご入力ください。お早めにどうぞ。</p>"
+}

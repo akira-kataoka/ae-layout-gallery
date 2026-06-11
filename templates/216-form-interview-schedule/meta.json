@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 面接日程調整",
+  "category": "form",
+  "description": "面接の希望日時・形式(対面/オンライン)を指定する日程調整フォーム。採用選考の面接予約に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "面接日程のご調整",
+  "previewDescription": "ご都合のよい日時と面接形式をお選びください。"
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#7c3aed; --ink:#1f1533; --muted:#6b7280; --line:#ece3f7; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f5f3ff; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:60px 20px; text-align:center; }
+    .ae-card { background:#fff; border-radius:18px; box-shadow:0 12px 34px rgba(124,58,237,.14); padding:42px 34px; }
+    .ae-emoji { font-size:48px; }
+    .ae-card h1 { margin:8px 0 8px; font-size:24px; }
+    .ae-card > p { color:var(--muted); }
+    .ae-coupon { margin:20px 0; border:2px dashed var(--accent); border-radius:14px; padding:20px; background:linear-gradient(135deg,#faf5ff,#f3e8ff); }
+    .ae-coupon .lbl { font-size:12px; color:var(--accent); font-weight:700; letter-spacing:.1em; }
+    .ae-coupon .code { font-size:30px; font-weight:800; letter-spacing:.15em; margin:6px 0; }
+    .ae-timer { display:inline-flex; align-items:center; gap:8px; background:#fef2f2; color:#b91c1c; font-weight:800; padding:8px 16px; border-radius:999px; font-size:14px; font-variant-numeric:tabular-nums; }
+    .ae-btn { display:inline-block; margin-top:18px; background:var(--accent); color:#fff; text-decoration:none; padding:14px 32px; border-radius:10px; font-weight:800; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-card">
+      <div class="ae-emoji">🎟️</div>
+      %%content%%
+      <div class="ae-coupon"><div class="lbl">COUPON CODE</div><div class="code">FLASH20</div></div>
+      <div class="ae-timer">⏳ 有効期限まで <span id="timer">--:--:--</span></div>
+      <div><a class="ae-btn" href="%%account-website%%">今すぐ使う</a></div>
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    // クーポン有効期限（運用時に書き換え）。デモは固定日時。
+    var deadline = new Date("2026/12/31 23:59:59").getTime();
+    var el = document.getElementById("timer");
+    var pad = function (n) { return (n < 10 ? "0" : "") + n; };
+    function tick() {
+      var diff = deadline - new Date().getTime();
+      if (diff <= 0) { el.textContent = "期限切れ"; clearInterval(t); return; }
+      var h = Math.floor(diff / 3600000), m = Math.floor((diff % 3600000) / 60000), s = Math.floor((diff % 60000) / 1000);
+      el.textContent = pad(h) + ":" + pad(m) + ":" + pad(s);
+    }
+    tick();
+    var t = setInterval(tick, 1000);
+  })();
+  </script>
+</body>
+</html>

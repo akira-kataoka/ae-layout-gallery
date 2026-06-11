@@ -231,6 +231,14 @@ const CALENDAR_BODY = `<h1>お申し込みが完了しました</h1>
 const SHARE_BODY = `<h1>ご参加ありがとうございます！</h1>
 <p>よろしければ、お知り合いにもシェアしていただけると嬉しいです。</p>`;
 
+const INTERVIEW_FORM = `<form>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p><label>第1希望日</label><br><input type="date" value="2026-07-22"></p>
+  <p><label>面接形式</label><br><label class="opt"><input type="radio" name="fmt" checked> オンライン</label><label class="opt"><input type="radio" name="fmt"> 対面</label></p>
+  <p class="submit"><input type="submit" value="この日程で申し込む"></p>
+</form>`;
+
 const CLINIC_FORM = `<form>
   <p><label>診療科</label><br><select><option selected>内科</option><option>皮膚科</option><option>整形外科</option><option>歯科</option></select></p>
   <div class="row"><p><label>担当医</label><br><select><option selected>指定なし</option><option>佐藤医師</option><option>鈴木医師</option></select></p><p><label>希望日</label><br><input type="date" value="2026-07-16"></p></div>
@@ -1035,6 +1043,8 @@ function contentFor(dir, category) {
     case "213-form-clinic-appointment": return CLINIC_FORM;
     case "214-landing-savings-comparison-js": return NEWSLETTER_FORM;
     case "215-landing-event-recap": return NEWSLETTER_FORM;
+    case "216-form-interview-schedule": return INTERVIEW_FORM;
+    case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }

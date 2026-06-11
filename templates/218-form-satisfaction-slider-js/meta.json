@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 満足度スライダー(JS)",
+  "category": "form",
+  "description": "スライダーで満足度を0〜100で入力すると表情と判定が連動する素のJavaScriptフィードバックフォーム(textContentのみ)。直感的な満足度収集に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "満足度を教えてください",
+  "previewDescription": "スライダーを動かして、いまの満足度をお知らせください。"
+}
