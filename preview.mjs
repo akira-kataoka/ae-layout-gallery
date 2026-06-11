@@ -415,6 +415,14 @@ const APPT_FORM = `<form>
   <p class="submit"><input type="submit" value="この時間で予約する"></p>
 </form>`;
 
+const VIEWING_FORM = `<form>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <div class="row"><p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p></div>
+  <div class="row"><p><label>第1希望日</label><br><input type="date" value="2026-07-26"></p><p><label>時間帯</label><br><select><option selected>午前</option><option>午後</option><option>夕方以降</option></select></p></div>
+  <p><label>ご質問・ご要望</label><br><textarea>駐車場の空き状況も知りたいです。</textarea></p>
+  <p class="submit"><input type="submit" value="内見を予約する"></p>
+</form>`;
+
 const GROUP_FORM = `<form>
   <div class="row"><p><label>ご利用人数</label><br><input type="number" value="20"></p><p><label>ご希望日</label><br><input type="date" value="2026-08-22"></p></div>
   <p><label>ご利用用途</label><br><select><option selected>宴会・懇親会</option><option>研修・会議</option><option>貸切イベント</option></select></p>
@@ -1055,6 +1063,10 @@ function contentFor(dir, category) {
     case "219-form-employee-referral": return REFERRAL_RECRUIT_FORM;
     case "220-landing-personality-quiz-js": return NEWSLETTER_FORM;
     case "221-form-product-customizer-js": return APPT_FORM;
+    case "222-event-seminar-agenda": return NEWSLETTER_FORM;
+    case "223-landing-image-compare-js": return NEWSLETTER_FORM;
+    case "224-landing-eco-impact-calculator-js": return NEWSLETTER_FORM;
+    case "225-form-property-viewing": return VIEWING_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

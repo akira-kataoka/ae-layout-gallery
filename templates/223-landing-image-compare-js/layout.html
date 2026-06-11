@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0ea5e9; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f0f9ff; line-height:1.7; }
+    .ae-wrap { max-width:680px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:22px; }
+    .ae-head h1 { font-size:25px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-cmp { position:relative; width:100%; aspect-ratio:16/10; border-radius:16px; overflow:hidden; user-select:none; box-shadow:0 16px 40px rgba(14,165,233,.2); touch-action:none; }
+    .ae-pane { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:30px; font-weight:900; letter-spacing:2px; }
+    .ae-before { background:linear-gradient(135deg,#94a3b8,#cbd5e1); color:#475569; }
+    .ae-after { background:linear-gradient(135deg,#0ea5e9,#6366f1); color:#fff; clip-path:inset(0 0 0 50%); }
+    .ae-tag { position:absolute; bottom:12px; font-size:12px; font-weight:700; background:rgba(15,23,42,.55); color:#fff; padding:4px 10px; border-radius:999px; }
+    .ae-tag.l { left:12px; } .ae-tag.r { right:12px; }
+    .ae-handle { position:absolute; top:0; bottom:0; left:50%; width:3px; background:#fff; transform:translateX(-50%); box-shadow:0 0 0 1px rgba(15,23,42,.15); }
+    .ae-knob { position:absolute; top:50%; left:50%; width:42px; height:42px; margin:-21px 0 0 -21px; border-radius:50%; background:#fff; box-shadow:0 4px 14px rgba(15,23,42,.3); display:flex; align-items:center; justify-content:center; font-size:18px; color:var(--accent); }
+    .ae-range { width:100%; margin:16px 0 4px; accent-color:var(--accent); }
+    .ae-hint { text-align:center; color:var(--muted); font-size:13px; margin:0 0 22px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px; text-align:center; }
+    .ae-card .t { font-weight:700; margin-bottom:12px; font-size:17px; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-cmp" id="cmp">
+      <div class="ae-pane ae-before">BEFORE</div>
+      <div class="ae-pane ae-after" id="after">AFTER</div>
+      <span class="ae-tag l">施工前</span>
+      <span class="ae-tag r">施工後</span>
+      <div class="ae-handle" id="handle"><div class="ae-knob">⟺</div></div>
+    </div>
+    <input type="range" class="ae-range" id="range" min="0" max="100" value="50" aria-label="比較スライダー">
+    <p class="ae-hint">スライダーを動かすと、ビフォー／アフターを比較できます。</p>
+    <div class="ae-card">
+      <div class="t">あなたの事例も無料診断・お見積もり</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var after = document.getElementById("after"), handle = document.getElementById("handle"), range = document.getElementById("range"), cmp = document.getElementById("cmp");
+    function clamp(v) { return v < 0 ? 0 : v > 100 ? 100 : v; }
+    function apply(p) {
+      p = clamp(p);
+      after.style.clipPath = "inset(0 0 0 " + p + "%)";
+      handle.style.left = p + "%";
+      if (range.value !== String(Math.round(p))) range.value = Math.round(p);
+    }
+    range.addEventListener("input", function () { apply(parseFloat(range.value)); });
+    var dragging = false;
+    function fromEvent(e) {
+      var rect = cmp.getBoundingClientRect();
+      var x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
+      apply((x / rect.width) * 100);
+    }
+    cmp.addEventListener("pointerdown", function (e) { dragging = true; fromEvent(e); });
+    window.addEventListener("pointermove", function (e) { if (dragging) fromEvent(e); });
+    window.addEventListener("pointerup", function () { dragging = false; });
+    apply(50);
+  })();
+  </script>
+</body>
+</html>

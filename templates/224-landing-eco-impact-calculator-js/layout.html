@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#16a34a; --ink:#14271a; --muted:#5b7163; --line:#dcece2; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f1faf4; line-height:1.7; }
+    .ae-wrap { max-width:620px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:22px; }
+    .ae-head h1 { font-size:25px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; box-shadow:0 10px 30px rgba(22,163,74,.08); }
+    .ae-row { margin-bottom:18px; }
+    .ae-row .lbl { display:flex; justify-content:space-between; font-weight:700; font-size:14px; margin-bottom:7px; }
+    .ae-row .lbl .v { color:var(--accent); font-variant-numeric:tabular-nums; }
+    .ae-row input[type=range] { width:100%; accent-color:var(--accent); }
+    .ae-result { margin-top:8px; background:linear-gradient(135deg,#16a34a,#0d9488); color:#fff; border-radius:14px; padding:22px; text-align:center; }
+    .ae-result .big { font-size:38px; font-weight:900; font-variant-numeric:tabular-nums; line-height:1.2; }
+    .ae-result .unit { font-size:15px; opacity:.9; }
+    .ae-trees { margin-top:10px; font-size:14px; opacity:.95; }
+    .ae-cta { background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px; text-align:center; margin-top:18px; }
+    .ae-cta .t { font-weight:700; margin-bottom:12px; font-size:17px; }
+    .ae-cta form input[type=text],.ae-cta form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form .submit input,.ae-cta form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <div class="ae-row"><div class="lbl"><span>従業員数</span><span class="v"><span id="vEmp">50</span> 名</span></div>
+        <input type="range" id="emp" min="5" max="500" step="5" value="50"></div>
+      <div class="ae-row"><div class="lbl"><span>ペーパーレス化する割合</span><span class="v"><span id="vPaper">60</span> %</span></div>
+        <input type="range" id="paper" min="0" max="100" step="5" value="60"></div>
+      <div class="ae-row"><div class="lbl"><span>在宅勤務の日数 / 週</span><span class="v"><span id="vRemote">2</span> 日</span></div>
+        <input type="range" id="remote" min="0" max="5" step="1" value="2"></div>
+      <div class="ae-result">
+        <div class="big"><span id="co2">0</span> <span class="unit">kg-CO₂ / 年</span></div>
+        <div class="trees ae-trees">およそ <span id="trees">0</span> 本の杉が1年に吸収する量に相当します🌲</div>
+      </div>
+    </div>
+    <div class="ae-cta">
+      <div class="t">あなたの会社の削減レポートを無料で受け取る</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var emp = document.getElementById("emp"), paper = document.getElementById("paper"), remote = document.getElementById("remote");
+    var vEmp = document.getElementById("vEmp"), vPaper = document.getElementById("vPaper"), vRemote = document.getElementById("vRemote");
+    var co2El = document.getElementById("co2"), treesEl = document.getElementById("trees");
+    function calc() {
+      var e = parseInt(emp.value, 10), p = parseInt(paper.value, 10), r = parseInt(remote.value, 10);
+      vEmp.textContent = e; vPaper.textContent = p; vRemote.textContent = r;
+      // 概算: ペーパーレス 1名あたり最大18kg/年 + 在宅1日あたり通勤削減 約120kg/年
+      var paperCut = e * 18 * (p / 100);
+      var commuteCut = e * r * 120;
+      var total = Math.round(paperCut + commuteCut);
+      co2El.textContent = total.toLocaleString("ja-JP");
+      treesEl.textContent = Math.max(1, Math.round(total / 14)).toLocaleString("ja-JP");
+    }
+    [emp, paper, remote].forEach(function (el) { el.addEventListener("input", calc); });
+    calc();
+  })();
+  </script>
+</body>
+</html>

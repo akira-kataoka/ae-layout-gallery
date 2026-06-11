@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - CO2削減シミュレーター(JS)",
+  "category": "landing",
+  "description": "従業員数/ペーパーレス率/在宅日数のスライダーから年間CO2削減量と杉の本数換算を即時計算する素のJavaScript構成(textContent・style操作のみ)。SaaS/サステナビリティ訴求のリード獲得に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "あなたの会社のCO2、どれだけ減らせる？",
+  "previewDescription": "スライダーを動かすだけで、年間の削減ポテンシャルがわかります。"
+}

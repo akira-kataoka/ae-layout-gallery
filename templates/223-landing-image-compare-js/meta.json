@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - ビフォーアフター比較スライダー(JS)",
+  "category": "landing",
+  "description": "スライダーやドラッグで施工前/施工後を左右にスワイプ比較できる素のJavaScript構成(clip-path・style操作のみ、innerHTML不使用)。リフォーム/美容/クリーニング等の実績訴求LPに。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "その差、ひと目でわかります",
+  "previewDescription": "スライダーを動かして、施工前と施工後を見比べてください。"
+}

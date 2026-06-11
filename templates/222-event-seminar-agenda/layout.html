@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#1d4ed8; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --soft:#eff6ff; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f5f7fa; line-height:1.7; }
+    .ae-wrap { max-width:760px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:28px; }
+    .ae-head .badge { display:inline-block; background:var(--soft); color:var(--accent); font-weight:700; font-size:13px; padding:5px 14px; border-radius:999px; margin-bottom:12px; }
+    .ae-head h1 { font-size:26px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-agenda { position:relative; margin:0 0 30px; padding-left:24px; }
+    .ae-agenda::before { content:""; position:absolute; left:7px; top:8px; bottom:8px; width:2px; background:var(--line); }
+    .ae-item { position:relative; background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 18px; margin-bottom:14px; box-shadow:0 6px 18px rgba(15,23,42,.05); }
+    .ae-item::before { content:""; position:absolute; left:-21px; top:22px; width:12px; height:12px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 4px var(--soft); }
+    .ae-time { font-weight:800; color:var(--accent); font-size:14px; font-variant-numeric:tabular-nums; }
+    .ae-item h3 { margin:4px 0 6px; font-size:17px; }
+    .ae-item .spk { color:var(--muted); font-size:13px; }
+    .ae-break { background:var(--soft); border-style:dashed; }
+    .ae-break::before { background:#94a3b8; box-shadow:0 0 0 4px #fff; }
+    .ae-cta { background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px; text-align:center; }
+    .ae-cta .t { font-weight:700; margin-bottom:12px; font-size:17px; }
+    .ae-cta form input[type=text],.ae-cta form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form .submit input,.ae-cta form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head">
+      <span class="badge">2026.07.18 (土) 13:00 開演</span>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-agenda">
+      <div class="ae-item"><div class="ae-time">13:00 – 13:20</div><h3>オープニング・基調講演</h3><div class="spk">登壇: 代表取締役 田中 健一</div></div>
+      <div class="ae-item"><div class="ae-time">13:20 – 14:10</div><h3>事例セッション：DX推進の現場から</h3><div class="spk">登壇: プロダクト本部 佐藤 美咲</div></div>
+      <div class="ae-item ae-break"><div class="ae-time">14:10 – 14:25</div><h3>休憩・ネットワーキング</h3><div class="spk">ロビーにて軽食をご用意しています</div></div>
+      <div class="ae-item"><div class="ae-time">14:25 – 15:15</div><h3>パネルディスカッション</h3><div class="spk">登壇: 招待ゲスト3名</div></div>
+      <div class="ae-item"><div class="ae-time">15:15 – 15:30</div><h3>質疑応答・クロージング</h3><div class="spk">登壇: 運営事務局</div></div>
+    </div>
+    <div class="ae-cta">
+      <div class="t">参加お申し込み（参加無料・先着100名）</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

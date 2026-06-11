@@ -1,0 +1,8 @@
+{
+  "name": "イベント - セミナー タイムテーブル",
+  "category": "event",
+  "description": "縦タイムライン型のセミナー・カンファレンス進行表。各セッションの時間/タイトル/登壇者と休憩枠を視覚的に整理し、末尾に参加申込フォームを配置。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "Business Conference 2026",
+  "previewDescription": "第一線で活躍するゲストが登壇する、一日完結のビジネスカンファレンス。"
+}

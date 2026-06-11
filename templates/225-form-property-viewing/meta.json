@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 内見/物件見学予約",
+  "category": "form",
+  "description": "物件カード(写真/間取り/価格)の下に内見予約フォームを配置した不動産向けレイアウト。希望日時・連絡先を取得して見学申込につなげる。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "この物件を内見する",
+  "previewDescription": "ご希望の日時をお選びください。担当者より折り返しご連絡いたします。"
+}
