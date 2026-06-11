@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - 電気代節約シミュレーター(JS)",
+  "category": "landing",
+  "description": "現在の電気代スライダーから、プラン乗換・太陽光導入時の月額と年間削減額を比較バーで即時表示する節約シミュレーターLP(textContent・styleのみ、innerHTML不使用)。新電力/太陽光/省エネのリード獲得に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "電気代、どれだけ下げられる？",
+  "previewDescription": "今の電気代を動かすだけ。乗り換えと太陽光の削減額がわかります。"
+}

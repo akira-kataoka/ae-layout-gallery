@@ -282,6 +282,23 @@ const ALUMNI_FORM = `<form>
   <p class="submit"><input type="submit" value="出欠を回答する"></p>
 </form>`;
 
+const SOLAR_FORM = `<form>
+  <p><label>住居形態</label><br><select><option selected>戸建て（持ち家）</option><option>戸建て（建築予定）</option><option>集合住宅</option></select></p>
+  <p><label>現在の電気代（月額）</label><br><select><option>〜8,000円</option><option selected>8,000〜15,000円</option><option>15,000円〜</option></select></p>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>設置先の郵便番号</label><br><input type="text" value="100-0001"></p>
+  <div class="row"><p><label>メール</label><br><input type="email" value="taro@example.com"></p><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p></div>
+  <p class="submit"><input type="submit" value="無料見積もりを依頼する"></p>
+</form>`;
+
+const COMEDY_FORM = `<form>
+  <p><label>チケット種別</label><br><select><option selected>前売券（¥3,500）</option><option>当日券（¥4,000）</option><option>学割（¥2,500）</option></select></p>
+  <p><label>枚数</label><br><select><option selected>1枚</option><option>2枚</option><option>3枚以上</option></select></p>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="チケットを予約する"></p>
+</form>`;
+
 const STORAGE_FORM = `<form>
   <p><label>ご希望サイズ</label><br><select><option>Sサイズ（¥2,980/月）</option><option selected>Mサイズ（¥5,480/月）</option><option>Lサイズ（¥9,800/月）</option></select></p>
   <p><label>利用開始希望日</label><br><input type="date" value="2026-08-01"></p>
@@ -1490,6 +1507,10 @@ function contentFor(dir, category) {
     case "315-form-storage-rental": return STORAGE_FORM;
     case "316-event-music-festival": return FESTIVAL_FORM;
     case "317-thankyou-trial-started": return NEWSLETTER_FORM;
+    case "318-landing-electricity-savings-js": return NEWSLETTER_FORM;
+    case "319-form-solar-quote": return SOLAR_FORM;
+    case "320-event-comedy-show": return COMEDY_FORM;
+    case "321-utility-form-error": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#16a34a; --ink:#0c2415; --muted:#566b5d; --line:#d8ecdf; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f0faf3; line-height:1.7; }
+    .ae-wrap { max-width:600px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:18px; }
+    .ae-head .emo { font-size:42px; }
+    .ae-head h1 { font-size:24px; margin:4px 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-trust { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-bottom:20px; }
+    .ae-t { background:#fff; border:1px solid var(--line); border-radius:999px; padding:8px 16px; font-size:12px; font-weight:700; color:var(--accent); }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px; }
+    .ae-card .t { font-weight:700; font-size:16px; margin-bottom:14px; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form input[type=tel],.ae-card form input[type=number],.ae-card form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form label { font-weight:700; font-size:13px; }
+    .ae-card form p { margin:0 0 13px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:15px; border-radius:9px; font-weight:800; font-size:15px; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head">
+      <div class="emo">☀️</div>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-trust">
+      <span class="ae-t">✓ 見積もり無料</span>
+      <span class="ae-t">✓ しつこい営業なし</span>
+      <span class="ae-t">✓ 施工保証10年</span>
+    </div>
+    <div class="ae-card">
+      <div class="t">無料お見積もり依頼</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

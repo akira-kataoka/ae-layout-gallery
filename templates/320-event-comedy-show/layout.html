@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#eab308; --ink:#26210a; --muted:#6e6535; --line:#efe6c4; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fffbeb; line-height:1.7; }
+    .ae-hero { background:linear-gradient(135deg,#facc15,#eab308); color:#3a2f08; text-align:center; padding:52px 20px 42px; }
+    .ae-hero .em { font-size:52px; }
+    .ae-hero h1 { font-size:28px; margin:6px 0 8px; }
+    .ae-hero p { margin:0; opacity:.9; font-size:14px; }
+    .ae-wrap { max-width:600px; margin:0 auto; padding:36px 20px 48px; }
+    .ae-info { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:24px; }
+    .ae-i { background:#fff; border:1px solid var(--line); border-radius:14px; padding:14px; text-align:center; box-shadow:0 8px 22px rgba(234,179,8,.08); }
+    .ae-i .ic { font-size:20px; } .ae-i .k { font-size:11px; color:var(--muted); } .ae-i .v { font-weight:800; font-size:13px; }
+    .ae-cast { background:#fff; border:1px solid var(--line); border-radius:16px; padding:20px; margin-bottom:24px; }
+    .ae-cast .t { font-weight:700; text-align:center; margin-bottom:12px; }
+    .ae-c { display:flex; align-items:center; gap:10px; padding:8px 0; border-top:1px dashed var(--line); font-size:14px; }
+    .ae-c:first-of-type { border-top:0; }
+    .ae-c .em { font-size:22px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; }
+    .ae-card .t { font-weight:700; font-size:17px; margin-bottom:14px; text-align:center; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#3a2f08; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    @media (max-width:480px){ .ae-info { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-hero">
+    <div class="em">🎤</div>
+    <h1>%%title%%</h1>
+    <p>%%description%%</p>
+  </div>
+  <div class="ae-wrap">
+    <div class="ae-info">
+      <div class="ae-i"><div class="ic">📅</div><div class="k">開催</div><div class="v">10.31 (金) 19:00</div></div>
+      <div class="ae-i"><div class="ic">📍</div><div class="k">会場</div><div class="v">シアター・ラフ</div></div>
+      <div class="ae-i"><div class="ic">🎟️</div><div class="k">前売</div><div class="v">3,500円</div></div>
+    </div>
+    <div class="ae-cast">
+      <div class="t">出演</div>
+      <div class="ae-c"><span class="em">😂</span><span>ザ・ボケナイト（漫才）</span></div>
+      <div class="ae-c"><span class="em">🤣</span><span>ピン芸人 たけし丸</span></div>
+      <div class="ae-c"><span class="em">🎭</span><span>即興コント集団 アドリブ団</span></div>
+    </div>
+    <div class="ae-card">
+      <div class="t">チケットを予約する</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

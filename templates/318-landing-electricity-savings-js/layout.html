@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#ea580c; --ink:#2a1709; --muted:#6e5b48; --line:#f0e3d3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fff8f1; line-height:1.7; }
+    .ae-wrap { max-width:540px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:22px; }
+    .ae-head h1 { font-size:24px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; box-shadow:0 12px 32px rgba(234,88,12,.08); }
+    .ae-field { margin-bottom:18px; }
+    .ae-field label { font-weight:700; font-size:14px; display:flex; justify-content:space-between; margin-bottom:8px; }
+    .ae-field label .v { color:var(--accent); font-variant-numeric:tabular-nums; }
+    .ae-field input[type=range] { width:100%; accent-color:var(--accent); }
+    .ae-rows .r { display:flex; align-items:center; gap:10px; margin-bottom:12px; }
+    .ae-rows .nm { width:96px; font-size:13px; font-weight:700; }
+    .ae-rows .track { flex:1; height:22px; background:#fef3e2; border-radius:6px; overflow:hidden; position:relative; }
+    .ae-rows .track span { display:block; height:100%; border-radius:6px; transition:width .35s ease; }
+    .ae-rows .amt { width:84px; text-align:right; font-weight:800; font-variant-numeric:tabular-nums; font-size:14px; }
+    .ae-save { background:linear-gradient(135deg,#16a34a,#15803d); color:#fff; border-radius:14px; padding:18px; text-align:center; margin-top:8px; }
+    .ae-save .lab { font-size:13px; opacity:.92; } .ae-save .v { font-size:30px; font-weight:900; font-variant-numeric:tabular-nums; }
+    .ae-cta { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; margin-top:18px; }
+    .ae-cta .t { font-weight:700; margin-bottom:12px; }
+    .ae-cta form input[type=text],.ae-cta form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form .submit input,.ae-cta form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <div class="ae-field">
+        <label>今の電気代（月額） <span class="v">¥<span id="vBill">12,000</span></span></label>
+        <input type="range" id="bill" min="3000" max="40000" step="500" value="12000">
+      </div>
+      <div class="ae-rows">
+        <div class="r"><span class="nm">現在</span><span class="track"><span id="bNow" style="background:#fb923c"></span></span><span class="amt">¥<span id="aNow">0</span></span></div>
+        <div class="r"><span class="nm">プラン乗換</span><span class="track"><span id="bPlan" style="background:#f59e0b"></span></span><span class="amt">¥<span id="aPlan">0</span></span></div>
+        <div class="r"><span class="nm">太陽光導入</span><span class="track"><span id="bSolar" style="background:#16a34a"></span></span><span class="amt">¥<span id="aSolar">0</span></span></div>
+      </div>
+      <div class="ae-save">
+        <div class="lab">太陽光導入なら、年間でこれだけお得</div>
+        <div class="v">¥<span id="annual">0</span></div>
+      </div>
+    </div>
+    <div class="ae-cta">
+      <div class="t">わが家の削減額を無料で詳しく診断</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var bill = document.getElementById("bill"), vBill = document.getElementById("vBill");
+    var aNow = document.getElementById("aNow"), aPlan = document.getElementById("aPlan"), aSolar = document.getElementById("aSolar");
+    var bNow = document.getElementById("bNow"), bPlan = document.getElementById("bPlan"), bSolar = document.getElementById("bSolar");
+    var annual = document.getElementById("annual");
+    function calc() {
+      var now = parseInt(bill.value, 10) || 0;
+      vBill.textContent = now.toLocaleString("ja-JP");
+      var plan = Math.round(now * 0.88);   // プラン乗換 約12%減
+      var solar = Math.round(now * 0.55);  // 太陽光 約45%減
+      aNow.textContent = now.toLocaleString("ja-JP");
+      aPlan.textContent = plan.toLocaleString("ja-JP");
+      aSolar.textContent = solar.toLocaleString("ja-JP");
+      bNow.style.width = "100%";
+      bPlan.style.width = (plan / now * 100) + "%";
+      bSolar.style.width = (solar / now * 100) + "%";
+      annual.textContent = ((now - solar) * 12).toLocaleString("ja-JP");
+    }
+    bill.addEventListener("input", calc);
+    calc();
+  })();
+  </script>
+</body>
+</html>
