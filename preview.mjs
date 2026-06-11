@@ -282,6 +282,23 @@ const ALUMNI_FORM = `<form>
   <p class="submit"><input type="submit" value="出欠を回答する"></p>
 </form>`;
 
+const NEWSPAPER_FORM = `<form>
+  <p><label>ご希望プラン</label><br><select><option>朝刊のみ（¥2,900/月）</option><option selected>朝・夕刊セット（¥4,400/月）</option><option>電子版（¥1,980/月）</option></select></p>
+  <p><label>配達開始日</label><br><input type="date" value="2026-07-01"></p>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>お届け先住所</label><br><input type="text" value="東京都中央区1-1-1"></p>
+  <div class="row"><p><label>メール</label><br><input type="email" value="taro@example.com"></p><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p></div>
+  <p class="submit"><input type="submit" value="購読を申し込む"></p>
+</form>`;
+
+const INTERNSHIP_FORM = `<form>
+  <p><label>応募コース</label><br><select><option selected>エンジニア</option><option>ビジネス職</option><option>デザイン</option></select></p>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>大学名・学年</label><br><input type="text" value="〇〇大学 3年"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="インターンに応募する"></p>
+</form>`;
+
 const FUNERAL_FORM = `<form>
   <p><label>ご相談内容</label><br><select><option selected>事前相談・プランを知りたい</option><option>費用・お見積り</option><option>生前準備（終活）</option><option>急ぎの相談</option></select></p>
   <p><label>ご希望の形式</label><br><select><option selected>家族葬</option><option>一日葬</option><option>一般葬</option><option>未定・相談</option></select></p>
@@ -1840,6 +1857,10 @@ function contentFor(dir, category) {
     case "383-form-funeral-consult": return FUNERAL_FORM;
     case "384-event-farm-experience": return FARM_FORM;
     case "385-thankyou-quote-requested": return NEWSLETTER_FORM;
+    case "386-landing-shipping-eta-js": return NEWSLETTER_FORM;
+    case "387-form-newspaper-subscription": return NEWSPAPER_FORM;
+    case "388-event-job-internship": return INTERNSHIP_FORM;
+    case "389-thankyou-survey-prize-entry": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;
@@ -2021,8 +2042,13 @@ const indexHtml = `<!DOCTYPE html>
   .wrap{ max-width:1280px; margin:0 auto; padding:26px 24px 80px; }
   .group{ margin-top:30px; }
   .group.hide{ display:none; }
-  .group-title{ font-size:17px; border-left:5px solid var(--brand); padding-left:12px; margin:0 0 16px; }
+  .group-title{ font-size:18px; border-left:5px solid var(--brand); padding-left:12px; margin:0 0 16px; }
   .group-title span{ color:var(--muted); font-size:13px; font-weight:400; margin-left:6px; }
+  .group[data-cat="landing"] .group-title{ border-color:#1d4ed8; }
+  .group[data-cat="form"] .group-title{ border-color:#15803d; }
+  .group[data-cat="event"] .group-title{ border-color:#c2410c; }
+  .group[data-cat="thankyou"] .group-title{ border-color:#7e22ce; }
+  .group[data-cat="utility"] .group-title{ border-color:#0369a1; }
   .grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(430px,1fr)); gap:22px; }
   .card{ margin:0; background:#fff; border:1px solid var(--line); border-radius:16px; overflow:hidden; box-shadow:0 4px 14px rgba(15,23,42,.05); transition:transform .15s, box-shadow .15s, outline-color .15s; outline:2px solid transparent; position:relative; }
   .card:hover{ transform:translateY(-3px); box-shadow:0 14px 34px rgba(15,23,42,.13); }
@@ -2093,6 +2119,26 @@ const indexHtml = `<!DOCTYPE html>
   /* --- トップへ戻る --- */
   .totop{ position:fixed; right:20px; bottom:20px; z-index:40; width:46px; height:46px; border-radius:50%; border:0; background:var(--brand); color:#fff; font-size:20px; cursor:pointer; box-shadow:0 8px 24px rgba(79,70,229,.4); opacity:0; pointer-events:none; transition:opacity .2s, transform .2s; transform:translateY(8px); }
   .totop.show{ opacity:1; pointer-events:auto; transform:translateY(0); }
+  /* --- 表示サイズ切替（密度） --- */
+  .density{ display:inline-flex; gap:2px; background:#fff; border:1px solid var(--line); border-radius:9px; padding:3px; }
+  .density button{ border:0; background:none; color:#64748b; width:34px; height:30px; border-radius:6px; cursor:pointer; font-size:13px; line-height:1; display:flex; align-items:center; justify-content:center; }
+  .density button.on{ background:var(--brand); color:#fff; }
+  :root[data-theme="dark"] .density{ background:#111a2e; }
+  /* --- フレームの拡大ヒント --- */
+  .frame{ position:relative; }
+  .frame::after{ content:"🔍 クリックで拡大"; position:absolute; left:50%; bottom:10px; transform:translateX(-50%) translateY(6px); background:rgba(15,23,42,.82); color:#fff; font-size:12px; font-weight:700; padding:5px 12px; border-radius:999px; opacity:0; transition:opacity .15s, transform .15s; pointer-events:none; }
+  .card:hover .frame::after{ opacity:1; transform:translateX(-50%) translateY(0); }
+  /* --- 密度モード（PC のみ・モバイルは下の media query を優先） --- */
+  @media (min-width:521px){
+    body[data-density="cozy"] .grid{ grid-template-columns:repeat(auto-fill,minmax(520px,1fr)); gap:26px; }
+    body[data-density="cozy"] .frame{ height:352px; }
+    body[data-density="cozy"] .frame iframe{ transform:scale(0.4); }
+    body[data-density="compact"] .grid{ grid-template-columns:repeat(auto-fill,minmax(310px,1fr)); gap:16px; }
+    body[data-density="compact"] .frame{ height:214px; }
+    body[data-density="compact"] .frame iframe{ transform:scale(0.2422); }
+    body[data-density="compact"] figcaption{ padding:12px 13px 14px; }
+    body[data-density="compact"] figcaption p{ display:none; }
+  }
 </style>
 </head>
 <body>
@@ -2106,6 +2152,11 @@ const indexHtml = `<!DOCTYPE html>
 <div class="toolbar"><div class="in">
   <div class="search"><input id="q" type="search" placeholder="名称・用途・カテゴリで検索..."></div>
   <div class="filters">${filterBtns}</div>
+  <div class="density" id="density" title="表示サイズの切替">
+    <button data-d="cozy" aria-label="大きく表示">▦</button>
+    <button data-d="standard" class="on" aria-label="標準表示">▥</button>
+    <button data-d="compact" aria-label="小さく一覧表示">▤</button>
+  </div>
   <span class="rescount" id="rescount"></span>
 </div></div>
 
@@ -2237,6 +2288,11 @@ document.addEventListener("click", e=>{
 document.addEventListener("keydown", e=>{ if(e.key==="Escape"&&!modal.hidden) closeModal(); });
 $("#m-copy").addEventListener("click", async()=>{ try{ await navigator.clipboard.writeText(byDir[curDir].layout); toast("HTMLをコピーしました"); }catch{ toast("コピーに失敗しました"); } });
 $("#m-dl").addEventListener("click", ()=>{ const t=byDir[curDir]; if(t){ saveBlob(new Blob([t.layout],{type:"text/html"}), curDir+".html"); } });
+
+// --- 表示サイズ（密度）切替 ---
+function setDensity(d){ document.body.setAttribute("data-density",d); $$("#density button").forEach(b=>b.classList.toggle("on",b.dataset.d===d)); try{localStorage.setItem("ae-density",d);}catch{} }
+setDensity(localStorage.getItem("ae-density")||"standard");
+$$("#density button").forEach(b=> b.addEventListener("click", ()=> setDensity(b.dataset.d)));
 
 // --- トップへ戻る ---
 const toTop=$("#toTop");

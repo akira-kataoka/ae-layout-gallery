@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - お届け日シミュレーター(JS)",
+  "category": "landing",
+  "description": "お届け先の地域と配送スピードを選ぶと到着予定日を即時表示する配送日数シミュレーターLP(Date計算＋textContent、innerHTML不使用)。EC/通販の購入前の不安解消とCV向上に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "いつ届く？お届け日をチェック",
+  "previewDescription": "お届け先の地域を選ぶだけ。到着予定日がその場でわかります。"
+}

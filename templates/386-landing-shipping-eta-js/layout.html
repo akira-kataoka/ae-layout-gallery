@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0891b2; --ink:#0c2228; --muted:#5a747c; --line:#d6eaee; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eefbfd; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:20px; }
+    .ae-head h1 { font-size:24px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; box-shadow:0 12px 32px rgba(8,145,178,.09); }
+    .ae-field { margin-bottom:16px; }
+    .ae-field label { font-weight:700; font-size:14px; display:block; margin-bottom:8px; }
+    .ae-field select { width:100%; padding:13px; border:1px solid var(--line); border-radius:10px; font-size:15px; }
+    .ae-toggle { display:flex; gap:6px; background:#dcf2f6; border-radius:10px; padding:4px; margin-bottom:8px; }
+    .ae-toggle button { flex:1; border:0; background:transparent; padding:9px; border-radius:8px; font-weight:700; font-size:13px; cursor:pointer; color:var(--muted); }
+    .ae-toggle button.on { background:#fff; color:var(--accent); box-shadow:0 2px 8px rgba(8,145,178,.18); }
+    .ae-out { background:linear-gradient(135deg,#0891b2,#0e7490); color:#fff; border-radius:16px; padding:24px; text-align:center; margin-top:16px; }
+    .ae-out .lab { font-size:13px; opacity:.9; } .ae-out .date { font-size:30px; font-weight:900; line-height:1.2; } .ae-out .meta { font-size:13px; opacity:.92; }
+    .ae-cta { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; margin-top:18px; }
+    .ae-cta .t { font-weight:700; margin-bottom:12px; }
+    .ae-cta form input[type=text],.ae-cta form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form .submit input,.ae-cta form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <div class="ae-toggle" id="speed">
+        <button type="button" class="on" data-add="0">通常配送（無料）</button>
+        <button type="button" data-add="-1">お急ぎ便（+¥500）</button>
+      </div>
+      <div class="ae-field">
+        <label for="region">お届け先の地域</label>
+        <select id="region">
+          <option value="3" data-name="北海道">北海道</option>
+          <option value="2" data-name="東北">東北</option>
+          <option value="1" data-name="関東" selected>関東</option>
+          <option value="1" data-name="中部">中部</option>
+          <option value="2" data-name="関西">関西</option>
+          <option value="2" data-name="中国・四国">中国・四国</option>
+          <option value="3" data-name="九州">九州</option>
+          <option value="4" data-name="沖縄・離島">沖縄・離島</option>
+        </select>
+      </div>
+      <div class="ae-out">
+        <div class="lab"><span id="regionName">関東</span>へのお届け予定</div>
+        <div class="date" id="date">—</div>
+        <div class="meta" id="leadtime">—</div>
+      </div>
+    </div>
+    <div class="ae-cta">
+      <div class="t">在庫・セール情報をいち早く受け取る</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var speedBtns = Array.prototype.slice.call(document.querySelectorAll("#speed button"));
+    var region = document.getElementById("region");
+    var regionName = document.getElementById("regionName"), dateEl = document.getElementById("date"), leadEl = document.getElementById("leadtime");
+    var W = ["日", "月", "火", "水", "木", "金", "土"];
+    var addDays = 0;
+    function calc() {
+      var opt = region.options[region.selectedIndex];
+      var base = parseInt(region.value, 10);
+      var days = Math.max(1, base + addDays);
+      regionName.textContent = opt.getAttribute("data-name");
+      var d = new Date();
+      d.setHours(0, 0, 0, 0);
+      d.setDate(d.getDate() + days);
+      dateEl.textContent = (d.getMonth() + 1) + "月" + d.getDate() + "日（" + W[d.getDay()] + "）ごろ";
+      leadEl.textContent = "ご注文から約 " + days + " 日でお届け";
+    }
+    speedBtns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        speedBtns.forEach(function (x) { x.classList.remove("on"); });
+        b.classList.add("on");
+        addDays = parseInt(b.getAttribute("data-add"), 10) || 0;
+        calc();
+      });
+    });
+    region.addEventListener("change", calc);
+    calc();
+  })();
+  </script>
+</body>
+</html>

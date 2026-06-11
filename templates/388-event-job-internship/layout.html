@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0369a1; --ink:#0c1f2e; --muted:#5a7080; --line:#dbe7ef; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eff5fa; line-height:1.7; }
+    .ae-hero { background:linear-gradient(135deg,#0369a1,#0891b2); color:#fff; text-align:center; padding:52px 20px 42px; }
+    .ae-hero .badge { display:inline-block; background:rgba(255,255,255,.2); font-weight:700; font-size:12px; letter-spacing:2px; padding:6px 16px; border-radius:999px; margin-bottom:12px; }
+    .ae-hero h1 { font-size:27px; margin:0 0 8px; }
+    .ae-hero p { margin:0; opacity:.95; font-size:14px; }
+    .ae-wrap { max-width:620px; margin:0 auto; padding:34px 20px 48px; }
+    .ae-info { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-bottom:24px; }
+    .ae-i { background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 18px; box-shadow:0 8px 22px rgba(3,105,161,.06); }
+    .ae-i .k { font-size:11px; color:var(--muted); } .ae-i .v { font-weight:800; font-size:15px; }
+    .ae-learn { background:#fff; border:1px solid var(--line); border-radius:16px; padding:20px; margin-bottom:24px; }
+    .ae-learn .t { font-weight:700; text-align:center; margin-bottom:12px; }
+    .ae-l { display:flex; align-items:center; gap:10px; padding:8px 0; border-top:1px dashed var(--line); font-size:14px; }
+    .ae-l:first-of-type { border-top:0; } .ae-l .em { font-size:20px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; }
+    .ae-card .t { font-weight:700; font-size:17px; margin-bottom:6px; text-align:center; }
+    .ae-card .d { color:var(--muted); font-size:13px; margin-bottom:14px; text-align:center; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    @media (max-width:480px){ .ae-info { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-hero">
+    <span class="badge">INTERNSHIP</span>
+    <h1>%%title%%</h1>
+    <p>%%description%%</p>
+  </div>
+  <div class="ae-wrap">
+    <div class="ae-info">
+      <div class="ae-i"><div class="k">期間</div><div class="v">8月／2週間（短期）</div></div>
+      <div class="ae-i"><div class="k">形式</div><div class="v">対面＋リモート</div></div>
+      <div class="ae-i"><div class="k">対象</div><div class="v">大学・大学院生</div></div>
+      <div class="ae-i"><div class="k">待遇</div><div class="v">日当・交通費支給</div></div>
+    </div>
+    <div class="ae-learn">
+      <div class="t">インターンで得られること</div>
+      <div class="ae-l"><span class="em">💼</span><span>現場社員と進める実践プロジェクト</span></div>
+      <div class="ae-l"><span class="em">🧑‍🏫</span><span>メンターによる1on1フィードバック</span></div>
+      <div class="ae-l"><span class="em">🎯</span><span>本選考での優遇・早期選考の案内</span></div>
+    </div>
+    <div class="ae-card">
+      <div class="t">インターンに応募する</div>
+      <div class="d">選考は書類とオンライン面談のみ</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>
