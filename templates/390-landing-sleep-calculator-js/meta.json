@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - 睡眠時間計算機(JS)",
+  "category": "landing",
+  "description": "起きたい時刻から逆算した最適な就寝時刻（または今から寝た場合の起床時刻）を90分の睡眠サイクルで提案するLP(Date計算＋textContent/DOM生成、innerHTML代入不使用)。寝具/健康/睡眠アプリのリード獲得に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "何時に寝ればスッキリ起きられる？",
+  "previewDescription": "起きたい時刻を入れるだけ。睡眠サイクルに合った就寝時刻がわかります。"
+}

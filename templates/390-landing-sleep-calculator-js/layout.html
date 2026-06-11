@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#6366f1; --ink:#1a1830; --muted:#6b6a86; --line:#e6e5f2; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f4f4fb; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:20px; }
+    .ae-head h1 { font-size:24px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:24px; box-shadow:0 12px 32px rgba(99,102,241,.09); }
+    .ae-toggle { display:flex; gap:6px; background:#eeeef8; border-radius:10px; padding:4px; margin-bottom:18px; }
+    .ae-toggle button { flex:1; border:0; background:transparent; padding:10px; border-radius:8px; font-weight:700; font-size:13px; cursor:pointer; color:var(--muted); }
+    .ae-toggle button.on { background:#fff; color:var(--accent); box-shadow:0 2px 8px rgba(99,102,241,.18); }
+    .ae-field { margin-bottom:16px; }
+    .ae-field label { font-weight:700; font-size:14px; display:block; margin-bottom:8px; }
+    .ae-field input[type=time] { width:100%; padding:13px; border:1px solid var(--line); border-radius:10px; font-size:18px; text-align:center; }
+    .ae-lead { text-align:center; font-size:13px; color:var(--muted); margin:14px 0 10px; }
+    .ae-times { display:grid; gap:10px; }
+    .ae-t { display:flex; align-items:center; gap:12px; border:1px solid var(--line); border-radius:12px; padding:12px 16px; }
+    .ae-t.best { border-color:var(--accent); background:#f5f5ff; }
+    .ae-t .clock { font-size:24px; font-weight:900; font-variant-numeric:tabular-nums; color:var(--accent); }
+    .ae-t .meta { flex:1; font-size:13px; color:var(--muted); }
+    .ae-t .badge { font-size:11px; font-weight:800; color:var(--accent); background:#e0e7ff; padding:3px 10px; border-radius:999px; }
+    .ae-cta { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; margin-top:18px; }
+    .ae-cta .t { font-weight:700; margin-bottom:12px; }
+    .ae-cta form input[type=text],.ae-cta form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form .submit input,.ae-cta form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <div class="ae-toggle" id="mode">
+        <button type="button" class="on" data-mode="wake">起きたい時刻から</button>
+        <button type="button" data-mode="now">今から寝る</button>
+      </div>
+      <div class="ae-field" id="wakeField">
+        <label for="wake">起きたい時刻</label>
+        <input type="time" id="wake" value="07:00">
+      </div>
+      <div class="ae-lead" id="lead">この時刻に寝るのがおすすめ（睡眠サイクル90分）</div>
+      <div class="ae-times" id="times"></div>
+    </div>
+    <div class="ae-cta">
+      <div class="t">ぐっすり眠れるアイテムの情報を受け取る</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var modeBtns = Array.prototype.slice.call(document.querySelectorAll("#mode button"));
+    var wakeField = document.getElementById("wakeField"), wake = document.getElementById("wake");
+    var lead = document.getElementById("lead"), timesEl = document.getElementById("times");
+    var mode = "wake";
+    function pad(n) { return (n < 10 ? "0" : "") + n; }
+    function fmt(d) { return pad(d.getHours()) + ":" + pad(d.getMinutes()); }
+    function clearChildren(el) { while (el.firstChild) el.removeChild(el.firstChild); }
+    function makeRow(time, cycles, hours, best) {
+      var row = document.createElement("div"); row.className = "ae-t" + (best ? " best" : "");
+      var c = document.createElement("div"); c.className = "clock"; c.textContent = time;
+      var m = document.createElement("div"); m.className = "meta"; m.textContent = cycles + "サイクル（約" + hours + "時間）";
+      row.appendChild(c); row.appendChild(m);
+      if (best) { var b = document.createElement("span"); b.className = "badge"; b.textContent = "おすすめ"; row.appendChild(b); }
+      return row;
+    }
+    function calc() {
+      clearChildren(timesEl);
+      var FALL = 15; // 入眠まで15分
+      if (mode === "wake") {
+        wakeField.style.display = "";
+        lead.textContent = "この時刻に寝るのがおすすめ（睡眠サイクル90分）";
+        var v = wake.value || "07:00";
+        var parts = v.split(":");
+        var base = new Date(); base.setHours(parseInt(parts[0], 10), parseInt(parts[1], 10), 0, 0);
+        [6, 5, 4, 3].forEach(function (cy) {
+          var d = new Date(base.getTime() - (cy * 90 + FALL) * 60000);
+          timesEl.appendChild(makeRow(fmt(d), cy, (cy * 1.5).toFixed(1), cy === 6 || cy === 5));
+        });
+      } else {
+        wakeField.style.display = "none";
+        lead.textContent = "今から寝ると、この時刻に起きるのがスッキリ";
+        var now = new Date();
+        [6, 5, 4, 3].forEach(function (cy) {
+          var d = new Date(now.getTime() + (cy * 90 + FALL) * 60000);
+          timesEl.appendChild(makeRow(fmt(d), cy, (cy * 1.5).toFixed(1), cy === 6 || cy === 5));
+        });
+      }
+    }
+    modeBtns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        modeBtns.forEach(function (x) { x.classList.remove("on"); });
+        b.classList.add("on"); mode = b.getAttribute("data-mode"); calc();
+      });
+    });
+    wake.addEventListener("input", calc);
+    calc();
+  })();
+  </script>
+</body>
+</html>

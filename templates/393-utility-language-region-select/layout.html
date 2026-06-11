@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0369a1; --ink:#0c1f2e; --muted:#5a7080; --line:#dbe7ef; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eef5fa; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:60px 20px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:20px; padding:36px 30px; text-align:center; box-shadow:0 16px 40px rgba(3,105,161,.08); }
+    .ae-ico { font-size:44px; margin-bottom:10px; }
+    .ae-card h1 { font-size:22px; margin:0 0 8px; }
+    .ae-card .lead { color:var(--muted); margin:0 0 22px; font-size:14px; }
+    .ae-langs { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:22px; }
+    .ae-lang { display:flex; align-items:center; gap:10px; border:1px solid var(--line); border-radius:12px; padding:13px 14px; text-decoration:none; color:var(--ink); font-weight:700; font-size:14px; background:#fff; }
+    .ae-lang:hover { border-color:var(--accent); background:#f0f9ff; }
+    .ae-lang .flag { font-size:22px; }
+    .ae-optin { border-top:1px dashed var(--line); padding-top:22px; }
+    .ae-optin .t { font-weight:700; font-size:14px; margin-bottom:6px; }
+    .ae-optin .d { color:var(--muted); font-size:13px; margin-bottom:14px; }
+    .ae-optin form input[type=email] { width:100%; padding:13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-optin form p { margin:0 0 12px; }
+    .ae-optin form .submit input,.ae-optin form button { width:100%; background:var(--accent); color:#fff; border:0; padding:13px; border-radius:9px; font-weight:800; cursor:pointer; }
+    @media (max-width:380px){ .ae-langs { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-card">
+      <div class="ae-ico">🌐</div>
+      <h1>%%title%%</h1>
+      <p class="lead">%%description%%</p>
+      <div class="ae-langs">
+        <a class="ae-lang" href="#"><span class="flag">🇯🇵</span><span>日本語</span></a>
+        <a class="ae-lang" href="#"><span class="flag">🇺🇸</span><span>English</span></a>
+        <a class="ae-lang" href="#"><span class="flag">🇨🇳</span><span>简体中文</span></a>
+        <a class="ae-lang" href="#"><span class="flag">🇰🇷</span><span>한국어</span></a>
+      </div>
+      <div class="ae-optin">
+        <div class="t">あなたの言語で最新情報を受け取る</div>
+        <div class="d">選んだ言語に合わせてニュースレターをお届けします</div>
+        %%content%%
+      </div>
+    </div>
+  </div>
+</body>
+</html>

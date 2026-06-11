@@ -282,6 +282,22 @@ const ALUMNI_FORM = `<form>
   <p class="submit"><input type="submit" value="出欠を回答する"></p>
 </form>`;
 
+const TUTORING_FORM = `<form>
+  <p><label>お子さまの学年</label><br><select><option selected>小学生</option><option>中学生</option><option>高校生</option><option>その他</option></select></p>
+  <p><label>ご希望の科目</label><br><input type="text" value="数学・英語"></p>
+  <p><label>指導形式</label><br><select><option selected>対面</option><option>オンライン</option><option>どちらでも</option></select></p>
+  <p><label>保護者のお名前</label><br><input type="text" value="山田 太郎"></p>
+  <div class="row"><p><label>メール</label><br><input type="email" value="taro@example.com"></p><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p></div>
+  <p class="submit"><input type="submit" value="無料体験を申し込む"></p>
+</form>`;
+
+const POPUP_FORM = `<form>
+  <p><label>来店希望日</label><br><select><option selected>10/10 (金)</option><option>10/11 (土)</option><option>10/12 (日)</option><option>期間中いつでも</option></select></p>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="来店予約・情報を受け取る"></p>
+</form>`;
+
 const NEWSPAPER_FORM = `<form>
   <p><label>ご希望プラン</label><br><select><option>朝刊のみ（¥2,900/月）</option><option selected>朝・夕刊セット（¥4,400/月）</option><option>電子版（¥1,980/月）</option></select></p>
   <p><label>配達開始日</label><br><input type="date" value="2026-07-01"></p>
@@ -1861,6 +1877,10 @@ function contentFor(dir, category) {
     case "387-form-newspaper-subscription": return NEWSPAPER_FORM;
     case "388-event-job-internship": return INTERNSHIP_FORM;
     case "389-thankyou-survey-prize-entry": return NEWSLETTER_FORM;
+    case "390-landing-sleep-calculator-js": return NEWSLETTER_FORM;
+    case "391-form-tutoring-inquiry": return TUTORING_FORM;
+    case "392-event-pop-up-store": return POPUP_FORM;
+    case "393-utility-language-region-select": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;
