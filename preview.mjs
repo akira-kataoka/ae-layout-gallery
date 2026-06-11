@@ -231,6 +231,13 @@ const CALENDAR_BODY = `<h1>お申し込みが完了しました</h1>
 const SHARE_BODY = `<h1>ご参加ありがとうございます！</h1>
 <p>よろしければ、お知り合いにもシェアしていただけると嬉しいです。</p>`;
 
+const SHAREHOLDER_FORM = `<form>
+  <p><label>お名前（株主名）</label><br><input type="text" value="山田 太郎"></p>
+  <div class="row"><p><label>保有株数</label><br><select><option>100〜499株</option><option selected>500〜999株</option><option>1,000株以上</option></select></p><p><label>ご希望の優待品</label><br><select><option selected>カタログギフトA</option><option>自社製品セット</option><option>QUOカード</option></select></p></div>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="優待を申し込む"></p>
+</form>`;
+
 const REALESTATE_FORM = `<form>
   <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
   <div class="row"><p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p></div>
@@ -723,6 +730,9 @@ function contentFor(dir, category) {
     case "146-form-real-estate-inquiry": return REALESTATE_FORM;
     case "147-landing-scratch-coupon-js": return NEWSLETTER_FORM;
     case "148-form-moving-estimate": return MOVING_FORM;
+    case "149-form-shareholder-benefit": return SHAREHOLDER_FORM;
+    case "150-landing-plan-selector-js": return NEWSLETTER_FORM;
+    case "151-event-livestream": return STD_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }

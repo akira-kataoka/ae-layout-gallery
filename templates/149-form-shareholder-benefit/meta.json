@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 株主優待申込",
+  "category": "form",
+  "description": "保有株数・優待品を選択する株主優待の申込フォーム。IR/株主向けの優待品受付に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "株主優待のお申し込み",
+  "previewDescription": "ご希望の優待品を選択のうえ、お申し込みください。"
+}

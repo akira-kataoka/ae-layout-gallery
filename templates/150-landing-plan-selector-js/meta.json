@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - プラン選択ライブ合計(JS)",
+  "category": "landing",
+  "description": "プラン＋オプションの選択に応じて月額合計を即時計算する素のJavaScript構成LP(data属性・textContentのみ)。料金体験型のリード獲得に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "あなたに合うプランを組み立てる",
+  "previewDescription": "プランとオプションを選ぶと、月額合計がその場で更新されます。"
+}

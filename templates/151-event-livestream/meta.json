@@ -1,0 +1,8 @@
+{
+  "name": "イベント - ライブ配信視聴登録",
+  "category": "event",
+  "description": "LIVEプレーヤー風ビジュアル＋視聴登録フォームのライブ配信LP。ライブコマース/ライブセミナーの視聴者獲得に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "新製品発表ライブ配信",
+  "previewDescription": "登録するとリマインドと視聴URLをお送りします。当日はチャットで質問も可能。"
+}

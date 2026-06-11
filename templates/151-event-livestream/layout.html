@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#e11d48; --ink:#0b1020; --muted:#94a3b8; --line:#27324a; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:#e2e8f0; background:#0b1020; line-height:1.7; }
+    .ae-grid { max-width:1000px; margin:0 auto; padding:48px 20px; display:grid; grid-template-columns:1.2fr .8fr; gap:32px; align-items:center; }
+    .ae-stage { position:relative; aspect-ratio:16/9; border-radius:16px; overflow:hidden; border:1px solid var(--line); background:linear-gradient(135deg,#1e293b,#0f172a); display:flex; align-items:center; justify-content:center; }
+    .ae-live { position:absolute; top:12px; left:12px; background:var(--accent); color:#fff; font-weight:800; font-size:12px; padding:4px 10px; border-radius:6px; letter-spacing:.05em; }
+    .ae-live::before { content:"●"; margin-right:5px; }
+    .ae-play { width:74px; height:74px; border-radius:50%; background:rgba(255,255,255,.9); display:flex; align-items:center; justify-content:center; }
+    .ae-play::after { content:""; border-left:24px solid var(--accent); border-top:15px solid transparent; border-bottom:15px solid transparent; margin-left:6px; }
+    .ae-form h1 { font-size:26px; margin:0 0 8px; color:#fff; }
+    .ae-form > p { color:var(--muted); margin:0 0 16px; }
+    .ae-when { display:flex; gap:14px; margin-bottom:16px; font-size:13px; }
+    .ae-when span { background:rgba(255,255,255,.06); border:1px solid var(--line); padding:6px 12px; border-radius:8px; }
+    .ae-card { background:rgba(255,255,255,.05); border:1px solid var(--line); border-radius:16px; padding:24px; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; background:rgba(0,0,0,.3); color:#fff; font-size:14px; }
+    .ae-card form p { margin:0 0 14px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    @media (max-width:820px){ .ae-grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-grid">
+    <div class="ae-stage"><span class="ae-live">LIVE</span><div class="ae-play"></div></div>
+    <div class="ae-form">
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+      <div class="ae-when"><span>📅 7/25(金) 20:00〜</span><span>⏱ 約60分</span></div>
+      <div class="ae-card">%%content%%</div>
+    </div>
+  </div>
+</body>
+</html>

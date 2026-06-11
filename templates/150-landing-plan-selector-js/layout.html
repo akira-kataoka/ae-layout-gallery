@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#4f46e5; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f4f5fb; line-height:1.7; }
+    .ae-wrap { max-width:640px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:18px; }
+    .ae-head h1 { margin:0 0 6px; font-size:26px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-plans { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:14px; }
+    .ae-plans label input { position:absolute; opacity:0; }
+    .ae-plans label span { display:block; text-align:center; padding:16px 8px; border:2px solid var(--line); border-radius:12px; cursor:pointer; background:#fff; }
+    .ae-plans label span b { display:block; } .ae-plans label span small { color:var(--muted); }
+    .ae-plans label input:checked + span { border-color:var(--accent); background:#f5f3ff; }
+    .ae-addons { background:#fff; border:1px solid var(--line); border-radius:12px; padding:16px 18px; margin-bottom:14px; }
+    .ae-addons .ttl { font-weight:700; font-size:14px; margin-bottom:8px; }
+    .ae-addons label { display:flex; justify-content:space-between; align-items:center; padding:8px 0; font-size:14px; cursor:pointer; }
+    .ae-total { background:linear-gradient(135deg,#4f46e5,#7c3aed); color:#fff; border-radius:14px; padding:20px; text-align:center; }
+    .ae-total .lbl { font-size:13px; opacity:.9; } .ae-total .num { font-size:36px; font-weight:900; font-variant-numeric:tabular-nums; } .ae-total .num small { font-size:14px; font-weight:400; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px; margin-top:16px; text-align:center; }
+    .ae-card .t { font-weight:700; margin-bottom:10px; }
+    .ae-card form input[type=email],.ae-card form input[type=text] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    @media (max-width:520px){ .ae-plans { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-plans">
+      <label><input type="radio" name="plan" value="0" data-price="0"><span><b>Starter</b><small>¥0/月</small></span></label>
+      <label><input type="radio" name="plan" value="9800" data-price="9800" checked><span><b>Business</b><small>¥9,800/月</small></span></label>
+      <label><input type="radio" name="plan" value="29800" data-price="29800"><span><b>Enterprise</b><small>¥29,800/月</small></span></label>
+    </div>
+    <div class="ae-addons">
+      <div class="ttl">オプション</div>
+      <label><span>優先サポート</span><span><input type="checkbox" class="addon" data-price="3000"> +¥3,000</span></label>
+      <label><span>追加ストレージ</span><span><input type="checkbox" class="addon" data-price="1500"> +¥1,500</span></label>
+      <label><span>分析ダッシュボード</span><span><input type="checkbox" class="addon" data-price="5000"> +¥5,000</span></label>
+    </div>
+    <div class="ae-total"><div class="lbl">月額合計</div><div class="num"><span id="total">¥9,800</span><small> /月（税抜）</small></div></div>
+    <div class="ae-card"><div class="t">この内容で申し込む</div>%%content%%</div>
+  </div>
+
+  <script>
+  (function () {
+    var totalEl = document.getElementById("total");
+    function yen(n) { return "¥" + n.toLocaleString("ja-JP"); }
+    function calc() {
+      var plan = document.querySelector('input[name="plan"]:checked');
+      var sum = plan ? parseInt(plan.getAttribute("data-price"), 10) : 0;
+      var addons = document.querySelectorAll(".addon");
+      for (var i = 0; i < addons.length; i++) {
+        if (addons[i].checked) sum += parseInt(addons[i].getAttribute("data-price"), 10);
+      }
+      totalEl.textContent = yen(sum);
+    }
+    document.addEventListener("change", function (e) {
+      if (e.target.name === "plan" || e.target.classList.contains("addon")) calc();
+    });
+    calc();
+  })();
+  </script>
+</body>
+</html>
