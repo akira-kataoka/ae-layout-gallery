@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - LINE友だち追加/メッセージ登録",
+  "category": "form",
+  "description": "QRコード＋友だち追加ボタン＋メール登録のLINE公式アカウント誘導LP。メッセージ配信のリスト獲得に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "LINE友だち募集中",
+  "previewDescription": "友だち追加で、限定クーポンとお得な情報をお届けします。"
+}

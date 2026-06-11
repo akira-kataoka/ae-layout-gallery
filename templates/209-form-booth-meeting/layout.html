@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0284c7; --ink:#0f1b2a; --muted:#5b6b7b; --line:#dbe6f0; --dark:#0a2540; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eef4fa; line-height:1.7; }
+    .ae-grid { max-width:900px; margin:0 auto; padding:48px 20px; display:grid; grid-template-columns:.9fr 1.1fr; gap:0; background:#fff; border-radius:18px; overflow:hidden; box-shadow:0 12px 40px rgba(2,132,199,.14); }
+    .ae-info { background:var(--dark); color:#fff; padding:36px 30px; }
+    .ae-info .booth { display:inline-block; background:var(--accent); padding:5px 12px; border-radius:999px; font-size:12px; font-weight:700; }
+    .ae-info h1 { font-size:22px; margin:12px 0 8px; }
+    .ae-info ul { list-style:none; padding:0; margin:8px 0 0; font-size:14px; opacity:.92; }
+    .ae-info li { padding:5px 0 5px 22px; position:relative; } .ae-info li::before { content:"▸"; position:absolute; left:0; }
+    .ae-form { padding:36px 30px; }
+    .ae-form h2 { margin-top:0; font-size:18px; }
+    .ae-form form label { font-size:13px; font-weight:600; }
+    .ae-form form input[type=text],.ae-form form input[type=email],.ae-form form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-form form p { margin:0 0 14px; }
+    .ae-form form .submit input,.ae-form form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; font-size:15px; cursor:pointer; }
+    @media (max-width:720px){ .ae-grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-grid">
+    <section class="ae-info">
+      <span class="booth">BOOTH #A-12</span>
+      <h1>%%title%%</h1>
+      <p style="opacity:.9;margin:0 0 10px;">%%description%%</p>
+      <ul><li>専任担当が個別対応</li><li>デモを優先ご案内</li><li>限定ノベルティ進呈</li></ul>
+    </section>
+    <section class="ae-form"><h2>来場前にアポを予約</h2>%%content%%</section>
+  </div>
+</body>
+</html>

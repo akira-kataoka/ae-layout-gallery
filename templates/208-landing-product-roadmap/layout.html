@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#4f46e5; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --done:#16a34a; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f5f6fb; line-height:1.7; }
+    .ae-head { text-align:center; padding:48px 20px 8px; }
+    .ae-head h1 { font-size:28px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-cols { max-width:900px; margin:24px auto; padding:0 20px; display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .ae-col { background:#fff; border:1px solid var(--line); border-radius:14px; padding:18px; box-shadow:0 4px 14px rgba(79,70,229,.06); }
+    .ae-col h3 { margin:0 0 12px; font-size:15px; display:flex; align-items:center; gap:8px; }
+    .ae-col h3 .dot { width:10px; height:10px; border-radius:50%; }
+    .ae-col.now .dot { background:var(--done); } .ae-col.next .dot { background:var(--accent); } .ae-col.later .dot { background:#94a3b8; }
+    .ae-col .item { background:#f8fafc; border:1px solid var(--line); border-radius:10px; padding:10px 12px; margin-bottom:8px; font-size:13px; }
+    .ae-card { max-width:480px; margin:18px auto 56px; padding:0 20px; }
+    .ae-card .inner { background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px; text-align:center; box-shadow:0 8px 24px rgba(79,70,229,.08); }
+    .ae-card .t { font-weight:700; margin-bottom:10px; }
+    .ae-card form input[type=email],.ae-card form input[type=text] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    @media (max-width:720px){ .ae-cols { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <header class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></header>
+  <section class="ae-cols">
+    <div class="ae-col now"><h3><span class="dot"></span>リリース済み</h3><div class="item">ダッシュボード刷新</div><div class="item">外部連携API</div></div>
+    <div class="ae-col next"><h3><span class="dot"></span>開発中</h3><div class="item">モバイルアプリ</div><div class="item">レポート自動生成</div></div>
+    <div class="ae-col later"><h3><span class="dot"></span>構想中</h3><div class="item">AIアシスタント</div><div class="item">多言語対応</div></div>
+  </section>
+  <div class="ae-card"><div class="inner"><div class="t">アップデート情報を受け取る</div>%%content%%</div></div>
+</body>
+</html>

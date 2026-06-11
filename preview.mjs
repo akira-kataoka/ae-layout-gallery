@@ -231,6 +231,14 @@ const CALENDAR_BODY = `<h1>お申し込みが完了しました</h1>
 const SHARE_BODY = `<h1>ご参加ありがとうございます！</h1>
 <p>よろしければ、お知り合いにもシェアしていただけると嬉しいです。</p>`;
 
+const MEETING_FORM = `<form>
+  <p><label>会社名</label><br><input type="text" value="株式会社サンプル"></p>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p><label>ご希望の時間帯</label><br><select><option>初日 午前</option><option selected>初日 午後</option><option>2日目 午前</option><option>2日目 午後</option></select></p>
+  <p class="submit"><input type="submit" value="商談を予約する"></p>
+</form>`;
+
 const RETURN_FORM = `<form>
   <p><label>注文番号</label><br><input type="text" value="ORD-20260620-0188"></p>
   <p><label>対象商品</label><br><select><option selected>ランニングシューズ</option><option>スポーツソックス</option></select></p>
@@ -995,6 +1003,9 @@ function contentFor(dir, category) {
     case "204-form-return-request": return RETURN_FORM;
     case "205-utility-subscription-pause": return PAUSE_FORM;
     case "206-landing-referral-leaderboard": return NEWSLETTER_FORM;
+    case "207-form-line-friend-add": return NEWSLETTER_FORM;
+    case "208-landing-product-roadmap": return NEWSLETTER_FORM;
+    case "209-form-booth-meeting": return MEETING_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }
@@ -1160,6 +1171,7 @@ const indexHtml = `<!DOCTYPE html>
   .fbtn span{ background:#eef2ff; color:var(--brand); border-radius:999px; padding:0 7px; font-size:11px; font-weight:700; }
   .fbtn.active{ background:var(--brand); color:#fff; border-color:var(--brand); }
   .fbtn.active span{ background:rgba(255,255,255,.25); color:#fff; }
+  .rescount{ font-size:12px; color:var(--muted); margin-left:auto; white-space:nowrap; }
   .actionbar{ position:sticky; top:57px; z-index:19; background:#0f172a; color:#fff; }
   .actionbar .in{ max-width:1280px; margin:0 auto; padding:10px 24px; display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
   .actionbar .cnt{ font-size:13px; opacity:.85; }
@@ -1258,6 +1270,7 @@ const indexHtml = `<!DOCTYPE html>
 <div class="toolbar"><div class="in">
   <div class="search"><input id="q" type="search" placeholder="名称・用途・カテゴリで検索..."></div>
   <div class="filters">${filterBtns}</div>
+  <span class="rescount" id="rescount"></span>
 </div></div>
 
 <div class="actionbar"><div class="in">
@@ -1324,6 +1337,7 @@ function applyFilter(){
   let anyVisible=false;
   $$(".group").forEach(g=>{ const vis=$$(".card:not(.hide)",g).length>0; g.classList.toggle("hide",!vis); if(vis)anyVisible=true; });
   $("#empty").style.display = anyVisible?"none":"block";
+  const rc=$("#rescount"); if(rc){ rc.textContent = $$(".card:not(.hide)").length + " 件表示"; }
   $("#selAll").checked=false;
 }
 async function buildZip(dirs, withInstaller){
@@ -1395,6 +1409,7 @@ toTop.addEventListener("click", ()=> window.scrollTo({top:0,behavior:"smooth"}))
 
 restoreSel();
 updateCount();
+applyFilter();
 </script>
 </body>
 </html>
