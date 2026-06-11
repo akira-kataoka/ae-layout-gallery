@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root {
+      --bg:#0c0f14; --panel:#141a23; --paper:#ece4d4; --ink-on-paper:#2b251a;
+      --amber:#e8b54a; --red:#c2402f; --muted:#8b95a5; --line:#26303e;
+    }
+    * { box-sizing:border-box; }
+    body {
+      margin:0; color:#dde4ee; line-height:1.8;
+      font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif;
+      background:
+        radial-gradient(ellipse 80% 45% at 50% 0%, rgba(232,181,74,.1), transparent 60%),
+        var(--bg);
+    }
+    .ae-wrap { max-width:560px; margin:0 auto; padding:46px 20px 64px; }
+
+    /* ===== ヘッダー ===== */
+    .ae-head { text-align:center; margin-bottom:28px; }
+    .ae-head .case {
+      display:inline-block; font-family:"Courier New",monospace; font-size:11px; letter-spacing:.3em;
+      color:var(--amber); border:1px dashed rgba(232,181,74,.5); padding:6px 16px; margin-bottom:16px;
+    }
+    .ae-head h1 { font-size:30px; font-weight:900; letter-spacing:.06em; margin:0 0 10px; line-height:1.4; color:#f2f5fa; text-shadow:0 0 30px rgba(232,181,74,.25); }
+    .ae-head p { color:var(--muted); font-size:14px; margin:0; }
+    .ae-lamp { font-size:30px; display:inline-block; margin-bottom:8px; animation:ae-flicker 4.5s infinite; }
+    @keyframes ae-flicker {
+      0%,100% { opacity:1; } 88% { opacity:1; } 89% { opacity:.35; } 90% { opacity:1; }
+      93% { opacity:.5; } 94% { opacity:1; }
+    }
+
+    /* ===== 事件ファイル(紙) ===== */
+    .ae-file { background:var(--paper); color:var(--ink-on-paper); border-radius:4px; padding:30px 28px; position:relative; box-shadow:0 24px 50px rgba(0,0,0,.55); margin-bottom:18px; overflow:hidden; }
+    .ae-file::before { content:""; position:absolute; top:0; left:0; right:0; height:8px; background:repeating-linear-gradient(45deg, var(--red) 0 12px, var(--paper) 12px 24px); opacity:.85; }
+    .ae-file .stamp {
+      position:absolute; top:26px; right:-10px; transform:rotate(12deg);
+      border:3px double var(--red); color:var(--red); font-weight:900; font-size:13px;
+      letter-spacing:.3em; padding:5px 16px 5px 20px; opacity:.8; border-radius:3px;
+      font-family:"Courier New",monospace;
+    }
+    .ae-file h2 { font-size:17px; margin:10px 0 12px; letter-spacing:.12em; border-bottom:2px solid var(--ink-on-paper); padding-bottom:8px; }
+    .ae-file .story { font-size:13.5px; line-height:2; margin:0 0 16px; }
+    .ae-file .story b { background:linear-gradient(transparent 65%, rgba(232,181,74,.65) 65%); }
+    .ae-redact { background:#2b251a; color:#2b251a; border-radius:2px; padding:0 4px; user-select:none; }
+    .ae-meta { display:flex; gap:18px; flex-wrap:wrap; font-family:"Courier New",monospace; font-size:11.5px; letter-spacing:.06em; color:#5c5340; }
+    .ae-meta b { display:block; font-size:13px; color:var(--ink-on-paper); letter-spacing:.02em; }
+
+    /* ===== 開催情報グリッド ===== */
+    .ae-info { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:18px; }
+    .ae-cell { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:16px 16px 14px; }
+    .ae-cell .k { font-size:11px; letter-spacing:.22em; color:var(--amber); font-family:"Courier New",monospace; margin-bottom:4px; }
+    .ae-cell .v { font-size:14.5px; font-weight:700; color:#f2f5fa; }
+    .ae-cell .n { font-size:11.5px; color:var(--muted); }
+    .ae-keys { letter-spacing:2px; font-size:14px; }
+    .ae-keys .off { opacity:.22; filter:grayscale(1); }
+
+    /* ===== 当日の流れ ===== */
+    .ae-tl { background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:22px 24px; margin-bottom:18px; }
+    .ae-tl .t { font-size:13px; letter-spacing:.24em; color:var(--amber); font-family:"Courier New",monospace; margin-bottom:14px; }
+    .ae-tl ol { list-style:none; margin:0; padding:0; }
+    .ae-tl li { position:relative; padding:0 0 16px 26px; font-size:13.5px; }
+    .ae-tl li::before { content:""; position:absolute; left:6px; top:9px; width:7px; height:7px; border-radius:50%; background:var(--amber); box-shadow:0 0 10px rgba(232,181,74,.7); }
+    .ae-tl li::after { content:""; position:absolute; left:9px; top:20px; bottom:-2px; width:1px; background:var(--line); }
+    .ae-tl li:last-child { padding-bottom:0; }
+    .ae-tl li:last-child::after { display:none; }
+    .ae-tl li b { color:#f2f5fa; margin-right:8px; font-family:"Courier New",monospace; }
+
+    /* ===== 申込(フォーム差し込み) ===== */
+    .ae-rsvp { background:var(--panel); border:1px solid rgba(232,181,74,.4); border-radius:16px; padding:28px 26px; box-shadow:0 0 0 6px rgba(232,181,74,.05), 0 24px 48px rgba(0,0,0,.5); }
+    .ae-rsvp .t { text-align:center; font-size:18px; font-weight:900; letter-spacing:.08em; color:#f2f5fa; margin-bottom:4px; }
+    .ae-rsvp .s { text-align:center; color:var(--muted); font-size:12.5px; margin-bottom:20px; }
+    .ae-rsvp form p { margin:0 0 15px; }
+    .ae-rsvp form label { display:block; font-size:12px; font-weight:700; letter-spacing:.1em; color:var(--amber); margin-bottom:6px; }
+    .ae-rsvp form input[type=text], .ae-rsvp form input[type=email], .ae-rsvp form input[type=tel],
+    .ae-rsvp form input[type=date], .ae-rsvp form select, .ae-rsvp form textarea {
+      width:100%; padding:13px 14px; font-size:14px; font-family:inherit; color:#f2f5fa;
+      background:#0e1219; border:1px solid var(--line); border-radius:9px;
+      transition:border-color .2s ease, box-shadow .2s ease;
+    }
+    .ae-rsvp form input:focus, .ae-rsvp form select:focus, .ae-rsvp form textarea:focus {
+      outline:none; border-color:var(--amber); box-shadow:0 0 0 3px rgba(232,181,74,.18);
+    }
+    .ae-rsvp form input::placeholder, .ae-rsvp form textarea::placeholder { color:#4d5868; }
+    .ae-rsvp form select option { color:#1a212c; background:#fff; }
+    .ae-rsvp form textarea { min-height:84px; resize:vertical; }
+    .ae-rsvp form .row { display:flex; gap:12px; }
+    .ae-rsvp form .row p { flex:1; }
+    .ae-rsvp form .submit input, .ae-rsvp form button {
+      width:100%; border:0; cursor:pointer; padding:16px; margin-top:6px; border-radius:9px;
+      font-size:15px; font-weight:900; letter-spacing:.16em; color:#221708;
+      background:linear-gradient(180deg,#f3cd7a,var(--amber));
+      box-shadow:0 10px 26px rgba(232,181,74,.3), inset 0 1px 0 rgba(255,255,255,.5);
+      transition:transform .15s ease;
+    }
+    .ae-rsvp form .submit input:hover, .ae-rsvp form button:hover { transform:translateY(-2px); }
+    .ae-note { text-align:center; color:var(--muted); font-size:11.5px; margin-top:14px; }
+
+    .ae-foot { text-align:center; color:#3d4754; font-size:11px; letter-spacing:.26em; margin-top:30px; font-family:"Courier New",monospace; }
+
+    @media (max-width:520px) {
+      .ae-head h1 { font-size:24px; }
+      .ae-info { grid-template-columns:1fr; }
+      .ae-file { padding:26px 18px; }
+      .ae-file .stamp { position:static; display:inline-block; transform:rotate(-3deg); margin-bottom:10px; }
+    }
+    @media (max-width:480px) {
+      form .row, .ae-rsvp form .row { flex-direction:column; gap:0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head">
+      <span class="ae-lamp">🕵️</span><br>
+      <span class="case">CASE FILE No.013 — TOP SECRET</span>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+
+    <div class="ae-file">
+      <span class="stamp">CONFIDENTIAL</span>
+      <h2>📁 事件概要</h2>
+      <p class="story">
+        深夜のオフィスビルで、創業者が遺した<b>「開かずの金庫」</b>が発見された。
+        手がかりは、社内に隠された <b>7つの暗号</b> と、<span class="ae-redact">■■■■■■■■</span> と記された一枚のメモのみ。
+        制限時間は60分。あなたのチームは、すべての謎を解き明かし金庫の扉を開けることができるか——。
+      </p>
+      <div class="ae-meta">
+        <div>DIFFICULTY<b>★★★★☆</b></div>
+        <div>SUCCESS RATE<b>23%</b></div>
+        <div>FORMAT<b>チーム協力型</b></div>
+      </div>
+    </div>
+
+    <div class="ae-info">
+      <div class="ae-cell"><div class="k">DATE</div><div class="v">7/18(土)・7/19(日)</div><div class="n">各日 4回公演 / 入替制</div></div>
+      <div class="ae-cell"><div class="k">VENUE</div><div class="v">丸の内 GAME HALL B1</div><div class="n">東京駅 徒歩4分</div></div>
+      <div class="ae-cell"><div class="k">TEAM</div><div class="v">2〜6名 / 1チーム</div><div class="n">おひとり様は当日マッチング</div></div>
+      <div class="ae-cell"><div class="k">DIFFICULTY</div><div class="v ae-keys">🔑🔑🔑🔑<span class="off">🔑</span></div><div class="n">初参加でも楽しめます</div></div>
+    </div>
+
+    <div class="ae-tl">
+      <div class="t">— MISSION TIMELINE —</div>
+      <ol>
+        <li><b>00:00</b>受付・ブリーフィング（ルール説明と世界観への没入）</li>
+        <li><b>00:15</b>ゲームスタート。オフィスに散らばる暗号を捜索</li>
+        <li><b>01:15</b>運命の答え合わせ——金庫は開くのか</li>
+        <li><b>01:30</b>解説タイム＆記念撮影（脱出成功者には称号カード進呈）</li>
+      </ol>
+    </div>
+
+    <div class="ae-rsvp">
+      <div class="t">🔓 挑戦者エントリー</div>
+      <div class="s">各回定員30名・先着順。満席の回はキャンセル待ちとなります。</div>
+      %%content%%
+      <div class="ae-note">※ 参加費は当日受付にてお支払いください。13歳未満は保護者同伴でお願いします。</div>
+    </div>
+
+    <div class="ae-foot">CAN YOU ESCAPE ?</div>
+  </div>
+</body>
+</html>

@@ -300,6 +300,21 @@ const TAX_CONSULT_FORM = `<form>
   <p class="submit"><input type="submit" value="無料相談を予約する"></p>
 </form>`;
 
+const JEWELRY_FORM = `<form>
+  <p><label>ご相談内容</label><br><select><option selected>婚約指輪</option><option>結婚指輪</option><option>ジュエリーリフォーム</option><option>オーダーメイド（その他）</option><option>まずは相談したい</option></select></p>
+  <div class="row"><p><label>お名前</label><br><input type="text" value="山田 花子"></p><p><label>ご希望日</label><br><input type="date" value="2026-07-25"></p></div>
+  <div class="row"><p><label>メール</label><br><input type="email" value="hanako@example.com"></p><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p></div>
+  <p><label>ご要望・ご予算など（任意）</label><br><textarea>記念日に向けて、世界に一つの指輪を作りたいです。</textarea></p>
+  <p class="submit"><input type="submit" value="アトリエ相談を予約する"></p>
+</form>`;
+
+const ESCAPE_FORM = `<form>
+  <div class="row"><p><label>代表者のお名前</label><br><input type="text" value="山田 太郎"></p><p><label>チーム人数</label><br><select><option>2名</option><option selected>4名</option><option>6名</option></select></p></div>
+  <p><label>参加希望日時</label><br><select><option selected>7/26(土) 13:00</option><option>7/26(土) 16:00</option><option>7/27(日) 13:00</option></select></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="挑戦をエントリーする"></p>
+</form>`;
+
 const MUSIC_LESSON_FORM = `<form>
   <p><label>ご希望の楽器・コース</label><br><select><option selected>ピアノ</option><option>ギター</option><option>バイオリン</option><option>ボーカル</option><option>その他・相談したい</option></select></p>
   <div class="row"><p><label>受講される方</label><br><select><option selected>お子さま</option><option>大人</option></select></p><p><label>体験希望日</label><br><input type="date" value="2026-07-25"></p></div>
@@ -2005,6 +2020,9 @@ function contentFor(dir, category) {
     case "419-form-music-lesson": return MUSIC_LESSON_FORM;
     case "420-event-cherry-blossom": return RSVP_FORM;
     case "421-utility-payment-method-expiring": return CARD_UPDATE_FORM;
+    case "422-landing-price-guess-game": return NEWSLETTER_FORM;
+    case "423-form-bespoke-jewelry": return JEWELRY_FORM;
+    case "424-event-mystery-escape-game": return ESCAPE_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root {
+      --paper:#faf7f1; --ink:#26211a; --muted:#8a7f6d; --gold:#a8853e; --gold-l:#c9a45f;
+      --line:#e6ddcc; --night:#1d1913;
+    }
+    * { box-sizing:border-box; }
+    body {
+      margin:0; color:var(--ink); line-height:1.9; background:var(--paper);
+      font-family:"Hiragino Mincho ProN","Yu Mincho","MS PMincho",serif;
+    }
+    .ae-topbar { height:4px; background:linear-gradient(90deg, var(--gold), var(--gold-l) 35%, #e9d7ad 50%, var(--gold-l) 65%, var(--gold)); }
+    .ae-wrap { max-width:600px; margin:0 auto; padding:54px 22px 70px; }
+
+    .ae-head { text-align:center; margin-bottom:34px; }
+    .ae-head .crest { font-size:34px; display:block; margin-bottom:14px; filter:sepia(.3); }
+    .ae-head .eyebrow {
+      font-size:11px; letter-spacing:.5em; text-indent:.5em; color:var(--gold);
+      text-transform:uppercase; margin-bottom:14px;
+      font-family:Georgia,"Times New Roman",serif;
+    }
+    .ae-head h1 { font-size:28px; font-weight:600; letter-spacing:.12em; margin:0 0 14px; line-height:1.6; }
+    .ae-head p { color:var(--muted); font-size:13.5px; margin:0; }
+    .ae-rule { display:flex; align-items:center; gap:14px; justify-content:center; margin:22px 0; color:var(--gold); }
+    .ae-rule::before, .ae-rule::after { content:""; height:1px; width:72px; background:linear-gradient(90deg, transparent, var(--gold)); }
+    .ae-rule::after { background:linear-gradient(90deg, var(--gold), transparent); }
+    .ae-rule .dia { font-size:10px; letter-spacing:.4em; text-indent:.4em; }
+
+    /* ===== アトリエの流れ ===== */
+    .ae-flow { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:36px; }
+    .ae-step { background:#fff; border:1px solid var(--line); padding:22px 14px 18px; text-align:center; position:relative; }
+    .ae-step::before {
+      content:attr(data-n); position:absolute; top:-13px; left:50%; transform:translateX(-50%);
+      width:26px; height:26px; line-height:26px; border-radius:50%; font-size:12px;
+      background:var(--night); color:var(--gold-l); font-family:Georgia,serif;
+    }
+    .ae-step .ic { font-size:26px; }
+    .ae-step .k { font-size:13.5px; font-weight:600; letter-spacing:.1em; margin-top:8px; }
+    .ae-step .d { font-size:11.5px; color:var(--muted); line-height:1.7; margin-top:4px; }
+
+    /* ===== 引用 ===== */
+    .ae-quote { text-align:center; color:var(--muted); font-size:13px; font-style:italic; margin:0 0 36px; padding:0 10px; }
+    .ae-quote .sig { display:block; font-style:normal; font-size:11px; letter-spacing:.2em; color:var(--gold); margin-top:8px; }
+
+    /* ===== フォームカード ===== */
+    .ae-card { background:#fff; border:1px solid var(--line); padding:10px; box-shadow:0 24px 50px rgba(38,33,26,.1); }
+    .ae-card-inner { border:1px solid var(--gold-l); padding:34px 30px; }
+    .ae-card .t { text-align:center; font-size:19px; font-weight:600; letter-spacing:.14em; margin-bottom:6px; }
+    .ae-card .s { text-align:center; color:var(--muted); font-size:12.5px; margin-bottom:26px; }
+
+    .ae-card form p { margin:0 0 18px; }
+    .ae-card form label { display:block; font-size:12.5px; font-weight:600; letter-spacing:.08em; margin-bottom:7px; color:var(--ink); }
+    .ae-card form input[type=text], .ae-card form input[type=email], .ae-card form input[type=tel],
+    .ae-card form input[type=date], .ae-card form select, .ae-card form textarea {
+      width:100%; padding:13px 14px; font-size:14px; font-family:inherit; color:var(--ink);
+      background:var(--paper); border:1px solid var(--line); border-radius:2px;
+      transition:border-color .25s ease, box-shadow .25s ease;
+    }
+    .ae-card form input:focus, .ae-card form select:focus, .ae-card form textarea:focus {
+      outline:none; border-color:var(--gold); box-shadow:0 0 0 3px rgba(168,133,62,.14);
+    }
+    .ae-card form textarea { min-height:96px; resize:vertical; }
+    .ae-card form .row { display:flex; gap:14px; }
+    .ae-card form .row p { flex:1; }
+    .ae-card form .submit input, .ae-card form button {
+      width:100%; border:0; cursor:pointer; padding:17px; margin-top:6px;
+      font-family:inherit; font-size:14.5px; font-weight:600; letter-spacing:.34em; text-indent:.34em;
+      color:#f4e9d2; background:linear-gradient(180deg,#2a241b,var(--night));
+      border-radius:2px; box-shadow:inset 0 0 0 1px rgba(201,164,95,.5), 0 12px 26px rgba(38,33,26,.28);
+      transition:box-shadow .25s ease, transform .15s ease;
+    }
+    .ae-card form .submit input:hover, .ae-card form button:hover {
+      transform:translateY(-1px);
+      box-shadow:inset 0 0 0 1px var(--gold-l), 0 16px 30px rgba(38,33,26,.34);
+    }
+
+    .ae-promise { display:flex; justify-content:center; gap:26px; margin-top:26px; flex-wrap:wrap; }
+    .ae-promise span { font-size:11.5px; color:var(--muted); letter-spacing:.06em; }
+    .ae-promise b { color:var(--gold); font-weight:600; margin-right:4px; }
+
+    .ae-foot { text-align:center; margin-top:40px; color:var(--muted); font-size:11px; letter-spacing:.18em; }
+
+    @media (max-width:520px) {
+      .ae-wrap { padding-top:42px; }
+      .ae-head h1 { font-size:22px; }
+      .ae-flow { grid-template-columns:1fr; gap:22px; }
+      .ae-card-inner { padding:26px 18px; }
+    }
+    @media (max-width:480px) {
+      form .row, .ae-card form .row { flex-direction:column; gap:0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="ae-topbar"></div>
+  <div class="ae-wrap">
+    <div class="ae-head">
+      <span class="crest">💍</span>
+      <div class="eyebrow">Bespoke Atelier</div>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+      <div class="ae-rule"><span class="dia">◆ ◆ ◆</span></div>
+    </div>
+
+    <div class="ae-flow">
+      <div class="ae-step" data-n="1">
+        <div class="ic">🕯️</div>
+        <div class="k">カウンセリング</div>
+        <div class="d">想いやご予算を丁寧にお伺いします（約90分・無料）</div>
+      </div>
+      <div class="ae-step" data-n="2">
+        <div class="ic">✒️</div>
+        <div class="k">デザイン画のご提案</div>
+        <div class="d">専属デザイナーが手描きのデッサンを複数ご用意</div>
+      </div>
+      <div class="ae-step" data-n="3">
+        <div class="ic">🔨</div>
+        <div class="k">工房での制作</div>
+        <div class="d">熟練職人がひとつずつ。約6〜8週間でお仕立て</div>
+      </div>
+    </div>
+
+    <p class="ae-quote">
+      「世界にひとつ」は、贅沢ではなく誠実さのかたちだと考えています。<br>
+      お二人の物語を、私たちに聞かせてください。
+      <span class="sig">— ATELIER MAÎTRE ARTISAN</span>
+    </p>
+
+    <div class="ae-card">
+      <div class="ae-card-inner">
+        <div class="t">ビスポーク相談のご予約</div>
+        <div class="s">完全予約制・個室サロンにてお迎えいたします。オンライン相談も承ります。</div>
+        %%content%%
+        <div class="ae-promise">
+          <span><b>✓</b>勧誘は一切なし</span>
+          <span><b>✓</b>相談・デザイン画 無料</span>
+          <span><b>✓</b>個室サロン対応</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ae-foot">EST. 1987 — HANDCRAFTED IN TOKYO</div>
+  </div>
+</body>
+</html>

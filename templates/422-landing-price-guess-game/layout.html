@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root {
+      --stage:#17103a; --stage2:#2b1660; --gold:#fbbf24; --gold2:#f59e0b;
+      --pink:#f472b6; --ink:#f5f3ff; --muted:#b9b0e8; --card:#221752;
+    }
+    * { box-sizing:border-box; }
+    body {
+      margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif;
+      color:var(--ink); line-height:1.7;
+      background:
+        radial-gradient(ellipse 90% 55% at 50% -10%, rgba(244,114,182,.28), transparent 60%),
+        radial-gradient(ellipse 70% 50% at 50% 115%, rgba(251,191,36,.16), transparent 65%),
+        linear-gradient(180deg, var(--stage2), var(--stage) 55%);
+      background-attachment:fixed;
+    }
+    .ae-wrap { max-width:540px; margin:0 auto; padding:46px 20px 60px; }
+
+    .ae-head { text-align:center; margin-bottom:24px; }
+    .ae-head .marquee {
+      display:inline-flex; align-items:center; gap:8px; font-size:12px; font-weight:800;
+      letter-spacing:.32em; text-transform:uppercase; color:var(--gold);
+      border:1px solid rgba(251,191,36,.45); border-radius:999px; padding:7px 18px 7px 22px;
+      background:rgba(251,191,36,.08); margin-bottom:16px;
+    }
+    .ae-head .marquee .dot { width:6px; height:6px; border-radius:50%; background:var(--pink); animation:ae-blink 1.1s infinite alternate; }
+    @keyframes ae-blink { from { opacity:1; box-shadow:0 0 8px var(--pink); } to { opacity:.25; box-shadow:none; } }
+    .ae-head h1 {
+      font-size:30px; margin:0 0 10px; line-height:1.35; font-weight:900;
+      background:linear-gradient(105deg,#fff 30%, var(--gold) 60%, var(--pink));
+      -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+    }
+    .ae-head p { color:var(--muted); margin:0; font-size:14px; }
+
+    /* ===== ステージ(商品) ===== */
+    .ae-stage {
+      position:relative; text-align:center; padding:30px 20px 24px; margin-bottom:18px;
+      background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.13); border-radius:22px; overflow:hidden;
+    }
+    .ae-stage::before {
+      content:""; position:absolute; left:50%; top:-40%; width:140%; height:90%;
+      transform:translateX(-50%);
+      background:radial-gradient(ellipse at center, rgba(251,191,36,.22), transparent 65%);
+      pointer-events:none;
+    }
+    .ae-prod { font-size:74px; line-height:1; filter:drop-shadow(0 14px 22px rgba(0,0,0,.45)); animation:ae-float 3.4s ease-in-out infinite; display:inline-block; }
+    @keyframes ae-float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-9px); } }
+    .ae-stage .pname { font-weight:800; font-size:17px; margin-top:10px; }
+    .ae-stage .pspec { color:var(--muted); font-size:12px; letter-spacing:.06em; }
+    .ae-stage .ptag {
+      position:absolute; top:14px; right:-38px; transform:rotate(35deg);
+      background:linear-gradient(90deg,var(--pink),#db2777); color:#fff;
+      font-size:11px; font-weight:800; letter-spacing:.18em; padding:6px 44px;
+    }
+
+    /* ===== 予想パネル ===== */
+    .ae-panel { background:var(--card); border:1px solid rgba(255,255,255,.12); border-radius:22px; padding:26px; box-shadow:0 22px 50px rgba(0,0,0,.4); }
+    .ae-q { text-align:center; font-weight:800; font-size:16px; margin-bottom:6px; }
+    .ae-guess {
+      text-align:center; font-size:46px; font-weight:900; letter-spacing:.02em;
+      font-variant-numeric:tabular-nums; color:var(--gold);
+      text-shadow:0 0 26px rgba(251,191,36,.4); line-height:1.15; margin-bottom:14px;
+    }
+    .ae-guess small { font-size:20px; margin-right:2px; }
+    .ae-panel input[type=range] { width:100%; accent-color:var(--gold); cursor:pointer; }
+    .ae-range-lab { display:flex; justify-content:space-between; color:var(--muted); font-size:11px; margin:4px 2px 18px; font-variant-numeric:tabular-nums; }
+    .ae-go {
+      width:100%; border:0; cursor:pointer; padding:16px; border-radius:12px;
+      font-size:16px; font-weight:900; letter-spacing:.1em; color:#3b2200;
+      background:linear-gradient(180deg,#fcd34d,var(--gold2));
+      box-shadow:0 8px 22px rgba(245,158,11,.4), inset 0 1px 0 rgba(255,255,255,.55);
+      transition:transform .15s ease, box-shadow .15s ease;
+    }
+    .ae-go:hover { transform:translateY(-2px); box-shadow:0 12px 28px rgba(245,158,11,.5), inset 0 1px 0 rgba(255,255,255,.55); }
+    .ae-go:disabled { opacity:.4; cursor:default; transform:none; }
+
+    /* ===== 結果 ===== */
+    .ae-result { display:none; margin-top:20px; text-align:center; }
+    .ae-result.show { display:block; animation:ae-pop .5s cubic-bezier(.2,1.4,.4,1); }
+    @keyframes ae-pop { from { opacity:0; transform:scale(.85) translateY(10px); } to { opacity:1; transform:scale(1) translateY(0); } }
+    .ae-verdict { font-size:24px; font-weight:900; margin-bottom:4px; }
+    .ae-verdict.win { color:var(--gold); text-shadow:0 0 22px rgba(251,191,36,.55); }
+    .ae-actual { color:var(--muted); font-size:13px; }
+    .ae-actual b { color:#fff; font-size:22px; font-variant-numeric:tabular-nums; margin:0 3px; }
+    .ae-meter { height:12px; background:rgba(255,255,255,.12); border-radius:999px; overflow:hidden; margin:14px 0 6px; }
+    .ae-meter span { display:block; height:100%; width:0; border-radius:999px; background:linear-gradient(90deg,var(--pink),var(--gold)); transition:width .9s cubic-bezier(.2,.8,.2,1); }
+    .ae-meter-lab { font-size:11px; color:var(--muted); }
+    .ae-retry { background:none; border:1px solid rgba(255,255,255,.25); color:var(--muted); border-radius:999px; padding:8px 22px; font-size:12px; font-weight:700; cursor:pointer; margin-top:14px; }
+    .ae-retry:hover { color:#fff; border-color:#fff; }
+
+    /* 紙吹雪 (正解が近いときのみ) */
+    .ae-confetti { position:absolute; inset:0; pointer-events:none; overflow:hidden; border-radius:22px; }
+    .ae-confetti i { position:absolute; top:-12px; width:9px; height:14px; opacity:0; border-radius:2px; }
+    .ae-panel.win .ae-confetti i { animation:ae-fall 2.6s ease-in forwards; }
+    @keyframes ae-fall {
+      0% { opacity:1; transform:translateY(0) rotate(0deg); }
+      100% { opacity:0; transform:translateY(420px) rotate(560deg); }
+    }
+    .ae-confetti i:nth-child(1){ left:8%;  background:var(--gold);  animation-delay:.0s; }
+    .ae-confetti i:nth-child(2){ left:22%; background:var(--pink);  animation-delay:.15s; }
+    .ae-confetti i:nth-child(3){ left:35%; background:#8b5cf6;      animation-delay:.05s; }
+    .ae-confetti i:nth-child(4){ left:48%; background:var(--gold);  animation-delay:.25s; }
+    .ae-confetti i:nth-child(5){ left:60%; background:#34d399;      animation-delay:.1s; }
+    .ae-confetti i:nth-child(6){ left:72%; background:var(--pink);  animation-delay:.3s; }
+    .ae-confetti i:nth-child(7){ left:84%; background:#60a5fa;      animation-delay:.2s; }
+    .ae-confetti i:nth-child(8){ left:93%; background:var(--gold);  animation-delay:.35s; }
+
+    /* ===== CTA(フォーム差し込み) ===== */
+    .ae-cta {
+      margin-top:22px; background:linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.03));
+      border:1px solid rgba(251,191,36,.35); border-radius:22px; padding:26px; text-align:center;
+      position:relative;
+    }
+    .ae-cta::before { content:"🎟️"; position:absolute; top:-16px; left:50%; transform:translateX(-50%); font-size:26px; filter:drop-shadow(0 4px 8px rgba(0,0,0,.4)); }
+    .ae-cta .t { font-weight:900; font-size:17px; margin:6px 0 4px; }
+    .ae-cta .s { color:var(--muted); font-size:13px; margin-bottom:16px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form label { font-size:12px; font-weight:700; color:var(--muted); display:block; margin-bottom:5px; }
+    .ae-cta form input[type=text], .ae-cta form input[type=email], .ae-cta form input[type=tel],
+    .ae-cta form input[type=date], .ae-cta form select, .ae-cta form textarea {
+      width:100%; padding:13px 14px; font-size:14px; font-family:inherit; color:var(--ink);
+      background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.22); border-radius:10px;
+    }
+    .ae-cta form input::placeholder, .ae-cta form textarea::placeholder { color:rgba(185,176,232,.6); }
+    .ae-cta form select option { color:#1e1145; }
+    .ae-cta form textarea { min-height:80px; resize:vertical; }
+    .ae-cta form .submit input, .ae-cta form button {
+      width:100%; border:0; cursor:pointer; padding:15px; border-radius:10px;
+      font-size:15px; font-weight:900; letter-spacing:.06em; color:#3b2200;
+      background:linear-gradient(180deg,#fcd34d,var(--gold2));
+      box-shadow:0 8px 22px rgba(245,158,11,.35); margin-top:4px;
+    }
+    .ae-foot { text-align:center; color:rgba(185,176,232,.55); font-size:11px; margin-top:18px; }
+
+    @media (max-width:480px) {
+      .ae-head h1 { font-size:24px; }
+      .ae-guess { font-size:38px; }
+      .ae-prod { font-size:60px; }
+      form .row { flex-direction:column; gap:0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head">
+      <span class="marquee"><span class="dot"></span>PRICE GUESS CHALLENGE</span>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+
+    <div class="ae-stage">
+      <span class="ptag">本日の出題</span>
+      <span class="ae-prod">🛋️</span>
+      <div class="pname">北欧デザイン 1人掛けラウンジチェア</div>
+      <div class="pspec">天然オーク材 × ウールブレンド張地 / 受注生産</div>
+    </div>
+
+    <div class="ae-panel" id="panel">
+      <div class="ae-confetti"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="ae-q">この商品、いくらだと思いますか？</div>
+      <div class="ae-guess"><small>¥</small><span id="guessVal">29,800</span></div>
+      <input type="range" id="slider" min="5000" max="120000" step="1000" value="29800" aria-label="価格を予想する">
+      <div class="ae-range-lab"><span>¥5,000</span><span>¥120,000</span></div>
+      <button type="button" class="ae-go" id="goBtn">🔔 答え合わせをする</button>
+
+      <div class="ae-result" id="result">
+        <div class="ae-verdict" id="verdict"></div>
+        <div class="ae-actual">正解は <b id="actualVal"></b> でした（差額 <span id="diffVal"></span>）</div>
+        <div class="ae-meter"><span id="meterBar"></span></div>
+        <div class="ae-meter-lab">ニアピン度 <span id="scoreVal">0</span>%</div>
+        <button type="button" class="ae-retry" id="retryBtn">↻ もう一度挑戦する</button>
+      </div>
+    </div>
+
+    <div class="ae-cta">
+      <div class="t">挑戦者限定シークレット価格をお届け</div>
+      <div class="s">ご登録いただいた方だけに、出題商品の特別オファーと新作クイズを毎週お送りします。</div>
+      %%content%%
+    </div>
+
+    <div class="ae-foot">※ 本ゲームの正解価格は通常販売価格(税込)です。景品の発送はありません。</div>
+  </div>
+
+  <script>
+  (function () {
+    var ACTUAL = 64800;
+    var slider = document.getElementById("slider");
+    var guessVal = document.getElementById("guessVal");
+    var goBtn = document.getElementById("goBtn");
+    var retryBtn = document.getElementById("retryBtn");
+    var result = document.getElementById("result");
+    var verdict = document.getElementById("verdict");
+    var actualVal = document.getElementById("actualVal");
+    var diffVal = document.getElementById("diffVal");
+    var meterBar = document.getElementById("meterBar");
+    var scoreVal = document.getElementById("scoreVal");
+    var panel = document.getElementById("panel");
+
+    function fmt(n) { return "¥" + Math.round(n).toLocaleString(); }
+
+    slider.addEventListener("input", function () {
+      guessVal.textContent = parseInt(slider.value, 10).toLocaleString();
+    });
+
+    goBtn.addEventListener("click", function () {
+      var guess = parseInt(slider.value, 10) || 0;
+      var diff = Math.abs(guess - ACTUAL);
+      var ratio = diff / ACTUAL;
+      var score = Math.max(0, Math.round((1 - ratio) * 100));
+
+      var label;
+      if (diff === 0)        { label = "🏆 ピタリ賞！おみごと！"; }
+      else if (ratio <= .05) { label = "🎉 ニアピン賞！すごい！"; }
+      else if (ratio <= .15) { label = "✨ おしい！いい読みです"; }
+      else if (ratio <= .35) { label = "🤔 なかなかの感覚"; }
+      else if (guess < ACTUAL) { label = "📉 実はもっと高いんです"; }
+      else                   { label = "📈 実はもっとお手頃です"; }
+
+      verdict.textContent = label;
+      verdict.classList.toggle("win", ratio <= .05);
+      actualVal.textContent = fmt(ACTUAL);
+      diffVal.textContent = fmt(diff);
+      scoreVal.textContent = score;
+
+      result.classList.add("show");
+      panel.classList.toggle("win", ratio <= .05);
+      slider.disabled = true;
+      goBtn.disabled = true;
+
+      window.setTimeout(function () { meterBar.style.width = score + "%"; }, 80);
+    });
+
+    retryBtn.addEventListener("click", function () {
+      result.classList.remove("show");
+      panel.classList.remove("win");
+      meterBar.style.width = "0";
+      slider.disabled = false;
+      goBtn.disabled = false;
+    });
+  })();
+  </script>
+</body>
+</html>
