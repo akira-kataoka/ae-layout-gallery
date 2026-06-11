@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0f172a; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f5f7fa; line-height:1.7; }
+    .ae-grid { max-width:920px; margin:0 auto; padding:48px 20px; display:grid; grid-template-columns:1fr 1fr; gap:30px; align-items:center; }
+    .ae-preview { aspect-ratio:1; border-radius:20px; display:flex; align-items:center; justify-content:center; font-size:80px; background:#6366f1; transition:background .25s; box-shadow:0 16px 40px rgba(15,23,42,.18); }
+    .ae-info h1 { font-size:24px; margin:0 0 6px; }
+    .ae-info > p { color:var(--muted); margin:0 0 16px; }
+    .ae-swatches { display:flex; gap:10px; margin-bottom:8px; }
+    .ae-swatches button { width:40px; height:40px; border-radius:50%; border:2px solid #fff; box-shadow:0 0 0 1px var(--line); cursor:pointer; }
+    .ae-swatches button.sel { box-shadow:0 0 0 3px var(--accent); }
+    .ae-colorname { color:var(--muted); font-size:14px; margin-bottom:16px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; }
+    .ae-card .t { font-weight:700; margin-bottom:10px; }
+    .ae-card form input[type=email],.ae-card form input[type=text] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    @media (max-width:720px){ .ae-grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-grid">
+    <div class="ae-preview" id="preview">🎒</div>
+    <div class="ae-info">
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+      <div class="ae-swatches" id="sw">
+        <button type="button" data-color="#6366f1" data-name="インディゴ" class="sel" style="background:#6366f1" aria-label="インディゴ"></button>
+        <button type="button" data-color="#ef4444" data-name="レッド" style="background:#ef4444" aria-label="レッド"></button>
+        <button type="button" data-color="#10b981" data-name="グリーン" style="background:#10b981" aria-label="グリーン"></button>
+        <button type="button" data-color="#f59e0b" data-name="イエロー" style="background:#f59e0b" aria-label="イエロー"></button>
+        <button type="button" data-color="#0f172a" data-name="ブラック" style="background:#0f172a" aria-label="ブラック"></button>
+      </div>
+      <div class="ae-colorname" id="cname">選択中：インディゴ</div>
+      <div class="ae-card"><div class="t">この色で見積もり・予約</div>%%content%%</div>
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var preview = document.getElementById("preview"),
+        cname = document.getElementById("cname"),
+        btns = Array.prototype.slice.call(document.querySelectorAll("#sw button"));
+    btns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        btns.forEach(function (x) { x.classList.remove("sel"); });
+        b.classList.add("sel");
+        preview.style.background = b.getAttribute("data-color");
+        cname.textContent = "選択中：" + b.getAttribute("data-name");
+      });
+    });
+  })();
+  </script>
+</body>
+</html>

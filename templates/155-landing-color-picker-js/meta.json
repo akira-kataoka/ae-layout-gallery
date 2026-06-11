@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - カラー選択プレビュー(JS)",
+  "category": "landing",
+  "description": "カラースウォッチをクリックすると商品プレビューの色が切り替わる素のJavaScript構成LP(style変更・innerHTML不使用)。商品バリエーション訴求に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "あなた好みのカラーで。",
+  "previewDescription": "5色から選べる人気アイテム。色を選んで見積もり・予約へ。"
+}

@@ -231,6 +231,14 @@ const CALENDAR_BODY = `<h1>お申し込みが完了しました</h1>
 const SHARE_BODY = `<h1>ご参加ありがとうございます！</h1>
 <p>よろしければ、お知り合いにもシェアしていただけると嬉しいです。</p>`;
 
+const PET_FORM = `<form>
+  <div class="row"><p><label>飼い主のお名前</label><br><input type="text" value="山田 太郎"></p><p><label>ペットのお名前</label><br><input type="text" value="モカ"></p></div>
+  <div class="row"><p><label>種類</label><br><select><option selected>犬</option><option>猫</option><option>うさぎ</option><option>その他</option></select></p><p><label>ご希望メニュー</label><br><select><option selected>シャンプー＋カット</option><option>シャンプーのみ</option><option>爪切り・部分ケア</option></select></p></div>
+  <p><label>ご希望日</label><br><input type="date" value="2026-07-18"></p>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="予約する"></p>
+</form>`;
+
 const REVIEW_POST_FORM = `<form>
   <p><label>ご感想</label><br><textarea>サポートが丁寧で、初めてでも安心して使えました。</textarea></p>
   <p><label>ニックネーム</label><br><input type="text" value="たろう"></p>
@@ -752,6 +760,9 @@ function contentFor(dir, category) {
     case "152-form-star-rating-js": return REVIEW_POST_FORM;
     case "153-landing-membership-renewal": return NEWSLETTER_FORM;
     case "154-form-baby-registry": return BABY_FORM;
+    case "155-landing-color-picker-js": return NEWSLETTER_FORM;
+    case "156-form-quiz-scored-js": return NEWSLETTER_FORM;
+    case "157-form-pet-registration": return PET_FORM;
     case "06-thank-you": return THANKYOU_BODY;
     case "12-thankyou-download": return THANKYOU_DL_BODY;
   }

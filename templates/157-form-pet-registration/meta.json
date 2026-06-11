@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - ペット登録/サロン予約",
+  "category": "form",
+  "description": "ペットの種類・サービス・希望日を入力する予約/会員登録フォーム。動物病院・トリミングサロン・ペット用品の顧客獲得に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "トリミングのご予約",
+  "previewDescription": "ペットちゃんの情報とご希望のメニューを入力してください。"
+}

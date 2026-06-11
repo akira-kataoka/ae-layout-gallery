@@ -1,0 +1,8 @@
+{
+  "name": "フォーム - 採点クイズ(JS)",
+  "category": "form",
+  "description": "選択式クイズをその場で採点しスコア表示する素のJavaScript構成(data属性・textContent・classList切替)。クイズキャンペーン・知識診断に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "全3問チャレンジクイズ",
+  "previewDescription": "問題に答えて「採点する」を押すと、その場でスコアが表示されます。"
+}

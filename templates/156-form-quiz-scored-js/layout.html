@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#9333ea; --ink:#1c1430; --muted:#6b7280; --line:#ece5f7; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f9f7fe; line-height:1.7; }
+    .ae-wrap { max-width:600px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:16px; }
+    .ae-head h1 { margin:0 0 6px; font-size:24px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:28px 26px; box-shadow:0 8px 26px rgba(147,51,234,.1); }
+    .ae-q { margin-bottom:18px; }
+    .ae-q .ttl { font-weight:700; margin-bottom:8px; }
+    .ae-q label { display:flex; gap:10px; align-items:center; padding:10px 12px; border:1px solid var(--line); border-radius:10px; margin-bottom:7px; cursor:pointer; font-size:14px; }
+    .ae-q label:hover { border-color:#c4b5fd; background:#faf5ff; }
+    .ae-grade { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:10px; font-weight:800; font-size:15px; cursor:pointer; }
+    .ae-result { display:none; margin-top:16px; text-align:center; background:linear-gradient(135deg,#9333ea,#c026d3); color:#fff; border-radius:14px; padding:20px; }
+    .ae-result.show { display:block; }
+    .ae-result .score { font-size:38px; font-weight:900; }
+    .ae-card2 { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; margin-top:16px; text-align:center; }
+    .ae-card2 .t { font-weight:700; margin-bottom:10px; }
+    .ae-card2 form input[type=email],.ae-card2 form input[type=text] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card2 form p { margin:0 0 12px; }
+    .ae-card2 form .submit input,.ae-card2 form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <div class="ae-q"><div class="ttl">Q1. 日本の首都は？</div>
+        <label><input type="radio" name="q1"> 大阪</label>
+        <label><input type="radio" name="q1" data-correct="1"> 東京</label>
+        <label><input type="radio" name="q1"> 京都</label></div>
+      <div class="ae-q"><div class="ttl">Q2. 1 + 2 × 3 = ?</div>
+        <label><input type="radio" name="q2" data-correct="1"> 7</label>
+        <label><input type="radio" name="q2"> 9</label>
+        <label><input type="radio" name="q2"> 6</label></div>
+      <div class="ae-q"><div class="ttl">Q3. 水の化学式は？</div>
+        <label><input type="radio" name="q3"> CO2</label>
+        <label><input type="radio" name="q3"> O2</label>
+        <label><input type="radio" name="q3" data-correct="1"> H2O</label></div>
+      <button class="ae-grade" id="grade" type="button">採点する</button>
+      <div class="ae-result" id="result"><div class="score" id="score">0 / 3</div><div id="rmsg"></div></div>
+    </div>
+    <div class="ae-card2"><div class="t">詳しい解説をメールで受け取る</div>%%content%%</div>
+  </div>
+
+  <script>
+  (function () {
+    document.getElementById("grade").addEventListener("click", function () {
+      var total = 3, correct = 0;
+      for (var i = 1; i <= total; i++) {
+        var sel = document.querySelector('input[name="q' + i + '"]:checked');
+        if (sel && sel.getAttribute("data-correct") === "1") correct++;
+      }
+      document.getElementById("score").textContent = correct + " / " + total;
+      var msg = correct === total ? "全問正解！素晴らしい！" : (correct >= 2 ? "あと少し！" : "もう一度チャレンジ！");
+      document.getElementById("rmsg").textContent = msg;
+      document.getElementById("result").classList.add("show");
+    });
+  })();
+  </script>
+</body>
+</html>
