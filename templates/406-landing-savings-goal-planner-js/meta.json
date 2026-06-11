@@ -1,0 +1,8 @@
+{
+  "name": "LP - 貯蓄目標プランナー (JS)",
+  "category": "landing",
+  "description": "目標金額・現在の貯蓄・達成期間・想定利回りから、毎月必要な積立額を逆算するインタラクティブLP。進捗バーで現在地と目標を可視化し、資産形成相談フォームへ誘導。銀行/証券/保険/FPサービスに。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "目標達成に毎月いくら貯める？",
+  "previewDescription": "目標金額と期間を入れるだけで、必要な毎月の積立額を瞬時に逆算します。"
+}

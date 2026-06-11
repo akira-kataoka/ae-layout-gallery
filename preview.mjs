@@ -300,6 +300,15 @@ const TAX_CONSULT_FORM = `<form>
   <p class="submit"><input type="submit" value="無料相談を予約する"></p>
 </form>`;
 
+const SPA_FORM = `<form>
+  <p><label>ご希望メニュー</label><br><select><option selected>アロマトリートメント（60分）</option><option>ボディケア（90分）</option><option>フェイシャル（75分）</option><option>相談して決めたい</option></select></p>
+  <div class="row"><p><label>ご希望日</label><br><input type="date" value="2026-07-20"></p><p><label>ご希望時間帯</label><br><select><option selected>午前</option><option>午後</option><option>夕方以降</option></select></p></div>
+  <p><label>お名前</label><br><input type="text" value="山田 花子"></p>
+  <div class="row"><p><label>メール</label><br><input type="email" value="hanako@example.com"></p><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p></div>
+  <p><label>ご要望（任意）</label><br><textarea>肩こりが気になります。</textarea></p>
+  <p class="submit"><input type="submit" value="予約を申し込む"></p>
+</form>`;
+
 const CAR_RENTAL_FORM = `<form>
   <p><label>車種クラス</label><br><select><option selected>コンパクト</option><option>SUV / ミニバン</option><option>大型 / 商用</option><option>未定（おすすめを聞く）</option></select></p>
   <div class="row"><p><label>利用開始日</label><br><input type="date" value="2026-07-20"></p><p><label>返却日</label><br><input type="date" value="2026-07-22"></p></div>
@@ -1942,6 +1951,10 @@ function contentFor(dir, category) {
     case "403-form-car-rental": return CAR_RENTAL_FORM;
     case "404-event-christmas-market": return RSVP_FORM;
     case "405-utility-two-factor-setup": return TWOFA_FORM;
+    case "406-landing-savings-goal-planner-js": return NEWSLETTER_FORM;
+    case "407-form-spa-reservation": return SPA_FORM;
+    case "408-event-summer-festival": return RSVP_FORM;
+    case "409-thankyou-demo-booked": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

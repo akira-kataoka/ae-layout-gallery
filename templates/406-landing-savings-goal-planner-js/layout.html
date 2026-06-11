@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#059669; --ink:#0c2620; --muted:#5a766e; --line:#d6ece4; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eefbf5; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:20px; }
+    .ae-head h1 { font-size:24px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; box-shadow:0 12px 32px rgba(5,150,105,.09); }
+    .ae-field { margin-bottom:18px; }
+    .ae-field label { font-weight:700; font-size:14px; display:flex; justify-content:space-between; margin-bottom:8px; }
+    .ae-field label .v { color:var(--accent); font-variant-numeric:tabular-nums; }
+    .ae-field input[type=range] { width:100%; accent-color:var(--accent); }
+    .ae-act { display:flex; gap:6px; background:#dcf5ec; border-radius:10px; padding:4px; }
+    .ae-act button { flex:1; border:0; background:transparent; padding:9px 4px; border-radius:8px; font-weight:700; font-size:12px; cursor:pointer; color:var(--muted); }
+    .ae-act button.on { background:#fff; color:var(--accent); box-shadow:0 2px 8px rgba(5,150,105,.18); }
+    .ae-out { background:linear-gradient(135deg,#10b981,#059669); color:#fff; border-radius:14px; padding:24px; text-align:center; margin-top:18px; }
+    .ae-out .lab { font-size:13px; opacity:.9; } .ae-out .big { font-size:40px; font-weight:900; font-variant-numeric:tabular-nums; line-height:1.1; } .ae-out .big small { font-size:16px; } .ae-out .sub { font-size:13px; opacity:.95; margin-top:6px; }
+    .ae-bar { height:10px; border-radius:999px; background:rgba(255,255,255,.25); margin-top:14px; overflow:hidden; }
+    .ae-bar span { display:block; height:100%; background:#fff; border-radius:999px; transition:width .3s; }
+    .ae-split { display:flex; justify-content:space-between; font-size:12px; opacity:.95; margin-top:8px; }
+    .ae-cta { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; margin-top:18px; }
+    .ae-cta .t { font-weight:700; margin-bottom:12px; }
+    .ae-cta form input[type=text],.ae-cta form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form .submit input,.ae-cta form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <div class="ae-field"><label>目標金額 <span class="v"><span id="vGoal">300</span> 万円</span></label>
+        <input type="range" id="goal" min="50" max="3000" step="50" value="300"></div>
+      <div class="ae-field"><label>現在の貯蓄 <span class="v"><span id="vNow">50</span> 万円</span></label>
+        <input type="range" id="now" min="0" max="2000" step="10" value="50"></div>
+      <div class="ae-field"><label>達成までの期間 <span class="v"><span id="vYr">5</span> 年</span></label>
+        <input type="range" id="yr" min="1" max="30" step="1" value="5"></div>
+      <div class="ae-field"><label>想定利回り（年）</label>
+        <div class="ae-act" id="rate">
+          <button type="button" data-r="0" class="on">0%（普通預金）</button>
+          <button type="button" data-r="3">3%</button>
+          <button type="button" data-r="5">5%</button>
+        </div></div>
+      <div class="ae-out">
+        <div class="lab">毎月の積立額の目安</div>
+        <div class="big"><span id="mon">0</span><small> 円/月</small></div>
+        <div class="sub">この金額を続ければ目標達成が見込めます</div>
+        <div class="ae-bar"><span id="bar" style="width:17%"></span></div>
+        <div class="ae-split"><span>現在 <span id="nowP">50</span>万</span><span>目標 <span id="goalP">300</span>万</span></div>
+      </div>
+    </div>
+    <div class="ae-cta">
+      <div class="t">無理なく続く貯蓄・資産形成のヒントを受け取る</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var goal = document.getElementById("goal"), now = document.getElementById("now"), yr = document.getElementById("yr");
+    var vGoal = document.getElementById("vGoal"), vNow = document.getElementById("vNow"), vYr = document.getElementById("vYr");
+    var monEl = document.getElementById("mon"), bar = document.getElementById("bar");
+    var nowP = document.getElementById("nowP"), goalP = document.getElementById("goalP");
+    var rateBtns = Array.prototype.slice.call(document.querySelectorAll("#rate button"));
+    var ratePct = 0;
+    function calc() {
+      var g = parseInt(goal.value, 10) || 0, p = parseInt(now.value, 10) || 0, years = parseInt(yr.value, 10) || 1;
+      vGoal.textContent = g; vNow.textContent = p; vYr.textContent = years;
+      nowP.textContent = p; goalP.textContent = g;
+      var fv = g * 10000, pv = p * 10000, n = years * 12, r = ratePct / 100 / 12;
+      var monthly;
+      if (r > 0) {
+        var growth = Math.pow(1 + r, n);
+        monthly = (fv - pv * growth) * r / (growth - 1);
+      } else {
+        monthly = (fv - pv) / n;
+      }
+      if (monthly < 0) monthly = 0;
+      monEl.textContent = Math.round(monthly / 100) * 100 >= 0 ? Math.round(monthly).toLocaleString() : "0";
+      var pct = g > 0 ? Math.min(100, Math.round(p / g * 100)) : 0;
+      bar.style.width = pct + "%";
+    }
+    [goal, now, yr].forEach(function (el) { el.addEventListener("input", calc); });
+    rateBtns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        rateBtns.forEach(function (x) { x.classList.remove("on"); });
+        b.classList.add("on"); ratePct = parseFloat(b.getAttribute("data-r")); calc();
+      });
+    });
+    calc();
+  })();
+  </script>
+</body>
+</html>

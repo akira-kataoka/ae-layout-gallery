@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#7c3aed; --ink:#1c1633; --muted:#6a6488; --line:#e7e2f5; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f5f3fc; line-height:1.7; }
+    .ae-wrap { max-width:500px; margin:0 auto; padding:54px 20px; }
+    .ae-done { text-align:center; margin-bottom:22px; }
+    .ae-done .chk { width:74px; height:74px; border-radius:50%; background:linear-gradient(135deg,#a78bfa,#7c3aed); color:#fff; display:flex; align-items:center; justify-content:center; font-size:38px; margin:0 auto 16px; box-shadow:0 14px 32px rgba(124,58,237,.28); }
+    .ae-done h1 { font-size:24px; margin:0 0 6px; }
+    .ae-done p { color:var(--muted); margin:0; font-size:14px; }
+    .ae-appt { background:#fff; border:1px solid var(--line); border-radius:16px; padding:20px 22px; margin-bottom:18px; box-shadow:0 8px 22px rgba(124,58,237,.06); }
+    .ae-appt .row { display:flex; gap:12px; align-items:center; padding:10px 0; border-top:1px solid var(--line); }
+    .ae-appt .row:first-child { border-top:0; }
+    .ae-appt .ic { width:38px; height:38px; border-radius:10px; background:#f3eeff; display:flex; align-items:center; justify-content:center; font-size:19px; flex:0 0 auto; }
+    .ae-appt .k { font-size:12px; color:var(--muted); } .ae-appt .v { font-weight:700; font-size:14px; }
+    .ae-prep { background:#f3eeff; border:1px solid #ddd2f7; border-radius:14px; padding:16px 18px; margin-bottom:18px; }
+    .ae-prep .t { font-weight:700; font-size:13px; margin-bottom:8px; }
+    .ae-prep ul { margin:0; padding-left:18px; font-size:13px; color:var(--muted); } .ae-prep li { margin-bottom:4px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; }
+    .ae-card .t { font-weight:700; margin-bottom:12px; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-done">
+      <div class="chk">✓</div>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-appt">
+      <div class="row"><div class="ic">📅</div><div><div class="k">日時</div><div class="v">7月20日（月）14:00〜14:45</div></div></div>
+      <div class="row"><div class="ic">💻</div><div><div class="k">形式</div><div class="v">オンライン（リンクは前日メールで）</div></div></div>
+      <div class="row"><div class="ic">👤</div><div><div class="k">担当</div><div class="v">プロダクトスペシャリスト</div></div></div>
+    </div>
+    <div class="ae-prep">
+      <div class="t">当日に向けてのご案内</div>
+      <ul>
+        <li>確認メールをお送りしました。届かない場合は迷惑メールをご確認ください。</li>
+        <li>事前にご質問・ご関心のある機能があれば、当日お聞かせください。</li>
+        <li>日程の変更はメール内のリンクからいつでも可能です。</li>
+      </ul>
+    </div>
+    <div class="ae-card">
+      <div class="t">関連資料・活用事例を受け取る</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>
