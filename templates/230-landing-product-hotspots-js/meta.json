@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - 商品ホットスポット解説(JS)",
+  "category": "landing",
+  "description": "商品画像上の番号ピンをタップすると該当パーツの特徴説明が切り替わるインタラクティブLP(textContent・classListのみ、innerHTML不使用)。製品の機能訴求・予約獲得に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "細部までこだわった、その理由。",
+  "previewDescription": "気になるポイントをタップして、製品のこだわりをご覧ください。"
+}

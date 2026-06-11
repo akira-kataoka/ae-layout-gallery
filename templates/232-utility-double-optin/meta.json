@@ -1,0 +1,8 @@
+{
+  "name": "ユーティリティ - ダブルオプトイン確認",
+  "category": "utility",
+  "description": "メール登録後に「確認メールを送りました」と伝え、確定までの3ステップを案内するダブルオプトイン中継ページ。確定/再送信ボタン用の領域を備える。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "確認メールを送信しました",
+  "previewDescription": "ご登録を完了するには、メール内のボタンで確定をお願いします。"
+}

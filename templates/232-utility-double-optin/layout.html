@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0d9488; --ink:#0f2420; --muted:#5b7470; --line:#d7ebe7; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f0fbf9; line-height:1.7; }
+    .ae-wrap { max-width:500px; margin:0 auto; padding:64px 20px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:20px; padding:36px 30px; text-align:center; box-shadow:0 16px 40px rgba(13,148,136,.1); }
+    .ae-mail { width:78px; height:78px; border-radius:50%; background:#ccfbf1; display:flex; align-items:center; justify-content:center; font-size:38px; margin:0 auto 18px; }
+    .ae-card h1 { font-size:23px; margin:0 0 10px; }
+    .ae-card .lead { color:var(--muted); margin:0 0 22px; font-size:15px; }
+    .ae-email { display:inline-block; background:#f0fdfa; border:1px dashed var(--accent); color:var(--accent); font-weight:700; padding:8px 18px; border-radius:10px; margin-bottom:22px; font-size:14px; }
+    .ae-steps { text-align:left; background:#f6fffd; border:1px solid var(--line); border-radius:12px; padding:16px 18px; margin-bottom:24px; }
+    .ae-steps li { font-size:13px; color:#33514c; margin-bottom:6px; }
+    .ae-steps li:last-child { margin-bottom:0; }
+    .ae-confirm { margin-bottom:8px; }
+    .ae-confirm form .submit input,.ae-confirm form button { width:100%; background:var(--accent); color:#fff; border:0; padding:15px; border-radius:10px; font-weight:800; font-size:15px; cursor:pointer; }
+    .ae-confirm form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; margin-bottom:10px; }
+    .ae-foot { color:var(--muted); font-size:12px; margin-top:16px; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-card">
+      <div class="ae-mail">📩</div>
+      <h1>%%title%%</h1>
+      <p class="lead">%%description%%</p>
+      <div class="ae-email">taro@example.com</div>
+      <ul class="ae-steps">
+        <li>① 上記アドレス宛の確認メールを開く</li>
+        <li>② メール内の「登録を確定する」ボタンを押す</li>
+        <li>③ 登録完了！最新情報のお届けが始まります</li>
+      </ul>
+      <div class="ae-confirm">
+        %%content%%
+      </div>
+      <p class="ae-foot">メールが届かない場合は迷惑メールフォルダもご確認ください。</p>
+    </div>
+  </div>
+</body>
+</html>

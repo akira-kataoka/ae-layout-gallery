@@ -1,0 +1,8 @@
+{
+  "name": "汎用LP - フリップカード特徴紹介(JS)",
+  "category": "landing",
+  "description": "タップすると3D回転して裏面の詳細が表示されるフリップカードで特徴を3点紹介(classListトグルのみ、innerHTML不使用)。サービスの強み訴求・資料請求導線に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "選ばれる3つの理由",
+  "previewDescription": "カードをタップすると、それぞれの詳しい説明をご覧いただけます。"
+}

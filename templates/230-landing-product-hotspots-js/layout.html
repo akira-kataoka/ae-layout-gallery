@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#2563eb; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f4f7fb; line-height:1.7; }
+    .ae-wrap { max-width:720px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:22px; }
+    .ae-head h1 { font-size:25px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-stage { position:relative; aspect-ratio:4/3; border-radius:18px; background:linear-gradient(135deg,#dbeafe,#eef2ff); display:flex; align-items:center; justify-content:center; font-size:110px; box-shadow:0 16px 40px rgba(37,99,235,.14); margin-bottom:14px; }
+    .ae-dot { position:absolute; width:30px; height:30px; border-radius:50%; border:0; background:var(--accent); color:#fff; font-weight:900; cursor:pointer; box-shadow:0 0 0 6px rgba(37,99,235,.25); animation:pulse 2s infinite; }
+    .ae-dot.active { background:#0f172a; box-shadow:0 0 0 6px rgba(15,23,42,.25); animation:none; }
+    @keyframes pulse { 0%,100%{ box-shadow:0 0 0 6px rgba(37,99,235,.25);} 50%{ box-shadow:0 0 0 11px rgba(37,99,235,.08);} }
+    .ae-detail { background:#fff; border:1px solid var(--line); border-radius:14px; padding:18px 20px; min-height:88px; margin-bottom:22px; }
+    .ae-detail .dt { font-weight:800; color:var(--accent); margin-bottom:4px; }
+    .ae-detail .dd { font-size:14px; color:#334155; margin:0; }
+    .ae-hint { text-align:center; color:var(--muted); font-size:12px; margin:-6px 0 22px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px; text-align:center; }
+    .ae-card .t { font-weight:700; margin-bottom:12px; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-stage">🎒
+      <button type="button" class="ae-dot" style="top:18%;left:24%" data-t="軽量フレーム" data-d="航空機にも使われる素材で、見た目以上の軽さを実現。長時間の移動でも肩に負担をかけません。" aria-label="特徴1">1</button>
+      <button type="button" class="ae-dot" style="top:46%;left:68%" data-t="撥水加工" data-d="突然の雨でも中身を守る高い撥水性。表面の水滴はサッと払うだけでOKです。" aria-label="特徴2">2</button>
+      <button type="button" class="ae-dot" style="top:72%;left:38%" data-t="大容量ポケット" data-d="15インチPCと小物を分けて収納。仕分けしやすい独立ポケット構造です。" aria-label="特徴3">3</button>
+    </div>
+    <div class="ae-detail" id="detail">
+      <div class="dt" id="dt">気になる番号をタップ</div>
+      <p class="dd" id="dd">製品の上にある番号をタップすると、その部分の特徴が表示されます。</p>
+    </div>
+    <p class="ae-hint">①②③ をタップして特徴をチェック</p>
+    <div class="ae-card">
+      <div class="t">発売前の特別価格で予約する</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var dots = Array.prototype.slice.call(document.querySelectorAll(".ae-dot"));
+    var dt = document.getElementById("dt"), dd = document.getElementById("dd");
+    dots.forEach(function (b) {
+      b.addEventListener("click", function () {
+        dots.forEach(function (x) { x.classList.remove("active"); });
+        b.classList.add("active");
+        dt.textContent = b.getAttribute("data-t");
+        dd.textContent = b.getAttribute("data-d");
+      });
+    });
+  })();
+  </script>
+</body>
+</html>
