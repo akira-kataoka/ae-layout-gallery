@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#ea580c; --ink:#2a1810; --muted:#7c6a5f; --line:#f1e3d8; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fdf6f0; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:20px; }
+    .ae-head h1 { font-size:24px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; box-shadow:0 12px 32px rgba(234,88,12,.09); }
+    .ae-field { margin-bottom:18px; }
+    .ae-field label { font-weight:700; font-size:14px; display:flex; justify-content:space-between; margin-bottom:8px; }
+    .ae-field label .v { color:var(--accent); font-variant-numeric:tabular-nums; }
+    .ae-field input[type=range] { width:100%; accent-color:var(--accent); }
+    .ae-act { display:flex; gap:6px; background:#fceee3; border-radius:10px; padding:4px; }
+    .ae-act button { flex:1; border:0; background:transparent; padding:9px 4px; border-radius:8px; font-weight:700; font-size:12px; cursor:pointer; color:var(--muted); }
+    .ae-act button.on { background:#fff; color:var(--accent); box-shadow:0 2px 8px rgba(234,88,12,.18); }
+    .ae-out { background:linear-gradient(135deg,#f97316,#ea580c); color:#fff; border-radius:14px; padding:24px; text-align:center; margin-top:18px; }
+    .ae-out .lab { font-size:13px; opacity:.9; } .ae-out .big { font-size:40px; font-weight:900; font-variant-numeric:tabular-nums; line-height:1.1; } .ae-out .big small { font-size:15px; } .ae-out .sub { font-size:13px; opacity:.95; margin-top:6px; }
+    .ae-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:14px; }
+    .ae-g { background:rgba(255,255,255,.16); border-radius:10px; padding:10px 6px; } .ae-g .k { font-size:11px; opacity:.9; } .ae-g .n { font-weight:800; font-variant-numeric:tabular-nums; font-size:14px; }
+    .ae-note { font-size:11px; color:var(--muted); margin-top:12px; text-align:center; }
+    .ae-cta { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; margin-top:18px; }
+    .ae-cta .t { font-weight:700; margin-bottom:12px; }
+    .ae-cta form input[type=text],.ae-cta form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form .submit input,.ae-cta form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    @media (max-width:360px){ .ae-grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <div class="ae-field"><label>大人の人数 <span class="v"><span id="vA">10</span> 人</span></label>
+        <input type="range" id="a" min="2" max="60" step="1" value="10"></div>
+      <div class="ae-field"><label>子どもの人数 <span class="v"><span id="vK">0</span> 人</span></label>
+        <input type="range" id="k" min="0" max="30" step="1" value="0"></div>
+      <div class="ae-field"><label>お酒を飲む人の割合</label>
+        <div class="ae-act" id="drink">
+          <button type="button" data-d="0.3">少なめ</button>
+          <button type="button" data-d="0.5" class="on">半分くらい</button>
+          <button type="button" data-d="0.7">多め</button>
+        </div></div>
+      <div class="ae-out">
+        <div class="lab">用意したいお肉の量</div>
+        <div class="big"><span id="meat">0</span><small> kg</small></div>
+        <div class="sub">幹事さん、これくらいが目安です🍖</div>
+        <div class="ae-grid">
+          <div class="ae-g"><div class="k">アルコール</div><div class="n"><span id="alc">0</span> 本</div></div>
+          <div class="ae-g"><div class="k">ソフトドリンク</div><div class="n"><span id="soft">0</span> 本</div></div>
+          <div class="ae-g"><div class="k">予算めやす</div><div class="n">¥<span id="budget">0</span></div></div>
+        </div>
+      </div>
+      <div class="ae-note">※ 一般的な目安です。メニューや時間帯で調整してください。</div>
+    </div>
+    <div class="ae-cta">
+      <div class="t">パーティー・ケータリングのご相談はこちら</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var a = document.getElementById("a"), k = document.getElementById("k");
+    var vA = document.getElementById("vA"), vK = document.getElementById("vK");
+    var meatEl = document.getElementById("meat"), alcEl = document.getElementById("alc"), softEl = document.getElementById("soft"), budgetEl = document.getElementById("budget");
+    var drinkBtns = Array.prototype.slice.call(document.querySelectorAll("#drink button"));
+    var rate = 0.5;
+    function calc() {
+      var adults = parseInt(a.value, 10) || 0, kids = parseInt(k.value, 10) || 0;
+      vA.textContent = adults; vK.textContent = kids;
+      var meatG = adults * 250 + kids * 120;
+      meatEl.textContent = (Math.round(meatG / 100) / 10).toFixed(1);
+      var drinkers = adults * rate;
+      alcEl.textContent = Math.ceil(drinkers * 3);
+      softEl.textContent = Math.ceil((adults * (1 - rate) + kids) * 2.5);
+      budgetEl.textContent = (adults * 2500 + kids * 1200).toLocaleString();
+    }
+    a.addEventListener("input", calc); k.addEventListener("input", calc);
+    drinkBtns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        drinkBtns.forEach(function (x) { x.classList.remove("on"); });
+        b.classList.add("on"); rate = parseFloat(b.getAttribute("data-d")); calc();
+      });
+    });
+    calc();
+  })();
+  </script>
+</body>
+</html>

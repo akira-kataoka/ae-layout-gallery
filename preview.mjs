@@ -300,6 +300,15 @@ const TAX_CONSULT_FORM = `<form>
   <p class="submit"><input type="submit" value="無料相談を予約する"></p>
 </form>`;
 
+const BANQUET_FORM = `<form>
+  <p><label>ご利用シーン</label><br><select><option selected>歓送迎会</option><option>忘年会・新年会</option><option>同窓会・懇親会</option><option>誕生日・お祝い</option><option>その他</option></select></p>
+  <div class="row"><p><label>ご希望日</label><br><input type="date" value="2026-12-18"></p><p><label>人数</label><br><select><option>〜10名</option><option selected>11〜20名</option><option>21〜40名</option><option>41名以上</option></select></p></div>
+  <div class="row"><p><label>幹事様のお名前</label><br><input type="text" value="山田 太郎"></p><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p></div>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p><label>ご要望（コース・予算など）</label><br><textarea>飲み放題付き4,000円前後で個室希望です。</textarea></p>
+  <p class="submit"><input type="submit" value="空き状況を確認して予約する"></p>
+</form>`;
+
 const PORTRAIT_FORM = `<form>
   <p><label>撮影メニュー</label><br><select><option selected>七五三</option><option>成人式・前撮り</option><option>家族写真</option><option>お宮参り・百日</option><option>その他・相談</option></select></p>
   <div class="row"><p><label>ご希望日</label><br><input type="date" value="2026-10-18"></p><p><label>撮影人数</label><br><select><option selected>1名</option><option>2〜3名</option><option>4名以上</option></select></p></div>
@@ -2272,6 +2281,11 @@ function contentFor(dir, category) {
     case "493-form-portrait-studio": return PORTRAIT_FORM;
     case "494-event-outdoor-cinema": return RSVP_FORM;
     case "495-thankyou-return-received": return NEWSLETTER_FORM;
+    case "496-landing-party-portion-js": return NEWSLETTER_FORM;
+    case "497-form-banquet-reservation": return BANQUET_FORM;
+    case "498-event-new-year-countdown": return RSVP_FORM;
+    case "499-utility-birthday-gift": return NEWSLETTER_FORM;
+    case "500-landing-flip-countdown-js": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

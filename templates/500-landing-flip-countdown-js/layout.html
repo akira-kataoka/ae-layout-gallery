@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --gold:#e2b659; --ink:#f4eede; --muted:#b9ad8e; --line:#2c2516; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#0f0c06; line-height:1.7; }
+    .ae-wrap { max-width:540px; margin:0 auto; padding:50px 20px; }
+    .ae-hero { background:linear-gradient(130deg,#241a08,#120d05 45%,#1b1407); background-size:200% 200%; animation:shimmer 9s ease infinite; border:1px solid var(--line); border-radius:22px; padding:40px 26px; text-align:center; position:relative; overflow:hidden; box-shadow:0 22px 50px rgba(0,0,0,.55); }
+    @keyframes shimmer { 0%{ background-position:0% 50% } 50%{ background-position:100% 50% } 100%{ background-position:0% 50% } }
+    .ae-hero::after { content:"✦ · ✧ · ✦ · ✧ · ✦ · ✧ · ✦ · ✧ · ✦"; position:absolute; top:14px; left:0; right:0; font-size:12px; letter-spacing:5px; color:rgba(226,182,89,.32); }
+    .ae-badge { display:inline-block; border:1px solid var(--gold); color:var(--gold); font-weight:700; font-size:11px; letter-spacing:3px; padding:5px 16px; border-radius:999px; margin-bottom:14px; }
+    .ae-hero h1 { font-size:28px; margin:0 0 8px; color:#fff; letter-spacing:.02em; }
+    .ae-hero p { margin:0 0 22px; color:var(--muted); font-size:14px; }
+    .ae-clock { display:flex; justify-content:center; gap:10px; }
+    .ae-unit { flex:1; max-width:96px; }
+    .ae-digit { background:linear-gradient(180deg,#2a2110,#181206); border:1px solid #3a2f17; border-radius:12px; padding:14px 4px; font-size:34px; font-weight:900; font-variant-numeric:tabular-nums; color:var(--gold); position:relative; box-shadow:inset 0 1px 0 rgba(255,255,255,.06), 0 6px 16px rgba(0,0,0,.4); transition:transform .12s ease; }
+    .ae-digit::after { content:""; position:absolute; left:8px; right:8px; top:50%; height:1px; background:rgba(0,0,0,.5); }
+    .ae-digit.pulse { animation:pop .4s ease; }
+    @keyframes pop { 0%{ transform:translateY(-3px) scale(1.04); } 60%{ transform:translateY(0) scale(1); } 100%{ transform:none; } }
+    .ae-unit .lab { font-size:11px; color:var(--muted); margin-top:7px; letter-spacing:1px; }
+    .ae-card { background:linear-gradient(180deg,#1b1509,#141004); border:1px solid var(--gold); border-radius:18px; padding:26px; margin-top:22px; text-align:center; }
+    .ae-card .t { font-weight:700; font-size:17px; margin-bottom:4px; color:#fff; }
+    .ae-card .d { color:var(--muted); font-size:13px; margin-bottom:16px; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:13px 14px; border:1px solid #3a2f17; border-radius:9px; font-size:14px; background:#0f0c06; color:#f4eede; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:linear-gradient(90deg,#e2b659,#caa23f); color:#241a02; border:0; padding:15px; border-radius:9px; font-weight:800; font-size:15px; cursor:pointer; }
+    @media (max-width:420px){ .ae-digit { font-size:26px; padding:12px 2px; } .ae-clock { gap:6px; } .ae-hero h1 { font-size:23px; } }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-hero">
+      <span class="ae-badge">COMING SOON</span>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+      <div class="ae-clock">
+        <div class="ae-unit"><div class="ae-digit" id="d-day">00</div><div class="lab">DAYS</div></div>
+        <div class="ae-unit"><div class="ae-digit" id="d-hour">00</div><div class="lab">HOURS</div></div>
+        <div class="ae-unit"><div class="ae-digit" id="d-min">00</div><div class="lab">MIN</div></div>
+        <div class="ae-unit"><div class="ae-digit" id="d-sec">00</div><div class="lab">SEC</div></div>
+      </div>
+    </div>
+    <div class="ae-card">
+      <div class="t">先行案内に登録する</div>
+      <div class="d">公開と同時に、登録者だけの特別オファーをお届けします</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var els = {
+      day: document.getElementById("d-day"), hour: document.getElementById("d-hour"),
+      min: document.getElementById("d-min"), sec: document.getElementById("d-sec")
+    };
+    // 公開予定はこのページを開いた時点から約9日6時間後（実運用では固定日時に置き換え）
+    var target = Date.now() + (9 * 24 * 60 * 60 + 6 * 60 * 60) * 1000;
+    function pad(n) { return (n < 10 ? "0" : "") + n; }
+    function set(el, val) {
+      var s = pad(val);
+      if (el.textContent !== s) {
+        el.textContent = s;
+        el.classList.remove("pulse"); void el.offsetWidth; el.classList.add("pulse");
+      }
+    }
+    function tick() {
+      var diff = Math.max(0, target - Date.now());
+      var t = Math.floor(diff / 1000);
+      set(els.day, Math.floor(t / 86400));
+      set(els.hour, Math.floor(t % 86400 / 3600));
+      set(els.min, Math.floor(t % 3600 / 60));
+      set(els.sec, t % 60);
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
+  </script>
+</body>
+</html>
