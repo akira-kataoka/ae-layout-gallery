@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#ca8a04; --ink:#2a2308; --muted:#7c6f3f; --line:#efe6c8; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fefae8; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:20px; }
+    .ae-head h1 { font-size:24px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; box-shadow:0 12px 32px rgba(202,138,4,.1); }
+    .ae-field { margin-bottom:18px; }
+    .ae-field label { font-weight:700; font-size:14px; display:flex; justify-content:space-between; margin-bottom:8px; }
+    .ae-field label .v { color:var(--accent); font-variant-numeric:tabular-nums; }
+    .ae-field input[type=range] { width:100%; accent-color:var(--accent); }
+    .ae-out { background:linear-gradient(135deg,#facc15,#ca8a04); color:#3a2e00; border-radius:14px; padding:24px; text-align:center; margin-top:18px; }
+    .ae-out .lab { font-size:13px; opacity:.85; } .ae-out .big { font-size:38px; font-weight:900; font-variant-numeric:tabular-nums; line-height:1.1; } .ae-out .big small { font-size:15px; } .ae-out .sub { font-size:13px; opacity:.9; margin-top:6px; }
+    .ae-row2 { display:flex; gap:8px; margin-top:14px; }
+    .ae-g { flex:1; background:rgba(255,255,255,.4); border-radius:10px; padding:10px 6px; }
+    .ae-g .k { font-size:11px; opacity:.85; } .ae-g .n { font-weight:800; font-variant-numeric:tabular-nums; }
+    .ae-note { font-size:11px; color:var(--muted); margin-top:12px; text-align:center; }
+    .ae-cta { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; margin-top:18px; }
+    .ae-cta .t { font-weight:700; margin-bottom:12px; }
+    .ae-cta form input[type=text],.ae-cta form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form .submit input,.ae-cta form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <div class="ae-field"><label>太陽光パネルの容量 <span class="v"><span id="vK">4.5</span> kW</span></label>
+        <input type="range" id="k" min="2" max="12" step="0.5" value="4.5"></div>
+      <div class="ae-field"><label>自家消費の割合 <span class="v"><span id="vS">30</span>%</span></label>
+        <input type="range" id="s" min="10" max="80" step="5" value="30"></div>
+      <div class="ae-field"><label>電気の購入単価 <span class="v">¥<span id="vE">31</span>/kWh</span></label>
+        <input type="range" id="e" min="22" max="45" step="1" value="31"></div>
+      <div class="ae-field"><label>売電単価 <span class="v">¥<span id="vP">16</span>/kWh</span></label>
+        <input type="range" id="p" min="8" max="24" step="1" value="16"></div>
+      <div class="ae-out">
+        <div class="lab">年間の経済メリット（目安）</div>
+        <div class="big">¥<span id="total">0</span></div>
+        <div class="sub">電気代の節約＋売電収入の合計</div>
+        <div class="ae-row2">
+          <div class="ae-g"><div class="k">電気代の節約</div><div class="n">¥<span id="saved">0</span></div></div>
+          <div class="ae-g"><div class="k">売電収入</div><div class="n">¥<span id="sold">0</span></div></div>
+        </div>
+      </div>
+      <div class="ae-note">※ 年間発電量は1kWあたり約1,100kWhで試算。地域・設置条件で変わります。</div>
+    </div>
+    <div class="ae-cta">
+      <div class="t">太陽光・蓄電池・補助金のご相談はこちら</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var GEN_PER_KW = 1100;
+    var k = document.getElementById("k"), s = document.getElementById("s"), e = document.getElementById("e"), p = document.getElementById("p");
+    var vK = document.getElementById("vK"), vS = document.getElementById("vS"), vE = document.getElementById("vE"), vP = document.getElementById("vP");
+    var totalEl = document.getElementById("total"), savedEl = document.getElementById("saved"), soldEl = document.getElementById("sold");
+    function calc() {
+      var kw = parseFloat(k.value) || 0;
+      var selfRate = (parseInt(s.value, 10) || 0) / 100;
+      var elec = parseInt(e.value, 10) || 0, sell = parseInt(p.value, 10) || 0;
+      vK.textContent = kw.toFixed(1); vS.textContent = parseInt(s.value, 10) || 0; vE.textContent = elec; vP.textContent = sell;
+      var gen = kw * GEN_PER_KW;
+      var saved = gen * selfRate * elec;
+      var sold = gen * (1 - selfRate) * sell;
+      savedEl.textContent = Math.round(saved).toLocaleString();
+      soldEl.textContent = Math.round(sold).toLocaleString();
+      totalEl.textContent = Math.round(saved + sold).toLocaleString();
+    }
+    [k, s, e, p].forEach(function (el) { el.addEventListener("input", calc); });
+    calc();
+  })();
+  </script>
+</body>
+</html>
