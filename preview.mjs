@@ -300,6 +300,14 @@ const TAX_CONSULT_FORM = `<form>
   <p class="submit"><input type="submit" value="無料相談を予約する"></p>
 </form>`;
 
+const EYEWEAR_FORM = `<form>
+  <p><label>ご希望メニュー</label><br><select><option selected>視力測定＋メガネ相談</option><option>コンタクトレンズ（処方・体験）</option><option>サングラス・度入り相談</option><option>メガネの調整・修理</option></select></p>
+  <div class="row"><p><label>ご希望日</label><br><input type="date" value="2026-07-26"></p><p><label>希望時間帯</label><br><select><option selected>午前</option><option>午後</option><option>夕方以降</option></select></p></div>
+  <div class="row"><p><label>お名前</label><br><input type="text" value="山田 太郎"></p><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p></div>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="来店を予約する"></p>
+</form>`;
+
 const DENTAL_FORM = `<form>
   <p><label>ご希望の診療</label><br><select><option selected>定期健診</option><option>クリーニング（歯石除去）</option><option>むし歯・痛みの相談</option><option>予防指導・歯みがき相談</option></select></p>
   <div class="row"><p><label>ご希望日</label><br><input type="date" value="2026-07-25"></p><p><label>希望時間帯</label><br><select><option selected>午前</option><option>午後</option><option>夕方以降</option></select></p></div>
@@ -2100,6 +2108,10 @@ function contentFor(dir, category) {
     case "438-form-dental-checkup": return DENTAL_FORM;
     case "439-event-night-market": return RSVP_FORM;
     case "440-thankyou-pre-registration": return NEWSLETTER_FORM;
+    case "441-landing-fx-converter-js": return NEWSLETTER_FORM;
+    case "442-form-eyewear-fitting": return EYEWEAR_FORM;
+    case "443-event-jazz-night": return RSVP_FORM;
+    case "444-utility-win-back": return REDEEM_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

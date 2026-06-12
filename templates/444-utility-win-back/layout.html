@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#db2777; --ink:#2a1320; --muted:#8a6577; --line:#f4dde8; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fdf2f7; line-height:1.7; }
+    .ae-wrap { max-width:500px; margin:0 auto; padding:54px 20px; }
+    .ae-head { text-align:center; margin-bottom:22px; }
+    .ae-head .em { font-size:54px; line-height:1; margin-bottom:10px; }
+    .ae-head h1 { font-size:25px; margin:0 0 6px; }
+    .ae-head p { color:var(--muted); margin:0; font-size:14px; }
+    .ae-offer { background:linear-gradient(135deg,#ec4899,#db2777); color:#fff; border-radius:18px; padding:26px 22px; text-align:center; margin:22px 0 18px; position:relative; overflow:hidden; box-shadow:0 16px 36px rgba(219,39,119,.28); }
+    .ae-offer::after { content:""; position:absolute; right:-30px; top:-30px; width:120px; height:120px; border-radius:50%; background:radial-gradient(circle,rgba(255,255,255,.25),transparent 70%); }
+    .ae-offer .lab { font-size:13px; opacity:.95; } .ae-offer .big { font-size:42px; font-weight:900; line-height:1.1; margin:2px 0; } .ae-offer .sub { font-size:13px; opacity:.95; }
+    .ae-offer .code { display:inline-block; margin-top:12px; background:rgba(255,255,255,.18); border:1px dashed rgba(255,255,255,.6); border-radius:9px; padding:7px 16px; font-family:ui-monospace,Menlo,Consolas,monospace; font-weight:700; letter-spacing:2px; }
+    .ae-miss { background:#fff; border:1px solid var(--line); border-radius:16px; padding:18px 20px; margin-bottom:18px; box-shadow:0 8px 22px rgba(219,39,119,.05); }
+    .ae-miss .t { font-weight:700; font-size:13px; margin-bottom:10px; }
+    .ae-m { display:flex; gap:11px; padding:7px 0; border-top:1px solid var(--line); font-size:14px; } .ae-m:first-of-type { border-top:0; } .ae-m .e { font-size:18px; flex:0 0 auto; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; }
+    .ae-card .t { font-weight:700; margin-bottom:12px; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    .ae-foot { font-size:12px; color:var(--muted); text-align:center; margin-top:14px; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head">
+      <div class="em">👋</div>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-offer">
+      <div class="lab">おかえりなさいクーポン</div>
+      <div class="big">30%OFF</div>
+      <div class="sub">次回のご利用に使える特別割引をご用意しました</div>
+      <div class="code">WELCOME-BACK</div>
+    </div>
+    <div class="ae-miss">
+      <div class="t">最後にご利用いただいてから、こんなに進化しました</div>
+      <div class="ae-m"><span class="e">✨</span><span>使いやすくなった新デザインと新機能</span></div>
+      <div class="ae-m"><span class="e">⚡</span><span>動作スピードと安定性が大幅アップ</span></div>
+      <div class="ae-m"><span class="e">🎁</span><span>会員限定の特典・キャンペーンを多数追加</span></div>
+    </div>
+    <div class="ae-card">
+      <div class="t">クーポンを受け取って再開する</div>
+      %%content%%
+      <div class="ae-foot">🔔 配信が不要な場合はメール内のリンクからいつでも停止できます</div>
+    </div>
+  </div>
+</body>
+</html>

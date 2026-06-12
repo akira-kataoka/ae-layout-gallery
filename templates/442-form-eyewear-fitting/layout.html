@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#4338ca; --ink:#181a33; --muted:#646a8c; --line:#e2e3f2; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f3f3fb; line-height:1.7; }
+    .ae-wrap { max-width:560px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:22px; }
+    .ae-head .badge { display:inline-block; background:#e4e3fb; color:var(--accent); font-weight:700; font-size:12px; padding:5px 14px; border-radius:999px; margin-bottom:12px; }
+    .ae-head h1 { font-size:25px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; font-size:14px; }
+    .ae-pts { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:22px; }
+    .ae-pt { background:#fff; border:1px solid var(--line); border-radius:12px; padding:14px 8px; text-align:center; }
+    .ae-pt .ic { font-size:22px; } .ae-pt .k { font-size:12px; font-weight:700; margin-top:4px; } .ae-pt .d { font-size:11px; color:var(--muted); }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; box-shadow:0 12px 30px rgba(67,56,202,.08); }
+    .ae-card .t { font-weight:700; font-size:17px; margin-bottom:4px; }
+    .ae-card .s { color:var(--muted); font-size:13px; margin-bottom:16px; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form input[type=tel],.ae-card form input[type=date],.ae-card form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 13px; }
+    .ae-card form label { font-weight:700; font-size:13px; display:block; margin-bottom:5px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:15px; border-radius:9px; font-weight:800; font-size:15px; cursor:pointer; margin-top:4px; }
+    .ae-note { color:var(--muted); font-size:12px; text-align:center; margin-top:14px; }
+    @media (max-width:440px){ .ae-pts { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head">
+      <span class="badge">視力測定・フィッティング無料</span>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-pts">
+      <div class="ae-pt"><div class="ic">👓</div><div class="k">メガネ</div><div class="d">度付き・PC用</div></div>
+      <div class="ae-pt"><div class="ic">👁️</div><div class="k">コンタクト</div><div class="d">処方・体験</div></div>
+      <div class="ae-pt"><div class="ic">🕶️</div><div class="k">サングラス</div><div class="d">度入り可</div></div>
+    </div>
+    <div class="ae-card">
+      <div class="t">来店予約（視力測定・フィッティング）</div>
+      <div class="s">ご希望のメニューと来店日時をお選びください。確認のご連絡をいたします。</div>
+      %%content%%
+      <div class="ae-note">👓 メガネ作製技能士が在籍。かけ心地までしっかり調整します</div>
+    </div>
+  </div>
+</body>
+</html>
