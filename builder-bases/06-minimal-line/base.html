@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root {
+      --accent:#334155;
+      --accent-deep: color-mix(in srgb, var(--accent) 70%, #000);
+      --accent-soft: color-mix(in srgb, var(--accent) 9%, #fff);
+      --accent-tint: color-mix(in srgb, var(--accent) 4%, #fff);
+      --accent-line: color-mix(in srgb, var(--accent) 20%, #fff);
+      --accent-ink:  color-mix(in srgb, var(--accent) 60%, #000);
+      --ink:#222; --muted:#777;
+    }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Mincho ProN","Yu Mincho","Hiragino Sans","Yu Gothic",serif;
+      color:var(--ink); background:#fff; line-height:2; }
+    .sans { font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; }
+
+    .page { max-width:640px; margin:0 auto; padding:88px 24px 96px; }
+
+    header { text-align:center; margin-bottom:64px; }
+    .mark { width:10px; height:10px; border-radius:50%; background:var(--accent); margin:0 auto 30px;
+      box-shadow:0 0 0 7px var(--accent-soft); }
+    h1 { font-size:clamp(25px, 5vw, 34px); font-weight:600; letter-spacing:.14em; line-height:1.7;
+      margin:0 0 22px; color:var(--accent-deep); }
+    .rule { width:46px; height:1px; background:var(--accent); margin:0 auto 24px; }
+    .desc { color:var(--muted); font-size:14.5px; letter-spacing:.06em; margin:0 auto; max-width:460px; }
+
+    .points { margin:0 0 64px; padding:0; list-style:none; border-top:1px solid var(--accent-line); }
+    .points li { display:flex; gap:22px; align-items:baseline; padding:20px 6px;
+      border-bottom:1px solid var(--accent-line); font-size:14.5px; letter-spacing:.04em; }
+    .points .no { flex:none; font-size:12px; letter-spacing:.22em; color:var(--accent);
+      font-family:Georgia,serif; }
+    .points b { font-weight:600; color:var(--accent-ink); margin-right:.6em; }
+
+    .form-area { background:var(--accent-tint); border:1px solid var(--accent-line); padding:46px 38px;
+      margin-bottom:46px; }
+    .form-area .t { text-align:center; margin:0 0 6px; font-size:17px; letter-spacing:.2em; font-weight:600;
+      color:var(--accent-deep); }
+    .form-area .s { text-align:center; margin:0 0 30px; font-size:12.5px; color:var(--muted); letter-spacing:.08em; }
+
+    form { font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; }
+    form p { margin:0 0 16px; }
+    form label { font-weight:600; font-size:12.5px; display:block; margin-bottom:6px; letter-spacing:.08em; }
+    form input[type=text], form input[type=email], form input[type=tel], form select, form textarea {
+      width:100%; padding:13px 14px; border:1px solid var(--accent-line); border-radius:2px; font-size:14px;
+      font-family:inherit; background:#fff; transition:border-color .15s, box-shadow .15s; }
+    form input:focus, form select:focus, form textarea:focus { outline:none; border-color:var(--accent);
+      box-shadow:0 0 0 3px var(--accent-soft); }
+    form textarea { min-height:120px; resize:vertical; }
+    .submit input, form button { width:100%; border:0; cursor:pointer; color:#fff; font-weight:700;
+      font-size:14.5px; letter-spacing:.24em; padding:17px; border-radius:2px; font-family:inherit;
+      background:var(--accent); transition:background .2s; }
+    .submit input:hover, form button:hover { background:var(--accent-deep); }
+    form .row { display:flex; gap:14px; }
+    form .row > * { flex:1; }
+    @media (max-width:480px){ form .row { flex-direction:column; gap:0; } }
+
+    .cta-wrap { text-align:center; }
+    .btn { display:inline-block; color:var(--accent-deep); border:1px solid var(--accent); background:#fff;
+      font-size:13.5px; letter-spacing:.3em; padding:15px 52px; text-decoration:none; cursor:pointer;
+      transition:background .2s, color .2s; }
+    .btn:hover { background:var(--accent); color:#fff; }
+
+    footer { text-align:center; margin-top:72px; color:var(--muted); font-size:11px; letter-spacing:.18em; }
+    footer .rule { margin-bottom:20px; opacity:.6; }
+    @media (max-width:520px){
+      .page { padding:60px 20px 72px; }
+      .form-area { padding:34px 22px; }
+      header { margin-bottom:48px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="mark"></div>
+      <h1>%%title%%</h1>
+      <div class="rule"></div>
+      <p class="desc">%%description%%</p>
+    </header>
+
+    <ul class="points sans">
+      <li><span class="no">01</span><span><b>ていねいに。</b>ひとつひとつのご要望に、まっすぐ向き合います。</span></li>
+      <li><span class="no">02</span><span><b>シンプルに。</b>必要なものだけを、過不足なくお届けします。</span></li>
+      <li><span class="no">03</span><span><b>末永く。</b>ご利用いただいたあとも、変わらぬおつきあいを。</span></li>
+    </ul>
+
+    <section class="form-area">
+      <p class="t">ご 案 内</p>
+      <p class="s">下記より必要事項をご記入ください。</p>
+      %%content%%
+    </section>
+
+    <div class="cta-wrap">
+      <a class="btn" href="#">%%cta%%</a>
+    </div>
+
+    <footer>
+      <div class="rule"></div>
+      お問い合わせいただきありがとうございます
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root {
+      --accent:#0e9f6e;
+      --accent-deep: color-mix(in srgb, var(--accent) 68%, #000);
+      --accent-dark: color-mix(in srgb, var(--accent) 84%, #000);
+      --accent-soft: color-mix(in srgb, var(--accent) 11%, #fff);
+      --accent-tint: color-mix(in srgb, var(--accent) 5%, #fff);
+      --accent-line: color-mix(in srgb, var(--accent) 24%, #fff);
+      --ink:#1d2430; --muted:#60697a;
+    }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink);
+      background:var(--accent-tint); line-height:1.8; }
+
+    .shell { max-width:1000px; margin:48px auto 64px; padding:0 20px; }
+    .panel { display:grid; grid-template-columns:5fr 6fr; border-radius:24px; overflow:hidden;
+      box-shadow:0 22px 60px color-mix(in srgb, var(--accent-deep) 16%, transparent); }
+
+    /* ===== Left: info ===== */
+    .info { color:#fff; padding:52px 42px; position:relative; overflow:hidden;
+      background:linear-gradient(160deg, var(--accent), color-mix(in srgb, var(--accent) 62%, #000)); }
+    .info::after { content:""; position:absolute; width:300px; height:300px; border-radius:50%;
+      background:color-mix(in srgb, #fff 10%, transparent); bottom:-150px; right:-110px; }
+    .info .tag { display:inline-block; font-size:12px; font-weight:800; letter-spacing:.12em;
+      background:color-mix(in srgb, #fff 20%, transparent); padding:6px 14px; border-radius:6px; margin-bottom:20px; }
+    .info h1 { font-size:clamp(24px, 4vw, 31px); line-height:1.45; margin:0 0 14px; font-weight:800; position:relative; z-index:1; }
+    .info > p { margin:0 0 28px; opacity:.94; font-size:15px; position:relative; z-index:1; }
+    .perks { list-style:none; margin:0 0 32px; padding:0; position:relative; z-index:1; }
+    .perks li { display:flex; gap:11px; align-items:flex-start; padding:10px 0; font-size:14.5px;
+      border-bottom:1px solid color-mix(in srgb, #fff 22%, transparent); }
+    .perks li:last-child { border-bottom:0; }
+    .perks .ck { flex:none; width:23px; height:23px; border-radius:50%; background:#fff; color:var(--accent-deep);
+      display:grid; place-items:center; font-size:13px; font-weight:800; margin-top:3px; }
+    .btn { display:inline-block; background:#fff; color:var(--accent-deep); font-weight:800; font-size:15px;
+      padding:14px 38px; border-radius:999px; text-decoration:none; cursor:pointer; position:relative; z-index:1;
+      box-shadow:0 10px 24px color-mix(in srgb, #000 25%, transparent); }
+
+    /* ===== Right: form ===== */
+    .formside { background:#fff; padding:52px 42px; }
+    .formside .head { margin:0 0 6px; font-size:19px; font-weight:800; color:var(--accent-deep); }
+    .formside .sub { margin:0 0 24px; font-size:13px; color:var(--muted); }
+    .steps { display:flex; gap:8px; margin:0 0 26px; }
+    .steps span { flex:1; height:5px; border-radius:99px; background:var(--accent-soft); }
+    .steps span:first-child { background:linear-gradient(90deg, var(--accent), var(--accent-dark)); }
+
+    form p { margin:0 0 15px; }
+    form label { font-weight:700; font-size:13px; display:block; margin-bottom:5px; }
+    form input[type=text], form input[type=email], form input[type=tel], form select, form textarea {
+      width:100%; padding:13px 14px; border:1.5px solid var(--accent-line); border-radius:10px; font-size:14px;
+      font-family:inherit; background:color-mix(in srgb, var(--accent) 3%, #fff); transition:border-color .15s, box-shadow .15s; }
+    form input:focus, form select:focus, form textarea:focus { outline:none; border-color:var(--accent);
+      box-shadow:0 0 0 3px var(--accent-soft); background:#fff; }
+    form textarea { min-height:110px; resize:vertical; }
+    .submit input, form button { width:100%; border:0; cursor:pointer; color:#fff; font-weight:800; font-size:15.5px;
+      padding:16px; border-radius:10px; font-family:inherit;
+      background:linear-gradient(135deg, var(--accent), var(--accent-dark));
+      box-shadow:0 10px 24px color-mix(in srgb, var(--accent) 38%, transparent); }
+    form .row { display:flex; gap:14px; }
+    form .row > * { flex:1; }
+    @media (max-width:480px){ form .row { flex-direction:column; gap:0; } }
+
+    .trust { text-align:center; color:var(--muted); font-size:12px; margin-top:22px; }
+    @media (max-width:840px){
+      .panel { grid-template-columns:1fr; }
+      .info, .formside { padding:38px 26px; }
+      .shell { margin:20px auto 44px; padding:0 14px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <div class="panel">
+      <aside class="info">
+        <span class="tag">ENTRY</span>
+        <h1>%%title%%</h1>
+        <p>%%description%%</p>
+        <ul class="perks">
+          <li><span class="ck">✓</span>入力は約1分で完了します</li>
+          <li><span class="ck">✓</span>費用は一切かかりません</li>
+          <li><span class="ck">✓</span>担当者より2営業日以内にご連絡</li>
+        </ul>
+        <a class="btn" href="#form-area">%%cta%%</a>
+      </aside>
+      <main class="formside" id="form-area">
+        <p class="head">お申し込みフォーム</p>
+        <p class="sub">必要事項をご入力のうえ、送信ボタンを押してください。</p>
+        <div class="steps"><span></span><span></span><span></span></div>
+        %%content%%
+      </main>
+    </div>
+    <p class="trust">🔒 ご入力いただいた情報はSSLで暗号化され、安全に送信されます。</p>
+  </div>
+</body>
+</html>

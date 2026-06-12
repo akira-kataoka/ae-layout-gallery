@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root {
+      --accent:#4f46e5;
+      --accent-deep:  color-mix(in srgb, var(--accent) 70%, #000);
+      --accent-dark:  color-mix(in srgb, var(--accent) 85%, #000);
+      --accent-soft:  color-mix(in srgb, var(--accent) 12%, #fff);
+      --accent-tint:  color-mix(in srgb, var(--accent) 6%, #fff);
+      --accent-line:  color-mix(in srgb, var(--accent) 22%, #fff);
+      --accent-ink:   color-mix(in srgb, var(--accent) 55%, #000);
+      --ink:#1c2230; --muted:#5d6678;
+    }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fff; line-height:1.85; }
+
+    /* ===== Hero ===== */
+    .hero { position:relative; overflow:hidden; color:#fff; text-align:center; padding:84px 22px 132px;
+      background:linear-gradient(135deg, var(--accent), color-mix(in srgb, var(--accent) 65%, #000)); }
+    .hero::before { content:""; position:absolute; width:520px; height:520px; border-radius:50%;
+      background:color-mix(in srgb, #fff 14%, transparent); top:-260px; right:-160px; }
+    .hero::after { content:""; position:absolute; width:340px; height:340px; border-radius:50%;
+      background:color-mix(in srgb, #fff 9%, transparent); bottom:-200px; left:-120px; }
+    .hero-in { position:relative; max-width:760px; margin:0 auto; z-index:1; }
+    .badge { display:inline-block; background:color-mix(in srgb, #fff 18%, transparent); border:1px solid color-mix(in srgb, #fff 38%, transparent);
+      padding:7px 18px; border-radius:999px; font-size:13px; font-weight:700; letter-spacing:.08em; margin-bottom:22px; }
+    .hero h1 { font-size:clamp(28px, 6vw, 44px); line-height:1.4; margin:0 0 16px; font-weight:800; }
+    .hero p { font-size:clamp(15px, 2.6vw, 18px); opacity:.95; margin:0 auto 34px; max-width:560px; }
+    .btn { display:inline-block; background:#fff; color:var(--accent-deep); font-weight:800; font-size:17px;
+      padding:17px 52px; border-radius:999px; text-decoration:none; cursor:pointer;
+      box-shadow:0 14px 34px color-mix(in srgb, #000 28%, transparent); transition:transform .2s, box-shadow .2s; }
+    .btn:hover { transform:translateY(-2px); box-shadow:0 18px 40px color-mix(in srgb, #000 34%, transparent); }
+
+    /* ===== Features ===== */
+    .features { max-width:980px; margin:-72px auto 0; padding:0 20px; position:relative; z-index:2;
+      display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .feat { background:#fff; border:1px solid var(--accent-line); border-radius:18px; padding:28px 24px;
+      box-shadow:0 12px 32px color-mix(in srgb, var(--accent-deep) 14%, transparent); }
+    .feat .ico { width:52px; height:52px; border-radius:14px; display:grid; place-items:center; font-size:25px;
+      background:linear-gradient(135deg, var(--accent-soft), color-mix(in srgb, var(--accent) 22%, #fff)); margin-bottom:14px; }
+    .feat h3 { margin:0 0 6px; font-size:16.5px; color:var(--accent-ink); }
+    .feat p { margin:0; font-size:13.5px; color:var(--muted); line-height:1.75; }
+
+    /* ===== Form section ===== */
+    .form-sec { background:var(--accent-tint); margin-top:72px; padding:64px 20px 80px; }
+    .form-card { max-width:620px; margin:0 auto; background:#fff; border-radius:22px; padding:42px 36px;
+      border-top:5px solid var(--accent); box-shadow:0 16px 44px color-mix(in srgb, var(--accent-deep) 12%, transparent); }
+    .form-card .lead { text-align:center; margin:0 0 26px; font-weight:800; font-size:21px; color:var(--accent-ink); }
+    form p { margin:0 0 15px; }
+    form label { font-weight:700; font-size:13.5px; display:block; margin-bottom:5px; }
+    form input[type=text], form input[type=email], form input[type=tel], form select, form textarea {
+      width:100%; padding:13px 14px; border:1.5px solid var(--accent-line); border-radius:11px; font-size:14px;
+      font-family:inherit; background:#fff; transition:border-color .15s, box-shadow .15s; }
+    form input:focus, form select:focus, form textarea:focus { outline:none; border-color:var(--accent);
+      box-shadow:0 0 0 3px var(--accent-soft); }
+    form textarea { min-height:120px; resize:vertical; }
+    .submit input, form button { width:100%; border:0; cursor:pointer; color:#fff; font-weight:800; font-size:16px;
+      padding:16px; border-radius:999px; font-family:inherit;
+      background:linear-gradient(135deg, var(--accent), var(--accent-dark));
+      box-shadow:0 10px 26px color-mix(in srgb, var(--accent) 40%, transparent); }
+    form .row { display:flex; gap:14px; }
+    form .row > * { flex:1; }
+    @media (max-width:480px){ form .row { flex-direction:column; gap:0; } }
+
+    .foot { text-align:center; color:var(--muted); font-size:12px; padding:30px 20px; }
+    @media (max-width:760px){
+      .features { grid-template-columns:1fr; margin-top:-56px; }
+      .hero { padding:64px 20px 110px; }
+      .form-card { padding:32px 22px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-in">
+      <span class="badge">＼ いま注目のサービス ／</span>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+      <a class="btn" href="#entry">%%cta%%</a>
+    </div>
+  </header>
+
+  <section class="features">
+    <div class="feat">
+      <div class="ico">⚡</div>
+      <h3>かんたんスタート</h3>
+      <p>面倒な準備は不要。最短1分のお申し込みで、その日からすぐにご利用いただけます。</p>
+    </div>
+    <div class="feat">
+      <div class="ico">🛡️</div>
+      <h3>安心のサポート</h3>
+      <p>専任スタッフが導入から運用まで丁寧に伴走。はじめての方も安心です。</p>
+    </div>
+    <div class="feat">
+      <div class="ico">📈</div>
+      <h3>成果につながる</h3>
+      <p>多くのお客様にご利用いただいている実績あるサービスで、確かな成果を。</p>
+    </div>
+  </section>
+
+  <section class="form-sec" id="entry">
+    <div class="form-card">
+      <p class="lead">お申し込みはこちら</p>
+      %%content%%
+    </div>
+  </section>
+
+  <footer class="foot">ご入力いただいた情報は、プライバシーポリシーに基づき適切に管理いたします。</footer>
+</body>
+</html>

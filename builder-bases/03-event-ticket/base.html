@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root {
+      --accent:#e0524f;
+      --accent-deep: color-mix(in srgb, var(--accent) 68%, #000);
+      --accent-dark: color-mix(in srgb, var(--accent) 84%, #000);
+      --accent-soft: color-mix(in srgb, var(--accent) 12%, #fff);
+      --accent-tint: color-mix(in srgb, var(--accent) 6%, #fff);
+      --accent-line: color-mix(in srgb, var(--accent) 24%, #fff);
+      --accent-ink:  color-mix(in srgb, var(--accent) 55%, #000);
+      --ink:#241f21; --muted:#6b6266;
+    }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); line-height:1.8;
+      background:
+        radial-gradient(700px 360px at 85% -5%, var(--accent-soft), transparent),
+        radial-gradient(540px 300px at -10% 30%, color-mix(in srgb, var(--accent) 8%, #fff), transparent),
+        #fff; }
+
+    .wrap { max-width:880px; margin:0 auto; padding:52px 20px 72px; }
+
+    /* ===== Header ===== */
+    .evt-head { text-align:center; margin-bottom:36px; }
+    .evt-kicker { display:inline-flex; align-items:center; gap:10px; color:var(--accent-deep); font-weight:800;
+      font-size:13px; letter-spacing:.2em; margin-bottom:16px; }
+    .evt-kicker::before, .evt-kicker::after { content:""; width:34px; height:2px; background:var(--accent); }
+    .evt-head h1 { font-size:clamp(27px, 5.4vw, 40px); margin:0 0 14px; line-height:1.4; font-weight:800;
+      color:var(--accent-ink); }
+    .evt-head p { color:var(--muted); margin:0 auto; max-width:580px; font-size:15.5px; }
+
+    /* ===== Ticket ===== */
+    .ticket { display:grid; grid-template-columns:200px 1fr; background:#fff; border-radius:20px; overflow:hidden;
+      box-shadow:0 18px 50px color-mix(in srgb, var(--accent-deep) 16%, transparent); margin-bottom:36px; position:relative; }
+    .stub { color:#fff; padding:34px 22px; text-align:center; display:flex; flex-direction:column; justify-content:center;
+      background:linear-gradient(165deg, var(--accent), color-mix(in srgb, var(--accent) 64%, #000)); position:relative; }
+    .stub .mon { font-size:14px; font-weight:800; letter-spacing:.25em; opacity:.92; }
+    .stub .day { font-size:62px; font-weight:800; line-height:1.1; margin:4px 0; }
+    .stub .dow { display:inline-block; margin:4px auto 0; background:color-mix(in srgb, #fff 22%, transparent);
+      border-radius:999px; padding:4px 18px; font-size:13px; font-weight:700; }
+    /* perforation */
+    .ticket::before { content:""; position:absolute; left:191px; top:0; bottom:0; width:18px;
+      background-image:radial-gradient(circle 5px at 50% 8px, var(--accent-tint) 98%, transparent);
+      background-size:18px 24px; background-repeat:repeat-y; z-index:1; }
+    .body { padding:34px 36px 34px 44px; }
+    .body h2 { margin:0 0 14px; font-size:20px; color:var(--accent-ink); }
+    .meta { list-style:none; margin:0 0 22px; padding:0; }
+    .meta li { display:flex; gap:12px; padding:9px 0; border-bottom:1px dashed var(--accent-line); font-size:14.5px; }
+    .meta li:last-child { border-bottom:0; }
+    .meta .k { flex:none; width:84px; font-weight:800; color:var(--accent-deep); font-size:13px;
+      background:var(--accent-soft); border-radius:6px; text-align:center; padding:2px 0; height:fit-content; margin-top:2px; }
+    .btn { display:inline-block; color:#fff; font-weight:800; font-size:16px; padding:15px 46px; border-radius:999px;
+      text-decoration:none; cursor:pointer;
+      background:linear-gradient(135deg, var(--accent), var(--accent-dark));
+      box-shadow:0 12px 28px color-mix(in srgb, var(--accent) 42%, transparent); }
+
+    /* ===== Timeline ===== */
+    .tl-card { background:#fff; border:1px solid var(--accent-line); border-radius:18px; padding:32px 34px; margin-bottom:36px; }
+    .tl-card h2 { margin:0 0 18px; font-size:18px; color:var(--accent-ink); }
+    .tl { list-style:none; margin:0; padding:0; }
+    .tl li { position:relative; padding:0 0 22px 30px; font-size:14.5px; }
+    .tl li::before { content:""; position:absolute; left:6px; top:9px; width:10px; height:10px; border-radius:50%;
+      background:var(--accent); box-shadow:0 0 0 4px var(--accent-soft); }
+    .tl li:not(:last-child)::after { content:""; position:absolute; left:10px; top:24px; bottom:0; width:2px;
+      background:var(--accent-line); }
+    .tl .tm { font-weight:800; color:var(--accent-deep); margin-right:10px; }
+
+    /* ===== Form ===== */
+    .form-card { background:#fff; border-radius:20px; padding:40px 36px; border-top:5px solid var(--accent);
+      box-shadow:0 16px 44px color-mix(in srgb, var(--accent-deep) 12%, transparent); }
+    .form-card .lead { text-align:center; font-size:20px; font-weight:800; margin:0 0 6px; color:var(--accent-ink); }
+    .form-card .note { text-align:center; font-size:13px; color:var(--muted); margin:0 0 24px; }
+    form p { margin:0 0 15px; }
+    form label { font-weight:700; font-size:13.5px; display:block; margin-bottom:5px; }
+    form input[type=text], form input[type=email], form input[type=tel], form select, form textarea {
+      width:100%; padding:13px 14px; border:1.5px solid var(--accent-line); border-radius:10px; font-size:14px;
+      font-family:inherit; transition:border-color .15s, box-shadow .15s; }
+    form input:focus, form select:focus, form textarea:focus { outline:none; border-color:var(--accent);
+      box-shadow:0 0 0 3px var(--accent-soft); }
+    form textarea { min-height:110px; resize:vertical; }
+    .submit input, form button { width:100%; border:0; cursor:pointer; color:#fff; font-weight:800; font-size:16px;
+      padding:16px; border-radius:999px; font-family:inherit;
+      background:linear-gradient(135deg, var(--accent), var(--accent-dark));
+      box-shadow:0 10px 26px color-mix(in srgb, var(--accent) 40%, transparent); }
+    form .row { display:flex; gap:14px; }
+    form .row > * { flex:1; }
+    @media (max-width:480px){ form .row { flex-direction:column; gap:0; } }
+
+    .foot { text-align:center; color:var(--muted); font-size:12px; margin-top:28px; }
+    @media (max-width:680px){
+      .ticket { grid-template-columns:1fr; }
+      .ticket::before { left:0; right:0; top:auto; bottom:118px; width:auto; height:18px;
+        background-image:radial-gradient(circle 5px at 8px 50%, var(--accent-tint) 98%, transparent);
+        background-size:24px 18px; background-repeat:repeat-x; }
+      .stub { padding:26px 20px; }
+      .stub .day { font-size:48px; }
+      .body { padding:28px 24px; }
+      .tl-card, .form-card { padding:28px 22px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="evt-head">
+      <span class="evt-kicker">EVENT INFORMATION</span>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </header>
+
+    <section class="ticket">
+      <div class="stub">
+        <span class="mon">2026 / 7</span>
+        <span class="day">18</span>
+        <span class="dow">SAT</span>
+      </div>
+      <div class="body">
+        <h2>開催概要</h2>
+        <ul class="meta">
+          <li><span class="k">時間</span><span>14:00 〜 16:30（開場 13:30）</span></li>
+          <li><span class="k">会場</span><span>本社セミナールーム ほか オンライン同時配信</span></li>
+          <li><span class="k">参加費</span><span>無料（事前申込制・先着順）</span></li>
+        </ul>
+        <a class="btn" href="#entry">%%cta%%</a>
+      </div>
+    </section>
+
+    <section class="tl-card">
+      <h2>当日のスケジュール</h2>
+      <ul class="tl">
+        <li><span class="tm">14:00</span>オープニング・ごあいさつ</li>
+        <li><span class="tm">14:15</span>セッション「最新事例のご紹介」</li>
+        <li><span class="tm">15:30</span>質疑応答・個別相談タイム</li>
+        <li><span class="tm">16:30</span>閉会</li>
+      </ul>
+    </section>
+
+    <section class="form-card" id="entry">
+      <p class="lead">参加お申し込み</p>
+      <p class="note">下記フォームよりお申し込みください。受付完了メールをお送りします。</p>
+      %%content%%
+    </section>
+
+    <p class="foot">定員に達し次第、受付を終了させていただきます。お早めにお申し込みください。</p>
+  </div>
+</body>
+</html>

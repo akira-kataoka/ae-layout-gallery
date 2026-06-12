@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root {
+      --accent:#0ea5b5;
+      --accent-deep: color-mix(in srgb, var(--accent) 68%, #000);
+      --accent-dark: color-mix(in srgb, var(--accent) 84%, #000);
+      --accent-soft: color-mix(in srgb, var(--accent) 12%, #fff);
+      --accent-tint: color-mix(in srgb, var(--accent) 6%, #fff);
+      --accent-line: color-mix(in srgb, var(--accent) 22%, #fff);
+      --accent-ink:  color-mix(in srgb, var(--accent) 55%, #000);
+      --ink:#1d262b; --muted:#5e6b71;
+    }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); line-height:1.85;
+      background:
+        radial-gradient(640px 420px at 50% -10%, var(--accent-soft), transparent),
+        var(--accent-tint);
+      min-height:100vh; }
+
+    .wrap { max-width:580px; margin:0 auto; padding:64px 20px 72px; text-align:center; }
+
+    /* confetti dots */
+    .confetti { position:relative; height:0; }
+    .confetti i { position:absolute; width:9px; height:9px; border-radius:2px; opacity:0;
+      animation:drop 2.4s ease-out infinite; }
+    .confetti i:nth-child(1){ left:12%; background:var(--accent); animation-delay:.1s; }
+    .confetti i:nth-child(2){ left:30%; background:color-mix(in srgb, var(--accent) 60%, #fff); animation-delay:.6s; }
+    .confetti i:nth-child(3){ left:50%; background:color-mix(in srgb, var(--accent) 75%, #000); animation-delay:.3s; }
+    .confetti i:nth-child(4){ left:70%; background:color-mix(in srgb, var(--accent) 45%, #fff); animation-delay:.9s; }
+    .confetti i:nth-child(5){ left:88%; background:var(--accent); animation-delay:.45s; }
+    @keyframes drop {
+      0%   { transform:translateY(-10px) rotate(0deg); opacity:0; }
+      15%  { opacity:1; }
+      100% { transform:translateY(150px) rotate(300deg); opacity:0; }
+    }
+
+    /* check mark */
+    .mark { width:96px; height:96px; margin:8px auto 26px; border-radius:50%; position:relative;
+      background:linear-gradient(135deg, var(--accent), var(--accent-dark));
+      box-shadow:0 16px 38px color-mix(in srgb, var(--accent) 42%, transparent);
+      animation:pop .55s cubic-bezier(.34,1.56,.64,1) both; }
+    .mark::before { content:""; position:absolute; inset:-9px; border-radius:50%;
+      border:2px solid var(--accent-line); animation:ring 2.2s ease-out infinite; }
+    .mark::after { content:""; position:absolute; left:30px; top:46px; width:18px; height:32px;
+      border:solid #fff; border-width:0 6px 6px 0; border-radius:2px;
+      transform:rotate(45deg) translate(-4px, -8px); }
+    @keyframes pop { from { transform:scale(.4); opacity:0; } to { transform:scale(1); opacity:1; } }
+    @keyframes ring { 0% { transform:scale(1); opacity:.9; } 100% { transform:scale(1.45); opacity:0; } }
+
+    h1 { font-size:clamp(24px, 5vw, 32px); margin:0 0 12px; color:var(--accent-ink); font-weight:800; }
+    .desc { color:var(--muted); margin:0 0 34px; font-size:15.5px; }
+
+    /* next steps */
+    .next { background:#fff; border-radius:18px; padding:30px 28px; text-align:left; margin-bottom:30px;
+      border:1px solid var(--accent-line);
+      box-shadow:0 14px 36px color-mix(in srgb, var(--accent-deep) 10%, transparent); }
+    .next h2 { margin:0 0 16px; font-size:15px; letter-spacing:.06em; color:var(--accent-deep); }
+    .next ol { list-style:none; margin:0; padding:0; counter-reset:n; }
+    .next li { counter-increment:n; display:flex; gap:14px; align-items:flex-start; padding:11px 0;
+      border-bottom:1px dashed var(--accent-line); font-size:14px; }
+    .next li:last-child { border-bottom:0; }
+    .next li::before { content:counter(n); flex:none; width:26px; height:26px; border-radius:50%;
+      background:var(--accent-soft); color:var(--accent-deep); font-weight:800; font-size:13px;
+      display:grid; place-items:center; margin-top:2px; }
+
+    .extra { background:#fff; border-radius:18px; padding:30px 28px; text-align:left; margin-bottom:34px;
+      border-top:4px solid var(--accent);
+      box-shadow:0 14px 36px color-mix(in srgb, var(--accent-deep) 10%, transparent); }
+    .extra .t { margin:0 0 16px; font-weight:800; font-size:15px; color:var(--accent-ink); text-align:center; }
+    form p { margin:0 0 14px; }
+    form label { font-weight:700; font-size:13px; display:block; margin-bottom:4px; }
+    form input[type=text], form input[type=email], form input[type=tel], form select, form textarea {
+      width:100%; padding:12px 13px; border:1.5px solid var(--accent-line); border-radius:10px; font-size:14px;
+      font-family:inherit; transition:border-color .15s, box-shadow .15s; }
+    form input:focus, form select:focus, form textarea:focus { outline:none; border-color:var(--accent);
+      box-shadow:0 0 0 3px var(--accent-soft); }
+    form textarea { min-height:100px; resize:vertical; }
+    .submit input, form button { width:100%; border:0; cursor:pointer; color:#fff; font-weight:800; font-size:15px;
+      padding:15px; border-radius:999px; font-family:inherit;
+      background:linear-gradient(135deg, var(--accent), var(--accent-dark));
+      box-shadow:0 10px 24px color-mix(in srgb, var(--accent) 38%, transparent); }
+    form .row { display:flex; gap:12px; }
+    form .row > * { flex:1; }
+    @media (max-width:480px){ form .row { flex-direction:column; gap:0; } }
+
+    .btn { display:inline-block; color:#fff; font-weight:800; font-size:15.5px; padding:15px 48px;
+      border-radius:999px; text-decoration:none; cursor:pointer;
+      background:linear-gradient(135deg, var(--accent), var(--accent-dark));
+      box-shadow:0 12px 28px color-mix(in srgb, var(--accent) 40%, transparent); }
+    .foot { color:var(--muted); font-size:12px; margin-top:30px; }
+    @media (max-width:520px){ .next, .extra { padding:24px 18px; } .wrap { padding-top:48px; } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="confetti"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="mark"></div>
+    <h1>%%title%%</h1>
+    <p class="desc">%%description%%</p>
+
+    <section class="next">
+      <h2>このあとの流れ</h2>
+      <ol>
+        <li>ご登録のメールアドレス宛に、確認メールをお送りしました。</li>
+        <li>担当者が内容を確認し、2営業日以内にご連絡いたします。</li>
+        <li>メールが届かない場合は、迷惑メールフォルダもご確認ください。</li>
+      </ol>
+    </section>
+
+    <section class="extra">
+      <p class="t">よろしければアンケートにご協力ください</p>
+      %%content%%
+    </section>
+
+    <a class="btn" href="#">%%cta%%</a>
+    <p class="foot">本メールに心当たりがない場合は、お手数ですが破棄してください。</p>
+  </div>
+</body>
+</html>

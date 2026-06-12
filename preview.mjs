@@ -2390,6 +2390,19 @@ const INSTALLER_README = `# Account Engagement レイアウトテンプレート
 詳細は各 templates/<NN-xxx>/meta.json と install.mjs 冒頭のコメントを参照してください。
 `;
 
+// ---- かんたん作成ビルダー用ベースデザイン ------------------------------
+const BUILDER_DIR = join(__dirname, "builder-bases");
+const builderBases = [];
+if (existsSync(BUILDER_DIR)) {
+  for (const id of readdirSync(BUILDER_DIR).sort()) {
+    const bh = join(BUILDER_DIR, id, "base.html");
+    const bm = join(BUILDER_DIR, id, "meta.json");
+    if (!existsSync(bh) || !existsSync(bm)) continue;
+    const m = JSON.parse(readFileSync(bm, "utf8"));
+    builderBases.push({ id, name: m.name || id, category: m.category || "landing", blurb: m.blurb || "", html: readFileSync(bh, "utf8") });
+  }
+}
+
 const galleryData = {
   templates: items.map((it) => ({
     dir: it.dir,
@@ -2403,6 +2416,7 @@ const galleryData = {
     sampleContent: it.sampleContent,
     accent: it.accent,
   })),
+  builderBases,
   installer: installerFiles,
   installerReadme: INSTALLER_README,
 };
@@ -2714,6 +2728,46 @@ const indexHtml = `<!DOCTYPE html>
   :root[data-theme="dark"] .modal-cust{ background:rgba(99,102,241,.09); }
   :root[data-theme="dark"] .modal-cust .cc-text{ background:#101a33; color:#e2e8f0; border-color:#2a3756; }
   :root[data-theme="dark"] .modal-cust .cc-btn.ghost{ background:#101a33; }
+  /* --- ヒーローCTA（かんたん作成） --- */
+  .hero-cta{ margin-top:18px; position:relative; }
+  .hero-btn{ border:0; background:#fff; color:var(--brand); font-weight:800; font-size:14px; padding:13px 22px; border-radius:12px; cursor:pointer; box-shadow:0 10px 28px -8px rgba(0,0,0,.5); transition:transform .15s var(--ease), box-shadow .2s; }
+  .hero-btn:hover{ transform:translateY(-2px); box-shadow:0 16px 34px -8px rgba(0,0,0,.55); }
+  @media (max-width:520px){ .hero-btn{ width:100%; } }
+  /* --- かんたん作成ビルダー --- */
+  .builder{ position:fixed; inset:0; z-index:60; background:var(--bg); display:flex; flex-direction:column; animation:fadeIn .2s ease both; }
+  .bd-head{ display:flex; align-items:center; gap:10px; padding:14px 18px; border-bottom:1px solid var(--line); background:var(--card); flex:0 0 auto; }
+  .bd-head strong{ font-size:16px; } .bd-head .bd-sub{ font-size:12px; color:var(--muted); }
+  .bd-x{ margin-left:auto; width:36px; height:36px; border-radius:50%; border:1px solid var(--line); background:var(--card); color:var(--ink); font-size:16px; cursor:pointer; }
+  .bd-x:hover{ background:#ef4444; color:#fff; border-color:#ef4444; }
+  .bd-body{ flex:1; overflow:auto; display:flex; flex-direction:column; }
+  .bd-controls{ padding:16px 18px; display:flex; flex-direction:column; gap:18px; }
+  .bd-sec .bd-lab{ font-size:13px; font-weight:800; color:var(--ink); margin-bottom:9px; }
+  .bd-bases{ display:flex; gap:10px; overflow-x:auto; padding-bottom:6px; }
+  .bd-base{ flex:0 0 auto; width:118px; border:2px solid var(--line); border-radius:11px; overflow:hidden; background:#fff; cursor:pointer; padding:0; }
+  .bd-base.on{ border-color:var(--brand); box-shadow:0 6px 16px -4px rgba(79,70,229,.4); }
+  .bd-base .bthumb{ width:118px; height:84px; overflow:hidden; background:#fff; pointer-events:none; }
+  .bd-base .bthumb iframe{ width:1180px; height:840px; border:0; transform:scale(0.1); transform-origin:top left; }
+  .bd-base .bname{ font-size:10.5px; font-weight:700; padding:5px 6px; color:var(--ink); text-align:center; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .bd-palette{ display:flex; gap:8px; flex-wrap:wrap; margin-bottom:8px; }
+  .bd-sw{ width:30px; height:30px; border-radius:50%; border:2px solid rgba(0,0,0,.08); cursor:pointer; box-shadow:0 2px 6px rgba(0,0,0,.15); }
+  .bd-sw.on{ outline:2px solid var(--brand); outline-offset:2px; }
+  .bd-customc{ font-size:12px; color:var(--muted); display:inline-flex; align-items:center; gap:7px; }
+  .bd-customc input[type=color]{ width:32px; height:28px; padding:0; border:1px solid var(--line); border-radius:7px; background:none; cursor:pointer; }
+  .bd-input{ width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; background:var(--card); color:var(--ink); margin-bottom:9px; }
+  .bd-dl{ width:100%; border:0; background:var(--grad-brand); color:#fff; font-weight:800; font-size:15px; padding:15px; border-radius:11px; cursor:pointer; box-shadow:0 10px 26px -8px rgba(79,70,229,.6); }
+  .bd-hint{ font-size:12px; color:var(--muted); margin:10px 0 0; line-height:1.7; }
+  .bd-hint code{ background:rgba(99,102,241,.12); color:var(--brand); padding:1px 6px; border-radius:5px; font:12px ui-monospace,Menlo,Consolas,monospace; }
+  .bd-preview{ background:#dfe3ee; padding:16px; display:flex; justify-content:center; }
+  .bd-frame-wrap{ width:100%; max-width:430px; aspect-ratio:430/720; background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 14px 40px -10px rgba(7,11,29,.4); }
+  .bd-frame-wrap iframe{ width:100%; height:100%; border:0; }
+  :root[data-theme="dark"] .bd-preview{ background:#0a0f1e; }
+  :root[data-theme="dark"] .bd-base{ background:#101a33; }
+  @media (min-width:861px){
+    .bd-body{ flex-direction:row; }
+    .bd-controls{ width:420px; flex:0 0 420px; overflow:auto; }
+    .bd-preview{ flex:1; align-items:flex-start; overflow:auto; }
+    .bd-frame-wrap{ position:sticky; top:0; }
+  }
   .modal-body{ flex:1; overflow:auto; background:#eef1f8; }
   .m-preview{ height:100%; display:flex; justify-content:center; }
   .m-preview[hidden]{ display:none; }
@@ -2822,6 +2876,7 @@ const indexHtml = `<!DOCTYPE html>
   <h1>Account Engagement レイアウトテンプレート ギャラリー</h1>
   <p>Account Engagement (Pardot) 向けのレスポンシブなレイアウトテンプレート集（全 ${items.length} パターン）。気に入ったテンプレをコピー＆貼り付け、または選択して API で一括登録できます。</p>
   <div class="chips"><span class="chip">クリックで拡大プレビュー</span><span class="chip">チェックで選択</span><span class="chip">%%content%% 差込済みのサンプル表示</span></div>
+  <div class="hero-cta"><button class="hero-btn" id="openBuilder" type="button">✨ かんたんテンプレ作成 — 色と文言を選ぶだけ（スマホ対応）</button></div>
 </div></header>
 
 <div class="toolbar"><div class="in">
@@ -2885,6 +2940,38 @@ const indexHtml = `<!DOCTYPE html>
 ${sections}  <div class="empty" id="empty">該当するテンプレートがありません。</div>
 </div>
 <footer>Account Engagement Layout Templates · ${items.length} patterns</footer>
+
+<div class="builder" id="builder" hidden>
+  <div class="bd-head">
+    <strong>✨ かんたんテンプレ作成</strong>
+    <span class="bd-sub">色と文言を選ぶだけ</span>
+    <button class="bd-x" id="bd-close" type="button" title="閉じる">✕</button>
+  </div>
+  <div class="bd-body">
+    <div class="bd-controls">
+      <div class="bd-sec">
+        <div class="bd-lab">1. デザインを選ぶ</div>
+        <div class="bd-bases" id="bd-bases"></div>
+      </div>
+      <div class="bd-sec">
+        <div class="bd-lab">2. メインカラー</div>
+        <div class="bd-palette" id="bd-palette"></div>
+        <label class="bd-customc">カスタム色 <input type="color" id="bd-color" value="#4f46e5"></label>
+      </div>
+      <div class="bd-sec">
+        <div class="bd-lab">3. 文言を入れる</div>
+        <input type="text" id="bd-title" class="bd-input" placeholder="見出し（大きく表示される文）">
+        <input type="text" id="bd-desc" class="bd-input" placeholder="説明・サブ見出し">
+        <input type="text" id="bd-cta" class="bd-input" placeholder="ボタンの文言（例: 今すぐ申し込む）">
+      </div>
+      <div class="bd-actions">
+        <button class="bd-dl" id="bd-dl" type="button">⬇ AEレイアウトをダウンロード</button>
+        <p class="bd-hint">💡 <code>%%content%%</code> の位置に Account Engagement のフォームが入ります。色と文言はデザインに反映されます。</p>
+      </div>
+    </div>
+    <div class="bd-preview"><div class="bd-frame-wrap"><iframe id="bd-frame" title="preview"></iframe></div></div>
+  </div>
+</div>
 
 <div class="modal" id="modal" hidden>
   <div class="modal-bg" data-close></div>
@@ -3033,6 +3120,60 @@ function closeModal(){ modal.hidden=true; mFrame.srcdoc=""; }
 [ccColor, ccTitle, ccDesc].forEach(el=> el.addEventListener("input", renderCustom));
 $("#cc-reset").addEventListener("click", ()=>{ const t=byDir[curDir]; if(!t) return; ccColor.value=toHex(t.accent)||"#4f46e5"; ccTitle.value=t.sampleTitle||""; ccDesc.value=t.sampleDesc||""; renderCustom(); });
 $("#cc-dl").addEventListener("click", ()=>{ const t=byDir[curDir]; if(!t) return; saveBlob(new Blob([buildCustomHtml(t, ccColor.value, ccTitle.value, ccDesc.value)],{type:"text/html"}), curDir+"-custom.html"); toast(curDir+"-custom.html を保存しました"); });
+
+/* === かんたん作成ビルダー（色と文言を選ぶだけ・スマホ対応） === */
+const bdBases = (G.builderBases || []);
+const BD_PALETTE = ["#4f46e5","#0d9488","#e11d48","#ea580c","#0369a1","#7c3aed","#15803d","#b45309","#db2777","#0891b2","#111827"];
+const BD_SAMPLE_FORM = '<form><p><label>お名前</label><br><input type="text" value="山田 太郎"></p><p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p><p class="submit"><input type="submit" value="送信する"></p></form>';
+let bdState = { id: bdBases.length?bdBases[0].id:"", color:"#4f46e5", title:"あなたの見出しをここに", desc:"サービスやキャンペーンの説明をここに入力します。", cta:"今すぐ申し込む" };
+function bdBase(id){ return bdBases.find(b=>b.id===id) || bdBases[0]; }
+function bdBuild(base, color, title, desc, cta, forPreview){
+  if(!base) return "";
+  let h = base.html.replace(/%%title%%/g, ccEsc(title)).replace(/%%description%%/g, ccEsc(desc)).replace(/%%cta%%/g, ccEsc(cta));
+  if(forPreview){ h = h.replace(/%%content%%/g, BD_SAMPLE_FORM).replace(/%%[a-z0-9-]+%%/gi, ""); }
+  if(color){ const inj = '<style id="bd-cc">:root{--accent:'+color+' !important}</style>'; h = h.indexOf("</head>")>=0 ? h.replace("</head>", inj+"</head>") : inj+h; }
+  return h;
+}
+function bdRender(){ const f=$("#bd-frame"); if(!f) return; f.srcdoc = bdBuild(bdBase(bdState.id), bdState.color, bdState.title, bdState.desc, bdState.cta, true); }
+function bdBuildBases(){
+  const wrap=$("#bd-bases"); if(!wrap) return; wrap.textContent="";
+  bdBases.forEach(b=>{
+    const card=document.createElement("button"); card.type="button"; card.className="bd-base"+(b.id===bdState.id?" on":""); card.dataset.bid=b.id;
+    const th=document.createElement("div"); th.className="bthumb";
+    const ifr=document.createElement("iframe"); ifr.tabIndex=-1; ifr.setAttribute("title", b.name);
+    ifr.srcdoc = bdBuild(b, bdState.color, b.name, "サンプルの説明文です。", "ボタン", true);
+    th.appendChild(ifr);
+    const nm=document.createElement("div"); nm.className="bname"; nm.textContent=b.name;
+    card.appendChild(th); card.appendChild(nm);
+    card.addEventListener("click", ()=>{ bdState.id=b.id; $$(".bd-base").forEach(x=>x.classList.toggle("on", x.dataset.bid===b.id)); bdRender(); });
+    wrap.appendChild(card);
+  });
+}
+function bdBuildPalette(){
+  const wrap=$("#bd-palette"); if(!wrap) return; wrap.textContent="";
+  BD_PALETTE.forEach(c=>{
+    const sw=document.createElement("button"); sw.type="button"; sw.className="bd-sw"+(c===bdState.color?" on":""); sw.style.background=c; sw.dataset.c=c; sw.setAttribute("aria-label", c);
+    sw.addEventListener("click", ()=>{ bdState.color=c; $("#bd-color").value=c; $$(".bd-sw").forEach(x=>x.classList.toggle("on", x.dataset.c===c)); bdRender(); });
+    wrap.appendChild(sw);
+  });
+}
+function openBuilder(){
+  if(!bdBases.length){ toast("ベースデザインが見つかりません"); return; }
+  $("#bd-title").value=bdState.title; $("#bd-desc").value=bdState.desc; $("#bd-cta").value=bdState.cta; $("#bd-color").value=toHex(bdState.color)||bdState.color;
+  bdBuildBases(); bdBuildPalette(); bdRender();
+  $("#builder").hidden=false; document.body.style.overflow="hidden";
+}
+function closeBuilder(){ $("#builder").hidden=true; document.body.style.overflow=""; const f=$("#bd-frame"); if(f) f.srcdoc=""; }
+(function bindBuilder(){
+  const ob=$("#openBuilder"); if(ob) ob.addEventListener("click", openBuilder);
+  const cb=$("#bd-close"); if(cb) cb.addEventListener("click", closeBuilder);
+  const ti=$("#bd-title"), de=$("#bd-desc"), ct=$("#bd-cta"), co=$("#bd-color");
+  if(ti) ti.addEventListener("input", ()=>{ bdState.title=ti.value; bdRender(); });
+  if(de) de.addEventListener("input", ()=>{ bdState.desc=de.value; bdRender(); });
+  if(ct) ct.addEventListener("input", ()=>{ bdState.cta=ct.value; bdRender(); });
+  if(co) co.addEventListener("input", ()=>{ bdState.color=co.value; $$(".bd-sw").forEach(x=>x.classList.remove("on")); bdRender(); });
+  const dl=$("#bd-dl"); if(dl) dl.addEventListener("click", ()=>{ const b=bdBase(bdState.id); if(!b) return; saveBlob(new Blob([bdBuild(b, bdState.color, bdState.title, bdState.desc, bdState.cta, false)],{type:"text/html"}), "mytemplate-"+b.id+".html"); toast("テンプレートをダウンロードしました"); });
+})();
 function navModal(delta){ if(modal.hidden) return; const list=visibleDirs(); if(!list.length) return; let i=list.indexOf(curDir); if(i<0) i=0; const ni=(i+delta+list.length)%list.length; openModal(list[ni], $(".m-code").hidden?"preview":"code"); }
 (function initHowto(){
   const ht=$("#howto"), btn=$("#howtoToggle"); if(!ht||!btn) return;
