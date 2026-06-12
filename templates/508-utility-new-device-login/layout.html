@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#2563eb; --warn:#e11d48; --ink:#16203a; --muted:#646e8c; --line:#e2e7f3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f3f5fb; line-height:1.7; }
+    .ae-wrap { max-width:480px; margin:0 auto; padding:54px 20px; }
+    .ae-head { text-align:center; margin-bottom:22px; }
+    .ae-head .ic { width:74px; height:74px; border-radius:50%; background:linear-gradient(135deg,#60a5fa,#2563eb); color:#fff; display:flex; align-items:center; justify-content:center; font-size:34px; margin:0 auto 16px; box-shadow:0 14px 32px rgba(37,99,235,.26); }
+    .ae-head h1 { font-size:23px; margin:0 0 6px; }
+    .ae-head p { color:var(--muted); margin:0; font-size:14px; }
+    .ae-detail { background:#fff; border:1px solid var(--line); border-radius:16px; padding:18px 20px; margin-bottom:18px; box-shadow:0 8px 22px rgba(37,99,235,.05); }
+    .ae-d { display:flex; gap:12px; align-items:center; padding:10px 0; border-top:1px solid var(--line); font-size:14px; }
+    .ae-d:first-child { border-top:0; } .ae-d .ic { width:36px; height:36px; border-radius:10px; background:#eef2ff; display:flex; align-items:center; justify-content:center; font-size:18px; flex:0 0 auto; }
+    .ae-d .k { font-size:12px; color:var(--muted); } .ae-d .v { font-weight:700; }
+    .ae-alert { background:#fff1f2; border:1px solid #fecdd3; border-radius:14px; padding:14px 16px; margin-bottom:18px; font-size:13px; color:#9f1239; display:flex; gap:10px; align-items:flex-start; }
+    .ae-alert .e { font-size:18px; flex:0 0 auto; }
+    .ae-btn { display:block; background:var(--warn); color:#fff; text-decoration:none; text-align:center; padding:14px; border-radius:11px; font-weight:800; font-size:15px; margin-bottom:14px; box-shadow:0 10px 24px rgba(225,29,72,.25); }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; }
+    .ae-card .t { font-weight:700; margin-bottom:4px; } .ae-card .s { font-size:13px; color:var(--muted); margin-bottom:14px; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head">
+      <div class="ic">🔐</div>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-detail">
+      <div class="ae-d"><div class="ic">📱</div><div><div class="k">デバイス</div><div class="v">iPhone（Safari）</div></div></div>
+      <div class="ae-d"><div class="ic">📍</div><div><div class="k">おおよその場所</div><div class="v">東京都・日本</div></div></div>
+      <div class="ae-d"><div class="ic">🕐</div><div><div class="k">日時</div><div class="v">2026年7月12日 21:34</div></div></div>
+    </div>
+    <div class="ae-alert">
+      <span class="e">⚠️</span>
+      <span>このログインに心当たりがない場合は、ただちにパスワードを変更し、サポートまでご連絡ください。</span>
+    </div>
+    <a class="ae-btn" href="#">これは自分ではない（アカウントを保護）</a>
+    <div class="ae-card">
+      <div class="t">セキュリティに関するお知らせを受け取る</div>
+      <div class="s">不審なアクティビティをいち早くお届けします</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

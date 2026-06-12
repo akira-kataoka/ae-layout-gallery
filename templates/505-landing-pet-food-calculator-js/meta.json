@@ -1,0 +1,8 @@
+{
+  "name": "LP - ペット給餌量計算機 (JS)",
+  "category": "landing",
+  "description": "犬・猫の種別と体重・活動量から1日に必要なフードの量とエネルギー量(RER/DER)をリアルタイム算出するインタラクティブLP。朝夕2回の1食あたりも提示。ペットフード/ペット用品/動物病院サービスの登録へ誘導。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "うちの子、フードは1日どれくらい？",
+  "previewDescription": "体重と活動量を選ぶだけ。1日に必要なフードの量とカロリーを計算します。"
+}

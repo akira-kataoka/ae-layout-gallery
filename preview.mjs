@@ -300,6 +300,14 @@ const TAX_CONSULT_FORM = `<form>
   <p class="submit"><input type="submit" value="無料相談を予約する"></p>
 </form>`;
 
+const KIMONO_FORM = `<form>
+  <p><label>ご希望プラン</label><br><select><option selected>観光・街歩き着物</option><option>浴衣（夏季）</option><option>卒業袴</option><option>カップルプラン</option><option>相談して決めたい</option></select></p>
+  <div class="row"><p><label>ご利用日</label><br><input type="date" value="2026-08-15"></p><p><label>人数</label><br><select><option selected>1名</option><option>2名</option><option>3名以上</option></select></p></div>
+  <p><label>お名前</label><br><input type="text" value="山田 花子"></p>
+  <div class="row"><p><label>メール</label><br><input type="email" value="hanako@example.com"></p><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p></div>
+  <p class="submit"><input type="submit" value="空き状況を確認して予約する"></p>
+</form>`;
+
 const CHIRO_FORM = `<form>
   <p><label>お悩みの部位</label><br><select><option selected>肩こり・首こり</option><option>腰痛・骨盤の歪み</option><option>頭痛・自律神経の不調</option><option>姿勢改善・全身</option><option>その他・相談</option></select></p>
   <div class="row"><p><label>ご希望日</label><br><input type="date" value="2026-07-28"></p><p><label>希望時間帯</label><br><select><option selected>午前</option><option>午後</option><option>夕方以降</option></select></p></div>
@@ -2299,6 +2307,10 @@ function contentFor(dir, category) {
     case "502-form-chiropractic": return CHIRO_FORM;
     case "503-event-silent-disco": return RSVP_FORM;
     case "504-utility-low-balance": return NEWSLETTER_FORM;
+    case "505-landing-pet-food-calculator-js": return NEWSLETTER_FORM;
+    case "506-form-kimono-rental": return KIMONO_FORM;
+    case "507-event-autumn-leaves": return RSVP_FORM;
+    case "508-utility-new-device-login": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;
