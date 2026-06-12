@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#65a30d; --brown:#a16207; --ink:#22300f; --muted:#5f7048; --line:#e0ead0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f4f9ea; line-height:1.7; }
+    .ae-wrap { max-width:600px; margin:0 auto; padding:46px 20px; }
+    .ae-hero { background:linear-gradient(150deg,#a3e635,#65a30d 60%,#4d7c0f); color:#fff; border-radius:20px; padding:34px 24px; text-align:center; position:relative; overflow:hidden; box-shadow:0 18px 40px rgba(101,163,13,.24); }
+    .ae-hero::after { content:"🐑 🐰 🐐 🐹 🐥 🐑 🐰 🐐"; position:absolute; bottom:10px; left:0; right:0; font-size:15px; letter-spacing:4px; opacity:.4; }
+    .ae-hero .em { font-size:44px; margin-bottom:2px; }
+    .ae-hero h1 { font-size:28px; margin:0 0 8px; }
+    .ae-hero p { margin:0; opacity:.95; font-size:14px; }
+    .ae-info { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:22px 0; }
+    .ae-i { background:#fff; border:1px solid var(--line); border-radius:14px; padding:15px 10px; text-align:center; }
+    .ae-i .ic { font-size:22px; } .ae-i .k { font-size:11px; color:var(--muted); } .ae-i .v { font-weight:800; font-size:13px; }
+    .ae-fun { background:#fff; border:1px solid var(--line); border-radius:16px; padding:20px 22px; margin-bottom:22px; }
+    .ae-fun .t { font-weight:700; font-size:14px; margin-bottom:12px; }
+    .ae-fun .g { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
+    .ae-f { display:flex; gap:9px; align-items:center; font-size:13px; }
+    .ae-f .e { font-size:18px; }
+    .ae-card { background:#fff; border:2px solid var(--accent); border-radius:18px; padding:26px; }
+    .ae-card .t { font-weight:700; font-size:18px; margin-bottom:4px; text-align:center; }
+    .ae-card .d { color:var(--muted); font-size:13px; margin-bottom:16px; text-align:center; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:15px; border-radius:9px; font-weight:800; font-size:15px; cursor:pointer; }
+    @media (max-width:480px){ .ae-info { grid-template-columns:1fr; } .ae-fun .g { grid-template-columns:1fr; } .ae-hero h1 { font-size:23px; } }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-hero">
+      <div class="em">🐑</div>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-info">
+      <div class="ae-i"><div class="ic">📅</div><div class="k">開催</div><div class="v">10.11–10.12 10:00–16:00</div></div>
+      <div class="ae-i"><div class="ic">📍</div><div class="k">会場</div><div class="v">みどり公園 多目的広場</div></div>
+      <div class="ae-i"><div class="ic">🎟️</div><div class="k">入場</div><div class="v">無料（一部体験は有料）</div></div>
+    </div>
+    <div class="ae-fun">
+      <div class="t">ふれあい体験</div>
+      <div class="g">
+        <div class="ae-f"><span class="e">🐰</span> うさぎ・モルモットだっこ</div>
+        <div class="ae-f"><span class="e">🐐</span> ヤギ・ひつじのエサやり</div>
+        <div class="ae-f"><span class="e">🐎</span> ポニー乗馬体験</div>
+        <div class="ae-f"><span class="e">🥛</span> 乳しぼり＆バター作り</div>
+      </div>
+    </div>
+    <div class="ae-card">
+      <div class="t">来場予約・体験枠の登録</div>
+      <div class="d">人気の体験は事前予約がおすすめ。雨天時の開催情報もお届けします</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

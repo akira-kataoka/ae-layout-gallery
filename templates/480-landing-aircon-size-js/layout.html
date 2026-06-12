@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0284c7; --ink:#0a2233; --muted:#56738a; --line:#d3e6f2; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#edf6fc; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:20px; }
+    .ae-head h1 { font-size:24px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; box-shadow:0 12px 32px rgba(2,132,199,.09); }
+    .ae-field { margin-bottom:18px; }
+    .ae-field label { font-weight:700; font-size:14px; display:flex; justify-content:space-between; margin-bottom:8px; }
+    .ae-field label .v { color:var(--accent); font-variant-numeric:tabular-nums; }
+    .ae-field input[type=range] { width:100%; accent-color:var(--accent); }
+    .ae-act { display:flex; gap:6px; background:#dceff8; border-radius:10px; padding:4px; }
+    .ae-act button { flex:1; border:0; background:transparent; padding:9px 4px; border-radius:8px; font-weight:700; font-size:12px; cursor:pointer; color:var(--muted); }
+    .ae-act button.on { background:#fff; color:var(--accent); box-shadow:0 2px 8px rgba(2,132,199,.18); }
+    .ae-out { background:linear-gradient(135deg,#0ea5e9,#0284c7); color:#fff; border-radius:14px; padding:24px; text-align:center; margin-top:18px; }
+    .ae-out .lab { font-size:13px; opacity:.9; } .ae-out .big { font-size:40px; font-weight:900; line-height:1.1; } .ae-out .big small { font-size:18px; } .ae-out .sub { font-size:13px; opacity:.95; margin-top:6px; }
+    .ae-row2 { display:flex; gap:8px; margin-top:14px; }
+    .ae-g { flex:1; background:rgba(255,255,255,.15); border-radius:10px; padding:10px 6px; }
+    .ae-g .k { font-size:11px; opacity:.9; } .ae-g .n { font-weight:800; }
+    .ae-note { font-size:11px; color:var(--muted); margin-top:12px; text-align:center; }
+    .ae-cta { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; margin-top:18px; }
+    .ae-cta .t { font-weight:700; margin-bottom:12px; }
+    .ae-cta form input[type=text],.ae-cta form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form .submit input,.ae-cta form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <div class="ae-field"><label>部屋の広さ <span class="v"><span id="vT">8</span> 畳</span></label>
+        <input type="range" id="t" min="4" max="30" step="1" value="8"></div>
+      <div class="ae-field"><label>お部屋の構造</label>
+        <div class="ae-act" id="st">
+          <button type="button" data-s="wood" class="on">木造和室</button>
+          <button type="button" data-s="steel">鉄筋・洋室</button>
+        </div></div>
+      <div class="ae-field"><label>設置環境</label>
+        <div class="ae-act" id="cond">
+          <button type="button" data-c="1" class="on">標準</button>
+          <button type="button" data-c="1.2">日当たり良好・最上階</button>
+        </div></div>
+      <div class="ae-out">
+        <div class="lab">おすすめのエアコン能力</div>
+        <div class="big"><span id="kw">2.2</span><small> kW</small></div>
+        <div class="sub">目安クラス：<span id="cls">6畳用</span></div>
+        <div class="ae-row2">
+          <div class="ae-g"><div class="k">適用の目安</div><div class="n"><span id="fit">木造〜6畳</span></div></div>
+          <div class="ae-g"><div class="k">年間電気代めやす</div><div class="n">¥<span id="cost">0</span></div></div>
+        </div>
+      </div>
+      <div class="ae-note">※ 一般的な目安です。天井高・断熱・窓の大きさで変わります。</div>
+    </div>
+    <div class="ae-cta">
+      <div class="t">エアコン選び・取付け・省エネのご相談はこちら</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var units = [
+      { kw: 2.2, w: 6, r: 9, cls: "6畳用", cost: 17000 },
+      { kw: 2.5, w: 8, r: 12, cls: "8畳用", cost: 20000 },
+      { kw: 2.8, w: 10, r: 15, cls: "10畳用", cost: 23000 },
+      { kw: 3.6, w: 13, r: 19, cls: "12畳用", cost: 30000 },
+      { kw: 4.0, w: 14, r: 23, cls: "14畳用", cost: 34000 },
+      { kw: 5.6, w: 18, r: 29, cls: "18畳用", cost: 47000 },
+      { kw: 7.1, w: 23, r: 35, cls: "23畳用", cost: 60000 }
+    ];
+    var t = document.getElementById("t"), vT = document.getElementById("vT");
+    var kwEl = document.getElementById("kw"), clsEl = document.getElementById("cls"), fitEl = document.getElementById("fit"), costEl = document.getElementById("cost");
+    var stBtns = Array.prototype.slice.call(document.querySelectorAll("#st button"));
+    var condBtns = Array.prototype.slice.call(document.querySelectorAll("#cond button"));
+    var structure = "wood", cond = 1;
+    function calc() {
+      var room = (parseInt(t.value, 10) || 0) * cond;
+      vT.textContent = parseInt(t.value, 10) || 0;
+      var pick = units[units.length - 1];
+      for (var i = 0; i < units.length; i++) {
+        var cap = structure === "wood" ? units[i].w : units[i].r;
+        if (cap >= room) { pick = units[i]; break; }
+      }
+      kwEl.textContent = pick.kw.toFixed(1);
+      clsEl.textContent = pick.cls;
+      fitEl.textContent = (structure === "wood" ? "木造〜" + pick.w : "鉄筋〜" + pick.r) + "畳";
+      costEl.textContent = pick.cost.toLocaleString();
+    }
+    t.addEventListener("input", calc);
+    stBtns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        stBtns.forEach(function (x) { x.classList.remove("on"); });
+        b.classList.add("on"); structure = b.getAttribute("data-s"); calc();
+      });
+    });
+    condBtns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        condBtns.forEach(function (x) { x.classList.remove("on"); });
+        b.classList.add("on"); cond = parseFloat(b.getAttribute("data-c")); calc();
+      });
+    });
+    calc();
+  })();
+  </script>
+</body>
+</html>
