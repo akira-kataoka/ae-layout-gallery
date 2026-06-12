@@ -2333,13 +2333,16 @@ for (const dir of dirs) {
   const meta = JSON.parse(readFileSync(metaPath, "utf8"));
   const html = readFileSync(htmlPath, "utf8");
   const category = meta.category || "landing";
-  const rendered = render(html, {
-    title: meta.previewTitle ?? meta.name,
-    description: meta.previewDescription ?? meta.description,
-    content: meta.previewContent ?? contentFor(dir, category),
-  });
+  const tTitle = meta.previewTitle ?? meta.name;
+  const tDesc = meta.previewDescription ?? meta.description;
+  const tContent = meta.previewContent ?? contentFor(dir, category);
+  const rendered = render(html, { title: tTitle, description: tDesc, content: tContent });
   writeFileSync(join(OUT_DIR, `${dir}.html`), rendered, "utf8");
-  items.push({ dir, file: `${dir}.html`, name: meta.name, description: meta.description, category, meta, layout: html });
+  // 主役色(--accent)の既定値を layout から抽出（カスタマイザの初期値に使用）
+  const accentMatch = html.match(/--accent:\s*([^;}\s]+)/i);
+  const accent = accentMatch ? accentMatch[1].trim() : "";
+  items.push({ dir, file: `${dir}.html`, name: meta.name, description: meta.description, category, meta, layout: html,
+    sampleTitle: tTitle, sampleDesc: tDesc, sampleContent: tContent, accent });
 }
 
 // ---- ダウンロード用データ (data.js) --------------------------------------
@@ -2370,6 +2373,10 @@ const galleryData = {
     category: it.category,
     layout: it.layout,
     meta: it.meta,
+    sampleTitle: it.sampleTitle,
+    sampleDesc: it.sampleDesc,
+    sampleContent: it.sampleContent,
+    accent: it.accent,
   })),
   installer: installerFiles,
   installerReadme: INSTALLER_README,
@@ -2670,6 +2677,18 @@ const indexHtml = `<!DOCTYPE html>
   .modal-act.on{ background:var(--grad-brand); color:#fff; border-color:transparent; }
   :root[data-theme="dark"] .modal-act{ background:#1a2440; color:#cbd5e1; border-color:#2a3756; }
   :root[data-theme="dark"] .modal-nav{ background:#1a2440; color:#cbd5e1; border-color:#2a3756; }
+  .modal-cust{ display:flex; align-items:center; gap:10px; padding:9px 16px; border-bottom:1px solid var(--line); background:rgba(99,102,241,.04); flex-wrap:wrap; }
+  .modal-cust.hidden{ display:none; }
+  .modal-cust .cc-lab{ font-size:12px; font-weight:800; color:var(--brand); flex:0 0 auto; }
+  .modal-cust .cc-col{ display:inline-flex; align-items:center; gap:6px; font-size:12px; color:var(--muted); flex:0 0 auto; }
+  .modal-cust .cc-col input[type=color]{ width:30px; height:26px; padding:0; border:1px solid var(--line); border-radius:7px; background:none; cursor:pointer; }
+  .modal-cust .cc-text{ flex:1; min-width:120px; padding:7px 11px; border:1px solid var(--line); border-radius:8px; font-size:13px; background:var(--card); color:var(--ink); }
+  .modal-cust .cc-btn{ border:1px solid var(--brand); background:var(--brand); color:#fff; padding:7px 13px; border-radius:8px; font-size:12px; font-weight:700; cursor:pointer; flex:0 0 auto; }
+  .modal-cust .cc-btn.ghost{ background:#fff; color:var(--brand); }
+  .modal-cust .cc-btn:hover{ filter:brightness(1.05); }
+  :root[data-theme="dark"] .modal-cust{ background:rgba(99,102,241,.09); }
+  :root[data-theme="dark"] .modal-cust .cc-text{ background:#101a33; color:#e2e8f0; border-color:#2a3756; }
+  :root[data-theme="dark"] .modal-cust .cc-btn.ghost{ background:#101a33; }
   .modal-body{ flex:1; overflow:auto; background:#eef1f8; }
   .m-preview{ height:100%; display:flex; justify-content:center; }
   .m-preview[hidden]{ display:none; }
@@ -2856,6 +2875,14 @@ ${sections}  <div class="empty" id="empty">該当するテンプレートがあ�
       <button class="modal-act" id="m-dlhead" title="このHTMLをダウンロード">⬇ HTML</button>
       <button class="modal-x" data-close title="閉じる">✕</button>
     </div>
+    <div class="modal-cust" id="m-cust">
+      <span class="cc-lab">🎨 カスタマイズ</span>
+      <label class="cc-col"><input type="color" id="cc-color" value="#4f46e5"><span>メインカラー</span></label>
+      <input type="text" id="cc-title" class="cc-text" placeholder="見出し（%%title%%）">
+      <input type="text" id="cc-desc" class="cc-text" placeholder="説明（%%description%%）">
+      <button class="cc-btn ghost" id="cc-reset" type="button">リセット</button>
+      <button class="cc-btn" id="cc-dl" type="button" title="表示中のカスタム版HTMLを保存">⬇ カスタム版</button>
+    </div>
     <div class="modal-body">
       <div class="m-preview"><iframe id="m-frame" title="preview"></iframe></div>
       <div class="m-code" hidden>
@@ -2952,14 +2979,35 @@ themeBtn.addEventListener("click",()=> setTheme(document.documentElement.getAttr
 // --- モーダル(ライトボックス) ---
 const modal=$("#modal"), mFrame=$("#m-frame"), mTitle=$("#m-title"), mCodeText=$("#m-code-text");
 let curDir=null;
-function setView(v){ $$("[data-view]").forEach(b=>b.classList.toggle("active",b.dataset.view===v)); $(".m-preview").hidden=(v!=="preview"); $(".m-code").hidden=(v!=="code"); }
+function setView(v){ $$("[data-view]").forEach(b=>b.classList.toggle("active",b.dataset.view===v)); $(".m-preview").hidden=(v!=="preview"); $(".m-code").hidden=(v!=="code"); const cust=$("#m-cust"); if(cust) cust.classList.toggle("hidden", v!=="preview"); }
 function setDev(d){ $$("[data-dev]").forEach(b=>b.classList.toggle("active",b.dataset.dev===d)); $(".m-preview").classList.toggle("mobile",d==="mobile"); }
 const mPos=$("#m-pos");
 function visibleDirs(){ return $$(".card:not(.hide)").map(c=>c.dataset.dir); }
 const mPick=$("#m-pick");
 function refreshPick(){ const on=sel.has(curDir); mPick.classList.toggle("on",on); mPick.textContent = on ? "✓ 選択中" : "＋ 選択"; }
-function openModal(dir,view){ const t=byDir[dir]; if(!t) return; curDir=dir; mTitle.textContent=t.name; mFrame.src=dir+".html"; mCodeText.textContent=t.layout; modal.hidden=false; setView(view||"preview"); setDev("desktop"); const list=visibleDirs(); const i=list.indexOf(dir); mPos.textContent = i>=0 ? (i+1)+" / "+list.length : ""; refreshPick(); }
-function closeModal(){ modal.hidden=true; mFrame.src="about:blank"; }
+const ccColor=$("#cc-color"), ccTitle=$("#cc-title"), ccDesc=$("#cc-desc");
+function ccEsc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+function toHex(c){ if(!c) return ""; c=c.trim().toLowerCase(); if(/^#[0-9a-f]{6}$/.test(c)) return c; const m=c.match(/^#([0-9a-f])([0-9a-f])([0-9a-f])$/); if(m) return "#"+m[1]+m[1]+m[2]+m[2]+m[3]+m[3]; return ""; }
+function buildCustomHtml(t, color, title, desc){
+  let html = t.layout
+    .replace(/%%title%%/g, ccEsc(title))
+    .replace(/%%description%%/g, ccEsc(desc))
+    .replace(/%%content%%/g, t.sampleContent || "")
+    .replace(/%%account-name%%/g, "サンプル株式会社")
+    .replace(/%%account-website%%/g, "https://example.com")
+    .replace(/%%[a-z0-9-]+%%/gi, "");
+  if(color){
+    const inject = '<style id="ae-cc">:root{--accent:'+color+' !important}</style>';
+    html = html.indexOf("</head>")>=0 ? html.replace("</head>", inject+"</head>") : inject+html;
+  }
+  return html;
+}
+function renderCustom(){ const t=byDir[curDir]; if(!t) return; mFrame.srcdoc = buildCustomHtml(t, ccColor.value, ccTitle.value, ccDesc.value); }
+function openModal(dir,view){ const t=byDir[dir]; if(!t) return; curDir=dir; mTitle.textContent=t.name; mCodeText.textContent=t.layout; ccColor.value=toHex(t.accent)||"#4f46e5"; ccTitle.value=t.sampleTitle||""; ccDesc.value=t.sampleDesc||""; renderCustom(); modal.hidden=false; setView(view||"preview"); setDev("desktop"); const list=visibleDirs(); const i=list.indexOf(dir); mPos.textContent = i>=0 ? (i+1)+" / "+list.length : ""; refreshPick(); }
+function closeModal(){ modal.hidden=true; mFrame.srcdoc=""; }
+[ccColor, ccTitle, ccDesc].forEach(el=> el.addEventListener("input", renderCustom));
+$("#cc-reset").addEventListener("click", ()=>{ const t=byDir[curDir]; if(!t) return; ccColor.value=toHex(t.accent)||"#4f46e5"; ccTitle.value=t.sampleTitle||""; ccDesc.value=t.sampleDesc||""; renderCustom(); });
+$("#cc-dl").addEventListener("click", ()=>{ const t=byDir[curDir]; if(!t) return; saveBlob(new Blob([buildCustomHtml(t, ccColor.value, ccTitle.value, ccDesc.value)],{type:"text/html"}), curDir+"-custom.html"); toast(curDir+"-custom.html を保存しました"); });
 function navModal(delta){ if(modal.hidden) return; const list=visibleDirs(); if(!list.length) return; let i=list.indexOf(curDir); if(i<0) i=0; const ni=(i+delta+list.length)%list.length; openModal(list[ni], $(".m-code").hidden?"preview":"code"); }
 (function initHowto(){
   const ht=$("#howto"), btn=$("#howtoToggle"); if(!ht||!btn) return;
