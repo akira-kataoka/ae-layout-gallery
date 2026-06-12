@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root {
+      --navy:#0e1f33; --navy2:#16314f; --amber:#e8a33d; --amber2:#d18a1f;
+      --paper:#faf7f1; --ink:#1d2733; --muted:#5f6b7a; --line:#e6dfd2;
+    }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); line-height:1.8; background:var(--paper); }
+
+    /* ===== ヒーロー帯 ===== */
+    .ae-hero {
+      position:relative; overflow:hidden; color:#fff; padding:58px 20px 150px;
+      background:
+        radial-gradient(ellipse 60% 80% at 100% 0%, rgba(232,163,61,.22), transparent 55%),
+        linear-gradient(135deg, var(--navy) 35%, var(--navy2));
+    }
+    .ae-hero::after {
+      content:""; position:absolute; right:-90px; bottom:-130px; width:340px; height:340px;
+      border:1px solid rgba(232,163,61,.35); border-radius:50%; pointer-events:none;
+    }
+    .ae-hero::before {
+      content:""; position:absolute; right:-30px; bottom:-190px; width:340px; height:340px;
+      border:1px solid rgba(255,255,255,.12); border-radius:50%; pointer-events:none;
+    }
+    .ae-hero-in { max-width:1020px; margin:0 auto; }
+    .ae-kicker { display:inline-flex; align-items:center; gap:10px; font-size:12px; font-weight:800; letter-spacing:.28em; color:var(--amber); margin-bottom:16px; }
+    .ae-kicker::before { content:""; width:34px; height:1px; background:var(--amber); }
+    .ae-hero h1 { margin:0 0 12px; font-size:34px; line-height:1.4; font-weight:900; max-width:640px; }
+    .ae-hero p { margin:0; max-width:560px; color:#bfcbd9; font-size:15px; }
+
+    .ae-wrap { max-width:1020px; margin:-96px auto 0; padding:0 20px 64px; display:grid; grid-template-columns:1fr 420px; gap:28px; align-items:start; }
+
+    /* ===== 左: プログラム情報 ===== */
+    .ae-info { padding-top:8px; }
+    .ae-card {
+      background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px 28px;
+      box-shadow:0 14px 36px rgba(14,31,51,.08); margin-bottom:20px;
+    }
+    .ae-card h2 { margin:0 0 14px; font-size:17px; font-weight:900; display:flex; align-items:center; gap:9px; }
+    .ae-card h2 .ico { width:30px; height:30px; border-radius:9px; background:linear-gradient(135deg,var(--amber),var(--amber2)); display:inline-flex; align-items:center; justify-content:center; font-size:15px; flex:none; }
+
+    .ae-themes { display:flex; flex-wrap:wrap; gap:8px; }
+    .ae-themes span {
+      font-size:12.5px; font-weight:700; color:var(--navy); background:#fdf3e2;
+      border:1px solid #f1ddb6; border-radius:999px; padding:7px 14px;
+    }
+
+    .ae-flow { list-style:none; margin:0; padding:0; }
+    .ae-flow li { position:relative; padding:0 0 22px 46px; }
+    .ae-flow li:last-child { padding-bottom:0; }
+    .ae-flow li::before {
+      content:""; position:absolute; left:15px; top:30px; bottom:-2px; width:2px;
+      background:linear-gradient(180deg,var(--amber), #f1ddb6);
+    }
+    .ae-flow li:last-child::before { display:none; }
+    .ae-flow .num {
+      position:absolute; left:0; top:0; width:32px; height:32px; border-radius:50%;
+      background:var(--navy); color:var(--amber); font-size:12px; font-weight:900;
+      display:flex; align-items:center; justify-content:center; letter-spacing:.04em;
+    }
+    .ae-flow b { display:block; font-size:14.5px; }
+    .ae-flow small { color:var(--muted); font-size:12.5px; line-height:1.7; display:block; }
+
+    .ae-figures { display:flex; gap:0; text-align:center; }
+    .ae-figures div { flex:1; padding:4px 6px; }
+    .ae-figures div + div { border-left:1px solid var(--line); }
+    .ae-figures b { display:block; font-size:26px; font-weight:900; color:var(--navy); font-variant-numeric:tabular-nums; }
+    .ae-figures b em { font-style:normal; font-size:13px; color:var(--amber2); margin-left:1px; }
+    .ae-figures span { font-size:11.5px; color:var(--muted); }
+
+    .ae-quote { border-left:3px solid var(--amber); padding:2px 0 2px 16px; margin:0; }
+    .ae-quote p { margin:0 0 8px; font-size:13.5px; }
+    .ae-quote footer { font-size:12px; color:var(--muted); }
+
+    /* ===== 右: フォーム ===== */
+    .ae-form {
+      background:#fff; border:1px solid var(--line); border-radius:20px; overflow:hidden;
+      box-shadow:0 24px 56px rgba(14,31,51,.14); position:sticky; top:18px;
+    }
+    .ae-form-head {
+      background:linear-gradient(135deg,var(--navy),var(--navy2)); color:#fff; padding:22px 26px;
+      border-bottom:3px solid var(--amber);
+    }
+    .ae-form-head .t { font-size:17px; font-weight:900; }
+    .ae-form-head .s { font-size:12.5px; color:#bfcbd9; margin-top:3px; }
+    .ae-form-body { padding:24px 26px 26px; }
+
+    .ae-form-body form p { margin:0 0 14px; }
+    .ae-form-body form label { display:block; font-size:12.5px; font-weight:800; color:var(--navy); margin-bottom:6px; }
+    .ae-form-body form input[type=text], .ae-form-body form input[type=email], .ae-form-body form input[type=tel],
+    .ae-form-body form input[type=date], .ae-form-body form select, .ae-form-body form textarea {
+      width:100%; padding:13px 14px; font-size:14px; font-family:inherit; color:var(--ink);
+      background:var(--paper); border:1.5px solid var(--line); border-radius:10px; outline:none;
+      transition:border-color .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .ae-form-body form input:focus, .ae-form-body form select:focus, .ae-form-body form textarea:focus {
+      border-color:var(--amber); background:#fff; box-shadow:0 0 0 3px rgba(232,163,61,.18);
+    }
+    .ae-form-body form textarea { min-height:92px; resize:vertical; }
+    .ae-form-body form .row { display:flex; gap:12px; }
+    .ae-form-body form .row p { flex:1; }
+    .ae-form-body form .submit input, .ae-form-body form button {
+      width:100%; border:0; cursor:pointer; padding:16px; border-radius:11px; font-family:inherit;
+      font-size:15px; font-weight:900; letter-spacing:.08em; color:#fff;
+      background:linear-gradient(135deg,var(--amber),var(--amber2));
+      box-shadow:0 10px 24px rgba(209,138,31,.4); margin-top:6px;
+      transition:transform .15s ease, box-shadow .15s ease;
+    }
+    .ae-form-body form .submit input:hover, .ae-form-body form button:hover {
+      transform:translateY(-2px); box-shadow:0 14px 30px rgba(209,138,31,.5);
+    }
+    .ae-form-note { font-size:11.5px; color:var(--muted); text-align:center; margin-top:14px; line-height:1.7; }
+    .ae-form-note b { color:var(--navy); }
+
+    .ae-footer { text-align:center; font-size:11.5px; color:#9aa4b0; padding:0 20px 40px; }
+
+    @media (max-width:860px) {
+      .ae-hero { padding-bottom:120px; }
+      .ae-hero h1 { font-size:26px; }
+      .ae-wrap { grid-template-columns:1fr; margin-top:-80px; }
+      .ae-form { position:static; }
+    }
+    @media (max-width:480px) {
+      form .row { flex-direction:column; gap:0; }
+      .ae-card { padding:22px 20px; }
+      .ae-form-body { padding:20px 18px 22px; }
+      .ae-figures b { font-size:21px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="ae-hero">
+    <div class="ae-hero-in">
+      <span class="ae-kicker">CORPORATE TRAINING</span>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+  </div>
+
+  <div class="ae-wrap">
+    <div class="ae-info">
+      <div class="ae-card">
+        <h2><span class="ico">📚</span>対応テーマ（一例）</h2>
+        <div class="ae-themes">
+          <span>新入社員ビジネス基礎</span><span>管理職マネジメント</span><span>ロジカルシンキング</span>
+          <span>DX・データ活用入門</span><span>ハラスメント防止</span><span>営業力強化</span>
+          <span>プレゼンテーション</span><span>OJTトレーナー育成</span>
+        </div>
+      </div>
+
+      <div class="ae-card">
+        <h2><span class="ico">🧭</span>ご導入までの流れ</h2>
+        <ol class="ae-flow">
+          <li><span class="num">01</span><b>ヒアリング（無料・60分）</b><small>貴社の課題・対象者・ゴールを伺い、最適な研修テーマと形式（対面/オンライン/ハイブリッド）をご提案します。</small></li>
+          <li><span class="num">02</span><b>カリキュラム設計とお見積り</b><small>業界・職種に合わせて演習やケーススタディをカスタマイズ。お見積りは3営業日以内にお届けします。</small></li>
+          <li><span class="num">03</span><b>研修実施・効果測定レポート</b><small>受講前後のアセスメントで習熟度を可視化。実施後は行動定着のためのフォローアップ案もご提供します。</small></li>
+        </ol>
+      </div>
+
+      <div class="ae-card">
+        <h2><span class="ico">📈</span>実績</h2>
+        <div class="ae-figures">
+          <div><b>1,400<em>社</em></b><span>累計導入企業</span></div>
+          <div><b>97<em>%</em></b><span>受講者満足度</span></div>
+          <div><b>120<em>講座</em></b><span>カスタマイズ可能</span></div>
+        </div>
+      </div>
+
+      <div class="ae-card">
+        <h2><span class="ico">💬</span>ご担当者さまの声</h2>
+        <blockquote class="ae-quote">
+          <p>「座学で終わらず、自社の実例を使った演習まで設計してもらえたのが決め手でした。研修翌週から会議の質が目に見えて変わりました。」</p>
+          <footer>― 製造業（従業員800名）人事部 研修ご担当者さま</footer>
+        </blockquote>
+      </div>
+    </div>
+
+    <div class="ae-form">
+      <div class="ae-form-head">
+        <div class="t">研修のご相談・お見積り</div>
+        <div class="s">1営業日以内に専任プランナーよりご連絡します</div>
+      </div>
+      <div class="ae-form-body">
+        %%content%%
+        <div class="ae-form-note">🔒 ご入力いただいた情報は<b>研修のご案内以外には使用しません</b>。<br>しつこい営業電話は行いませんのでご安心ください。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ae-footer">まずは情報収集の段階でも歓迎です。研修テーマが未定の場合は「相談して決めたい」とご記入ください。</div>
+</body>
+</html>

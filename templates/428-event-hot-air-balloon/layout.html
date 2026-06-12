@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root {
+      --sky1:#2b2a5e; --sky2:#7b4a8f; --sky3:#e7798a; --sky4:#ffc36b;
+      --ink:#332244; --muted:#7a6a8a; --paper:#fff8f0; --line:#f0e2d2;
+      --sun:#ff9d4d; --teal:#2da89b;
+    }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); line-height:1.8; background:var(--paper); }
+
+    /* ===== 夜明けの空 ===== */
+    .ae-sky {
+      position:relative; overflow:hidden; color:#fff; text-align:center; padding:64px 20px 190px;
+      background:linear-gradient(180deg, var(--sky1) 0%, var(--sky2) 38%, var(--sky3) 68%, var(--sky4) 100%);
+    }
+    .ae-sun {
+      position:absolute; left:50%; bottom:-70px; transform:translateX(-50%);
+      width:230px; height:230px; border-radius:50%;
+      background:radial-gradient(circle, #ffe9b8 25%, var(--sun) 60%, rgba(255,157,77,0) 72%);
+      filter:blur(2px); opacity:.95; pointer-events:none;
+    }
+    .ae-sky .stars i { position:absolute; width:3px; height:3px; border-radius:50%; background:#fff; opacity:.7; animation:ae-tw 2.6s ease-in-out infinite alternate; }
+    @keyframes ae-tw { from { opacity:.15; } to { opacity:.85; } }
+    .ae-sky .stars i:nth-child(1){ left:10%; top:12%; } .ae-sky .stars i:nth-child(2){ left:24%; top:7%; animation-delay:.5s; }
+    .ae-sky .stars i:nth-child(3){ left:42%; top:15%; animation-delay:1.1s; } .ae-sky .stars i:nth-child(4){ left:68%; top:6%; animation-delay:.3s; }
+    .ae-sky .stars i:nth-child(5){ left:84%; top:14%; animation-delay:.8s; } .ae-sky .stars i:nth-child(6){ left:93%; top:26%; animation-delay:1.5s; }
+    .ae-cloud { position:absolute; height:18px; border-radius:999px; background:rgba(255,255,255,.22); filter:blur(6px); pointer-events:none; animation:ae-drift 26s linear infinite; }
+    .ae-cloud.c1 { width:180px; top:34%; left:-180px; }
+    .ae-cloud.c2 { width:120px; top:52%; left:-120px; animation-duration:34s; animation-delay:8s; }
+    @keyframes ae-drift { to { transform:translateX(130vw); } }
+
+    /* --- CSS気球 --- */
+    .ae-bal { position:absolute; pointer-events:none; animation:ae-float 6s ease-in-out infinite; }
+    @keyframes ae-float { 0%,100% { transform:translateY(0) rotate(-1.5deg); } 50% { transform:translateY(-20px) rotate(1.5deg); } }
+    .ae-bal .env {
+      width:86px; height:96px; border-radius:50% 50% 46% 46% / 58% 58% 42% 42%; position:relative;
+      background:
+        repeating-linear-gradient(90deg, rgba(255,255,255,.22) 0 11px, rgba(0,0,0,.07) 11px 22px),
+        linear-gradient(180deg,#ff6b6b,#e03131);
+      box-shadow:inset -12px -8px 22px rgba(0,0,0,.22), inset 10px 8px 18px rgba(255,255,255,.25);
+    }
+    .ae-bal .env::after {
+      content:""; position:absolute; left:50%; bottom:-16px; transform:translateX(-50%);
+      width:30px; height:17px;
+      background:linear-gradient(180deg, rgba(51,34,68,.0), rgba(51,34,68,.4)),
+                 linear-gradient(180deg,#c2255c,#862e9c);
+      clip-path:polygon(12% 0, 88% 0, 70% 100%, 30% 100%);
+    }
+    .ae-bal .bsk {
+      width:24px; height:17px; margin:24px auto 0; border-radius:4px 4px 6px 6px; position:relative;
+      background:repeating-linear-gradient(90deg,#9a6b3f 0 4px,#7c5430 4px 8px);
+      box-shadow:inset 0 -4px 6px rgba(0,0,0,.3);
+    }
+    .ae-bsk-lines { position:absolute; left:50%; transform:translateX(-50%); width:30px; height:26px; margin-top:-26px; }
+    .ae-bsk-lines::before, .ae-bsk-lines::after { content:""; position:absolute; top:0; width:1.5px; height:100%; background:rgba(51,34,68,.55); }
+    .ae-bsk-lines::before { left:4px; transform:rotate(9deg); }
+    .ae-bsk-lines::after { right:4px; transform:rotate(-9deg); }
+    .ae-bal.b1 { left:9%; top:24%; }
+    .ae-bal.b2 { right:11%; top:14%; transform:scale(.62); animation-delay:1.4s; animation-duration:7s; }
+    .ae-bal.b2 .env { background:repeating-linear-gradient(90deg, rgba(255,255,255,.22) 0 11px, rgba(0,0,0,.07) 11px 22px), linear-gradient(180deg,#4dabf7,#1864ab); }
+    .ae-bal.b3 { right:26%; top:52%; transform:scale(.4); animation-delay:2.6s; animation-duration:8s; opacity:.85; }
+    .ae-bal.b3 .env { background:repeating-linear-gradient(90deg, rgba(255,255,255,.22) 0 11px, rgba(0,0,0,.07) 11px 22px), linear-gradient(180deg,#ffd43b,#f08c00); }
+    .ae-bal.b4 { left:22%; top:58%; transform:scale(.3); animation-delay:.8s; opacity:.7; }
+    .ae-bal.b4 .env { background:repeating-linear-gradient(90deg, rgba(255,255,255,.22) 0 11px, rgba(0,0,0,.07) 11px 22px), linear-gradient(180deg,#69db7c,#2b8a3e); }
+
+    .ae-hill { position:absolute; left:0; right:0; bottom:-2px; height:74px; pointer-events:none; }
+    .ae-hill::before, .ae-hill::after { content:""; position:absolute; bottom:0; border-radius:50% 50% 0 0; }
+    .ae-hill::before { left:-12%; width:70%; height:74px; background:rgba(51,34,68,.5); }
+    .ae-hill::after { right:-14%; width:75%; height:58px; background:rgba(51,34,68,.72); }
+
+    .ae-sky-in { position:relative; z-index:2; max-width:640px; margin:0 auto; }
+    .ae-date-chip {
+      display:inline-block; font-size:12px; font-weight:800; letter-spacing:.26em;
+      border:1px solid rgba(255,255,255,.55); border-radius:999px; padding:8px 20px;
+      background:rgba(255,255,255,.12); margin-bottom:18px; backdrop-filter:blur(2px);
+    }
+    .ae-sky h1 { margin:0 0 12px; font-size:36px; font-weight:900; line-height:1.35; text-shadow:0 4px 24px rgba(43,42,94,.5); }
+    .ae-sky p { margin:0 auto; max-width:520px; font-size:15px; color:rgba(255,255,255,.92); text-shadow:0 2px 12px rgba(43,42,94,.45); }
+
+    /* ===== 本文 ===== */
+    .ae-wrap { max-width:880px; margin:-64px auto 0; position:relative; z-index:3; padding:0 20px 64px; }
+    .ae-card {
+      background:#fff; border:1px solid var(--line); border-radius:20px; padding:28px 30px;
+      box-shadow:0 18px 44px rgba(51,34,68,.1); margin-bottom:22px;
+    }
+
+    .ae-facts { display:flex; gap:0; text-align:center; padding:22px 10px; }
+    .ae-facts div { flex:1; padding:4px 10px; }
+    .ae-facts div + div { border-left:1px solid var(--line); }
+    .ae-facts .ic { font-size:24px; display:block; margin-bottom:4px; }
+    .ae-facts b { display:block; font-size:14.5px; }
+    .ae-facts span { font-size:12px; color:var(--muted); }
+
+    .ae-card h2 { margin:0 0 16px; font-size:18px; font-weight:900; display:flex; align-items:center; gap:10px; }
+    .ae-card h2::before { content:""; width:8px; height:24px; border-radius:4px; background:linear-gradient(180deg,var(--sky3),var(--sky4)); }
+
+    .ae-prog { list-style:none; margin:0; padding:0; }
+    .ae-prog li { display:flex; gap:16px; padding:13px 0; border-bottom:1px dashed var(--line); align-items:baseline; }
+    .ae-prog li:last-child { border-bottom:0; }
+    .ae-prog time { flex:none; width:88px; font-weight:900; font-size:14px; color:var(--teal); font-variant-numeric:tabular-nums; }
+    .ae-prog b { font-size:14px; display:block; }
+    .ae-prog small { color:var(--muted); font-size:12.5px; line-height:1.7; display:block; }
+
+    .ae-plans { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+    .ae-plan { border:1.5px solid var(--line); border-radius:16px; padding:20px; position:relative; }
+    .ae-plan.hot { border-color:var(--sky3); background:linear-gradient(180deg,#fff5f3,#fff); }
+    .ae-plan .tag { position:absolute; top:-11px; left:16px; font-size:10.5px; font-weight:900; letter-spacing:.14em; color:#fff; background:linear-gradient(90deg,var(--sky3),var(--sky4)); border-radius:999px; padding:4px 12px; }
+    .ae-plan b { font-size:15px; display:block; margin-bottom:2px; }
+    .ae-plan .pr { font-size:24px; font-weight:900; color:var(--ink); margin:4px 0 8px; }
+    .ae-plan .pr small { font-size:12px; font-weight:700; color:var(--muted); }
+    .ae-plan ul { margin:0; padding:0 0 0 18px; color:var(--muted); font-size:12.5px; }
+    .ae-plan li { margin:3px 0; }
+
+    .ae-notes { font-size:12.5px; color:var(--muted); background:#fdf6ec; border:1px solid #f3e3c6; border-radius:12px; padding:14px 18px; line-height:1.9; }
+
+    /* ===== 申込フォーム ===== */
+    .ae-form { border:0; background:linear-gradient(160deg,#fff, #fff6ed); box-shadow:0 24px 56px rgba(51,34,68,.16); }
+    .ae-form .lead { color:var(--muted); font-size:13px; margin:-6px 0 18px; }
+    .ae-form form p { margin:0 0 14px; }
+    .ae-form form label { display:block; font-size:12.5px; font-weight:800; color:var(--ink); margin-bottom:6px; }
+    .ae-form form input[type=text], .ae-form form input[type=email], .ae-form form input[type=tel],
+    .ae-form form input[type=date], .ae-form form select, .ae-form form textarea {
+      width:100%; padding:13px 14px; font-size:14px; font-family:inherit; color:var(--ink);
+      background:#fff; border:1.5px solid var(--line); border-radius:10px; outline:none;
+      transition:border-color .2s ease, box-shadow .2s ease;
+    }
+    .ae-form form input:focus, .ae-form form select:focus, .ae-form form textarea:focus {
+      border-color:var(--sky3); box-shadow:0 0 0 3px rgba(231,121,138,.16);
+    }
+    .ae-form form textarea { min-height:88px; resize:vertical; }
+    .ae-form form .row { display:flex; gap:12px; }
+    .ae-form form .row p { flex:1; }
+    .ae-form form .submit input, .ae-form form button {
+      width:100%; border:0; cursor:pointer; padding:16px; border-radius:12px; font-family:inherit;
+      font-size:15.5px; font-weight:900; letter-spacing:.06em; color:#fff;
+      background:linear-gradient(120deg,var(--sky3),var(--sun));
+      box-shadow:0 12px 28px rgba(231,121,138,.4); margin-top:6px;
+      transition:transform .15s ease, box-shadow .15s ease;
+    }
+    .ae-form form .submit input:hover, .ae-form form button:hover {
+      transform:translateY(-2px); box-shadow:0 16px 34px rgba(231,121,138,.5);
+    }
+    .ae-foot { text-align:center; font-size:11.5px; color:var(--muted); padding:0 20px 40px; }
+
+    @media (max-width:680px) {
+      .ae-sky { padding:50px 16px 160px; }
+      .ae-sky h1 { font-size:27px; }
+      .ae-bal.b1 { left:2%; top:60%; transform:scale(.55); }
+      .ae-bal.b2 { right:2%; top:10%; transform:scale(.5); }
+      .ae-bal.b4 { display:none; }
+      .ae-facts { flex-direction:column; gap:14px; }
+      .ae-facts div + div { border-left:0; border-top:1px solid var(--line); padding-top:14px; }
+      .ae-plans { grid-template-columns:1fr; }
+      .ae-card { padding:22px 20px; }
+    }
+    @media (max-width:480px) {
+      form .row { flex-direction:column; gap:0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="ae-sky">
+    <span class="stars"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+    <span class="ae-sun"></span>
+    <span class="ae-cloud c1"></span><span class="ae-cloud c2"></span>
+
+    <span class="ae-bal b1"><span class="env"></span><span class="ae-bsk-lines"></span><span class="bsk"></span></span>
+    <span class="ae-bal b2"><span class="env"></span><span class="ae-bsk-lines"></span><span class="bsk"></span></span>
+    <span class="ae-bal b3"><span class="env"></span><span class="ae-bsk-lines"></span><span class="bsk"></span></span>
+    <span class="ae-bal b4"><span class="env"></span><span class="ae-bsk-lines"></span><span class="bsk"></span></span>
+
+    <div class="ae-sky-in">
+      <span class="ae-date-chip">DAWN FLIGHT FESTIVAL</span>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <span class="ae-hill"></span>
+  </div>
+
+  <div class="ae-wrap">
+    <div class="ae-card ae-facts">
+      <div><span class="ic">📅</span><b>11月21日(土)・22日(日)</b><span>夜明け〜午前9時 / 小雨・強風時は順延</span></div>
+      <div><span class="ic">📍</span><b>河川敷バルーンフィールド</b><span>臨時駐車場500台 / シャトルバスあり</span></div>
+      <div><span class="ic">🎈</span><b>係留体験 約5分間</b><span>地上約20mからご来光を一望</span></div>
+    </div>
+
+    <div class="ae-card">
+      <h2>当日のプログラム</h2>
+      <ol class="ae-prog">
+        <li><time>5:00</time><span><b>受付開始・安全ブリーフィング</b><small>温かい飲み物をご用意しています。冷え込むため防寒着をお忘れなく。</small></span></li>
+        <li><time>5:40</time><span><b>一斉立ち上げ（バルーンイリュージョン）</b><small>20機の気球がバーナーの炎で夜明け前の空に浮かび上がる、フェスティバルいちばんの見どころです。</small></span></li>
+        <li><time>6:10</time><span><b>係留搭乗体験スタート</b><small>事前予約の方から順にご案内。日の出の瞬間を空の上から。</small></span></li>
+        <li><time>8:00</time><span><b>朝市マルシェ＆バーナー点火体験</b><small>地元の焼きたてパンとコーヒーの屋台が並びます。パイロットへの質問コーナーも。</small></span></li>
+      </ol>
+    </div>
+
+    <div class="ae-card">
+      <h2>搭乗プラン</h2>
+      <div class="ae-plans">
+        <div class="ae-plan hot">
+          <span class="tag">人気No.1</span>
+          <b>ご来光フライト（係留）</b>
+          <div class="pr">¥3,500 <small>/ 1名・約5分</small></div>
+          <ul>
+            <li>日の出時間帯の優先搭乗</li>
+            <li>記念搭乗証明書つき</li>
+            <li>3歳以上から搭乗OK（小学生以下は保護者同伴）</li>
+          </ul>
+        </div>
+        <div class="ae-plan">
+          <b>ファミリー貸切ゴンドラ</b>
+          <div class="pr">¥12,000 <small>/ 1組4名まで</small></div>
+          <ul>
+            <li>1家族で1ゴンドラを貸切</li>
+            <li>パイロットが記念撮影をお手伝い</li>
+            <li>朝市で使える500円クーポンつき</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="ae-card">
+      <div class="ae-notes">
+        ⚠️ 気球は風速3m/s以上で中止となる繊細な乗り物です。中止の場合は前日20時までにメールでお知らせし、全額返金または翌日への振替を選べます。スカートやヒールでのご搭乗はできません。
+      </div>
+    </div>
+
+    <div class="ae-card ae-form">
+      <h2>搭乗予約（先着順）</h2>
+      <p class="lead">各時間帯12名様まで。予約確定メールに集合場所の地図を添付してお送りします。</p>
+      %%content%%
+    </div>
+  </div>
+
+  <div class="ae-foot">主催: バルーンフェスティバル実行委員会 / 悪天候順延の決定はメールとLINEでお知らせします。</div>
+</body>
+</html>

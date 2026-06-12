@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root {
+      --bg:#f5f6fb; --ink:#16182d; --muted:#6b7193; --line:#e3e6f2;
+      --brand:#5b5bf0; --brand2:#8b5cf6; --accent:#22d3ee;
+      --app:#191b33; --app2:#22254a; --appline:rgba(255,255,255,.09);
+    }
+    * { box-sizing:border-box; }
+    body {
+      margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif;
+      color:var(--ink); line-height:1.7; background:var(--bg);
+    }
+    .ae-hero {
+      background:
+        radial-gradient(ellipse 70% 90% at 85% -20%, rgba(34,211,238,.18), transparent 60%),
+        radial-gradient(ellipse 80% 100% at 10% -30%, rgba(139,92,246,.22), transparent 60%),
+        linear-gradient(180deg,#101228, #1b1e3f);
+      color:#fff; text-align:center; padding:54px 20px 120px;
+    }
+    .ae-hero .badge {
+      display:inline-block; font-size:11px; font-weight:800; letter-spacing:.3em;
+      color:#a5f3fc; border:1px solid rgba(165,243,252,.4); border-radius:999px;
+      padding:7px 18px; background:rgba(34,211,238,.08); margin-bottom:18px;
+    }
+    .ae-hero h1 { margin:0 auto 12px; max-width:680px; font-size:34px; line-height:1.4; font-weight:900; }
+    .ae-hero p { margin:0 auto; max-width:560px; color:#b9bdde; font-size:15px; }
+
+    .ae-wrap { max-width:980px; margin:-78px auto 0; padding:0 20px 64px; }
+
+    /* ===== ツアー本体 ===== */
+    .ae-tour {
+      display:grid; grid-template-columns:1.5fr 1fr; gap:0; overflow:hidden;
+      background:#fff; border:1px solid var(--line); border-radius:24px;
+      box-shadow:0 30px 70px rgba(22,24,45,.16);
+    }
+
+    /* --- アプリのモックアップ (CSSのみ) --- */
+    .ae-stagebox { padding:28px; background:linear-gradient(160deg,#eef0fa,#e6e9f7); }
+    .ae-app {
+      position:relative; background:var(--app); border-radius:14px; overflow:hidden;
+      box-shadow:0 18px 40px rgba(22,24,45,.35); aspect-ratio:16/11;
+    }
+    .ae-app .bar { display:flex; gap:6px; padding:10px 12px; background:rgba(255,255,255,.05); border-bottom:1px solid var(--appline); }
+    .ae-app .bar i { width:9px; height:9px; border-radius:50%; background:#3d4070; }
+    .ae-app .bar i:nth-child(1){ background:#fb7185; } .ae-app .bar i:nth-child(2){ background:#fbbf24; } .ae-app .bar i:nth-child(3){ background:#34d399; }
+    .ae-body { position:absolute; inset:30px 0 0; display:flex; }
+    .ae-side { width:22%; border-right:1px solid var(--appline); padding:10px 8%; padding-right:4%; }
+    .ae-side b { display:block; height:9px; border-radius:4px; background:linear-gradient(90deg,var(--brand),var(--brand2)); margin-bottom:14px; width:70%; }
+    .ae-side i { display:block; height:6px; border-radius:3px; background:rgba(255,255,255,.18); margin:11px 0; }
+    .ae-side i:nth-child(odd){ width:85%; }
+    .ae-main { flex:1; padding:5% 5% 4%; display:flex; flex-direction:column; gap:5%; }
+    .ae-cards { display:flex; gap:5%; height:24%; }
+    .ae-cards span { flex:1; border-radius:8px; background:var(--app2); border:1px solid var(--appline); position:relative; }
+    .ae-cards span::before { content:""; position:absolute; left:12%; top:24%; width:46%; height:6px; border-radius:3px; background:rgba(255,255,255,.22); }
+    .ae-cards span::after { content:""; position:absolute; left:12%; bottom:22%; width:30%; height:9px; border-radius:4px; background:var(--accent); opacity:.85; }
+    .ae-cards span:nth-child(2)::after { background:var(--brand2); }
+    .ae-cards span:nth-child(3)::after { background:#34d399; }
+    .ae-chart { flex:1; border-radius:8px; background:var(--app2); border:1px solid var(--appline); display:flex; align-items:flex-end; gap:4.5%; padding:6% 8% 0; }
+    .ae-chart u { flex:1; border-radius:4px 4px 0 0; background:linear-gradient(180deg,var(--brand2),var(--brand)); opacity:.9; transform-origin:bottom; animation:ae-grow 1.1s cubic-bezier(.2,.9,.3,1) both; }
+    .ae-chart u:nth-child(1){ height:34%; animation-delay:.1s; } .ae-chart u:nth-child(2){ height:58%; animation-delay:.2s; }
+    .ae-chart u:nth-child(3){ height:42%; animation-delay:.3s; } .ae-chart u:nth-child(4){ height:74%; animation-delay:.4s; }
+    .ae-chart u:nth-child(5){ height:55%; animation-delay:.5s; } .ae-chart u:nth-child(6){ height:90%; background:linear-gradient(180deg,#67e8f9,var(--accent)); animation-delay:.6s; }
+    @keyframes ae-grow { from { transform:scaleY(0); } to { transform:scaleY(1); } }
+    .ae-foot-row { height:13%; border-radius:8px; background:var(--app2); border:1px solid var(--appline); position:relative; }
+    .ae-foot-row::before { content:""; position:absolute; left:3%; top:38%; width:34%; height:7px; border-radius:3px; background:rgba(255,255,255,.2); }
+    .ae-foot-row::after { content:""; position:absolute; right:3%; top:30%; width:16%; height:12px; border-radius:6px; background:linear-gradient(90deg,var(--brand),var(--brand2)); }
+
+    /* ゾーン強調 */
+    .ae-zone { transition:box-shadow .35s ease, filter .35s ease; }
+    .ae-zone.lit { box-shadow:0 0 0 2px var(--accent), 0 0 26px rgba(34,211,238,.45); }
+    .ae-app.focus .ae-zone:not(.lit) { filter:brightness(.55) saturate(.6); }
+
+    /* ホットスポット */
+    .ae-spot {
+      position:absolute; width:30px; height:30px; border-radius:50%; border:0; cursor:pointer;
+      background:var(--accent); color:#06283a; font-weight:900; font-size:13px; font-family:inherit;
+      display:flex; align-items:center; justify-content:center;
+      box-shadow:0 4px 12px rgba(34,211,238,.5); z-index:3; transition:transform .2s ease, background .2s ease;
+    }
+    .ae-spot::after { content:""; position:absolute; inset:-7px; border-radius:50%; border:2px solid rgba(34,211,238,.7); animation:ae-pulse 1.8s ease-out infinite; }
+    @keyframes ae-pulse { 0% { transform:scale(.7); opacity:1; } 100% { transform:scale(1.5); opacity:0; } }
+    .ae-spot.on { background:#fff; color:var(--brand); transform:scale(1.18); }
+    .ae-spot.on::after { border-color:rgba(255,255,255,.85); }
+    #spot1 { left:9%; top:14%; } #spot2 { left:30%; top:22%; } #spot3 { left:62%; top:52%; } #spot4 { right:6%; bottom:8%; }
+
+    /* --- 解説パネル --- */
+    .ae-guide { padding:34px 32px 28px; display:flex; flex-direction:column; }
+    .ae-step-tag { font-size:11px; font-weight:800; letter-spacing:.24em; color:var(--brand); margin-bottom:10px; }
+    .ae-guide h2 { margin:0 0 10px; font-size:21px; line-height:1.45; font-weight:900; min-height:2.9em; }
+    .ae-guide .desc { color:var(--muted); font-size:14px; flex:1; min-height:7.5em; margin:0; }
+    .ae-progress { height:6px; border-radius:999px; background:var(--line); overflow:hidden; margin:18px 0 14px; }
+    .ae-progress span { display:block; height:100%; width:25%; border-radius:999px; background:linear-gradient(90deg,var(--brand),var(--accent)); transition:width .45s cubic-bezier(.2,.8,.2,1); }
+    .ae-dots { display:flex; gap:8px; margin-bottom:18px; }
+    .ae-dots i { width:8px; height:8px; border-radius:50%; background:var(--line); transition:all .25s ease; }
+    .ae-dots i.on { background:var(--brand); transform:scale(1.3); }
+    .ae-nav { display:flex; gap:10px; }
+    .ae-nav button {
+      flex:1; padding:13px; border-radius:11px; font-size:14px; font-weight:800; cursor:pointer; font-family:inherit;
+      transition:transform .15s ease, box-shadow .15s ease;
+    }
+    #prevBtn { background:#fff; border:1.5px solid var(--line); color:var(--muted); }
+    #prevBtn:disabled { opacity:.4; cursor:default; }
+    #nextBtn {
+      border:0; color:#fff; background:linear-gradient(120deg,var(--brand),var(--brand2));
+      box-shadow:0 8px 20px rgba(91,91,240,.35);
+    }
+    #nextBtn:hover { transform:translateY(-2px); box-shadow:0 12px 26px rgba(91,91,240,.45); }
+
+    /* ===== 信頼バー ===== */
+    .ae-stats { display:flex; gap:14px; margin:26px 0; }
+    .ae-stats div { flex:1; text-align:center; background:#fff; border:1px solid var(--line); border-radius:16px; padding:18px 10px; }
+    .ae-stats b { display:block; font-size:24px; font-weight:900; background:linear-gradient(120deg,var(--brand),var(--accent)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+    .ae-stats span { font-size:12px; color:var(--muted); }
+
+    /* ===== CTA / フォーム ===== */
+    .ae-cta {
+      max-width:560px; margin:0 auto; background:#fff; border:1px solid var(--line);
+      border-radius:24px; padding:34px 32px; box-shadow:0 20px 50px rgba(22,24,45,.1); text-align:center;
+    }
+    .ae-cta .t { font-size:20px; font-weight:900; margin-bottom:6px; }
+    .ae-cta .s { color:var(--muted); font-size:13px; margin-bottom:20px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form label { display:block; font-size:12px; font-weight:700; color:var(--muted); margin-bottom:5px; }
+    .ae-cta form input[type=text], .ae-cta form input[type=email], .ae-cta form input[type=tel],
+    .ae-cta form input[type=date], .ae-cta form select, .ae-cta form textarea {
+      width:100%; padding:13px 14px; font-size:14px; font-family:inherit; color:var(--ink);
+      background:#f8f9fd; border:1.5px solid var(--line); border-radius:10px; outline:none;
+      transition:border-color .2s ease, box-shadow .2s ease;
+    }
+    .ae-cta form input:focus, .ae-cta form select:focus, .ae-cta form textarea:focus {
+      border-color:var(--brand); box-shadow:0 0 0 3px rgba(91,91,240,.14); background:#fff;
+    }
+    .ae-cta form textarea { min-height:88px; resize:vertical; }
+    .ae-cta form .row { display:flex; gap:12px; }
+    .ae-cta form .row p { flex:1; }
+    .ae-cta form .submit input, .ae-cta form button {
+      width:100%; border:0; cursor:pointer; padding:15px; border-radius:11px; font-family:inherit;
+      font-size:15px; font-weight:900; letter-spacing:.04em; color:#fff;
+      background:linear-gradient(120deg,var(--brand),var(--brand2));
+      box-shadow:0 10px 24px rgba(91,91,240,.35); margin-top:4px;
+    }
+    .ae-note { text-align:center; color:#9aa0bd; font-size:11px; margin-top:16px; }
+
+    @media (max-width:760px) {
+      .ae-hero h1 { font-size:25px; }
+      .ae-tour { grid-template-columns:1fr; }
+      .ae-stagebox { padding:18px; }
+      .ae-guide { padding:24px 22px; }
+      .ae-guide h2, .ae-guide .desc { min-height:0; }
+      .ae-stats { flex-direction:column; }
+    }
+    @media (max-width:480px) {
+      form .row { flex-direction:column; gap:0; }
+      .ae-cta { padding:26px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="ae-hero">
+    <span class="badge">INTERACTIVE PRODUCT TOUR</span>
+    <h1>%%title%%</h1>
+    <p>%%description%%</p>
+  </div>
+
+  <div class="ae-wrap">
+    <div class="ae-tour">
+      <div class="ae-stagebox">
+        <div class="ae-app" id="app">
+          <div class="bar"><i></i><i></i><i></i></div>
+          <div class="ae-body">
+            <div class="ae-side ae-zone" id="zone1"><b></b><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="ae-main">
+              <div class="ae-cards ae-zone" id="zone2"><span></span><span></span><span></span></div>
+              <div class="ae-chart ae-zone" id="zone3"><u></u><u></u><u></u><u></u><u></u><u></u></div>
+              <div class="ae-foot-row ae-zone" id="zone4"></div>
+            </div>
+          </div>
+          <button type="button" class="ae-spot" id="spot1" aria-label="ステップ1を見る">1</button>
+          <button type="button" class="ae-spot" id="spot2" aria-label="ステップ2を見る">2</button>
+          <button type="button" class="ae-spot" id="spot3" aria-label="ステップ3を見る">3</button>
+          <button type="button" class="ae-spot" id="spot4" aria-label="ステップ4を見る">4</button>
+        </div>
+      </div>
+
+      <div class="ae-guide">
+        <div class="ae-step-tag">STEP <span id="stepNow">1</span> / <span id="stepAll">4</span></div>
+        <h2 id="stepTitle"></h2>
+        <p class="desc" id="stepDesc"></p>
+        <div class="ae-progress"><span id="progBar"></span></div>
+        <div class="ae-dots" id="dots"><i></i><i></i><i></i><i></i></div>
+        <div class="ae-nav">
+          <button type="button" id="prevBtn">← 戻る</button>
+          <button type="button" id="nextBtn">次の機能へ →</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="ae-stats">
+      <div><b>3分</b><span>セットアップ完了まで</span></div>
+      <div><b>12,000+</b><span>導入チーム</span></div>
+      <div><b>99.9%</b><span>稼働率 (SLA)</span></div>
+    </div>
+
+    <div class="ae-cta">
+      <div class="t">実際の画面を、あなたのデータで</div>
+      <div class="s">14日間の無料トライアルをご用意しています。クレジットカード登録は不要です。</div>
+      %%content%%
+      <div class="ae-note">ご登録後すぐに、すべての機能をお試しいただけます。</div>
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var STEPS = [
+      { title: "迷わないナビゲーション", desc: "よく使う機能は左のサイドバーに集約。プロジェクト・レポート・設定まで、どの画面からも2クリック以内で到達できます。新しいメンバーも初日から迷いません。" },
+      { title: "KPIをひと目で把握", desc: "売上・コンバージョン・解約率などの重要指標をカードで常時表示。前週比の増減も色で直感的にわかるので、朝の確認は10秒で完了します。" },
+      { title: "ドリルダウンできる分析チャート", desc: "気になる棒グラフをクリックすると、チャネル別・担当者別に内訳を展開。スプレッドシートへの書き出しも、この画面からワンクリックです。" },
+      { title: "チームへの共有もワンクリック", desc: "画面下のアクションバーから、見ているレポートをそのままURLで共有。閲覧権限はリンクごとに細かく設定でき、社外パートナーとも安全に共有できます。" }
+    ];
+    var idx = 0;
+    var app = document.getElementById("app");
+    var stepNow = document.getElementById("stepNow");
+    var stepTitle = document.getElementById("stepTitle");
+    var stepDesc = document.getElementById("stepDesc");
+    var progBar = document.getElementById("progBar");
+    var prevBtn = document.getElementById("prevBtn");
+    var nextBtn = document.getElementById("nextBtn");
+    var dots = document.getElementById("dots").children;
+    var spots = [], zones = [];
+    var i;
+    for (i = 1; i <= 4; i++) {
+      spots.push(document.getElementById("spot" + i));
+      zones.push(document.getElementById("zone" + i));
+    }
+
+    function render() {
+      var s = STEPS[idx];
+      stepNow.textContent = String(idx + 1);
+      stepTitle.textContent = s.title;
+      stepDesc.textContent = s.desc;
+      progBar.style.width = ((idx + 1) / STEPS.length * 100) + "%";
+      for (var k = 0; k < STEPS.length; k++) {
+        spots[k].classList.toggle("on", k === idx);
+        zones[k].classList.toggle("lit", k === idx);
+        dots[k].classList.toggle("on", k === idx);
+      }
+      app.classList.add("focus");
+      prevBtn.disabled = (idx === 0);
+      nextBtn.textContent = (idx === STEPS.length - 1) ? "↻ 最初から見る" : "次の機能へ →";
+    }
+
+    prevBtn.addEventListener("click", function () { if (idx > 0) { idx--; render(); } });
+    nextBtn.addEventListener("click", function () { idx = (idx + 1) % STEPS.length; render(); });
+    spots.forEach(function (btn, k) {
+      btn.addEventListener("click", function () { idx = k; render(); });
+    });
+
+    render();
+  })();
+  </script>
+</body>
+</html>

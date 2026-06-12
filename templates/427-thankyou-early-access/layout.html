@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root {
+      --bg:#0a0c16; --bg2:#11142a; --ink:#eef0ff; --muted:#9aa1c9;
+      --gold:#f0c674; --gold2:#c79b3f; --teal:#5eead4; --card:#161a36; --line:rgba(255,255,255,.1);
+    }
+    * { box-sizing:border-box; }
+    body {
+      margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); line-height:1.8;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(240,198,116,.14), transparent 60%),
+        radial-gradient(ellipse 60% 40% at 85% 100%, rgba(94,234,212,.08), transparent 60%),
+        linear-gradient(180deg,var(--bg2),var(--bg) 60%);
+      background-attachment:fixed;
+    }
+    .ae-wrap { max-width:560px; margin:0 auto; padding:52px 20px 64px; }
+
+    /* ===== ヘッダー ===== */
+    .ae-head { text-align:center; margin-bottom:30px; }
+    .ae-seal {
+      width:84px; height:84px; margin:0 auto 18px; border-radius:50%; position:relative;
+      background:radial-gradient(circle at 32% 28%, #2a2f5c, #14172f 70%);
+      border:1px solid rgba(240,198,116,.5);
+      box-shadow:0 0 0 8px rgba(240,198,116,.07), 0 0 44px rgba(240,198,116,.3);
+      display:flex; align-items:center; justify-content:center; font-size:36px;
+      animation:ae-rise .7s cubic-bezier(.2,1.3,.4,1) both;
+    }
+    .ae-seal::after {
+      content:""; position:absolute; inset:-8px; border-radius:50%;
+      border:1px dashed rgba(240,198,116,.45); animation:ae-orbit 14s linear infinite;
+    }
+    @keyframes ae-orbit { to { transform:rotate(360deg); } }
+    @keyframes ae-rise { from { opacity:0; transform:translateY(16px) scale(.85); } to { opacity:1; transform:none; } }
+    .ae-granted {
+      font-size:11px; font-weight:800; letter-spacing:.42em; color:var(--teal);
+      text-transform:uppercase; margin-bottom:10px;
+    }
+    .ae-head h1 {
+      margin:0 0 10px; font-size:29px; font-weight:900; line-height:1.4;
+      background:linear-gradient(110deg,#fff 35%, var(--gold) 70%, #fff6dd);
+      -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+    }
+    .ae-head p { margin:0; color:var(--muted); font-size:14px; }
+
+    /* ===== アクセスパス ===== */
+    .ae-pass {
+      position:relative; border-radius:20px; padding:1.5px; margin-bottom:14px;
+      background:linear-gradient(120deg, rgba(240,198,116,.9), rgba(240,198,116,.15) 30%, rgba(94,234,212,.5) 55%, rgba(240,198,116,.15) 80%, rgba(240,198,116,.9));
+      background-size:250% 100%; animation:ae-sheen 5.5s linear infinite;
+    }
+    @keyframes ae-sheen { to { background-position:-250% 0; } }
+    .ae-pass-in {
+      border-radius:18.5px; background:linear-gradient(160deg,#1b2046,#12152c 70%);
+      padding:26px 28px; position:relative; overflow:hidden;
+    }
+    .ae-pass-in::before {
+      content:"EARLY ACCESS"; position:absolute; right:-44px; top:18px; transform:rotate(33deg);
+      font-size:10px; font-weight:900; letter-spacing:.34em; color:#0c0e1d;
+      background:linear-gradient(90deg,var(--gold),#ffe9b0); padding:6px 52px;
+    }
+    .ae-pass-top { display:flex; align-items:center; gap:10px; margin-bottom:18px; }
+    .ae-pass-top .logo { width:34px; height:34px; border-radius:10px; background:linear-gradient(135deg,var(--gold),var(--gold2)); display:flex; align-items:center; justify-content:center; font-size:17px; }
+    .ae-pass-top .nm { font-weight:900; font-size:14px; letter-spacing:.06em; }
+    .ae-pass-top .sub { font-size:10.5px; color:var(--muted); letter-spacing:.18em; }
+    .ae-pass-grid { display:flex; gap:18px; }
+    .ae-pass-grid > div { flex:1; }
+    .ae-lab { font-size:10px; font-weight:800; letter-spacing:.26em; color:var(--muted); margin-bottom:3px; }
+    .ae-val { font-size:15px; font-weight:800; font-variant-numeric:tabular-nums; }
+    .ae-val.gold { color:var(--gold); font-size:19px; letter-spacing:.08em; }
+    .ae-perf {
+      margin-top:20px; padding-top:16px; border-top:1px dashed rgba(255,255,255,.18);
+      display:flex; justify-content:space-between; align-items:center;
+    }
+    .ae-perf .qr {
+      width:42px; height:42px; border-radius:8px; flex:none;
+      background:
+        conic-gradient(#e8ecff 25%, transparent 0 50%, #e8ecff 0 75%, transparent 0) 0 0/14px 14px,
+        #cdd4f5;
+      opacity:.85;
+    }
+    .ae-perf small { color:var(--muted); font-size:11px; line-height:1.6; text-align:left; margin-right:14px; }
+
+    /* ===== 招待状況 ===== */
+    .ae-meta { display:flex; gap:12px; margin-bottom:26px; }
+    .ae-meta div {
+      flex:1; text-align:center; background:rgba(255,255,255,.04); border:1px solid var(--line);
+      border-radius:14px; padding:14px 8px;
+    }
+    .ae-meta b { display:block; font-size:20px; font-weight:900; color:var(--teal); font-variant-numeric:tabular-nums; }
+    .ae-meta span { font-size:11px; color:var(--muted); }
+
+    /* ===== これからの流れ ===== */
+    .ae-next { background:var(--card); border:1px solid var(--line); border-radius:18px; padding:24px 26px; margin-bottom:26px; }
+    .ae-next h2 { margin:0 0 16px; font-size:15px; font-weight:900; letter-spacing:.06em; display:flex; align-items:center; gap:8px; }
+    .ae-next h2::before { content:"🗓️"; }
+    .ae-steps { list-style:none; margin:0; padding:0; }
+    .ae-steps li { position:relative; padding:0 0 18px 38px; }
+    .ae-steps li:last-child { padding-bottom:0; }
+    .ae-steps li::before { content:""; position:absolute; left:11px; top:26px; bottom:-2px; width:2px; background:rgba(255,255,255,.12); }
+    .ae-steps li:last-child::before { display:none; }
+    .ae-steps .dot {
+      position:absolute; left:0; top:2px; width:24px; height:24px; border-radius:50%;
+      border:2px solid var(--teal); color:var(--teal); font-size:11px; font-weight:900;
+      display:flex; align-items:center; justify-content:center; background:rgba(94,234,212,.08);
+    }
+    .ae-steps li.done .dot { background:var(--teal); color:#06281f; }
+    .ae-steps b { display:block; font-size:13.5px; }
+    .ae-steps b em { font-style:normal; color:var(--gold); font-size:11.5px; margin-left:8px; letter-spacing:.04em; }
+    .ae-steps small { color:var(--muted); font-size:12px; line-height:1.7; display:block; }
+
+    /* ===== CTA(フォーム) ===== */
+    .ae-cta {
+      background:linear-gradient(180deg, rgba(240,198,116,.1), rgba(240,198,116,.03));
+      border:1px solid rgba(240,198,116,.35); border-radius:18px; padding:26px; text-align:center;
+    }
+    .ae-cta .t { font-weight:900; font-size:16px; margin-bottom:4px; }
+    .ae-cta .s { color:var(--muted); font-size:13px; margin-bottom:18px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form label { display:block; font-size:12px; font-weight:700; color:var(--muted); margin-bottom:5px; }
+    .ae-cta form input[type=text], .ae-cta form input[type=email], .ae-cta form input[type=tel],
+    .ae-cta form input[type=date], .ae-cta form select, .ae-cta form textarea {
+      width:100%; padding:13px 14px; font-size:14px; font-family:inherit; color:var(--ink);
+      background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.2); border-radius:10px; outline:none;
+      transition:border-color .2s ease, box-shadow .2s ease;
+    }
+    .ae-cta form input:focus, .ae-cta form select:focus, .ae-cta form textarea:focus {
+      border-color:var(--gold); box-shadow:0 0 0 3px rgba(240,198,116,.16);
+    }
+    .ae-cta form input::placeholder, .ae-cta form textarea::placeholder { color:rgba(154,161,201,.55); }
+    .ae-cta form select option { color:#14172f; }
+    .ae-cta form textarea { min-height:80px; resize:vertical; }
+    .ae-cta form .row { display:flex; gap:12px; }
+    .ae-cta form .row p { flex:1; }
+    .ae-cta form .submit input, .ae-cta form button {
+      width:100%; border:0; cursor:pointer; padding:15px; border-radius:11px; font-family:inherit;
+      font-size:15px; font-weight:900; letter-spacing:.08em; color:#2b1d00;
+      background:linear-gradient(180deg,#ffe2a0,var(--gold) 55%,var(--gold2));
+      box-shadow:0 10px 26px rgba(240,198,116,.3), inset 0 1px 0 rgba(255,255,255,.6); margin-top:4px;
+    }
+    .ae-foot { text-align:center; color:rgba(154,161,201,.55); font-size:11px; margin-top:18px; }
+
+    @media (max-width:480px) {
+      .ae-head h1 { font-size:23px; }
+      .ae-pass-in { padding:22px 20px; }
+      .ae-pass-grid { flex-wrap:wrap; }
+      .ae-meta { flex-direction:column; }
+      form .row { flex-direction:column; gap:0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head">
+      <div class="ae-seal">🗝️</div>
+      <div class="ae-granted">Access Granted</div>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+
+    <div class="ae-pass">
+      <div class="ae-pass-in">
+        <div class="ae-pass-top">
+          <span class="logo">◆</span>
+          <span>
+            <span class="nm">EARLY ACCESS PASS</span><br>
+            <span class="sub">FOUNDING MEMBER EDITION</span>
+          </span>
+        </div>
+        <div class="ae-pass-grid">
+          <div><div class="ae-lab">MEMBER NO.</div><div class="ae-val gold">#000412</div></div>
+          <div><div class="ae-lab">TIER</div><div class="ae-val">ファウンディング</div></div>
+          <div><div class="ae-lab">VALID FROM</div><div class="ae-val">解放日 0:00〜</div></div>
+        </div>
+        <div class="ae-perf">
+          <small>このパスはご登録メールアドレスに紐づいています。解放日に届く招待メールのリンクからそのままログインできます。</small>
+          <span class="qr" aria-hidden="true"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ae-meta">
+      <div><b>先着 500名</b><span>ファウンディング枠</span></div>
+      <div><b>30%OFF</b><span>正式版を永年割引</span></div>
+      <div><b>専用Slack</b><span>開発チームに直接要望</span></div>
+    </div>
+
+    <div class="ae-next">
+      <h2>これからの流れ</h2>
+      <ol class="ae-steps">
+        <li class="done"><span class="dot">✓</span><b>枠の確保が完了しました<em>たった今</em></b><small>あなたのメンバー番号で先行アクセス枠を確保しました。お手続きはこれで完了です。</small></li>
+        <li><span class="dot">2</span><b>招待メールが届きます<em>解放日の朝</em></b><small>ログインリンクとセットアップガイドをお送りします。迷惑メールフォルダもご確認ください。</small></li>
+        <li><span class="dot">3</span><b>ファウンディング特典の適用<em>初回ログイン時</em></b><small>永年30%OFFと専用Slackへの招待が自動で適用されます。手続きは不要です。</small></li>
+      </ol>
+    </div>
+
+    <div class="ae-cta">
+      <div class="t">セットアップを15分短縮しませんか？</div>
+      <div class="s">利用環境を事前に教えていただくと、あなた仕様の初期設定を済ませた状態でお渡しできます。</div>
+      %%content%%
+    </div>
+
+    <div class="ae-foot">※ 先行アクセス権の譲渡・転売はできません。解放日は変更になる場合があります。</div>
+  </div>
+</body>
+</html>
