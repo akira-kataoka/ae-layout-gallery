@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0d9488; --ink:#0c2522; --muted:#5a7570; --line:#d2ebe6; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eefbf8; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:20px; }
+    .ae-head h1 { font-size:24px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; box-shadow:0 12px 32px rgba(13,148,136,.09); }
+    .ae-field { margin-bottom:18px; }
+    .ae-field label { font-weight:700; font-size:14px; display:flex; justify-content:space-between; margin-bottom:8px; }
+    .ae-field label .v { color:var(--accent); font-variant-numeric:tabular-nums; }
+    .ae-field input[type=range] { width:100%; accent-color:var(--accent); }
+    .ae-act { display:flex; gap:6px; background:#d6f3ee; border-radius:10px; padding:4px; }
+    .ae-act button { flex:1; border:0; background:transparent; padding:9px 4px; border-radius:8px; font-weight:700; font-size:12px; cursor:pointer; color:var(--muted); }
+    .ae-act button.on { background:#fff; color:var(--accent); box-shadow:0 2px 8px rgba(13,148,136,.18); }
+    .ae-out { background:linear-gradient(135deg,#14b8a6,#0d9488); color:#fff; border-radius:14px; padding:24px; text-align:center; margin-top:18px; }
+    .ae-out .lab { font-size:13px; opacity:.9; } .ae-out .big { font-size:40px; font-weight:900; font-variant-numeric:tabular-nums; line-height:1.1; } .ae-out .big small { font-size:16px; } .ae-out .sub { font-size:13px; opacity:.95; margin-top:6px; }
+    .ae-break { margin-top:14px; text-align:left; background:rgba(255,255,255,.13); border-radius:10px; padding:12px 14px; }
+    .ae-br { display:flex; justify-content:space-between; font-size:13px; padding:3px 0; } .ae-br .n { font-variant-numeric:tabular-nums; font-weight:700; }
+    .ae-note { font-size:11px; color:var(--muted); margin-top:12px; text-align:center; }
+    .ae-cta { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; margin-top:18px; }
+    .ae-cta .t { font-weight:700; margin-bottom:12px; }
+    .ae-cta form input[type=text],.ae-cta form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form .submit input,.ae-cta form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <div class="ae-field"><label>額面年収 <span class="v"><span id="vG">500</span> 万円</span></label>
+        <input type="range" id="g" min="200" max="2000" step="10" value="500"></div>
+      <div class="ae-field"><label>扶養家族の人数</label>
+        <div class="ae-act" id="dep">
+          <button type="button" data-d="0" class="on">0人</button>
+          <button type="button" data-d="1">1人</button>
+          <button type="button" data-d="2">2人</button>
+          <button type="button" data-d="3">3人</button>
+        </div></div>
+      <div class="ae-out">
+        <div class="lab">手取り年収の目安</div>
+        <div class="big"><span id="net">0</span><small> 万円</small></div>
+        <div class="sub">毎月の手取り 約 <span id="mon">0</span> 万円</div>
+        <div class="ae-break">
+          <div class="ae-br"><span>社会保険料</span><span class="n">▲<span id="soc">0</span>万</span></div>
+          <div class="ae-br"><span>所得税</span><span class="n">▲<span id="inc">0</span>万</span></div>
+          <div class="ae-br"><span>住民税</span><span class="n">▲<span id="res">0</span>万</span></div>
+        </div>
+      </div>
+      <div class="ae-note">※ 概算です。控除や自治体により実際の金額は異なります。</div>
+    </div>
+    <div class="ae-cta">
+      <div class="t">家計・資産形成のお役立ち情報を受け取る</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var g = document.getElementById("g"), vG = document.getElementById("vG");
+    var netEl = document.getElementById("net"), monEl = document.getElementById("mon");
+    var socEl = document.getElementById("soc"), incEl = document.getElementById("inc"), resEl = document.getElementById("res");
+    var depBtns = Array.prototype.slice.call(document.querySelectorAll("#dep button"));
+    var dependents = 0;
+    function man(yen) { return (Math.round(yen / 1000) / 10).toFixed(1); }
+    function salaryDeduction(gross) {
+      if (gross <= 1625000) return 550000;
+      if (gross <= 1800000) return gross * 0.4 - 100000;
+      if (gross <= 3600000) return gross * 0.3 + 80000;
+      if (gross <= 6600000) return gross * 0.2 + 440000;
+      if (gross <= 8500000) return gross * 0.1 + 1100000;
+      return 1950000;
+    }
+    function incomeTax(taxable) {
+      var t = Math.max(0, taxable);
+      if (t <= 1950000) return t * 0.05;
+      if (t <= 3300000) return t * 0.10 - 97500;
+      if (t <= 6950000) return t * 0.20 - 427500;
+      if (t <= 9000000) return t * 0.23 - 636000;
+      if (t <= 18000000) return t * 0.33 - 1536000;
+      if (t <= 40000000) return t * 0.40 - 2796000;
+      return t * 0.45 - 4796000;
+    }
+    function calc() {
+      var gross = (parseInt(g.value, 10) || 0) * 10000;
+      vG.textContent = parseInt(g.value, 10) || 0;
+      var social = gross * 0.145;
+      var depDed = dependents * 380000;
+      var taxableBase = gross - social - salaryDeduction(gross) - 480000 - depDed;
+      var income = incomeTax(taxableBase);
+      var resident = Math.max(0, taxableBase) * 0.10 + 5000;
+      var net = gross - social - income - resident;
+      netEl.textContent = man(net);
+      monEl.textContent = man(net / 12);
+      socEl.textContent = man(social);
+      incEl.textContent = man(income);
+      resEl.textContent = man(resident);
+    }
+    g.addEventListener("input", calc);
+    depBtns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        depBtns.forEach(function (x) { x.classList.remove("on"); });
+        b.classList.add("on"); dependents = parseInt(b.getAttribute("data-d"), 10); calc();
+      });
+    });
+    calc();
+  })();
+  </script>
+</body>
+</html>

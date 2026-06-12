@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0891b2; --ink:#0c2128; --muted:#5d7480; --line:#d6eaf0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eefafd; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:54px 20px; }
+    .ae-done { text-align:center; margin-bottom:22px; }
+    .ae-done .chk { width:74px; height:74px; border-radius:50%; background:linear-gradient(135deg,#22d3ee,#0891b2); color:#fff; display:flex; align-items:center; justify-content:center; font-size:38px; margin:0 auto 16px; box-shadow:0 14px 32px rgba(8,145,178,.28); }
+    .ae-done h1 { font-size:24px; margin:0 0 6px; }
+    .ae-done p { color:var(--muted); margin:0; font-size:14px; }
+    .ae-webinar { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; margin-bottom:18px; box-shadow:0 8px 22px rgba(8,145,178,.06); }
+    .ae-webinar .row { display:flex; gap:12px; align-items:center; padding:10px 0; border-top:1px solid var(--line); }
+    .ae-webinar .row:first-child { border-top:0; }
+    .ae-webinar .ic { width:40px; height:40px; border-radius:11px; background:#e0f7fc; display:flex; align-items:center; justify-content:center; font-size:20px; flex:0 0 auto; }
+    .ae-webinar .k { font-size:12px; color:var(--muted); } .ae-webinar .v { font-weight:700; font-size:14px; }
+    .ae-cal { display:flex; gap:10px; margin-bottom:18px; }
+    .ae-cal a { flex:1; text-align:center; background:#fff; border:1px solid var(--line); border-radius:11px; padding:12px; font-size:13px; font-weight:700; color:var(--accent); text-decoration:none; }
+    .ae-tips { background:#e0f7fc; border:1px solid #bae6fd; border-radius:14px; padding:16px 18px; margin-bottom:18px; font-size:13px; color:#0e7490; }
+    .ae-tips b { display:block; margin-bottom:6px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; }
+    .ae-card .t { font-weight:700; margin-bottom:12px; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-done">
+      <div class="chk">✓</div>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-webinar">
+      <div class="row"><div class="ic">📅</div><div><div class="k">日時</div><div class="v">2026年7月30日（木）14:00〜15:00</div></div></div>
+      <div class="row"><div class="ic">💻</div><div><div class="k">参加方法</div><div class="v">オンライン（視聴URLはメールでお送りします）</div></div></div>
+      <div class="row"><div class="ic">🎤</div><div><div class="k">テーマ</div><div class="v">事例で学ぶ、成果につながる活用術</div></div></div>
+    </div>
+    <div class="ae-cal">
+      <a href="#">📅 Google カレンダーに追加</a>
+      <a href="#">📥 .ics をダウンロード</a>
+    </div>
+    <div class="ae-tips">
+      <b>🔔 当日に向けて</b>
+      開始10分前から入室いただけます。確認メールが届かない場合は迷惑メールフォルダをご確認ください。
+    </div>
+    <div class="ae-card">
+      <div class="t">関連資料・次回ウェビナーの案内を受け取る</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>
