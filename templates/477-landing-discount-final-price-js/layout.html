@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#e11d48; --ink:#2a0f18; --muted:#7c5a64; --line:#f1dde2; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fdf2f5; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:20px; }
+    .ae-head h1 { font-size:24px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; box-shadow:0 12px 32px rgba(225,29,72,.09); }
+    .ae-field { margin-bottom:18px; }
+    .ae-field label { font-weight:700; font-size:14px; display:flex; justify-content:space-between; margin-bottom:8px; }
+    .ae-field label .v { color:var(--accent); font-variant-numeric:tabular-nums; }
+    .ae-field input[type=range] { width:100%; accent-color:var(--accent); }
+    .ae-out { background:linear-gradient(135deg,#f43f5e,#e11d48); color:#fff; border-radius:14px; padding:24px; text-align:center; margin-top:18px; }
+    .ae-out .was { font-size:15px; opacity:.85; text-decoration:line-through; } .ae-out .big { font-size:42px; font-weight:900; font-variant-numeric:tabular-nums; line-height:1.1; } .ae-out .sub { font-size:13px; opacity:.95; margin-top:6px; }
+    .ae-row2 { display:flex; gap:8px; margin-top:14px; }
+    .ae-g { flex:1; background:rgba(255,255,255,.15); border-radius:10px; padding:10px 6px; }
+    .ae-g .k { font-size:11px; opacity:.9; } .ae-g .n { font-weight:800; font-variant-numeric:tabular-nums; }
+    .ae-cta { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; margin-top:18px; }
+    .ae-cta .t { font-weight:700; margin-bottom:12px; }
+    .ae-cta form input[type=text],.ae-cta form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form .submit input,.ae-cta form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <div class="ae-field"><label>商品の元の価格 <span class="v">¥<span id="vP">10000</span></span></label>
+        <input type="range" id="p" min="500" max="100000" step="500" value="10000"></div>
+      <div class="ae-field"><label>割引率 <span class="v"><span id="vD">30</span>%</span></label>
+        <input type="range" id="d" min="0" max="90" step="1" value="30"></div>
+      <div class="ae-field"><label>追加クーポン（値引き額） <span class="v">¥<span id="vC">500</span></span></label>
+        <input type="range" id="c" min="0" max="10000" step="100" value="500"></div>
+      <div class="ae-out">
+        <div class="was">¥<span id="orig">0</span></div>
+        <div class="big">¥<span id="final">0</span></div>
+        <div class="sub">実質 <span id="rate">0</span>% OFF</div>
+        <div class="ae-row2">
+          <div class="ae-g"><div class="k">割引額（合計）</div><div class="n">¥<span id="saved">0</span></div></div>
+          <div class="ae-g"><div class="k">割引後＋税10%</div><div class="n">¥<span id="tax">0</span></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="ae-cta">
+      <div class="t">お得なセール・クーポン情報を受け取る</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var p = document.getElementById("p"), d = document.getElementById("d"), c = document.getElementById("c");
+    var vP = document.getElementById("vP"), vD = document.getElementById("vD"), vC = document.getElementById("vC");
+    var origEl = document.getElementById("orig"), finalEl = document.getElementById("final"), rateEl = document.getElementById("rate");
+    var savedEl = document.getElementById("saved"), taxEl = document.getElementById("tax");
+    function yen(n) { return Math.round(n).toLocaleString(); }
+    function calc() {
+      var price = parseInt(p.value, 10) || 0;
+      var disc = (parseInt(d.value, 10) || 0) / 100;
+      var coupon = parseInt(c.value, 10) || 0;
+      vP.textContent = price.toLocaleString(); vD.textContent = parseInt(d.value, 10) || 0; vC.textContent = coupon.toLocaleString();
+      var afterDisc = price * (1 - disc);
+      var fin = Math.max(0, afterDisc - coupon);
+      var saved = price - fin;
+      origEl.textContent = yen(price);
+      finalEl.textContent = yen(fin);
+      savedEl.textContent = yen(saved);
+      rateEl.textContent = price > 0 ? Math.round(saved / price * 100) : 0;
+      taxEl.textContent = yen(fin * 1.1);
+    }
+    [p, d, c].forEach(function (el) { el.addEventListener("input", calc); });
+    calc();
+  })();
+  </script>
+</body>
+</html>

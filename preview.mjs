@@ -300,6 +300,14 @@ const TAX_CONSULT_FORM = `<form>
   <p class="submit"><input type="submit" value="無料相談を予約する"></p>
 </form>`;
 
+const LOCKSMITH_FORM = `<form>
+  <p><label>トラブル内容</label><br><select><option selected>締め出し・鍵開け</option><option>鍵の紛失</option><option>鍵交換・防犯強化</option><option>合鍵作製</option><option>金庫・その他</option></select></p>
+  <p><label>場所</label><br><select><option selected>自宅（玄関）</option><option>自宅（その他のドア）</option><option>車・バイク</option><option>店舗・オフィス</option></select></p>
+  <div class="row"><p><label>お名前</label><br><input type="text" value="山田 太郎"></p><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p></div>
+  <p><label>ご希望時間</label><br><select><option selected>今すぐ（最短）</option><option>本日中</option><option>日時指定</option></select></p>
+  <p class="submit"><input type="submit" value="出張・見積を依頼する"></p>
+</form>`;
+
 const PHONE_REPAIR_FORM = `<form>
   <p><label>機種</label><br><select><option selected>iPhone</option><option>Android スマホ</option><option>iPad / タブレット</option><option>その他</option></select></p>
   <p><label>症状・ご希望の修理</label><br><select><option selected>画面割れ・液晶不良</option><option>バッテリー交換</option><option>水没・電源が入らない</option><option>充電できない</option><option>その他・診断希望</option></select></p>
@@ -2213,6 +2221,9 @@ function contentFor(dir, category) {
     case "474-form-phone-repair": return PHONE_REPAIR_FORM;
     case "475-event-magic-show": return RSVP_FORM;
     case "476-thankyou-repair-booked": return NEWSLETTER_FORM;
+    case "477-landing-discount-final-price-js": return NEWSLETTER_FORM;
+    case "478-form-locksmith": return LOCKSMITH_FORM;
+    case "479-event-food-truck-festival": return RSVP_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;
