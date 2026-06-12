@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0d9488; --ink:#0c2622; --muted:#5a766e; --line:#d4ebe6; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eefaf7; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:20px; }
+    .ae-head h1 { font-size:24px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; box-shadow:0 12px 32px rgba(13,148,136,.09); }
+    .ae-field { margin-bottom:18px; }
+    .ae-field label { font-weight:700; font-size:14px; display:flex; justify-content:space-between; margin-bottom:8px; }
+    .ae-field label .v { color:var(--accent); font-variant-numeric:tabular-nums; }
+    .ae-field input[type=range] { width:100%; accent-color:var(--accent); }
+    .ae-out { background:linear-gradient(135deg,#14b8a6,#0d9488); color:#fff; border-radius:14px; padding:24px; text-align:center; margin-top:18px; }
+    .ae-out .lab { font-size:13px; opacity:.9; } .ae-out .big { font-size:40px; font-weight:900; font-variant-numeric:tabular-nums; line-height:1.1; } .ae-out .big small { font-size:15px; } .ae-out .sub { font-size:13px; opacity:.95; margin-top:6px; }
+    .ae-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:14px; }
+    .ae-g { background:rgba(255,255,255,.15); border-radius:10px; padding:10px 6px; } .ae-g .k { font-size:11px; opacity:.9; } .ae-g .n { font-weight:800; font-variant-numeric:tabular-nums; font-size:13px; }
+    .ae-note { font-size:11px; color:var(--muted); margin-top:12px; text-align:center; }
+    .ae-cta { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; margin-top:18px; }
+    .ae-cta .t { font-weight:700; margin-bottom:12px; }
+    .ae-cta form input[type=text],.ae-cta form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form .submit input,.ae-cta form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <div class="ae-field"><label>時給 <span class="v">¥<span id="vH">1200</span></span></label>
+        <input type="range" id="h" min="900" max="5000" step="10" value="1200"></div>
+      <div class="ae-field"><label>1日の勤務時間 <span class="v"><span id="vD">8</span> 時間</span></label>
+        <input type="range" id="d" min="2" max="12" step="0.5" value="8"></div>
+      <div class="ae-field"><label>週の勤務日数 <span class="v"><span id="vW">5</span> 日</span></label>
+        <input type="range" id="w" min="1" max="7" step="1" value="5"></div>
+      <div class="ae-out">
+        <div class="lab">想定年収（額面）</div>
+        <div class="big">¥<span id="year">0</span></div>
+        <div class="sub">この働き方を1年続けた場合の目安です</div>
+        <div class="ae-grid">
+          <div class="ae-g"><div class="k">1日</div><div class="n">¥<span id="day">0</span></div></div>
+          <div class="ae-g"><div class="k">1週</div><div class="n">¥<span id="week">0</span></div></div>
+          <div class="ae-g"><div class="k">1ヶ月</div><div class="n">¥<span id="month">0</span></div></div>
+        </div>
+      </div>
+      <div class="ae-note">※ 額面の概算です。月収は週収×4.33で算出。税・社会保険は含みません。</div>
+    </div>
+    <div class="ae-cta">
+      <div class="t">あなたに合った働き方・お仕事情報を受け取る</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var h = document.getElementById("h"), d = document.getElementById("d"), w = document.getElementById("w");
+    var vH = document.getElementById("vH"), vD = document.getElementById("vD"), vW = document.getElementById("vW");
+    var yearEl = document.getElementById("year"), dayEl = document.getElementById("day"), weekEl = document.getElementById("week"), monthEl = document.getElementById("month");
+    function yen(n) { return Math.round(n).toLocaleString(); }
+    function calc() {
+      var wage = parseInt(h.value, 10) || 0;
+      var hours = parseFloat(d.value) || 0;
+      var days = parseInt(w.value, 10) || 0;
+      vH.textContent = wage.toLocaleString(); vD.textContent = hours; vW.textContent = days;
+      var daily = wage * hours;
+      var weekly = daily * days;
+      var monthly = weekly * 4.33;
+      var annual = weekly * 52;
+      dayEl.textContent = yen(daily); weekEl.textContent = yen(weekly);
+      monthEl.textContent = yen(monthly); yearEl.textContent = yen(annual);
+    }
+    [h, d, w].forEach(function (el) { el.addEventListener("input", calc); });
+    calc();
+  })();
+  </script>
+</body>
+</html>

@@ -300,6 +300,15 @@ const TAX_CONSULT_FORM = `<form>
   <p class="submit"><input type="submit" value="無料相談を予約する"></p>
 </form>`;
 
+const PHONE_REPAIR_FORM = `<form>
+  <p><label>機種</label><br><select><option selected>iPhone</option><option>Android スマホ</option><option>iPad / タブレット</option><option>その他</option></select></p>
+  <p><label>症状・ご希望の修理</label><br><select><option selected>画面割れ・液晶不良</option><option>バッテリー交換</option><option>水没・電源が入らない</option><option>充電できない</option><option>その他・診断希望</option></select></p>
+  <div class="row"><p><label>ご来店希望日</label><br><input type="date" value="2026-07-20"></p><p><label>希望時間帯</label><br><select><option selected>午前</option><option>午後</option><option>夕方以降</option></select></p></div>
+  <div class="row"><p><label>お名前</label><br><input type="text" value="山田 太郎"></p><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p></div>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="修理を予約する"></p>
+</form>`;
+
 const LAWN_FORM = `<form>
   <p><label>ご希望の作業</label><br><select><option selected>芝刈り・草刈り</option><option>植木の剪定</option><option>除草・防草シート</option><option>庭まわりの清掃</option><option>定期メンテナンス</option></select></p>
   <p><label>お庭のおおよその広さ</label><br><select><option selected>〜20㎡</option><option>20〜50㎡</option><option>50〜100㎡</option><option>100㎡以上・わからない</option></select></p>
@@ -2200,6 +2209,10 @@ function contentFor(dir, category) {
     case "470-form-lawn-care": return LAWN_FORM;
     case "471-event-comic-convention": return RSVP_FORM;
     case "472-utility-email-changed": return NEWSLETTER_FORM;
+    case "473-landing-hourly-wage-js": return NEWSLETTER_FORM;
+    case "474-form-phone-repair": return PHONE_REPAIR_FORM;
+    case "475-event-magic-show": return RSVP_FORM;
+    case "476-thankyou-repair-booked": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;
