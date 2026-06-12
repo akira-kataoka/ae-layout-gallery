@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#92400e; --ink:#2b1d12; --muted:#7c6552; --line:#ecdfd0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#faf3ea; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:20px; }
+    .ae-head h1 { font-size:24px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; box-shadow:0 12px 32px rgba(146,64,14,.09); }
+    .ae-field { margin-bottom:18px; }
+    .ae-field label { font-weight:700; font-size:14px; display:flex; justify-content:space-between; margin-bottom:8px; }
+    .ae-field label .v { color:var(--accent); font-variant-numeric:tabular-nums; }
+    .ae-field input[type=range] { width:100%; accent-color:var(--accent); }
+    .ae-act { display:flex; gap:6px; background:#f1e4d4; border-radius:10px; padding:4px; }
+    .ae-act button { flex:1; border:0; background:transparent; padding:9px 4px; border-radius:8px; font-weight:700; font-size:12px; cursor:pointer; color:var(--muted); }
+    .ae-act button.on { background:#fff; color:var(--accent); box-shadow:0 2px 8px rgba(146,64,14,.18); }
+    .ae-out { background:linear-gradient(135deg,#b45309,#92400e); color:#fff; border-radius:14px; padding:24px; text-align:center; margin-top:18px; }
+    .ae-out .lab { font-size:13px; opacity:.9; } .ae-out .big { font-size:38px; font-weight:900; font-variant-numeric:tabular-nums; line-height:1.1; } .ae-out .big small { font-size:15px; } .ae-out .sub { font-size:13px; opacity:.95; margin-top:6px; }
+    .ae-row2 { display:flex; gap:8px; margin-top:14px; }
+    .ae-g { flex:1; background:rgba(255,255,255,.15); border-radius:10px; padding:10px 6px; }
+    .ae-g .k { font-size:11px; opacity:.9; } .ae-g .n { font-weight:800; font-variant-numeric:tabular-nums; }
+    .ae-note { font-size:11px; color:var(--muted); margin-top:12px; text-align:center; }
+    .ae-cta { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; margin-top:18px; }
+    .ae-cta .t { font-weight:700; margin-bottom:12px; }
+    .ae-cta form input[type=text],.ae-cta form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form .submit input,.ae-cta form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <div class="ae-field"><label>1杯の値段 <span class="v">¥<span id="vP">450</span></span></label>
+        <input type="range" id="p" min="100" max="800" step="10" value="450"></div>
+      <div class="ae-field"><label>週に飲む回数 <span class="v"><span id="vF">5</span> 回</span></label>
+        <input type="range" id="f" min="1" max="21" step="1" value="5"></div>
+      <div class="ae-field"><label>もし積立投資したら（年利）</label>
+        <div class="ae-act" id="rate">
+          <button type="button" data-r="0" class="on">貯金 0%</button>
+          <button type="button" data-r="3">3%</button>
+          <button type="button" data-r="5">5%</button>
+        </div></div>
+      <div class="ae-out">
+        <div class="lab">コーヒー代は 年間で…</div>
+        <div class="big">¥<span id="year">0</span></div>
+        <div class="sub">10年間ではなんと <span id="ten">¥0</span></div>
+        <div class="ae-row2">
+          <div class="ae-g"><div class="k">1ヶ月あたり</div><div class="n">¥<span id="mon">0</span></div></div>
+          <div class="ae-g"><div class="k">10年積立の将来価値</div><div class="n">¥<span id="fv">0</span></div></div>
+        </div>
+      </div>
+      <div class="ae-note">☕ 「ラテファクター」— 小さな習慣の積み重ねを見える化します。</div>
+    </div>
+    <div class="ae-cta">
+      <div class="t">かしこいお金の習慣のヒントを受け取る</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var p = document.getElementById("p"), f = document.getElementById("f");
+    var vP = document.getElementById("vP"), vF = document.getElementById("vF");
+    var yearEl = document.getElementById("year"), tenEl = document.getElementById("ten"), monEl = document.getElementById("mon"), fvEl = document.getElementById("fv");
+    var rateBtns = Array.prototype.slice.call(document.querySelectorAll("#rate button"));
+    var ratePct = 0;
+    function yen(n) { return Math.round(n).toLocaleString(); }
+    function calc() {
+      var price = parseInt(p.value, 10) || 0, freq = parseInt(f.value, 10) || 0;
+      vP.textContent = price; vF.textContent = freq;
+      var annual = price * freq * 52;
+      yearEl.textContent = yen(annual);
+      tenEl.textContent = "¥" + yen(annual * 10);
+      monEl.textContent = yen(annual / 12);
+      // 毎月積立の将来価値（10年）
+      var r = ratePct / 100 / 12, n = 120, monthly = annual / 12, fv;
+      if (r > 0) { fv = monthly * ((Math.pow(1 + r, n) - 1) / r); }
+      else { fv = monthly * n; }
+      fvEl.textContent = yen(fv);
+    }
+    [p, f].forEach(function (el) { el.addEventListener("input", calc); });
+    rateBtns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        rateBtns.forEach(function (x) { x.classList.remove("on"); });
+        b.classList.add("on"); ratePct = parseFloat(b.getAttribute("data-r")); calc();
+      });
+    });
+    calc();
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#4f46e5; --warn:#e11d48; --ink:#181a2e; --muted:#646a90; --line:#e4e3f2; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f4f4fb; line-height:1.7; }
+    .ae-wrap { max-width:480px; margin:0 auto; padding:54px 20px; }
+    .ae-head { text-align:center; margin-bottom:22px; }
+    .ae-head .ic { width:74px; height:74px; border-radius:20px; background:linear-gradient(135deg,#fb7185,#e11d48); color:#fff; display:flex; align-items:center; justify-content:center; font-size:34px; margin:0 auto 16px; box-shadow:0 14px 32px rgba(225,29,72,.26); }
+    .ae-head h1 { font-size:23px; margin:0 0 6px; }
+    .ae-head p { color:var(--muted); margin:0; font-size:14px; }
+    .ae-gauge { background:#fff; border:1px solid var(--line); border-radius:16px; padding:20px 22px; margin-bottom:18px; box-shadow:0 8px 22px rgba(79,70,229,.05); }
+    .ae-gauge .top { display:flex; justify-content:space-between; font-size:13px; font-weight:700; margin-bottom:8px; }
+    .ae-gauge .top .pct { color:var(--warn); }
+    .ae-bar { height:14px; border-radius:999px; background:#eef0f8; overflow:hidden; }
+    .ae-bar span { display:block; height:100%; width:92%; border-radius:999px; background:linear-gradient(90deg,#fb7185,#e11d48); }
+    .ae-gauge .cap { font-size:12px; color:var(--muted); margin-top:8px; }
+    .ae-plans { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:18px; }
+    .ae-pl { background:#fff; border:1px solid var(--line); border-radius:13px; padding:14px; text-align:center; }
+    .ae-pl.best { border-color:var(--accent); box-shadow:0 6px 18px rgba(79,70,229,.14); position:relative; }
+    .ae-pl.best::after { content:"おすすめ"; position:absolute; top:-9px; left:50%; transform:translateX(-50%); background:var(--accent); color:#fff; font-size:10px; font-weight:800; padding:2px 10px; border-radius:999px; }
+    .ae-pl .sz { font-weight:800; font-size:18px; } .ae-pl .pr { font-size:12px; color:var(--muted); }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px; }
+    .ae-card .t { font-weight:700; margin-bottom:4px; text-align:center; } .ae-card .s { font-size:13px; color:var(--muted); margin-bottom:16px; text-align:center; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form label { font-weight:700; font-size:13px; display:block; margin-bottom:5px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    .ae-foot { font-size:12px; color:var(--muted); text-align:center; margin-top:14px; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head">
+      <div class="ic">🗂️</div>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-gauge">
+      <div class="top"><span>ストレージ使用量</span><span class="pct">92% 使用中</span></div>
+      <div class="ae-bar"><span></span></div>
+      <div class="cap">9.2 GB / 10 GB — 残りわずかです</div>
+    </div>
+    <div class="ae-plans">
+      <div class="ae-pl"><div class="sz">100 GB</div><div class="pr">¥250 / 月</div></div>
+      <div class="ae-pl best"><div class="sz">1 TB</div><div class="pr">¥1,200 / 月</div></div>
+    </div>
+    <div class="ae-card">
+      <div class="t">プランをアップグレードする</div>
+      <div class="s">容量が上限に達すると新しい保存ができなくなります。今すぐ拡張しましょう。</div>
+      %%content%%
+      <div class="ae-foot">🔒 いつでも変更・解約できます</div>
+    </div>
+  </div>
+</body>
+</html>

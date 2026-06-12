@@ -300,6 +300,20 @@ const TAX_CONSULT_FORM = `<form>
   <p class="submit"><input type="submit" value="無料相談を予約する"></p>
 </form>`;
 
+const COWORKING_FORM = `<form>
+  <p><label>ご希望プラン</label><br><select><option selected>ドロップイン（1日）</option><option>月額・フリー席</option><option>月額・固定席/個室</option><option>法人契約・住所登記</option></select></p>
+  <div class="row"><p><label>内覧希望日</label><br><input type="date" value="2026-07-25"></p><p><label>希望時間帯</label><br><select><option selected>午前</option><option>午後</option><option>夕方以降</option></select></p></div>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <div class="row"><p><label>メール</label><br><input type="email" value="taro@example.com"></p><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p></div>
+  <p class="submit"><input type="submit" value="内覧・無料体験を予約する"></p>
+</form>`;
+
+const STORAGE_UPGRADE_FORM = `<form>
+  <p><label>アップグレード先プラン</label><br><select><option>100 GB（¥250/月）</option><option selected>1 TB（¥1,200/月）</option><option>2 TB（¥2,200/月）</option></select></p>
+  <p><label>お支払い方法</label><br><select><option selected>登録中のクレジットカード</option><option>新しいカードを登録</option></select></p>
+  <p class="submit"><input type="submit" value="アップグレードする"></p>
+</form>`;
+
 const SECURITY_FORM = `<form>
   <p><label>住まいの種類</label><br><select><option selected>戸建て</option><option>マンション・アパート</option><option>店舗・事務所</option><option>空き家・別荘</option></select></p>
   <p><label>ご関心のあるサービス</label><br><select><option selected>防犯カメラ</option><option>侵入センサー・警報</option><option>駆けつけ・常時監視</option><option>トータルで相談したい</option></select></p>
@@ -2070,6 +2084,10 @@ function contentFor(dir, category) {
     case "430-form-home-security": return SECURITY_FORM;
     case "431-event-marathon": return RSVP_FORM;
     case "432-thankyou-webinar-registered": return NEWSLETTER_FORM;
+    case "433-landing-coffee-cost-js": return NEWSLETTER_FORM;
+    case "434-form-coworking-tour": return COWORKING_FORM;
+    case "435-event-beer-garden": return RSVP_FORM;
+    case "436-utility-storage-almost-full": return STORAGE_UPGRADE_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;
