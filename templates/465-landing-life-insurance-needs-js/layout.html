@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0369a1; --ink:#0a2030; --muted:#577084; --line:#d3e6f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eef7fc; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:20px; }
+    .ae-head h1 { font-size:24px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; box-shadow:0 12px 32px rgba(3,105,161,.09); }
+    .ae-field { margin-bottom:18px; }
+    .ae-field label { font-weight:700; font-size:14px; display:flex; justify-content:space-between; margin-bottom:8px; }
+    .ae-field label .v { color:var(--accent); font-variant-numeric:tabular-nums; }
+    .ae-field input[type=range] { width:100%; accent-color:var(--accent); }
+    .ae-out { background:linear-gradient(135deg,#0ea5e9,#0369a1); color:#fff; border-radius:14px; padding:24px; text-align:center; margin-top:18px; }
+    .ae-out .lab { font-size:13px; opacity:.9; } .ae-out .big { font-size:40px; font-weight:900; font-variant-numeric:tabular-nums; line-height:1.1; } .ae-out .big small { font-size:15px; } .ae-out .sub { font-size:13px; opacity:.95; margin-top:6px; }
+    .ae-break { margin-top:14px; text-align:left; background:rgba(255,255,255,.13); border-radius:10px; padding:12px 14px; }
+    .ae-br { display:flex; justify-content:space-between; font-size:13px; padding:3px 0; } .ae-br .n { font-variant-numeric:tabular-nums; font-weight:700; }
+    .ae-note { font-size:11px; color:var(--muted); margin-top:12px; text-align:center; }
+    .ae-cta { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; margin-top:18px; }
+    .ae-cta .t { font-weight:700; margin-bottom:12px; }
+    .ae-cta form input[type=text],.ae-cta form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form .submit input,.ae-cta form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <div class="ae-field"><label>ご家族の毎月の生活費 <span class="v"><span id="vL">25</span> 万円</span></label>
+        <input type="range" id="l" min="10" max="60" step="1" value="25"></div>
+      <div class="ae-field"><label>備えたい年数 <span class="v"><span id="vY">20</span> 年</span></label>
+        <input type="range" id="y" min="5" max="40" step="1" value="20"></div>
+      <div class="ae-field"><label>子どもの教育費（総額） <span class="v"><span id="vE">1000</span> 万円</span></label>
+        <input type="range" id="e" min="0" max="3000" step="100" value="1000"></div>
+      <div class="ae-field"><label>現在の貯蓄・遺族年金などの備え <span class="v"><span id="vS">800</span> 万円</span></label>
+        <input type="range" id="s" min="0" max="5000" step="100" value="800"></div>
+      <div class="ae-out">
+        <div class="lab">必要保障額の目安</div>
+        <div class="big"><span id="need">0</span><small> 万円</small></div>
+        <div class="sub">万一のとき、ご家族に必要なお金の目安です</div>
+        <div class="ae-break">
+          <div class="ae-br"><span>生活費（{年数}年分）</span><span class="n"><span id="living">0</span>万</span></div>
+          <div class="ae-br"><span>教育費</span><span class="n"><span id="edu">0</span>万</span></div>
+          <div class="ae-br"><span>備えで充当できる額</span><span class="n">▲<span id="cover">0</span>万</span></div>
+        </div>
+      </div>
+      <div class="ae-note">※ 概算です。公的保障や住宅ローン団信の有無で変わります。</div>
+    </div>
+    <div class="ae-cta">
+      <div class="t">わが家に合った保険のご相談はこちら</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var l = document.getElementById("l"), y = document.getElementById("y"), e = document.getElementById("e"), s = document.getElementById("s");
+    var vL = document.getElementById("vL"), vY = document.getElementById("vY"), vE = document.getElementById("vE"), vS = document.getElementById("vS");
+    var needEl = document.getElementById("need"), livingEl = document.getElementById("living"), eduEl = document.getElementById("edu"), coverEl = document.getElementById("cover");
+    function calc() {
+      var living = parseInt(l.value, 10) || 0, years = parseInt(y.value, 10) || 0;
+      var edu = parseInt(e.value, 10) || 0, save = parseInt(s.value, 10) || 0;
+      vL.textContent = living; vY.textContent = years; vE.textContent = edu; vS.textContent = save;
+      // 遺族の生活費は現役時の約7割で試算
+      var livingTotal = living * 0.7 * 12 * years;
+      livingEl.textContent = Math.round(livingTotal).toLocaleString();
+      eduEl.textContent = edu.toLocaleString();
+      coverEl.textContent = save.toLocaleString();
+      var need = Math.max(0, livingTotal + edu - save);
+      needEl.textContent = Math.round(need).toLocaleString();
+    }
+    [l, y, e, s].forEach(function (el) { el.addEventListener("input", calc); });
+    calc();
+  })();
+  </script>
+</body>
+</html>

@@ -300,6 +300,15 @@ const TAX_CONSULT_FORM = `<form>
   <p class="submit"><input type="submit" value="無料相談を予約する"></p>
 </form>`;
 
+const VACCINE_FORM = `<form>
+  <p><label>接種ご希望のワクチン</label><br><select><option selected>インフルエンザ</option><option>肺炎球菌</option><option>帯状疱疹</option><option>渡航ワクチン（要相談）</option><option>その他</option></select></p>
+  <p><label>対象の方</label><br><select><option selected>本人（大人）</option><option>子ども</option><option>高齢者</option></select></p>
+  <div class="row"><p><label>ご希望日</label><br><input type="date" value="2026-10-15"></p><p><label>希望時間帯</label><br><select><option selected>午前</option><option>午後</option><option>夕方以降</option></select></p></div>
+  <div class="row"><p><label>お名前</label><br><input type="text" value="山田 太郎"></p><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p></div>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="接種を予約する"></p>
+</form>`;
+
 const SWIM_FORM = `<form>
   <p><label>受講される方</label><br><select><option selected>ベビー・幼児</option><option>子ども（小学生）</option><option>大人</option></select></p>
   <p><label>ご希望コース</label><br><select><option selected>水慣れ・基礎</option><option>4泳法マスター</option><option>健康・体力づくり</option><option>選手・上級</option></select></p>
@@ -2174,6 +2183,10 @@ function contentFor(dir, category) {
     case "462-form-swimming-school": return SWIM_FORM;
     case "463-event-bowling-tournament": return RSVP_FORM;
     case "464-thankyou-loyalty-upgraded": return NEWSLETTER_FORM;
+    case "465-landing-life-insurance-needs-js": return NEWSLETTER_FORM;
+    case "466-form-vaccination": return VACCINE_FORM;
+    case "467-event-cycling-tour": return RSVP_FORM;
+    case "468-thankyou-subscription-renewed": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

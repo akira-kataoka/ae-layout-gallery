@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0891b2; --lime:#65a30d; --ink:#0c2128; --muted:#577080; --line:#d2e8ee; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#edfafd; line-height:1.7; }
+    .ae-wrap { max-width:600px; margin:0 auto; padding:46px 20px; }
+    .ae-hero { background:linear-gradient(135deg,#22d3ee,#0891b2 55%,#0e7490); color:#fff; border-radius:20px; padding:34px 24px; text-align:center; position:relative; overflow:hidden; box-shadow:0 18px 40px rgba(8,145,178,.24); }
+    .ae-hero::after { content:"🚴 🚵 🚴 🚵 🚴 🚵 🚴 🚵"; position:absolute; bottom:10px; left:0; right:0; font-size:15px; letter-spacing:4px; opacity:.4; }
+    .ae-hero .em { font-size:44px; margin-bottom:2px; }
+    .ae-hero h1 { font-size:28px; margin:0 0 8px; }
+    .ae-hero p { margin:0; opacity:.95; font-size:14px; }
+    .ae-info { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:22px 0; }
+    .ae-i { background:#fff; border:1px solid var(--line); border-radius:14px; padding:15px 10px; text-align:center; }
+    .ae-i .ic { font-size:22px; } .ae-i .k { font-size:11px; color:var(--muted); } .ae-i .v { font-weight:800; font-size:13px; }
+    .ae-cats { background:#fff; border:1px solid var(--line); border-radius:16px; padding:20px 22px; margin-bottom:22px; }
+    .ae-cats .t { font-weight:700; font-size:14px; margin-bottom:12px; }
+    .ae-c { display:flex; justify-content:space-between; align-items:center; padding:9px 0; border-top:1px dashed var(--line); font-size:14px; }
+    .ae-c:first-of-type { border-top:0; } .ae-c .dist { font-weight:800; color:var(--accent); } .ae-c .lv { font-size:12px; color:var(--muted); }
+    .ae-card { background:#fff; border:2px solid var(--accent); border-radius:18px; padding:26px; }
+    .ae-card .t { font-weight:700; font-size:18px; margin-bottom:4px; text-align:center; }
+    .ae-card .d { color:var(--muted); font-size:13px; margin-bottom:16px; text-align:center; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:15px; border-radius:9px; font-weight:800; font-size:15px; cursor:pointer; }
+    @media (max-width:480px){ .ae-info { grid-template-columns:1fr; } .ae-hero h1 { font-size:23px; } }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-hero">
+      <div class="em">🚴</div>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-info">
+      <div class="ae-i"><div class="ic">📅</div><div class="k">開催</div><div class="v">10.12 (日) 7:30 集合</div></div>
+      <div class="ae-i"><div class="ic">📍</div><div class="k">発着</div><div class="v">湖畔公園 サイクルベース</div></div>
+      <div class="ae-i"><div class="ic">🌤️</div><div class="k">雨天</div><div class="v">小雨決行</div></div>
+    </div>
+    <div class="ae-cats">
+      <div class="t">コース（参加費 ¥3,000〜・補給/保険込）</div>
+      <div class="ae-c"><span><span class="dist">ロングライド</span> 100km</span><span class="lv">健脚・経験者向け</span></div>
+      <div class="ae-c"><span><span class="dist">ミドル</span> 50km</span><span class="lv">脚力に自信のある方</span></div>
+      <div class="ae-c"><span><span class="dist">ファミリー</span> 15km</span><span class="lv">初心者・親子歓迎</span></div>
+    </div>
+    <div class="ae-card">
+      <div class="t">エントリー受付</div>
+      <div class="d">エイドステーションでの地元グルメ補給付き。手ぶら参加もOK（レンタル有）</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

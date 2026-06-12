@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#4f46e5; --ink:#181a2e; --muted:#646a90; --line:#e4e3f2; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f4f4fb; line-height:1.7; }
+    .ae-wrap { max-width:500px; margin:0 auto; padding:54px 20px; }
+    .ae-done { text-align:center; margin-bottom:22px; }
+    .ae-done .chk { width:74px; height:74px; border-radius:50%; background:linear-gradient(135deg,#818cf8,#4f46e5); color:#fff; display:flex; align-items:center; justify-content:center; font-size:36px; margin:0 auto 16px; box-shadow:0 14px 32px rgba(79,70,229,.28); }
+    .ae-done h1 { font-size:24px; margin:0 0 6px; }
+    .ae-done p { color:var(--muted); margin:0; font-size:14px; }
+    .ae-receipt { background:#fff; border:1px solid var(--line); border-radius:16px; padding:8px 22px; margin-bottom:18px; box-shadow:0 8px 22px rgba(79,70,229,.06); }
+    .ae-r { display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px dashed var(--line); font-size:14px; }
+    .ae-r:last-child { border-bottom:0; } .ae-r .k { color:var(--muted); } .ae-r .v { font-weight:700; }
+    .ae-r.total .v { color:var(--accent); font-size:17px; font-weight:900; }
+    .ae-thanks { background:#eef2ff; border:1px solid #dfe3fb; border-radius:14px; padding:16px 18px; margin-bottom:18px; font-size:13px; color:#3730a3; text-align:center; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; }
+    .ae-card .t { font-weight:700; margin-bottom:12px; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    .ae-foot { font-size:12px; color:var(--muted); text-align:center; margin-top:14px; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-done">
+      <div class="chk">✓</div>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-receipt">
+      <div class="ae-r"><span class="k">プラン</span><span class="v">プレミアム（年間）</span></div>
+      <div class="ae-r"><span class="k">更新日</span><span class="v">2026年7月12日</span></div>
+      <div class="ae-r"><span class="k">次回更新予定日</span><span class="v">2027年7月12日</span></div>
+      <div class="ae-r total"><span class="k">お支払い金額</span><span class="v">¥12,000</span></div>
+    </div>
+    <div class="ae-thanks">🙏 いつもご利用いただきありがとうございます。引き続きすべての機能をご利用いただけます。</div>
+    <div class="ae-card">
+      <div class="t">新機能・お得情報のお知らせを受け取る</div>
+      %%content%%
+      <div class="ae-foot">領収書はご登録のメールアドレスにお送りしました</div>
+    </div>
+  </div>
+</body>
+</html>
