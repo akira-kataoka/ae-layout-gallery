@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#d97706; --warn:#e11d48; --ink:#2a1c0a; --muted:#7c6a52; --line:#f0e4d2; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fdf8f0; line-height:1.7; }
+    .ae-wrap { max-width:480px; margin:0 auto; padding:54px 20px; }
+    .ae-head { text-align:center; margin-bottom:22px; }
+    .ae-head .ic { width:74px; height:74px; border-radius:50%; background:linear-gradient(135deg,#fbbf24,#d97706); color:#fff; display:flex; align-items:center; justify-content:center; font-size:34px; margin:0 auto 16px; box-shadow:0 14px 32px rgba(217,119,6,.26); }
+    .ae-head h1 { font-size:23px; margin:0 0 6px; }
+    .ae-head p { color:var(--muted); margin:0; font-size:14px; }
+    .ae-bal { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; margin-bottom:18px; text-align:center; box-shadow:0 8px 22px rgba(217,119,6,.06); }
+    .ae-bal .lab { font-size:12px; color:var(--muted); } .ae-bal .amt { font-size:38px; font-weight:900; color:var(--warn); font-variant-numeric:tabular-nums; line-height:1.1; }
+    .ae-bar { height:12px; border-radius:999px; background:#f1ead9; overflow:hidden; margin-top:12px; } .ae-bar span { display:block; height:100%; width:12%; background:linear-gradient(90deg,#fb7185,#e11d48); border-radius:999px; }
+    .ae-bal .cap { font-size:12px; color:var(--muted); margin-top:8px; }
+    .ae-quick { display:flex; gap:10px; margin-bottom:18px; }
+    .ae-q { flex:1; background:#fff; border:1px solid var(--line); border-radius:13px; padding:14px; text-align:center; }
+    .ae-q.best { border-color:var(--accent); box-shadow:0 6px 18px rgba(217,119,6,.14); position:relative; }
+    .ae-q.best::after { content:"おすすめ"; position:absolute; top:-9px; left:50%; transform:translateX(-50%); background:var(--accent); color:#fff; font-size:10px; font-weight:800; padding:2px 10px; border-radius:999px; }
+    .ae-q .amt { font-weight:800; font-size:18px; } .ae-q .bonus { font-size:11px; color:var(--accent); }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px; }
+    .ae-card .t { font-weight:700; margin-bottom:4px; text-align:center; } .ae-card .s { font-size:13px; color:var(--muted); margin-bottom:16px; text-align:center; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form label { font-weight:700; font-size:13px; display:block; margin-bottom:5px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    .ae-foot { font-size:12px; color:var(--muted); text-align:center; margin-top:14px; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head">
+      <div class="ic">⚠️</div>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-bal">
+      <div class="lab">現在の残高</div>
+      <div class="amt">¥320</div>
+      <div class="ae-bar"><span></span></div>
+      <div class="cap">残高が少なくなっています。チャージで引き続きご利用いただけます。</div>
+    </div>
+    <div class="ae-quick">
+      <div class="ae-q"><div class="amt">¥1,000</div></div>
+      <div class="ae-q best"><div class="amt">¥3,000</div><div class="bonus">+5%ボーナス</div></div>
+      <div class="ae-q"><div class="amt">¥5,000</div><div class="bonus">+8%ボーナス</div></div>
+    </div>
+    <div class="ae-card">
+      <div class="t">チャージする</div>
+      <div class="s">オートチャージを設定すると、残高不足を自動で防げます</div>
+      %%content%%
+      <div class="ae-foot">🔒 お支払い情報は暗号化され安全に処理されます</div>
+    </div>
+  </div>
+</body>
+</html>

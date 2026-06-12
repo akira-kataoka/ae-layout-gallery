@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0891b2; --ink:#0c2128; --muted:#5a7480; --line:#d6eaf0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eefafd; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:20px; }
+    .ae-head h1 { font-size:24px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; box-shadow:0 12px 32px rgba(8,145,178,.09); }
+    .ae-field { margin-bottom:18px; }
+    .ae-field label { font-weight:700; font-size:14px; display:flex; justify-content:space-between; margin-bottom:8px; }
+    .ae-field label .v { color:var(--accent); font-variant-numeric:tabular-nums; }
+    .ae-field input[type=range] { width:100%; accent-color:var(--accent); }
+    .ae-act { display:flex; gap:6px; background:#dcf2f6; border-radius:10px; padding:4px; }
+    .ae-act button { flex:1; border:0; background:transparent; padding:9px 4px; border-radius:8px; font-weight:700; font-size:12px; cursor:pointer; color:var(--muted); }
+    .ae-act button.on { background:#fff; color:var(--accent); box-shadow:0 2px 8px rgba(8,145,178,.18); }
+    .ae-out { background:linear-gradient(135deg,#0891b2,#0e7490); color:#fff; border-radius:14px; padding:24px; text-align:center; margin-top:18px; }
+    .ae-out .lab { font-size:13px; opacity:.9; } .ae-out .big { font-size:44px; font-weight:900; font-variant-numeric:tabular-nums; line-height:1.1; } .ae-out .big small { font-size:18px; } .ae-out .cat { font-size:14px; font-weight:800; margin-top:4px; }
+    .ae-bar { height:10px; border-radius:999px; background:rgba(255,255,255,.25); margin-top:14px; position:relative; overflow:hidden; } .ae-bar span { position:absolute; top:0; bottom:0; left:0; background:#fff; border-radius:999px; transition:width .3s; }
+    .ae-row2 { display:flex; gap:8px; margin-top:12px; } .ae-g { flex:1; background:rgba(255,255,255,.15); border-radius:10px; padding:10px 6px; } .ae-g .k { font-size:11px; opacity:.9; } .ae-g .n { font-weight:800; font-variant-numeric:tabular-nums; }
+    .ae-note { font-size:11px; color:var(--muted); margin-top:12px; text-align:center; }
+    .ae-cta { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; margin-top:18px; }
+    .ae-cta .t { font-weight:700; margin-bottom:12px; }
+    .ae-cta form input[type=text],.ae-cta form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form .submit input,.ae-cta form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <div class="ae-field"><label>性別</label>
+        <div class="ae-act" id="sex">
+          <button type="button" data-s="m" class="on">男性</button>
+          <button type="button" data-s="f">女性</button>
+        </div></div>
+      <div class="ae-field"><label>体重 <span class="v"><span id="vW">62</span> kg</span></label>
+        <input type="range" id="w" min="35" max="120" step="1" value="62"></div>
+      <div class="ae-field"><label>身長 <span class="v"><span id="vH">168</span> cm</span></label>
+        <input type="range" id="h" min="140" max="200" step="1" value="168"></div>
+      <div class="ae-field"><label>年齢 <span class="v"><span id="vA">35</span> 歳</span></label>
+        <input type="range" id="a" min="16" max="80" step="1" value="35"></div>
+      <div class="ae-out">
+        <div class="lab">推定 体脂肪率</div>
+        <div class="big"><span id="bf">0</span><small>%</small></div>
+        <div class="cat" id="cat">—</div>
+        <div class="ae-bar"><span id="bar" style="width:30%"></span></div>
+        <div class="ae-row2">
+          <div class="ae-g"><div class="k">BMI</div><div class="n"><span id="bmi">0</span></div></div>
+          <div class="ae-g"><div class="k">推定 体脂肪量</div><div class="n"><span id="fat">0</span> kg</div></div>
+        </div>
+      </div>
+      <div class="ae-note">※ 身長・体重からの推定（Deurenberg式）です。測定機器の値とは異なります。</div>
+    </div>
+    <div class="ae-cta">
+      <div class="t">からだづくり・食事のアドバイスを受け取る</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var w = document.getElementById("w"), h = document.getElementById("h"), a = document.getElementById("a");
+    var vW = document.getElementById("vW"), vH = document.getElementById("vH"), vA = document.getElementById("vA");
+    var bfEl = document.getElementById("bf"), catEl = document.getElementById("cat"), barEl = document.getElementById("bar");
+    var bmiEl = document.getElementById("bmi"), fatEl = document.getElementById("fat");
+    var sexBtns = Array.prototype.slice.call(document.querySelectorAll("#sex button"));
+    var sex = "m";
+    function band(bf) {
+      var t = sex === "m" ? [10, 20, 25] : [20, 30, 35];
+      if (bf < t[0]) return "低い"; if (bf < t[1]) return "標準"; if (bf < t[2]) return "やや高め"; return "高め";
+    }
+    function calc() {
+      var kg = parseInt(w.value, 10) || 0, cm = parseInt(h.value, 10) || 0, age = parseInt(a.value, 10) || 0;
+      vW.textContent = kg; vH.textContent = cm; vA.textContent = age;
+      var m = cm / 100;
+      var bmi = m > 0 ? kg / (m * m) : 0;
+      var bf = 1.20 * bmi + 0.23 * age - 10.8 * (sex === "m" ? 1 : 0) - 5.4;
+      bf = Math.max(2, Math.min(60, bf));
+      bfEl.textContent = bf.toFixed(1);
+      bmiEl.textContent = bmi.toFixed(1);
+      fatEl.textContent = (kg * bf / 100).toFixed(1);
+      catEl.textContent = band(bf);
+      barEl.style.width = Math.min(100, Math.round(bf / 45 * 100)) + "%";
+    }
+    [w, h, a].forEach(function (el) { el.addEventListener("input", calc); });
+    sexBtns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        sexBtns.forEach(function (x) { x.classList.remove("on"); });
+        b.classList.add("on"); sex = b.getAttribute("data-s"); calc();
+      });
+    });
+    calc();
+  })();
+  </script>
+</body>
+</html>
