@@ -300,6 +300,14 @@ const TAX_CONSULT_FORM = `<form>
   <p class="submit"><input type="submit" value="無料相談を予約する"></p>
 </form>`;
 
+const SWIM_FORM = `<form>
+  <p><label>受講される方</label><br><select><option selected>ベビー・幼児</option><option>子ども（小学生）</option><option>大人</option></select></p>
+  <p><label>ご希望コース</label><br><select><option selected>水慣れ・基礎</option><option>4泳法マスター</option><option>健康・体力づくり</option><option>選手・上級</option></select></p>
+  <div class="row"><p><label>お名前</label><br><input type="text" value="山田 太郎"></p><p><label>体験希望日</label><br><input type="date" value="2026-07-27"></p></div>
+  <div class="row"><p><label>メール</label><br><input type="email" value="taro@example.com"></p><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p></div>
+  <p class="submit"><input type="submit" value="無料体験を申し込む"></p>
+</form>`;
+
 const DANCE_FORM = `<form>
   <p><label>ご希望のジャンル</label><br><select><option selected>HIPHOP</option><option>バレエ</option><option>JAZZ</option><option>K-POP</option><option>キッズダンス</option><option>未定・相談したい</option></select></p>
   <div class="row"><p><label>受講される方</label><br><select><option selected>お子さま</option><option>大人</option></select></p><p><label>体験希望日</label><br><input type="date" value="2026-07-27"></p></div>
@@ -2162,6 +2170,10 @@ function contentFor(dir, category) {
     case "458-form-dance-studio": return DANCE_FORM;
     case "459-event-drone-show": return RSVP_FORM;
     case "460-utility-account-merged": return NEWSLETTER_FORM;
+    case "461-landing-subscription-audit-js": return NEWSLETTER_FORM;
+    case "462-form-swimming-school": return SWIM_FORM;
+    case "463-event-bowling-tournament": return RSVP_FORM;
+    case "464-thankyou-loyalty-upgraded": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

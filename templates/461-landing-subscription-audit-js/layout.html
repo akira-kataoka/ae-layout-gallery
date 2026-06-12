@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#7c3aed; --ink:#1c1535; --muted:#6a6488; --line:#e7e1f6; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f5f2fd; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:20px; }
+    .ae-head h1 { font-size:24px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:24px; box-shadow:0 12px 32px rgba(124,58,237,.09); }
+    .ae-card .lead { font-size:13px; color:var(--muted); margin:0 0 14px; }
+    .ae-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:9px; }
+    .ae-chip { border:1px solid var(--line); background:#faf8ff; border-radius:11px; padding:11px 12px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:6px; transition:border-color .15s, background .15s; }
+    .ae-chip .nm { font-size:13px; font-weight:700; } .ae-chip .pr { font-size:12px; color:var(--muted); font-variant-numeric:tabular-nums; }
+    .ae-chip .tick { width:20px; height:20px; border-radius:6px; border:1.5px solid var(--line); flex:0 0 auto; display:flex; align-items:center; justify-content:center; font-size:12px; color:transparent; }
+    .ae-chip.on { border-color:var(--accent); background:#f3eeff; }
+    .ae-chip.on .tick { background:var(--accent); border-color:var(--accent); color:#fff; }
+    .ae-chip.on .pr { color:var(--accent); }
+    .ae-out { background:linear-gradient(135deg,#8b5cf6,#7c3aed); color:#fff; border-radius:14px; padding:22px; text-align:center; margin-top:16px; }
+    .ae-out .lab { font-size:13px; opacity:.9; } .ae-out .big { font-size:36px; font-weight:900; font-variant-numeric:tabular-nums; line-height:1.1; } .ae-out .big small { font-size:15px; }
+    .ae-out .sub { font-size:13px; opacity:.95; margin-top:6px; } .ae-out .sub b { font-weight:800; }
+    .ae-cta { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; margin-top:18px; }
+    .ae-cta .t { font-weight:700; margin-bottom:12px; }
+    .ae-cta form input[type=text],.ae-cta form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form .submit input,.ae-cta form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <p class="lead">契約しているサブスクをタップして選んでください</p>
+      <div class="ae-grid" id="grid">
+        <div class="ae-chip" data-cost="1000"><span><span class="nm">🎬 動画配信</span><br><span class="pr">¥1,000/月</span></span><span class="tick">✓</span></div>
+        <div class="ae-chip" data-cost="980"><span><span class="nm">🎵 音楽配信</span><br><span class="pr">¥980/月</span></span><span class="tick">✓</span></div>
+        <div class="ae-chip" data-cost="500"><span><span class="nm">☁️ クラウド保存</span><br><span class="pr">¥500/月</span></span><span class="tick">✓</span></div>
+        <div class="ae-chip" data-cost="8000"><span><span class="nm">🏋️ ジム</span><br><span class="pr">¥8,000/月</span></span><span class="tick">✓</span></div>
+        <div class="ae-chip" data-cost="600"><span><span class="nm">📰 ニュース/雑誌</span><br><span class="pr">¥600/月</span></span><span class="tick">✓</span></div>
+        <div class="ae-chip" data-cost="1500"><span><span class="nm">🎮 ゲーム</span><br><span class="pr">¥1,500/月</span></span><span class="tick">✓</span></div>
+        <div class="ae-chip" data-cost="2000"><span><span class="nm">📦 通販プレミアム</span><br><span class="pr">¥2,000/月</span></span><span class="tick">✓</span></div>
+        <div class="ae-chip" data-cost="1200"><span><span class="nm">📚 学習/語学</span><br><span class="pr">¥1,200/月</span></span><span class="tick">✓</span></div>
+      </div>
+      <div class="ae-out">
+        <div class="lab">あなたのサブスク支出</div>
+        <div class="big">¥<span id="month">0</span><small>/月</small></div>
+        <div class="sub">年間では <b>¥<span id="year">0</span></b>（<span id="count">0</span>件）</div>
+      </div>
+    </div>
+    <div class="ae-cta">
+      <div class="t">ムダなく続けるお金の見直し術を受け取る</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var chips = Array.prototype.slice.call(document.querySelectorAll("#grid .ae-chip"));
+    var monthEl = document.getElementById("month"), yearEl = document.getElementById("year"), countEl = document.getElementById("count");
+    function recalc() {
+      var total = 0, count = 0;
+      chips.forEach(function (c) {
+        if (c.classList.contains("on")) { total += parseInt(c.getAttribute("data-cost"), 10) || 0; count++; }
+      });
+      monthEl.textContent = total.toLocaleString();
+      yearEl.textContent = (total * 12).toLocaleString();
+      countEl.textContent = count;
+    }
+    chips.forEach(function (c) {
+      c.addEventListener("click", function () { c.classList.toggle("on"); recalc(); });
+    });
+    recalc();
+  })();
+  </script>
+</body>
+</html>

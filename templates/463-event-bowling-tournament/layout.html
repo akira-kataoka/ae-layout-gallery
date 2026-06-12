@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#e11d48; --blue:#1d4ed8; --ink:#1a1320; --muted:#6b7280; --line:#ead9de; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fdf3f5; line-height:1.7; }
+    .ae-wrap { max-width:600px; margin:0 auto; padding:46px 20px; }
+    .ae-hero { background:linear-gradient(135deg,#f43f5e,#e11d48 60%,#9f1239); color:#fff; border-radius:20px; padding:34px 24px; text-align:center; position:relative; overflow:hidden; box-shadow:0 18px 40px rgba(225,29,72,.24); }
+    .ae-hero::after { content:"🎳 🎯 🎳 🎯 🎳 🎯 🎳 🎯"; position:absolute; bottom:10px; left:0; right:0; font-size:15px; letter-spacing:4px; opacity:.35; }
+    .ae-hero .em { font-size:44px; margin-bottom:2px; }
+    .ae-hero h1 { font-size:28px; margin:0 0 8px; }
+    .ae-hero p { margin:0; opacity:.95; font-size:14px; }
+    .ae-info { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:22px 0; }
+    .ae-i { background:#fff; border:1px solid var(--line); border-radius:14px; padding:15px 10px; text-align:center; }
+    .ae-i .ic { font-size:22px; } .ae-i .k { font-size:11px; color:var(--muted); } .ae-i .v { font-weight:800; font-size:13px; }
+    .ae-rule { background:#fff; border:1px solid var(--line); border-radius:16px; padding:20px 22px; margin-bottom:22px; }
+    .ae-rule .t { font-weight:700; font-size:14px; margin-bottom:12px; }
+    .ae-r { display:flex; gap:12px; align-items:center; padding:9px 0; border-top:1px dashed var(--line); font-size:14px; }
+    .ae-r:first-of-type { border-top:0; } .ae-r .rk { font-weight:800; color:var(--accent); min-width:42px; }
+    .ae-card { background:#fff; border:2px solid var(--accent); border-radius:18px; padding:26px; }
+    .ae-card .t { font-weight:700; font-size:18px; margin-bottom:4px; text-align:center; }
+    .ae-card .d { color:var(--muted); font-size:13px; margin-bottom:16px; text-align:center; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:15px; border-radius:9px; font-weight:800; font-size:15px; cursor:pointer; }
+    @media (max-width:480px){ .ae-info { grid-template-columns:1fr; } .ae-hero h1 { font-size:23px; } }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-hero">
+      <div class="em">🎳</div>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-info">
+      <div class="ae-i"><div class="ic">📅</div><div class="k">開催</div><div class="v">10.25 (土) 13:00〜</div></div>
+      <div class="ae-i"><div class="ic">📍</div><div class="k">会場</div><div class="v">スターレーン ボウル</div></div>
+      <div class="ae-i"><div class="ic">🎳</div><div class="k">方式</div><div class="v">3ゲーム合計（HDCPあり）</div></div>
+    </div>
+    <div class="ae-rule">
+      <div class="t">賞品・参加特典</div>
+      <div class="ae-r"><span class="rk">優勝</span><span>賞金＆優勝トロフィー</span></div>
+      <div class="ae-r"><span class="rk">入賞</span><span>2〜6位に賞品をご用意</span></div>
+      <div class="ae-r"><span class="rk">全員</span><span>参加賞＋1ゲーム無料券</span></div>
+    </div>
+    <div class="ae-card">
+      <div class="t">参加お申し込み</div>
+      <div class="d">個人・チーム（2〜4名）どちらも参加OK。初心者歓迎！</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

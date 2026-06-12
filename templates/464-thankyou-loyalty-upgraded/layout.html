@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#b45309; --gold:#d4a13a; --ink:#2a1d0a; --muted:#8a7350; --line:#efe2cc; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fdf8ee; line-height:1.7; }
+    .ae-wrap { max-width:500px; margin:0 auto; padding:54px 20px; }
+    .ae-done { text-align:center; margin-bottom:20px; }
+    .ae-done .em { font-size:54px; line-height:1; margin-bottom:8px; }
+    .ae-done h1 { font-size:24px; margin:0 0 6px; }
+    .ae-done p { color:var(--muted); margin:0; font-size:14px; }
+    .ae-rank { background:linear-gradient(135deg,#3a2a10,#1f1608); color:#fff; border-radius:18px; padding:26px 22px; text-align:center; margin:22px 0 18px; position:relative; overflow:hidden; box-shadow:0 16px 36px rgba(58,42,16,.4); }
+    .ae-rank::after { content:""; position:absolute; right:-30px; top:-30px; width:130px; height:130px; border-radius:50%; background:radial-gradient(circle,rgba(212,161,58,.5),transparent 70%); }
+    .ae-rank .from { font-size:13px; opacity:.7; text-decoration:line-through; } .ae-rank .to { font-size:30px; font-weight:900; color:var(--gold); letter-spacing:1px; }
+    .ae-rank .arrow { font-size:14px; opacity:.8; margin:2px 0; }
+    .ae-perks { background:#fff; border:1px solid var(--line); border-radius:16px; padding:20px 22px; margin-bottom:18px; box-shadow:0 8px 22px rgba(180,83,9,.06); }
+    .ae-perks .t { font-weight:700; font-size:14px; margin-bottom:10px; }
+    .ae-pk { display:flex; gap:11px; padding:8px 0; border-top:1px solid var(--line); font-size:14px; } .ae-pk:first-of-type { border-top:0; } .ae-pk .e { font-size:18px; flex:0 0 auto; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; }
+    .ae-card .t { font-weight:700; margin-bottom:12px; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-done">
+      <div class="em">🎉</div>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-rank">
+      <div class="from">SILVER 会員</div>
+      <div class="arrow">▼ ランクアップ ▼</div>
+      <div class="to">★ GOLD 会員 ★</div>
+    </div>
+    <div class="ae-perks">
+      <div class="t">ゴールド会員の特典</div>
+      <div class="ae-pk"><span class="e">💰</span><span>ポイント還元率が 2倍 にアップ</span></div>
+      <div class="ae-pk"><span class="e">🚚</span><span>送料無料・お届け優先</span></div>
+      <div class="ae-pk"><span class="e">🎁</span><span>誕生日クーポン＆限定セール先行案内</span></div>
+      <div class="ae-pk"><span class="e">🎧</span><span>専用サポート窓口のご利用</span></div>
+    </div>
+    <div class="ae-card">
+      <div class="t">限定特典・先行セールの案内を受け取る</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>
