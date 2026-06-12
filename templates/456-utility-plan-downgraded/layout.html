@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#4f46e5; --ink:#181a2e; --muted:#646a90; --line:#e4e3f2; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f4f4fb; line-height:1.7; }
+    .ae-wrap { max-width:500px; margin:0 auto; padding:54px 20px; }
+    .ae-head { text-align:center; margin-bottom:22px; }
+    .ae-head .chk { width:72px; height:72px; border-radius:50%; background:#eef0f8; color:var(--accent); display:flex; align-items:center; justify-content:center; font-size:34px; margin:0 auto 16px; }
+    .ae-head h1 { font-size:23px; margin:0 0 6px; }
+    .ae-head p { color:var(--muted); margin:0; font-size:14px; }
+    .ae-change { display:flex; align-items:stretch; gap:10px; margin-bottom:18px; }
+    .ae-pl { flex:1; background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px; text-align:center; }
+    .ae-pl .k { font-size:11px; color:var(--muted); } .ae-pl .nm { font-weight:800; font-size:16px; margin:2px 0; } .ae-pl .pr { font-size:12px; color:var(--muted); }
+    .ae-pl.old { opacity:.6; } .ae-pl.old .nm { text-decoration:line-through; }
+    .ae-arrow { display:flex; align-items:center; color:var(--accent); font-size:22px; }
+    .ae-when { background:#eef2ff; border:1px solid #dfe3fb; border-radius:12px; padding:13px 16px; font-size:13px; color:#3730a3; margin-bottom:18px; }
+    .ae-keep { background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 18px; margin-bottom:18px; }
+    .ae-keep .t { font-weight:700; font-size:13px; margin-bottom:8px; }
+    .ae-k { display:flex; gap:10px; padding:5px 0; font-size:13px; color:var(--muted); } .ae-k .e { color:var(--accent); }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; }
+    .ae-card .t { font-weight:700; margin-bottom:4px; } .ae-card .s { font-size:13px; color:var(--muted); margin-bottom:14px; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    .ae-foot { font-size:12px; color:var(--muted); text-align:center; margin-top:14px; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head">
+      <div class="chk">✓</div>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-change">
+      <div class="ae-pl old"><div class="k">変更前</div><div class="nm">プロ</div><div class="pr">¥2,400/月</div></div>
+      <div class="ae-arrow">→</div>
+      <div class="ae-pl"><div class="k">変更後</div><div class="nm">スタンダード</div><div class="pr">¥980/月</div></div>
+    </div>
+    <div class="ae-when">📅 新しいプランは <strong>次回更新日 2026年8月1日</strong> から適用されます。それまでは現在の機能をご利用いただけます。</div>
+    <div class="ae-keep">
+      <div class="t">引き続きご利用いただける主な機能</div>
+      <div class="ae-k"><span class="e">✓</span><span>基本機能・データはすべて保持されます</span></div>
+      <div class="ae-k"><span class="e">✓</span><span>いつでも上位プランに戻せます</span></div>
+    </div>
+    <div class="ae-card">
+      <div class="t">やっぱりプロ機能が必要ですか？</div>
+      <div class="s">アップグレードのご案内や活用のヒントをお送りします</div>
+      %%content%%
+      <div class="ae-foot">🔔 通知が不要な場合はメール内のリンクから停止できます</div>
+    </div>
+  </div>
+</body>
+</html>

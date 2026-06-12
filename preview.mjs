@@ -300,6 +300,14 @@ const TAX_CONSULT_FORM = `<form>
   <p class="submit"><input type="submit" value="無料相談を予約する"></p>
 </form>`;
 
+const DETAILING_FORM = `<form>
+  <p><label>ご希望メニュー</label><br><select><option selected>手洗い洗車</option><option>ガラスコーティング</option><option>車内クリーニング</option><option>セット（洗車＋コーティング）</option><option>相談・見積希望</option></select></p>
+  <div class="row"><p><label>車種・サイズ</label><br><select><option selected>軽・コンパクト</option><option>セダン・ミニバン</option><option>SUV・大型</option><option>輸入車</option></select></p><p><label>ご希望日</label><br><input type="date" value="2026-07-27"></p></div>
+  <div class="row"><p><label>お名前</label><br><input type="text" value="山田 太郎"></p><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p></div>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p class="submit"><input type="submit" value="予約・見積を依頼する"></p>
+</form>`;
+
 const HAIR_SALON_FORM = `<form>
   <p><label>ご希望メニュー</label><br><select><option selected>カット</option><option>カット＋カラー</option><option>カット＋パーマ</option><option>トリートメント</option><option>その他・相談</option></select></p>
   <p><label>ご希望スタイリスト</label><br><select><option selected>指名なし（おまかせ）</option><option>店長</option><option>スタイリストA</option><option>スタイリストB</option></select></p>
@@ -2138,6 +2146,10 @@ function contentFor(dir, category) {
     case "450-form-hair-salon": return HAIR_SALON_FORM;
     case "451-event-golf-competition": return RSVP_FORM;
     case "452-thankyou-deposit-received": return NEWSLETTER_FORM;
+    case "453-landing-ev-charging-savings-js": return NEWSLETTER_FORM;
+    case "454-form-car-detailing": return DETAILING_FORM;
+    case "455-event-aquarium-night": return RSVP_FORM;
+    case "456-utility-plan-downgraded": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

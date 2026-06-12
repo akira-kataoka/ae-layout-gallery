@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#059669; --ink:#0c2620; --muted:#577068; --line:#d3ede4; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#edfbf4; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:20px; }
+    .ae-head h1 { font-size:24px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; box-shadow:0 12px 32px rgba(5,150,105,.09); }
+    .ae-field { margin-bottom:18px; }
+    .ae-field label { font-weight:700; font-size:14px; display:flex; justify-content:space-between; margin-bottom:8px; }
+    .ae-field label .v { color:var(--accent); font-variant-numeric:tabular-nums; }
+    .ae-field input[type=range] { width:100%; accent-color:var(--accent); }
+    .ae-act { display:flex; gap:6px; background:#d6f3e9; border-radius:10px; padding:4px; }
+    .ae-act button { flex:1; border:0; background:transparent; padding:9px 4px; border-radius:8px; font-weight:700; font-size:12px; cursor:pointer; color:var(--muted); }
+    .ae-act button.on { background:#fff; color:var(--accent); box-shadow:0 2px 8px rgba(5,150,105,.18); }
+    .ae-out { background:linear-gradient(135deg,#10b981,#059669); color:#fff; border-radius:14px; padding:24px; text-align:center; margin-top:18px; }
+    .ae-out .lab { font-size:13px; opacity:.9; } .ae-out .big { font-size:38px; font-weight:900; font-variant-numeric:tabular-nums; line-height:1.1; } .ae-out .big small { font-size:15px; } .ae-out .sub { font-size:13px; opacity:.95; margin-top:6px; }
+    .ae-row2 { display:flex; gap:8px; margin-top:14px; }
+    .ae-g { flex:1; background:rgba(255,255,255,.15); border-radius:10px; padding:10px 6px; }
+    .ae-g .k { font-size:11px; opacity:.9; } .ae-g .n { font-weight:800; font-variant-numeric:tabular-nums; }
+    .ae-note { font-size:11px; color:var(--muted); margin-top:12px; text-align:center; }
+    .ae-cta { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; margin-top:18px; }
+    .ae-cta .t { font-weight:700; margin-bottom:12px; }
+    .ae-cta form input[type=text],.ae-cta form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form .submit input,.ae-cta form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <div class="ae-field"><label>月間の走行距離 <span class="v"><span id="vKm">1,000</span> km</span></label>
+        <input type="range" id="km" min="200" max="3000" step="50" value="1000"></div>
+      <div class="ae-field"><label>今のガソリン車の燃費 <span class="v"><span id="vFe">15</span> km/L</span></label>
+        <input type="range" id="fe" min="8" max="28" step="1" value="15"></div>
+      <div class="ae-field"><label>ガソリン価格 <span class="v">¥<span id="vGp">175</span>/L</span></label>
+        <input type="range" id="gp" min="140" max="210" step="1" value="175"></div>
+      <div class="ae-field"><label>EVの充電方法</label>
+        <div class="ae-act" id="chg">
+          <button type="button" data-e="32" class="on">自宅充電（約32円/kWh）</button>
+          <button type="button" data-e="55">急速充電（約55円/kWh）</button>
+        </div></div>
+      <div class="ae-out">
+        <div class="lab">EVに乗り換えた場合の節約額（年間）</div>
+        <div class="big">¥<span id="save">0</span></div>
+        <div class="sub">燃料代だけでこれだけ差がつきます</div>
+        <div class="ae-row2">
+          <div class="ae-g"><div class="k">ガソリン代/月</div><div class="n">¥<span id="gas">0</span></div></div>
+          <div class="ae-g"><div class="k">EV電気代/月</div><div class="n">¥<span id="ev">0</span></div></div>
+        </div>
+      </div>
+      <div class="ae-note">※ 概算です。EV電費は約7km/kWhで試算。車種・契約により異なります。</div>
+    </div>
+    <div class="ae-cta">
+      <div class="t">EV・補助金・充電設備の情報を受け取る</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var EV_EFF = 7; // km/kWh
+    var km = document.getElementById("km"), fe = document.getElementById("fe"), gp = document.getElementById("gp");
+    var vKm = document.getElementById("vKm"), vFe = document.getElementById("vFe"), vGp = document.getElementById("vGp");
+    var saveEl = document.getElementById("save"), gasEl = document.getElementById("gas"), evEl = document.getElementById("ev");
+    var chgBtns = Array.prototype.slice.call(document.querySelectorAll("#chg button"));
+    var elec = 32;
+    function calc() {
+      var dist = parseInt(km.value, 10) || 0;
+      var eco = parseInt(fe.value, 10) || 1;
+      var price = parseInt(gp.value, 10) || 0;
+      vKm.textContent = dist.toLocaleString(); vFe.textContent = eco; vGp.textContent = price;
+      var gasMonthly = (dist / eco) * price;
+      var evMonthly = (dist / EV_EFF) * elec;
+      gasEl.textContent = Math.round(gasMonthly).toLocaleString();
+      evEl.textContent = Math.round(evMonthly).toLocaleString();
+      var annual = (gasMonthly - evMonthly) * 12;
+      saveEl.textContent = Math.round(annual).toLocaleString();
+    }
+    [km, fe, gp].forEach(function (el) { el.addEventListener("input", calc); });
+    chgBtns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        chgBtns.forEach(function (x) { x.classList.remove("on"); });
+        b.classList.add("on"); elec = parseFloat(b.getAttribute("data-e")); calc();
+      });
+    });
+    calc();
+  })();
+  </script>
+</body>
+</html>
