@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#f59e0b; --pink:#ec4899; --ink:#f3eaff; --muted:#b9a8cf; --line:#3a2b52; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#170d28; line-height:1.7; }
+    .ae-wrap { max-width:600px; margin:0 auto; padding:46px 20px; }
+    .ae-hero { background:linear-gradient(160deg,#4c1d95,#831843 70%,#9a3412); border:1px solid var(--line); border-radius:20px; padding:34px 24px; text-align:center; position:relative; overflow:hidden; box-shadow:0 18px 40px rgba(131,24,99,.3); }
+    .ae-hero::after { content:"🏮 ✨ 🏮 ✨ 🏮 ✨ 🏮 ✨ 🏮"; position:absolute; top:10px; left:0; right:0; font-size:14px; letter-spacing:4px; opacity:.45; }
+    .ae-hero .em { font-size:44px; margin-bottom:2px; }
+    .ae-hero h1 { font-size:28px; margin:0 0 8px; color:#fff; }
+    .ae-hero p { margin:0; color:#fbe8d2; font-size:14px; opacity:.95; }
+    .ae-info { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:22px 0; }
+    .ae-i { background:#241338; border:1px solid var(--line); border-radius:14px; padding:15px 10px; text-align:center; }
+    .ae-i .ic { font-size:22px; } .ae-i .k { font-size:11px; color:var(--muted); } .ae-i .v { font-weight:800; font-size:13px; color:#fff; }
+    .ae-fun { background:#241338; border:1px solid var(--line); border-radius:16px; padding:20px 22px; margin-bottom:22px; }
+    .ae-fun .t { font-weight:700; font-size:14px; margin-bottom:12px; color:#fff; }
+    .ae-fun .g { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
+    .ae-f { display:flex; gap:9px; align-items:center; font-size:13px; }
+    .ae-f .e { font-size:18px; }
+    .ae-card { background:#241338; border:2px solid var(--accent); border-radius:18px; padding:26px; }
+    .ae-card .t { font-weight:700; font-size:18px; margin-bottom:4px; text-align:center; color:#fff; }
+    .ae-card .d { color:var(--muted); font-size:13px; margin-bottom:16px; text-align:center; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; background:#170d28; color:#f3eaff; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#3a1c00; border:0; padding:15px; border-radius:9px; font-weight:800; font-size:15px; cursor:pointer; }
+    @media (max-width:480px){ .ae-info { grid-template-columns:1fr; } .ae-fun .g { grid-template-columns:1fr; } .ae-hero h1 { font-size:23px; } }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-hero">
+      <div class="em">🏮</div>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-info">
+      <div class="ae-i"><div class="ic">📅</div><div class="k">開催</div><div class="v">8.9〜8.11 17:00–22:00</div></div>
+      <div class="ae-i"><div class="ic">📍</div><div class="k">会場</div><div class="v">中央広場〜商店街</div></div>
+      <div class="ae-i"><div class="ic">🎟️</div><div class="k">入場</div><div class="v">無料</div></div>
+    </div>
+    <div class="ae-fun">
+      <div class="t">夜市のお楽しみ</div>
+      <div class="g">
+        <div class="ae-f"><span class="e">🍢</span> 世界の屋台グルメ50店</div>
+        <div class="ae-f"><span class="e">🎷</span> ナイトライブ＆DJステージ</div>
+        <div class="ae-f"><span class="e">🛍️</span> 雑貨・古着のナイトマルシェ</div>
+        <div class="ae-f"><span class="e">🎆</span> 21時 ミニ花火＆ランタン</div>
+      </div>
+    </div>
+    <div class="ae-card">
+      <div class="t">来場予約・最新情報の登録</div>
+      <div class="d">出店ラインナップやステージ時間をいち早くお届けします</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>
