@@ -1,0 +1,8 @@
+{
+  "name": "サンクス - 返品受領/返金手続き中",
+  "category": "thankyou",
+  "description": "返品商品の到着を伝え、検品・返金手続きの進捗をステップ表示で示し、返金額と方法を案内するサンクスページ。返金完了までの不安を払拭。EC/通販/小売の返品対応に。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "返品商品をお預かりしました",
+  "previewDescription": "ただいま検品・返金のお手続きを進めています。完了次第メールでご連絡します。"
+}

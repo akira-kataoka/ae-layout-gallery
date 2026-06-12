@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#1d4ed8; --ink:#0f1a30; --muted:#5a6884; --line:#d8e1f2; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eef2fb; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:20px; }
+    .ae-head h1 { font-size:24px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; box-shadow:0 12px 32px rgba(29,78,216,.09); }
+    .ae-field { margin-bottom:18px; }
+    .ae-field label { font-weight:700; font-size:14px; display:flex; justify-content:space-between; margin-bottom:8px; }
+    .ae-field label .v { color:var(--accent); font-variant-numeric:tabular-nums; }
+    .ae-field input[type=range] { width:100%; accent-color:var(--accent); }
+    .ae-act { display:flex; gap:6px; background:#e6edfb; border-radius:10px; padding:4px; }
+    .ae-act button { flex:1; border:0; background:transparent; padding:9px 4px; border-radius:8px; font-weight:700; font-size:12px; cursor:pointer; color:var(--muted); }
+    .ae-act button.on { background:#fff; color:var(--accent); box-shadow:0 2px 8px rgba(29,78,216,.18); }
+    .ae-out { background:linear-gradient(135deg,#2563eb,#1d4ed8); color:#fff; border-radius:14px; padding:24px; text-align:center; margin-top:18px; }
+    .ae-out .lab { font-size:13px; opacity:.9; } .ae-out .big { font-size:40px; font-weight:900; font-variant-numeric:tabular-nums; line-height:1.1; } .ae-out .big small { font-size:15px; } .ae-out .sub { font-size:13px; opacity:.95; margin-top:6px; }
+    .ae-row2 { display:flex; gap:8px; margin-top:14px; }
+    .ae-g { flex:1; background:rgba(255,255,255,.15); border-radius:10px; padding:10px 6px; }
+    .ae-g .k { font-size:11px; opacity:.9; } .ae-g .n { font-weight:800; font-variant-numeric:tabular-nums; }
+    .ae-note { font-size:11px; color:var(--muted); margin-top:12px; text-align:center; }
+    .ae-cta { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; margin-top:18px; }
+    .ae-cta .t { font-weight:700; margin-bottom:12px; }
+    .ae-cta form input[type=text],.ae-cta form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form .submit input,.ae-cta form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <div class="ae-field"><label>車両価格 <span class="v"><span id="vP">250</span> 万円</span></label>
+        <input type="range" id="p" min="50" max="1000" step="10" value="250"></div>
+      <div class="ae-field"><label>頭金 <span class="v"><span id="vD">30</span> 万円</span></label>
+        <input type="range" id="d" min="0" max="500" step="10" value="30"></div>
+      <div class="ae-field"><label>返済期間 <span class="v"><span id="vY">5</span> 年</span></label>
+        <input type="range" id="y" min="1" max="9" step="1" value="5"></div>
+      <div class="ae-field"><label>金利（年率）</label>
+        <div class="ae-act" id="rate">
+          <button type="button" data-r="2.9" class="on">2.9%</button>
+          <button type="button" data-r="4.9">4.9%</button>
+          <button type="button" data-r="6.9">6.9%</button>
+        </div></div>
+      <div class="ae-out">
+        <div class="lab">毎月のお支払い</div>
+        <div class="big">¥<span id="month">0</span></div>
+        <div class="sub">ボーナス払いなしの場合の目安です</div>
+        <div class="ae-row2">
+          <div class="ae-g"><div class="k">借入額</div><div class="n">¥<span id="loan">0</span></div></div>
+          <div class="ae-g"><div class="k">支払総額</div><div class="n">¥<span id="total">0</span></div></div>
+        </div>
+      </div>
+      <div class="ae-note">※ 元利均等の概算です。実際の金利・手数料は審査により異なります。</div>
+    </div>
+    <div class="ae-cta">
+      <div class="t">クルマ選び・ローンのご相談はこちら</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var p = document.getElementById("p"), d = document.getElementById("d"), y = document.getElementById("y");
+    var vP = document.getElementById("vP"), vD = document.getElementById("vD"), vY = document.getElementById("vY");
+    var monthEl = document.getElementById("month"), loanEl = document.getElementById("loan"), totalEl = document.getElementById("total");
+    var rateBtns = Array.prototype.slice.call(document.querySelectorAll("#rate button"));
+    var ratePct = 2.9;
+    function yen(n) { return Math.round(n).toLocaleString(); }
+    function calc() {
+      var price = (parseInt(p.value, 10) || 0) * 10000;
+      var down = (parseInt(d.value, 10) || 0) * 10000;
+      var years = parseInt(y.value, 10) || 1;
+      vP.textContent = parseInt(p.value, 10) || 0; vD.textContent = parseInt(d.value, 10) || 0; vY.textContent = years;
+      var loan = Math.max(0, price - down);
+      var r = ratePct / 100 / 12, n = years * 12;
+      var monthly = r > 0 ? loan * r / (1 - Math.pow(1 + r, -n)) : loan / n;
+      loanEl.textContent = yen(loan);
+      monthEl.textContent = yen(monthly);
+      totalEl.textContent = yen(monthly * n + down);
+    }
+    [p, d, y].forEach(function (el) { el.addEventListener("input", calc); });
+    rateBtns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        rateBtns.forEach(function (x) { x.classList.remove("on"); });
+        b.classList.add("on"); ratePct = parseFloat(b.getAttribute("data-r")); calc();
+      });
+    });
+    calc();
+  })();
+  </script>
+</body>
+</html>

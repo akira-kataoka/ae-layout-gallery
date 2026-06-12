@@ -300,6 +300,14 @@ const TAX_CONSULT_FORM = `<form>
   <p class="submit"><input type="submit" value="無料相談を予約する"></p>
 </form>`;
 
+const PORTRAIT_FORM = `<form>
+  <p><label>撮影メニュー</label><br><select><option selected>七五三</option><option>成人式・前撮り</option><option>家族写真</option><option>お宮参り・百日</option><option>その他・相談</option></select></p>
+  <div class="row"><p><label>ご希望日</label><br><input type="date" value="2026-10-18"></p><p><label>撮影人数</label><br><select><option selected>1名</option><option>2〜3名</option><option>4名以上</option></select></p></div>
+  <p><label>お名前</label><br><input type="text" value="山田 花子"></p>
+  <div class="row"><p><label>メール</label><br><input type="email" value="hanako@example.com"></p><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p></div>
+  <p class="submit"><input type="submit" value="空き状況を確認して予約する"></p>
+</form>`;
+
 const EV_CHARGER_FORM = `<form>
   <p><label>ご希望の設置タイプ</label><br><select><option selected>普通充電（200V）</option><option>V2H（給電対応）</option><option>まだ決めていない・相談</option></select></p>
   <p><label>住居形態</label><br><select><option selected>戸建て</option><option>マンション・集合住宅</option><option>店舗・事業所</option></select></p>
@@ -2260,6 +2268,10 @@ function contentFor(dir, category) {
     case "489-form-ev-charger-install": return EV_CHARGER_FORM;
     case "490-event-color-run": return RSVP_FORM;
     case "491-thankyou-installation-scheduled": return NEWSLETTER_FORM;
+    case "492-landing-car-loan-js": return NEWSLETTER_FORM;
+    case "493-form-portrait-studio": return PORTRAIT_FORM;
+    case "494-event-outdoor-cinema": return RSVP_FORM;
+    case "495-thankyou-return-received": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

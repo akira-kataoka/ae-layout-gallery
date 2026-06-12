@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0d9488; --ink:#0c2622; --muted:#5a766e; --line:#d4ebe6; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eefaf7; line-height:1.7; }
+    .ae-wrap { max-width:500px; margin:0 auto; padding:54px 20px; }
+    .ae-done { text-align:center; margin-bottom:22px; }
+    .ae-done .chk { width:74px; height:74px; border-radius:50%; background:linear-gradient(135deg,#2dd4bf,#0d9488); color:#fff; display:flex; align-items:center; justify-content:center; font-size:34px; margin:0 auto 16px; box-shadow:0 14px 32px rgba(13,148,136,.28); }
+    .ae-done h1 { font-size:24px; margin:0 0 6px; }
+    .ae-done p { color:var(--muted); margin:0; font-size:14px; }
+    .ae-steps { background:#fff; border:1px solid var(--line); border-radius:16px; padding:20px 22px; margin-bottom:18px; box-shadow:0 8px 22px rgba(13,148,136,.06); }
+    .ae-step { display:flex; gap:12px; align-items:flex-start; padding:10px 0; position:relative; }
+    .ae-step .dot { width:26px; height:26px; border-radius:50%; flex:0 0 auto; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:800; }
+    .ae-step.done .dot { background:var(--accent); color:#fff; } .ae-step.now .dot { background:#ccfbf1; color:var(--accent); border:2px solid var(--accent); } .ae-step.todo .dot { background:#eef2f1; color:#9aa8a4; }
+    .ae-step .x .h { font-weight:700; font-size:14px; } .ae-step .x .d { font-size:12px; color:var(--muted); }
+    .ae-step.todo .x .h { color:#9aa8a4; }
+    .ae-info { background:#e0f2ef; border:1px solid #bfe3dc; border-radius:14px; padding:14px 16px; font-size:13px; color:#0f766e; margin-bottom:18px; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; }
+    .ae-card .t { font-weight:700; margin-bottom:12px; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-done">
+      <div class="chk">📦</div>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-steps">
+      <div class="ae-step done"><div class="dot">✓</div><div class="x"><div class="h">返品商品の到着</div><div class="d">7/12 商品をお預かりしました</div></div></div>
+      <div class="ae-step now"><div class="dot">2</div><div class="x"><div class="h">検品・返金手続き中</div><div class="d">通常2〜3営業日でお手続きします</div></div></div>
+      <div class="ae-step todo"><div class="dot">3</div><div class="x"><div class="h">返金完了のご連絡</div><div class="d">完了後にメールでお知らせします</div></div></div>
+    </div>
+    <div class="ae-info">💳 返金額 ¥4,800 は、お支払い時のクレジットカードへ返金されます（明細反映に数日かかる場合があります）。</div>
+    <div class="ae-card">
+      <div class="t">セール・再入荷のお知らせを受け取る</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>
