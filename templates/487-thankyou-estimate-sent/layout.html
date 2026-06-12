@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0369a1; --ink:#0a2030; --muted:#577084; --line:#d3e6f0; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eef7fc; line-height:1.7; }
+    .ae-wrap { max-width:500px; margin:0 auto; padding:54px 20px; }
+    .ae-done { text-align:center; margin-bottom:22px; }
+    .ae-done .chk { width:74px; height:74px; border-radius:50%; background:linear-gradient(135deg,#38bdf8,#0369a1); color:#fff; display:flex; align-items:center; justify-content:center; font-size:34px; margin:0 auto 16px; box-shadow:0 14px 32px rgba(3,105,161,.26); }
+    .ae-done h1 { font-size:24px; margin:0 0 6px; }
+    .ae-done p { color:var(--muted); margin:0; font-size:14px; }
+    .ae-quote { background:#fff; border:1px solid var(--line); border-radius:16px; padding:20px 22px; margin-bottom:18px; box-shadow:0 8px 22px rgba(3,105,161,.06); }
+    .ae-quote .top { display:flex; justify-content:space-between; align-items:center; padding-bottom:12px; border-bottom:1px dashed var(--line); margin-bottom:12px; }
+    .ae-quote .no { font-size:12px; color:var(--muted); } .ae-quote .amt { font-weight:900; font-size:22px; color:var(--accent); }
+    .ae-r { display:flex; justify-content:space-between; font-size:13px; padding:4px 0; } .ae-r .k { color:var(--muted); }
+    .ae-steps { background:#e0f2fe; border:1px solid #bae6fd; border-radius:14px; padding:16px 18px; margin-bottom:18px; }
+    .ae-steps .t { font-weight:700; font-size:13px; margin-bottom:8px; }
+    .ae-st { display:flex; gap:10px; padding:4px 0; font-size:13px; color:#075985; } .ae-st .n { font-weight:800; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; }
+    .ae-card .t { font-weight:700; margin-bottom:12px; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    .ae-foot { font-size:12px; color:var(--muted); text-align:center; margin-top:14px; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-done">
+      <div class="chk">📧</div>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-quote">
+      <div class="top"><span class="no">見積番号 EST-20260712-0031</span><span class="amt">¥248,000</span></div>
+      <div class="ae-r"><span class="k">件名</span><span>外壁塗装工事一式</span></div>
+      <div class="ae-r"><span class="k">有効期限</span><span>2026年8月11日まで</span></div>
+      <div class="ae-r"><span class="k">送付先</span><span>taro@example.com</span></div>
+    </div>
+    <div class="ae-steps">
+      <div class="t">この後の流れ</div>
+      <div class="ae-st"><span class="n">1.</span><span>メールの見積書（PDF）をご確認ください</span></div>
+      <div class="ae-st"><span class="n">2.</span><span>ご不明点はそのままご返信いただけます</span></div>
+      <div class="ae-st"><span class="n">3.</span><span>ご契約のお申し込みもオンラインで可能です</span></div>
+    </div>
+    <div class="ae-card">
+      <div class="t">最新のキャンペーン・お役立ち情報を受け取る</div>
+      %%content%%
+      <div class="ae-foot">メールが届かない場合は迷惑メールフォルダをご確認ください</div>
+    </div>
+  </div>
+</body>
+</html>

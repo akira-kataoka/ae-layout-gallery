@@ -300,6 +300,14 @@ const TAX_CONSULT_FORM = `<form>
   <p class="submit"><input type="submit" value="無料相談を予約する"></p>
 </form>`;
 
+const WATER_HEATER_FORM = `<form>
+  <p><label>ご相談内容</label><br><select><option selected>給湯器の交換</option><option>故障・お湯が出ない</option><option>エコ機種への買い替え</option><option>まずは見積・相談</option></select></p>
+  <p><label>現在の機種タイプ</label><br><select><option selected>ガス給湯器</option><option>エコキュート（電気）</option><option>石油給湯器</option><option>わからない</option></select></p>
+  <div class="row"><p><label>お名前</label><br><input type="text" value="山田 太郎"></p><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p></div>
+  <p><label>設置場所・ご住所（市区町村）</label><br><input type="text" value="サンプル市"></p>
+  <p class="submit"><input type="submit" value="無料見積を依頼する"></p>
+</form>`;
+
 const CURTAIN_FORM = `<form>
   <p><label>ご希望の種類</label><br><select><option selected>カーテン</option><option>ブラインド</option><option>ロールスクリーン</option><option>シェード</option><option>相談して決めたい</option></select></p>
   <div class="row"><p><label>お部屋</label><br><select><option selected>リビング</option><option>寝室</option><option>子ども部屋</option><option>その他</option></select></p><p><label>窓のおおよそのサイズ</label><br><select><option selected>掃き出し窓（大）</option><option>腰高窓（中）</option><option>小窓</option></select></p></div>
@@ -2236,6 +2244,10 @@ function contentFor(dir, category) {
     case "481-form-curtain-blind": return CURTAIN_FORM;
     case "482-event-petting-zoo": return RSVP_FORM;
     case "483-thankyou-class-booked": return NEWSLETTER_FORM;
+    case "484-landing-stock-profit-js": return NEWSLETTER_FORM;
+    case "485-form-water-heater": return WATER_HEATER_FORM;
+    case "486-event-lantern-festival": return RSVP_FORM;
+    case "487-thankyou-estimate-sent": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

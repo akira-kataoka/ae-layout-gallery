@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#1d4ed8; --up:#059669; --down:#dc2626; --ink:#0f1a30; --muted:#5a6884; --line:#d8e1f2; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eef2fb; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:20px; }
+    .ae-head h1 { font-size:24px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; box-shadow:0 12px 32px rgba(29,78,216,.09); }
+    .ae-field { margin-bottom:18px; }
+    .ae-field label { font-weight:700; font-size:14px; display:flex; justify-content:space-between; margin-bottom:8px; }
+    .ae-field label .v { color:var(--accent); font-variant-numeric:tabular-nums; }
+    .ae-field input[type=range] { width:100%; accent-color:var(--accent); }
+    .ae-out { border-radius:14px; padding:24px; text-align:center; margin-top:18px; color:#fff; transition:background .3s; }
+    .ae-out.up { background:linear-gradient(135deg,#10b981,#059669); } .ae-out.down { background:linear-gradient(135deg,#f87171,#dc2626); } .ae-out.flat { background:linear-gradient(135deg,#64748b,#475569); }
+    .ae-out .lab { font-size:13px; opacity:.9; } .ae-out .big { font-size:38px; font-weight:900; font-variant-numeric:tabular-nums; line-height:1.1; } .ae-out .sub { font-size:14px; opacity:.97; margin-top:4px; font-weight:700; }
+    .ae-row2 { display:flex; gap:8px; margin-top:14px; }
+    .ae-g { flex:1; background:rgba(255,255,255,.16); border-radius:10px; padding:10px 6px; }
+    .ae-g .k { font-size:11px; opacity:.9; } .ae-g .n { font-weight:800; font-variant-numeric:tabular-nums; }
+    .ae-note { font-size:11px; color:var(--muted); margin-top:12px; text-align:center; }
+    .ae-cta { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; margin-top:18px; }
+    .ae-cta .t { font-weight:700; margin-bottom:12px; }
+    .ae-cta form input[type=text],.ae-cta form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form .submit input,.ae-cta form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <div class="ae-field"><label>取得単価 <span class="v">¥<span id="vB">2000</span></span></label>
+        <input type="range" id="b" min="100" max="10000" step="10" value="2000"></div>
+      <div class="ae-field"><label>保有株数 <span class="v"><span id="vQ">100</span> 株</span></label>
+        <input type="range" id="q" min="1" max="2000" step="1" value="100"></div>
+      <div class="ae-field"><label>現在の株価 <span class="v">¥<span id="vN">2300</span></span></label>
+        <input type="range" id="n" min="100" max="10000" step="10" value="2300"></div>
+      <div class="ae-out up" id="out">
+        <div class="lab">評価損益</div>
+        <div class="big" id="pl">+¥0</div>
+        <div class="sub" id="rate">+0.0%</div>
+        <div class="ae-row2">
+          <div class="ae-g"><div class="k">取得金額</div><div class="n">¥<span id="cost">0</span></div></div>
+          <div class="ae-g"><div class="k">現在の評価額</div><div class="n">¥<span id="value">0</span></div></div>
+        </div>
+      </div>
+      <div class="ae-note">※ 概算です。売買手数料・税金は考慮していません。</div>
+    </div>
+    <div class="ae-cta">
+      <div class="t">投資の学び・マーケット情報を受け取る</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var b = document.getElementById("b"), q = document.getElementById("q"), n = document.getElementById("n");
+    var vB = document.getElementById("vB"), vQ = document.getElementById("vQ"), vN = document.getElementById("vN");
+    var out = document.getElementById("out"), plEl = document.getElementById("pl"), rateEl = document.getElementById("rate");
+    var costEl = document.getElementById("cost"), valueEl = document.getElementById("value");
+    function calc() {
+      var buy = parseInt(b.value, 10) || 0, qty = parseInt(q.value, 10) || 0, now = parseInt(n.value, 10) || 0;
+      vB.textContent = buy.toLocaleString(); vQ.textContent = qty.toLocaleString(); vN.textContent = now.toLocaleString();
+      var cost = buy * qty, value = now * qty, pl = value - cost;
+      costEl.textContent = cost.toLocaleString();
+      valueEl.textContent = value.toLocaleString();
+      plEl.textContent = (pl >= 0 ? "+¥" : "−¥") + Math.abs(pl).toLocaleString();
+      var rate = cost > 0 ? (pl / cost * 100) : 0;
+      rateEl.textContent = (rate >= 0 ? "+" : "−") + Math.abs(rate).toFixed(1) + "%";
+      out.classList.remove("up", "down", "flat");
+      out.classList.add(pl > 0 ? "up" : (pl < 0 ? "down" : "flat"));
+    }
+    [b, q, n].forEach(function (el) { el.addEventListener("input", calc); });
+    calc();
+  })();
+  </script>
+</body>
+</html>
