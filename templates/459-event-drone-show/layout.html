@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#22d3ee; --purple:#a855f7; --ink:#e8efff; --muted:#8aa0c8; --line:#1f2b48; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#050a18; line-height:1.7; }
+    .ae-wrap { max-width:600px; margin:0 auto; padding:46px 20px; }
+    .ae-hero { background:radial-gradient(120% 120% at 50% 0%,#162447,#0a1230 70%); border:1px solid var(--line); border-radius:20px; padding:36px 24px; text-align:center; position:relative; overflow:hidden; box-shadow:0 18px 44px rgba(5,10,24,.6); }
+    .ae-hero::after { content:"· ✦ · ✦ · ✦ · ✦ · ✦ · ✦ · ✦ ·"; position:absolute; top:12px; left:0; right:0; font-size:12px; letter-spacing:6px; color:rgba(34,211,238,.35); }
+    .ae-hero .em { font-size:46px; margin-bottom:4px; }
+    .ae-hero .badge { display:inline-block; border:1px solid var(--accent); color:var(--accent); font-weight:700; font-size:11px; letter-spacing:3px; padding:5px 16px; border-radius:999px; margin-bottom:12px; }
+    .ae-hero h1 { font-size:28px; margin:0 0 8px; color:#fff; }
+    .ae-hero p { margin:0; color:var(--muted); font-size:14px; }
+    .ae-info { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:22px 0; }
+    .ae-i { background:#0c1530; border:1px solid var(--line); border-radius:14px; padding:15px 10px; text-align:center; }
+    .ae-i .ic { font-size:20px; } .ae-i .k { font-size:11px; color:var(--muted); } .ae-i .v { font-weight:800; font-size:13px; color:#fff; }
+    .ae-fun { background:#0c1530; border:1px solid var(--line); border-radius:16px; padding:20px 22px; margin-bottom:22px; }
+    .ae-fun .t { font-weight:700; font-size:14px; margin-bottom:12px; color:#fff; }
+    .ae-fun .g { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
+    .ae-f { display:flex; gap:9px; align-items:center; font-size:13px; }
+    .ae-f .e { font-size:18px; }
+    .ae-card { background:#0c1530; border:1px solid var(--accent); border-radius:18px; padding:26px; }
+    .ae-card .t { font-weight:700; font-size:18px; margin-bottom:4px; text-align:center; color:#fff; }
+    .ae-card .d { color:var(--muted); font-size:13px; margin-bottom:16px; text-align:center; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; background:#050a18; color:#e8efff; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:linear-gradient(90deg,#22d3ee,#a855f7); color:#04121e; border:0; padding:15px; border-radius:9px; font-weight:800; font-size:15px; cursor:pointer; }
+    @media (max-width:480px){ .ae-info { grid-template-columns:1fr; } .ae-fun .g { grid-template-columns:1fr; } .ae-hero h1 { font-size:23px; } }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-hero">
+      <div class="em">🛸</div>
+      <span class="badge">DRONE LIGHT SHOW</span>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-info">
+      <div class="ae-i"><div class="ic">📅</div><div class="k">開催</div><div class="v">9.23 (火・祝) 19:30〜</div></div>
+      <div class="ae-i"><div class="ic">📍</div><div class="k">会場</div><div class="v">ベイサイド公園</div></div>
+      <div class="ae-i"><div class="ic">🛸</div><div class="k">機体数</div><div class="v">500機が夜空を彩る</div></div>
+    </div>
+    <div class="ae-fun">
+      <div class="t">ショーのみどころ</div>
+      <div class="g">
+        <div class="ae-f"><span class="e">🌌</span> 音楽とシンクロする光の演出</div>
+        <div class="ae-f"><span class="e">🎆</span> 花火とのコラボフィナーレ</div>
+        <div class="ae-f"><span class="e">📷</span> 絶好のフォトスポット多数</div>
+        <div class="ae-f"><span class="e">🍔</span> キッチンカーエリア併設</div>
+      </div>
+    </div>
+    <div class="ae-card">
+      <div class="t">観覧予約・開催情報の登録</div>
+      <div class="d">観覧エリアの事前案内や順延情報をお届けします</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

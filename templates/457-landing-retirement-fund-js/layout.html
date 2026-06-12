@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#7c3aed; --ink:#1c1535; --muted:#6a6488; --line:#e6e1f6; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f5f2fd; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:20px; }
+    .ae-head h1 { font-size:24px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; box-shadow:0 12px 32px rgba(124,58,237,.09); }
+    .ae-field { margin-bottom:18px; }
+    .ae-field label { font-weight:700; font-size:14px; display:flex; justify-content:space-between; margin-bottom:8px; }
+    .ae-field label .v { color:var(--accent); font-variant-numeric:tabular-nums; }
+    .ae-field input[type=range] { width:100%; accent-color:var(--accent); }
+    .ae-act { display:flex; gap:6px; background:#ede7fb; border-radius:10px; padding:4px; }
+    .ae-act button { flex:1; border:0; background:transparent; padding:9px 4px; border-radius:8px; font-weight:700; font-size:12px; cursor:pointer; color:var(--muted); }
+    .ae-act button.on { background:#fff; color:var(--accent); box-shadow:0 2px 8px rgba(124,58,237,.18); }
+    .ae-out { background:linear-gradient(135deg,#8b5cf6,#7c3aed); color:#fff; border-radius:14px; padding:24px; text-align:center; margin-top:18px; }
+    .ae-out .lab { font-size:13px; opacity:.9; } .ae-out .big { font-size:40px; font-weight:900; font-variant-numeric:tabular-nums; line-height:1.1; } .ae-out .big small { font-size:15px; } .ae-out .sub { font-size:13px; opacity:.95; margin-top:6px; }
+    .ae-stack { height:14px; border-radius:999px; overflow:hidden; display:flex; margin-top:14px; background:rgba(255,255,255,.2); }
+    .ae-stack .p { background:rgba(255,255,255,.55); } .ae-stack .g { background:#fde047; }
+    .ae-leg { display:flex; justify-content:space-between; font-size:12px; margin-top:8px; }
+    .ae-leg .d { display:inline-block; width:9px; height:9px; border-radius:2px; margin-right:4px; vertical-align:middle; }
+    .ae-note { font-size:11px; color:var(--muted); margin-top:12px; text-align:center; }
+    .ae-cta { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; margin-top:18px; }
+    .ae-cta .t { font-weight:700; margin-bottom:12px; }
+    .ae-cta form input[type=text],.ae-cta form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form .submit input,.ae-cta form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <div class="ae-field"><label>現在の年齢 <span class="v"><span id="vAge">35</span> 歳</span></label>
+        <input type="range" id="age" min="20" max="65" step="1" value="35"></div>
+      <div class="ae-field"><label>退職予定の年齢 <span class="v"><span id="vRet">65</span> 歳</span></label>
+        <input type="range" id="ret" min="50" max="75" step="1" value="65"></div>
+      <div class="ae-field"><label>現在の貯蓄 <span class="v"><span id="vNow">300</span> 万円</span></label>
+        <input type="range" id="now" min="0" max="5000" step="50" value="300"></div>
+      <div class="ae-field"><label>毎月の積立額 <span class="v"><span id="vMon">3.0</span> 万円</span></label>
+        <input type="range" id="mon" min="0" max="200" step="5" value="30"></div>
+      <div class="ae-field"><label>想定利回り（年）</label>
+        <div class="ae-act" id="rate">
+          <button type="button" data-r="0">0%</button>
+          <button type="button" data-r="3" class="on">3%</button>
+          <button type="button" data-r="5">5%</button>
+          <button type="button" data-r="7">7%</button>
+        </div></div>
+      <div class="ae-out">
+        <div class="lab">退職時に準備できる資産の目安</div>
+        <div class="big"><span id="total">0</span><small> 万円</small></div>
+        <div class="sub">うち運用で増えた分 <span id="growth">0</span> 万円</div>
+        <div class="ae-stack"><span class="p" id="barP" style="width:60%"></span><span class="g" id="barG" style="width:40%"></span></div>
+        <div class="ae-leg"><span><span class="d" style="background:rgba(255,255,255,.55)"></span>積立元本 <span id="principal">0</span>万</span><span><span class="d" style="background:#fde047"></span>運用益 <span id="growth2">0</span>万</span></div>
+      </div>
+      <div class="ae-note">※ 複利の概算です。税・手数料・インフレは考慮していません。</div>
+    </div>
+    <div class="ae-cta">
+      <div class="t">老後資金・資産運用のご相談はこちら</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var age = document.getElementById("age"), ret = document.getElementById("ret"), now = document.getElementById("now"), mon = document.getElementById("mon");
+    var vAge = document.getElementById("vAge"), vRet = document.getElementById("vRet"), vNow = document.getElementById("vNow"), vMon = document.getElementById("vMon");
+    var totalEl = document.getElementById("total"), growthEl = document.getElementById("growth"), growth2El = document.getElementById("growth2");
+    var principalEl = document.getElementById("principal"), barP = document.getElementById("barP"), barG = document.getElementById("barG");
+    var rateBtns = Array.prototype.slice.call(document.querySelectorAll("#rate button"));
+    var ratePct = 3;
+    function calc() {
+      var a = parseInt(age.value, 10) || 0, rAge = parseInt(ret.value, 10) || 0;
+      var nowMan = parseInt(now.value, 10) || 0;
+      var monMan = (parseInt(mon.value, 10) || 0) / 10;     // 5刻み=0.5万単位
+      vAge.textContent = a; vRet.textContent = rAge; vNow.textContent = nowMan; vMon.textContent = monMan.toFixed(1);
+      var years = Math.max(0, rAge - a), n = years * 12;
+      var r = ratePct / 100 / 12;
+      var pv = nowMan * 10000, pmt = monMan * 10000;
+      var fv;
+      if (r > 0) { var gf = Math.pow(1 + r, n); fv = pv * gf + pmt * ((gf - 1) / r); }
+      else { fv = pv + pmt * n; }
+      var principal = pv + pmt * n;
+      var growth = Math.max(0, fv - principal);
+      totalEl.textContent = Math.round(fv / 10000).toLocaleString();
+      growthEl.textContent = Math.round(growth / 10000).toLocaleString();
+      growth2El.textContent = Math.round(growth / 10000).toLocaleString();
+      principalEl.textContent = Math.round(principal / 10000).toLocaleString();
+      var pPct = fv > 0 ? Math.round(principal / fv * 100) : 100;
+      barP.style.width = pPct + "%"; barG.style.width = (100 - pPct) + "%";
+    }
+    [age, ret, now, mon].forEach(function (el) { el.addEventListener("input", calc); });
+    rateBtns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        rateBtns.forEach(function (x) { x.classList.remove("on"); });
+        b.classList.add("on"); ratePct = parseFloat(b.getAttribute("data-r")); calc();
+      });
+    });
+    calc();
+  })();
+  </script>
+</body>
+</html>

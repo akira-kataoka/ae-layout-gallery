@@ -1,0 +1,8 @@
+{
+  "name": "LP - 老後資金シミュレーター (JS)",
+  "category": "landing",
+  "description": "現在の年齢・退職予定年齢・現在の貯蓄・毎月の積立額・想定利回りから、退職時に準備できる資産額を複利で試算するインタラクティブLP。積立元本と運用益の内訳を積み上げバーで可視化。証券/保険/iDeCo・NISA/FP相談サービスの登録へ誘導。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "退職までにいくら貯まる？",
+  "previewDescription": "毎月の積立と利回りから、老後資金の目安をシミュレーション。元本と運用益も見える化。"
+}
