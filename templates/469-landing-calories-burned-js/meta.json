@@ -1,0 +1,8 @@
+{
+  "name": "LP - 運動消費カロリー計算機 (JS)",
+  "category": "landing",
+  "description": "運動の種類・体重・運動時間からMETs法で消費カロリーをリアルタイム算出するインタラクティブLP。ごはん何杯ぶんかも併記して直感的に。フィットネス/ジム/健康食品/ダイエットアプリの登録へ誘導。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "その運動、何キロカロリー消費？",
+  "previewDescription": "運動の種類と時間を選ぶだけ。消費カロリーをごはん換算で見える化します。"
+}

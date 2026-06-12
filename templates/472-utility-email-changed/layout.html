@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0d9488; --warn:#e11d48; --ink:#0c2622; --muted:#5a766e; --line:#d4ebe6; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eefaf7; line-height:1.7; }
+    .ae-wrap { max-width:480px; margin:0 auto; padding:54px 20px; }
+    .ae-head { text-align:center; margin-bottom:22px; }
+    .ae-head .chk { width:74px; height:74px; border-radius:50%; background:linear-gradient(135deg,#2dd4bf,#0d9488); color:#fff; display:flex; align-items:center; justify-content:center; font-size:36px; margin:0 auto 16px; box-shadow:0 14px 32px rgba(13,148,136,.28); }
+    .ae-head h1 { font-size:23px; margin:0 0 6px; }
+    .ae-head p { color:var(--muted); margin:0; font-size:14px; }
+    .ae-change { background:#fff; border:1px solid var(--line); border-radius:16px; padding:18px 20px; margin-bottom:18px; box-shadow:0 8px 22px rgba(13,148,136,.06); }
+    .ae-row { display:flex; align-items:center; gap:12px; }
+    .ae-old { flex:1; } .ae-old .k,.ae-new .k { font-size:11px; color:var(--muted); }
+    .ae-old .v { font-weight:700; font-size:14px; text-decoration:line-through; opacity:.6; word-break:break-all; }
+    .ae-new .v { font-weight:800; font-size:15px; color:var(--accent); word-break:break-all; }
+    .ae-arrow { color:var(--accent); font-size:20px; flex:0 0 auto; }
+    .ae-row + .ae-row { margin-top:10px; padding-top:10px; border-top:1px solid var(--line); }
+    .ae-alert { background:#fff1f2; border:1px solid #fecdd3; border-radius:14px; padding:14px 16px; margin-bottom:18px; font-size:13px; color:#9f1239; display:flex; gap:10px; align-items:flex-start; }
+    .ae-alert .e { font-size:18px; flex:0 0 auto; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; }
+    .ae-card .t { font-weight:700; margin-bottom:4px; } .ae-card .s { font-size:13px; color:var(--muted); margin-bottom:14px; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head">
+      <div class="chk">✓</div>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-change">
+      <div class="ae-row">
+        <div class="ae-old"><div class="k">変更前のメールアドレス</div><div class="v">old@example.com</div></div>
+      </div>
+      <div class="ae-row">
+        <div class="ae-arrow">↳</div>
+        <div class="ae-new"><div class="k">新しいメールアドレス</div><div class="v">taro@example.com</div></div>
+      </div>
+    </div>
+    <div class="ae-alert">
+      <span class="e">🔒</span>
+      <span>このお手続きにお心当たりがない場合は、第三者による操作の可能性があります。至急サポートまでご連絡ください。</span>
+    </div>
+    <div class="ae-card">
+      <div class="t">アカウントに関するお知らせを受け取る</div>
+      <div class="s">今後の通知は新しいメールアドレスにお送りします</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>
