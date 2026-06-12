@@ -300,6 +300,14 @@ const TAX_CONSULT_FORM = `<form>
   <p class="submit"><input type="submit" value="無料相談を予約する"></p>
 </form>`;
 
+const CARD_APPLY_FORM = `<form>
+  <div class="row"><p><label>お名前</label><br><input type="text" value="山田 太郎"></p><p><label>生年月日</label><br><input type="date" value="1990-04-01"></p></div>
+  <p><label>メールアドレス</label><br><input type="email" value="taro@example.com"></p>
+  <p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p>
+  <div class="row"><p><label>ご職業</label><br><select><option selected>会社員</option><option>公務員</option><option>自営業</option><option>学生</option><option>その他</option></select></p><p><label>年収</label><br><select><option>〜300万円</option><option selected>300〜500万円</option><option>500〜800万円</option><option>800万円〜</option></select></p></div>
+  <p class="submit"><input type="submit" value="この内容で入会を申し込む"></p>
+</form>`;
+
 const KIMONO_FORM = `<form>
   <p><label>ご希望プラン</label><br><select><option selected>観光・街歩き着物</option><option>浴衣（夏季）</option><option>卒業袴</option><option>カップルプラン</option><option>相談して決めたい</option></select></p>
   <div class="row"><p><label>ご利用日</label><br><input type="date" value="2026-08-15"></p><p><label>人数</label><br><select><option selected>1名</option><option>2名</option><option>3名以上</option></select></p></div>
@@ -2311,6 +2319,10 @@ function contentFor(dir, category) {
     case "506-form-kimono-rental": return KIMONO_FORM;
     case "507-event-autumn-leaves": return RSVP_FORM;
     case "508-utility-new-device-login": return NEWSLETTER_FORM;
+    case "509-landing-cashback-calculator-js": return NEWSLETTER_FORM;
+    case "510-form-credit-card-apply": return CARD_APPLY_FORM;
+    case "511-event-quiz-night": return RSVP_FORM;
+    case "512-thankyou-application-approved": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

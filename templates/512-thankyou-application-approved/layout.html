@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#15803d; --ink:#0e2417; --muted:#52715f; --line:#d6ebd9; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eef8f0; line-height:1.7; }
+    .ae-wrap { max-width:500px; margin:0 auto; padding:54px 20px; }
+    .ae-done { text-align:center; margin-bottom:22px; }
+    .ae-done .chk { width:78px; height:78px; border-radius:50%; background:linear-gradient(135deg,#22c55e,#15803d); color:#fff; display:flex; align-items:center; justify-content:center; font-size:40px; margin:0 auto 16px; box-shadow:0 14px 32px rgba(21,128,61,.3); }
+    .ae-done .badge { display:inline-block; background:#dcfce7; color:var(--accent); font-weight:800; font-size:12px; letter-spacing:1px; padding:4px 14px; border-radius:999px; margin-bottom:10px; }
+    .ae-done h1 { font-size:25px; margin:0 0 6px; }
+    .ae-done p { color:var(--muted); margin:0; font-size:14px; }
+    .ae-detail { background:#fff; border:1px solid var(--line); border-radius:16px; padding:8px 22px; margin-bottom:18px; box-shadow:0 8px 22px rgba(21,128,61,.06); }
+    .ae-r { display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px dashed var(--line); font-size:14px; }
+    .ae-r:last-child { border-bottom:0; } .ae-r .k { color:var(--muted); } .ae-r .v { font-weight:700; }
+    .ae-next { background:#fff; border:1px solid var(--line); border-radius:16px; padding:20px 22px; margin-bottom:18px; }
+    .ae-next .t { font-weight:700; font-size:13px; margin-bottom:10px; }
+    .ae-st { display:flex; gap:11px; padding:7px 0; font-size:14px; } .ae-st .n { width:24px; height:24px; border-radius:50%; background:#dcfce7; color:var(--accent); font-weight:800; font-size:12px; display:flex; align-items:center; justify-content:center; flex:0 0 auto; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; }
+    .ae-card .t { font-weight:700; margin-bottom:12px; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-done">
+      <div class="chk">✓</div>
+      <span class="badge">APPROVED</span>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-detail">
+      <div class="ae-r"><span class="k">受付番号</span><span class="v">AP-20260712-0077</span></div>
+      <div class="ae-r"><span class="k">審査結果</span><span class="v" style="color:var(--accent)">承認（ご契約可能）</span></div>
+      <div class="ae-r"><span class="k">ご利用可能枠</span><span class="v">¥500,000</span></div>
+    </div>
+    <div class="ae-next">
+      <div class="t">この後の流れ</div>
+      <div class="ae-st"><span class="n">1</span><span>本人確認書類のアップロード（メールのリンクから）</span></div>
+      <div class="ae-st"><span class="n">2</span><span>カード/書類の発送（最短3営業日）</span></div>
+      <div class="ae-st"><span class="n">3</span><span>受け取り後、すぐにご利用開始いただけます</span></div>
+    </div>
+    <div class="ae-card">
+      <div class="t">ご利用開始のお得情報を受け取る</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>
