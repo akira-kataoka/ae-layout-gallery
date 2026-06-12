@@ -1,0 +1,8 @@
+{
+  "name": "LP - 粗利・売価計算機 (JS)",
+  "category": "landing",
+  "description": "原価と目標の粗利率から、設定すべき販売価格・1個あたりの粗利・原価に対する値入率をリアルタイム算出するインタラクティブLP。値付けの根拠づくりに。小売/EC/卸/経営支援サービスの登録へ誘導。",
+  "isIncludeDefaultCss": false,
+  "previewTitle": "いくらで売れば目標の利益？",
+  "previewDescription": "原価と狙う粗利率を入れるだけ。適正な販売価格と粗利をその場で算出します。"
+}

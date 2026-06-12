@@ -300,6 +300,15 @@ const TAX_CONSULT_FORM = `<form>
   <p class="submit"><input type="submit" value="無料相談を予約する"></p>
 </form>`;
 
+const HAIR_SALON_FORM = `<form>
+  <p><label>ご希望メニュー</label><br><select><option selected>カット</option><option>カット＋カラー</option><option>カット＋パーマ</option><option>トリートメント</option><option>その他・相談</option></select></p>
+  <p><label>ご希望スタイリスト</label><br><select><option selected>指名なし（おまかせ）</option><option>店長</option><option>スタイリストA</option><option>スタイリストB</option></select></p>
+  <div class="row"><p><label>ご希望日</label><br><input type="date" value="2026-07-26"></p><p><label>希望時間帯</label><br><select><option selected>午前</option><option>午後</option><option>夕方以降</option></select></p></div>
+  <p><label>お名前</label><br><input type="text" value="山田 花子"></p>
+  <div class="row"><p><label>メール</label><br><input type="email" value="hanako@example.com"></p><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p></div>
+  <p class="submit"><input type="submit" value="この内容で予約する"></p>
+</form>`;
+
 const FLORIST_FORM = `<form>
   <p><label>ご用途</label><br><select><option selected>誕生日</option><option>お祝い（開店・結婚など）</option><option>記念日</option><option>お供え・お悔やみ</option><option>その他</option></select></p>
   <div class="row"><p><label>ご予算</label><br><select><option>〜3,000円</option><option selected>3,000〜5,000円</option><option>5,000〜10,000円</option><option>10,000円〜</option></select></p><p><label>お届け日</label><br><input type="date" value="2026-07-26"></p></div>
@@ -2125,6 +2134,10 @@ function contentFor(dir, category) {
     case "446-form-florist-order": return FLORIST_FORM;
     case "447-event-farmers-market": return RSVP_FORM;
     case "448-thankyou-reschedule-confirmed": return NEWSLETTER_FORM;
+    case "449-landing-markup-margin-js": return NEWSLETTER_FORM;
+    case "450-form-hair-salon": return HAIR_SALON_FORM;
+    case "451-event-golf-competition": return RSVP_FORM;
+    case "452-thankyou-deposit-received": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;
