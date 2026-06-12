@@ -2315,7 +2315,7 @@ const indexHtml = `<!DOCTYPE html>
   }
   .hero .in{ max-width:1280px; margin:0 auto; position:relative; animation:fadeUp .6s var(--ease) both; }
   .hero h1{
-    margin:0 0 10px; font-size:clamp(24px,2.6vw,32px); font-weight:800; letter-spacing:.005em; line-height:1.35;
+    margin:0 0 10px; padding-right:54px; font-size:clamp(24px,2.6vw,32px); font-weight:800; letter-spacing:.005em; line-height:1.35;
     background:linear-gradient(100deg,#ffffff 35%,#c7d2fe 62%,#7dd3fc 92%);
     -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:#fff;
   }
@@ -2418,9 +2418,9 @@ const indexHtml = `<!DOCTYPE html>
   .sc-sub{ font-size:12px; color:var(--muted); }
   .sc-shuffle{ margin-left:auto; border:1px solid var(--line); background:var(--card); color:var(--brand); font-weight:700; font-size:13px; padding:8px 17px; border-radius:999px; cursor:pointer; box-shadow:0 1px 2px rgba(18,26,51,.05); transition:background .2s, color .2s, transform .15s var(--ease), box-shadow .2s, border-color .2s; }
   .sc-shuffle:hover{ background:var(--grad-brand); color:#fff; border-color:transparent; transform:translateY(-1px); box-shadow:0 8px 20px -8px rgba(79,70,229,.55); }
-  .sc-row{ display:flex; gap:14px; overflow-x:auto; padding:6px 2px 16px; scroll-snap-type:x proximity; -webkit-overflow-scrolling:touch; scrollbar-width:thin; }
+  .sc-row{ display:flex; gap:14px; overflow-x:auto; padding:6px 2px 16px; scroll-behavior:auto; -webkit-overflow-scrolling:touch; scrollbar-width:thin; }
   .sc-row::-webkit-scrollbar{ height:8px; } .sc-row::-webkit-scrollbar-thumb{ background:#c6cddf; border-radius:999px; } .sc-row::-webkit-scrollbar-track{ background:transparent; }
-  .scard{ flex:0 0 auto; width:230px; scroll-snap-align:start; border:1px solid var(--line); border-radius:14px; overflow:hidden; background:var(--card); cursor:pointer; padding:0; text-align:left; box-shadow:var(--shadow-1); transition:transform .25s var(--ease), box-shadow .25s var(--ease), border-color .2s; }
+  .scard{ flex:0 0 auto; width:230px; border:1px solid var(--line); border-radius:14px; overflow:hidden; background:var(--card); cursor:pointer; padding:0; text-align:left; box-shadow:var(--shadow-1); transition:transform .25s var(--ease), box-shadow .25s var(--ease), border-color .2s; }
   .scard:hover{ transform:translateY(-4px); box-shadow:0 2px 4px rgba(18,26,51,.05), 0 22px 40px -16px rgba(79,70,229,.35); border-color:rgba(99,102,241,.4); }
   .scard .sframe{ width:230px; height:158px; overflow:hidden; border-bottom:1px solid var(--line); background:#fff; }
   .scard .sframe iframe{ width:1280px; height:882px; border:0; transform:scale(0.1797); transform-origin:top left; pointer-events:none; }
@@ -2783,25 +2783,57 @@ function navModal(delta){ if(modal.hidden) return; const list=visibleDirs(); if(
   btn.addEventListener("click", ()=>{ open=!open; apply(); try{ localStorage.setItem("ae-howto", open?"1":"0"); }catch(e){} });
 })();
 function shuffleArr(a){ for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); const t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
+const scRowEl=$("#scRow");
+let scPos=0, scHover=false, scInteractUntil=0;
+const scReduce = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+function makeScard(t, dup){
+  const b=document.createElement("button"); b.type="button"; b.className="scard"; b.dataset.open=t.dir; b.title=t.name+"（クリックで拡大）";
+  if(dup){ b.setAttribute("aria-hidden","true"); b.tabIndex=-1; }
+  const fr=document.createElement("div"); fr.className="sframe";
+  const ifr=document.createElement("iframe"); ifr.src=t.dir+".html"; ifr.loading="lazy"; ifr.tabIndex=-1; ifr.setAttribute("title", t.name);
+  fr.appendChild(ifr);
+  const cap=document.createElement("div"); cap.className="scap";
+  const bd=document.createElement("span"); bd.className="badge badge-"+t.category; bd.textContent=(CAT_LABEL[t.category]||t.category);
+  const h=document.createElement("h4"); h.textContent=t.name;
+  cap.appendChild(bd); cap.appendChild(h);
+  b.appendChild(fr); b.appendChild(cap);
+  return b;
+}
 function renderShowcase(){
-  const row=$("#scRow"); if(!row) return;
-  const picks=shuffleArr(G.templates.slice()).slice(0, Math.min(12, G.templates.length));
-  row.textContent="";
-  picks.forEach(t=>{
-    const b=document.createElement("button"); b.type="button"; b.className="scard"; b.dataset.open=t.dir; b.title=t.name+"（クリックで拡大）";
-    const fr=document.createElement("div"); fr.className="sframe";
-    const ifr=document.createElement("iframe"); ifr.src=t.dir+".html"; ifr.loading="lazy"; ifr.tabIndex=-1; ifr.setAttribute("title", t.name);
-    fr.appendChild(ifr);
-    const cap=document.createElement("div"); cap.className="scap";
-    const bd=document.createElement("span"); bd.className="badge badge-"+t.category; bd.textContent=(CAT_LABEL[t.category]||t.category);
-    const h=document.createElement("h4"); h.textContent=t.name;
-    cap.appendChild(bd); cap.appendChild(h);
-    b.appendChild(fr); b.appendChild(cap);
-    row.appendChild(b);
-  });
+  if(!scRowEl) return;
+  const picks=shuffleArr(G.templates.slice()).slice(0, Math.min(10, G.templates.length));
+  scRowEl.textContent="";
+  picks.forEach(t=> scRowEl.appendChild(makeScard(t,false)));
+  // 同じ並びをもう一周分だけ複製 → 端で途切れずシームレスに流れる
+  picks.forEach(t=> scRowEl.appendChild(makeScard(t,true)));
+  scPos=0; scRowEl.scrollLeft=0;
+}
+function scTick(){
+  if(scRowEl){
+    const half=scRowEl.scrollWidth/2;
+    const interacting = scHover || (Date.now() < scInteractUntil);
+    if(!interacting && half>4){
+      scPos += 0.6;                       // 流れる速度（px/フレーム ≒ 36px/秒）
+      if(scPos>=half) scPos-=half;        // 複製ぶんでループ（ジャンプなし）
+      scRowEl.scrollLeft=scPos;
+    } else {
+      scPos=scRowEl.scrollLeft;           // 手動スクロール中は位置を同期
+    }
+  }
+  requestAnimationFrame(scTick);
+}
+if(scRowEl){
+  scRowEl.addEventListener("mouseenter", ()=>{ scHover=true; });
+  scRowEl.addEventListener("mouseleave", ()=>{ scHover=false; });
+  scRowEl.addEventListener("focusin", ()=>{ scHover=true; });
+  scRowEl.addEventListener("focusout", ()=>{ scHover=false; });
+  ["wheel","touchstart","pointerdown"].forEach(ev=> scRowEl.addEventListener(ev, ()=>{ scInteractUntil=Date.now()+2500; }, {passive:true}));
+  if(!scReduce) requestAnimationFrame(scTick);
+  // 一定時間ごとに自動で中身を入れ替え（操作中・ホバー中は見送り）
+  setInterval(()=>{ if(!scHover && Date.now()>=scInteractUntil) renderShowcase(); }, 30000);
 }
 const scShuffleBtn=$("#scShuffle");
-if(scShuffleBtn) scShuffleBtn.addEventListener("click", ()=>{ renderShowcase(); const r=$("#scRow"); if(r) r.scrollTo({left:0,behavior:"smooth"}); });
+if(scShuffleBtn) scShuffleBtn.addEventListener("click", ()=>{ renderShowcase(); });
 renderShowcase();
 document.addEventListener("click", e=>{
   const nv=e.target.closest("[data-nav]"); if(nv){ navModal(parseInt(nv.dataset.nav,10)); return; }
