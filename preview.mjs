@@ -2498,8 +2498,8 @@ const indexHtml = `<!DOCTYPE html>
     --ink:#121a33; --muted:#5b6680; --line:#e3e8f2; --bg:#f4f6fb; --card:#ffffff;
     --brand:#4f46e5; --brand2:#06b6d4; --violet:#8b5cf6;
     --grad-brand:linear-gradient(135deg,#4f46e5,#7c3aed 55%,#06b6d4 140%);
-    --shadow-1:0 1px 2px rgba(18,26,51,.05), 0 8px 24px -14px rgba(18,26,51,.18);
-    --shadow-2:0 2px 4px rgba(18,26,51,.06), 0 28px 56px -20px rgba(79,70,229,.30);
+    --shadow-1:0 1px 2px rgba(18,26,51,.04), 0 6px 18px -12px rgba(18,26,51,.12);
+    --shadow-2:0 2px 6px rgba(18,26,51,.05), 0 22px 48px -22px rgba(18,26,51,.24);
     --ease:cubic-bezier(.22,1,.36,1);
   }
   *{ box-sizing:border-box; }
@@ -2618,8 +2618,8 @@ const indexHtml = `<!DOCTYPE html>
   .grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(430px,1fr)); gap:24px; }
 
   /* --- カード --- */
-  .card{ margin:0; background:var(--card); border:1px solid var(--line); border-radius:18px; overflow:hidden; box-shadow:var(--shadow-1); transition:transform .25s var(--ease), box-shadow .25s var(--ease), border-color .2s, outline-color .2s; outline:2px solid transparent; outline-offset:-1px; position:relative; }
-  .card:hover{ transform:translateY(-4px); box-shadow:var(--shadow-2); border-color:rgba(99,102,241,.4); }
+  .card{ margin:0; background:var(--card); border:1px solid var(--line); border-radius:16px; overflow:hidden; box-shadow:var(--shadow-1); transition:transform .25s var(--ease), box-shadow .25s var(--ease), border-color .2s, outline-color .2s; outline:2px solid transparent; outline-offset:-1px; position:relative; }
+  .card:hover{ transform:translateY(-3px); box-shadow:var(--shadow-2); border-color:color-mix(in srgb, var(--brand) 32%, var(--line)); }
   .group[data-cat="landing"]{ --cat:#2563eb; } .group[data-cat="form"]{ --cat:#16a34a; } .group[data-cat="event"]{ --cat:#ea580c; } .group[data-cat="thankyou"]{ --cat:#9333ea; } .group[data-cat="utility"]{ --cat:#0284c7; }
   .card::before{ content:""; position:absolute; left:0; right:0; top:0; height:3px; background:var(--cat, var(--brand)); transform:scaleX(0); transform-origin:left; transition:transform .28s var(--ease); z-index:2; }
   .card:hover::before, .card.sel::before{ transform:scaleX(1); }
@@ -2663,8 +2663,11 @@ const indexHtml = `<!DOCTYPE html>
   .sc-head{ display:flex; align-items:center; gap:12px; margin-bottom:14px; flex-wrap:wrap; }
   .sc-head h2{ font-size:18px; font-weight:800; margin:0; letter-spacing:.01em; }
   .sc-sub{ font-size:12px; color:var(--muted); }
-  .sc-shuffle{ margin-left:auto; border:1px solid var(--line); background:var(--card); color:var(--brand); font-weight:700; font-size:13px; padding:8px 17px; border-radius:999px; cursor:pointer; box-shadow:0 1px 2px rgba(18,26,51,.05); transition:background .2s, color .2s, transform .15s var(--ease), box-shadow .2s, border-color .2s; }
-  .sc-shuffle:hover{ background:var(--grad-brand); color:#fff; border-color:transparent; transform:translateY(-1px); box-shadow:0 8px 20px -8px rgba(79,70,229,.55); }
+  .sc-shuffle{ margin-left:auto; display:inline-flex; align-items:center; gap:7px; border:1px solid var(--line); background:var(--card); color:var(--muted); font-weight:700; font-size:12.5px; padding:8px 15px; border-radius:10px; cursor:pointer; transition:color .18s, border-color .18s, background .18s, box-shadow .18s, transform .12s var(--ease); }
+  .sc-shuffle .sc-ic{ font-size:14px; display:inline-block; transition:transform .4s var(--ease); }
+  .sc-shuffle:hover{ color:var(--brand); border-color:color-mix(in srgb, var(--brand) 42%, var(--line)); background:color-mix(in srgb, var(--brand) 6%, var(--card)); box-shadow:0 2px 10px -4px rgba(79,70,229,.35); }
+  .sc-shuffle:hover .sc-ic{ transform:rotate(180deg); }
+  .sc-shuffle:active{ transform:scale(.96); }
   .sc-row{ display:flex; gap:14px; overflow-x:auto; padding:6px 2px 16px; scroll-behavior:auto; -webkit-overflow-scrolling:touch; scrollbar-width:thin; }
   .sc-row::-webkit-scrollbar{ height:8px; } .sc-row::-webkit-scrollbar-thumb{ background:#c6cddf; border-radius:999px; } .sc-row::-webkit-scrollbar-track{ background:transparent; }
   .scard{ flex:0 0 auto; width:230px; border:1px solid var(--line); border-radius:14px; overflow:hidden; background:var(--card); cursor:pointer; padding:0; text-align:left; box-shadow:var(--shadow-1); transition:transform .25s var(--ease), box-shadow .25s var(--ease), border-color .2s; }
@@ -3009,8 +3012,7 @@ const indexHtml = `<!DOCTYPE html>
   </section>
   <section class="showcase" id="showcase">
     <div class="sc-head">
-      <h2>🔀 ランダムピックアップ</h2>
-      <button class="sc-shuffle" id="scShuffle" type="button">🔀 シャッフル</button>
+      <button class="sc-shuffle" id="scShuffle" type="button" title="ランダムに並べ替え"><span class="sc-ic" aria-hidden="true">⇄</span>シャッフル</button>
     </div>
     <div class="sc-row" id="scRow"></div>
   </section>
