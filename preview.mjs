@@ -340,6 +340,14 @@ const PLANT_FORM = `<form>
   <p class="submit"><input type="submit" value="無料で相談・見積もりを依頼する"></p>
 </form>`;
 
+const GLAMP_FORM = `<form>
+  <div class="row"><p><label>ご宿泊日</label><br><input type="date" value="2026-09-19"></p><p><label>泊数</label><br><select><option selected>1泊</option><option>2泊</option><option>3泊以上</option></select></p></div>
+  <div class="row"><p><label>人数</label><br><select><option>2名</option><option selected>3〜4名</option><option>5名以上</option></select></p><p><label>プラン</label><br><select><option selected>BBQ・温泉付き</option><option>素泊まり</option><option>ペット同伴</option></select></p></div>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <div class="row"><p><label>メール</label><br><input type="email" value="taro@example.com"></p><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p></div>
+  <p class="submit"><input type="submit" value="空き状況を確認して予約する"></p>
+</form>`;
+
 const CHIRO_FORM = `<form>
   <p><label>お悩みの部位</label><br><select><option selected>肩こり・首こり</option><option>腰痛・骨盤の歪み</option><option>頭痛・自律神経の不調</option><option>姿勢改善・全身</option><option>その他・相談</option></select></p>
   <div class="row"><p><label>ご希望日</label><br><input type="date" value="2026-07-28"></p><p><label>希望時間帯</label><br><select><option selected>午前</option><option>午後</option><option>夕方以降</option></select></p></div>
@@ -2363,6 +2371,10 @@ function contentFor(dir, category) {
     case "526-landing-loan-refinance-js": return NEWSLETTER_FORM;
     case "527-event-factory-tour": return RSVP_FORM;
     case "528-utility-points-expiring": return NEWSLETTER_FORM;
+    case "529-form-glamping-reservation": return GLAMP_FORM;
+    case "530-landing-car-cost-js": return NEWSLETTER_FORM;
+    case "531-event-matchmaking-party": return RSVP_FORM;
+    case "532-utility-payment-method-register": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

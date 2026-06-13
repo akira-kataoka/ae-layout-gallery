@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#b91c1c; --ink:#241416; --muted:#7c6065; --line:#f0dcdd; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fdf1f1; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:20px; }
+    .ae-head h1 { font-size:24px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; box-shadow:0 12px 32px rgba(185,28,28,.09); }
+    .ae-field { margin-bottom:18px; }
+    .ae-field label { font-weight:700; font-size:14px; display:flex; justify-content:space-between; margin-bottom:8px; }
+    .ae-field label .v { color:var(--accent); font-variant-numeric:tabular-nums; }
+    .ae-field input[type=range] { width:100%; accent-color:var(--accent); }
+    .ae-act { display:flex; gap:6px; background:#fbe0e0; border-radius:10px; padding:4px; }
+    .ae-act button { flex:1; border:0; background:transparent; padding:9px 4px; border-radius:8px; font-weight:700; font-size:12px; cursor:pointer; color:var(--muted); }
+    .ae-act button.on { background:#fff; color:var(--accent); box-shadow:0 2px 8px rgba(185,28,28,.18); }
+    .ae-out { background:linear-gradient(135deg,#dc2626,#b91c1c); color:#fff; border-radius:14px; padding:24px; text-align:center; margin-top:18px; }
+    .ae-out .lab { font-size:13px; opacity:.9; } .ae-out .big { font-size:40px; font-weight:900; font-variant-numeric:tabular-nums; line-height:1.1; } .ae-out .big small { font-size:15px; } .ae-out .sub { font-size:13px; opacity:.95; margin-top:6px; }
+    .ae-bd { display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; } .ae-g { flex:1 1 calc(50% - 4px); background:rgba(255,255,255,.16); border-radius:10px; padding:9px 8px; text-align:left; } .ae-g .k { font-size:11px; opacity:.9; } .ae-g .n { font-weight:800; font-variant-numeric:tabular-nums; }
+    .ae-note { font-size:11px; color:var(--muted); margin-top:12px; text-align:center; }
+    .ae-cta { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; margin-top:18px; }
+    .ae-cta .t { font-weight:700; margin-bottom:12px; }
+    .ae-cta form input[type=text],.ae-cta form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form .submit input,.ae-cta form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <div class="ae-field"><label>車のサイズ</label>
+        <div class="ae-act" id="size">
+          <button type="button" data-tax="10800" data-fuel="20" data-ins="55000" class="on">軽</button>
+          <button type="button" data-tax="34500" data-fuel="14" data-ins="70000">普通(小)</button>
+          <button type="button" data-tax="45000" data-fuel="10" data-ins="85000">普通(大)</button>
+        </div></div>
+      <div class="ae-field"><label>年間の走行距離 <span class="v"><span id="vKm">8000</span> km</span></label>
+        <input type="range" id="km" min="2000" max="20000" step="1000" value="8000"></div>
+      <div class="ae-field"><label>ガソリン価格 <span class="v"><span id="vGas">170</span> 円/L</span></label>
+        <input type="range" id="gas" min="140" max="220" step="5" value="170"></div>
+      <div class="ae-field"><label>駐車場代（月） <span class="v"><span id="vPark">10000</span> 円</span></label>
+        <input type="range" id="park" min="0" max="40000" step="1000" value="10000"></div>
+      <div class="ae-out">
+        <div class="lab">年間の維持費の目安</div>
+        <div class="big"><span id="year">0</span><small> 円</small></div>
+        <div class="sub">1か月あたり 約 <span id="month">0</span> 円</div>
+        <div class="ae-bd">
+          <div class="ae-g"><div class="k">税金</div><div class="n"><span id="tax">0</span> 円</div></div>
+          <div class="ae-g"><div class="k">ガソリン</div><div class="n"><span id="fuel">0</span> 円</div></div>
+          <div class="ae-g"><div class="k">保険・車検等</div><div class="n"><span id="ins">0</span> 円</div></div>
+          <div class="ae-g"><div class="k">駐車場</div><div class="n"><span id="pk">0</span> 円</div></div>
+        </div>
+      </div>
+      <div class="ae-note">※ 自動車税・任意保険・車検・燃料の目安からの概算です。実際の費用は条件により異なります。</div>
+    </div>
+    <div class="ae-cta">
+      <div class="t">維持費を抑えるプラン・無料相談を受け取る</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var km = document.getElementById("km"), vKm = document.getElementById("vKm");
+    var gas = document.getElementById("gas"), vGas = document.getElementById("vGas");
+    var park = document.getElementById("park"), vPark = document.getElementById("vPark");
+    var sizeBtns = Array.prototype.slice.call(document.querySelectorAll("#size button"));
+    var taxEl = document.getElementById("tax"), fuelEl = document.getElementById("fuel"), insEl = document.getElementById("ins"), pkEl = document.getElementById("pk");
+    var yearEl = document.getElementById("year"), monthEl = document.getElementById("month");
+    var tax = 10800, kmpl = 20, ins = 55000;
+    function yen(v) { return Math.round(v).toLocaleString("ja-JP"); }
+    function calc() {
+      var dist = parseInt(km.value, 10) || 0;
+      var gasPrice = parseInt(gas.value, 10) || 0;
+      var parkY = (parseInt(park.value, 10) || 0) * 12;
+      vKm.textContent = dist;
+      vGas.textContent = gasPrice;
+      vPark.textContent = parseInt(park.value, 10);
+      var fuel = (dist / kmpl) * gasPrice;
+      taxEl.textContent = yen(tax);
+      fuelEl.textContent = yen(fuel);
+      insEl.textContent = yen(ins);
+      pkEl.textContent = yen(parkY);
+      var total = tax + fuel + ins + parkY;
+      yearEl.textContent = yen(total);
+      monthEl.textContent = yen(total / 12);
+    }
+    km.addEventListener("input", calc);
+    gas.addEventListener("input", calc);
+    park.addEventListener("input", calc);
+    sizeBtns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        sizeBtns.forEach(function (x) { x.classList.remove("on"); });
+        b.classList.add("on");
+        tax = parseInt(b.getAttribute("data-tax"), 10);
+        kmpl = parseFloat(b.getAttribute("data-fuel"));
+        ins = parseInt(b.getAttribute("data-ins"), 10);
+        calc();
+      });
+    });
+    calc();
+  })();
+  </script>
+</body>
+</html>
