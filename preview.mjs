@@ -2747,6 +2747,7 @@ const indexHtml = `<!DOCTYPE html>
   @media (max-width:520px){ .hero-btn{ width:100%; } }
   /* --- かんたん作成ビルダー --- */
   .builder{ position:fixed; inset:0; z-index:60; background:var(--bg); display:flex; flex-direction:column; animation:fadeIn .2s ease both; }
+  .builder[hidden]{ display:none; }
   .bd-head{ display:flex; align-items:center; gap:10px; padding:14px 18px; border-bottom:1px solid var(--line); background:var(--card); flex:0 0 auto; }
   .bd-head strong{ font-size:16px; }
   .bd-tabs{ display:inline-flex; gap:4px; background:color-mix(in srgb, var(--brand) 8%, var(--card)); border:1px solid var(--line); border-radius:10px; padding:3px; }
