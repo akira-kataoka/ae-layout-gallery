@@ -316,6 +316,14 @@ const KIMONO_FORM = `<form>
   <p class="submit"><input type="submit" value="空き状況を確認して予約する"></p>
 </form>`;
 
+const MEALKIT_FORM = `<form>
+  <div class="row"><p><label>ご家族の人数</label><br><select><option>1人前</option><option selected>2人前</option><option>3人前</option><option>4人前</option></select></p><p><label>コース</label><br><select><option selected>定番おかず</option><option>低糖質・ヘルシー</option><option>時短10分</option><option>キッズ向け</option></select></p></div>
+  <p><label>お届け曜日</label><br><select><option selected>火曜</option><option>木曜</option><option>土曜</option><option>日曜</option></select></p>
+  <p><label>お名前</label><br><input type="text" value="山田 花子"></p>
+  <div class="row"><p><label>メール</label><br><input type="email" value="hanako@example.com"></p><p><label>郵便番号</label><br><input type="text" value="100-0001"></p></div>
+  <p class="submit"><input type="submit" value="初回半額でお試しする"></p>
+</form>`;
+
 const CHIRO_FORM = `<form>
   <p><label>お悩みの部位</label><br><select><option selected>肩こり・首こり</option><option>腰痛・骨盤の歪み</option><option>頭痛・自律神経の不調</option><option>姿勢改善・全身</option><option>その他・相談</option></select></p>
   <div class="row"><p><label>ご希望日</label><br><input type="date" value="2026-07-28"></p><p><label>希望時間帯</label><br><select><option selected>午前</option><option>午後</option><option>夕方以降</option></select></p></div>
@@ -2323,6 +2331,10 @@ function contentFor(dir, category) {
     case "510-form-credit-card-apply": return CARD_APPLY_FORM;
     case "511-event-quiz-night": return RSVP_FORM;
     case "512-thankyou-application-approved": return NEWSLETTER_FORM;
+    case "513-landing-protein-intake-js": return NEWSLETTER_FORM;
+    case "514-form-meal-kit": return MEALKIT_FORM;
+    case "515-event-coffee-cupping": return RSVP_FORM;
+    case "516-thankyou-first-order-welcome": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

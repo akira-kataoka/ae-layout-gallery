@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#db2777; --ink:#2a1320; --muted:#7c5a68; --line:#f1dde6; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fdf2f7; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:20px; }
+    .ae-head h1 { font-size:24px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; box-shadow:0 12px 32px rgba(219,39,119,.09); }
+    .ae-field { margin-bottom:18px; }
+    .ae-field label { font-weight:700; font-size:14px; display:flex; justify-content:space-between; margin-bottom:8px; }
+    .ae-field label .v { color:var(--accent); font-variant-numeric:tabular-nums; }
+    .ae-field input[type=range] { width:100%; accent-color:var(--accent); }
+    .ae-act { display:flex; gap:6px; background:#fbe1ec; border-radius:10px; padding:4px; }
+    .ae-act button { flex:1; border:0; background:transparent; padding:9px 4px; border-radius:8px; font-weight:700; font-size:12px; cursor:pointer; color:var(--muted); }
+    .ae-act button.on { background:#fff; color:var(--accent); box-shadow:0 2px 8px rgba(219,39,119,.18); }
+    .ae-out { background:linear-gradient(135deg,#ec4899,#db2777); color:#fff; border-radius:14px; padding:24px; text-align:center; margin-top:18px; }
+    .ae-out .lab { font-size:13px; opacity:.9; } .ae-out .big { font-size:42px; font-weight:900; font-variant-numeric:tabular-nums; line-height:1.1; } .ae-out .big small { font-size:16px; } .ae-out .sub { font-size:13px; opacity:.95; margin-top:6px; }
+    .ae-row2 { display:flex; gap:8px; margin-top:14px; } .ae-g { flex:1; background:rgba(255,255,255,.16); border-radius:10px; padding:10px 6px; } .ae-g .k { font-size:11px; opacity:.9; } .ae-g .n { font-weight:800; font-variant-numeric:tabular-nums; }
+    .ae-note { font-size:11px; color:var(--muted); margin-top:12px; text-align:center; }
+    .ae-cta { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; margin-top:18px; }
+    .ae-cta .t { font-weight:700; margin-bottom:12px; }
+    .ae-cta form input[type=text],.ae-cta form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form .submit input,.ae-cta form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <div class="ae-field"><label>体重 <span class="v"><span id="vW">60</span> kg</span></label>
+        <input type="range" id="w" min="35" max="120" step="1" value="60"></div>
+      <div class="ae-field"><label>目的</label>
+        <div class="ae-act" id="goal">
+          <button type="button" data-g="1.4" class="on">健康維持</button>
+          <button type="button" data-g="1.8">ダイエット</button>
+          <button type="button" data-g="2.0">筋肉づくり</button>
+        </div></div>
+      <div class="ae-field"><label>運動の頻度</label>
+        <div class="ae-act" id="act">
+          <button type="button" data-a="0.9">少なめ</button>
+          <button type="button" data-a="1.0" class="on">ふつう</button>
+          <button type="button" data-a="1.1">活発</button>
+        </div></div>
+      <div class="ae-out">
+        <div class="lab">1日に必要なたんぱく質の目安</div>
+        <div class="big"><span id="g">0</span><small> g/日</small></div>
+        <div class="sub">1食あたり 約 <span id="meal">0</span> g（3食）</div>
+        <div class="ae-row2">
+          <div class="ae-g"><div class="k">卵に換算</div><div class="n">約 <span id="egg">0</span> 個</div></div>
+          <div class="ae-g"><div class="k">鶏むね肉に換算</div><div class="n">約 <span id="chicken">0</span> g</div></div>
+        </div>
+      </div>
+      <div class="ae-note">※ 一般的な目安です。体組成・運動内容により異なります。</div>
+    </div>
+    <div class="ae-cta">
+      <div class="t">からだづくり・栄養のヒントを受け取る</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var w = document.getElementById("w"), vW = document.getElementById("vW");
+    var gEl = document.getElementById("g"), mealEl = document.getElementById("meal"), eggEl = document.getElementById("egg"), chickenEl = document.getElementById("chicken");
+    var goalBtns = Array.prototype.slice.call(document.querySelectorAll("#goal button"));
+    var actBtns = Array.prototype.slice.call(document.querySelectorAll("#act button"));
+    var goal = 1.4, act = 1.0;
+    function calc() {
+      var kg = parseInt(w.value, 10) || 0;
+      vW.textContent = kg;
+      var grams = kg * goal * act;
+      gEl.textContent = Math.round(grams);
+      mealEl.textContent = Math.round(grams / 3);
+      eggEl.textContent = Math.round(grams / 6.2);        // 卵1個約6.2g
+      chickenEl.textContent = Math.round(grams / 0.23);    // 鶏むね100gあたり約23g
+    }
+    w.addEventListener("input", calc);
+    goalBtns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        goalBtns.forEach(function (x) { x.classList.remove("on"); });
+        b.classList.add("on"); goal = parseFloat(b.getAttribute("data-g")); calc();
+      });
+    });
+    actBtns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        actBtns.forEach(function (x) { x.classList.remove("on"); });
+        b.classList.add("on"); act = parseFloat(b.getAttribute("data-a")); calc();
+      });
+    });
+    calc();
+  })();
+  </script>
+</body>
+</html>
