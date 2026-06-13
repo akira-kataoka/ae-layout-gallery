@@ -2390,8 +2390,10 @@ for (const dir of dirs) {
   // 主役色(--accent)の既定値を layout から抽出（カスタマイザの初期値に使用）
   const accentMatch = html.match(/--accent:\s*([^;}\s]+)/i);
   const accent = accentMatch ? accentMatch[1].trim() : "";
+  // カスタマイザの見出し/説明 入力欄に流し込む値は HTML タグを除去（<b> 等が入力欄に文字列として残らないように）
+  const stripTags = (s) => String(s ?? "").replace(/<[^>]*>/g, "");
   items.push({ dir, file: `${dir}.html`, name: meta.name, description: meta.description, category, meta, layout: html,
-    sampleTitle: tTitle, sampleDesc: tDesc, sampleContent: tContent, accent });
+    sampleTitle: stripTags(tTitle), sampleDesc: stripTags(tDesc), sampleContent: tContent, accent });
 }
 
 // ---- ダウンロード用データ (data.js) --------------------------------------
