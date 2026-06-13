@@ -2759,8 +2759,9 @@ const indexHtml = `<!DOCTYPE html>
   .bd-controls{ padding:16px 18px; display:flex; flex-direction:column; gap:18px; }
   .bd-sec .bd-lab{ font-size:13px; font-weight:800; color:var(--ink); margin-bottom:9px; }
   .bd-bases{ display:flex; gap:10px; overflow-x:auto; padding-bottom:6px; }
-  .bd-base{ flex:0 0 auto; width:118px; border:2px solid var(--line); border-radius:11px; overflow:hidden; background:#fff; cursor:pointer; padding:0; }
+  .bd-base{ flex:0 0 auto; width:118px; border:2px solid var(--line); border-radius:11px; overflow:hidden; background:#fff; cursor:pointer; padding:0; position:relative; }
   .bd-base.on{ border-color:var(--brand); box-shadow:0 6px 16px -4px rgba(79,70,229,.4); }
+  .bd-base.on::after{ content:"✓"; position:absolute; top:6px; right:6px; width:21px; height:21px; border-radius:50%; background:var(--brand); color:#fff; font-size:12px; font-weight:800; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 6px rgba(0,0,0,.25); }
   .bd-base .bthumb{ width:118px; height:84px; overflow:hidden; background:#fff; pointer-events:none; }
   .bd-base .bthumb iframe{ width:1180px; height:840px; border:0; transform:scale(0.1); transform-origin:top left; }
   .bd-base .bname{ font-size:10.5px; font-weight:700; padding:5px 6px; color:var(--ink); text-align:center; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
@@ -2821,6 +2822,13 @@ const indexHtml = `<!DOCTYPE html>
     .bd-controls{ width:420px; flex:0 0 420px; overflow:auto; }
     .bd-preview{ flex:1; align-items:flex-start; overflow:auto; }
     .bd-frame-wrap{ position:sticky; top:0; }
+  }
+  /* スマホ: プレビューを上部に固定表示して、変更が即わかるように */
+  @media (max-width:860px){
+    .bd-body, .bd-bpane{ flex-direction:column; }
+    .bd-preview{ order:-1; position:sticky; top:0; z-index:3; padding:12px; box-shadow:0 8px 16px -10px rgba(7,11,29,.5); }
+    .bd-frame-wrap{ aspect-ratio:auto; height:36vh; max-width:280px; }
+    .bd-controls{ padding-top:14px; }
   }
   .modal-body{ flex:1; overflow:auto; background:#eef1f8; }
   .m-preview{ height:100%; display:flex; justify-content:center; }
@@ -3371,7 +3379,7 @@ function bcRenderAdd(){
   const wrap=$("#bc-add"); if(!wrap) return; wrap.textContent="";
   BC_ORDER.forEach(function(type){
     const b=document.createElement("button"); b.type="button"; b.textContent="＋ "+BC_DEFS[type].name;
-    b.addEventListener("click", function(){ bcState.blocks.push(bcDefault(type)); bcRenderList(); bcRenderPreview(); });
+    b.addEventListener("click", function(){ bcState.blocks.push(bcDefault(type)); bcRenderList(); bcRenderPreview(); const items=document.querySelectorAll("#bc-list .bc-item"); const last=items[items.length-1]; if(last&&last.scrollIntoView) last.scrollIntoView({behavior:"smooth", block:"nearest"}); });
     wrap.appendChild(b);
   });
 }
