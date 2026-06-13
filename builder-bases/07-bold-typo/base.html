@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root {
+      --accent:#e11d48;
+      --accent-deep:  color-mix(in srgb, var(--accent) 70%, #000);
+      --accent-dark:  color-mix(in srgb, var(--accent) 85%, #000);
+      --accent-soft:  color-mix(in srgb, var(--accent) 12%, #fff);
+      --accent-tint:  color-mix(in srgb, var(--accent) 6%, #fff);
+      --accent-line:  color-mix(in srgb, var(--accent) 24%, #fff);
+      --accent-ink:   color-mix(in srgb, var(--accent) 55%, #000);
+      --ink:#111318; --muted:#5a5f6b; --paper:#faf9f7;
+    }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:var(--paper); line-height:1.85; }
+
+    /* ===== Top bar ===== */
+    .topbar { display:flex; justify-content:space-between; align-items:center; padding:18px 26px;
+      border-bottom:2px solid var(--ink); background:var(--paper); font-weight:800; font-size:13px; letter-spacing:.14em; }
+    .topbar .dot { display:inline-block; width:11px; height:11px; border-radius:50%; background:var(--accent); margin-right:8px;
+      vertical-align:baseline; }
+    .topbar .no { color:var(--muted); font-weight:700; }
+
+    /* ===== Big typo hero ===== */
+    .hero { padding:72px 26px 60px; max-width:1080px; margin:0 auto; }
+    .kicker { display:inline-block; font-size:13px; font-weight:800; letter-spacing:.22em; color:var(--accent-ink);
+      border:1.5px solid var(--accent); padding:6px 16px; border-radius:4px; margin-bottom:28px;
+      background:var(--accent-tint); }
+    .hero h1 { margin:0 0 26px; font-weight:900; font-size:clamp(40px, 9.5vw, 92px); line-height:1.12; letter-spacing:-.01em; }
+    .hero h1 .stroke { color:transparent; -webkit-text-stroke:2px var(--accent);
+      text-shadow:none; display:block; font-size:.55em; letter-spacing:.06em; margin-bottom:6px; }
+    .hero h1 .fill { background:linear-gradient(120deg, var(--ink) 55%, var(--accent-ink));
+      -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .hero .desc { font-size:clamp(15px, 2.6vw, 19px); color:var(--muted); max-width:640px; margin:0 0 40px;
+      border-left:5px solid var(--accent); padding-left:18px; }
+    .btn { display:inline-block; background:var(--accent); color:#fff; font-weight:900; font-size:18px;
+      padding:19px 58px; border-radius:6px; text-decoration:none; cursor:pointer; position:relative;
+      box-shadow:6px 6px 0 var(--accent-deep); transition:transform .15s, box-shadow .15s; }
+    .btn:hover { transform:translate(3px,3px); box-shadow:3px 3px 0 var(--accent-deep); }
+
+    /* ===== Ticker stripe ===== */
+    .stripe { overflow:hidden; border-top:2px solid var(--ink); border-bottom:2px solid var(--ink);
+      background:var(--accent); color:#fff; font-weight:900; font-size:15px; letter-spacing:.18em; white-space:nowrap; }
+    .stripe-in { display:inline-block; padding:13px 0; animation:slide 22s linear infinite; }
+    @keyframes slide { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+
+    /* ===== Numbered points ===== */
+    .points { max-width:1080px; margin:0 auto; padding:70px 26px 30px; }
+    .points h2 { font-size:clamp(24px, 4.5vw, 34px); font-weight:900; margin:0 0 36px; }
+    .points h2 small { display:block; font-size:12px; letter-spacing:.3em; color:var(--accent-ink); margin-bottom:6px; }
+    .pt { display:flex; gap:24px; align-items:flex-start; padding:26px 0; border-top:1.5px solid color-mix(in srgb, var(--ink) 16%, transparent); }
+    .pt:last-child { border-bottom:1.5px solid color-mix(in srgb, var(--ink) 16%, transparent); }
+    .pt .num { font-size:clamp(34px, 6vw, 52px); font-weight:900; line-height:1; min-width:84px;
+      color:transparent; -webkit-text-stroke:1.8px var(--accent); }
+    .pt h3 { margin:0 0 6px; font-size:18px; font-weight:800; }
+    .pt p { margin:0; font-size:14px; color:var(--muted); }
+
+    /* ===== Form ===== */
+    .form-sec { padding:60px 22px 88px; }
+    .form-card { max-width:640px; margin:0 auto; background:#fff; border:2px solid var(--ink); border-radius:14px;
+      padding:44px 38px; box-shadow:10px 10px 0 var(--accent); }
+    .form-card .lead { margin:0 0 8px; font-weight:900; font-size:24px; }
+    .form-card .lead-sub { margin:0 0 28px; font-size:13.5px; color:var(--muted); }
+    form p { margin:0 0 15px; }
+    form label { font-weight:800; font-size:13.5px; display:block; margin-bottom:5px; }
+    form input[type=text], form input[type=email], form input[type=tel], form select, form textarea {
+      width:100%; padding:13px 14px; border:1.5px solid color-mix(in srgb, var(--ink) 35%, #fff); border-radius:8px;
+      font-size:14px; font-family:inherit; background:#fff; transition:border-color .15s, box-shadow .15s; }
+    form input:focus, form select:focus, form textarea:focus { outline:none; border-color:var(--accent);
+      box-shadow:0 0 0 3px var(--accent-soft); }
+    form textarea { min-height:120px; resize:vertical; }
+    .submit input, form button { width:100%; border:0; cursor:pointer; color:#fff; font-weight:900; font-size:16px;
+      padding:17px; border-radius:8px; font-family:inherit;
+      background:linear-gradient(135deg, var(--accent), var(--accent-dark));
+      box-shadow:5px 5px 0 color-mix(in srgb, var(--accent-deep) 80%, #000); }
+    form .row { display:flex; gap:14px; }
+    form .row > * { flex:1; }
+    @media (max-width:480px){ form .row { flex-direction:column; gap:0; } }
+
+    .foot { text-align:center; color:var(--muted); font-size:12px; padding:28px 20px; border-top:2px solid var(--ink); }
+    @media (max-width:640px){
+      .hero { padding:52px 20px 46px; }
+      .pt { gap:16px; }
+      .pt .num { min-width:58px; }
+      .form-card { padding:32px 22px; box-shadow:7px 7px 0 var(--accent); }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <span><span class="dot"></span>SPECIAL</span>
+    <span class="no">EDITION — 01</span>
+  </div>
+
+  <header class="hero">
+    <span class="kicker">ANNOUNCEMENT</span>
+    <h1>
+      <span class="stroke">NEW ARRIVAL</span>
+      <span class="fill">%%title%%</span>
+    </h1>
+    <p class="desc">%%description%%</p>
+    <a class="btn" href="#entry">%%cta%%</a>
+  </header>
+
+  <div class="stripe" aria-hidden="true">
+    <span class="stripe-in">JOIN US NOW ✦ LIMITED ✦ JOIN US NOW ✦ LIMITED ✦ JOIN US NOW ✦ LIMITED ✦ JOIN US NOW ✦ LIMITED ✦ JOIN US NOW ✦ LIMITED ✦ JOIN US NOW ✦ LIMITED ✦ </span>
+  </div>
+
+  <section class="points">
+    <h2><small>WHY CHOOSE US</small>選ばれる3つの理由</h2>
+    <div class="pt">
+      <div class="num">01</div>
+      <div>
+        <h3>圧倒的なわかりやすさ</h3>
+        <p>はじめての方でも迷わない、シンプルで直感的な体験をお届けします。難しい手続きは一切ありません。</p>
+      </div>
+    </div>
+    <div class="pt">
+      <div class="num">02</div>
+      <div>
+        <h3>確かな実績と信頼</h3>
+        <p>これまで多くのお客様にご利用いただき、高い満足度をいただいています。安心してお任せください。</p>
+      </div>
+    </div>
+    <div class="pt">
+      <div class="num">03</div>
+      <div>
+        <h3>今だけの特別条件</h3>
+        <p>期間限定のお得な条件をご用意しました。この機会をお見逃しなく、まずはお気軽にお申し込みください。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="form-sec" id="entry">
+    <div class="form-card">
+      <p class="lead">エントリーはこちら</p>
+      <p class="lead-sub">必要事項をご入力のうえ、送信ボタンを押してください。</p>
+      %%content%%
+    </div>
+  </section>
+
+  <footer class="foot">ご入力いただいた情報は、プライバシーポリシーに基づき適切に管理いたします。</footer>
+</body>
+</html>

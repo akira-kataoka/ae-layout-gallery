@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root {
+      --accent:#0d9488;
+      --accent-deep:  color-mix(in srgb, var(--accent) 70%, #000);
+      --accent-dark:  color-mix(in srgb, var(--accent) 85%, #000);
+      --accent-soft:  color-mix(in srgb, var(--accent) 12%, #fff);
+      --accent-tint:  color-mix(in srgb, var(--accent) 6%, #fff);
+      --accent-line:  color-mix(in srgb, var(--accent) 22%, #fff);
+      --accent-ink:   color-mix(in srgb, var(--accent) 55%, #000);
+      --ink:#1b2430; --muted:#5d6678;
+    }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink);
+      background:var(--accent-tint); line-height:1.85; }
+
+    /* ===== Head ===== */
+    .head { text-align:center; padding:72px 22px 36px; max-width:760px; margin:0 auto; }
+    .head .eyebrow { display:inline-flex; align-items:center; gap:8px; font-size:13px; font-weight:800;
+      color:var(--accent-ink); letter-spacing:.12em; margin-bottom:18px; }
+    .head .eyebrow::before, .head .eyebrow::after { content:""; width:28px; height:2px; background:var(--accent); border-radius:2px; }
+    .head h1 { font-size:clamp(27px, 5.6vw, 42px); font-weight:900; margin:0 0 14px; line-height:1.4; }
+    .head p { color:var(--muted); font-size:clamp(14px, 2.5vw, 16.5px); margin:0; }
+
+    /* ===== Plans ===== */
+    .plans { max-width:1020px; margin:0 auto; padding:28px 20px 24px;
+      display:grid; grid-template-columns:repeat(3,1fr); gap:20px; align-items:stretch; }
+    .plan { background:#fff; border:1.5px solid var(--accent-line); border-radius:20px; padding:34px 26px 30px;
+      display:flex; flex-direction:column; box-shadow:0 8px 24px color-mix(in srgb, var(--accent-deep) 8%, transparent); }
+    .plan .pname { font-size:14px; font-weight:800; letter-spacing:.1em; color:var(--accent-ink); margin:0 0 10px; }
+    .plan .price { font-size:38px; font-weight:900; line-height:1.1; margin:0 0 2px; }
+    .plan .price small { font-size:14px; font-weight:700; color:var(--muted); }
+    .plan .per { font-size:12px; color:var(--muted); margin:0 0 20px; }
+    .plan ul { list-style:none; margin:0 0 24px; padding:0; flex:1; }
+    .plan li { font-size:13.5px; padding:9px 0 9px 26px; position:relative;
+      border-bottom:1px dashed color-mix(in srgb, var(--ink) 14%, transparent); }
+    .plan li::before { content:"✓"; position:absolute; left:2px; top:9px; font-weight:900; color:var(--accent); }
+    .plan li.dim { color:color-mix(in srgb, var(--muted) 70%, #fff); }
+    .plan li.dim::before { content:"—"; color:color-mix(in srgb, var(--muted) 55%, #fff); }
+    .plan .pbtn { display:block; text-align:center; text-decoration:none; font-weight:800; font-size:14.5px;
+      padding:13px; border-radius:999px; border:1.5px solid var(--accent); color:var(--accent-ink);
+      background:#fff; transition:background .15s; }
+    .plan .pbtn:hover { background:var(--accent-soft); }
+
+    .plan.hot { border:2px solid var(--accent); position:relative; transform:translateY(-10px);
+      box-shadow:0 18px 44px color-mix(in srgb, var(--accent-deep) 22%, transparent);
+      background:linear-gradient(180deg, #fff 62%, var(--accent-soft)); }
+    .plan.hot .ribbon { position:absolute; top:-14px; left:50%; transform:translateX(-50%);
+      background:linear-gradient(135deg, var(--accent), var(--accent-dark)); color:#fff; font-size:12px; font-weight:800;
+      letter-spacing:.1em; padding:5px 20px; border-radius:999px; white-space:nowrap;
+      box-shadow:0 6px 16px color-mix(in srgb, var(--accent) 45%, transparent); }
+    .plan.hot .price { color:var(--accent-ink); }
+    .plan.hot .pbtn { background:linear-gradient(135deg, var(--accent), var(--accent-dark)); color:#fff; border:0;
+      box-shadow:0 8px 20px color-mix(in srgb, var(--accent) 38%, transparent); }
+
+    .note { text-align:center; font-size:12px; color:var(--muted); padding:0 22px 36px; }
+
+    /* ===== CTA band ===== */
+    .band { text-align:center; padding:54px 22px; color:#fff;
+      background:linear-gradient(135deg, var(--accent), color-mix(in srgb, var(--accent) 60%, #000)); }
+    .band h2 { margin:0 0 10px; font-size:clamp(20px, 4vw, 27px); font-weight:900; }
+    .band p { margin:0 0 26px; font-size:14px; opacity:.92; }
+    .btn { display:inline-block; background:#fff; color:var(--accent-deep); font-weight:900; font-size:17px;
+      padding:16px 54px; border-radius:999px; text-decoration:none; cursor:pointer;
+      box-shadow:0 12px 30px color-mix(in srgb, #000 30%, transparent); transition:transform .2s; }
+    .btn:hover { transform:translateY(-2px); }
+
+    /* ===== Form ===== */
+    .form-sec { padding:64px 20px 84px; }
+    .form-card { max-width:620px; margin:0 auto; background:#fff; border-radius:22px; padding:42px 36px;
+      border:1.5px solid var(--accent-line);
+      box-shadow:0 16px 44px color-mix(in srgb, var(--accent-deep) 12%, transparent); }
+    .form-card .lead { text-align:center; margin:0 0 6px; font-weight:900; font-size:22px; color:var(--accent-ink); }
+    .form-card .lead-sub { text-align:center; margin:0 0 26px; font-size:13px; color:var(--muted); }
+    form p { margin:0 0 15px; }
+    form label { font-weight:700; font-size:13.5px; display:block; margin-bottom:5px; }
+    form input[type=text], form input[type=email], form input[type=tel], form select, form textarea {
+      width:100%; padding:13px 14px; border:1.5px solid var(--accent-line); border-radius:11px; font-size:14px;
+      font-family:inherit; background:#fff; transition:border-color .15s, box-shadow .15s; }
+    form input:focus, form select:focus, form textarea:focus { outline:none; border-color:var(--accent);
+      box-shadow:0 0 0 3px var(--accent-soft); }
+    form textarea { min-height:120px; resize:vertical; }
+    .submit input, form button { width:100%; border:0; cursor:pointer; color:#fff; font-weight:800; font-size:16px;
+      padding:16px; border-radius:999px; font-family:inherit;
+      background:linear-gradient(135deg, var(--accent), var(--accent-dark));
+      box-shadow:0 10px 26px color-mix(in srgb, var(--accent) 40%, transparent); }
+    form .row { display:flex; gap:14px; }
+    form .row > * { flex:1; }
+    @media (max-width:480px){ form .row { flex-direction:column; gap:0; } }
+
+    .foot { text-align:center; color:var(--muted); font-size:12px; padding:30px 20px; }
+    @media (max-width:820px){
+      .plans { grid-template-columns:1fr; max-width:480px; }
+      .plan.hot { transform:none; order:-1; }
+      .head { padding:56px 20px 28px; }
+      .form-card { padding:32px 22px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="head">
+    <span class="eyebrow">PRICING</span>
+    <h1>%%title%%</h1>
+    <p>%%description%%</p>
+  </header>
+
+  <section class="plans">
+    <div class="plan">
+      <p class="pname">ライト</p>
+      <p class="price">¥0<small> /月</small></p>
+      <p class="per">まずは気軽に試したい方へ</p>
+      <ul>
+        <li>基本機能のご利用</li>
+        <li>メールサポート</li>
+        <li class="dim">優先サポート</li>
+        <li class="dim">限定特典のご案内</li>
+      </ul>
+      <a class="pbtn" href="#entry">このプランで始める</a>
+    </div>
+    <div class="plan hot">
+      <span class="ribbon">＼ いちばん人気 ／</span>
+      <p class="pname">スタンダード</p>
+      <p class="price">¥980<small> /月</small></p>
+      <p class="per">迷ったらこちらがおすすめ</p>
+      <ul>
+        <li>基本機能のご利用</li>
+        <li>メール・チャットサポート</li>
+        <li>優先サポート</li>
+        <li class="dim">専任担当者</li>
+      </ul>
+      <a class="pbtn" href="#entry">このプランで始める</a>
+    </div>
+    <div class="plan">
+      <p class="pname">プレミアム</p>
+      <p class="price">¥2,980<small> /月</small></p>
+      <p class="per">本格的に活用したい方へ</p>
+      <ul>
+        <li>すべての機能のご利用</li>
+        <li>メール・チャット・電話サポート</li>
+        <li>優先サポート</li>
+        <li>専任担当者</li>
+      </ul>
+      <a class="pbtn" href="#entry">このプランで始める</a>
+    </div>
+  </section>
+  <p class="note">※ 表示価格はすべて税込です。プランはいつでも変更・解約いただけます。</p>
+
+  <section class="band">
+    <h2>どのプランが合うか迷ったら</h2>
+    <p>ご利用イメージをお伺いして、ぴったりのプランをご提案します。</p>
+    <a class="btn" href="#entry">%%cta%%</a>
+  </section>
+
+  <section class="form-sec" id="entry">
+    <div class="form-card">
+      <p class="lead">お申し込み・ご相談フォーム</p>
+      <p class="lead-sub">ご希望のプランが未定でもお気軽にどうぞ。</p>
+      %%content%%
+    </div>
+  </section>
+
+  <footer class="foot">ご入力いただいた情報は、プライバシーポリシーに基づき適切に管理いたします。</footer>
+</body>
+</html>
