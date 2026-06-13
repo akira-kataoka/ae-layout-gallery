@@ -332,6 +332,14 @@ const LAUNDRY_FORM = `<form>
   <p class="submit"><input type="submit" value="集荷を申し込む"></p>
 </form>`;
 
+const PLANT_FORM = `<form>
+  <div class="row"><p><label>設置スペース</label><br><select><option selected>オフィス</option><option>店舗・商業施設</option><option>ご自宅</option><option>クリニック・施設</option></select></p><p><label>ご希望プラン</label><br><select><option>ライト（小型1〜2鉢）</option><option selected>スタンダード（中型3〜4鉢）</option><option>プレミアム（大型・複数）</option></select></p></div>
+  <p><label>お名前</label><br><input type="text" value="山田 太郎"></p>
+  <div class="row"><p><label>メール</label><br><input type="email" value="taro@example.com"></p><p><label>電話番号</label><br><input type="tel" value="03-0000-0000"></p></div>
+  <p><label>ご要望（任意）</label><br><textarea>受付に置ける、明るい雰囲気の植物を希望します。</textarea></p>
+  <p class="submit"><input type="submit" value="無料で相談・見積もりを依頼する"></p>
+</form>`;
+
 const CHIRO_FORM = `<form>
   <p><label>お悩みの部位</label><br><select><option selected>肩こり・首こり</option><option>腰痛・骨盤の歪み</option><option>頭痛・自律神経の不調</option><option>姿勢改善・全身</option><option>その他・相談</option></select></p>
   <div class="row"><p><label>ご希望日</label><br><input type="date" value="2026-07-28"></p><p><label>希望時間帯</label><br><select><option selected>午前</option><option>午後</option><option>夕方以降</option></select></p></div>
@@ -2351,6 +2359,10 @@ function contentFor(dir, category) {
     case "522-landing-water-server-cost-js": return NEWSLETTER_FORM;
     case "523-event-craft-beer-fest": return RSVP_FORM;
     case "524-thankyou-subscription-box-shipped": return NEWSLETTER_FORM;
+    case "525-form-plant-subscription": return PLANT_FORM;
+    case "526-landing-loan-refinance-js": return NEWSLETTER_FORM;
+    case "527-event-factory-tour": return RSVP_FORM;
+    case "528-utility-points-expiring": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

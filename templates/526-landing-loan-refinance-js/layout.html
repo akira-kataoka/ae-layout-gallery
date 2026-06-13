@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0369a1; --ink:#102330; --muted:#5b7180; --line:#d8e6ef; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eef4f9; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:20px; }
+    .ae-head h1 { font-size:24px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; box-shadow:0 12px 32px rgba(3,105,161,.09); }
+    .ae-field { margin-bottom:18px; }
+    .ae-field label { font-weight:700; font-size:14px; display:flex; justify-content:space-between; margin-bottom:8px; }
+    .ae-field label .v { color:var(--accent); font-variant-numeric:tabular-nums; }
+    .ae-field input[type=range] { width:100%; accent-color:var(--accent); }
+    .ae-out { background:linear-gradient(135deg,#0ea5e9,#0369a1); color:#fff; border-radius:14px; padding:24px; text-align:center; margin-top:18px; }
+    .ae-out .lab { font-size:13px; opacity:.9; } .ae-out .big { font-size:38px; font-weight:900; font-variant-numeric:tabular-nums; line-height:1.1; } .ae-out .big small { font-size:15px; } .ae-out .sub { font-size:13px; opacity:.95; margin-top:6px; }
+    .ae-row2 { display:flex; gap:8px; margin-top:14px; } .ae-g { flex:1; background:rgba(255,255,255,.16); border-radius:10px; padding:10px 6px; } .ae-g .k { font-size:11px; opacity:.9; } .ae-g .n { font-weight:800; font-variant-numeric:tabular-nums; }
+    .ae-note { font-size:11px; color:var(--muted); margin-top:12px; text-align:center; }
+    .ae-cta { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; margin-top:18px; }
+    .ae-cta .t { font-weight:700; margin-bottom:12px; }
+    .ae-cta form input[type=text],.ae-cta form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form .submit input,.ae-cta form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <div class="ae-field"><label>住宅ローン残高 <span class="v"><span id="vB">2500</span> 万円</span></label>
+        <input type="range" id="b" min="300" max="6000" step="50" value="2500"></div>
+      <div class="ae-field"><label>残りの返済期間 <span class="v"><span id="vY">25</span> 年</span></label>
+        <input type="range" id="y" min="5" max="35" step="1" value="25"></div>
+      <div class="ae-field"><label>現在の金利 <span class="v"><span id="vR1">1.5</span> %</span></label>
+        <input type="range" id="r1" min="3" max="30" step="1" value="15"></div>
+      <div class="ae-field"><label>借り換え後の金利 <span class="v"><span id="vR2">0.7</span> %</span></label>
+        <input type="range" id="r2" min="3" max="30" step="1" value="7"></div>
+      <div class="ae-out">
+        <div class="lab">総返済額の削減見込み</div>
+        <div class="big"><span id="total">0</span><small> 万円</small></div>
+        <div class="sub">毎月の返済が 約 <span id="month">0</span> 円 軽くなります</div>
+        <div class="ae-row2">
+          <div class="ae-g"><div class="k">現在の毎月返済</div><div class="n"><span id="m1">0</span> 円</div></div>
+          <div class="ae-g"><div class="k">借換後の毎月返済</div><div class="n"><span id="m2">0</span> 円</div></div>
+        </div>
+      </div>
+      <div class="ae-note">※ 元利均等返済での概算です。手数料・諸費用は含みません。実際の条件は審査によります。</div>
+    </div>
+    <div class="ae-cta">
+      <div class="t">無料診断・借り換えシミュレーションを受け取る</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var b = document.getElementById("b"), vB = document.getElementById("vB");
+    var y = document.getElementById("y"), vY = document.getElementById("vY");
+    var r1 = document.getElementById("r1"), vR1 = document.getElementById("vR1");
+    var r2 = document.getElementById("r2"), vR2 = document.getElementById("vR2");
+    var m1El = document.getElementById("m1"), m2El = document.getElementById("m2");
+    var monthEl = document.getElementById("month"), totalEl = document.getElementById("total");
+    function yen(v) { return Math.round(v).toLocaleString("ja-JP"); }
+    function monthlyPayment(principal, annualRatePct, years) {
+      var n = years * 12;
+      var i = (annualRatePct / 100) / 12;
+      if (i === 0) return principal / n;
+      var f = Math.pow(1 + i, n);
+      return principal * i * f / (f - 1);
+    }
+    function calc() {
+      var principal = (parseInt(b.value, 10) || 0) * 10000;
+      var years = parseInt(y.value, 10) || 1;
+      var rate1 = (parseInt(r1.value, 10) || 0) / 10;
+      var rate2 = (parseInt(r2.value, 10) || 0) / 10;
+      vB.textContent = parseInt(b.value, 10);
+      vY.textContent = years;
+      vR1.textContent = rate1.toFixed(1);
+      vR2.textContent = rate2.toFixed(1);
+      var p1 = monthlyPayment(principal, rate1, years);
+      var p2 = monthlyPayment(principal, rate2, years);
+      m1El.textContent = yen(p1);
+      m2El.textContent = yen(p2);
+      var monthDiff = p1 - p2;
+      monthEl.textContent = yen(Math.max(0, monthDiff));
+      var totalDiff = monthDiff * years * 12;
+      totalEl.textContent = (Math.max(0, totalDiff) / 10000).toLocaleString("ja-JP", { maximumFractionDigits: 0 });
+    }
+    [b, y, r1, r2].forEach(function (el) { el.addEventListener("input", calc); });
+    calc();
+  })();
+  </script>
+</body>
+</html>

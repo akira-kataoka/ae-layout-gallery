@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#e11d48; --ink:#241420; --muted:#7a6470; --line:#f3dde4; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#fdf1f4; line-height:1.7; }
+    .ae-wrap { max-width:500px; margin:0 auto; padding:52px 20px; }
+    .ae-head { text-align:center; margin-bottom:20px; }
+    .ae-head .bell { width:62px; height:62px; border-radius:18px; background:linear-gradient(135deg,#f43f5e,#e11d48); color:#fff; font-size:30px; display:flex; align-items:center; justify-content:center; margin:0 auto 14px; box-shadow:0 12px 28px rgba(225,29,72,.3); }
+    .ae-head h1 { font-size:23px; margin:0 0 6px; }
+    .ae-head p { color:var(--muted); margin:0; font-size:14px; }
+    .ae-pt { background:linear-gradient(135deg,#fb7185,#e11d48); color:#fff; border-radius:18px; padding:24px; text-align:center; margin:22px 0 18px; box-shadow:0 16px 36px rgba(225,29,72,.24); }
+    .ae-pt .lab { font-size:13px; opacity:.92; } .ae-pt .big { font-size:42px; font-weight:900; font-variant-numeric:tabular-nums; line-height:1.1; } .ae-pt .big small { font-size:16px; } .ae-pt .exp { display:inline-block; margin-top:10px; background:rgba(255,255,255,.2); border-radius:999px; padding:5px 16px; font-size:13px; font-weight:700; }
+    .ae-use { background:#fff; border:1px solid var(--line); border-radius:16px; padding:20px 22px; margin-bottom:18px; box-shadow:0 8px 22px rgba(225,29,72,.05); }
+    .ae-use .t { font-weight:700; font-size:13px; margin-bottom:10px; }
+    .ae-u { display:flex; gap:11px; padding:7px 0; font-size:14px; align-items:flex-start; } .ae-u .e { font-size:18px; flex:0 0 auto; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; }
+    .ae-card .t { font-weight:700; margin-bottom:4px; }
+    .ae-card .s { color:var(--muted); font-size:13px; margin-bottom:14px; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    .ae-note { color:var(--muted); font-size:12px; text-align:center; margin-top:14px; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head">
+      <div class="bell">🔔</div>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-pt">
+      <div class="lab">失効間近のポイント</div>
+      <div class="big">1,200<small> pt</small></div>
+      <div class="exp">⏳ 6月30日まで有効</div>
+    </div>
+    <div class="ae-use">
+      <div class="t">ポイントの使いみち</div>
+      <div class="ae-u"><span class="e">🛍️</span><span>お買い物で 1pt = 1円 として利用できます</span></div>
+      <div class="ae-u"><span class="e">🎁</span><span>人気の特典商品との交換にも使えます</span></div>
+      <div class="ae-u"><span class="e">💳</span><span>次回のお支払いに充当して実質割引に</span></div>
+    </div>
+    <div class="ae-card">
+      <div class="t">ポイント・お得情報の通知を受け取る</div>
+      <div class="s">有効期限が近づいたら、メールでお知らせします。</div>
+      %%content%%
+      <div class="ae-note">⚠️ 失効したポイントは復元できません。お早めのご利用がおすすめです</div>
+    </div>
+  </div>
+</body>
+</html>
