@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#334155; --ink:#1c2430; --muted:#64748b; --line:#e3e8ef; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f2f4f8; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:52px 20px; }
+    .ae-head { text-align:center; margin-bottom:20px; }
+    .ae-head .ic { width:60px; height:60px; border-radius:16px; background:linear-gradient(135deg,#475569,#334155); color:#fff; font-size:28px; display:flex; align-items:center; justify-content:center; margin:0 auto 14px; box-shadow:0 12px 26px rgba(51,65,85,.28); }
+    .ae-head h1 { font-size:23px; margin:0 0 6px; }
+    .ae-head p { color:var(--muted); margin:0; font-size:14px; }
+    .ae-meta { display:flex; justify-content:center; gap:8px; margin:16px 0 18px; flex-wrap:wrap; }
+    .ae-chip { background:#fff; border:1px solid var(--line); border-radius:999px; padding:5px 14px; font-size:12px; color:var(--muted); font-weight:600; }
+    .ae-chip b { color:var(--ink); }
+    .ae-changes { background:#fff; border:1px solid var(--line); border-radius:16px; padding:20px 22px; margin-bottom:18px; box-shadow:0 8px 22px rgba(51,65,85,.05); }
+    .ae-changes .t { font-weight:700; font-size:13px; margin-bottom:10px; }
+    .ae-c { display:flex; gap:11px; padding:8px 0; font-size:14px; align-items:flex-start; border-top:1px solid var(--line); } .ae-c:first-of-type { border-top:0; }
+    .ae-c .n { flex:0 0 auto; width:22px; height:22px; border-radius:6px; background:#eef1f6; color:var(--accent); font-weight:800; font-size:12px; display:flex; align-items:center; justify-content:center; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; }
+    .ae-card .t { font-weight:700; margin-bottom:4px; }
+    .ae-card .s { color:var(--muted); font-size:13px; margin-bottom:14px; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    .ae-note { color:var(--muted); font-size:12px; text-align:center; margin-top:14px; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head">
+      <div class="ic">📄</div>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-meta">
+      <span class="ae-chip">適用開始 <b>2026年7月1日</b></span>
+      <span class="ae-chip">対象 <b>すべてのご利用者さま</b></span>
+    </div>
+    <div class="ae-changes">
+      <div class="t">主な変更点</div>
+      <div class="ae-c"><span class="n">1</span><span>個人情報の取り扱いに関する記載を明確化しました</span></div>
+      <div class="ae-c"><span class="n">2</span><span>新しい機能・サービスに関する条項を追加しました</span></div>
+      <div class="ae-c"><span class="n">3</span><span>お問い合わせ・解約手続きの記載を分かりやすく整理しました</span></div>
+    </div>
+    <div class="ae-card">
+      <div class="t">改定内容のご案内を受け取る</div>
+      <div class="s">変更点の詳細や、今後のお知らせをメールでお届けします。</div>
+      %%content%%
+      <div class="ae-note">📌 適用開始日以降も継続してご利用の場合、改定後の規約に同意いただいたものとみなされます</div>
+    </div>
+  </div>
+</body>
+</html>

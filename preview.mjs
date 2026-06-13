@@ -348,6 +348,14 @@ const GLAMP_FORM = `<form>
   <p class="submit"><input type="submit" value="空き状況を確認して予約する"></p>
 </form>`;
 
+const STUDIO_FORM = `<form>
+  <div class="row"><p><label>ご利用日</label><br><input type="date" value="2026-09-12"></p><p><label>時間帯</label><br><select><option>午前</option><option selected>午後</option><option>夜間</option><option>終日</option></select></p></div>
+  <p><label>ご利用用途</label><br><select><option selected>物販・商品撮影</option><option>ポートレート・人物撮影</option><option>動画・ライブ配信</option><option>その他</option></select></p>
+  <p><label>お名前 / 会社名</label><br><input type="text" value="山田 太郎 / 株式会社サンプル"></p>
+  <div class="row"><p><label>メール</label><br><input type="email" value="taro@example.com"></p><p><label>電話番号</label><br><input type="tel" value="03-0000-0000"></p></div>
+  <p class="submit"><input type="submit" value="空き状況を確認して予約する"></p>
+</form>`;
+
 const CHIRO_FORM = `<form>
   <p><label>お悩みの部位</label><br><select><option selected>肩こり・首こり</option><option>腰痛・骨盤の歪み</option><option>頭痛・自律神経の不調</option><option>姿勢改善・全身</option><option>その他・相談</option></select></p>
   <div class="row"><p><label>ご希望日</label><br><input type="date" value="2026-07-28"></p><p><label>希望時間帯</label><br><select><option selected>午前</option><option>午後</option><option>夕方以降</option></select></p></div>
@@ -2375,6 +2383,10 @@ function contentFor(dir, category) {
     case "530-landing-car-cost-js": return NEWSLETTER_FORM;
     case "531-event-matchmaking-party": return RSVP_FORM;
     case "532-utility-payment-method-register": return NEWSLETTER_FORM;
+    case "533-form-photo-studio-rental": return STUDIO_FORM;
+    case "534-landing-phone-plan-savings-js": return NEWSLETTER_FORM;
+    case "535-event-regional-food-fair": return RSVP_FORM;
+    case "536-utility-terms-update": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

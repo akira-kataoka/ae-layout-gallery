@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0d9488; --ink:#0f2522; --muted:#5d7370; --line:#d6eae7; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eef7f5; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:20px; }
+    .ae-head h1 { font-size:24px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; box-shadow:0 12px 32px rgba(13,148,136,.1); }
+    .ae-field { margin-bottom:18px; }
+    .ae-field label { font-weight:700; font-size:14px; display:flex; justify-content:space-between; margin-bottom:8px; }
+    .ae-field label .v { color:var(--accent); font-variant-numeric:tabular-nums; }
+    .ae-field input[type=range] { width:100%; accent-color:var(--accent); }
+    .ae-act { display:flex; gap:6px; background:#d6f0ec; border-radius:10px; padding:4px; }
+    .ae-act button { flex:1; border:0; background:transparent; padding:9px 4px; border-radius:8px; font-weight:700; font-size:12px; cursor:pointer; color:var(--muted); }
+    .ae-act button.on { background:#fff; color:var(--accent); box-shadow:0 2px 8px rgba(13,148,136,.2); }
+    .ae-out { background:linear-gradient(135deg,#14b8a6,#0d9488); color:#fff; border-radius:14px; padding:24px; text-align:center; margin-top:18px; }
+    .ae-out .lab { font-size:13px; opacity:.9; } .ae-out .big { font-size:40px; font-weight:900; font-variant-numeric:tabular-nums; line-height:1.1; } .ae-out .big small { font-size:15px; } .ae-out .sub { font-size:13px; opacity:.95; margin-top:6px; }
+    .ae-row2 { display:flex; gap:8px; margin-top:14px; } .ae-g { flex:1; background:rgba(255,255,255,.16); border-radius:10px; padding:10px 6px; } .ae-g .k { font-size:11px; opacity:.9; } .ae-g .n { font-weight:800; font-variant-numeric:tabular-nums; }
+    .ae-note { font-size:11px; color:var(--muted); margin-top:12px; text-align:center; }
+    .ae-cta { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; margin-top:18px; }
+    .ae-cta .t { font-weight:700; margin-bottom:12px; }
+    .ae-cta form input[type=text],.ae-cta form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form .submit input,.ae-cta form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <div class="ae-field"><label>今の月額料金 <span class="v"><span id="vNow">8000</span> 円</span></label>
+        <input type="range" id="now" min="2000" max="15000" step="100" value="8000"></div>
+      <div class="ae-field"><label>1か月のデータ使用量</label>
+        <div class="ae-act" id="plan">
+          <button type="button" data-plan="1100" class="on">〜3GB</button>
+          <button type="button" data-plan="2000">〜10GB</button>
+          <button type="button" data-plan="2980">20GB〜</button>
+        </div></div>
+      <div class="ae-field"><label>ご家族の回線数 <span class="v"><span id="vLines">1</span> 回線</span></label>
+        <input type="range" id="lines" min="1" max="5" step="1" value="1"></div>
+      <div class="ae-out">
+        <div class="lab">乗り換えで節約できる金額（1年）</div>
+        <div class="big"><span id="year">0</span><small> 円</small></div>
+        <div class="sub">乗り換え後の月額は 約 <span id="newM">0</span> 円</div>
+        <div class="ae-row2">
+          <div class="ae-g"><div class="k">毎月の差額</div><div class="n"><span id="month">0</span> 円</div></div>
+          <div class="ae-g"><div class="k">2年で</div><div class="n"><span id="two">0</span> 円</div></div>
+        </div>
+      </div>
+      <div class="ae-note">※ 一般的な格安プランの目安からの概算です。実際の料金はプラン・端末代により異なります。</div>
+    </div>
+    <div class="ae-cta">
+      <div class="t">あなたに合うプラン・無料診断を受け取る</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var now = document.getElementById("now"), vNow = document.getElementById("vNow");
+    var lines = document.getElementById("lines"), vLines = document.getElementById("vLines");
+    var planBtns = Array.prototype.slice.call(document.querySelectorAll("#plan button"));
+    var newMEl = document.getElementById("newM"), monthEl = document.getElementById("month"), yearEl = document.getElementById("year"), twoEl = document.getElementById("two");
+    var planPrice = 1100;
+    function yen(v) { return Math.round(v).toLocaleString("ja-JP"); }
+    function calc() {
+      var nowM = parseInt(now.value, 10) || 0;
+      var ln = parseInt(lines.value, 10) || 1;
+      vNow.textContent = nowM;
+      vLines.textContent = ln;
+      var newPerLine = planPrice;
+      var newTotal = newPerLine * ln;
+      var nowTotal = nowM * ln;
+      newMEl.textContent = yen(newTotal);
+      var diff = Math.max(0, nowTotal - newTotal);
+      monthEl.textContent = yen(diff);
+      yearEl.textContent = yen(diff * 12);
+      twoEl.textContent = yen(diff * 24);
+    }
+    now.addEventListener("input", calc);
+    lines.addEventListener("input", calc);
+    planBtns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        planBtns.forEach(function (x) { x.classList.remove("on"); });
+        b.classList.add("on"); planPrice = parseInt(b.getAttribute("data-plan"), 10); calc();
+      });
+    });
+    calc();
+  })();
+  </script>
+</body>
+</html>
