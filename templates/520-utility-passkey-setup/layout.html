@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#4f46e5; --ink:#1b2138; --muted:#6b7280; --line:#e5e7f2; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f1f2f9; line-height:1.7; }
+    .ae-wrap { max-width:500px; margin:0 auto; padding:52px 20px; }
+    .ae-head { text-align:center; margin-bottom:22px; }
+    .ae-head .key { width:64px; height:64px; border-radius:18px; background:linear-gradient(135deg,#6366f1,#4f46e5); color:#fff; font-size:30px; display:flex; align-items:center; justify-content:center; margin:0 auto 14px; box-shadow:0 12px 28px rgba(79,70,229,.32); }
+    .ae-head h1 { font-size:23px; margin:0 0 6px; }
+    .ae-head p { color:var(--muted); margin:0; font-size:14px; }
+    .ae-why { background:#fff; border:1px solid var(--line); border-radius:16px; padding:20px 22px; margin-bottom:18px; box-shadow:0 8px 22px rgba(79,70,229,.05); }
+    .ae-why .t { font-weight:700; font-size:13px; margin-bottom:10px; }
+    .ae-w { display:flex; gap:11px; padding:7px 0; font-size:14px; align-items:flex-start; } .ae-w .e { font-size:18px; flex:0 0 auto; }
+    .ae-steps { counter-reset:s; margin-bottom:18px; }
+    .ae-s { background:#fff; border:1px solid var(--line); border-radius:14px; padding:14px 16px 14px 52px; position:relative; margin-bottom:10px; font-size:14px; }
+    .ae-s::before { counter-increment:s; content:counter(s); position:absolute; left:14px; top:50%; transform:translateY(-50%); width:26px; height:26px; border-radius:50%; background:#eef0ff; color:var(--accent); font-weight:800; display:flex; align-items:center; justify-content:center; font-size:13px; }
+    .ae-s b { color:var(--ink); }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; }
+    .ae-card .t { font-weight:700; margin-bottom:4px; text-align:center; }
+    .ae-card .s { color:var(--muted); font-size:13px; margin-bottom:14px; text-align:center; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    .ae-note { color:var(--muted); font-size:12px; text-align:center; margin-top:14px; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head">
+      <div class="key">🔑</div>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-why">
+      <div class="t">パスキーなら、もっと安全・かんたん</div>
+      <div class="ae-w"><span class="e">😊</span><span>パスワードを覚える必要がありません</span></div>
+      <div class="ae-w"><span class="e">📱</span><span>顔・指紋・端末のロックでサインイン</span></div>
+      <div class="ae-w"><span class="e">🛡️</span><span>フィッシングに強く、使い回しの心配なし</span></div>
+    </div>
+    <div class="ae-steps">
+      <div class="ae-s"><b>設定画面</b>を開き「パスキーを作成」を選びます</div>
+      <div class="ae-s">画面の案内に従い<b>顔・指紋・PIN</b>で本人確認します</div>
+      <div class="ae-s">次回から<b>パスワードなし</b>でサインインできます</div>
+    </div>
+    <div class="ae-card">
+      <div class="t">設定のご案内・お知らせを受け取る</div>
+      <div class="s">設定手順や対応端末の最新情報をお届けします。</div>
+      %%content%%
+      <div class="ae-note">🔒 パスキーの情報はお使いの端末内に安全に保管されます</div>
+    </div>
+  </div>
+</body>
+</html>

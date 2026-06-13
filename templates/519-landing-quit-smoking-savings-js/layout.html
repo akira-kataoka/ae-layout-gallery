@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0ea5a4; --ink:#0f2330; --muted:#5d7480; --line:#d9ebec; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eef7f7; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:20px; }
+    .ae-head h1 { font-size:24px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; box-shadow:0 12px 32px rgba(14,165,164,.1); }
+    .ae-field { margin-bottom:18px; }
+    .ae-field label { font-weight:700; font-size:14px; display:flex; justify-content:space-between; margin-bottom:8px; }
+    .ae-field label .v { color:var(--accent); font-variant-numeric:tabular-nums; }
+    .ae-field input[type=range] { width:100%; accent-color:var(--accent); }
+    .ae-act { display:flex; gap:6px; background:#dcf2f2; border-radius:10px; padding:4px; }
+    .ae-act button { flex:1; border:0; background:transparent; padding:9px 4px; border-radius:8px; font-weight:700; font-size:12px; cursor:pointer; color:var(--muted); }
+    .ae-act button.on { background:#fff; color:var(--accent); box-shadow:0 2px 8px rgba(14,165,164,.2); }
+    .ae-out { background:linear-gradient(135deg,#14b8a6,#0e9488); color:#fff; border-radius:14px; padding:24px; text-align:center; margin-top:18px; }
+    .ae-out .lab { font-size:13px; opacity:.9; } .ae-out .big { font-size:40px; font-weight:900; font-variant-numeric:tabular-nums; line-height:1.1; } .ae-out .big small { font-size:16px; } .ae-out .sub { font-size:13px; opacity:.95; margin-top:6px; }
+    .ae-row2 { display:flex; gap:8px; margin-top:14px; } .ae-g { flex:1; background:rgba(255,255,255,.16); border-radius:10px; padding:10px 6px; } .ae-g .k { font-size:11px; opacity:.9; } .ae-g .n { font-weight:800; font-variant-numeric:tabular-nums; }
+    .ae-note { font-size:11px; color:var(--muted); margin-top:12px; text-align:center; }
+    .ae-cta { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; margin-top:18px; }
+    .ae-cta .t { font-weight:700; margin-bottom:12px; }
+    .ae-cta form input[type=text],.ae-cta form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form .submit input,.ae-cta form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <div class="ae-field"><label>1日に吸う本数 <span class="v"><span id="vN">20</span> 本</span></label>
+        <input type="range" id="n" min="1" max="60" step="1" value="20"></div>
+      <div class="ae-field"><label>1箱の価格 <span class="v"><span id="vP">600</span> 円</span></label>
+        <input type="range" id="p" min="400" max="900" step="10" value="600"></div>
+      <div class="ae-field"><label>1箱の本数</label>
+        <div class="ae-act" id="per">
+          <button type="button" data-per="20" class="on">20本</button>
+          <button type="button" data-per="10">10本</button>
+        </div></div>
+      <div class="ae-out">
+        <div class="lab">禁煙で貯まるお金（1年）</div>
+        <div class="big"><span id="year">0</span><small> 円</small></div>
+        <div class="sub">1か月あたり 約 <span id="month">0</span> 円</div>
+        <div class="ae-row2">
+          <div class="ae-g"><div class="k">1日あたり</div><div class="n"><span id="day">0</span> 円</div></div>
+          <div class="ae-g"><div class="k">10年で</div><div class="n"><span id="ten">0</span> 万円</div></div>
+        </div>
+      </div>
+      <div class="ae-note">※ 価格・本数から単純計算した目安です。</div>
+    </div>
+    <div class="ae-cta">
+      <div class="t">禁煙サポート・健康のヒントを受け取る</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var n = document.getElementById("n"), vN = document.getElementById("vN");
+    var p = document.getElementById("p"), vP = document.getElementById("vP");
+    var dayEl = document.getElementById("day"), monthEl = document.getElementById("month"), yearEl = document.getElementById("year"), tenEl = document.getElementById("ten");
+    var perBtns = Array.prototype.slice.call(document.querySelectorAll("#per button"));
+    var per = 20;
+    function yen(v) { return Math.round(v).toLocaleString("ja-JP"); }
+    function calc() {
+      var cigs = parseInt(n.value, 10) || 0;
+      var price = parseInt(p.value, 10) || 0;
+      vN.textContent = cigs;
+      vP.textContent = price;
+      var perDay = cigs * (price / per);
+      dayEl.textContent = yen(perDay);
+      monthEl.textContent = yen(perDay * 30);
+      yearEl.textContent = yen(perDay * 365);
+      tenEl.textContent = (Math.round(perDay * 365 * 10 / 1000) / 10).toLocaleString("ja-JP");
+    }
+    n.addEventListener("input", calc);
+    p.addEventListener("input", calc);
+    perBtns.forEach(function (b) {
+      b.addEventListener("click", function () {
+        perBtns.forEach(function (x) { x.classList.remove("on"); });
+        b.classList.add("on"); per = parseInt(b.getAttribute("data-per"), 10); calc();
+      });
+    });
+    calc();
+  })();
+  </script>
+</body>
+</html>

@@ -2335,6 +2335,10 @@ function contentFor(dir, category) {
     case "514-form-meal-kit": return MEALKIT_FORM;
     case "515-event-coffee-cupping": return RSVP_FORM;
     case "516-thankyou-first-order-welcome": return NEWSLETTER_FORM;
+    case "517-event-robot-programming-class": return RSVP_FORM;
+    case "518-form-home-battery": return SOLAR_FORM;
+    case "519-landing-quit-smoking-savings-js": return NEWSLETTER_FORM;
+    case "520-utility-passkey-setup": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;
