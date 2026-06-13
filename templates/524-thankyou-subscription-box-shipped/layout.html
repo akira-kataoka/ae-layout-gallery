@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#7c3aed; --ink:#1f1733; --muted:#6f6485; --line:#e9e3f6; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f5f1fd; line-height:1.7; }
+    .ae-wrap { max-width:500px; margin:0 auto; padding:54px 20px; }
+    .ae-done { text-align:center; margin-bottom:20px; }
+    .ae-done .em { font-size:54px; line-height:1; margin-bottom:8px; }
+    .ae-done h1 { font-size:24px; margin:0 0 6px; }
+    .ae-done p { color:var(--muted); margin:0; font-size:14px; }
+    .ae-ship { background:linear-gradient(135deg,#8b5cf6,#7c3aed); color:#fff; border-radius:18px; padding:22px; margin:22px 0 18px; box-shadow:0 16px 36px rgba(124,58,237,.26); }
+    .ae-ship .row { display:flex; justify-content:space-between; align-items:center; gap:10px; }
+    .ae-ship .k { font-size:12px; opacity:.9; } .ae-ship .v { font-weight:800; font-variant-numeric:tabular-nums; }
+    .ae-ship .track { display:block; margin-top:14px; background:rgba(255,255,255,.18); border:1px dashed rgba(255,255,255,.6); border-radius:9px; padding:8px 12px; text-align:center; font-family:ui-monospace,Menlo,Consolas,monospace; font-weight:700; letter-spacing:1px; }
+    .ae-bar { display:flex; align-items:center; margin:16px 0 4px; }
+    .ae-bar .dot { width:14px; height:14px; border-radius:50%; background:rgba(255,255,255,.4); flex:0 0 auto; } .ae-bar .dot.on { background:#fff; }
+    .ae-bar .line { height:3px; flex:1; background:rgba(255,255,255,.3); } .ae-bar .line.on { background:#fff; }
+    .ae-bar .lab { display:flex; }
+    .ae-steplab { display:flex; justify-content:space-between; font-size:11px; opacity:.92; }
+    .ae-perks { background:#fff; border:1px solid var(--line); border-radius:16px; padding:20px 22px; margin-bottom:18px; box-shadow:0 8px 22px rgba(124,58,237,.05); }
+    .ae-perks .t { font-weight:700; font-size:13px; margin-bottom:10px; }
+    .ae-pk { display:flex; gap:11px; padding:7px 0; font-size:14px; align-items:flex-start; } .ae-pk .e { font-size:18px; flex:0 0 auto; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; }
+    .ae-card .t { font-weight:700; margin-bottom:12px; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-done">
+      <div class="em">📦</div>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-ship">
+      <div class="row"><span class="k">お届け予定</span><span class="v">6月17日（火）</span></div>
+      <div class="ae-bar"><span class="dot on"></span><span class="line on"></span><span class="dot on"></span><span class="line"></span><span class="dot"></span></div>
+      <div class="ae-steplab"><span>受付完了</span><span>発送済み</span><span>お届け</span></div>
+      <span class="track">追跡番号：1234-5678-9012</span>
+    </div>
+    <div class="ae-perks">
+      <div class="t">次回のお届けについて</div>
+      <div class="ae-pk"><span class="e">🗓️</span><span>次回は <b>4週間後</b> に自動でお届けします</span></div>
+      <div class="ae-pk"><span class="e">⏸️</span><span>スキップ・周期変更はマイページからいつでも</span></div>
+      <div class="ae-pk"><span class="e">🎁</span><span>ご友人紹介で、おふたりに次回500円OFF</span></div>
+    </div>
+    <div class="ae-card">
+      <div class="t">お届け通知・お得情報を受け取る</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

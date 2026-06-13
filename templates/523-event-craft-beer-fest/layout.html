@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#f59e0b; --ink:#f5ecd8; --muted:#c9b48c; --line:#3d3520; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#1c1a10; line-height:1.7; }
+    .ae-wrap { max-width:600px; margin:0 auto; padding:46px 20px; }
+    .ae-hero { background:radial-gradient(120% 130% at 50% 0%,#3c3416,#1c1a10 70%); border:1px solid var(--line); border-radius:20px; padding:38px 24px; text-align:center; position:relative; overflow:hidden; box-shadow:0 18px 44px rgba(0,0,0,.5); }
+    .ae-hero::after { content:"🍺 🍻 🌾 🍺 🍻 🌾 🍺"; position:absolute; bottom:10px; left:0; right:0; font-size:14px; letter-spacing:6px; opacity:.35; }
+    .ae-hero .em { font-size:48px; margin-bottom:2px; }
+    .ae-hero .badge { display:inline-block; border:1px solid var(--accent); color:#fbbf24; font-weight:800; font-size:11px; letter-spacing:3px; padding:5px 16px; border-radius:999px; margin-bottom:12px; }
+    .ae-hero h1 { font-size:28px; margin:0 0 8px; color:#fff; }
+    .ae-hero p { margin:0; color:var(--muted); font-size:14px; }
+    .ae-info { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:22px 0; }
+    .ae-i { background:#262112; border:1px solid var(--line); border-radius:14px; padding:15px 10px; text-align:center; }
+    .ae-i .ic { font-size:20px; } .ae-i .k { font-size:11px; color:var(--muted); } .ae-i .v { font-weight:800; font-size:13px; color:#fff; }
+    .ae-fun { background:#262112; border:1px solid var(--line); border-radius:16px; padding:20px 22px; margin-bottom:22px; }
+    .ae-fun .t { font-weight:800; font-size:14px; margin-bottom:12px; color:#fff; }
+    .ae-fun .g { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
+    .ae-f { display:flex; gap:9px; align-items:center; font-size:13px; }
+    .ae-f .e { font-size:18px; }
+    .ae-card { background:#262112; border:1px solid var(--accent); border-radius:18px; padding:26px; }
+    .ae-card .t { font-weight:800; font-size:18px; margin-bottom:4px; text-align:center; color:#fff; }
+    .ae-card .d { color:var(--muted); font-size:13px; margin-bottom:16px; text-align:center; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; background:#1c1a10; color:#f5ecd8; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#3a2600; border:0; padding:15px; border-radius:9px; font-weight:800; font-size:15px; cursor:pointer; }
+    @media (max-width:480px){ .ae-info { grid-template-columns:1fr; } .ae-fun .g { grid-template-columns:1fr; } .ae-hero h1 { font-size:24px; } }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-hero">
+      <div class="em">🍺</div>
+      <span class="badge">CRAFT BEER FEST</span>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-info">
+      <div class="ae-i"><div class="ic">📅</div><div class="k">開催</div><div class="v">10.11 (土) 12:00〜</div></div>
+      <div class="ae-i"><div class="ic">📍</div><div class="k">会場</div><div class="v">サンプル中央公園</div></div>
+      <div class="ae-i"><div class="ic">🎫</div><div class="k">前売</div><div class="v">¥3,000（5杯分）</div></div>
+    </div>
+    <div class="ae-fun">
+      <div class="t">楽しめること</div>
+      <div class="g">
+        <div class="ae-f"><span class="e">🍻</span> 全国20の醸造所が集結</div>
+        <div class="ae-f"><span class="e">🍔</span> ビールに合うフードカー</div>
+        <div class="ae-f"><span class="e">🎸</span> ライブ演奏＆DJ</div>
+        <div class="ae-f"><span class="e">🏆</span> お気に入りに投票してグッズGET</div>
+      </div>
+    </div>
+    <div class="ae-card">
+      <div class="t">前売チケットのお申し込み</div>
+      <div class="d">数量限定。雨天決行・荒天中止。20歳未満の飲酒はできません</div>
+      %%content%%
+    </div>
+  </div>
+</body>
+</html>

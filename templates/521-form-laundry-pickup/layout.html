@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#0891b2; --ink:#10242b; --muted:#5e757d; --line:#d8eaef; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eef6f8; line-height:1.7; }
+    .ae-wrap { max-width:560px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:22px; }
+    .ae-head .badge { display:inline-block; background:#cdeef4; color:#06748d; font-weight:800; font-size:12px; padding:5px 14px; border-radius:999px; margin-bottom:12px; }
+    .ae-head h1 { font-size:25px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; font-size:14px; }
+    .ae-flow { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:22px; }
+    .ae-fl { background:#fff; border:1px solid var(--line); border-radius:13px; padding:15px 8px; text-align:center; position:relative; box-shadow:0 6px 16px rgba(8,145,178,.06); }
+    .ae-fl .ic { font-size:24px; } .ae-fl .k { font-size:12px; font-weight:700; margin-top:4px; } .ae-fl .d { font-size:11px; color:var(--muted); }
+    .ae-fl:not(:last-child)::after { content:"→"; position:absolute; right:-7px; top:50%; transform:translateY(-50%); color:var(--accent); font-weight:800; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; box-shadow:0 12px 30px rgba(8,145,178,.08); }
+    .ae-card .t { font-weight:800; font-size:17px; margin-bottom:4px; }
+    .ae-card .s { color:var(--muted); font-size:13px; margin-bottom:16px; }
+    .ae-card form input[type=text],.ae-card form input[type=email],.ae-card form input[type=tel],.ae-card form input[type=date],.ae-card form select { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 13px; }
+    .ae-card form label { font-weight:700; font-size:13px; display:block; margin-bottom:5px; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:15px; border-radius:9px; font-weight:800; font-size:15px; cursor:pointer; margin-top:4px; }
+    .ae-note { color:var(--muted); font-size:12px; text-align:center; margin-top:14px; }
+    @media (max-width:440px){ .ae-flow { grid-template-columns:1fr; } .ae-fl:not(:last-child)::after { content:"↓"; right:auto; left:50%; top:auto; bottom:-7px; transform:translateX(-50%); } }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head">
+      <span class="badge">送料無料・最短翌日集荷</span>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-flow">
+      <div class="ae-fl"><div class="ic">📦</div><div class="k">集荷</div><div class="d">玄関で渡すだけ</div></div>
+      <div class="ae-fl"><div class="ic">✨</div><div class="k">クリーニング</div><div class="d">プロが丁寧に</div></div>
+      <div class="ae-fl"><div class="ic">🚚</div><div class="k">お届け</div><div class="d">最短5日でお戻し</div></div>
+    </div>
+    <div class="ae-card">
+      <div class="t">集荷のお申し込み</div>
+      <div class="s">点数・集荷希望日・ご住所をご入力ください。袋は無料でお届けします。</div>
+      %%content%%
+      <div class="ae-note">👕 シミ抜き・毛玉取りも無料。保管サービスにも対応しています</div>
+    </div>
+  </div>
+</body>
+</html>

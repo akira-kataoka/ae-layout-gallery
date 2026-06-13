@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#2563eb; --ink:#15233b; --muted:#64748b; --line:#dfe7f3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eef3fb; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:20px; }
+    .ae-head h1 { font-size:24px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; box-shadow:0 12px 32px rgba(37,99,235,.09); }
+    .ae-field { margin-bottom:18px; }
+    .ae-field label { font-weight:700; font-size:14px; display:flex; justify-content:space-between; margin-bottom:8px; }
+    .ae-field label .v { color:var(--accent); font-variant-numeric:tabular-nums; }
+    .ae-field input[type=range] { width:100%; accent-color:var(--accent); }
+    .ae-cmp { display:flex; gap:10px; margin-top:18px; }
+    .ae-c { flex:1; border-radius:14px; padding:18px 12px; text-align:center; }
+    .ae-c.pet { background:#f1f5f9; border:1px solid var(--line); }
+    .ae-c.srv { background:linear-gradient(135deg,#3b82f6,#2563eb); color:#fff; }
+    .ae-c .k { font-size:12px; opacity:.92; } .ae-c .big { font-size:30px; font-weight:900; font-variant-numeric:tabular-nums; line-height:1.15; } .ae-c .big small { font-size:14px; font-weight:700; } .ae-c .u { font-size:11px; opacity:.85; }
+    .ae-save { background:#ecfdf5; border:1px solid #bbf7d0; color:#047857; border-radius:12px; padding:14px; text-align:center; margin-top:14px; font-weight:800; font-variant-numeric:tabular-nums; }
+    .ae-save small { display:block; font-weight:600; color:#059669; font-size:12px; }
+    .ae-note { font-size:11px; color:var(--muted); margin-top:12px; text-align:center; }
+    .ae-cta { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; margin-top:18px; }
+    .ae-cta .t { font-weight:700; margin-bottom:12px; }
+    .ae-cta form input[type=text],.ae-cta form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form .submit input,.ae-cta form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <div class="ae-field"><label>1日に飲む水の量 <span class="v"><span id="vL">2.0</span> L</span></label>
+        <input type="range" id="l" min="5" max="50" step="1" value="20"></div>
+      <div class="ae-field"><label>ご家族の人数 <span class="v"><span id="vP">2</span> 人</span></label>
+        <input type="range" id="p" min="1" max="6" step="1" value="2"></div>
+      <div class="ae-cmp">
+        <div class="ae-c pet"><div class="k">ペットボトル</div><div class="big"><span id="petM">0</span><small> 円</small></div><div class="u">月あたり（2L換算）</div></div>
+        <div class="ae-c srv"><div class="k">ウォーターサーバー</div><div class="big"><span id="srvM">0</span><small> 円</small></div><div class="u">月あたり（水＋サーバー）</div></div>
+      </div>
+      <div class="ae-save">月 約 <span id="diff">0</span> 円おトク<small>1年でおよそ <span id="diffY">0</span> 円の差になります</small></div>
+      <div class="ae-note">※ ペットボトル¥110/2L、サーバー水¥1,250/12L＋月額¥550で試算した目安です。</div>
+    </div>
+    <div class="ae-cta">
+      <div class="t">無料お試し・キャンペーン情報を受け取る</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var l = document.getElementById("l"), vL = document.getElementById("vL");
+    var p = document.getElementById("p"), vP = document.getElementById("vP");
+    var petM = document.getElementById("petM"), srvM = document.getElementById("srvM");
+    var diff = document.getElementById("diff"), diffY = document.getElementById("diffY");
+    var PET_PER_L = 110 / 2;       // ペットボトル 2L ¥110
+    var SRV_PER_L = 1250 / 12;     // サーバー水 12L ¥1,250
+    var SRV_FIXED = 550;           // 月額（メンテ等）
+    function yen(v) { return Math.round(v).toLocaleString("ja-JP"); }
+    function calc() {
+      var liters = (parseInt(l.value, 10) || 0) / 10;
+      var people = parseInt(p.value, 10) || 1;
+      vL.textContent = liters.toFixed(1);
+      vP.textContent = people;
+      var monthL = liters * people * 30;
+      var pet = monthL * PET_PER_L;
+      var srv = monthL * SRV_PER_L + SRV_FIXED;
+      petM.textContent = yen(pet);
+      srvM.textContent = yen(srv);
+      var d = pet - srv;
+      diff.textContent = yen(Math.abs(d));
+      diffY.textContent = yen(Math.abs(d) * 12);
+    }
+    l.addEventListener("input", calc);
+    p.addEventListener("input", calc);
+    calc();
+  })();
+  </script>
+</body>
+</html>
