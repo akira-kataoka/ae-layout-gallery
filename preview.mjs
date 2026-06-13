@@ -2620,6 +2620,9 @@ const indexHtml = `<!DOCTYPE html>
   /* --- カード --- */
   .card{ margin:0; background:var(--card); border:1px solid var(--line); border-radius:18px; overflow:hidden; box-shadow:var(--shadow-1); transition:transform .25s var(--ease), box-shadow .25s var(--ease), border-color .2s, outline-color .2s; outline:2px solid transparent; outline-offset:-1px; position:relative; }
   .card:hover{ transform:translateY(-4px); box-shadow:var(--shadow-2); border-color:rgba(99,102,241,.4); }
+  .group[data-cat="landing"]{ --cat:#2563eb; } .group[data-cat="form"]{ --cat:#16a34a; } .group[data-cat="event"]{ --cat:#ea580c; } .group[data-cat="thankyou"]{ --cat:#9333ea; } .group[data-cat="utility"]{ --cat:#0284c7; }
+  .card::before{ content:""; position:absolute; left:0; right:0; top:0; height:3px; background:var(--cat, var(--brand)); transform:scaleX(0); transform-origin:left; transition:transform .28s var(--ease); z-index:2; }
+  .card:hover::before, .card.sel::before{ transform:scaleX(1); }
   .card.sel{ outline-color:var(--brand); border-color:transparent; box-shadow:0 0 0 4px rgba(79,70,229,.14), 0 18px 44px -14px rgba(79,70,229,.4); }
   .card.hide{ display:none; }
   .pick{ position:absolute; top:12px; left:12px; z-index:3; cursor:pointer; }
