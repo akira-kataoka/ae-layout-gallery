@@ -348,6 +348,14 @@ const GLAMP_FORM = `<form>
   <p class="submit"><input type="submit" value="空き状況を確認して予約する"></p>
 </form>`;
 
+const MATERNITY_FORM = `<form>
+  <div class="row"><p><label>ご希望の開催日</label><br><select><option selected>7/20(日) 午前</option><option>7/27(日) 午前</option><option>8/3(日) 午後</option></select></p><p><label>出産予定月</label><br><select><option>2026年9月</option><option selected>2026年10月</option><option>2026年11月</option><option>未定</option></select></p></div>
+  <p><label>お名前</label><br><input type="text" value="山田 花子"></p>
+  <div class="row"><p><label>メール</label><br><input type="email" value="hanako@example.com"></p><p><label>電話番号</label><br><input type="tel" value="090-0000-0000"></p></div>
+  <p><label>参加形態</label><br><select><option selected>ひとりで参加</option><option>パートナーと参加</option></select></p>
+  <p class="submit"><input type="submit" value="両親学級を予約する"></p>
+</form>`;
+
 const STUDIO_FORM = `<form>
   <div class="row"><p><label>ご利用日</label><br><input type="date" value="2026-09-12"></p><p><label>時間帯</label><br><select><option>午前</option><option selected>午後</option><option>夜間</option><option>終日</option></select></p></div>
   <p><label>ご利用用途</label><br><select><option selected>物販・商品撮影</option><option>ポートレート・人物撮影</option><option>動画・ライブ配信</option><option>その他</option></select></p>
@@ -2387,6 +2395,10 @@ function contentFor(dir, category) {
     case "534-landing-phone-plan-savings-js": return NEWSLETTER_FORM;
     case "535-event-regional-food-fair": return RSVP_FORM;
     case "536-utility-terms-update": return NEWSLETTER_FORM;
+    case "537-form-maternity-class": return MATERNITY_FORM;
+    case "538-landing-education-cost-js": return NEWSLETTER_FORM;
+    case "539-event-kids-soccer-trial": return RSVP_FORM;
+    case "540-thankyou-job-application-received": return NEWSLETTER_FORM;
     case "216-form-interview-schedule": return INTERVIEW_FORM;
     case "218-form-satisfaction-slider-js": return REVIEW_POST_FORM;
     case "06-thank-you": return THANKYOU_BODY;

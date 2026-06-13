@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#7c3aed; --ink:#1f1733; --muted:#6f6485; --line:#e9e3f6; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#f5f1fd; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:48px 20px; }
+    .ae-head { text-align:center; margin-bottom:20px; }
+    .ae-head h1 { font-size:24px; margin:0 0 8px; }
+    .ae-head p { color:var(--muted); margin:0; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px; box-shadow:0 12px 32px rgba(124,58,237,.1); }
+    .ae-field { margin-bottom:18px; }
+    .ae-field label { font-weight:700; font-size:14px; display:block; margin-bottom:8px; }
+    .ae-seg { display:flex; flex-direction:column; gap:8px; }
+    .ae-act { display:flex; gap:6px; background:#efe9fb; border-radius:10px; padding:4px; }
+    .ae-act button { flex:1; border:0; background:transparent; padding:9px 4px; border-radius:8px; font-weight:700; font-size:12px; cursor:pointer; color:var(--muted); }
+    .ae-act button.on { background:#fff; color:var(--accent); box-shadow:0 2px 8px rgba(124,58,237,.2); }
+    .ae-act .stage { flex:0 0 auto; align-self:center; font-size:11px; color:var(--muted); padding-left:6px; }
+    .ae-line { display:flex; align-items:center; gap:8px; margin-bottom:10px; }
+    .ae-line .lbl { width:64px; font-size:12px; font-weight:700; color:var(--muted); }
+    .ae-out { background:linear-gradient(135deg,#8b5cf6,#7c3aed); color:#fff; border-radius:14px; padding:24px; text-align:center; margin-top:14px; }
+    .ae-out .lab { font-size:13px; opacity:.9; } .ae-out .big { font-size:40px; font-weight:900; font-variant-numeric:tabular-nums; line-height:1.1; } .ae-out .big small { font-size:15px; } .ae-out .sub { font-size:13px; opacity:.95; margin-top:6px; }
+    .ae-note { font-size:11px; color:var(--muted); margin-top:12px; text-align:center; }
+    .ae-cta { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; margin-top:18px; }
+    .ae-cta .t { font-weight:700; margin-bottom:12px; }
+    .ae-cta form input[type=text],.ae-cta form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-cta form p { margin:0 0 12px; text-align:left; }
+    .ae-cta form .submit input,.ae-cta form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-head"><h1>%%title%%</h1><p>%%description%%</p></div>
+    <div class="ae-card">
+      <div class="ae-field"><label>進路を選んでください（幼稚園〜大学）</label>
+        <div class="ae-seg">
+          <div class="ae-line"><span class="lbl">幼稚園</span><div class="ae-act" data-stage="kg"><button type="button" data-v="649000" class="on">公立</button><button type="button" data-v="1584000">私立</button></div></div>
+          <div class="ae-line"><span class="lbl">小学校</span><div class="ae-act" data-stage="es"><button type="button" data-v="1926000" class="on">公立</button><button type="button" data-v="9592000">私立</button></div></div>
+          <div class="ae-line"><span class="lbl">中学校</span><div class="ae-act" data-stage="jh"><button type="button" data-v="1462000" class="on">公立</button><button type="button" data-v="4218000">私立</button></div></div>
+          <div class="ae-line"><span class="lbl">高校</span><div class="ae-act" data-stage="hs"><button type="button" data-v="1372000" class="on">公立</button><button type="button" data-v="2904000">私立</button></div></div>
+          <div class="ae-line"><span class="lbl">大学</span><div class="ae-act" data-stage="un"><button type="button" data-v="2425000" class="on">国公立</button><button type="button" data-v="4690000">私立文</button><button type="button" data-v="6420000">私立理</button></div></div>
+        </div>
+      </div>
+      <div class="ae-out">
+        <div class="lab">幼稚園〜大学卒業までの教育費の目安</div>
+        <div class="big"><span id="total">0</span><small> 万円</small></div>
+        <div class="sub">月あたりに均すと 約 <span id="month">0</span> 円（22年間）</div>
+      </div>
+      <div class="ae-note">※ 各種調査の平均額を基にした目安です。学費・塾・習い事等で大きく変わります。</div>
+    </div>
+    <div class="ae-cta">
+      <div class="t">教育資金の備え方・無料相談を受け取る</div>
+      %%content%%
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    var groups = Array.prototype.slice.call(document.querySelectorAll(".ae-act[data-stage]"));
+    var totalEl = document.getElementById("total"), monthEl = document.getElementById("month");
+    var picks = {};
+    function recalc() {
+      var sum = 0;
+      Object.keys(picks).forEach(function (k) { sum += picks[k]; });
+      totalEl.textContent = Math.round(sum / 10000).toLocaleString("ja-JP");
+      monthEl.textContent = Math.round(sum / (22 * 12)).toLocaleString("ja-JP");
+    }
+    groups.forEach(function (g) {
+      var stage = g.getAttribute("data-stage");
+      var btns = Array.prototype.slice.call(g.querySelectorAll("button"));
+      var on = g.querySelector("button.on") || btns[0];
+      picks[stage] = parseInt(on.getAttribute("data-v"), 10);
+      btns.forEach(function (b) {
+        b.addEventListener("click", function () {
+          btns.forEach(function (x) { x.classList.remove("on"); });
+          b.classList.add("on");
+          picks[stage] = parseInt(b.getAttribute("data-v"), 10);
+          recalc();
+        });
+      });
+    });
+    recalc();
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>%%title%%</title>
+  <style>
+    :root { --accent:#1d4ed8; --ink:#13203a; --muted:#5d6b85; --line:#dde5f3; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; color:var(--ink); background:#eef3fb; line-height:1.7; }
+    .ae-wrap { max-width:520px; margin:0 auto; padding:54px 20px; }
+    .ae-done { text-align:center; margin-bottom:22px; }
+    .ae-done .em { width:66px; height:66px; border-radius:50%; background:#dcfce7; color:#16a34a; font-size:32px; display:flex; align-items:center; justify-content:center; margin:0 auto 12px; }
+    .ae-done h1 { font-size:24px; margin:0 0 6px; }
+    .ae-done p { color:var(--muted); margin:0; font-size:14px; }
+    .ae-flow { background:#fff; border:1px solid var(--line); border-radius:18px; padding:24px 22px; margin-bottom:18px; box-shadow:0 10px 26px rgba(29,78,216,.06); }
+    .ae-flow .t { font-weight:800; font-size:14px; margin-bottom:16px; }
+    .ae-st { display:flex; gap:14px; position:relative; padding-bottom:18px; }
+    .ae-st:last-child { padding-bottom:0; }
+    .ae-st .n { flex:0 0 auto; width:30px; height:30px; border-radius:50%; background:var(--accent); color:#fff; font-weight:800; display:flex; align-items:center; justify-content:center; font-size:14px; z-index:1; }
+    .ae-st.now .n { background:#16a34a; }
+    .ae-st.todo .n { background:#cbd5e1; color:#fff; }
+    .ae-st::before { content:""; position:absolute; left:14px; top:30px; bottom:0; width:2px; background:var(--line); }
+    .ae-st:last-child::before { display:none; }
+    .ae-st .h { font-weight:700; font-size:14px; } .ae-st .d { color:var(--muted); font-size:12px; }
+    .ae-st .tag { display:inline-block; font-size:10px; font-weight:800; padding:2px 8px; border-radius:999px; margin-left:6px; vertical-align:middle; }
+    .ae-st.now .tag { background:#dcfce7; color:#15803d; }
+    .ae-card { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; }
+    .ae-card .t { font-weight:700; margin-bottom:4px; }
+    .ae-card .s { color:var(--muted); font-size:13px; margin-bottom:14px; }
+    .ae-card form input[type=text],.ae-card form input[type=email] { width:100%; padding:12px 13px; border:1px solid var(--line); border-radius:9px; font-size:14px; }
+    .ae-card form p { margin:0 0 12px; text-align:left; }
+    .ae-card form .submit input,.ae-card form button { width:100%; background:var(--accent); color:#fff; border:0; padding:14px; border-radius:9px; font-weight:800; cursor:pointer; }
+    .ae-note { color:var(--muted); font-size:12px; text-align:center; margin-top:14px; }
+  </style>
+</head>
+<body>
+  <div class="ae-wrap">
+    <div class="ae-done">
+      <div class="em">✓</div>
+      <h1>%%title%%</h1>
+      <p>%%description%%</p>
+    </div>
+    <div class="ae-flow">
+      <div class="t">今後の選考の流れ</div>
+      <div class="ae-st now"><div class="n">1</div><div><div class="h">応募受付<span class="tag">完了</span></div><div class="d">ご応募ありがとうございます。書類を確認します。</div></div></div>
+      <div class="ae-st todo"><div class="n">2</div><div><div class="h">書類選考</div><div class="d">5営業日以内に結果をメールでご連絡します。</div></div></div>
+      <div class="ae-st todo"><div class="n">3</div><div><div class="h">面接（1〜2回）</div><div class="d">オンライン・対面いずれも対応可能です。</div></div></div>
+      <div class="ae-st todo"><div class="n">4</div><div><div class="h">内定・入社のご案内</div><div class="d">条件をご提示し、入社日を調整します。</div></div></div>
+    </div>
+    <div class="ae-card">
+      <div class="t">選考状況・新着求人の通知を受け取る</div>
+      <div class="s">選考に関するご連絡や、関連ポジションの情報をお届けします。</div>
+      %%content%%
+      <div class="ae-note">📮 数日経っても連絡が届かない場合は、迷惑メールフォルダをご確認ください</div>
+    </div>
+  </div>
+</body>
+</html>
