@@ -3018,7 +3018,7 @@ const indexHtml = `<!DOCTYPE html>
   </section>
 ${sections}  <div class="empty" id="empty">該当するテンプレートがありません。</div>
 </div>
-<footer>Account Engagement Layout Templates · ${items.length} patterns</footer>
+<footer>Account Engagement Layout Templates</footer>
 
 <div class="builder" id="builder" hidden>
   <div class="bd-head">
