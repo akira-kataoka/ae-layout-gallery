@@ -2753,9 +2753,14 @@ const indexHtml = `<!DOCTYPE html>
   .bd-tabs{ display:inline-flex; gap:4px; background:color-mix(in srgb, var(--brand) 8%, var(--card)); border:1px solid var(--line); border-radius:10px; padding:3px; }
   .bd-tab{ border:0; background:none; color:var(--muted); font-weight:700; font-size:12.5px; padding:7px 12px; border-radius:8px; cursor:pointer; }
   .bd-tab.on{ background:var(--brand); color:#fff; }
+  .bd-saved-tab{ margin-left:16px; border:1px solid var(--line); background:var(--card); color:var(--muted); font-weight:700; font-size:12.5px; padding:8px 13px; border-radius:9px; cursor:pointer; }
+  .bd-saved-tab:hover{ border-color:var(--brand); color:var(--brand); }
+  .bd-saved-tab.on{ background:var(--brand); color:#fff; border-color:var(--brand); }
+  @media (max-width:520px){ .bd-saved-tab{ margin-left:8px; padding:8px 10px; } }
   .bd-x{ margin-left:auto; width:36px; height:36px; border-radius:50%; border:1px solid var(--line); background:var(--card); color:var(--ink); font-size:16px; cursor:pointer; }
   .bd-x:hover{ background:#ef4444; color:#fff; border-color:#ef4444; }
   .bd-body{ flex:1; overflow:auto; display:flex; flex-direction:column; }
+  .bd-body[hidden]{ display:none; }
   .bd-controls{ padding:16px 18px; display:flex; flex-direction:column; gap:18px; }
   .bd-sec .bd-lab{ font-size:13px; font-weight:800; color:var(--ink); margin-bottom:9px; }
   .bd-bases{ display:flex; gap:10px; overflow-x:auto; padding-bottom:6px; }
@@ -2788,6 +2793,7 @@ const indexHtml = `<!DOCTYPE html>
   .bd-sv .acts .edit{ color:var(--brand); border-color:var(--brand); } .bd-sv .acts .del:hover{ background:#ef4444; color:#fff; border-color:#ef4444; }
   :root[data-theme="dark"] .bd-sv .bthumb{ background:#0b1220; }
   .bd-bpane{ flex:1; overflow:auto; display:flex; flex-direction:column; }
+  .bd-bpane[hidden]{ display:none; }
   .bc-add{ display:flex; gap:7px; flex-wrap:wrap; }
   .bc-add button{ border:1px solid var(--line); background:var(--card); color:var(--ink); font-size:12.5px; font-weight:700; padding:8px 12px; border-radius:9px; cursor:pointer; }
   .bc-add button:hover{ border-color:var(--brand); color:var(--brand); }
@@ -2801,7 +2807,10 @@ const indexHtml = `<!DOCTYPE html>
   .bc-item .bc-ctrl button[disabled]{ opacity:.35; cursor:default; }
   .bc-item .bc-body{ padding:11px; display:flex; flex-direction:column; gap:8px; }
   .bc-item .bc-body label{ font-size:11px; font-weight:700; color:var(--muted); display:block; margin-bottom:3px; }
-  .bc-item .bc-body input,.bc-item .bc-body textarea{ width:100%; padding:9px 11px; border:1px solid var(--line); border-radius:8px; font-size:13px; background:var(--bg); color:var(--ink); font-family:inherit; }
+  .bc-item .bc-body input,.bc-item .bc-body textarea,.bc-item .bc-body select{ width:100%; padding:9px 11px; border:1px solid var(--line); border-radius:8px; font-size:13px; background:var(--bg); color:var(--ink); font-family:inherit; }
+  .bc-presets{ display:flex; gap:7px; flex-wrap:wrap; }
+  .bc-presets button{ border:1px solid color-mix(in srgb, var(--brand) 30%, var(--line)); background:color-mix(in srgb, var(--brand) 8%, var(--card)); color:var(--brand); font-size:12.5px; font-weight:800; padding:9px 14px; border-radius:10px; cursor:pointer; }
+  .bc-presets button:hover{ background:var(--grad-brand); color:#fff; border-color:transparent; }
   .bc-item .bc-body textarea{ min-height:54px; resize:vertical; }
   .bc-item .bc-empty{ padding:11px; font-size:12px; color:var(--muted); }
   .bc-listempty{ font-size:13px; color:var(--muted); padding:14px; text-align:center; border:1px dashed var(--line); border-radius:11px; }
@@ -2883,10 +2892,13 @@ const indexHtml = `<!DOCTYPE html>
   /* --- トップへ戻る --- */
   .totop{ position:fixed; right:22px; bottom:22px; z-index:40; width:48px; height:48px; border-radius:50%; border:0; background:var(--grad-brand); color:#fff; font-size:20px; cursor:pointer; box-shadow:0 10px 28px -6px rgba(79,70,229,.6); opacity:0; pointer-events:none; transition:opacity .25s, transform .25s var(--ease), box-shadow .2s; transform:translateY(10px); }
   .totop.show{ opacity:1; pointer-events:auto; transform:translateY(0); }
-  .scrollnav{ position:fixed; right:22px; bottom:22px; z-index:40; display:flex; flex-direction:column; gap:9px; }
-  .snav{ width:46px; height:46px; border-radius:50%; border:0; background:var(--grad-brand); color:#fff; font-size:19px; cursor:pointer; box-shadow:0 10px 28px -6px rgba(79,70,229,.6); transition:transform .2s var(--ease), box-shadow .2s; }
-  .snav:hover{ transform:translateY(-2px) scale(1.05); box-shadow:0 14px 34px -6px rgba(79,70,229,.7); }
-  @media (max-width:520px){ .scrollnav{ right:14px; bottom:14px; } .snav{ width:42px; height:42px; } }
+  .scrollnav{ position:fixed; right:22px; bottom:22px; z-index:40; display:flex; flex-direction:column; background:color-mix(in srgb, var(--card) 86%, transparent); border:1px solid var(--line); border-radius:16px; overflow:hidden; box-shadow:0 14px 34px -10px rgba(7,11,29,.45); backdrop-filter:blur(10px) saturate(1.5); -webkit-backdrop-filter:blur(10px) saturate(1.5); }
+  .snav{ width:48px; height:44px; border:0; background:none; color:var(--brand); font-size:17px; font-weight:700; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background .18s, color .18s; }
+  .snav:first-child{ border-bottom:1px solid var(--line); }
+  .snav:hover{ background:var(--grad-brand); color:#fff; }
+  .snav:active{ transform:scale(.93); }
+  :root[data-theme="dark"] .scrollnav{ background:rgba(16,26,51,.82); }
+  @media (max-width:520px){ .scrollnav{ right:14px; bottom:16px; } .snav{ width:44px; height:40px; } }
   .totop:hover{ transform:translateY(-2px) scale(1.05); box-shadow:0 14px 34px -6px rgba(79,70,229,.7); }
   /* --- 表示サイズ切替（密度） --- */
   .density{ display:inline-flex; gap:3px; background:#fff; border:1px solid var(--line); border-radius:11px; padding:3px; box-shadow:inset 0 1px 2px rgba(18,26,51,.05); }
@@ -3007,10 +3019,9 @@ ${sections}  <div class="empty" id="empty">該当するテンプレートがあ�
   <div class="bd-head">
     <strong>✨ テンプレ作成</strong>
     <div class="bd-tabs">
-      <button class="bd-tab on" id="bd-tab-make" data-bview="make" type="button">✨ デザインから</button>
-      <button class="bd-tab" id="bd-tab-blocks" data-bview="blocks" type="button">🧩 ブロックで作る</button>
-      <button class="bd-tab" id="bd-tab-saved" data-bview="saved" type="button">📁 保存済み <span id="bd-count"></span></button>
+      <button class="bd-tab on" id="bd-tab-blocks" data-bview="blocks" type="button">✏️ 作成</button>
     </div>
+    <button class="bd-saved-tab" id="bd-tab-saved" data-bview="saved" type="button">📁 保存済み <span id="bd-count"></span></button>
     <button class="bd-x" id="bd-close" type="button" title="閉じる">✕</button>
   </div>
   <div class="bd-body" id="bd-body">
@@ -3043,6 +3054,10 @@ ${sections}  <div class="empty" id="empty">該当するテンプレートがあ�
   </div>
   <div class="bd-bpane" id="bd-bpane" hidden>
     <div class="bd-controls">
+      <div class="bd-sec">
+        <div class="bd-lab">ひな型から始める（タップで差し替え）</div>
+        <div class="bc-presets" id="bc-presets"></div>
+      </div>
       <div class="bd-sec">
         <div class="bd-lab">メインカラー</div>
         <div class="bd-palette" id="bc-palette"></div>
@@ -3261,9 +3276,7 @@ function bdBuildPalette(){
   });
 }
 function openBuilder(){
-  if(!bdBases.length){ toast("ベースデザインが見つかりません"); return; }
-  $("#bd-title").value=bdState.title; $("#bd-desc").value=bdState.desc; $("#bd-cta").value=bdState.cta; $("#bd-color").value=toHex(bdState.color)||bdState.color;
-  bdBuildBases(); bdBuildPalette(); bdRender(); bdUpdateCount(); bdSetView("make");
+  bdUpdateCount(); bdSetView("blocks");
   $("#builder").hidden=false; document.body.style.overflow="hidden";
 }
 function closeBuilder(){ $("#builder").hidden=true; document.body.style.overflow=""; const f=$("#bd-frame"); if(f) f.srcdoc=""; }
@@ -3271,7 +3284,7 @@ function bdLoadMy(){ try{ return JSON.parse(localStorage.getItem("ae-mytpl")||"[
 function bdSaveMy(a){ try{ localStorage.setItem("ae-mytpl", JSON.stringify(a)); }catch(e){} }
 function bdUpdateCount(){ const c=$("#bd-count"); if(c){ const n=bdLoadMy().length; c.textContent = n ? "("+n+")" : ""; } }
 function bdSetView(v){
-  $$(".bd-tab").forEach(b=> b.classList.toggle("on", b.dataset.bview===v));
+  $$("#builder [data-bview]").forEach(b=> b.classList.toggle("on", b.dataset.bview===v));
   const body=$("#bd-body"), bp=$("#bd-bpane"), saved=$("#bd-saved");
   if(body) body.hidden = (v!=="make");
   if(bp) bp.hidden = (v!=="blocks");
@@ -3316,7 +3329,7 @@ function bdSave(){
 (function bindBuilder(){
   const ob=$("#openBuilder"); if(ob) ob.addEventListener("click", openBuilder);
   const cb=$("#bd-close"); if(cb) cb.addEventListener("click", closeBuilder);
-  $$(".bd-tab").forEach(b=> b.addEventListener("click", ()=> bdSetView(b.dataset.bview)));
+  $$("#builder [data-bview]").forEach(b=> b.addEventListener("click", ()=> bdSetView(b.dataset.bview)));
   const ti=$("#bd-title"), de=$("#bd-desc"), ct=$("#bd-cta"), co=$("#bd-color");
   if(ti) ti.addEventListener("input", ()=>{ bdState.title=ti.value; bdRender(); });
   if(de) de.addEventListener("input", ()=>{ bdState.desc=de.value; bdRender(); });
@@ -3333,6 +3346,9 @@ const BC_HEAD = '<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><met
  + '.wrap{ max-width:600px; margin:0 auto; padding:34px 20px; } .blk{ margin-bottom:16px; }'
  + '.b-hero{ background:linear-gradient(135deg, var(--accent), color-mix(in srgb, var(--accent) 60%, #000)); color:#fff; border-radius:18px; padding:38px 26px; text-align:center; box-shadow:0 16px 38px -12px color-mix(in srgb, var(--accent) 60%, #000); }'
  + '.b-hero h1{ font-size:27px; margin:0 0 10px; } .b-hero p{ margin:0; opacity:.95; font-size:15px; }'
+ + '.b-hero--solid{ background:var(--accent); } .b-hero--dark{ background:color-mix(in srgb, var(--accent) 78%, #000); }'
+ + '.b-hero--light{ background:color-mix(in srgb, var(--accent) 14%, #fff); color:#1f2533; box-shadow:none; } .b-hero--light h1{ color:color-mix(in srgb, var(--accent) 80%, #000); } .b-hero--light p{ color:#4a5160; opacity:1; }'
+ + '.b-hero--plain{ background:#fff; color:#1f2533; box-shadow:0 10px 26px -14px rgba(7,11,29,.25); border:1px solid color-mix(in srgb, var(--accent) 20%, #fff); } .b-hero--plain h1{ color:color-mix(in srgb, var(--accent) 80%, #000); } .b-hero--plain p{ color:#4a5160; opacity:1; }'
  + '.b-text{ background:#fff; border:1px solid color-mix(in srgb, var(--accent) 16%, #fff); border-radius:14px; padding:22px 24px; }'
  + '.b-text h2{ font-size:18px; margin:0 0 8px; color:color-mix(in srgb, var(--accent) 78%, #000); } .b-text p{ margin:0; color:#4a5160; font-size:14.5px; }'
  + '.b-feat{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }'
@@ -3353,7 +3369,7 @@ const BC_HEAD = '<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><met
  + '@media (max-width:480px){ .b-feat{ grid-template-columns:1fr; } }</style></head><body><div class="wrap">';
 const BC_FOOT = '</div></body></html>';
 const BC_DEFS = {
-  hero:  { name:"ヒーロー", fields:[{k:"title",label:"見出し",t:"text",d:"あなたの見出し"},{k:"sub",label:"サブ説明",t:"text",d:"サービスやキャンペーンの説明をここに。"}], html:function(v){ return '<section class="b-hero"><h1>'+String(v.title)+'</h1><p>'+String(v.sub)+'</p></section>'; } },
+  hero:  { name:"ヒーロー", fields:[{k:"title",label:"見出し",t:"text",d:"あなたの見出し"},{k:"sub",label:"サブ説明",t:"text",d:"サービスやキャンペーンの説明をここに。"},{k:"bg",label:"見出しの背景",t:"select",d:"grad",options:[{v:"grad",label:"グラデーション"},{v:"solid",label:"単色"},{v:"dark",label:"濃いめ"},{v:"light",label:"淡い背景（濃い文字）"},{v:"plain",label:"白＋枠線"}]}], html:function(v){ return '<section class="b-hero b-hero--'+String(v.bg||"grad")+'"><h1>'+String(v.title)+'</h1><p>'+String(v.sub)+'</p></section>'; } },
   text:  { name:"説明文", fields:[{k:"heading",label:"小見出し",t:"text",d:"特長"},{k:"body",label:"本文",t:"area",d:"ここに本文を入力します。"}], html:function(v){ return '<div class="b-text"><h2>'+String(v.heading)+'</h2><p>'+String(v.body)+'</p></div>'; } },
   feat:  { name:"特長3つ", fields:[{k:"i1",label:"①絵文字",t:"text",d:"⚡"},{k:"t1",label:"①テキスト",t:"text",d:"高速"},{k:"i2",label:"②絵文字",t:"text",d:"🔒"},{k:"t2",label:"②テキスト",t:"text",d:"安心"},{k:"i3",label:"③絵文字",t:"text",d:"🎁"},{k:"t3",label:"③テキスト",t:"text",d:"お得"}], html:function(v){ return '<div class="b-feat"><div class="f"><div class="ic">'+String(v.i1)+'</div><div class="ft">'+String(v.t1)+'</div></div><div class="f"><div class="ic">'+String(v.i2)+'</div><div class="ft">'+String(v.t2)+'</div></div><div class="f"><div class="ic">'+String(v.i3)+'</div><div class="ft">'+String(v.t3)+'</div></div></div>'; } },
   cta:   { name:"ボタン", fields:[{k:"label",label:"ボタン文言",t:"text",d:"今すぐ申し込む"}], html:function(v){ return '<div class="b-cta"><a href="#">'+String(v.label)+'</a></div>'; } },
@@ -3401,10 +3417,17 @@ function bcRenderList(){
     if(!def.fields.length){ const e=document.createElement("div"); e.className="bc-empty"; e.textContent="（編集項目はありません）"; body.appendChild(e); }
     def.fields.forEach(function(fl){
       const lab=document.createElement("label"); lab.textContent=fl.label;
-      const inp = fl.t==="area" ? document.createElement("textarea") : document.createElement("input");
-      if(fl.t!=="area") inp.type="text";
-      inp.value = (b.vals[fl.k]!=null) ? b.vals[fl.k] : fl.d;
-      inp.addEventListener("input", function(){ b.vals[fl.k]=inp.value; bcRenderPreview(); });
+      let inp;
+      if(fl.t==="select"){
+        inp=document.createElement("select");
+        (fl.options||[]).forEach(function(o){ const op=document.createElement("option"); op.value=o.v; op.textContent=o.label; if(((b.vals[fl.k]!=null)?b.vals[fl.k]:fl.d)===o.v) op.selected=true; inp.appendChild(op); });
+        inp.addEventListener("change", function(){ b.vals[fl.k]=inp.value; bcRenderPreview(); });
+      } else {
+        inp = fl.t==="area" ? document.createElement("textarea") : document.createElement("input");
+        if(fl.t!=="area") inp.type="text";
+        inp.value = (b.vals[fl.k]!=null) ? b.vals[fl.k] : fl.d;
+        inp.addEventListener("input", function(){ b.vals[fl.k]=inp.value; bcRenderPreview(); });
+      }
       const grp=document.createElement("div"); grp.appendChild(lab); grp.appendChild(inp); body.appendChild(grp);
     });
     item.appendChild(body); list.appendChild(item);
@@ -3419,7 +3442,20 @@ function bcPalette(){
     wrap.appendChild(sw);
   });
 }
-function bcRender(){ bcPalette(); bcRenderAdd(); bcRenderList(); const ci=$("#bc-color"); if(ci) ci.value=toHex(bcState.color)||bcState.color; bcRenderPreview(); }
+const BC_PRESETS = [
+  { name:"ランディング", types:["hero","feat","form","cta"] },
+  { name:"イベント告知", types:["hero","text","form","cta"] },
+  { name:"シンプル申込", types:["hero","form","cta"] },
+  { name:"料金プラン", types:["hero","price","cta","form"] },
+  { name:"お客様の声", types:["hero","quote","quote","form","cta"] },
+  { name:"あいさつ＋登録", types:["hero","text","cta"] }
+];
+function bcApplyPreset(p){ bcState.blocks = p.types.map(function(t){ return bcDefault(t); }); bcRenderList(); bcRenderPreview(); }
+function bcRenderPresets(){
+  const wrap=$("#bc-presets"); if(!wrap) return; wrap.textContent="";
+  BC_PRESETS.forEach(function(p){ const b=document.createElement("button"); b.type="button"; b.textContent=p.name; b.addEventListener("click", function(){ bcApplyPreset(p); }); wrap.appendChild(b); });
+}
+function bcRender(){ bcRenderPresets(); bcPalette(); bcRenderAdd(); bcRenderList(); const ci=$("#bc-color"); if(ci) ci.value=toHex(bcState.color)||bcState.color; bcRenderPreview(); }
 function bcSave(){
   const arr=bdLoadMy();
   let name=(($("#bc-name")&&$("#bc-name").value)||"").trim(); if(!name) name="マイテンプレ "+(arr.length+1);
